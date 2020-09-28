@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "private": true,
+    "workspaces": [
+        "packages/@hecate/form-generator"
+    ],
+    "scripts": {
+        "start": "yarn workspaces run start",
+        "push": "yarn commit && git push --set-upstream origin develop",
+        "commit": "git add . && git status && git cz",
+        "ws:generator": "yarn workspace @hecate/form-generator",
+        "storybook": "start-storybook -p 9898"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-customizable"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.(vue|js)": [
+            "prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "commitizen": "^4.2.1",
+        "cross-env": "^7.0.2",
+        "cz-customizable": "^6.3.0",
+        "eslint": "^7.10.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-vue": "^6.2.2",
+        "husky": "^4.3.0",
+        "lerna": "^3.22.1",
+        "lint-staged": "^10.4.0",
+        "prettier": "^2.1.2",
+        "standard": "^14.3.4",
+        "webpack": "^4.44.2"
+    },
+    "dependencies": {
+        "vue": "^2.6.12"
+    }
+}
