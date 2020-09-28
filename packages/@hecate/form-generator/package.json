@@ -11,11 +11,14 @@
         "@mdi/font": "^5.6.55",
         "core-js": "^3.6.5",
         "roboto-fontface": "*",
+        "vue-router": "^3.4.3",
+        "vuedraggable": "^2.24.1",
         "vuetify": "^2.3.10"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "^4.5.6",
         "@vue/cli-plugin-eslint": "^4.5.6",
+        "@vue/cli-plugin-router": "^4.5.6",
         "@vue/cli-service": "^4.5.6",
         "@vue/eslint-config-prettier": "^6.0.0",
         "sass": "^1.26.11",
