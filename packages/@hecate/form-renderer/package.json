@@ -4,9 +4,22 @@
     "author": "Felix <pointer_v@qq.com>",
     "license": "ISC",
     "private": false,
-    "main": "dist/index.js",
-    "module": "src/index.js",
+    "main": "dist/index.umd.js",
+    "module": "dist/index.esm.js",
+    "unpkg": "dist/index.min.js",
     "scripts": {
-        "transpile": "vue-cli-service build --target lib ./src/index.js"
+        "clean": "rimraf dist",
+        "build": "yarn run clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
+    },
+    "dependencies": {
+        "@mdi/js": "^5.6.55",
+        "debounce": "^1.2.0",
+        "markdown-it": "^11.0.1",
+        "match-all": "^1.2.6",
+        "property-expr": "^2.0.4"
+    },
+    "devDependencies": {
+        "core-js": "^3.6.5",
+        "vuetify": "^2.3.10"
     }
 }

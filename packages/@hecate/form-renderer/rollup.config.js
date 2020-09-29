@@ -1,9 +1,13 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import strip from '@rollup/plugin-strip';
 import multi from '@rollup/plugin-multi-entry';
+import vue from 'rollup-plugin-vue';
+import postcss from 'rollup-plugin-postcss';
+import vuetify from 'rollup-plugin-vuetify';
 import { terser } from 'rollup-plugin-terser';
 
 const utils = require('../../../scripts/utils');
@@ -27,23 +31,23 @@ const utils = require('../../../scripts/utils');
  * };
  */
 const globals = {
-    moment: 'moment',
-    lodash: 'lodash',
-    shortid: 'shortid',
-    sweetalert2: 'Swal',
-    localforage: 'localForage',
+    'vuetify/lib': 'Vuetify',
+    '@mdi/js': 'mdi-js',
 };
 
 const external = [
     // 不被打包的库，比如在项目中会被引入
-    'moment',
-    'sweetalert2',
-    'shortid',
-    'localforage',
-    'lodash',
+    'vuetify/lib',
+    '@mdi/js',
+    'debounce',
+    'markdown-it',
+    'match-all',
+    'property-expr',
+    'vuedraggable',
 ];
 
 const plugins = [
+    image(),
     json(),
     strip(),
     multi(),
@@ -51,6 +55,24 @@ const plugins = [
     babel({
         exclude: 'node_modules/**',
         babelHelpers: 'runtime',
+    }),
+    vue({
+        css: false,
+    }),
+    vuetify(),
+    postcss({
+        // extract: utils.path.resolve("dist/" + name + "/style.css"),
+
+        // Extract CSS to the same location where JS file is generated but with .css extension.
+        extract: true,
+        // Use named exports alongside default export.
+        namedExports: true,
+        // Minimize CSS, boolean or options for cssnano.
+        minimize: true,
+        // Enable sourceMap.
+        sourceMap: true,
+        // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
+        extensions: ['.sass', '.scss', '.css'],
     }),
     terser(),
     commonjs(),
@@ -101,8 +123,7 @@ const createEntry = (name, path) => {
 };
 
 const entries = (() => {
-    let entries = utils.getEntries(['./src/lib', './src/locales'], /^index\.js$/);
-    entries['Hecate'] = './src/index.js';
+    let entries = { index: './src/index.js' };
 
     let result = [];
     for (let item in entries) {

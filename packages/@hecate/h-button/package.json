@@ -1,0 +1,10 @@
+{
+    "name": "@hecate/h-button",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "src/index.js",
+    "scripts": {
+        "transpile": "vue-cli-service build --target lib ./src/index.js"
+    }
+}

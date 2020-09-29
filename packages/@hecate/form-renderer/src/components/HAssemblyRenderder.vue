@@ -1,13 +1,5 @@
 <script>
-import {
-    jrefs,
-    schemaUtils,
-    defaultOptions,
-    iconSets,
-    localizedMessages,
-    formats,
-    getRules
-} from '@/lib/generator/utils';
+import { jrefs, schemaUtils, defaultOptions, iconSets, localizedMessages, formats, getRules } from '../lib/utils';
 
 import {
     ObjectContainer,
@@ -18,8 +10,8 @@ import {
     SelectProperty,
     EditableArray,
     Tooltip,
-    Validatable
-} from '@/lib/generator/mixins';
+    Validatable,
+} from '../lib/mixins';
 
 export default {
     name: 'HAssemblyRenderder',
@@ -33,7 +25,7 @@ export default {
         FileProperty,
         EditableArray,
         Tooltip,
-        Validatable
+        Validatable,
     ],
     inject: ['theme'],
     props: {
@@ -44,12 +36,12 @@ export default {
         modelKey: { type: [String, Number], default: 'root' },
         parentKey: { type: String, default: '' },
         required: { type: Boolean, default: false },
-        sectionDepth: { type: Number, default: 0 }
+        sectionDepth: { type: Number, default: 0 },
     },
     data() {
         return {
             ready: false,
-            loading: false
+            loading: false,
         };
     },
     computed: {
@@ -71,7 +63,7 @@ export default {
             fullOptions.icons = { ...iconSets[iconfont], ...fullOptions.icons };
             fullOptions.messages = {
                 ...(localizedMessages[fullOptions.locale] || localizedMessages.en),
-                ...fullOptions.messages
+                ...fullOptions.messages,
             };
             fullOptions.formats = { ...formats, ...fullOptions.formats };
             if (fullOptions.deleteReadOnly) fullOptions.hideReadOnly = true;
@@ -80,7 +72,7 @@ export default {
         resolvedSchema() {
             if (this.modelKey === 'root')
                 return jrefs.resolve(this.schema, {
-                    '~$locale~': (this.options && this.options.locale) || 'en'
+                    '~$locale~': (this.options && this.options.locale) || 'en',
                 });
             else return this.schema;
         },
@@ -129,8 +121,8 @@ export default {
                 htmlDescription: this.htmlDescription,
                 on: {
                     input: (e) => this.input(e instanceof Event ? e.target.value : e),
-                    change: (e) => this.change(e)
-                }
+                    change: (e) => this.change(e),
+                },
             };
         },
         dashKey() {
@@ -148,7 +140,7 @@ export default {
                 rules: this.rules,
                 required: this.required,
                 ...this.fullOptions.fieldProps,
-                ...this.fullSchema['x-props']
+                ...this.fullSchema['x-props'],
             };
         },
         propertyClass() {
@@ -164,7 +156,7 @@ export default {
                 this.fullOptions.formats[this.fullSchema.format] &&
                 this.fullOptions.formats[this.fullSchema.format](this.value, this.fullOptions.locale)
             );
-        }
+        },
     },
     watch: {
         fullSchema: {
@@ -177,8 +169,8 @@ export default {
                     this.ready = true;
                 }
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
     render(h) {
         // hide const ? Or make a readonly field ?
@@ -198,8 +190,8 @@ export default {
             children.push(
                 h('div', {
                     domProps: {
-                        innerHTML: this.fullOptions.markdown(this.xSlots.before)
-                    }
+                        innerHTML: this.fullOptions.markdown(this.xSlots.before),
+                    },
                 })
             );
 
@@ -230,8 +222,8 @@ export default {
             children.push(
                 h('div', {
                     domProps: {
-                        innerHTML: this.fullOptions.markdown(this.xSlots.after)
-                    }
+                        innerHTML: this.fullOptions.markdown(this.xSlots.after),
+                    },
                 })
             );
         }
@@ -241,7 +233,7 @@ export default {
             {
                 props: { cols: this.fullSchema['x-cols'] || 12 },
                 class: this.propertyClass,
-                style: this.fullSchema['x-style'] || ''
+                style: this.fullSchema['x-style'] || '',
             },
             children
         );
@@ -254,8 +246,8 @@ export default {
                     h('div', {
                         slot,
                         domProps: {
-                            innerHTML: this.fullOptions.markdown(this.xSlots[slot])
-                        }
+                            innerHTML: this.fullOptions.markdown(this.xSlots[slot]),
+                        },
                     })
                 );
             });
@@ -326,7 +318,7 @@ export default {
                 model = model.filter((item) => ![undefined, null].includes(item));
             }
             this.$emit('input', model);
-        }
-    }
+        },
+    },
 };
 </script>
