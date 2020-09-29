@@ -1,0 +1,12 @@
+{
+    "name": "@hecate/form-renderer",
+    "version": "1.0.0",
+    "author": "Felix <pointer_v@qq.com>",
+    "license": "ISC",
+    "private": false,
+    "main": "dist/index.js",
+    "module": "src/index.js",
+    "scripts": {
+        "transpile": "vue-cli-service build --target lib ./src/index.js"
+    }
+}
