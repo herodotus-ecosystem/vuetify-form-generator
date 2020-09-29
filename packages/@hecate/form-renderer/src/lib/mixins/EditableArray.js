@@ -4,8 +4,8 @@ export default {
             editabledArrayProp: {
                 currentDialog: null,
                 editItem: null,
-                editedItems: {}
-            }
+                editedItems: {},
+            },
         };
     },
     computed: {
@@ -34,7 +34,7 @@ export default {
                 }
             }
             return schema;
-        }
+        },
     },
     watch: {},
     methods: {
@@ -46,7 +46,7 @@ export default {
                     this.fullOptions.idPrefix = this.fullOptions.idPrefix + '--dialog--';
                 }
                 itemProperty = h(
-                    'v-jsf',
+                    'h-form-renderer',
                     {
                         props: {
                             schema: this.fullSchema.items,
@@ -56,15 +56,15 @@ export default {
                             parentKey: `${this.fullKey}.`,
                             options: this.fullOptions,
                             sectionDepth: this.sectionDepth + 1,
-                            separateValidation: true
+                            separateValidation: true,
                         },
                         scopedSlots: this.childScopedSlots(this.fullSchema.key),
                         on: {
                             error: (e) => this.$emit('error', e),
                             input: (value) => {
                                 this.editabledArrayProp.editItem = value;
-                            }
-                        }
+                            },
+                        },
                     },
                     this.childSlots(h, this.fullSchema.key)
                 );
@@ -79,7 +79,7 @@ export default {
                                 click: () => {
                                     this.editabledArrayProp.editItem = JSON.parse(JSON.stringify(item));
                                     this.editabledArrayProp.currentDialog = i;
-                                }
+                                },
                             },
                             attrs: {
                                 id:
@@ -87,13 +87,13 @@ export default {
                                     this.dashKey +
                                     '-' +
                                     (isNew ? '-add' : i + '--edit') +
-                                    '-button'
+                                    '-button',
                             },
                             class: { 'vjsf-array-add-button': true, 'ml-3': isNew },
-                            props: { icon: !isNew, fab: isNew, small: isNew, color: 'primary' }
+                            props: { icon: !isNew, fab: isNew, small: isNew, color: 'primary' },
                         },
                         [h('v-icon', isNew ? this.fullOptions.icons.add : this.fullOptions.icons.edit)]
-                    )
+                    ),
             };
             const close = () => {
                 itemProperty.componentInstance.resetValidation();
@@ -105,10 +105,10 @@ export default {
                     props: {
                         ...this.fullOptions.dialogProps,
                         value: this.editabledArrayProp.currentDialog === i,
-                        closeOnContentClick: false
+                        closeOnContentClick: false,
                     },
                     scopedSlots,
-                    on: { 'click:outside': close }
+                    on: { 'click:outside': close },
                 },
                 [
                     h('v-card', [
@@ -122,7 +122,7 @@ export default {
                                     props: { text: true },
                                     on: { click: close },
                                     attrs: { id: this.fullOptions.idPrefix + this.dashKey + '--dialog-cancel-button' },
-                                    class: { 'vjsf-array-dialog-cancel-button': true }
+                                    class: { 'vjsf-array-dialog-cancel-button': true },
                                 },
                                 'cancel'
                             ),
@@ -148,20 +148,20 @@ export default {
                                             this.$emit('change', this.value);
                                             this.shouldValidate = true;
                                             this.editabledArrayProp.currentDialog = null;
-                                        }
+                                        },
                                     },
                                     attrs: { id: this.fullOptions.idPrefix + this.dashKey + '--dialog-ok-button' },
-                                    class: { 'vjsf-array-dialog-ok-button': true }
+                                    class: { 'vjsf-array-dialog-ok-button': true },
                                 },
                                 'ok'
-                            )
-                        ])
-                    ])
+                            ),
+                        ]),
+                    ]),
                 ]
             );
         },
         renderArrayItemRO(h, item, i) {
-            return h('v-jsf', {
+            return h('h-form-renderer', {
                 props: {
                     schema: this.readonlyItemSchema,
                     value: JSON.parse(JSON.stringify(item)),
@@ -171,18 +171,18 @@ export default {
                     options: {
                         ...this.fullOptions,
                         hideReadOnly: false,
-                        fieldProps: { ...this.fullOptions.fieldProps, dense: true }
+                        fieldProps: { ...this.fullOptions.fieldProps, dense: true },
                     },
                     sectionDepth: this.sectionDepth + 1,
-                    separateValidation: true
+                    separateValidation: true,
                 },
                 ref: 'roItem-' + i,
                 on: {
                     input: (value) => {
                         // even if it readOnly we listen to changes in order to fill default values in prefilled arrays
                         if (!this.editabledArrayProp.editedItems[i]) this.$set(this.value, i, value);
-                    }
-                }
+                    },
+                },
             });
         },
         renderEditableArray(h) {
@@ -206,8 +206,8 @@ export default {
                         rules: this.rules,
                         value: this.value,
                         validateOnBlur: !this.shouldValidate,
-                        hideDetails: !this.hasError
-                    }
+                        hideDetails: !this.hasError,
+                    },
                 },
                 headerChildren
             );
@@ -241,7 +241,7 @@ export default {
                                                         this.dashKey +
                                                         '-' +
                                                         i +
-                                                        '--delete-button'
+                                                        '--delete-button',
                                                 },
                                                 class: { 'vjsf-array-delete-button': true },
                                                 on: {
@@ -251,13 +251,13 @@ export default {
                                                         this.$emit('change', value);
                                                         this.shouldValidate = true;
                                                         header.componentInstance.validate();
-                                                    }
-                                                }
+                                                    },
+                                                },
                                             },
                                             [h('v-icon', this.fullOptions.icons.delete)]
-                                        )
-                                ])
-                            ])
+                                        ),
+                                ]),
+                            ]),
                         ])
                     );
                 list = h(
@@ -285,16 +285,16 @@ export default {
                                                       this.$refs['roItem-' + i].initFromSchema();
                                                   }
                                               });
-                                          }
-                                      }
+                                          },
+                                      },
                                   },
                                   listItems
-                              )
+                              ),
                           ]
                 );
             }
 
             return [header, list];
-        }
-    }
+        },
+    },
 };

@@ -8,4 +8,4 @@ if (typeof window != undefined && window.Vue) {
     HFormRenderer.install(window.Vue);
 }
 
-export default HFormRenderer;
+export { HFormRenderer };

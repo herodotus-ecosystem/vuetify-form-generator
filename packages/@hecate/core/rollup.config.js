@@ -102,7 +102,7 @@ const createEntry = (name, path) => {
 
 const entries = (() => {
     let entries = utils.getEntries(['./src/lib', './src/locales'], /^index\.js$/);
-    entries['Hecate'] = './src/index.js';
+    entries['main'] = './src/index.js';
 
     let result = [];
     for (let item in entries) {

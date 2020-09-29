@@ -8,8 +8,9 @@
     "module": "dist/index.esm.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
+        "start": "yarn build",
         "clean": "rimraf dist",
-        "build": "yarn run clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
+        "build": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
     },
     "dependencies": {
         "@mdi/js": "^5.6.55",

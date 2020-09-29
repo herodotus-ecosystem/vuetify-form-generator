@@ -528,7 +528,7 @@ var te = {
                     void 0 !== t.default && (n = JSON.parse(JSON.stringify(t.default))),
                     null != n && (this.$set(r, a, n), this.$emit('input', this.value))),
                 e(
-                    'v-jsf',
+                    'h-form-renderer',
                     {
                         props: {
                             schema: { readOnly: this.fullSchema.readOnly, ...t },
@@ -1662,7 +1662,7 @@ const fe = de(
                                         (this.fullOptions.idPrefix.endsWith('--dialog--') ||
                                             (this.fullOptions.idPrefix = this.fullOptions.idPrefix + '--dialog--'),
                                         (l = e(
-                                            'v-jsf',
+                                            'h-form-renderer',
                                             {
                                                 props: {
                                                     schema: this.fullSchema.items,
@@ -1801,7 +1801,7 @@ const fe = de(
                                     );
                                 },
                                 renderArrayItemRO(e, t, i) {
-                                    return e('v-jsf', {
+                                    return e('h-form-renderer', {
                                         props: {
                                             schema: this.readonlyItemSchema,
                                             value: JSON.parse(JSON.stringify(t)),
@@ -2337,3 +2337,4 @@ const fe = de(
     e.component(fe.name, fe);
 }),
     null != typeof window && window.Vue && fe.install(window.Vue);
+export { fe as HFormRenderer };

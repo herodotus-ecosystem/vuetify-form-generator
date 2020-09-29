@@ -47,15 +47,16 @@ const external = [
 ];
 
 const plugins = [
-    image(),
-    json(),
-    strip(),
-    multi(),
-    nodeResolve(),
     babel({
         exclude: 'node_modules/**',
         babelHelpers: 'runtime',
     }),
+    nodeResolve(),
+    commonjs(),
+    image(),
+    json(),
+    strip(),
+    multi(),
     vue({
         css: false,
     }),
@@ -75,7 +76,6 @@ const plugins = [
         extensions: ['.sass', '.scss', '.css'],
     }),
     terser(),
-    commonjs(),
 ];
 
 /**
@@ -123,7 +123,8 @@ const createEntry = (name, path) => {
 };
 
 const entries = (() => {
-    let entries = { index: './src/index.js' };
+    let entries = {};
+    entries['main'] = './src/index.js';
 
     let result = [];
     for (let item in entries) {

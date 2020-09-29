@@ -51,12 +51,51 @@
         <v-navigation-drawer clipped app right width="360px">
             <!-- <h-property-panel :active-canvas-item-data="activeCanvasItemData"></h-property-panel> -->
         </v-navigation-drawer>
-        <v-main> </v-main>
+        <v-main>
+            <h-canvas-container>
+                <draggable
+                    v-if="drawingCanvas.length > 0"
+                    :list="drawingCanvas"
+                    :animation="300"
+                    group="componentsGroup"
+                    @change="onChange"
+                    @start="drag = true"
+                    @end="drag = false"
+                >
+                    <h-draggable-item
+                        v-for="item in drawingCanvas"
+                        :key="item.renderKey"
+                        :schema="item"
+                        :active-item-id="activeCanvasItemId"
+                        @active="activeCanvasItem"
+                        @copy="copyCanvasItem"
+                        @delete="deleteCanvasItem"
+                        @hover="hoverCanvasItem"
+                    />
+                </draggable>
+                <draggable v-else :animation="300" group="componentsGroup">
+                    <v-row>
+                        <v-col cols="12">
+                            <v-row align="center" justify="center">
+                                <v-card height="100" width="600" class="ma-12">
+                                    <v-card-text class="text-center title"
+                                        >从左侧拖入或点选组件进行表单设计</v-card-text
+                                    >
+                                </v-card>
+                            </v-row>
+                        </v-col>
+                    </v-row>
+                </draggable>
+            </h-canvas-container>
+        </v-main>
     </v-app>
 </template>
 
 <script>
 import { debounce } from 'throttle-debounce';
+
+import HCanvasContainer from '@/components/canvas/HCanvasContainer';
+import HDraggableItem from '@/components/canvas/HDraggableItem';
 
 import { leftPanelComponents } from '@/lib/modeler/configurations';
 import { DataObject, DB } from '@/lib/modeler/logic';
@@ -65,8 +104,8 @@ export default {
     name: 'HFormModeler',
 
     components: {
-        // HCanvasContainer,
-        // HDraggableItem,
+        HCanvasContainer,
+        HDraggableItem,
         // HPropertyPanel
     },
 
