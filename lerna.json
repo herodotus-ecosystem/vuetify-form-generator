@@ -2,5 +2,13 @@
     "packages": ["packages/*"],
     "npmClient": "yarn",
     "useWorkspaces": true,
-    "version": "0.0.0"
+    "command": {
+        "publish": {
+            "registry": "http://registry.npmjs.org/"
+        },
+        "version": {
+            "conventionalCommits": true
+        }
+    },
+    "version": "1.0.0"
 }
