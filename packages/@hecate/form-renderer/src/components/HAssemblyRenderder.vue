@@ -10,12 +10,11 @@ import {
     SelectProperty,
     EditableArray,
     Tooltip,
-    Validatable,
+    Validatable
 } from '../lib/mixins';
 
 export default {
     name: 'HAssemblyRenderder',
-    // components,
     mixins: [
         ObjectContainer,
         SimpleProperty,
@@ -25,7 +24,7 @@ export default {
         FileProperty,
         EditableArray,
         Tooltip,
-        Validatable,
+        Validatable
     ],
     inject: ['theme'],
     props: {
@@ -36,12 +35,12 @@ export default {
         modelKey: { type: [String, Number], default: 'root' },
         parentKey: { type: String, default: '' },
         required: { type: Boolean, default: false },
-        sectionDepth: { type: Number, default: 0 },
+        sectionDepth: { type: Number, default: 0 }
     },
     data() {
         return {
             ready: false,
-            loading: false,
+            loading: false
         };
     },
     computed: {
@@ -63,7 +62,7 @@ export default {
             fullOptions.icons = { ...iconSets[iconfont], ...fullOptions.icons };
             fullOptions.messages = {
                 ...(localizedMessages[fullOptions.locale] || localizedMessages.en),
-                ...fullOptions.messages,
+                ...fullOptions.messages
             };
             fullOptions.formats = { ...formats, ...fullOptions.formats };
             if (fullOptions.deleteReadOnly) fullOptions.hideReadOnly = true;
@@ -71,9 +70,7 @@ export default {
         },
         resolvedSchema() {
             if (this.modelKey === 'root')
-                return jrefs.resolve(this.schema, {
-                    '~$locale~': (this.options && this.options.locale) || 'en',
-                });
+                return jrefs.resolve(this.schema, { '~$locale~': (this.options && this.options.locale) || 'en' });
             else return this.schema;
         },
         fullSchema() {
@@ -94,6 +91,9 @@ export default {
             return this.modelKey === 'root' && this.fullOptions.rootDisplay
                 ? this.fullOptions.rootDisplay
                 : this.fullSchema['x-display'];
+        },
+        customTag() {
+            return this.fullSchema['x-tag'];
         },
         rules() {
             return getRules(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
@@ -121,8 +121,8 @@ export default {
                 htmlDescription: this.htmlDescription,
                 on: {
                     input: (e) => this.input(e instanceof Event ? e.target.value : e),
-                    change: (e) => this.change(e),
-                },
+                    change: (e) => this.change(e)
+                }
             };
         },
         dashKey() {
@@ -140,7 +140,7 @@ export default {
                 rules: this.rules,
                 required: this.required,
                 ...this.fullOptions.fieldProps,
-                ...this.fullSchema['x-props'],
+                ...this.fullSchema['x-props']
             };
         },
         propertyClass() {
@@ -156,7 +156,7 @@ export default {
                 this.fullOptions.formats[this.fullSchema.format] &&
                 this.fullOptions.formats[this.fullSchema.format](this.value, this.fullOptions.locale)
             );
-        },
+        }
     },
     watch: {
         fullSchema: {
@@ -169,8 +169,8 @@ export default {
                     this.ready = true;
                 }
             },
-            immediate: true,
-        },
+            immediate: true
+        }
     },
     render(h) {
         // hide const ? Or make a readonly field ?
@@ -187,13 +187,7 @@ export default {
         if (this.$scopedSlots.before) children.push(this.$scopedSlots.before(this.slotParams));
         else if (this.$slots.before) this.$slots.before.forEach((node) => children.push(node));
         else if (this.xSlots.before)
-            children.push(
-                h('div', {
-                    domProps: {
-                        innerHTML: this.fullOptions.markdown(this.xSlots.before),
-                    },
-                })
-            );
+            children.push(h('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) } }));
 
         if (this.$scopedSlots.default) {
             children.push(this.$scopedSlots.default(this.slotParams));
@@ -219,13 +213,7 @@ export default {
         if (this.$scopedSlots.after) children.push(this.$scopedSlots.after(this.slotParams));
         else if (this.$slots.after) this.$slots.after.forEach((node) => children.push(node));
         else if (this.xSlots.after) {
-            children.push(
-                h('div', {
-                    domProps: {
-                        innerHTML: this.fullOptions.markdown(this.xSlots.after),
-                    },
-                })
-            );
+            children.push(h('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) } }));
         }
 
         return h(
@@ -233,7 +221,7 @@ export default {
             {
                 props: { cols: this.fullSchema['x-cols'] || 12 },
                 class: this.propertyClass,
-                style: this.fullSchema['x-style'] || '',
+                style: this.fullSchema['x-style'] || ''
             },
             children
         );
@@ -242,14 +230,7 @@ export default {
         renderPropSlots(h) {
             const slots = [];
             Object.keys(this.xSlots).forEach((slot) => {
-                slots.push(
-                    h('div', {
-                        slot,
-                        domProps: {
-                            innerHTML: this.fullOptions.markdown(this.xSlots[slot]),
-                        },
-                    })
-                );
+                slots.push(h('div', { slot, domProps: { innerHTML: this.fullOptions.markdown(this.xSlots[slot]) } }));
             });
             Object.keys(this.$slots).forEach((slot) => {
                 slots.push(h('template', { slot }, this.$slots[slot]));
@@ -301,6 +282,13 @@ export default {
             });
         },
         initFromSchema() {
+            // initiallyDefined will by used in Validatable.js to perform initial validation or not
+            this.initiallyDefined = this.value !== undefined && this.value !== null;
+            // we cannot consider empty objects and empty arrays as "defined" as they might have been initialized by vjsf itself
+            if (this.fullSchema.type === 'array') this.initiallyDefined = !!(this.value && this.value.length);
+            if (this.fullSchema.type === 'object')
+                this.initiallyDefined = !!(this.value && Object.keys(this.value).length);
+
             // console.log('Init from schema', this.modelKey)
             if (this.fullSchema.readOnly && this.fullOptions.deleteReadOnly) {
                 return this.$emit('input', undefined);
@@ -318,7 +306,7 @@ export default {
                 model = model.filter((item) => ![undefined, null].includes(item));
             }
             this.$emit('input', model);
-        },
-    },
+        }
+    }
 };
 </script>

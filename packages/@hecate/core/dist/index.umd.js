@@ -1,4 +1,4 @@
-!(function (e, t) {
+!(function(e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
               exports,
@@ -11,14 +11,14 @@
         : 'function' == typeof define && define.amd
         ? define(['exports', 'moment', 'lodash', 'shortid', 'sweetalert2', 'localforage'], t)
         : t(
-              ((e = 'undefined' != typeof globalThis ? globalThis : e || self).Hecate = {}),
+              ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
               e.moment,
               e.lodash,
               e.shortid,
               e.Swal,
               e.localForage
           );
-})(this, function (e, t, a, r, o, n) {
+})(this, function(e, t, r, a, n, o) {
     'use strict';
     function i(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -28,19 +28,19 @@
         var t = Object.create(null);
         return (
             e &&
-                Object.keys(e).forEach(function (a) {
-                    if ('default' !== a) {
-                        var r = Object.getOwnPropertyDescriptor(e, a);
+                Object.keys(e).forEach(function(r) {
+                    if ('default' !== r) {
+                        var a = Object.getOwnPropertyDescriptor(e, r);
                         Object.defineProperty(
                             t,
-                            a,
-                            r.get
-                                ? r
+                            r,
+                            a.get
+                                ? a
                                 : {
                                       enumerable: !0,
-                                      get: function () {
-                                          return e[a];
-                                      },
+                                      get: function() {
+                                          return e[r];
+                                      }
                                   }
                         );
                     }
@@ -49,25 +49,25 @@
             Object.freeze(t)
         );
     }
-    var l = i(t),
-        c = s(a),
-        u = i(r),
-        g = i(o),
-        d = i(n);
-    String.prototype.format = function (e) {
-        var t = function (e, t) {
+    var c = i(t),
+        l = s(r),
+        u = i(a),
+        d = i(n),
+        f = i(o);
+    String.prototype.format = function(e) {
+        var t = function(e, t) {
             return (
                 (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
-                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, a) {
-                    return '{{' == e ? '{' : '}}' == e ? '}' : t[a];
+                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function(e, r) {
+                    return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
                 })
             );
         };
         return t(this, (e = 'object' == typeof e ? e : Array.prototype.slice.call(arguments, 0)));
     };
-    const f = g.default,
+    const g = d.default,
         m = {
-            information: (e, t) => f.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
+            information: (e, t) => g.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
             info(e) {
                 this.information(e, 'info');
             },
@@ -82,45 +82,45 @@
             },
             question(e) {
                 this.information(e, 'question');
-            },
+            }
         },
         p = {
             getItem: (e) =>
-                new Promise((t, a) => {
-                    d.default
+                new Promise((t, r) => {
+                    f.default
                         .getItem(e)
                         .then((e) => {
                             t(e);
                         })
                         .catch((e) => {
-                            a(e);
-                        });
-                }),
-            setItem: (e, t) =>
-                new Promise((a, r) => {
-                    d.default
-                        .setItem(e, t)
-                        .then((e) => {
-                            a(e);
-                        })
-                        .catch((e) => {
                             r(e);
                         });
                 }),
+            setItem: (e, t) =>
+                new Promise((r, a) => {
+                    f.default
+                        .setItem(e, t)
+                        .then((e) => {
+                            r(e);
+                        })
+                        .catch((e) => {
+                            a(e);
+                        });
+                }),
             removeItem: (e) =>
-                new Promise((t, a) => {
-                    d.default
+                new Promise((t, r) => {
+                    f.default
                         .removeItem(e)
                         .then(() => {
                             t();
                         })
                         .catch((e) => {
-                            a(e);
+                            r(e);
                         });
                 }),
             clear: () =>
                 new Promise((e, t) => {
-                    d.default
+                    f.default
                         .clear()
                         .then(() => {
                             e();
@@ -131,7 +131,7 @@
                 }),
             length: () =>
                 new Promise((e, t) => {
-                    d.default
+                    f.default
                         .length()
                         .then((t) => {
                             e(t);
@@ -141,19 +141,19 @@
                         });
                 }),
             key: (e) =>
-                new Promise((t, a) => {
-                    d.default
+                new Promise((t, r) => {
+                    f.default
                         .key(e)
                         .then((e) => {
                             t(e);
                         })
                         .catch((e) => {
-                            a(e);
+                            r(e);
                         });
                 }),
             keys: () =>
                 new Promise((e, t) => {
-                    d.default
+                    f.default
                         .keys()
                         .then((t) => {
                             e(t);
@@ -164,9 +164,9 @@
                 }),
             iterate: () =>
                 new Promise((e, t) => {
-                    d.default
-                        .iterate((t, a, r) => {
-                            e([t, a, r]);
+                    f.default
+                        .iterate((t, r, a) => {
+                            e([t, r, a]);
                         })
                         .then((t) => {
                             e(t);
@@ -176,19 +176,19 @@
                         });
                 }),
             setDriver: (e) =>
-                new Promise((t, a) => {
-                    t(d.default.setDriver(e));
+                new Promise((t, r) => {
+                    t(f.default.setDriver(e));
                 }),
             config: (e) =>
-                new Promise((t, a) => {
-                    t(d.default.config(e));
+                new Promise((t, r) => {
+                    t(f.default.config(e));
                 }),
             createInstance: (e) =>
-                new Promise((t, a) => {
-                    t(d.default.createInstance(e));
-                }),
+                new Promise((t, r) => {
+                    t(f.default.createInstance(e));
+                })
         },
-        P = {
+        h = {
             setObject(e, t) {
                 localStorage.setItem(e, JSON.stringify(t));
             },
@@ -206,33 +206,33 @@
             clear() {
                 localStorage.clear();
             },
-            isExist: (e) => !(!e || !(e in localStorage)),
+            isExist: (e) => !(!e || !(e in localStorage))
         },
-        h = {
+        b = {
             array: {
                 groupBy(e, t) {
-                    const a = {};
+                    const r = {};
                     return (
-                        e.forEach(function (e) {
-                            const r = t(e);
-                            (a[r] = a[r] || []), a[r].push(e);
+                        e.forEach(function(e) {
+                            const a = t(e);
+                            (r[a] = r[a] || []), r[a].push(e);
                         }),
-                        Object.keys(a).map(function (e) {
-                            return a[e];
+                        Object.keys(r).map(function(e) {
+                            return r[e];
                         })
                     );
                 },
                 sort: (e, t) =>
-                    e.sort(function (e, a) {
-                        var r = e[t],
-                            o = a[t];
-                        return r < o ? -1 : r > o ? 1 : 0;
+                    e.sort(function(e, r) {
+                        var a = e[t],
+                            n = r[t];
+                        return a < n ? -1 : a > n ? 1 : 0;
                     }),
-                find: (e, t, a) => e.find((e) => e[a] === t[a]),
-                remove(e, t, a) {
-                    const r = e.findIndex((e) => e[a] === t[a]);
-                    return e.splice(r, 1), e;
-                },
+                find: (e, t, r) => e.find((e) => e[r] === t[r]),
+                remove(e, t, r) {
+                    const a = e.findIndex((e) => e[r] === t[r]);
+                    return e.splice(a, 1), e;
+                }
             },
             object: {
                 isEmpty(e) {
@@ -241,22 +241,22 @@
                         return !(t && t.length > 0);
                     }
                     return !0;
-                },
-            },
+                }
+            }
         };
-    l.default.locale('zh-cn');
-    var v = Object.freeze({
+    c.default.locale('zh-cn');
+    var P = Object.freeze({
         __proto__: null,
         notify: m,
-        swal: f,
-        moment: l.default,
+        swal: g,
+        moment: c.default,
         storage: p,
-        storageSync: P,
-        lodash: c,
+        storageSync: h,
+        lodash: l,
         shortid: u.default,
-        tools: h,
+        tools: b
     });
-    var b = Object.freeze({
+    var v = Object.freeze({
         __proto__: null,
         en: {
             $vuetify: {
@@ -271,9 +271,9 @@
                         sortNone: 'Not sorted.',
                         activateNone: 'Activate to remove sorting.',
                         activateDescending: 'Activate to sort descending.',
-                        activateAscending: 'Activate to sort ascending.',
+                        activateAscending: 'Activate to sort ascending.'
                     },
-                    sortBy: 'Sort by',
+                    sortBy: 'Sort by'
                 },
                 dataFooter: {
                     itemsPerPageText: 'Items per page:',
@@ -282,20 +282,20 @@
                     prevPage: 'Previous page',
                     firstPage: 'First page',
                     lastPage: 'Last page',
-                    pageText: '{0}-{1} of {2}',
+                    pageText: '{0}-{1} of {2}'
                 },
                 datePicker: {
                     itemsSelected: '{0} selected',
                     nextMonthAriaLabel: 'Next month',
                     nextYearAriaLabel: 'Next year',
                     prevMonthAriaLabel: 'Previous month',
-                    prevYearAriaLabel: 'Previous year',
+                    prevYearAriaLabel: 'Previous year'
                 },
                 noDataText: 'No data available',
                 carousel: {
                     prev: 'Previous visual',
                     next: 'Next visual',
-                    ariaLabel: { delimiter: 'Carousel slide {0} of {1}' },
+                    ariaLabel: { delimiter: 'Carousel slide {0} of {1}' }
                 },
                 calendar: { moreEvents: '{0} more' },
                 fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
@@ -306,10 +306,10 @@
                         next: 'Next page',
                         previous: 'Previous page',
                         page: 'Goto Page {0}',
-                        currentPage: 'Current Page, Page {0}',
-                    },
-                },
-            },
+                        currentPage: 'Current Page, Page {0}'
+                    }
+                }
+            }
         },
         zh: {
             $vuetify: {
@@ -324,9 +324,9 @@
                         sortNone: '：未排序。',
                         activateNone: '点击以移除排序。',
                         activateDescending: '点击以降序排列。',
-                        activateAscending: '点击以升序排列。',
+                        activateAscending: '点击以升序排列。'
                     },
-                    sortBy: '排序方式',
+                    sortBy: '排序方式'
                 },
                 dataFooter: {
                     itemsPerPageText: '每页数目：',
@@ -335,14 +335,14 @@
                     prevPage: '上一页',
                     firstPage: '首页',
                     lastPage: '尾页',
-                    pageText: '{0}-{1} 共 {2}',
+                    pageText: '{0}-{1} 共 {2}'
                 },
                 datePicker: {
                     itemsSelected: '已选择 {0}',
                     nextMonthAriaLabel: '下个月',
                     nextYearAriaLabel: '明年',
                     prevMonthAriaLabel: '前一个月',
-                    prevYearAriaLabel: '前一年',
+                    prevYearAriaLabel: '前一年'
                 },
                 noDataText: '没有数据',
                 carousel: { prev: '上一张', next: '下一张', ariaLabel: { delimiter: 'Carousel slide {0} of {1}' } },
@@ -355,11 +355,95 @@
                         next: '下一页',
                         previous: '上一页',
                         page: '转到页面 {0}',
-                        currentPage: '当前页 {0}',
-                    },
-                },
-            },
-        },
+                        currentPage: '当前页 {0}'
+                    }
+                }
+            }
+        }
     });
-    (e.lib = v), (e.locales = b), Object.defineProperty(e, '__esModule', { value: !0 });
+    class y {
+        static get selfCloseTags() {
+            return [
+                'area',
+                'base',
+                'br',
+                'col',
+                'embed',
+                'hr',
+                'img',
+                'input',
+                'link',
+                'meta',
+                'param',
+                'source',
+                'track',
+                'wbr',
+                'command',
+                'keygen',
+                'menuitem'
+            ];
+        }
+        static build(e) {
+            if (!e || !e.tag) return '';
+            const t = x.attributes(e);
+            if (x.isSelfCloseTag(e)) return `<${e.tag} ${t}/>`;
+            const r = x.children(e);
+            return `<${e.tag} ${t}>${r}</${e.tag}>`;
+        }
+        static unbuild(e) {
+            if (!e) return {};
+            const t = document.createElement('html');
+            t.innerHTML = e;
+            const r = t.querySelector('body');
+            if (!r) return {};
+            const [a] = r.children;
+            return a ? w.node2json(a) : {};
+        }
+    }
+    class x {
+        static attributes(e) {
+            if (!e.attributes) return '';
+            let t = '';
+            const r = Object.keys(e.attributes);
+            for (const a in r) ({}.hasOwnProperty.call(r, a) && (t += ` ${r[a]}="${e.attributes[r[a]]}"`));
+            return t;
+        }
+        static children(e) {
+            if (!e.children) return '';
+            let t = '';
+            for (const r in e.children)
+                ({}.hasOwnProperty.call(e.children, r) &&
+                    ('object' == typeof e.children[r] ? (t += y.build(e.children[r])) : (t += e.children[r])));
+            return t;
+        }
+        static isSelfCloseTag(e) {
+            return y.selfCloseTags.indexOf(e.tag) > -1;
+        }
+    }
+    class w {
+        static attributes(e) {
+            const t = {},
+                r = Object.keys(e.attributes);
+            for (const a in r)
+                if ({}.hasOwnProperty.call(r, a)) {
+                    const n = r[a],
+                        o = e.attributes[n];
+                    t[o.name] = o.value;
+                }
+            return t;
+        }
+        static children(e) {
+            const t = [];
+            for (const r in e.childNodes)
+                e.childNodes[r].nodeType === Node.ELEMENT_NODE && t.push(w.node2json(e.childNodes[r])),
+                    e.childNodes[r].nodeType === Node.TEXT_NODE && t.push(e.childNodes[r].textContent);
+            return t;
+        }
+        static node2json(e) {
+            return { tag: e.tagName.toLowerCase(), attributes: w.attributes(e), children: w.children(e) };
+        }
+    }
+    const N = y;
+    var T = Object.freeze({ __proto__: null, json2html: N });
+    (e.convertor = T), (e.lib = P), (e.locales = v), Object.defineProperty(e, '__esModule', { value: !0 });
 });
