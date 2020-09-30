@@ -49,7 +49,7 @@
         </v-app-bar>
 
         <v-navigation-drawer clipped app right width="360px">
-            <!-- <h-property-panel :active-canvas-item-data="activeCanvasItemData"></h-property-panel> -->
+            <h-property-panel :active-canvas-item-data="activeCanvasItemData"></h-property-panel>
         </v-navigation-drawer>
         <v-main>
             <h-canvas-container>
@@ -96,6 +96,7 @@ import { debounce } from 'throttle-debounce';
 
 import HCanvasContainer from '@/components/canvas/HCanvasContainer';
 import HDraggableItem from '@/components/canvas/HDraggableItem';
+import HPropertyPanel from '@/components/property/HPropertyPanel';
 
 import { leftPanelComponents } from '@/lib/modeler/configurations';
 import { DataObject, DB } from '@/lib/modeler/logic';
@@ -106,7 +107,7 @@ export default {
     components: {
         HCanvasContainer,
         HDraggableItem,
-        // HPropertyPanel
+        HPropertyPanel,
     },
 
     data: () => ({
