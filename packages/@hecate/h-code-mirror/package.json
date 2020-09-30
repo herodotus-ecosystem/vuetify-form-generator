@@ -1,0 +1,15 @@
+{
+    "name": "@hecate/h-code-mirror",
+    "version": "1.0.0",
+    "author": "Felix <pointer_v@qq.com>",
+    "license": "MIT",
+    "private": false,
+    "main": "dist/index.js",
+    "module": "src/index.js",
+    "scripts": {
+        "build": "vue-cli-service build --target lib ./src/index.js"
+    },
+    "dependencies": {
+        "vue-codemirror": "^4.0.6"
+    }
+}

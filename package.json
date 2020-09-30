@@ -13,6 +13,7 @@
         "ws:renderer": "yarn workspace @hecate/form-renderer",
         "ws:generator": "yarn workspace @hecate/form-generator",
         "ws:button": "yarn workspace @hecate/h-button",
+        "ws:mirror": "yarn workspace @hecate/h-code-mirror",
         "storybook": "start-storybook -p 9898"
     },
     "config": {
