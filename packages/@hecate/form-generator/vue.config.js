@@ -92,7 +92,7 @@ module.exports = {
      *
      * 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
      */
-    productionSourceMap: false,
+    productionSourceMap: IS_DEVELOPMENT ? true : false,
 
     chainWebpack: (config) => {
         // 修复HMR
@@ -142,7 +142,7 @@ module.exports = {
          *
          * 向 CSS 相关的 loader 传递选项。例如：
          */
-        loaderOptions: {},
+        loaderOptions: {}
     },
 
     devServer: {
@@ -152,7 +152,7 @@ module.exports = {
         https: false,
         hotOnly: true,
         // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
-        proxy: null,
+        proxy: null
     },
 
     /**
@@ -168,5 +168,5 @@ module.exports = {
     pwa: {},
 
     // 可以用来传递任何第三方插件选项
-    pluginOptions: {},
+    pluginOptions: {}
 };

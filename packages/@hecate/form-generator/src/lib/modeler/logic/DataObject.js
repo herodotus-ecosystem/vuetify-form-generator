@@ -1,5 +1,5 @@
 import { lib } from '@hecate/core';
-import definitions from '../configurations/Schemas';
+import { definitions, constants } from '../configurations';
 
 function generateShortId() {
     return lib.shortid.generate();
@@ -9,7 +9,7 @@ function setDataObjectValues(properties, name, document, panel) {
     let dataObject = {
         configs: {},
         type: 'object',
-        properties: {},
+        properties: {}
     };
 
     const formId = name + '_' + generateShortId();
@@ -36,11 +36,30 @@ function clone(dataObject) {
 
     // 2.设置对象值
     return setDataObjectValues(
-        dataObject.properties[originalFormId],
+        getSchema(dataObject, originalFormId),
         dataObject.configs.name,
         dataObject.configs.document,
         dataObject.configs.panel
     );
 }
 
-export { generate, clone };
+function getSchema(dataObject, formId) {
+    if (!formId) {
+        let schemaFormId = dataObject.configs.formId;
+        return dataObject.properties[schemaFormId];
+    } else {
+        return dataObject.properties[formId];
+    }
+}
+
+function getAttributes(schema) {
+    console.log(constants);
+    if (!lib.lodash.isEmpty(schema)) {
+        if (lib.lodash.has(constants.annotations.xprops)) {
+            return schema[constants.annotations.xprops];
+        }
+    }
+    return {};
+}
+
+export { generate, clone, getSchema, getAttributes };

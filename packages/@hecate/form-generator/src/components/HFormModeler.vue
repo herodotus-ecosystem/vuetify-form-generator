@@ -46,6 +46,14 @@
                 </template>
                 <span>运行</span>
             </v-tooltip>
+            <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn large dark icon v-bind="attrs" v-on="on" @click="getCanvasItemModels">
+                        <v-icon>mdi-language-javascript</v-icon>
+                    </v-btn>
+                </template>
+                <span>生成代码</span>
+            </v-tooltip>
         </v-app-bar>
 
         <v-navigation-drawer clipped app right width="360px">
@@ -63,6 +71,7 @@
                     @end="drag = false"
                 >
                     <h-draggable-item
+                        ref="canvas"
                         v-for="item in drawingCanvas"
                         :key="item.renderKey"
                         :schema="item"
@@ -100,6 +109,7 @@ import HPropertyPanel from '@/components/property/HPropertyPanel';
 
 import { leftPanelComponents } from '@/lib/modeler/configurations';
 import { DataObject, DB } from '@/lib/modeler/logic';
+import { Template } from '@/lib/code';
 
 export default {
     name: 'HFormModeler',
@@ -107,7 +117,7 @@ export default {
     components: {
         HCanvasContainer,
         HDraggableItem,
-        HPropertyPanel,
+        HPropertyPanel
     },
 
     data: () => ({
@@ -115,7 +125,7 @@ export default {
         drawingCanvas: [],
         activeCanvasItemId: '',
         activeCanvasItemData: {},
-        saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
+        saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas)
     }),
 
     created() {
@@ -135,8 +145,8 @@ export default {
             handler(newValue, oldValue) {
                 this.saveDrawingCanvasDebounce(newValue);
             },
-            deep: true,
-        },
+            deep: true
+        }
     },
 
     methods: {
@@ -192,7 +202,11 @@ export default {
         hoverCanvasItem(dataObject) {
             this.activeCanvasItem(dataObject);
         },
-    },
+
+        getCanvasItemModels() {
+            console.log(Template.create(this.drawingCanvas));
+        }
+    }
 };
 </script>
 

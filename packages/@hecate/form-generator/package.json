@@ -6,6 +6,8 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
+        "dev": "vue-cli-service serve --mode development",
+        "prod": "vue-cli-service build --mode production",
         "start": "yarn serve"
     },
     "dependencies": {
