@@ -20,7 +20,7 @@
         "throttle-debounce": "^2.3.0",
         "vue-router": "^3.4.3",
         "vuedraggable": "^2.24.1",
-        "vuetify": "^2.3.10"
+        "vuetify": "^2.3.12"
     },
     "devDependencies": {
         "@vue/cli-plugin-router": "^4.5.6",
