@@ -9,7 +9,7 @@ function setDataObjectValues(properties, name, document, panel) {
     let dataObject = {
         configs: {},
         type: 'object',
-        properties: {}
+        properties: {},
     };
 
     const formId = name + '_' + generateShortId();
@@ -53,9 +53,8 @@ function getSchema(dataObject, formId) {
 }
 
 function getAttributes(schema) {
-    console.log(constants);
     if (!lib.lodash.isEmpty(schema)) {
-        if (lib.lodash.has(constants.annotations.xprops)) {
+        if (lib.lodash.has(schema, constants.annotations.xprops)) {
             return schema[constants.annotations.xprops];
         }
     }

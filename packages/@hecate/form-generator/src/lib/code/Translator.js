@@ -10,8 +10,11 @@ function dataObjectToTag(dataObject) {
         transform.tag = schema.tag;
         transform.attributes = attributes;
         transform.attributes['v-model'] = dataObject.configs.formId;
+        transform.attributes['label'] = schema.title;
 
         let tag = convertor.json2html.build(transform);
+
+        console.log('tag', tag);
         return lib.lodash.replace(tag, /="true"/g, '');
     }
 
@@ -64,7 +67,7 @@ function toData(canvas) {
 function toCompleteSchema(canvas) {
     const schema = {
         type: 'object',
-        properties: {}
+        properties: {},
     };
 
     if (!lib.lodash.isEmpty(canvas)) {

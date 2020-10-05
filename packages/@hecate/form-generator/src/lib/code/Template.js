@@ -1,47 +1,42 @@
 import * as Translator from './Translator';
 
-function generateTemplate(template) {
+function generateTemplate(tags) {
     return `
-    <template>
-        <v-container>
-            <v-row class="text-center">
-                <v-col cols="12">
-                    ${template}
-                </v-col>
-            </v-row>
-        </v-container>
-    </template>`;
+    <v-container fluid>
+        <v-row>
+            <v-col>
+                <v-card>
+                    ${tags}
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
+    `;
 }
 
-function generateScript(data) {
+function generateCode(tags, models) {
+    const template = generateTemplate(tags);
     return `
+    <template>
+        ${template}
+    </template>
 
     <script>
     export default {
-        data: () => (${data}),
+        data: () => (${models}),
     };
     </script>
     `;
 }
 
-function wrapData(data) {
-    return function () {
-        return data;
-    };
-}
-
-function generateCode(template, data) {
-    return generateTemplate(template) + generateScript(data);
-}
-
 function create(canvas) {
-    let template = Translator.toTag(canvas);
-    let dataProperties = JSON.stringify(Translator.toData(canvas));
+    let tags = Translator.toTag(canvas);
+    let data = Translator.toData(canvas);
 
-    const code = generateCode(template, dataProperties);
-    const data = wrapData(dataProperties);
+    const code = generateCode(tags, data);
+    const template = generateTemplate(tags);
 
-    return { code, data };
+    return { code, template, data };
 }
 
 export { create };
