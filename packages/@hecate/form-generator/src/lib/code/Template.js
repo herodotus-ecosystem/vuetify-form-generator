@@ -1,5 +1,6 @@
 import * as Translator from './Translator';
-function factory(template, data) {
+
+function generateTemplate(template) {
     return `
     <template>
         <v-container>
@@ -9,24 +10,38 @@ function factory(template, data) {
                 </v-col>
             </v-row>
         </v-container>
-    </template>
+    </template>`;
+}
 
-    <scritp>
+function generateScript(data) {
+    return `
+
+    <script>
     export default {
         data: () => (${data}),
     };
-    </scritp>
+    </script>
     `;
+}
+
+function wrapData(data) {
+    return function () {
+        return data;
+    };
+}
+
+function generateCode(template, data) {
+    return generateTemplate(template) + generateScript(data);
 }
 
 function create(canvas) {
     let template = Translator.toTag(canvas);
-    let data = JSON.stringify(Translator.toData(canvas));
+    let dataProperties = JSON.stringify(Translator.toData(canvas));
 
-    console.log(template);
-    console.log(data);
+    const code = generateCode(template, dataProperties);
+    const data = wrapData(dataProperties);
 
-    return factory(template, data);
+    return { code, data };
 }
 
 export { create };
