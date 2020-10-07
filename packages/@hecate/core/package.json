@@ -16,7 +16,7 @@
     "dependencies": {
         "localforage": "^1.9.0",
         "lodash": "^4.17.20",
-        "moment": "^2.29.0",
+        "moment": "^2.29.1",
         "shortid": "^2.2.15",
         "sweetalert2": "^10.3.5"
     }
