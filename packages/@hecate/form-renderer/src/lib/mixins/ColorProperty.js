@@ -5,7 +5,7 @@ export default {
                 this.fullSchema.type === 'string' &&
                 (this.fullSchema.format === 'hexcolor' || this.display === 'color-picker')
             );
-        }
+        },
     },
     methods: {
         renderColorProp(h) {
@@ -23,7 +23,7 @@ export default {
                                 style: `background-color: ${this.value};margin-left: 10px;`,
                                 class: this.value
                                     ? 'color-picker-trigger'
-                                    : 'color-picker-trigger color-picker-trigger-empty'
+                                    : 'color-picker-trigger color-picker-trigger-empty',
                             }),
                         default: () =>
                             h('v-color-picker', {
@@ -31,17 +31,17 @@ export default {
                                     flat: true,
                                     ...this.fullOptions.colorPickerProps,
                                     ...this.fullSchema['x-props'],
-                                    value: this.value || ''
+                                    value: this.value || '',
                                 },
                                 on: {
                                     input: (val) => {
                                         console.log(val);
                                         this.input(val);
                                         this.change(val);
-                                    }
-                                }
-                            })
-                    }
+                                    },
+                                },
+                            }),
+                    },
                 })
             );
             return [
@@ -54,12 +54,12 @@ export default {
                             required: this.required,
                             rules: this.rules,
                             disabled: this.disabled,
-                            ...this.fullOptions.fieldProps
-                        }
+                            ...this.fullOptions.fieldProps,
+                        },
                     },
                     children
-                )
+                ),
             ];
-        }
-    }
+        },
+    },
 };

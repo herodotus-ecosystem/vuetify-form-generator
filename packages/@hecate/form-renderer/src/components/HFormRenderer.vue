@@ -41,7 +41,7 @@ import {
     VTextarea,
     VTextField,
     VTimePicker,
-    VTooltip
+    VTooltip,
 } from 'vuetify/lib';
 
 export default {
@@ -86,8 +86,8 @@ export default {
         VTextarea,
         VTextField,
         VTimePicker,
-        VTooltip
+        VTooltip,
     },
-    mixins: [HAssemblyRenderder]
+    mixins: [HAssemblyRenderder],
 };
 </script>

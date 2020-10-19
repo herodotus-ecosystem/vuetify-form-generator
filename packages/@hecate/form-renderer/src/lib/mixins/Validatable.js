@@ -7,21 +7,21 @@ export default {
         return {
             form: {
                 register: this.register,
-                unregister: this.unregister
-            }
+                unregister: this.unregister,
+            },
         };
     },
     props: {
         separateValidation: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
     data() {
         return {
             inputs: [],
             validated: false,
-            shouldValidate: false
+            shouldValidate: false,
         };
     },
     computed: {
@@ -38,7 +38,7 @@ export default {
             return !!this.inputs.find(
                 (input) => input.hasValidatedChildError || (input.hasError && (input.validated || input.shouldValidate))
             );
-        }
+        },
     },
     created() {
         if (!this.separateValidation) this.form && this.form.register(this);
@@ -73,6 +73,6 @@ export default {
             this.shouldValidate = false;
             this.validated = false;
             this.inputs.forEach((input) => input.resetValidation());
-        }
-    }
+        },
+    },
 };

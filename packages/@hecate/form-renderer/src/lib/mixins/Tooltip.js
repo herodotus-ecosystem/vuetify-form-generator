@@ -3,8 +3,8 @@ export default {
         return {
             tooltip: {
                 show: false,
-                maxWidth: 200
-            }
+                maxWidth: 200,
+            },
         };
     },
     mounted() {
@@ -25,7 +25,7 @@ export default {
                         left: true,
                         openOnHover: false,
                         openOnClick: false,
-                        contentClass: 'vjsf-tooltip'
+                        contentClass: 'vjsf-tooltip',
                     },
                     scopedSlots: {
                         activator: () =>
@@ -35,22 +35,22 @@ export default {
                                     on: {
                                         click: () => {
                                             this.tooltip.show = !this.tooltip.show;
-                                        }
+                                        },
                                     },
                                     props: { icon: true },
-                                    style: 'pointer-events: auto' // necessary or the tooltip is disabled on readOnly props
+                                    style: 'pointer-events: auto', // necessary or the tooltip is disabled on readOnly props
                                 },
                                 [h('v-icon', {}, this.fullOptions.icons.info)]
-                            )
-                    }
+                            ),
+                    },
                 },
                 [
                     h('div', {
                         style: `max-width: ${this.tooltip.maxWidth}px`,
-                        domProps: { innerHTML: this.htmlDescription }
-                    })
+                        domProps: { innerHTML: this.htmlDescription },
+                    }),
                 ]
             );
-        }
-    }
+        },
+    },
 };

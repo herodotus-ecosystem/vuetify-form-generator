@@ -10,7 +10,7 @@ import {
     SelectProperty,
     EditableArray,
     Tooltip,
-    Validatable
+    Validatable,
 } from '../lib/mixins';
 
 export default {
@@ -24,7 +24,7 @@ export default {
         FileProperty,
         EditableArray,
         Tooltip,
-        Validatable
+        Validatable,
     ],
     inject: ['theme'],
     props: {
@@ -35,12 +35,12 @@ export default {
         modelKey: { type: [String, Number], default: 'root' },
         parentKey: { type: String, default: '' },
         required: { type: Boolean, default: false },
-        sectionDepth: { type: Number, default: 0 }
+        sectionDepth: { type: Number, default: 0 },
     },
     data() {
         return {
             ready: false,
-            loading: false
+            loading: false,
         };
     },
     computed: {
@@ -62,7 +62,7 @@ export default {
             fullOptions.icons = { ...iconSets[iconfont], ...fullOptions.icons };
             fullOptions.messages = {
                 ...(localizedMessages[fullOptions.locale] || localizedMessages.en),
-                ...fullOptions.messages
+                ...fullOptions.messages,
             };
             fullOptions.formats = { ...formats, ...fullOptions.formats };
             if (fullOptions.deleteReadOnly) fullOptions.hideReadOnly = true;
@@ -121,8 +121,8 @@ export default {
                 htmlDescription: this.htmlDescription,
                 on: {
                     input: (e) => this.input(e instanceof Event ? e.target.value : e),
-                    change: (e) => this.change(e)
-                }
+                    change: (e) => this.change(e),
+                },
             };
         },
         dashKey() {
@@ -140,7 +140,7 @@ export default {
                 rules: this.rules,
                 required: this.required,
                 ...this.fullOptions.fieldProps,
-                ...this.fullSchema['x-props']
+                ...this.fullSchema['x-props'],
             };
         },
         propertyClass() {
@@ -156,7 +156,7 @@ export default {
                 this.fullOptions.formats[this.fullSchema.format] &&
                 this.fullOptions.formats[this.fullSchema.format](this.value, this.fullOptions.locale)
             );
-        }
+        },
     },
     watch: {
         fullSchema: {
@@ -169,8 +169,8 @@ export default {
                     this.ready = true;
                 }
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
     render(h) {
         // hide const ? Or make a readonly field ?
@@ -221,7 +221,7 @@ export default {
             {
                 props: { cols: this.fullSchema['x-cols'] || 12 },
                 class: this.propertyClass,
-                style: this.fullSchema['x-style'] || ''
+                style: this.fullSchema['x-style'] || '',
             },
             children
         );
@@ -242,7 +242,12 @@ export default {
             this.$emit('change', this.value);
         },
         input(value) {
-            this.$emit('input', value);
+            if (value === null || value === undefined || value === '') {
+                if (this.fullSchema.nullable) this.$emit('input', null);
+                else this.$emit('input', undefined);
+            } else {
+                this.$emit('input', value);
+            }
         },
         defaultValue(schema) {
             if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData'] && !schema.enum) return {};
@@ -291,7 +296,7 @@ export default {
 
             // console.log('Init from schema', this.modelKey)
             if (this.fullSchema.readOnly && this.fullOptions.deleteReadOnly) {
-                return this.$emit('input', undefined);
+                return this.input(undefined);
             }
             let model = this.value;
             if (this.fullSchema.type === 'object' && [undefined, null].includes(model) && !this.isSelectProp) {
@@ -305,8 +310,8 @@ export default {
             if (this.fullSchema.type === 'array') {
                 model = model.filter((item) => ![undefined, null].includes(item));
             }
-            this.$emit('input', model);
-        }
-    }
+            this.input(model);
+        },
+    },
 };
 </script>

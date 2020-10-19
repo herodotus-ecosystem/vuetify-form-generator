@@ -8,7 +8,7 @@ export default {
             rawSelectItems: null,
             selectItems: null,
             q: '',
-            fromUrlParams: {}
+            fromUrlParams: {},
         };
     },
     computed: {
@@ -60,7 +60,7 @@ export default {
             return (
                 this.fullSchema.type === 'object' || (this.fullSchema.items && this.fullSchema.items.type === 'object')
             );
-        }
+        },
     },
     watch: {
         q() {
@@ -72,8 +72,8 @@ export default {
             handler() {
                 this.updateSelectItems();
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
     methods: {
         initSelectProp(model) {
@@ -96,7 +96,7 @@ export default {
                 ).oneOf.map((item) => ({
                     ...item,
                     [this.itemKey]: item.const || (item.enum && item.enum[0]),
-                    [this.itemTitle]: item.title
+                    [this.itemTitle]: item.title,
                 }));
             }
             const watchPrefix = this.modelRoot ? 'modelRoot.' : 'value.';
@@ -176,7 +176,7 @@ export default {
                 this.itemIcon
             );
             if (this.display === 'list') {
-                this.$emit('input', selectUtils.fillList(this.fullSchema, this.value, selectItems, this.itemKey));
+                this.input(selectUtils.fillList(this.fullSchema, this.value, selectItems, this.itemKey));
             }
 
             selectUtils.fillSelectItems(this.fullSchema, this.value, selectItems, this.itemKey, this.returnObject);
@@ -207,9 +207,9 @@ export default {
             const value = item[this.itemKey];
             const on = {
                 change: (inputValue) => {
-                    this.$emit('input', inputValue);
+                    this.input(inputValue);
                     this.$emit('change', inputValue);
-                }
+                },
             };
 
             const props = {
@@ -217,7 +217,7 @@ export default {
                 value,
                 inputValue: this.value,
                 multiple: this.fullSchema.type === 'array',
-                hideDetails: true
+                hideDetails: true,
             };
 
             return h(`v-${this.display}`, { props, on, class: 'pb-1' });
@@ -227,12 +227,12 @@ export default {
                 change: (value) => {
                     this.input(value);
                     this.change(value);
-                }
+                },
             };
             const props = {
                 ...this.commonFieldProps,
                 multiple: this.fullSchema.type === 'array',
-                label: null
+                label: null,
             };
             // imitate a radio-group, but with checkboxes and switches
             const legend = h(
@@ -240,7 +240,7 @@ export default {
                 {
                     class: `v-label theme--${this.theme.isDark ? 'dark' : 'light'} ${
                         this.hasError ? 'error--text' : ''
-                    }`
+                    }`,
                 },
                 this.commonFieldProps.label
             );
@@ -251,13 +251,13 @@ export default {
                     {
                         props,
                         on,
-                        class: 'v-input--selection-controls v-input--radio-group v-input--radio-group--column'
+                        class: 'v-input--selection-controls v-input--radio-group v-input--radio-group--column',
                     },
                     [
                         h('div', { class: 'v-input--radio-group__input' }, [legend, ...itemsElements]),
-                        this.renderTooltip(h, 'append')
+                        this.renderTooltip(h, 'append'),
                     ]
-                )
+                ),
             ];
         },
         renderRadioItem(h, item) {
@@ -271,13 +271,13 @@ export default {
                 change: (value) => {
                     this.input(value);
                     this.change(value);
-                }
+                },
             };
             return [
                 h('v-radio-group', { props, on }, [
                     ...this.selectItems.map((item) => this.renderRadioItem(h, item)),
-                    this.renderTooltip(h, 'append')
-                ])
+                    this.renderTooltip(h, 'append'),
+                ]),
             ];
         },
         renderSelectProp(h) {
@@ -298,7 +298,7 @@ export default {
 
             const on = {
                 input: (value) => this.input(value),
-                change: (value) => this.change(value)
+                change: (value) => this.change(value),
             };
             const scopedSlots = {
                 selection: (data) => {
@@ -310,18 +310,18 @@ export default {
                             class: {
                                 'v-select__selection': true,
                                 'v-select__selection--comma': true,
-                                'v-select__selection--disabled': this.disabled
-                            }
+                                'v-select__selection--disabled': this.disabled,
+                            },
                         },
                         [
                             this.renderSelectIcon(h, data.item),
-                            h('span', { domProps: { innerHTML: text }, class: 'mt-1' })
+                            h('span', { domProps: { innerHTML: text }, class: 'mt-1' }),
                         ]
                     );
                 },
                 item: (data) => {
                     return [this.renderSelectIcon(h, data.item), this.renderSelectItem(h, data.item)];
-                }
+                },
             };
 
             // checkbox can only be applied on an array
@@ -344,7 +344,7 @@ export default {
                 multiple: this.fullSchema.type === 'array',
                 itemValue: this.itemKey,
                 items: this.selectItems,
-                returnObject: this.returnObject
+                returnObject: this.returnObject,
             };
             if (this.fromUrlWithQuery || (this.rawSelectItems && this.rawSelectItems.length > 20)) {
                 tag = 'v-autocomplete';
@@ -365,6 +365,6 @@ export default {
             tag = this.customTag ? this.customTag : tag;
 
             return [h(tag, { props, on, scopedSlots }, children)];
-        }
-    }
+        },
+    },
 };

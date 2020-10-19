@@ -9,7 +9,7 @@ jrefs.extendtoken = '$extend';
 jrefs.reftoken = '$ref';
 jrefs.pathtoken = '#';
 jrefs.debug = false;
-jrefs.clone = function(obj) {
+jrefs.clone = function (obj) {
     var key, temp;
     if (obj === null || typeof obj !== 'object' || typeof obj === 'function') {
         return obj;
@@ -20,7 +20,7 @@ jrefs.clone = function(obj) {
     }
     return temp;
 };
-jrefs.findIds = function(json, ids) {
+jrefs.findIds = function (json, ids) {
     var id, k, obj, v;
     id = false;
     obj = {};
@@ -41,7 +41,7 @@ jrefs.findIds = function(json, ids) {
         return obj;
     }
 };
-jrefs.get_json_pointer = function(ref, root, replacements) {
+jrefs.get_json_pointer = function (ref, root, replacements) {
     var evalstr, result;
     evalstr = ref
         .replace(/\\\//, '#SLASH#')
@@ -65,7 +65,7 @@ jrefs.get_json_pointer = function(ref, root, replacements) {
     }
     return result;
 };
-jrefs.replace = function(json, ids, root, replacements) {
+jrefs.replace = function (json, ids, root, replacements) {
     var k, ref, ref1, ref2, results, v;
     results = [];
     for (k in json) {
@@ -114,7 +114,7 @@ jrefs.replace = function(json, ids, root, replacements) {
     }
     return results;
 };
-jrefs.extend = function(json, replacements) {
+jrefs.extend = function (json, replacements) {
     var k, ref, results, rk, rv, v;
     if (typeof json === 'object') {
         results = [];
@@ -139,7 +139,7 @@ jrefs.extend = function(json, replacements) {
         return results;
     }
 };
-jrefs.resolve = function(json, replacements) {
+jrefs.resolve = function (json, replacements) {
     var ids;
     ids = {};
     jrefs.findIds(json, ids);
@@ -149,7 +149,7 @@ jrefs.resolve = function(json, replacements) {
     jrefs.replace(json, ids, json, replacements);
     return json;
 };
-jrefs.evaluate = function(json, data, cb) {
+jrefs.evaluate = function (json, data, cb) {
     var k, ref1, v;
     if (cb == null) {
         cb = jrefs.evaluateStr;
@@ -166,7 +166,7 @@ jrefs.evaluate = function(json, data, cb) {
     }
     return json;
 };
-jrefs.evaluateStr = function(k, data) {
+jrefs.evaluateStr = function (k, data) {
     var itemstr;
     if (typeof k !== 'string') {
         return k;
@@ -178,7 +178,7 @@ jrefs.evaluateStr = function(k, data) {
             return null;
         }
     } else {
-        itemstr = k.replace(/(\{)(.*?)(\})/g, function($0, $1, $2) {
+        itemstr = k.replace(/(\{)(.*?)(\})/g, function ($0, $1, $2) {
             var result;
             result = '';
             if (data == null || $2 == null) {

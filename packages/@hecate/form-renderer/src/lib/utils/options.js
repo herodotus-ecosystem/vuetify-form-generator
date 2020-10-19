@@ -38,7 +38,7 @@ export const defaultOptions = {
     rules: {},
     initialValidation: 'defined',
     idPrefix: '',
-    markdownit: {}
+    markdownit: {},
 };
 
 export const localizedMessages = {
@@ -52,7 +52,7 @@ export const localizedMessages = {
         maxLength: '{maxLength} characters maximum',
         minItems: 'No less than {minItems} items',
         maxItems: 'No more than {maxItems} items',
-        pattern: 'The expected pattern is not satisfied'
+        pattern: 'The expected pattern is not satisfied',
     },
     fr: {
         required: 'Cette information est obligatoire',
@@ -64,7 +64,7 @@ export const localizedMessages = {
         maxLength: '{maxLength} caractères maximum',
         minItems: 'Au moins {minItems} éléments',
         maxItems: 'Au plus {maxItems} éléments',
-        pattern: `Le format attendu n'est pas respecté`
+        pattern: `Le format attendu n'est pas respecté`,
     },
     es: {
         required: 'Esta información es requerida',
@@ -76,7 +76,7 @@ export const localizedMessages = {
         maxLength: '{maxLength} caractères máximo',
         minItems: 'Al menos {minItems} articulos',
         maxItems: 'Hasta {maxItems} articulos',
-        pattern: 'El formato esperado no se respeta'
+        pattern: 'El formato esperado no se respeta',
     },
     de: {
         required: 'Diese Informationen sind erforderlich',
@@ -88,7 +88,7 @@ export const localizedMessages = {
         maxLength: 'Maximal {maxLength} Zeichen',
         minItems: 'Mindestens {minItems} Elemente',
         maxItems: 'Bis zu {maxItems} Artikel',
-        pattern: 'Das erwartete Format wird nicht eingehalten'
+        pattern: 'Das erwartete Format wird nicht eingehalten',
     },
     ar: {
         required: 'هذه المعلومة مطلوبة',
@@ -100,7 +100,7 @@ export const localizedMessages = {
         maxLength: '{maxLength} الحد الأقصى للحروف المطلوبة هو',
         minItems: 'قطع {minItems} لا يمكن اختيار أقل من ',
         maxItems: 'قطع {maxItems} لا يمكن اختيار أكثر من ',
-        pattern: 'لا يوجد تشابه مع النموذج المطلوب'
+        pattern: 'لا يوجد تشابه مع النموذج المطلوب',
     },
     tr: {
         required: 'Zorunlu alan',
@@ -112,8 +112,8 @@ export const localizedMessages = {
         maxLength: '{maxLength} azami  karakter sayısı',
         minItems: 'En az seçenek sayısı {minItems}',
         maxItems: 'En çok seçenek sayısı {maxItems}',
-        pattern: 'İstenilen paten tutmuyor'
-    }
+        pattern: 'İstenilen paten tutmuyor',
+    },
 };
 
 export const formats = {
@@ -127,7 +127,7 @@ export const formats = {
     },
     'date-time': (dateTime, locale) => {
         return new Date(dateTime).toLocaleString(locale);
-    }
+    },
 };
 
 export const iconSets = {
@@ -137,7 +137,7 @@ export const iconSets = {
         info: mdiInformation,
         add: mdiPlus,
         edit: mdiPencil,
-        delete: mdiDelete
+        delete: mdiDelete,
     },
     mdi: {
         calendar: 'mdi-calendar',
@@ -145,7 +145,7 @@ export const iconSets = {
         info: 'mdi-information',
         add: 'mdi-plus',
         edit: 'mdi-pencil',
-        delete: 'mdi-delete'
+        delete: 'mdi-delete',
     },
     md: {
         calendar: 'event',
@@ -153,7 +153,7 @@ export const iconSets = {
         info: 'info',
         add: 'add',
         edit: 'create',
-        delete: 'delete'
+        delete: 'delete',
     },
     fa: {
         calendar: 'fa-calendar',
@@ -161,6 +161,6 @@ export const iconSets = {
         info: 'fa-info',
         add: 'fa-plus',
         edit: 'fa-edit',
-        delete: 'fa-trash'
-    }
+        delete: 'fa-trash',
+    },
 };

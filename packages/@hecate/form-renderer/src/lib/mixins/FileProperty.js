@@ -19,7 +19,7 @@ const getFileResult = async (file, schema, filesAsDataUrl) => {
         lastModified: new Date(file.lastModified).toISOString(),
         size: file.size,
         type: file.type,
-        data
+        data,
     };
 };
 
@@ -49,7 +49,7 @@ export default {
             )
                 return true;
             return false;
-        }
+        },
     },
     created() {
         if (this.isFileProp && !this.fullSchema.writeOnly) {
@@ -88,13 +88,13 @@ export default {
                         this.input(content);
                         this.change(content);
                     }
-                }
+                },
             };
             if (this.htmlDescription) {
                 children.push(this.renderTooltip(h, 'append-outer'));
             }
 
             return [h('v-file-input', { props, attrs, on }, children)];
-        }
-    }
+        },
+    },
 };
