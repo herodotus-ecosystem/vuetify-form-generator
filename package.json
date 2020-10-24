@@ -14,6 +14,7 @@
         "ws:generator": "yarn workspace @hecate/form-generator",
         "ws:button": "yarn workspace @hecate/h-button",
         "ws:mirror": "yarn workspace @hecate/h-code-mirror",
+        "ws:editor": "yarn workspace @hecate/h-code-editor",
         "storybook": "start-storybook -p 9898"
     },
     "config": {
@@ -53,13 +54,13 @@
         "cross-env": "^7.0.2",
         "css-loader": "^5.0.0",
         "cz-lerna-changelog": "^2.0.3",
-        "eslint": "^7.11.0",
+        "eslint": "^7.12.0",
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-vue": "^7.1.0",
         "husky": "^4.3.0",
         "lerna": "^3.22.1",
         "lint-staged": "^10.4.2",
-        "postcss": "^8.1.3",
+        "postcss": "^8.1.4",
         "prettier": "^2.1.2",
         "rollup": "^2.32.1",
         "rollup-plugin-postcss": "^3.1.8",

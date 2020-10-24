@@ -42,7 +42,7 @@ module.exports = {
      * 提示
      * 从生成的资源覆写 filename 或 chunkFilename 时，assetsDir 会被忽略。
      */
-    assetsDir: 'assets',
+    assetsDir: 'static',
 
     /**
      * Type: string

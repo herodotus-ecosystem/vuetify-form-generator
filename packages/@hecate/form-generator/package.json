@@ -13,6 +13,7 @@
     "dependencies": {
         "@hecate/core": "1.0.0",
         "@hecate/form-renderer": "1.0.0",
+        "@hecate/h-code-editor": "^1.0.0",
         "@mdi/font": "^5.7.55",
         "babel-polyfill": "^6.26.0",
         "core-js": "^3.6.5",

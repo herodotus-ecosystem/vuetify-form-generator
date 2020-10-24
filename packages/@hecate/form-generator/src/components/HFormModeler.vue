@@ -46,6 +46,27 @@
                 </template>
                 <span>运行</span>
             </v-tooltip>
+            <v-dialog v-model="codeDialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn large dark icon v-bind="attrs" v-on="on">
+                        <v-icon>mdi-language-javascript</v-icon>
+                    </v-btn>
+                </template>
+                <v-card>
+                    <v-toolbar dark color="primary">
+                        <v-btn icon dark @click="codeDialog = false">
+                            <v-icon>mdi-close</v-icon>
+                        </v-btn>
+                        <v-toolbar-title>Settings</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <v-toolbar-items>
+                            <v-btn dark text @click="codeDialog = false">Save</v-btn>
+                        </v-toolbar-items>
+                    </v-toolbar>
+                    <h-code-editor></h-code-editor>
+                </v-card>
+            </v-dialog>
+
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn large dark icon v-bind="attrs" v-on="on" @click="getCanvasItemModels">
@@ -106,6 +127,7 @@ import { debounce } from 'throttle-debounce';
 import HCanvasContainer from '@/components/canvas/HCanvasContainer';
 import HDraggableItem from '@/components/canvas/HDraggableItem';
 import HPropertyPanel from '@/components/property/HPropertyPanel';
+import HCodeEditor from '@hecate/h-code-editor';
 
 import { leftPanelComponents } from '@/lib/modeler/configurations';
 import { DataObject, DB } from '@/lib/modeler/logic';
@@ -117,7 +139,8 @@ export default {
     components: {
         HCanvasContainer,
         HDraggableItem,
-        HPropertyPanel
+        HPropertyPanel,
+        HCodeEditor
     },
 
     data: () => ({
@@ -125,7 +148,8 @@ export default {
         drawingCanvas: [],
         activeCanvasItemId: '',
         activeCanvasItemData: {},
-        saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas)
+        saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
+        codeDialog: false
     }),
 
     created() {

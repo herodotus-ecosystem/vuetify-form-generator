@@ -1,5 +1,5 @@
 {
-    "name": "@hecate/h-code-mirror",
+    "name": "@hecate/h-code-editor",
     "version": "1.0.0",
     "author": "Felix <pointer_v@qq.com>",
     "license": "MIT",
@@ -10,10 +10,6 @@
         "build": "vue-cli-service build --target lib ./src/index.js"
     },
     "dependencies": {
-        "csslint": "^1.0.5",
-        "htmlhint": "^0.14.1",
-        "jsonlint": "^1.6.3",
-        "script-loader": "^0.7.2",
-        "vue-codemirror": "^4.0.6"
+        "@hecate/h-code-mirror": "^1.0.0"
     }
 }

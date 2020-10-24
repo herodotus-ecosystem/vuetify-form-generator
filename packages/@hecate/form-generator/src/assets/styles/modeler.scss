@@ -46,19 +46,13 @@ $lighterBlue: #1867c0;
 
 .canvas-body {
     .v-card {
-        border: 1px dashed #999;
+        border: 1px dashed #999 !important;
     }
 }
 
 .canvas-item-body {
-    background: $selectedColor;
-    cursor: move;
-    border: 1px dashed $selectedColor;
-    border-radius: 3px;
     &:hover {
-        border: 1px dashed #1565c0;
-        background: #e3f2fd;
-        color: #1565c0;
+        border: 1px dashed #1565c0 !important;
         .v-icon {
             color: #1565c0;
         }
