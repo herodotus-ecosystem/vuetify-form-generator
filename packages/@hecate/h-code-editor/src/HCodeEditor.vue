@@ -5,6 +5,18 @@
                 <v-icon>mdi-volleyball</v-icon>
             </v-btn>
             <v-toolbar-title>Hecate Code Editor</v-toolbar-title>
+
+            <v-spacer></v-spacer>
+            <h-button icon icon-name="mdi-lock-reset" tooltip="重置"></h-button>
+            <v-switch
+                v-model="readOnly"
+                :label="readOnlyLabel"
+                :true-value="false"
+                :false-value="true"
+                inset
+                hide-details
+                class="ml-3"
+            ></v-switch>
             <v-select
                 :items="themeOptions"
                 flat
@@ -29,25 +41,29 @@
                 no-data-text="没有数据"
                 @change="onModeChange"
             ></v-select>
-            <v-btn small icon class="ml-3">
-                <v-icon>mdi-apps</v-icon>
-            </v-btn>
-            <v-spacer></v-spacer>
+
             <v-btn icon>
                 <v-icon>mdi-apps</v-icon>
             </v-btn>
         </v-toolbar>
-        <h-code-mirror :mode="codeMirrorMode" :theme="codeMirrorTheme"></h-code-mirror>
+        <h-code-mirror
+            v-model="sourceCode"
+            :mode="codeMirrorMode"
+            :theme="codeMirrorTheme"
+            :read-only="readOnly"
+        ></h-code-mirror>
     </v-card>
 </template>
 
 <script>
+import HButton from '@hecate/h-button';
 import HCodeMirror from '@hecate/h-code-mirror';
 export default {
     name: 'HCodeEditor',
 
     components: {
-        HCodeMirror
+        HButton,
+        HCodeMirror,
     },
 
     data: () => ({
@@ -115,17 +131,25 @@ export default {
             'xq-light',
             'yeti',
             'yonce',
-            'zenburn'
+            'zenburn',
         ],
         codeMirrorMode: 'default',
-        codeMirrorTheme: 'default'
+        codeMirrorTheme: 'default',
+        sourceCode: '',
+        readOnly: false,
     }),
+
+    computed: {
+        readOnlyLabel() {
+            return this.readOnly ? '只读' : '编辑';
+        },
+    },
 
     methods: {
         switchCodeMirrorMode(type) {
             switch (type) {
                 case 'json':
-                    return DEFAULT_MODE;
+                    return 'application/json';
                 case 'html':
                     return 'htmlmixed';
                 default:
@@ -137,7 +161,7 @@ export default {
         },
         onThemeChange(value) {
             this.codeMirrorTheme = value;
-        }
-    }
+        },
+    },
 };
 </script>

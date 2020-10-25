@@ -1,6 +1,6 @@
 <template>
     <!-- <codemirror ref="editor" :value="editorValue" :options="cmOptions" @changes="onCmCodeChanges" @blur="onCmBlur" @keydown.native="onKeyDown" @mousedown.native="onMouseDown" @paste.native="OnPaste"></codemirror> -->
-    <codemirror ref="editor" :value="editorValue" :options="codeMirrorOptions"></codemirror>
+    <codemirror ref="editor" :value="inputValue" :options="options" @ready="onReady" @input="onInput"></codemirror>
 </template>
 <script>
 // 引入全局实例
@@ -36,10 +36,10 @@ import 'codemirror/addon/hint/sql-hint.js';
 import 'codemirror/addon/hint/xml-hint.js';
 import 'codemirror/addon/hint/anyword-hint.js';
 
+import 'script-loader!jsonlint';
 import 'codemirror/addon/lint/lint.css';
 import 'codemirror/addon/lint/lint.js';
 import 'codemirror/addon/lint/json-lint.js';
-import 'script-loader!jsonlint';
 import 'codemirror/addon/lint/css-lint.js';
 import 'codemirror/addon/lint/html-lint.js';
 import 'codemirror/addon/lint/javascript-lint.js';
@@ -56,21 +56,23 @@ import 'codemirror/addon/fold/indent-fold.js';
 
 import 'codemirror/addon/edit/closebrackets.js';
 import 'codemirror/addon/edit/closetag.js';
-import 'codemirror/addon/edit/matchtags.js';
+import 'codemirror/addon/edit/continuelist.js';
 import 'codemirror/addon/edit/matchbrackets.js';
+import 'codemirror/addon/edit/matchtags.js';
+// import 'codemirror/addon/edit/trailingspace.js';
 
-import 'codemirror/addon/search/matchesonscrollbar.css';
-import 'codemirror/addon/search/matchesonscrollbar.js';
+// 搜索功能
 import 'codemirror/addon/search/match-highlighter.js';
 import 'codemirror/addon/search/jump-to-line.js';
-import 'codemirror/addon/search/searchcursor.js';
+import 'codemirror/addon/search/matchesonscrollbar.css';
+import 'codemirror/addon/search/matchesonscrollbar.js';
 import 'codemirror/addon/search/search.js';
+import 'codemirror/addon/search/searchcursor.js';
+import 'codemirror/addon/dialog/dialog.js';
+import 'codemirror/addon/dialog/dialog.css';
 
 import 'codemirror/addon/selection/active-line.js';
 import 'codemirror/addon/selection/mark-selection.js';
-
-import 'codemirror/addon/dialog/dialog.js';
-import 'codemirror/addon/dialog/dialog.css';
 
 import 'codemirror/addon/display/autorefresh.js';
 
@@ -78,149 +80,150 @@ export default {
     name: 'HCodeMirror',
 
     components: {
-        codemirror
+        codemirror,
     },
 
     props: {
+        value: {
+            type: String,
+            default: '',
+            required: true,
+        },
         theme: {
             type: String,
-            default: 'default'
+            default: 'default',
         },
         mode: {
             type: String,
-            default: 'default'
+            default: 'default',
         },
         readOnly: {
             type: Boolean,
-            default: false
-        },
-        jsonIndentation: {
-            type: String,
-            default: '\t'
+            default: false,
         },
         source: {
             type: String,
-            default: ''
+            default: '',
         },
-        language: {
-            type: String,
-            default: 'application/json'
-        }
     },
 
+    data: () => ({
+        editorValue: '',
+    }),
+
     computed: {
-        codeMirrorOptions() {
+        currentMode() {
+            return !this.mode || this.mode == 'default' ? 'application/json' : this.mode;
+        },
+        currentTheme() {
+            let selectedTheme = !this.theme || this.theme == 'default' ? 'material-darker' : this.theme;
+            require('codemirror/theme/' + selectedTheme + '.css');
+            return selectedTheme;
+        },
+        options() {
             return {
-                mode: !this.mode || this.mode == 'default' ? 'application/json' : this.mode,
-                // 主题 material
-                theme: !this.theme || this.theme == 'default' ? 'material-darker' : this.theme,
+                // ----- 以下是常规选项 -----
+                mode: this.currentMode,
+                theme: this.currentTheme,
                 indentUnit: 4,
                 smartIndent: false,
                 tabSize: 4,
+                indentWithTabs: true,
                 // 可以用于为编辑器指定额外的键绑定，以及keyMap定义的键绑定
-                extraKeys: {
-                    Tab: 'autocomplete',
-                    'Ctrl-Alt-L': () => {
-                        this.setValue(this.editorValue);
-                    }
-                },
+                // ctrl唤起智能提示
+                extraKeys: { Ctrl: 'autocomplete' },
                 // 是否折行
                 lineWrapping: true,
                 // 显示行号
                 lineNumbers: true,
-                // tab
                 gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+                //是否只读
+                readOnly: this.readOnly,
+                showCursorWhenSelecting: true,
                 autofocus: true,
+                dragDrop: true,
                 spellcheck: true,
                 autocorrect: true,
 
-                styleActiveLine: true, // 高亮选中行
-                styleSelectedText: true,
-                foldGutter: true, // 块槽
-                lint: true,
-                autoCloseBrackets: true,
-                autoCloseTags: true,
-                matchTags: { bothTags: true },
+                // ----- 以下选项需要配合Addons引入 -----
+                // edit/matchbrackets.js
                 matchBrackets: true,
-                autoRefresh: true,
+                // edit/closebrackets.js
+                autoCloseBrackets: true,
+                // edit/matchtags.js
+                matchTags: { bothTags: true },
+                // edit/closetag.js
+                autoCloseTags: true,
+                // fold/foldgutter.js 块槽
+                foldGutter: true,
                 // 可以启用该选项来突出显示当前选中的内容的所有实例
+                // search/match-highlighter.js
                 highlightSelectionMatches: {
                     minChars: 2,
                     style: 'matchhighlight',
-                    showToken: true
+                    trim: true,
+                    showToken: false,
                 },
+                // lint/lint.js
+                lint: true,
+                // selection/mark-selection.js
+                styleSelectedText: true,
+                // selection/active-line.js 高亮选中行
+                styleActiveLine: true,
                 // hint.js options
                 hintOptions: {
                     // 当匹配只有一项的时候是否自动补全
-                    completeSingle: false
+                    completeSingle: false,
                 },
-                showCursorWhenSelecting: false,
-                //是否只读
-                readOnly: this.readOnly
             };
-        }
+        },
+        currentCodeMirror() {
+            return this.$refs.editor.codemirror;
+        },
+        inputValue() {
+            this.editorValue = this.value;
+            return this.editorValue;
+        },
     },
-
-    data: () => ({
-        editorValue: ''
-        // options: {
-        //     mode: !this.theme || this.theme == 'default' ? 'application/json' : this.theme,
-        //     // 主题 material
-        //     theme: !this.theme || this.theme == 'default' ? 'material-darker' : this.theme,
-        //     indentUnit: 4,
-        //     smartIndent: false,
-        //     tabSize: 4,
-        //     // 可以用于为编辑器指定额外的键绑定，以及keyMap定义的键绑定
-        //     extraKeys: {
-        //         Tab: 'autocomplete',
-        //         'Ctrl-Alt-L': () => {
-        //             this.setValue(this.editorValue);
-        //         }
-        //     },
-        //     // 是否折行
-        //     lineWrapping: true,
-        //     // 显示行号
-        //     lineNumbers: true,
-        //     // tab
-        //     gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-        //     autofocus: true,
-        //     spellcheck: true,
-        //     autocorrect: true,
-
-        //     styleActiveLine: true, // 高亮选中行
-        //     styleSelectedText: true,
-        //     foldGutter: true, // 块槽
-        //     lint: true,
-        //     autoCloseBrackets: true,
-        //     autoCloseTags: true,
-        //     matchTags: { bothTags: true },
-        //     matchBrackets: true,
-        //     autoRefresh: true,
-        //     // 可以启用该选项来突出显示当前选中的内容的所有实例
-        //     highlightSelectionMatches: {
-        //         minChars: 2,
-        //         style: 'matchhighlight',
-        //         showToken: true
-        //     },
-        //     // hint.js options
-        //     hintOptions: {
-        //         // 当匹配只有一项的时候是否自动补全
-        //         completeSingle: false
-        //     },
-        //     showCursorWhenSelecting: false,
-        //     //是否只读
-        //     readOnly: this.readOnly
-        // }
-    }),
 
     created() {},
 
-    methods: {}
+    watch: {
+        mode: {
+            handler(newValue, oldValue) {
+                this.resetLint();
+            },
+        },
+    },
+
+    methods: {
+        resetLint() {
+            this.$refs.editor.codemirror.setOption('lint', false);
+            this.$nextTick(() => {
+                this.$refs.editor.codemirror.setOption('lint', true);
+            });
+        },
+        onReady(cm) {
+            cm.on('keypress', () => {
+                cm.showHint({ completeSingle: false });
+            });
+        },
+        onInput(event) {
+            let value = event;
+            this.$emit('input', value); //触发 input 事件，并传入新值
+        },
+    },
 };
 </script>
 
 <style lang="scss">
 .CodeMirror {
     height: calc(100vh - 0px) !important;
+}
+.CodeMirror-lint-tooltip {
+    z-index: 9999;
+}
+.CodeMirror-hints {
+    z-index: 9999;
 }
 </style>

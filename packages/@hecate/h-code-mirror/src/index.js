@@ -1,6 +1,13 @@
 import HCodeMirror from './HCodeMirror.vue';
 
-HCodeMirror.install = function(Vue) {
+import { JSHINT } from 'jshint';
+import csslint from 'csslint';
+window.JSHINT = JSHINT;
+window.CSSLint = csslint;
+import { parser } from 'jsonlint';
+window.jsonlint = parser;
+
+HCodeMirror.install = function (Vue) {
     Vue.component(HCodeMirror.name, HCodeMirror);
 };
 

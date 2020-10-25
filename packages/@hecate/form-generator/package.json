@@ -14,13 +14,13 @@
         "@hecate/core": "1.0.0",
         "@hecate/form-renderer": "1.0.0",
         "@hecate/h-code-editor": "^1.0.0",
-        "@mdi/font": "^5.7.55",
+        "@mdi/font": "^5.8.55",
         "babel-polyfill": "^6.26.0",
         "core-js": "^3.6.5",
         "roboto-fontface": "*",
         "throttle-debounce": "^2.3.0",
         "vue-router": "^3.4.7",
-        "vuedraggable": "^2.24.2",
+        "vuedraggable": "^2.24.3",
         "vuetify": "^2.3.15"
     },
     "devDependencies": {

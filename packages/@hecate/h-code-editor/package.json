@@ -10,6 +10,7 @@
         "build": "vue-cli-service build --target lib ./src/index.js"
     },
     "dependencies": {
+        "@hecate/h-button": "^1.0.0",
         "@hecate/h-code-mirror": "^1.0.0"
     }
 }
