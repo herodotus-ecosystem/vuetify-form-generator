@@ -181,7 +181,6 @@ export default {
             return this.$refs.editor.codemirror;
         },
         inputValue() {
-            this.editorValue = this.value;
             return this.editorValue;
         },
     },
@@ -210,6 +209,7 @@ export default {
         },
         onInput(event) {
             let value = event;
+            this.editorValue = value;
             this.$emit('input', value); //触发 input 事件，并传入新值
         },
     },

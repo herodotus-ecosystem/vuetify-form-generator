@@ -7,7 +7,9 @@
     "main": "dist/index.js",
     "module": "src/index.js",
     "scripts": {
-        "build": "vue-cli-service build --target lib ./src/index.js"
+        "start": "yarn build",
+        "build": "vue-cli-service build --target lib ./src/index.js",
+        "clean": "rimraf dist"
     },
     "dependencies": {
         "csslint": "^1.0.5",
