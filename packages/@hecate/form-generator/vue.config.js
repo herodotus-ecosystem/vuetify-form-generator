@@ -1,4 +1,5 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 const path = require('path');
 const resolve = (dir) => path.join(__dirname, dir);
@@ -101,6 +102,15 @@ module.exports = {
         config.resolve.symlinks(true);
         //添加别名
         config.resolve.alias.set('@', resolve('src'));
+
+        if (IS_PRODUCTION) {
+            config.plugins.delete('copy');
+            config.plugins.delete('preload');
+            config.plugins.delete('prefetch');
+            config.plugins.delete('html');
+            config.plugins.delete('hmr');
+            // config.entryPoints.delete('app');
+        }
     },
 
     configureWebpack: (config) => {
@@ -109,6 +119,18 @@ module.exports = {
         }
 
         if (IS_PRODUCTION) {
+            const productionGzipExtensions = ['js', 'css', 'json', 'txt', 'html', 'ico', 'svg'];
+            config.plugins.push(
+                new CompressionWebpackPlugin({
+                    filename: '[path].gz[query]',
+                    algorithm: 'gzip',
+                    test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+                    threshold: 10240, // 只有大小大于该值的资源会被处理 10240
+                    minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
+                    deleteOriginalAssets: false, // 删除原文件
+                })
+            );
+
             config.optimization = {
                 splitChunks: {
                     chunks: 'all',
@@ -118,132 +140,132 @@ module.exports = {
                             test: /[\\/]node_modules[\\/]vue[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         vuetify: {
                             name: 'vuetify',
                             test: /[\\/]node_modules[\\/]vuetify[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         'vue-router': {
                             name: 'vue-router',
                             test: /[\\/]node_modules[\\/]vue-router[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         codemirror: {
                             name: 'codemirror',
                             test: /[\\/]node_modules[\\/]codemirror[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         vuedraggable: {
                             name: 'vuedraggable',
                             test: /[\\/]node_modules[\\/]vuedraggable[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         jshint: {
                             name: 'jshint',
                             test: /[\\/]node_modules[\\/]jshint[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         htmlhint: {
                             name: 'htmlhint',
                             test: /[\\/]node_modules[\\/]htmlhint[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         jsonlint: {
                             name: 'jsonlint',
                             test: /[\\/]node_modules[\\/]jsonlint[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         csslint: {
                             name: 'csslint',
                             test: /[\\/]node_modules[\\/]csslint[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         'babel-polyfill': {
                             name: 'babel-polyfill',
                             test: /[\\/]node_modules[\\/]babel-polyfill[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         localforage: {
                             name: 'localforage',
                             test: /[\\/]node_modules[\\/]localforage[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         lodash: {
                             name: 'lodash',
                             test: /[\\/]node_modules[\\/]lodash[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         moment: {
                             name: 'moment',
                             test: /[\\/]node_modules[\\/]moment[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         shortid: {
                             name: 'shortid',
                             test: /[\\/]node_modules[\\/]shortid[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         sweetalert2: {
                             name: 'sweetalert2',
                             test: /[\\/]node_modules[\\/]sweetalert2[\\/]/,
                             priority: 90,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         parserlib: {
                             name: 'parserlib',
                             test: /[\\/]node_modules[\\/]parserlib[\\/]/,
                             priority: 10,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         sortablejs: {
                             name: 'parserlib',
                             test: /[\\/]node_modules[\\/]sortablejs[\\/]/,
                             priority: 10,
                             reuseExistingChunk: true,
-                            enforce: true
+                            enforce: true,
                         },
                         vendors: {
                             name: 'vendors',
                             test: /[\\/]node_modules[\\/]/,
                             priority: 0,
                             reuseExistingChunk: true,
-                            enforce: true
-                        }
-                    }
+                            enforce: true,
+                        },
+                    },
                 },
                 runtimeChunk: {
-                    name: (entryPoint) => `${entryPoint.name}`
-                }
+                    name: (entryPoint) => `${entryPoint.name}`,
+                },
             };
         }
     },
@@ -273,7 +295,9 @@ module.exports = {
          * 提取 CSS 在开发环境模式下是默认不开启的，因为它和 CSS 热重载不兼容。
          * 然而，你仍然可以将这个值显性地设置为 true 在所有情况下都强制提取。
          */
-        extract: IS_PRODUCTION,
+        extract: {
+            filename: 'static/css/[name].[hash:8].css', //在lib文件夹中建立style文件夹中，生成对应的css文件。
+        },
         /**
          * Type: boolean
          * Default: false
@@ -287,7 +311,7 @@ module.exports = {
          *
          * 向 CSS 相关的 loader 传递选项。例如：
          */
-        loaderOptions: {}
+        loaderOptions: {},
     },
 
     devServer: {
@@ -297,7 +321,7 @@ module.exports = {
         https: false,
         hotOnly: true,
         // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
-        proxy: null
+        proxy: null,
     },
 
     /**
@@ -313,5 +337,5 @@ module.exports = {
     pwa: {},
 
     // 可以用来传递任何第三方插件选项
-    pluginOptions: {}
+    pluginOptions: {},
 };
