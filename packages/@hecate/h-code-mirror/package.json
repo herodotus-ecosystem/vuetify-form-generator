@@ -4,12 +4,15 @@
     "author": "Felix <pointer_v@qq.com>",
     "license": "MIT",
     "private": false,
-    "main": "dist/index.js",
+    "main": "dist/index.umd.js",
     "module": "src/index.js",
+    "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",
-        "build": "vue-cli-service build --target lib ./src/index.js",
-        "clean": "rimraf dist"
+        "clean": "rimraf dist",
+        "build": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
+        "transpile": "vue-cli-service build --target lib ./src/index.js",
+        "dev": "yarn build"
     },
     "dependencies": {
         "csslint": "^1.0.5",

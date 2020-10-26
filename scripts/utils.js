@@ -44,9 +44,4 @@ function getEntries(folders, regex) {
     return entries;
 }
 
-module.exports = {
-    path,
-    resolve,
-    getFiles,
-    getEntries,
-};
+module.exports = { path, resolve, getFiles, getEntries };

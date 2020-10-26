@@ -20,12 +20,14 @@ const { rollups } = require('../../../scripts');
  */
 const configs = {
     types: ['umd', 'iife'],
+    globals: {
+        '@hecate/h-button': 'HButton',
+        '@hecate/h-code-mirror': 'HCodeMirror',
+    },
     external: [
         // 不被打包的库，比如在项目中会被引入
-        'debounce',
-        'markdown-it',
-        'match-all',
-        'property-expr',
+        '@hecate/h-button',
+        '@hecate/h-code-mirror',
     ],
 };
 

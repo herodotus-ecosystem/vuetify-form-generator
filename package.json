@@ -2,8 +2,12 @@
     "name": "root",
     "private": true,
     "workspaces": [
-        "packages/@hecate/*",
-        "packages/*"
+        "packages/@hecate/core",
+        "packages/@hecate/h-button",
+        "packages/@hecate/h-code-mirror",
+        "packages/@hecate/h-code-editor",
+        "packages/@hecate/form-renderer",
+        "packages/@hecate/form-generator"
     ],
     "scripts": {
         "start": "yarn workspaces run start",

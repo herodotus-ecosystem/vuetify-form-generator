@@ -18,15 +18,9 @@ const { rollups } = require('../../../scripts');
  *   },
  * };
  */
+
 const configs = {
     types: ['umd', 'iife'],
-    external: [
-        // 不被打包的库，比如在项目中会被引入
-        'debounce',
-        'markdown-it',
-        'match-all',
-        'property-expr',
-    ],
 };
 
 const entries = (() => {
