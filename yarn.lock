@@ -13898,10 +13898,10 @@ vue-loader@^15.9.2, vue-loader@^15.9.3:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@^3.4.7:
-  version "3.4.7"
-  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.4.7.tgz?cache=0&sync_timestamp=1602838656586&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-router%2Fdownload%2Fvue-router-3.4.7.tgz#bf189bafd16f4e4ef783c4a6250a3090f2c1fa1b"
-  integrity sha1-vxibr9FvTk73g8SmJQowkPLB+hs=
+vue-router@^3.4.8:
+  version "3.4.8"
+  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.4.8.tgz#2c06261d35d8075893470352d42d70b6287b8194"
+  integrity sha1-LAYmHTXYB1iTRwNS1C1wtih7gZQ=
 
 vue-runtime-helpers@^1.1.2:
   version "1.1.2"
@@ -13991,7 +13991,7 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.npm.taobao.org/webidl-conversions/download/webidl-conversions-4.0.2.tgz?cache=0&sync_timestamp=1587140219948&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebidl-conversions%2Fdownload%2Fwebidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha1-qFWYCx8LazWbodXZ+zmulB+qY60=
 
-webpack-bundle-analyzer@^3.8.0:
+webpack-bundle-analyzer@^3.8.0, webpack-bundle-analyzer@^3.9.0:
   version "3.9.0"
   resolved "https://registry.npm.taobao.org/webpack-bundle-analyzer/download/webpack-bundle-analyzer-3.9.0.tgz#f6f94db108fb574e415ad313de41a2707d33ef3c"
   integrity sha1-9vlNsQj7V05BWtMT3kGicH0z7zw=

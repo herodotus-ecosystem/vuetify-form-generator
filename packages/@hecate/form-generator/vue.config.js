@@ -1,3 +1,5 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const path = require('path');
 const resolve = (dir) => path.join(__dirname, dir);
 
@@ -101,7 +103,150 @@ module.exports = {
         config.resolve.alias.set('@', resolve('src'));
     },
 
-    configureWebpack: (config) => {},
+    configureWebpack: (config) => {
+        if (process.env.IS_ANALYZE) {
+            config.plugins.push(new BundleAnalyzerPlugin());
+        }
+
+        if (IS_PRODUCTION) {
+            config.optimization = {
+                splitChunks: {
+                    chunks: 'all',
+                    cacheGroups: {
+                        vue: {
+                            name: 'vue',
+                            test: /[\\/]node_modules[\\/]vue[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        vuetify: {
+                            name: 'vuetify',
+                            test: /[\\/]node_modules[\\/]vuetify[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        'vue-router': {
+                            name: 'vue-router',
+                            test: /[\\/]node_modules[\\/]vue-router[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        codemirror: {
+                            name: 'codemirror',
+                            test: /[\\/]node_modules[\\/]codemirror[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        vuedraggable: {
+                            name: 'vuedraggable',
+                            test: /[\\/]node_modules[\\/]vuedraggable[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        jshint: {
+                            name: 'jshint',
+                            test: /[\\/]node_modules[\\/]jshint[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        htmlhint: {
+                            name: 'htmlhint',
+                            test: /[\\/]node_modules[\\/]htmlhint[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        jsonlint: {
+                            name: 'jsonlint',
+                            test: /[\\/]node_modules[\\/]jsonlint[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        csslint: {
+                            name: 'csslint',
+                            test: /[\\/]node_modules[\\/]csslint[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        'babel-polyfill': {
+                            name: 'babel-polyfill',
+                            test: /[\\/]node_modules[\\/]babel-polyfill[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        localforage: {
+                            name: 'localforage',
+                            test: /[\\/]node_modules[\\/]localforage[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        lodash: {
+                            name: 'lodash',
+                            test: /[\\/]node_modules[\\/]lodash[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        moment: {
+                            name: 'moment',
+                            test: /[\\/]node_modules[\\/]moment[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        shortid: {
+                            name: 'shortid',
+                            test: /[\\/]node_modules[\\/]shortid[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        sweetalert2: {
+                            name: 'sweetalert2',
+                            test: /[\\/]node_modules[\\/]sweetalert2[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        parserlib: {
+                            name: 'parserlib',
+                            test: /[\\/]node_modules[\\/]parserlib[\\/]/,
+                            priority: 10,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        sortablejs: {
+                            name: 'parserlib',
+                            test: /[\\/]node_modules[\\/]sortablejs[\\/]/,
+                            priority: 10,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        },
+                        vendors: {
+                            name: 'vendors',
+                            test: /[\\/]node_modules[\\/]/,
+                            priority: 0,
+                            reuseExistingChunk: true,
+                            enforce: true
+                        }
+                    }
+                },
+                runtimeChunk: {
+                    name: (entryPoint) => `${entryPoint.name}`
+                }
+            };
+        }
+    },
 
     css: {
         /**
