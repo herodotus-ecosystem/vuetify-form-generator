@@ -59,6 +59,7 @@ export default {
             handler(newValue, oldValue) {
                 this.isSelected = this.schema.configs.renderKey === newValue;
             },
+            immediate: true,
         },
     },
 

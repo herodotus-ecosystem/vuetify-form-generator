@@ -5,15 +5,7 @@
                 {{ tabs[0].name }}
                 <v-tooltip bottom>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                            icon
-                            class="ml-5"
-                            v-bind="attrs"
-                            v-on="on"
-                            tag="a"
-                            target="_blank"
-                            :href="document"
-                        >
+                        <v-btn icon class="ml-5" v-bind="attrs" v-on="on" tag="a" target="_blank" :href="document">
                             <v-icon>mdi-file-replace</v-icon>
                         </v-btn>
                     </template>
@@ -42,7 +34,7 @@
                                 />
                                 <!-- <v-text-field v-if="schema.label" v-model="schema.label" outlined dense label="标题" placeholder="请输入标题" /> -->
                                 <v-divider></v-divider>
-                                <component :is="currentPanel" :element="element"></component>
+                                <component :is="currentPanel" v-model="element"></component>
                             </v-card>
                         </v-col>
                     </v-row>
