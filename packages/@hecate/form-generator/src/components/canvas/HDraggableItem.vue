@@ -2,15 +2,15 @@
     <v-hover v-slot:default="{ hover }">
         <v-card
             :elevation="hover ? 12 : 2"
-            :class="['ma-2', isActive && !hover ? 'canvas-item-selected' : 'canvas-item-body']"
+            :class="['ma-2', isSelected && !hover ? 'canvas-item-selected' : 'canvas-item-body']"
             dense
-            @click="canvasItemActive"
+            @click="canvasItemSelect"
         >
             <v-list-item>
                 <v-list-item-content>
                     <h-form-renderer v-model="model" :schema="schema" />
                 </v-list-item-content>
-                <v-list-item-action v-if="isActive" class="justify-start">
+                <v-list-item-action v-if="isSelected" class="justify-start">
                     <v-btn x-small icon @click.stop="canvasItemCopy">
                         <v-icon color="primary">mdi-content-duplicate</v-icon>
                     </v-btn>
@@ -38,7 +38,7 @@ export default {
             type: Object,
             default: () => {},
         },
-        activeItemId: [String, Number],
+        selectedItemId: [String, Number],
     },
 
     computed: {
@@ -51,21 +51,21 @@ export default {
 
     data: () => ({
         model: {},
-        isActive: false,
+        isSelected: false,
     }),
 
     watch: {
-        activeItemId: {
+        selectedItemId: {
             handler(newValue, oldValue) {
-                this.isActive = this.schema.configs.renderKey === newValue;
+                this.isSelected = this.schema.configs.renderKey === newValue;
             },
         },
     },
 
     methods: {
-        canvasItemActive() {
-            this.isActive = true;
-            this.$emit('active', this.schema);
+        canvasItemSelect() {
+            this.isSelected = true;
+            this.$emit('select', this.schema);
         },
         canvasItemCopy() {
             this.$emit('copy', this.schema);

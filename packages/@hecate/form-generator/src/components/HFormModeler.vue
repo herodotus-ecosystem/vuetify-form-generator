@@ -78,7 +78,7 @@
         </v-app-bar>
 
         <v-navigation-drawer clipped app right width="360px">
-            <h-property-panel :active-canvas-item-data="activeCanvasItemData"></h-property-panel>
+            <h-property-panel :selected-canvas-item-data="selectedCanvasItemData"></h-property-panel>
         </v-navigation-drawer>
         <v-main>
             <h-canvas-container>
@@ -96,11 +96,10 @@
                         v-for="item in drawingCanvas"
                         :key="item.renderKey"
                         :schema="item"
-                        :active-item-id="activeCanvasItemId"
-                        @active="activeCanvasItem"
+                        :selected-item-id="selectedCanvasItemId"
+                        @select="selectCanvasItem"
                         @copy="copyCanvasItem"
                         @delete="deleteCanvasItem"
-                        @hover="hoverCanvasItem"
                     />
                 </draggable>
                 <draggable v-else :animation="300" group="componentsGroup">
@@ -146,8 +145,8 @@ export default {
     data: () => ({
         components: leftPanelComponents,
         drawingCanvas: [],
-        activeCanvasItemId: '',
-        activeCanvasItemData: {},
+        selectedCanvasItemId: '',
+        selectedCanvasItemData: {},
         saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
         codeDialog: false,
     }),
@@ -160,7 +159,7 @@ export default {
         let drawingCanvasInDB = DB.getDrawingCanvas();
         if (Array.isArray(drawingCanvasInDB) && drawingCanvasInDB.length > 0) {
             this.drawingCanvas = drawingCanvasInDB;
-            this.activeCanvasItem(this.drawingCanvas[0]);
+            this.selectCanvasItem(this.drawingCanvas[0]);
         }
     },
 
@@ -176,7 +175,7 @@ export default {
     methods: {
         initModeler() {
             if (this.drawingCanvas.length !== 0) {
-                this.activeCanvasItemData = this.drawingCanvas[0];
+                this.selectedCanvasItemData = this.drawingCanvas[0];
             }
         },
         changeDrawingCanvas(dataObject) {
@@ -193,16 +192,16 @@ export default {
 
         onChange(object) {
             if (object.added) {
-                this.activeCanvasItem(object.added.element);
+                this.selectCanvasItem(object.added.element);
             }
         },
 
         /**
          * 点击Modeler中的Item
          */
-        activeCanvasItem(dataObject) {
-            this.activeCanvasItemData = dataObject;
-            this.activeCanvasItemId = dataObject.configs.renderKey;
+        selectCanvasItem(dataObject) {
+            this.selectedCanvasItemData = dataObject;
+            this.selectedCanvasItemId = dataObject.configs.renderKey;
         },
 
         copyCanvasItem(element) {
@@ -219,14 +218,9 @@ export default {
                 this.drawingCanvas = result;
                 const size = this.drawingCanvas.length;
                 if (size) {
-                    this.activeCanvasItem(this.drawingCanvas[size - 1]);
+                    this.selectCanvasItem(this.drawingCanvas[size - 1]);
                 }
             });
-        },
-
-        hoverCanvasItem(dataObject) {
-            console.log('hoverCanvasItem');
-            // this.activeCanvasItem(dataObject);
         },
 
         getCanvasItemModels() {

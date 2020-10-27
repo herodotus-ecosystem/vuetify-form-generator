@@ -69,7 +69,7 @@ export default {
     },
 
     props: {
-        activeCanvasItemData: {
+        selectedCanvasItemData: {
             type: Object,
             default: () => {},
         },
@@ -91,11 +91,10 @@ export default {
 
     mounted() {
         this.initItemData();
-        console.log(this.schema);
     },
 
     watch: {
-        activeCanvasItemData: {
+        selectedCanvasItemData: {
             handler(newValue, oldvalue) {
                 this.initItemData();
             },
@@ -104,12 +103,12 @@ export default {
 
     methods: {
         initItemData() {
-            if (this.activeCanvasItemData && this.activeCanvasItemData.configs) {
-                this.currentItemFormId = this.activeCanvasItemData.configs.formId;
-                this.currentPanel = this.activeCanvasItemData.configs.panel;
-                this.schema = this.activeCanvasItemData;
-                this.element = this.activeCanvasItemData.properties[this.currentItemFormId];
-                this.document = this.activeCanvasItemData.configs.document || '#';
+            if (this.selectedCanvasItemData && this.selectedCanvasItemData.configs) {
+                this.currentItemFormId = this.selectedCanvasItemData.configs.formId;
+                this.currentPanel = this.selectedCanvasItemData.configs.panel;
+                this.schema = this.selectedCanvasItemData;
+                this.element = this.selectedCanvasItemData.properties[this.currentItemFormId];
+                this.document = this.selectedCanvasItemData.configs.document || '#';
             }
         },
 
