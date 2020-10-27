@@ -4877,10 +4877,10 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.43.0 < 2"
 
-compression-webpack-plugin@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.npm.taobao.org/compression-webpack-plugin/download/compression-webpack-plugin-6.0.3.tgz?cache=0&sync_timestamp=1602257594860&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcompression-webpack-plugin%2Fdownload%2Fcompression-webpack-plugin-6.0.3.tgz#d0d3e913810e3bf67462e1cecd794b3109af89de"
-  integrity sha1-0NPpE4EOO/Z0YuHOzXlLMQmvid4=
+compression-webpack-plugin@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.npm.taobao.org/compression-webpack-plugin/download/compression-webpack-plugin-6.0.4.tgz#524699c0ad4e94cab0eb199c734e291f6ab685b9"
+  integrity sha1-UkaZwK1OlMqw6xmcc04pH2q2hbk=
   dependencies:
     cacache "^15.0.5"
     find-cache-dir "^3.3.1"
@@ -8955,10 +8955,10 @@ linkify-it@^3.0.1:
   dependencies:
     uc.micro "^1.0.1"
 
-lint-staged@^10.4.2:
-  version "10.4.2"
-  resolved "https://registry.npm.taobao.org/lint-staged/download/lint-staged-10.4.2.tgz?cache=0&sync_timestamp=1602914495939&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flint-staged%2Fdownload%2Flint-staged-10.4.2.tgz#9fee4635c4b5ddb845746f237c6d43494ccd21c1"
-  integrity sha1-n+5GNcS13bhFdG8jfG1DSUzNIcE=
+lint-staged@^10.5.0:
+  version "10.5.0"
+  resolved "https://registry.npm.taobao.org/lint-staged/download/lint-staged-10.5.0.tgz#c923c2447a84c595874f3de696778736227e7a7a"
+  integrity sha1-ySPCRHqExZWHTz3mlneHNiJ+eno=
   dependencies:
     chalk "^4.1.0"
     cli-truncate "^2.1.0"

@@ -48,6 +48,10 @@ $lighterBlue: #1867c0;
     .v-card {
         border: 1px dashed #999 !important;
     }
+    .canvas-item-selected {
+        border: 1px dashed #1565c0 !important;
+        background: #e3f2fd;
+    }
 }
 
 .canvas-item-body {

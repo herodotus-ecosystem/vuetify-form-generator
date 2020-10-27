@@ -140,7 +140,7 @@ export default {
         HCanvasContainer,
         HDraggableItem,
         HPropertyPanel,
-        HCodeEditor
+        HCodeEditor,
     },
 
     data: () => ({
@@ -149,7 +149,7 @@ export default {
         activeCanvasItemId: '',
         activeCanvasItemData: {},
         saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
-        codeDialog: false
+        codeDialog: false,
     }),
 
     created() {
@@ -169,8 +169,8 @@ export default {
             handler(newValue, oldValue) {
                 this.saveDrawingCanvasDebounce(newValue);
             },
-            deep: true
-        }
+            deep: true,
+        },
     },
 
     methods: {
@@ -202,6 +202,7 @@ export default {
          */
         activeCanvasItem(dataObject) {
             this.activeCanvasItemData = dataObject;
+            this.activeCanvasItemId = dataObject.configs.renderKey;
         },
 
         copyCanvasItem(element) {
@@ -224,13 +225,14 @@ export default {
         },
 
         hoverCanvasItem(dataObject) {
-            this.activeCanvasItem(dataObject);
+            console.log('hoverCanvasItem');
+            // this.activeCanvasItem(dataObject);
         },
 
         getCanvasItemModels() {
             console.log(Template.create(this.drawingCanvas));
-        }
-    }
+        },
+    },
 };
 </script>
 

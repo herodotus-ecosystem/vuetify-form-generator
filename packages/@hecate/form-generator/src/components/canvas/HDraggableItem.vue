@@ -1,17 +1,16 @@
 <template>
     <v-hover v-slot:default="{ hover }">
         <v-card
-            :elevation="isHover(hover)"
-            class="ma-2 canvas-item-body"
+            :elevation="hover ? 12 : 2"
+            :class="['ma-2', isActive && !hover ? 'canvas-item-selected' : 'canvas-item-body']"
             dense
             @click="canvasItemActive"
-            @mouseenter="canvasItemHover"
         >
             <v-list-item>
                 <v-list-item-content>
                     <h-form-renderer v-model="model" :schema="schema" />
                 </v-list-item-content>
-                <v-list-item-action v-if="hover" class="justify-start">
+                <v-list-item-action v-if="isActive" class="justify-start">
                     <v-btn x-small icon @click.stop="canvasItemCopy">
                         <v-icon color="primary">mdi-content-duplicate</v-icon>
                     </v-btn>
@@ -39,7 +38,7 @@ export default {
             type: Object,
             default: () => {},
         },
-        activeItemId: String,
+        activeItemId: [String, Number],
     },
 
     computed: {
@@ -52,10 +51,20 @@ export default {
 
     data: () => ({
         model: {},
+        isActive: false,
     }),
+
+    watch: {
+        activeItemId: {
+            handler(newValue, oldValue) {
+                this.isActive = this.schema.configs.renderKey === newValue;
+            },
+        },
+    },
 
     methods: {
         canvasItemActive() {
+            this.isActive = true;
             this.$emit('active', this.schema);
         },
         canvasItemCopy() {
@@ -63,9 +72,6 @@ export default {
         },
         canvasItemDelete() {
             this.$emit('delete', this.schema.configs.formId);
-        },
-        canvasItemHover() {
-            this.$emit('hover', this.schema);
         },
     },
 };
