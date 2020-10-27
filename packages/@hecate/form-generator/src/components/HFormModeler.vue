@@ -46,7 +46,12 @@
                 </template>
                 <span>运行</span>
             </v-tooltip>
-            <v-dialog v-model="codeDialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+            <v-dialog
+                v-model="codeDialog"
+                fullscreen
+                hide-overlay
+                transition="dialog-bottom-transition"
+            >
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn large dark icon v-bind="attrs" v-on="on">
                         <v-icon>mdi-language-javascript</v-icon>
@@ -78,7 +83,9 @@
         </v-app-bar>
 
         <v-navigation-drawer clipped app right width="360px">
-            <h-property-panel :selected-canvas-item-data="selectedCanvasItemData"></h-property-panel>
+            <h-property-panel
+                :selected-canvas-item-data="selectedCanvasItemData"
+            ></h-property-panel>
         </v-navigation-drawer>
         <v-main>
             <h-canvas-container>

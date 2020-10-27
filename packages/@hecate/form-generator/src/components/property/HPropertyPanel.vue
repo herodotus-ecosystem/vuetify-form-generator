@@ -5,7 +5,15 @@
                 {{ tabs[0].name }}
                 <v-tooltip bottom>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon class="ml-5" v-bind="attrs" v-on="on" tag="a" target="_blank" :href="document">
+                        <v-btn
+                            icon
+                            class="ml-5"
+                            v-bind="attrs"
+                            v-on="on"
+                            tag="a"
+                            target="_blank"
+                            :href="document"
+                        >
                             <v-icon>mdi-file-replace</v-icon>
                         </v-btn>
                     </template>
