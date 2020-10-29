@@ -33,7 +33,7 @@
                                     @change="modifyFormId"
                                 />
                                 <!-- <v-text-field v-if="schema.label" v-model="schema.label" outlined dense label="标题" placeholder="请输入标题" /> -->
-                                <v-divider></v-divider>
+                                <v-divider class="mb-3"></v-divider>
                                 <component :is="currentPanel" v-model="element"></component>
                             </v-card>
                         </v-col>
