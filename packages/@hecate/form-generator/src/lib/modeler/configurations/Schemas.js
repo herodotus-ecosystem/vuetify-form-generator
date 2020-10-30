@@ -8,6 +8,7 @@ const definitions = {
             'x-props': {
                 outlined: true,
                 'hide-details': true,
+                type: 'text',
             },
         },
     },
@@ -20,10 +21,29 @@ const definitions = {
             'x-props': {
                 outlined: true,
                 'hide-details': true,
+                type: 'text',
             },
             'x-display': 'textarea',
         },
     },
+    SLIDER: {
+        index: 'SLIDER',
+        schema: {
+            type: 'integer',
+            title: '滑块',
+            tag: 'v-slider',
+            'x-props': {
+                'hide-details': true,
+                min: 0,
+                max: 5,
+                step: 1,
+                'thumb-size': 32,
+                'tick-size': 2,
+            },
+            'x-display': 'slider',
+        },
+    },
+
     SINGLE_SELECT: {
         index: 'SINGLE_SELECT',
         schema: {

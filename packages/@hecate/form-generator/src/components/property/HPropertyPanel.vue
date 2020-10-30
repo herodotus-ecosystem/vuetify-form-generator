@@ -61,6 +61,7 @@
 <script>
 import HTextFieldPanel from '@/components/property/panels/HTextFieldPanel';
 import HTextAreaPanel from '@/components/property/panels/HTextAreaPanel';
+import HSliderPanel from '@/components/property/panels/HSliderPanel';
 import { constants } from '@/lib/modeler/configurations';
 export default {
     name: 'HPropertyPanel',
@@ -68,6 +69,7 @@ export default {
     components: {
         TEXT_FIELD: HTextFieldPanel,
         TEXT_AREA: HTextAreaPanel,
+        SLIDER: HSliderPanel,
     },
 
     props: {

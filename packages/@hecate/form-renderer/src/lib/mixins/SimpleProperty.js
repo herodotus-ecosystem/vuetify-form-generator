@@ -35,11 +35,11 @@ export default {
                 ) {
                     tag = 'v-textarea';
                     Object.assign(props, this.fullOptions.textareaProps);
-                    domProps.class = 'v-text-field--box v-text-field--enclosed';
+                    // domProps.class = 'v-text-field--box v-text-field--enclosed'; // by Gengwei.zheng
                 } else {
                     tag = 'v-text-field';
                     Object.assign(props, this.fullOptions.textFieldProps);
-                    if (this.display === 'password') props.type = 'password';
+                    // if (this.display === 'password') props.type = 'password';  // by Gengwei.zheng
                 }
             }
 

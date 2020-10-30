@@ -47,6 +47,7 @@ export default {
             handler(newValue, oldValue) {
                 this.selectedValue = newValue;
             },
+            immediate: true,
         },
         selectedValue: {
             handler(newValue, oldValue) {

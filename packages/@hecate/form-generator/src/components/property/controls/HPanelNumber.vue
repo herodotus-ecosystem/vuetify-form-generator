@@ -1,7 +1,18 @@
 <template>
-    <v-list-item dense class="pa-1">
+    <v-list-item dense class="pa-0">
         <v-list-item-content>
-            <v-text-field v-model="color" :label="label" outlined dense hide-details type="color"></v-text-field>
+            <v-text-field
+                v-model="numberValue"
+                :label="label"
+                :min="min"
+                :max="max"
+                :step="step"
+                outlined
+                dense
+                hide-details
+                type="number"
+                class="ml-1 pr-2"
+            ></v-text-field>
         </v-list-item-content>
         <v-list-item-action v-if="tooltip">
             <v-tooltip left max-width="200px">
@@ -16,45 +27,33 @@
 
 <script>
 export default {
-    name: 'HPanelColor',
-
+    name: 'HPanelNumber',
     props: {
-        value: { type: String },
+        value: [Number, String],
         label: String,
         tooltip: String,
+        disabled: { type: Boolean, default: false },
+        min: { type: [Number, String], default: 0 },
+        max: { type: [Number, String], default: 10 },
+        step: { type: [Number, String], default: 1 },
     },
 
     data: () => ({
-        color: '',
+        numberValue: null,
     }),
 
     watch: {
         value: {
             handler(newValue, oldValue) {
-                this.color = newValue;
+                this.numberValue = newValue;
             },
             immediate: true,
         },
-        color: {
+        numberValue: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
             },
         },
     },
-
-    mounted: function () {
-        console.log(this.$attrs);
-    },
 };
 </script>
-
-<style lang="scss">
-.v-text-field input {
-    flex: 1 1 auto;
-    line-height: 20px;
-    padding: 0px 0 0px;
-    max-width: 100%;
-    min-width: 0px;
-    width: 100%;
-}
-</style>

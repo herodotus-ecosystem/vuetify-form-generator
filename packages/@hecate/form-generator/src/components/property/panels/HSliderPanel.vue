@@ -3,72 +3,67 @@
         <h-expansion-panel index="appearance" header="外观">
             <h-panel-switch v-model="properties.dense" label="Dense : 紧凑显示"> </h-panel-switch>
             <h-panel-switch
-                v-model="properties.filled"
-                label="Filled : 使用填充样式"
-                :disabled="properties.outlined || properties.solo"
-            ></h-panel-switch>
-            <h-panel-switch
-                v-model="properties.flat"
-                label="Flat : 移除阴影"
-                tooltip="当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）"
-            ></h-panel-switch>
-            <h-panel-switch
-                v-model="properties[constants.tags.FullWidth]"
-                label="Full Width : 全宽度"
-                tooltip="指定输入类型为全宽度"
-            ></h-panel-switch>
-            <h-panel-switch
                 v-model="properties[constants.tags.HideDetails]"
                 label="Hide Details : 隐藏细节区域"
             ></h-panel-switch>
-            <h-panel-switch v-model="properties.outlined" label="Outlined : 显示轮廓"></h-panel-switch>
             <h-panel-switch
-                v-model="properties.rounded"
-                label="Rounded : 椭圆边框"
-                :disabled="!properties.filled && !properties.outlined && !properties.solo"
-                dense
-                :class="constants.class.switch"
-                tooltip="向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项"
+                v-model="properties[constants.tags.InverseLabel]"
+                label="Inverse Label : 反转标签位置"
+                tooltip="使用 rtl 反转标签位置"
             ></h-panel-switch>
             <h-panel-switch
-                v-model="properties.shaped"
-                label="Shaped : 圆角边框"
-                tooltip="如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用"
-                :disabled="!properties.outlined && !properties.filled && !properties.solo"
+                v-model="properties.vertical"
+                label="Vertical : 反转标签位置"
+                tooltip="使用 rtl 反转标签位置"
             ></h-panel-switch>
-            <h-panel-switch
-                v-model="properties[constants.tags.SingleLine]"
-                label="Single Line : 标题不移动"
-                tooltip="标签在 focus/dirty 上不移动"
-            ></h-panel-switch>
-            <h-panel-switch v-model="properties.solo" label="Solo : 凸起样式" :disabled="properties.filled">
-            </h-panel-switch>
-            <h-panel-switch
-                v-model="properties[constants.tags.SoloInverted]"
-                label="Solo Inverted : 单反"
-                tooltip="减少元素的不透明度，知道获得焦点"
-            ></h-panel-switch
-        ></h-expansion-panel>
+        </h-expansion-panel>
+        <h-expansion-panel index="thumb" header="缩略图标签">
+            <h-panel-color
+                v-model="properties[constants.tags.ThumbColor]"
+                label="Thumb Color : 缩略图颜色"
+                tooltip="设置缩略图和缩略图标签颜色"
+            ></h-panel-color>
+            <h-panel-switch-text-field
+                v-model="properties[constants.tags.ThumbLabel]"
+                label="Thumb Label : 缩略图标签"
+                tooltip="显示缩略图标签。如果 true，使用滑块时将显示缩略图标签。如果设置为 'always' ，它总是显示缩略图标签"
+            ></h-panel-switch-text-field>
+            <h-panel-number
+                v-model="properties[constants.tags.ThumbSize]"
+                label="Thumb Size : 缩略图大小"
+                min="1"
+                max="100"
+                step="1"
+            ></h-panel-number>
+        </h-expansion-panel>
+        <h-expansion-panel index="tick" header="刻度线">
+            <h-panel-color
+                v-model="properties[constants.tags.ThumbColor]"
+                label="Thumb Color : 缩略图颜色"
+                tooltip="设置缩略图和缩略图标签颜色"
+            ></h-panel-color>
+            <h-panel-switch-text-field
+                v-model="properties.ticks"
+                label="Ticks : 刻度线"
+                tooltip="显示刻度线。如果 true，使用滑块时将显示刻度线。如果设置为 'always' ，它总是显示刻度线。"
+            ></h-panel-switch-text-field>
+            <h-panel-number
+                v-model="properties[constants.tags.TickSize]"
+                label="Tick Size : 刻度线大小"
+                min="1"
+                max="100"
+                step="1"
+            ></h-panel-number>
+        </h-expansion-panel>
 
         <h-expansion-panel index="control" header="控制">
-            <h-panel-switch
-                v-model="properties[constants.tags.AutoGrow]"
-                label="Auto Grow : 自动增长"
-                tooltip="根据文本数量自动增长文本"
-            ></h-panel-switch>
-            <h-panel-switch v-model="properties.autofocus" label="Auto Focus : 启用自动聚焦"></h-panel-switch>
             <h-panel-switch v-model="properties.disabled" label="Disabled : 禁用输入"> </h-panel-switch>
             <h-panel-switch
                 v-model="properties.loading"
                 label="Loading : 加载状态"
                 tooltip="显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。"
             ></h-panel-switch>
-            <h-panel-switch
-                v-model="properties[constants.tags.NoResize]"
-                label="No Resize : 移除调整大小的句柄"
-            ></h-panel-switch>
             <h-panel-switch v-model="properties.readonly" label="Readonly : 只读状态"></h-panel-switch>
-            <h-panel-switch v-model="properties.reverse" label="Reverse : 反转输入方向"></h-panel-switch>
             <h-panel-switch
                 v-model="properties[constants.tags.ValidateOnBlur]"
                 label="Validate On Blur : 延迟验证"
@@ -83,26 +78,9 @@
                 tooltip="在组件上附加一个图标，使用与 v-icon 相同的语法"
             ></h-panel-icon>
             <h-panel-icon
-                v-model="properties[constants.tags.AppendOuterIcon]"
-                label="Append Outer Icon"
-                tooltip="在组件的外部添加一个图标，使用与 v-icon 相同的语法"
-            ></h-panel-icon>
-            <h-panel-switch v-model="properties.clearable" label="Clearable : 显示清除按钮"> </h-panel-switch>
-            <h-panel-icon
-                v-model="properties[constants.tags.ClearIcon]"
-                label="Clear Icon"
-                tooltip="当使用 clearable 且有输入值时应用"
-                :disabled="!properties.clearable"
-            ></h-panel-icon>
-            <h-panel-icon
                 v-model="properties[constants.tags.PrependIcon]"
                 label="Prepend Icon"
                 tooltip="在组件前添加一个图标，使用与 v-icon 相同的语法"
-            ></h-panel-icon>
-            <h-panel-icon
-                v-model="properties[constants.tags.PrependInnerIcon]"
-                label="Prepend Inner Icon"
-                tooltip="在组件的输入中添加一个图标，使用与 v-icon 相同的语法"
             ></h-panel-icon>
         </h-expansion-panel>
 
@@ -112,12 +90,6 @@
                 label="Persistent Hint : 强制显示提示"
                 tooltip="强制提示总是可见的"
             ></h-panel-switch>
-            <h-panel-select
-                v-model="properties.type"
-                label="Type: 输入类型"
-                tooltip="设置不同的输入类型"
-                :items="typeItems"
-            ></h-panel-select>
         </h-expansion-panel>
 
         <h-expansion-panel index="color" header="色彩">
@@ -133,6 +105,16 @@
             ></h-panel-color>
             <h-panel-switch v-model="properties.dark" label="Dark : 使用深色主题"> </h-panel-switch>
             <h-panel-switch v-model="properties.light" label="Light : 使用浅色主题"></h-panel-switch>
+            <h-panel-color
+                v-model="properties[constants.tags.TrackColor]"
+                label="Track Color : 轨道颜色"
+                tooltip="设置滑块轨道颜色"
+            ></h-panel-color>
+            <h-panel-color
+                v-model="properties[constants.tags.TrackFillColor]"
+                label="Track Fill Color : 轨道填充颜色"
+                tooltip="设置滑块轨道填充颜色"
+            ></h-panel-color>
         </h-expansion-panel>
     </v-expansion-panels>
 </template>
@@ -141,18 +123,21 @@
 import HExpansionPanel from '@/components/property/layouts/HExpansionPanel';
 import HPanelColor from '@/components/property/controls/HPanelColor';
 import HPanelIcon from '@/components/property/controls/HPanelIcon';
-import HPanelSelect from '@/components/property/controls/HPanelSelect';
+import HPanelNumber from '@/components/property/controls/HPanelNumber';
 import HPanelSwitch from '@/components/property/controls/HPanelSwitch';
+import HPanelSwitchTextField from '@/components/property/controls/HPanelSwitchTextField';
+
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
-    name: 'HTextAreaPanel',
+    name: 'HSliderPanel',
     components: {
         HExpansionPanel,
         HPanelColor,
         HPanelIcon,
-        HPanelSelect,
+        HPanelNumber,
         HPanelSwitch,
+        HPanelSwitchTextField,
     },
 
     props: {
@@ -166,15 +151,15 @@ export default {
         constants,
         element: {},
         typeItems: [
-            { value: 'text', text: '文字模式(默认)' },
+            { value: 'text', text: '文字输入模式（默认）' },
             { value: 'password', text: '密码模式' },
             { value: 'number', text: '数字模式' },
-            { value: 'color', text: '颜色模式' },
-            { value: 'datetime-local', text: '日期时间模式' },
-            { value: 'time', text: '时间模式' },
-            { value: 'date', text: '日期模式' },
-            { value: 'week', text: '周模式' },
-            { value: 'month', text: '月模式' },
+            { value: 'color', text: '选择颜色模式' },
+            { value: 'datetime-local', text: '选择日期时间模式' },
+            { value: 'time', text: '选择时间模式' },
+            { value: 'date', text: '选择日期模式' },
+            { value: 'week', text: '选择周模式' },
+            { value: 'month', text: '选择月模式' },
         ],
     }),
 

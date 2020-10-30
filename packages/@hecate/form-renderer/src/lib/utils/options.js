@@ -9,7 +9,7 @@ export const defaultOptions = {
     childrenClass: 'pr-2',
     fieldProps: {},
     textFieldProps: {},
-    textareaProps: { filled: true },
+    textareaProps: {},
     numberProps: {},
     sliderProps: {},
     checkboxProps: {},

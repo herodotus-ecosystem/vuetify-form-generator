@@ -27,6 +27,15 @@ const inputComponents = [
 const selectComponents = [
     {
         configs: {
+            title: definitions.SLIDER.schema.title,
+            icon: 'mdi-tune-variant',
+            name: 'Slider',
+            document: 'https://vuetifyjs.com/zh-Hans/components/textarea/',
+            schema: definitions.SLIDER.index,
+        },
+    },
+    {
+        configs: {
             title: definitions.SINGLE_SELECT.schema.title,
             icon: 'mdi-form-dropdown',
             name: 'Select',
