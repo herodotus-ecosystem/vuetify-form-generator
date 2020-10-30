@@ -2,13 +2,13 @@
     <v-list-item dense class="pa-1">
         <v-list-item-content>
             <v-list-item-title v-if="label">{{ label }}</v-list-item-title>
-            <h-icon-list v-model="icon" dense></h-icon-list>
+            <h-icon-list v-model="icon" dense :disabled="disabled"></h-icon-list>
         </v-list-item-content>
         <v-list-item-action v-if="tooltip">
             <v-tooltip left max-width="200px">
                 <template v-slot:activator="{ on, attrs }">
-                    <v-icon color="grey lighten-1" dark v-bind="attrs" v-on="on" :class="[label ? 'pt-3' : '']"
-                        >mdi-information</v-icon
+                    <v-icon color="grey lighten-1" dark v-bind="attrs" v-on="on" :class="[label ? 'pt-3' : '']">
+                        mdi-information</v-icon
                     >
                 </template>
                 <span>{{ tooltip }}</span>
@@ -28,9 +28,10 @@ export default {
     },
 
     props: {
-        value: String,
+        value: { type: String },
         label: String,
         tooltip: String,
+        disabled: { type: Boolean, default: false },
     },
 
     data: () => ({

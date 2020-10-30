@@ -1,17 +1,7 @@
 <template>
-    <v-list-item dense class="pa-0">
+    <v-list-item dense class="pa-1">
         <v-list-item-content>
-            <v-select
-                v-model="selectedValue"
-                :items="items"
-                :label="label"
-                outlined
-                dense
-                hide-details
-                clearable
-                no-data-text="空"
-                class="ml-1 pr-2"
-            ></v-select>
+            <v-text-field v-model="color" :label="label" outlined dense hide-details type="color"></v-text-field>
         </v-list-item-content>
         <v-list-item-action v-if="tooltip">
             <v-tooltip left max-width="200px">
@@ -26,29 +16,25 @@
 
 <script>
 export default {
-    name: 'HPanelSelect',
+    name: 'HPanelColor',
+
     props: {
-        value: { required: true },
+        value: { type: String },
         label: String,
         tooltip: String,
-        disabled: { type: Boolean, default: false },
-        items: {
-            type: Array,
-            default: () => [],
-        },
     },
 
     data: () => ({
-        selectedValue: '',
+        color: '',
     }),
 
     watch: {
         value: {
             handler(newValue, oldValue) {
-                this.selectedValue = newValue;
+                this.icon = newValue;
             },
         },
-        selectedValue: {
+        color: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
             },
@@ -56,3 +42,14 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+.v-text-field input {
+    flex: 1 1 auto;
+    line-height: 20px;
+    padding: 0px 0 0px;
+    max-width: 100%;
+    min-width: 0px;
+    width: 100%;
+}
+</style>

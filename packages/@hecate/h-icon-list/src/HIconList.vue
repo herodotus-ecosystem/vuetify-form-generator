@@ -11,14 +11,15 @@
             <v-text-field
                 v-model="search"
                 :dense="dense"
-                hide-details
                 :loading="!icons"
+                :disabled="disabled"
+                hide-details
                 clearable
                 outlined
-                placeholder="搜索图标 (e.g. account, close)"
+                placeholder="搜索图标 (e.g. account)"
                 v-bind="attrs"
-                @click:clear="reset"
                 v-on="on"
+                @click:clear="reset"
             >
                 <template #prepend-inner>
                     <v-icon v-if="isSelected" color="primary"> mdi-{{ search }} </v-icon>
@@ -63,6 +64,10 @@ export default {
     props: {
         value: String,
         dense: {
+            type: Boolean,
+            default: false,
+        },
+        disabled: {
             type: Boolean,
             default: false,
         },
