@@ -175,7 +175,6 @@ export default {
     data: () => ({
         constants,
         element: {},
-        color: '',
         typeItems: [
             { value: 'text', text: '文字输入模式（默认）' },
             { value: 'password', text: '密码模式' },
@@ -206,9 +205,6 @@ export default {
                 this.$emit('input', newValue);
             },
         },
-    },
-    methods: {
-        onInputString(value) {},
     },
 };
 </script>

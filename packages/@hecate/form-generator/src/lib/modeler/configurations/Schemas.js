@@ -17,10 +17,11 @@ const definitions = {
             type: 'string',
             title: '多行文本',
             tag: 'v-textarea',
-            properties: {
+            'x-props': {
                 outlined: true,
                 'hide-details': true,
             },
+            'x-display': 'textarea',
         },
     },
     SINGLE_SELECT: {

@@ -23,8 +23,9 @@ const constants = {
         AlignContent: 'align-content',
         AppendIcon: 'append-icon',
         AppendOuterIcon: 'append-outer-icon',
-        BackgroundColor: 'background-color',
         AutoGrow: 'auto-grow',
+        BackgroundColor: 'background-color',
+
         ClearIcon: 'clear-icon',
         FullWidth: 'full-width',
         HideDetails: 'hide-details',

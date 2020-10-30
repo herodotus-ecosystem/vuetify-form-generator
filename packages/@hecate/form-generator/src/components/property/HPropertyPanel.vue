@@ -60,12 +60,14 @@
 
 <script>
 import HTextFieldPanel from '@/components/property/panels/HTextFieldPanel';
+import HTextAreaPanel from '@/components/property/panels/HTextAreaPanel';
 import { constants } from '@/lib/modeler/configurations';
 export default {
     name: 'HPropertyPanel',
 
     components: {
         TEXT_FIELD: HTextFieldPanel,
+        TEXT_AREA: HTextAreaPanel,
     },
 
     props: {
