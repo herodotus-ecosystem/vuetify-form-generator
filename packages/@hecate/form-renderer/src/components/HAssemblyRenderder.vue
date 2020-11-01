@@ -216,13 +216,11 @@ export default {
             children.push(h('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) } }));
         }
 
+        const colProps = { ...this.fullOptions.fieldColProps };
+        if (this.fullSchema['x-cols']) colProps.cols = this.fullSchema['x-cols'];
         return h(
             'v-col',
-            {
-                props: { cols: this.fullSchema['x-cols'] || 12 },
-                class: this.propertyClass,
-                style: this.fullSchema['x-style'] || '',
-            },
+            { props: colProps, class: this.propertyClass, style: this.fullSchema['x-style'] || '' },
             children
         );
     },

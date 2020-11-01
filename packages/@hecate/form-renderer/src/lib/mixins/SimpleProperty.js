@@ -30,36 +30,36 @@ export default {
 
             if (this.fullSchema.type === 'string') {
                 if (
-                    this.display === 'textarea' ||
-                    (this.fullSchema.maxLength && this.fullSchema.maxLength > 1000 && this.display !== 'single-line')
+                    this.display === 'textarea'
+                    // this.display === 'textarea' ||
+                    // (this.fullSchema.maxLength && this.fullSchema.maxLength > 1000 && this.display !== 'single-line')
                 ) {
                     tag = 'v-textarea';
-                    Object.assign(props, this.fullOptions.textareaProps);
-                    // domProps.class = 'v-text-field--box v-text-field--enclosed'; // by Gengwei.zheng
+                    // Object.assign(props, this.fullOptions.textareaProps);
+                    // domProps.class = 'v-text-field--box v-text-field--enclosed';
                 } else {
                     tag = 'v-text-field';
-                    Object.assign(props, this.fullOptions.textFieldProps);
-                    // if (this.display === 'password') props.type = 'password';  // by Gengwei.zheng
+                    // Object.assign(props, this.fullOptions.textFieldProps);
+                    // if (this.display === 'password') props.type = 'password';
                 }
             }
 
             if (['number', 'integer'].includes(this.fullSchema.type)) {
                 if (this.display === 'slider') {
                     tag = 'v-slider';
-                    // Object.assign(props, this.fullOptions.sliderProps); // by Gengwei.zheng
+                    // Object.assign(props, this.fullOptions.sliderProps);
                 } else if (this.display === 'range-slider') {
                     tag = 'v-range-slider';
                 } else {
                     tag = 'v-text-field';
-                    // Object.assign(props, this.fullOptions.textFieldProps); // by Gengwei.zheng
-                    // Object.assign(props, this.fullOptions.numberProps); // by Gengwei.zheng
+                    // Object.assign(props, this.fullOptions.textFieldProps);
+                    // Object.assign(props, this.fullOptions.numberProps);
                 }
                 props.type = 'number';
-                // if (this.fullSchema.minimum !== undefined) props.min = this.fullSchema.minimum; // by Gengwei.zheng
-                // if (this.fullSchema.maximum !== undefined) props.max = this.fullSchema.maximum; // by Gengwei.zheng
+                // if (this.fullSchema.minimum !== undefined) props.min = this.fullSchema.minimum;
+                // if (this.fullSchema.maximum !== undefined) props.max = this.fullSchema.maximum;
                 props.step = this.fullSchema['x-step'] || (this.fullSchema.type === 'integer' ? 1 : 0.01);
 
-                // TODO 这里需要处理，看看是在这里处理还是哪里。
                 on.input = (value) =>
                     this.input(this.fullSchema.type === 'integer' ? parseInt(value, 10) : parseFloat(value));
             }
@@ -68,10 +68,10 @@ export default {
                 tooltipSlot = 'append';
                 if (this.display === 'switch') {
                     tag = 'v-switch';
-                    Object.assign(props, this.fullOptions.switchProps);
+                    // Object.assign(props, this.fullOptions.switchProps);
                 } else {
                     tag = 'v-checkbox';
-                    Object.assign(props, this.fullOptions.checkboxProps);
+                    // Object.assign(props, this.fullOptions.checkboxProps);
                 }
                 on.change = (value) => {
                     this.input(value || false);
