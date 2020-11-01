@@ -158,7 +158,7 @@ import HPanelTextField from '@/components/property/controls/HPanelTextField';
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
-    name: 'HSliderPanel',
+    name: 'HRangeSliderPanel',
     components: {
         HExpansionPanel,
         HPanelArray,

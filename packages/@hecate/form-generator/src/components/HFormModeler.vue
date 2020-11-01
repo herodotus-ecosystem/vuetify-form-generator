@@ -78,7 +78,7 @@
         </v-app-bar>
 
         <v-navigation-drawer clipped app right width="360px">
-            <h-property-panel :selected-canvas-item-data="selectedCanvasItemData"></h-property-panel>
+            <h-property-panel v-model="selectedCanvasItemData"></h-property-panel>
         </v-navigation-drawer>
         <v-main>
             <h-canvas-container>
@@ -154,7 +154,7 @@ export default {
     watch: {
         drawingCanvas: {
             handler(newValue, oldValue) {
-                console.log('drawingCanvas', newValue);
+                console.info('[HFG] Save Canvas Data to local storage!');
                 this.saveDrawingCanvasDebounce(newValue);
             },
             deep: true,

@@ -5,7 +5,15 @@
                 {{ tabs[0].name }}
                 <v-tooltip bottom>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon class="ml-5" v-bind="attrs" v-on="on" tag="a" target="_blank" :href="document">
+                        <v-btn
+                            icon
+                            class="ml-5"
+                            v-bind="attrs"
+                            v-on="on"
+                            tag="a"
+                            target="_blank"
+                            :href="schema.configs ? schema.configs.document : '#'"
+                        >
                             <v-icon>mdi-file-replace</v-icon>
                         </v-btn>
                     </template>
@@ -24,7 +32,7 @@
                         <v-col class="pb-0">
                             <v-card flat v-if="schema.configs">
                                 <v-text-field
-                                    :value="schema.configs.formId"
+                                    :value="originalFormId"
                                     label="字段名"
                                     dense
                                     outlined
@@ -32,17 +40,19 @@
                                     @input="editFormId"
                                 />
                                 <!-- <v-text-field v-if="schema.label" v-model="schema.label" outlined dense label="标题" placeholder="请输入标题" /> -->
-                                <!-- <v-text-field
-                                    v-model="element.label"
+                                <v-text-field
+                                    :value="element.title"
                                     label="标签"
+                                    clearable
                                     dense
                                     outlined
                                     placeholder="请输入标签"
-                                    @change="modifyId"
-                                /> -->
+                                    @input="editLabel"
+                                />
                                 <v-text-field
                                     :value="properties.id"
                                     label="ID"
+                                    clearable
                                     dense
                                     outlined
                                     placeholder="请输入元素ID（id）"
@@ -77,6 +87,7 @@
 import HTextFieldPanel from '@/components/property/panels/HTextFieldPanel';
 import HTextAreaPanel from '@/components/property/panels/HTextAreaPanel';
 import HSliderPanel from '@/components/property/panels/HSliderPanel';
+import HRangeSliderPanel from '@/components/property/panels/HRangeSliderPanel';
 import { constants } from '@/lib/modeler/configurations';
 export default {
     name: 'HPropertyPanel',
@@ -85,10 +96,11 @@ export default {
         TEXT_FIELD: HTextFieldPanel,
         TEXT_AREA: HTextAreaPanel,
         SLIDER: HSliderPanel,
+        RANGE_SLIDER: HRangeSliderPanel,
     },
 
     props: {
-        selectedCanvasItemData: {
+        value: {
             type: Object,
             default: () => {},
         },
@@ -101,53 +113,58 @@ export default {
             { key: 'element', name: '组件属性' },
             { key: 'form', name: '表单属性' },
         ],
-
         schema: {},
-        element: {},
-        properties: {},
-        document: '',
-        currentPanel: '',
-        currentFormId: '',
     }),
 
-    mounted() {
-        this.LoadData();
+    computed: {
+        currentPanel() {
+            return this.schema.configs.panel;
+        },
+        originalFormId() {
+            return this.schema.configs.formId;
+        },
+        element() {
+            return this.schema.properties[this.originalFormId];
+        },
+        properties() {
+            return this.element[this.constants.annotations.xprops];
+        },
     },
 
     watch: {
-        selectedCanvasItemData: {
-            handler(newValue, oldvalue) {
-                this.LoadData();
+        value: {
+            handler(newValue, oldValue) {
+                this.schema = newValue;
+            },
+            immediate: true,
+        },
+        schema: {
+            handler(newValue, oldValue) {
+                this.$emit('input', newValue);
             },
         },
     },
 
     methods: {
-        LoadData() {
-            if (this.selectedCanvasItemData && this.selectedCanvasItemData.configs) {
-                this.schema = this.selectedCanvasItemData;
-                this.document = this.selectedCanvasItemData.configs.document || '#';
-                this.currentFormId = this.selectedCanvasItemData.configs.formId;
-                this.currentPanel = this.selectedCanvasItemData.configs.panel;
-                this.element = this.selectedCanvasItemData.properties[this.currentFormId];
-                this.properties = this.element[this.constants.annotations.xprops];
-            }
-        },
-
         editFormId(newFormId) {
-            const oldFormId = this.currentFormId;
+            const oldFormId = this.originalFormId;
             if (newFormId && oldFormId && newFormId !== oldFormId) {
-                this.$set(this.schema.configs, 'formId', newFormId);
                 this.$set(this.schema.properties, newFormId, this.element);
-                this.currentFormId = newFormId;
+                this.$set(this.schema.configs, 'formId', newFormId);
                 delete this.schema.properties[oldFormId];
             }
         },
         editId(newId) {
             if (newId) {
-                this.$set(this.element[this.constants.annotations.xprops], 'id', newId);
+                this.$set(this.properties, 'id', newId);
             } else {
-                delete this.element.id;
+                delete this.properties.id;
+            }
+        },
+        editLabel(newLabel) {
+            if (newLabel) {
+                this.$set(this.properties, 'label', newLabel);
+                this.$set(this.element, 'title', newLabel);
             }
         },
     },

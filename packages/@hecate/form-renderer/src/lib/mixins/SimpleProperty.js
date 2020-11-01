@@ -46,17 +46,20 @@ export default {
             if (['number', 'integer'].includes(this.fullSchema.type)) {
                 if (this.display === 'slider') {
                     tag = 'v-slider';
-                    Object.assign(props, this.fullOptions.sliderProps);
+                    // Object.assign(props, this.fullOptions.sliderProps); // by Gengwei.zheng
+                } else if (this.display === 'range-slider') {
+                    tag = 'v-range-slider';
                 } else {
                     tag = 'v-text-field';
-                    Object.assign(props, this.fullOptions.textFieldProps);
-                    Object.assign(props, this.fullOptions.numberProps);
+                    // Object.assign(props, this.fullOptions.textFieldProps); // by Gengwei.zheng
+                    // Object.assign(props, this.fullOptions.numberProps); // by Gengwei.zheng
                 }
                 props.type = 'number';
-                if (this.fullSchema.minimum !== undefined) props.min = this.fullSchema.minimum;
-                if (this.fullSchema.maximum !== undefined) props.max = this.fullSchema.maximum;
+                // if (this.fullSchema.minimum !== undefined) props.min = this.fullSchema.minimum; // by Gengwei.zheng
+                // if (this.fullSchema.maximum !== undefined) props.max = this.fullSchema.maximum; // by Gengwei.zheng
                 props.step = this.fullSchema['x-step'] || (this.fullSchema.type === 'integer' ? 1 : 0.01);
 
+                // TODO 这里需要处理，看看是在这里处理还是哪里。
                 on.input = (value) =>
                     this.input(this.fullSchema.type === 'integer' ? parseInt(value, 10) : parseFloat(value));
             }

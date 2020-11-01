@@ -252,6 +252,7 @@ export default {
         defaultValue(schema) {
             if (schema.type === 'object' && !schema['x-fromUrl'] && !schema['x-fromData'] && !schema.enum) return {};
             if (schema.type === 'array') return [];
+            if (schema.tag === 'v-range-slider') return [0, 10];
             return null;
         },
         fixProperties() {

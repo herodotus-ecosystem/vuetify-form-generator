@@ -61,6 +61,19 @@
                 label="Auto Grow : 自动增长"
                 tooltip="根据文本数量自动增长文本"
             ></h-panel-switch>
+            <h-panel-number
+                v-model="properties[constants.tags.RowHeight]"
+                label="Row Height : 每行的高度值"
+                min="1"
+                :disabled="!properties[constants.tags.AutoGrow]"
+                tooltip="每行的高度值。 需要使用 auto-grow 属性"
+            ></h-panel-number>
+            <h-panel-number
+                v-model="properties.rows"
+                label="Rows : 默认行数"
+                min="1"
+                tooltip="Textarea默认显示的行数"
+            ></h-panel-number>
             <h-panel-switch v-model="properties.autofocus" label="Auto Focus : 启用自动聚焦"></h-panel-switch>
             <h-panel-switch v-model="properties.disabled" label="Disabled : 禁用输入"> </h-panel-switch>
             <h-panel-switch
