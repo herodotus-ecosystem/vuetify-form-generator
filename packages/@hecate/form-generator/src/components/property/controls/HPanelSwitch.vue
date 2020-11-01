@@ -2,16 +2,14 @@
     <v-list-item dense class="pa-0">
         <v-list-item-content>
             <v-switch
-                :value="switchValue"
-                :input-value="value"
+                v-model="checkedValue"
                 :label="label"
-                dense
-                inset
-                hide-details
                 :disabled="disabled"
                 :true-value="trueValue"
                 :false-value="falseValue"
-                @change="handleChange"
+                dense
+                inset
+                hide-details
                 class="mt-0 ml-2 pt-0"
             ></v-switch>
         </v-list-item-content>
@@ -30,7 +28,7 @@
 export default {
     name: 'HPanelSwitch',
     props: {
-        value: { required: true },
+        value: Boolean,
         label: String,
         tooltip: String,
         disabled: { type: Boolean, default: false },
@@ -44,18 +42,21 @@ export default {
         },
     },
 
-    computed: {
-        switchValue() {
-            return this.value;
+    data: () => ({
+        checkedValue: false,
+    }),
+
+    watch: {
+        value: {
+            handler(newValue, oldValue) {
+                this.checkedValue = newValue;
+            },
+            immediate: true,
         },
-    },
-
-    data: () => ({}),
-
-    methods: {
-        handleChange(event) {
-            let value = event;
-            this.$emit('input', value); //触发 input 事件，并传入新值
+        checkedValue: {
+            handler(newValue, oldValue) {
+                this.$emit('input', newValue);
+            },
         },
     },
 };

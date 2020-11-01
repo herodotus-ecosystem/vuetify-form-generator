@@ -1,16 +1,22 @@
 <template>
     <v-list-item dense class="pa-0">
         <v-list-item-content>
-            <v-text-field
-                v-model="inputValue"
+            <v-combobox
+                v-model="selectedValues"
+                :items="selectedValues"
                 :label="label"
                 :disabled="disabled"
-                outlined
-                dense
-                hide-details
+                chips
                 clearable
+                dense
+                deletable-chips
+                hide-no-data
+                hide-details
+                multiple
+                outlined
+                small-chips
                 class="ml-1 pr-2"
-            ></v-text-field>
+            ></v-combobox>
         </v-list-item-content>
         <v-list-item-action v-if="tooltip">
             <v-tooltip left max-width="200px">
@@ -25,26 +31,29 @@
 
 <script>
 export default {
-    name: 'HPanelTextField',
+    name: 'HPanelArray',
     props: {
-        value: String,
+        value: {
+            type: Array,
+            default: () => [],
+        },
         label: String,
         tooltip: String,
         disabled: { type: Boolean, default: false },
     },
 
     data: () => ({
-        inputValue: '',
+        selectedValues: [],
     }),
 
     watch: {
         value: {
             handler(newValue, oldValue) {
-                this.inputValue = newValue;
+                this.selectedValues = newValue;
             },
             immediate: true,
         },
-        inputValue: {
+        selectedValues: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
             },

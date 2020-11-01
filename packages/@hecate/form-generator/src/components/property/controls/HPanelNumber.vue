@@ -4,6 +4,7 @@
             <v-text-field
                 v-model="numberValue"
                 :label="label"
+                :disabled="disabled"
                 :min="min"
                 :max="max"
                 :step="step"
@@ -34,7 +35,7 @@ export default {
         tooltip: String,
         disabled: { type: Boolean, default: false },
         min: { type: [Number, String], default: 0 },
-        max: { type: [Number, String], default: 10 },
+        max: { type: [Number, String], default: 100 },
         step: { type: [Number, String], default: 1 },
     },
 

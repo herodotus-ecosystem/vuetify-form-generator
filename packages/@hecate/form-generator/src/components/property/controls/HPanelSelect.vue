@@ -5,6 +5,7 @@
                 v-model="selectedValue"
                 :items="items"
                 :label="label"
+                :disabled="disabled"
                 outlined
                 dense
                 hide-details

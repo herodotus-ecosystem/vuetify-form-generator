@@ -22,17 +22,32 @@
                 <v-container class="pb-0" fluid>
                     <v-row>
                         <v-col class="pb-0">
-                            <v-card flat>
+                            <v-card flat v-if="schema.configs">
                                 <v-text-field
-                                    v-if="schema.configs"
-                                    v-model="schema.configs.formId"
-                                    outlined
-                                    dense
+                                    :value="schema.configs.formId"
                                     label="字段名"
+                                    dense
+                                    outlined
                                     placeholder="请输入字段名（v-model）"
-                                    @change="modifyFormId"
+                                    @input="editFormId"
                                 />
                                 <!-- <v-text-field v-if="schema.label" v-model="schema.label" outlined dense label="标题" placeholder="请输入标题" /> -->
+                                <!-- <v-text-field
+                                    v-model="element.label"
+                                    label="标签"
+                                    dense
+                                    outlined
+                                    placeholder="请输入标签"
+                                    @change="modifyId"
+                                /> -->
+                                <v-text-field
+                                    :value="properties.id"
+                                    label="ID"
+                                    dense
+                                    outlined
+                                    placeholder="请输入元素ID（id）"
+                                    @input="editId"
+                                />
                                 <v-divider class="mb-3"></v-divider>
                                 <component :is="currentPanel" v-model="element"></component>
                             </v-card>
@@ -80,47 +95,59 @@ export default {
     },
 
     data: () => ({
+        constants,
         tab: null,
         tabs: [
             { key: 'element', name: '组件属性' },
             { key: 'form', name: '表单属性' },
         ],
-        constants,
+
         schema: {},
         element: {},
+        properties: {},
         document: '',
         currentPanel: '',
-        currentItemFormId: '',
+        currentFormId: '',
     }),
 
     mounted() {
-        this.initItemData();
+        this.LoadData();
     },
 
     watch: {
         selectedCanvasItemData: {
             handler(newValue, oldvalue) {
-                this.initItemData();
+                this.LoadData();
             },
         },
     },
 
     methods: {
-        initItemData() {
+        LoadData() {
             if (this.selectedCanvasItemData && this.selectedCanvasItemData.configs) {
-                this.currentItemFormId = this.selectedCanvasItemData.configs.formId;
-                this.currentPanel = this.selectedCanvasItemData.configs.panel;
                 this.schema = this.selectedCanvasItemData;
-                this.element = this.selectedCanvasItemData.properties[this.currentItemFormId];
                 this.document = this.selectedCanvasItemData.configs.document || '#';
+                this.currentFormId = this.selectedCanvasItemData.configs.formId;
+                this.currentPanel = this.selectedCanvasItemData.configs.panel;
+                this.element = this.selectedCanvasItemData.properties[this.currentFormId];
+                this.properties = this.element[this.constants.annotations.xprops];
             }
         },
 
-        modifyFormId(newFormId) {
-            const oldFormId = this.currentItemFormId;
+        editFormId(newFormId) {
+            const oldFormId = this.currentFormId;
             if (newFormId && oldFormId && newFormId !== oldFormId) {
-                this.schema.properties[newFormId] = this.element;
+                this.$set(this.schema.configs, 'formId', newFormId);
+                this.$set(this.schema.properties, newFormId, this.element);
+                this.currentFormId = newFormId;
                 delete this.schema.properties[oldFormId];
+            }
+        },
+        editId(newId) {
+            if (newId) {
+                this.$set(this.element[this.constants.annotations.xprops], 'id', newId);
+            } else {
+                delete this.element.id;
             }
         },
     },

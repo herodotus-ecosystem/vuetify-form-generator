@@ -1,7 +1,15 @@
 <template>
     <v-list-item dense class="pa-1">
         <v-list-item-content>
-            <v-text-field v-model="color" :label="label" outlined dense hide-details type="color"></v-text-field>
+            <v-text-field
+                v-model="color"
+                :label="label"
+                :disabled="disabled"
+                outlined
+                dense
+                hide-details
+                type="color"
+            ></v-text-field>
         </v-list-item-content>
         <v-list-item-action v-if="tooltip">
             <v-tooltip left max-width="200px">
@@ -22,6 +30,7 @@ export default {
         value: { type: String },
         label: String,
         tooltip: String,
+        disabled: { type: Boolean, default: false },
     },
 
     data: () => ({

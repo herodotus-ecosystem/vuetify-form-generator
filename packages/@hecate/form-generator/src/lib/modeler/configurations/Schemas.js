@@ -6,8 +6,9 @@ const definitions = {
             title: '单行文本',
             tag: 'v-text-field',
             'x-props': {
-                outlined: true,
                 'hide-details': true,
+                'loader-height': 2,
+                outlined: true,
                 type: 'text',
             },
         },
@@ -19,8 +20,9 @@ const definitions = {
             title: '多行文本',
             tag: 'v-textarea',
             'x-props': {
-                outlined: true,
                 'hide-details': true,
+                'loader-height': 2,
+                outlined: true,
                 type: 'text',
             },
             'x-display': 'textarea',
@@ -34,6 +36,7 @@ const definitions = {
             tag: 'v-slider',
             'x-props': {
                 'hide-details': true,
+                'loader-height': 2,
                 min: 0,
                 max: 5,
                 step: 1,

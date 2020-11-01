@@ -47,8 +47,13 @@
                 v-model="properties[constants.tags.SoloInverted]"
                 label="Solo Inverted : 单反"
                 tooltip="减少元素的不透明度，知道获得焦点"
-            ></h-panel-switch
-        ></h-expansion-panel>
+            ></h-panel-switch>
+            <h-panel-number v-model="properties.height" label="Height : 设置高度" min="1"></h-panel-number>
+            <h-panel-text-field v-model="properties.hint" label="Hint : 提示文本"></h-panel-text-field>
+            <h-panel-text-field v-model="properties.placeHolder" label="PlaceHolder : 占位符文本"></h-panel-text-field>
+            <h-panel-text-field v-model="properties.prefix" label="Prefix : 前缀文本"></h-panel-text-field>
+            <h-panel-text-field v-model="properties.suffix" label="Suffix : 后缀文本"></h-panel-text-field>
+        </h-expansion-panel>
 
         <h-expansion-panel index="control" header="控制">
             <h-panel-switch
@@ -63,6 +68,12 @@
                 label="Loading : 加载状态"
                 tooltip="显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。"
             ></h-panel-switch>
+            <h-panel-number
+                v-model="properties[constants.tags.LoaderHeight]"
+                label="Loader Height : 加载器高度"
+                min="1"
+                :disabled="!properties.loading"
+            ></h-panel-number>
             <h-panel-switch
                 v-model="properties[constants.tags.NoResize]"
                 label="No Resize : 移除调整大小的句柄"
@@ -118,6 +129,27 @@
                 tooltip="设置不同的输入类型"
                 :items="typeItems"
             ></h-panel-select>
+            <h-panel-number
+                v-model="properties.min"
+                label="Min : 数字类型最小值"
+                min="0"
+                :disabled="!isNumberType"
+                tooltip="当Type属性为‘数字类型’时可用"
+            ></h-panel-number>
+            <h-panel-number
+                v-model="properties.max"
+                label="Max : 数字类型最大值"
+                min="1"
+                :disabled="!isNumberType"
+                tooltip="当Type属性为‘数字类型’时可用"
+            ></h-panel-number>
+            <h-panel-number
+                v-model="properties.step"
+                label="Step : 数字类型步长"
+                min="1"
+                :disabled="!isNumberType"
+                tooltip="当Type属性为‘数字类型’时可用"
+            ></h-panel-number>
         </h-expansion-panel>
 
         <h-expansion-panel index="color" header="色彩">
@@ -141,8 +173,10 @@
 import HExpansionPanel from '@/components/property/layouts/HExpansionPanel';
 import HPanelColor from '@/components/property/controls/HPanelColor';
 import HPanelIcon from '@/components/property/controls/HPanelIcon';
+import HPanelNumber from '@/components/property/controls/HPanelNumber';
 import HPanelSelect from '@/components/property/controls/HPanelSelect';
 import HPanelSwitch from '@/components/property/controls/HPanelSwitch';
+import HPanelTextField from '@/components/property/controls/HPanelTextField';
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
@@ -151,8 +185,10 @@ export default {
         HExpansionPanel,
         HPanelColor,
         HPanelIcon,
+        HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
+        HPanelTextField,
     },
 
     props: {
@@ -181,6 +217,9 @@ export default {
     computed: {
         properties() {
             return this.element[this.constants.annotations.xprops];
+        },
+        isNumberType() {
+            return this.properties.type === 'number';
         },
     },
 

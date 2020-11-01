@@ -37,11 +37,11 @@
             ></h-panel-number>
         </h-expansion-panel>
         <h-expansion-panel index="tick" header="刻度线">
-            <h-panel-color
-                v-model="properties[constants.tags.ThumbColor]"
-                label="Thumb Color : 缩略图颜色"
-                tooltip="设置缩略图和缩略图标签颜色"
-            ></h-panel-color>
+            <h-panel-array
+                v-model="properties[constants.tags.TickLabels]"
+                label="Tick Labels : 刻度线标签"
+                tooltip="按回车添加多个标签"
+            ></h-panel-array>
             <h-panel-switch-text-field
                 v-model="properties.ticks"
                 label="Ticks : 刻度线"
@@ -121,11 +121,13 @@
 
 <script>
 import HExpansionPanel from '@/components/property/layouts/HExpansionPanel';
+import HPanelArray from '@/components/property/controls/HPanelArray';
 import HPanelColor from '@/components/property/controls/HPanelColor';
 import HPanelIcon from '@/components/property/controls/HPanelIcon';
 import HPanelNumber from '@/components/property/controls/HPanelNumber';
 import HPanelSwitch from '@/components/property/controls/HPanelSwitch';
 import HPanelSwitchTextField from '@/components/property/controls/HPanelSwitchTextField';
+import HPanelTextField from '@/components/property/controls/HPanelTextField';
 
 import { constants } from '@/lib/modeler/configurations';
 
@@ -133,11 +135,13 @@ export default {
     name: 'HSliderPanel',
     components: {
         HExpansionPanel,
+        HPanelArray,
         HPanelColor,
         HPanelIcon,
         HPanelNumber,
         HPanelSwitch,
         HPanelSwitchTextField,
+        HPanelTextField,
     },
 
     props: {

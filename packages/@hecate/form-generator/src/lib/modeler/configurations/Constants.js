@@ -30,6 +30,7 @@ const constants = {
         FullWidth: 'full-width',
         HideDetails: 'hide-details',
         LazyValidation: 'lazy-validation',
+        LoaderHeight: 'loader-height',
         NoGutters: 'no-gutters',
         NoResize: 'no-resize',
         PersistentHint: 'persistent-hint',
