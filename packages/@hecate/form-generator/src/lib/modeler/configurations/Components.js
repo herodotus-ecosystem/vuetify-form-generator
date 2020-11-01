@@ -45,6 +45,15 @@ const selectComponents = [
     },
     {
         configs: {
+            title: definitions.CHECKBOX.schema.title,
+            icon: 'mdi-checkbox-marked',
+            name: 'Checkbox',
+            document: 'https://vuetifyjs.com/en/components/checkboxes/',
+            schema: definitions.CHECKBOX.index,
+        },
+    },
+    {
+        configs: {
             title: definitions.SINGLE_SELECT.schema.title,
             icon: 'mdi-form-dropdown',
             name: 'Select',
@@ -79,15 +88,7 @@ const selectComponents = [
             schema: definitions.RADIO.index,
         },
     },
-    {
-        configs: {
-            title: definitions.CHECKBOX.schema.title,
-            icon: 'mdi-checkbox-marked',
-            name: 'Select',
-            document: 'https://vuetifyjs.com/zh-Hans/components/selection-controls/',
-            schema: definitions.CHECKBOX.index,
-        },
-    },
+
     {
         configs: {
             title: definitions.SWITCH.schema.title,

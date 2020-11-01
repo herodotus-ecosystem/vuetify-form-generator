@@ -67,6 +67,18 @@ const definitions = {
         },
     },
 
+    CHECKBOX: {
+        index: 'CHECKBOX',
+        schema: {
+            type: 'boolean',
+            title: '复选框',
+            tag: 'v-checkbox',
+            'x-props': {
+                'hide-details': true,
+            },
+        },
+    },
+
     SINGLE_SELECT: {
         index: 'SINGLE_SELECT',
         schema: {
@@ -195,21 +207,7 @@ const definitions = {
             enum: ['value 1', 'value 2'],
         },
     },
-    CHECKBOX: {
-        index: 'CHECKBOX',
-        schema: {
-            type: 'array',
-            title: '复选框',
-            tag: 'v-checkbox',
-            'x-display': 'checkbox',
-            minItems: 1,
-            properties: {},
-            items: {
-                type: 'string',
-                enum: ['value 1', 'value 2'],
-            },
-        },
-    },
+
     SWITCH: {
         index: 'SWITCH',
         schema: {

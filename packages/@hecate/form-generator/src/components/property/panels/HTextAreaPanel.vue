@@ -49,10 +49,6 @@
                 tooltip="减少元素的不透明度，知道获得焦点"
             ></h-panel-switch>
             <h-panel-number v-model="properties.height" label="Height : 设置高度" min="1"></h-panel-number>
-            <h-panel-text-field v-model="properties.hint" label="Hint : 提示文本"></h-panel-text-field>
-            <h-panel-text-field v-model="properties.placeHolder" label="PlaceHolder : 占位符文本"></h-panel-text-field>
-            <h-panel-text-field v-model="properties.prefix" label="Prefix : 前缀文本"></h-panel-text-field>
-            <h-panel-text-field v-model="properties.suffix" label="Suffix : 后缀文本"></h-panel-text-field>
         </h-expansion-panel>
 
         <h-expansion-panel index="control" header="控制">
@@ -136,6 +132,10 @@
                 label="Persistent Hint : 强制显示提示"
                 tooltip="强制提示总是可见的"
             ></h-panel-switch>
+            <h-panel-text-field v-model="properties.hint" label="Hint : 提示文本"></h-panel-text-field>
+            <h-panel-text-field v-model="properties.placeHolder" label="PlaceHolder : 占位符文本"></h-panel-text-field>
+            <h-panel-text-field v-model="properties.prefix" label="Prefix : 前缀文本"></h-panel-text-field>
+            <h-panel-text-field v-model="properties.suffix" label="Suffix : 后缀文本"></h-panel-text-field>
             <h-panel-select
                 v-model="properties.type"
                 label="Type: 输入类型"

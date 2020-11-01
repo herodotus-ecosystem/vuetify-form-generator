@@ -13,12 +13,12 @@
             ></h-panel-switch>
             <h-panel-switch
                 v-model="properties.vertical"
-                label="Vertical : 反转标签位置"
-                tooltip="使用 rtl 反转标签位置"
+                label="Vertical : 垂直"
+                tooltip="将滑块方向切换为垂直方向"
             ></h-panel-switch>
             <h-panel-number v-model="properties.height" label="Height : 设置高度" min="1"></h-panel-number>
-            <h-panel-text-field v-model="properties.hint" label="Hint : 提示文本"></h-panel-text-field>
         </h-expansion-panel>
+
         <h-expansion-panel index="thumb" header="缩略图标签">
             <h-panel-color
                 v-model="properties[constants.tags.ThumbColor]"
@@ -38,6 +38,7 @@
                 step="1"
             ></h-panel-number>
         </h-expansion-panel>
+
         <h-expansion-panel index="tick" header="刻度线">
             <h-panel-array
                 v-model="properties[constants.tags.TickLabels]"
@@ -116,6 +117,7 @@
                 label="Persistent Hint : 强制显示提示"
                 tooltip="强制提示总是可见的"
             ></h-panel-switch>
+            <h-panel-text-field v-model="properties.hint" label="Hint : 提示文本"></h-panel-text-field>
         </h-expansion-panel>
 
         <h-expansion-panel index="color" header="色彩">
