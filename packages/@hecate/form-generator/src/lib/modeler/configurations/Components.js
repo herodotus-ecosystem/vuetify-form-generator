@@ -54,6 +54,15 @@ const selectComponents = [
     },
     {
         configs: {
+            title: definitions.SWITCHS.schema.title,
+            icon: 'mdi-toggle-switch',
+            name: 'Switch',
+            document: 'https://vuetifyjs.com/en/components/switches/',
+            schema: definitions.SWITCHS.index,
+        },
+    },
+    {
+        configs: {
             title: definitions.SINGLE_SELECT.schema.title,
             icon: 'mdi-form-dropdown',
             name: 'Select',
@@ -89,15 +98,6 @@ const selectComponents = [
         },
     },
 
-    {
-        configs: {
-            title: definitions.SWITCH.schema.title,
-            icon: 'mdi-toggle-switch',
-            name: 'Select',
-            document: 'https://vuetifyjs.com/zh-Hans/components/selection-controls/',
-            schema: definitions.SWITCH.index,
-        },
-    },
     {
         configs: {
             title: definitions.TIME_PICKER.schema.title,

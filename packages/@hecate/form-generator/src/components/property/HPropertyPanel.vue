@@ -89,6 +89,7 @@ import HTextAreaPanel from '@/components/property/panels/HTextAreaPanel';
 import HSliderPanel from '@/components/property/panels/HSliderPanel';
 import HRangeSliderPanel from '@/components/property/panels/HRangeSliderPanel';
 import HCheckBoxPanel from '@/components/property/panels/HCheckBoxPanel';
+import HSwitchPanel from '@/components/property/panels/HSwitchPanel';
 import { constants } from '@/lib/modeler/configurations';
 export default {
     name: 'HPropertyPanel',
@@ -99,6 +100,7 @@ export default {
         SLIDER: HSliderPanel,
         RANGE_SLIDER: HRangeSliderPanel,
         CHECKBOX: HCheckBoxPanel,
+        SWITCHS: HSwitchPanel,
     },
 
     props: {

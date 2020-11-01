@@ -78,6 +78,18 @@ const definitions = {
             },
         },
     },
+    SWITCHS: {
+        index: 'SWITCHS',
+        schema: {
+            type: 'boolean',
+            title: '开关',
+            tag: 'v-switch',
+            'x-display': 'switch',
+            'x-props': {
+                'hide-details': true,
+            },
+        },
+    },
 
     SINGLE_SELECT: {
         index: 'SINGLE_SELECT',
@@ -208,30 +220,6 @@ const definitions = {
         },
     },
 
-    SWITCH: {
-        index: 'SWITCH',
-        schema: {
-            type: 'array',
-            title: '开关',
-            tag: 'v-switch',
-            'x-display': 'switch',
-            enum: [],
-            properties: {},
-            items: {
-                type: 'string',
-                oneOf: [
-                    {
-                        const: 'value1',
-                        title: 'Value 1',
-                    },
-                    {
-                        const: 'value2',
-                        title: 'Value 2',
-                    },
-                ],
-            },
-        },
-    },
     FILE_INPUT: {
         index: 'FILE_INPUT',
         schema: {

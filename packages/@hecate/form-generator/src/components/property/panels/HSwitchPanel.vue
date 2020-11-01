@@ -3,18 +3,34 @@
         <h-expansion-panel index="appearance" header="外观">
             <h-panel-switch v-model="properties.dense" label="Dense : 紧凑显示"> </h-panel-switch>
             <h-panel-switch
+                v-model="properties.flat"
+                label="Flat : 移除阴影"
+                tooltip="移除组件的阴影。"
+            ></h-panel-switch>
+            <h-panel-switch
                 v-model="properties[constants.tags.HideDetails]"
                 label="Hide Details : 隐藏细节区域"
+            ></h-panel-switch>
+            <h-panel-switch
+                v-model="properties.inset"
+                label="Inset : 扩展"
+                tooltip="扩展 v-switch 开关以包含缩略图"
             ></h-panel-switch>
         </h-expansion-panel>
 
         <h-expansion-panel index="control" header="控制">
             <h-panel-switch v-model="properties.disabled" label="Disabled : 禁用输入"> </h-panel-switch>
             <h-panel-switch
+                v-model="properties.loading"
+                label="Loading : 加载状态"
+                tooltip="显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。"
+            ></h-panel-switch>
+            <h-panel-switch
                 v-model="properties.multiple"
                 label="Multiple : 多选"
                 tooltip="将预期模型更改为数组"
             ></h-panel-switch>
+
             <h-panel-switch v-model="properties.readonly" label="Readonly : 只读状态"></h-panel-switch>
             <h-panel-switch
                 v-model="properties[constants.tags.ValidateOnBlur]"
@@ -24,12 +40,12 @@
             <h-panel-text-field
                 v-model="properties[constants.tags.FalseValue]"
                 label="False Value : 设置假值"
-                tooltip="设置Checkbox未被勾选时的值"
+                tooltip="设置Switch关闭时的值"
             ></h-panel-text-field>
             <h-panel-text-field
                 v-model="properties[constants.tags.TrueValue]"
                 label="True Value : 设置真值"
-                tooltip="设置Checkbox被勾选时的值"
+                tooltip="设置Switch开启时的值"
             ></h-panel-text-field>
         </h-expansion-panel>
 
@@ -103,7 +119,7 @@ import HPanelTextField from '@/components/property/controls/HPanelTextField';
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
-    name: 'HCheckboxPanel',
+    name: 'HSwitchPanel',
     components: {
         HExpansionPanel,
         HPanelColor,
