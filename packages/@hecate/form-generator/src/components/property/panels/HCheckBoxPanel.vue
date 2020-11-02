@@ -104,6 +104,7 @@ import { constants } from '@/lib/modeler/configurations';
 
 export default {
     name: 'HCheckboxPanel',
+
     components: {
         HExpansionPanel,
         HPanelColor,

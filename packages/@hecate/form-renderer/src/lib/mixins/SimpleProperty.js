@@ -20,7 +20,8 @@ export default {
             const props = { ...this.commonFieldProps };
 
             const domProps = {};
-            const children = [...this.renderPropSlots(h)];
+            // const children = [...this.renderPropSlots(h)];
+            const children = [];
             const on = {
                 input: (value) => this.input(value),
                 change: (value) => this.change(value),
@@ -55,17 +56,17 @@ export default {
                     // Object.assign(props, this.fullOptions.textFieldProps);
                     // Object.assign(props, this.fullOptions.numberProps);
                 }
-                props.type = 'number';
+                // props.type = 'number';
                 // if (this.fullSchema.minimum !== undefined) props.min = this.fullSchema.minimum;
                 // if (this.fullSchema.maximum !== undefined) props.max = this.fullSchema.maximum;
-                props.step = this.fullSchema['x-step'] || (this.fullSchema.type === 'integer' ? 1 : 0.01);
+                // props.step = this.fullSchema['x-step'] || (this.fullSchema.type === 'integer' ? 1 : 0.01);
 
                 on.input = (value) =>
                     this.input(this.fullSchema.type === 'integer' ? parseInt(value, 10) : parseFloat(value));
             }
 
             if (this.fullSchema.type === 'boolean') {
-                tooltipSlot = 'append';
+                // tooltipSlot = 'append';
                 if (this.display === 'switch') {
                     tag = 'v-switch';
                     // Object.assign(props, this.fullOptions.switchProps);

@@ -81,20 +81,20 @@ const selectComponents = [
     },
     {
         configs: {
-            title: definitions.SINGLE_SELECT.schema.title,
+            title: definitions.SELECT_SINGLE.schema.title,
             icon: 'mdi-form-dropdown',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-            schema: definitions.SINGLE_SELECT.index,
+            schema: definitions.SELECT_SINGLE.index,
         },
     },
     {
         configs: {
-            title: definitions.MULTIPLE_SELECT.schema.title,
+            title: definitions.SELECT_MULTIPLE.schema.title,
             icon: 'mdi-form-dropdown',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-            schema: definitions.MULTIPLE_SELECT.index,
+            schema: definitions.SELECT_MULTIPLE.index,
         },
     },
     {

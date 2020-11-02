@@ -92,6 +92,8 @@ import HCheckBoxPanel from '@/components/property/panels/HCheckBoxPanel';
 import HSwitchPanel from '@/components/property/panels/HSwitchPanel';
 import HDatePickerPanel from '@/components/property/panels/HDatePickerPanel';
 import HTimePickerPanel from '@/components/property/panels/HTimePickerPanel';
+import HSelectSinglePanel from '@/components/property/panels/HSelectSinglePanel';
+
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
@@ -106,6 +108,7 @@ export default {
         SWITCHS: HSwitchPanel,
         DATE_PICKER: HDatePickerPanel,
         TIME_PICKER: HTimePickerPanel,
+        SELECT_SINGLE: HSelectSinglePanel,
     },
 
     props: {

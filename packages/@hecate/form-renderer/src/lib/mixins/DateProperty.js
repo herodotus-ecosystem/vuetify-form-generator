@@ -79,9 +79,10 @@ export default {
             if (this.fullSchema.format === 'time') {
                 child = h('v-time-picker', {
                     props: {
-                        ...this.fullOptions.timePickerProps,
+                        // ...this.fullOptions.timePickerProps,
                         locale: this.fullOptions.locale,
                         value: getShortTime(this.value),
+                        ...this.fullSchema['x-props'],
                     },
                     on: {
                         input: (value) => this.input(getLongTime(value)),
@@ -92,9 +93,10 @@ export default {
             } else if (this.fullSchema.format === 'date') {
                 child = h('v-date-picker', {
                     props: {
-                        ...this.fullOptions.datePickerProps,
+                        // ...this.fullOptions.datePickerProps,
                         locale: this.fullOptions.locale,
                         value: this.value,
+                        ...this.fullSchema['x-props'],
                     },
                     on: {
                         input: (value) => {

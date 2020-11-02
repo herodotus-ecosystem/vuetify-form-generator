@@ -27,7 +27,10 @@ export default {
     name: 'HPanelColor',
 
     props: {
-        value: { type: String },
+        value: {
+            type: String,
+            default: '#ffffff',
+        },
         label: String,
         tooltip: String,
         disabled: { type: Boolean, default: false },
@@ -49,10 +52,6 @@ export default {
                 this.$emit('input', newValue);
             },
         },
-    },
-
-    mounted: function () {
-        console.log(this.$attrs);
     },
 };
 </script>

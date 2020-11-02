@@ -115,23 +115,38 @@ const definitions = {
         },
     },
 
-    SINGLE_SELECT: {
-        index: 'SINGLE_SELECT',
+    SELECT_SINGLE: {
+        index: 'SELECT_SINGLE',
         schema: {
             type: 'string',
             title: '单项下拉',
             tag: 'v-select',
-            properties: {
+            'x-props': {
                 outlined: true,
                 'hide-details': true,
-                items: [
+            },
+            enum: ['value 1', 'value 2'],
+        },
+    },
+
+    SELECT_MULTIPLE: {
+        index: 'SELECT_MULTIPLE',
+        schema: {
+            type: 'array',
+            title: '多项下拉',
+            tag: 'v-select',
+            'x-display': 'icon',
+            'x-props': {},
+            items: {
+                type: 'string',
+                oneOf: [
                     {
-                        text: 'value1',
-                        value: 'Value 1',
+                        const: 'value1',
+                        title: 'Value 1',
                     },
                     {
-                        text: 'value2',
-                        value: 'Value 2',
+                        const: 'value2',
+                        title: 'Value 2',
                     },
                 ],
             },
@@ -152,29 +167,6 @@ const definitions = {
         },
     },
 
-    MULTIPLE_SELECT: {
-        index: 'MULTIPLE_SELECT',
-        schema: {
-            type: 'array',
-            title: '多项下拉',
-            tag: 'v-select',
-            'x-display': 'icon',
-            properties: {},
-            items: {
-                type: 'string',
-                oneOf: [
-                    {
-                        const: 'value1',
-                        title: 'Value 1',
-                    },
-                    {
-                        const: 'value2',
-                        title: 'Value 2',
-                    },
-                ],
-            },
-        },
-    },
     CASCADE_SELECT: {
         index: 'CASCADE_SELECT',
         schema: {

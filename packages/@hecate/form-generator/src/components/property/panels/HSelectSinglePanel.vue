@@ -172,14 +172,12 @@ import HPanelTextField from '@/components/property/controls/HPanelTextField';
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
-    name: 'HTextFieldPanel',
+    name: 'HSingleSelectPanel',
 
     components: {
         HExpansionPanel,
         HPanelColor,
         HPanelIcon,
-        HPanelNumber,
-        HPanelSelect,
         HPanelSwitch,
         HPanelTextField,
     },
@@ -194,25 +192,11 @@ export default {
     data: () => ({
         constants,
         element: {},
-        typeItems: [
-            { value: 'text', text: '文字输入模式（默认）' },
-            { value: 'password', text: '密码模式' },
-            { value: 'number', text: '数字模式' },
-            { value: 'color', text: '选择颜色模式' },
-            { value: 'datetime-local', text: '选择日期时间模式' },
-            { value: 'time', text: '选择时间模式' },
-            { value: 'date', text: '选择日期模式' },
-            { value: 'week', text: '选择周模式' },
-            { value: 'month', text: '选择月模式' },
-        ],
     }),
 
     computed: {
         properties() {
             return this.element[this.constants.annotations.xprops];
-        },
-        isNumberType() {
-            return this.properties.type === 'number';
         },
     },
 
