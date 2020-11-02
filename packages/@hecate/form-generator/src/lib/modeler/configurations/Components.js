@@ -63,6 +63,24 @@ const selectComponents = [
     },
     {
         configs: {
+            title: definitions.DATE_PICKER.schema.title,
+            icon: 'mdi-calendar',
+            name: 'Date',
+            document: 'https://vuetifyjs.com/en/components/date-pickers/',
+            schema: definitions.DATE_PICKER.index,
+        },
+    },
+    {
+        configs: {
+            title: definitions.TIME_PICKER.schema.title,
+            icon: 'mdi-clock-outline',
+            name: 'Time',
+            document: 'https://vuetifyjs.com/en/components/time-pickers/',
+            schema: definitions.TIME_PICKER.index,
+        },
+    },
+    {
+        configs: {
             title: definitions.SINGLE_SELECT.schema.title,
             icon: 'mdi-form-dropdown',
             name: 'Select',
@@ -98,15 +116,6 @@ const selectComponents = [
         },
     },
 
-    {
-        configs: {
-            title: definitions.TIME_PICKER.schema.title,
-            icon: 'mdi-clock-outline',
-            name: 'Select',
-            document: 'https://vuetifyjs.com/zh-Hans/components/time-pickers/',
-            schema: definitions.TIME_PICKER.index,
-        },
-    },
     {
         configs: {
             title: definitions.DATE_PICKER.schema.title,

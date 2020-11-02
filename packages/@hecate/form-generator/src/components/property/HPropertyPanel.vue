@@ -90,7 +90,10 @@ import HSliderPanel from '@/components/property/panels/HSliderPanel';
 import HRangeSliderPanel from '@/components/property/panels/HRangeSliderPanel';
 import HCheckBoxPanel from '@/components/property/panels/HCheckBoxPanel';
 import HSwitchPanel from '@/components/property/panels/HSwitchPanel';
+import HDatePickerPanel from '@/components/property/panels/HDatePickerPanel';
+import HTimePickerPanel from '@/components/property/panels/HTimePickerPanel';
 import { constants } from '@/lib/modeler/configurations';
+
 export default {
     name: 'HPropertyPanel',
 
@@ -101,6 +104,8 @@ export default {
         RANGE_SLIDER: HRangeSliderPanel,
         CHECKBOX: HCheckBoxPanel,
         SWITCHS: HSwitchPanel,
+        DATE_PICKER: HDatePickerPanel,
+        TIME_PICKER: HTimePickerPanel,
     },
 
     props: {

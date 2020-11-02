@@ -91,6 +91,27 @@ const definitions = {
         },
     },
 
+    DATE_PICKER: {
+        index: 'DATE_PICKER',
+        schema: {
+            type: 'string',
+            title: '日期选择',
+            tag: 'v-date-picker',
+            format: 'date',
+            'x-props': {},
+        },
+    },
+    TIME_PICKER: {
+        index: 'TIME_PICKER',
+        schema: {
+            type: 'string',
+            title: '时间选择',
+            tag: 'v-time-picker',
+            format: 'time',
+            'x-props': {},
+        },
+    },
+
     SINGLE_SELECT: {
         index: 'SINGLE_SELECT',
         schema: {
@@ -113,32 +134,7 @@ const definitions = {
             },
         },
     },
-    DATE_PICKER: {
-        index: 'DATE_PICKER',
-        schema: {
-            type: 'string',
-            title: '日期选择',
-            tag: 'v-date-picker',
-            format: 'date',
-            properties: {
-                outlined: true,
-                'hide-details': true,
-            },
-        },
-    },
-    TIME_PICKER: {
-        index: 'TIME_PICKER',
-        schema: {
-            type: 'string',
-            title: '时间选择',
-            tag: 'v-time-picker',
-            format: 'time',
-            properties: {
-                outlined: true,
-                'hide-details': true,
-            },
-        },
-    },
+
     COLOR_PICKER: {
         index: 'COLOR_PICKER',
         schema: {
