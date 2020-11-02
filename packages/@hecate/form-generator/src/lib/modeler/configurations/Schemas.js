@@ -98,7 +98,10 @@ const definitions = {
             title: '日期选择',
             tag: 'v-date-picker',
             format: 'date',
-            'x-props': {},
+            'x-props': {
+                'first-day-of-week': 0,
+                type: 'date',
+            },
         },
     },
     TIME_PICKER: {

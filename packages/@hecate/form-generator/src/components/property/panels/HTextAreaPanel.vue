@@ -194,6 +194,7 @@ import { constants } from '@/lib/modeler/configurations';
 
 export default {
     name: 'HTextAreaPanel',
+
     components: {
         HExpansionPanel,
         HPanelColor,
