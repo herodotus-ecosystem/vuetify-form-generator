@@ -10,7 +10,7 @@
     "scripts": {
         "start": "yarn build",
         "clean": "rimraf dist",
-        "build": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
+        "lib": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
     },
     "dependencies": {
         "@mdi/js": "^5.8.55",

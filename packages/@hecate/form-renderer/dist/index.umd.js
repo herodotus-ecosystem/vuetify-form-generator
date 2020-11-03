@@ -159,8 +159,9 @@
             sectionsTitlesClasses: ['title', 'subtitle-1', 'subtitle-2'],
             childrenClass: 'pr-2',
             fieldProps: {},
+            fieldColProps: { cols: 12 },
             textFieldProps: {},
-            textareaProps: { filled: !0 },
+            textareaProps: {},
             numberProps: {},
             sliderProps: {},
             checkboxProps: {},
@@ -715,9 +716,9 @@
                     if ('time' === this.fullSchema.format)
                         (t = e('v-time-picker', {
                             props: {
-                                ...this.fullOptions.timePickerProps,
                                 locale: this.fullOptions.locale,
                                 value: ((l = this.value), l ? l.slice(0, 5) : ''),
+                                ...this.fullSchema['x-props'],
                             },
                             on: { input: (e) => this.input(f(e)), change: (e) => this.change(f(e)) },
                         })),
@@ -725,9 +726,9 @@
                     else if ('date' === this.fullSchema.format)
                         t = e('v-date-picker', {
                             props: {
-                                ...this.fullOptions.datePickerProps,
                                 locale: this.fullOptions.locale,
                                 value: this.value,
+                                ...this.fullSchema['x-props'],
                             },
                             on: {
                                 input: (e) => {
@@ -860,68 +861,34 @@
             methods: {
                 renderSimpleProp(e) {
                     if (!this.isSimpleProp) return;
-                    let t;
-                    const i = { ...this.commonFieldProps },
-                        s = {},
-                        l = [...this.renderPropSlots(e)],
-                        n = { input: (e) => this.input(e), change: (e) => this.change(e) },
-                        a = {};
-                    let o = 'append-outer';
+                    const t = { ...this.commonFieldProps },
+                        i = [],
+                        s = { input: (e) => this.input(e), change: (e) => this.change(e) },
+                        l = {};
                     if (
-                        ('string' === this.fullSchema.type &&
-                            ('textarea' === this.display ||
-                            (this.fullSchema.maxLength &&
-                                this.fullSchema.maxLength > 1e3 &&
-                                'single-line' !== this.display)
-                                ? ((t = 'v-textarea'),
-                                  Object.assign(i, this.fullOptions.textareaProps),
-                                  (s.class = 'v-text-field--box v-text-field--enclosed'))
-                                : ((t = 'v-text-field'),
-                                  Object.assign(i, this.fullOptions.textFieldProps),
-                                  'password' === this.display && (i.type = 'password'))),
-                        ['number', 'integer'].includes(this.fullSchema.type) &&
-                            ('slider' === this.display
-                                ? ((t = 'v-slider'), Object.assign(i, this.fullOptions.sliderProps))
-                                : ((t = 'v-text-field'),
-                                  Object.assign(i, this.fullOptions.textFieldProps),
-                                  Object.assign(i, this.fullOptions.numberProps)),
-                            (i.type = 'number'),
-                            void 0 !== this.fullSchema.minimum && (i.min = this.fullSchema.minimum),
-                            void 0 !== this.fullSchema.maximum && (i.max = this.fullSchema.maximum),
-                            (i.step = this.fullSchema['x-step'] || ('integer' === this.fullSchema.type ? 1 : 0.01)),
-                            (n.input = (e) =>
-                                this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e)))),
+                        (['number', 'integer'].includes(this.fullSchema.type) &&
+                            (s.input = (e) =>
+                                this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e))),
                         'boolean' === this.fullSchema.type &&
-                            ((o = 'append'),
-                            'switch' === this.display
-                                ? ((t = 'v-switch'), Object.assign(i, this.fullOptions.switchProps))
-                                : ((t = 'v-checkbox'), Object.assign(i, this.fullOptions.checkboxProps)),
-                            (n.change = (e) => {
+                            (s.change = (e) => {
                                 this.input(e || !1), this.change(e || !1);
-                            })),
+                            }),
                         'array' === this.fullSchema.type &&
                             ['string', 'number', 'integer'].includes(this.fullSchema.items.type))
                     ) {
-                        (t = 'v-combobox'),
-                            Object.assign(i, this.fullOptions.comboboxProps),
-                            (i.chips = !0),
-                            (i.multiple = !0),
-                            (i.appendIcon = ''),
-                            (i.type = 'string'),
-                            (i.validateOnBlur = !0);
-                        const s = c(r.prepareFullSchema(this.fullSchema.items), this.fullOptions);
-                        (i.rules = i.rules.concat([
+                        const i = c(r.prepareFullSchema(this.fullSchema.items), this.fullOptions);
+                        (t.rules = t.rules.concat([
                             (e) =>
                                 e
                                     .map((e) => {
-                                        const t = s.find((t) => 'string' == typeof t(e));
+                                        const t = i.find((t) => 'string' == typeof t(e));
                                         return t && t(e);
                                     })
                                     .find((e) => !!e) || !0,
                         ])),
                             'string' !== this.fullSchema.items.type &&
-                                ((i.type = 'number'),
-                                (n.input = (e) => {
+                                ((t.type = 'number'),
+                                (s.input = (e) => {
                                     const t = e
                                         .map((e) =>
                                             'integer' === this.fullSchema.items.type ? parseInt(e, 10) : parseFloat(e)
@@ -929,12 +896,12 @@
                                         .filter((e) => !isNaN(e));
                                     this.input(t);
                                 })),
-                            (a.selection = (t) => {
-                                const i = s.find((e) => 'string' == typeof e(t.item));
+                            (l.selection = (t) => {
+                                const s = i.find((e) => 'string' == typeof e(t.item));
                                 return e(
                                     'v-chip',
                                     {
-                                        props: { close: !0, color: i ? 'error' : 'default' },
+                                        props: { close: !0, color: s ? 'error' : 'default' },
                                         on: {
                                             'click:close': () => {
                                                 this.value.splice(t.index, 1),
@@ -947,11 +914,13 @@
                                 );
                             });
                     }
-                    return (
-                        this.htmlDescription && l.push(this.renderTooltip(e, o)),
-                        (t = this.customTag ? this.customTag : t),
-                        t ? [e(t, { props: i, domProps: s, on: n, scopedSlots: a }, l)] : null
-                    );
+                    if (this.htmlDescription) {
+                        let t = 'append-outer';
+                        i.push(this.renderTooltip(e, t));
+                    }
+                    return this.fullSchema.tag
+                        ? [e(this.fullSchema.tag, { props: t, on: s, scopedSlots: l }, i)]
+                        : null;
                 },
             },
         };
@@ -2122,22 +2091,16 @@
                         []
                     ).forEach((e) => t.push(e));
                 }
+                this.$scopedSlots.after
+                    ? t.push(this.$scopedSlots.after(this.slotParams))
+                    : this.$slots.after
+                    ? this.$slots.after.forEach((e) => t.push(e))
+                    : this.xSlots.after &&
+                      t.push(e('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) } }));
+                const i = { ...this.fullOptions.fieldColProps };
                 return (
-                    this.$scopedSlots.after
-                        ? t.push(this.$scopedSlots.after(this.slotParams))
-                        : this.$slots.after
-                        ? this.$slots.after.forEach((e) => t.push(e))
-                        : this.xSlots.after &&
-                          t.push(e('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) } })),
-                    e(
-                        'v-col',
-                        {
-                            props: { cols: this.fullSchema['x-cols'] || 12 },
-                            class: this.propertyClass,
-                            style: this.fullSchema['x-style'] || '',
-                        },
-                        t
-                    )
+                    this.fullSchema['x-cols'] && (i.cols = this.fullSchema['x-cols']),
+                    e('v-col', { props: i, class: this.propertyClass, style: this.fullSchema['x-style'] || '' }, t)
                 );
             },
             methods: {
@@ -2172,6 +2135,8 @@
                     'object' !== e.type || e['x-fromUrl'] || e['x-fromData'] || e.enum
                         ? 'array' === e.type
                             ? []
+                            : 'v-range-slider' === e.tag
+                            ? [0, 10]
                             : null
                         : {},
                 fixProperties() {
@@ -2257,6 +2222,7 @@
                 VMenu: i.VMenu,
                 VRadio: i.VRadio,
                 VRadioGroup: i.VRadioGroup,
+                VRangeSlider: i.VRangeSlider,
                 VSelect: i.VSelect,
                 VSlider: i.VSlider,
                 VSpacer: i.VSpacer,
