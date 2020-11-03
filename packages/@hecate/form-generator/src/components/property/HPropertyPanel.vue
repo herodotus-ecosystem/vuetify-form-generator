@@ -93,6 +93,7 @@ import HSwitchPanel from '@/components/property/panels/HSwitchPanel';
 import HDatePickerPanel from '@/components/property/panels/HDatePickerPanel';
 import HTimePickerPanel from '@/components/property/panels/HTimePickerPanel';
 import HSelectSinglePanel from '@/components/property/panels/HSelectSinglePanel';
+import HComboBoxPanel from '@/components/property/panels/HComboBoxPanel';
 
 import { constants } from '@/lib/modeler/configurations';
 
@@ -109,13 +110,14 @@ export default {
         DATE_PICKER: HDatePickerPanel,
         TIME_PICKER: HTimePickerPanel,
         SELECT_SINGLE: HSelectSinglePanel,
+        COMBOBOX: HComboBoxPanel
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
@@ -123,9 +125,9 @@ export default {
         tab: null,
         tabs: [
             { key: 'element', name: '组件属性' },
-            { key: 'form', name: '表单属性' },
+            { key: 'form', name: '表单属性' }
         ],
-        schema: {},
+        schema: {}
     }),
 
     computed: {
@@ -140,7 +142,7 @@ export default {
         },
         properties() {
             return this.element[this.constants.annotations.xprops];
-        },
+        }
     },
 
     watch: {
@@ -148,13 +150,13 @@ export default {
             handler(newValue, oldValue) {
                 this.schema = newValue;
             },
-            immediate: true,
+            immediate: true
         },
         schema: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
-        },
+            }
+        }
     },
 
     methods: {
@@ -178,7 +180,7 @@ export default {
                 this.$set(this.properties, 'label', newLabel);
                 this.$set(this.element, 'title', newLabel);
             }
-        },
-    },
+        }
+    }
 };
 </script>

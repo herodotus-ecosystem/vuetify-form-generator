@@ -2,6 +2,11 @@
     <v-expansion-panels focusable mandatory class="mb-4">
         <h-expansion-panel index="appearance" header="外观">
             <h-panel-switch
+                v-model="properties[constants.tags.AllowOverflow]"
+                label="Allow Over flow"
+                tooltip="允许菜单溢出屏幕"
+            ></h-panel-switch>
+            <h-panel-switch
                 v-model="properties.chips"
                 label="Chips : 纸片显示"
                 tooltip="改变一个已选择项为小纸片（chips）的显示方式"
@@ -77,7 +82,17 @@
         </h-expansion-panel>
 
         <h-expansion-panel index="control" header="控制">
+            <h-panel-switch
+                v-model="properties[constants.tags.AutoSelectFirst]"
+                label="Auto Select First"
+                tooltip="搜索时，总是选中第一个选项"
+            ></h-panel-switch>
             <h-panel-switch v-model="properties.autofocus" label="Auto Focus : 启用自动聚焦"></h-panel-switch>
+            <h-panel-array
+                v-model="properties.delimiters"
+                label="Delimiters"
+                tooltip="接受将在键入时触发新标记的字符串数组。不替换正常的 Tab 和 Enter keys。"
+            ></h-panel-array>
             <h-panel-switch
                 v-model="properties[constants.tags.CacheItems]"
                 label="Cache Items"
@@ -95,6 +110,11 @@
                 tooltip="将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的。"
             ></h-panel-switch>
             <h-panel-switch
+                v-model="properties[constants.tags.HideNoData]"
+                label="Hide No Data"
+                tooltip="当没有要显示的选项时，隐藏菜单。用于防止在异步获取结果之前打开菜单。也有打开菜单的效果，当“ items 数组改变，如果还没有打开。"
+            ></h-panel-switch>
+            <h-panel-switch
                 v-model="properties.loading"
                 label="Loading : 加载状态"
                 tooltip="显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。"
@@ -109,6 +129,11 @@
                 v-model="properties.multiple"
                 label="Multiple : 多选"
                 tooltip="将预期模型更改为数组"
+            ></h-panel-switch>
+            <h-panel-switch
+                v-model="properties[constants.tags.NoFilter]"
+                label="NoFilter"
+                tooltip="搜索时不要应用过滤。在过滤服务器端数据时非常有用"
             ></h-panel-switch>
             <h-panel-switch v-model="properties.readonly" label="Readonly : 只读状态"></h-panel-switch>
             <h-panel-switch
@@ -238,6 +263,7 @@
 
 <script>
 import HExpansionPanel from '@/components/property/layouts/HExpansionPanel';
+import HPanelArray from '@/components/property/controls/HPanelArray';
 import HPanelColor from '@/components/property/controls/HPanelColor';
 import HPanelIcon from '@/components/property/controls/HPanelIcon';
 import HPanelNumber from '@/components/property/controls/HPanelNumber';
@@ -248,10 +274,11 @@ import HPanelTextField from '@/components/property/controls/HPanelTextField';
 import { constants } from '@/lib/modeler/configurations';
 
 export default {
-    name: 'HSingleSelectPanel',
+    name: 'HComboBoxPanel',
 
     components: {
         HExpansionPanel,
+        HPanelArray,
         HPanelColor,
         HPanelIcon,
         HPanelNumber,

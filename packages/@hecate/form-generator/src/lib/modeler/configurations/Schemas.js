@@ -9,9 +9,9 @@ const definitions = {
                 'hide-details': true,
                 'loader-height': 2,
                 outlined: true,
-                type: 'text',
-            },
-        },
+                type: 'text'
+            }
+        }
     },
     TEXT_AREA: {
         index: 'TEXT_AREA',
@@ -25,10 +25,10 @@ const definitions = {
                 outlined: true,
                 'row-height': 24,
                 rows: 2,
-                type: 'text',
+                type: 'text'
             },
-            'x-display': 'textarea',
-        },
+            'x-display': 'textarea'
+        }
     },
     SLIDER: {
         index: 'SLIDER',
@@ -43,10 +43,10 @@ const definitions = {
                 max: 100,
                 step: 1,
                 'thumb-size': 32,
-                'tick-size': 2,
+                'tick-size': 2
             },
-            'x-display': 'slider',
-        },
+            'x-display': 'slider'
+        }
     },
     RANGE_SLIDER: {
         index: 'RANGE_SLIDER',
@@ -61,10 +61,10 @@ const definitions = {
                 max: 100,
                 step: 1,
                 'thumb-size': 32,
-                'tick-size': 2,
+                'tick-size': 2
             },
-            'x-display': 'range-slider',
-        },
+            'x-display': 'range-slider'
+        }
     },
 
     CHECKBOX: {
@@ -74,9 +74,9 @@ const definitions = {
             title: '复选框',
             tag: 'v-checkbox',
             'x-props': {
-                'hide-details': true,
-            },
-        },
+                'hide-details': true
+            }
+        }
     },
     SWITCHS: {
         index: 'SWITCHS',
@@ -86,9 +86,9 @@ const definitions = {
             tag: 'v-switch',
             'x-display': 'switch',
             'x-props': {
-                'hide-details': true,
-            },
-        },
+                'hide-details': true
+            }
+        }
     },
 
     DATE_PICKER: {
@@ -100,9 +100,9 @@ const definitions = {
             format: 'date',
             'x-props': {
                 'first-day-of-week': 0,
-                type: 'date',
-            },
-        },
+                type: 'date'
+            }
+        }
     },
     TIME_PICKER: {
         index: 'TIME_PICKER',
@@ -111,8 +111,8 @@ const definitions = {
             title: '时间选择',
             tag: 'v-time-picker',
             format: 'time',
-            'x-props': {},
-        },
+            'x-props': {}
+        }
     },
 
     SELECT_SINGLE: {
@@ -122,11 +122,28 @@ const definitions = {
             title: '单项下拉',
             tag: 'v-select',
             'x-props': {
-                outlined: true,
                 'hide-details': true,
+                'no-data-text': '没有可用选项',
+                outlined: true
             },
-            enum: ['value 1', 'value 2'],
-        },
+            enum: ['value 1', 'value 2']
+        }
+    },
+    COMBOBOX: {
+        index: 'COMBOBOX',
+        schema: {
+            type: 'array',
+            title: '组合框',
+            tag: 'v-combobox',
+            'x-props': {
+                'hide-details': true,
+                'no-data-text': '没有可用选项',
+                outlined: true
+            },
+            items: {
+                type: 'string'
+            }
+        }
     },
 
     SELECT_MULTIPLE: {
@@ -142,15 +159,15 @@ const definitions = {
                 oneOf: [
                     {
                         const: 'value1',
-                        title: 'Value 1',
+                        title: 'Value 1'
                     },
                     {
                         const: 'value2',
-                        title: 'Value 2',
-                    },
-                ],
-            },
-        },
+                        title: 'Value 2'
+                    }
+                ]
+            }
+        }
     },
 
     COLOR_PICKER: {
@@ -162,9 +179,9 @@ const definitions = {
             format: 'hexcolor',
             properties: {
                 outlined: true,
-                'hide-details': true,
-            },
-        },
+                'hide-details': true
+            }
+        }
     },
 
     CASCADE_SELECT: {
@@ -173,8 +190,8 @@ const definitions = {
             type: 'string',
             title: '级联下拉',
             tag: 'v-select',
-            oneOf: [],
-        },
+            oneOf: []
+        }
     },
     AJAX_SELECT: {
         index: 'AJAX_SELECT',
@@ -189,15 +206,15 @@ const definitions = {
                 oneOf: [
                     {
                         const: 'value1',
-                        title: 'Value 1',
+                        title: 'Value 1'
                     },
                     {
                         const: 'value2',
-                        title: 'Value 2',
-                    },
-                ],
-            },
-        },
+                        title: 'Value 2'
+                    }
+                ]
+            }
+        }
     },
     RADIO: {
         index: 'RADIO',
@@ -207,8 +224,8 @@ const definitions = {
             tag: 'v-radio-group',
             'x-display': 'radio',
             properties: {},
-            enum: ['value 1', 'value 2'],
-        },
+            enum: ['value 1', 'value 2']
+        }
     },
 
     FILE_INPUT: {
@@ -219,9 +236,9 @@ const definitions = {
             tag: 'v-file-input',
             contentMediaType: 'image/png',
             writeOnly: true,
-            properties: {},
-        },
-    },
+            properties: {}
+        }
+    }
 };
 
 export default definitions;
