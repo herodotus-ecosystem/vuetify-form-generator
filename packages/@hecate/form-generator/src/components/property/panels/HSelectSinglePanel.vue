@@ -1,6 +1,21 @@
 <template>
     <v-expansion-panels focusable mandatory class="mb-4">
         <h-expansion-panel index="appearance" header="外观">
+            <h-panel-switch
+                v-model="properties.chips"
+                label="Chips : 纸片显示"
+                tooltip="改变一个已选择项为小纸片（chips）的显示方式"
+            ></h-panel-switch>
+            <h-panel-icon
+                v-model="properties[constants.tags.DeletableChips]"
+                label="Deletable Chips"
+                tooltip="添加一个去除图标的到选定的小纸片（chips）"
+            ></h-panel-icon>
+            <h-panel-switch
+                v-model="properties[constants.tags.SmallChips]"
+                label="Small Chips : 标题不移动"
+                tooltip="标签在 focus/dirty 上不移动"
+            ></h-panel-switch>
             <h-panel-switch v-model="properties.dense" label="Dense : 紧凑显示"> </h-panel-switch>
             <h-panel-switch
                 v-model="properties.filled"
@@ -20,6 +35,11 @@
             <h-panel-switch
                 v-model="properties[constants.tags.HideDetails]"
                 label="Hide Details : 隐藏细节区域"
+            ></h-panel-switch>
+            <h-panel-switch
+                v-model="properties[constants.tags.HideSelected]"
+                label="Hide Selected"
+                tooltip="不要在选择菜单中显示已选择的项"
             ></h-panel-switch>
             <h-panel-switch v-model="properties.outlined" label="Outlined : 显示轮廓"></h-panel-switch>
             <h-panel-switch
@@ -49,11 +69,31 @@
                 tooltip="减少元素的不透明度，知道获得焦点"
             ></h-panel-switch>
             <h-panel-number v-model="properties.height" label="Height : 设置高度" min="1"></h-panel-number>
+            <h-panel-text-field
+                v-model="properties[constants.tags.NoDataText]"
+                label="No Data Text"
+                tooltip="当没有数据时显示的文本"
+            ></h-panel-text-field>
         </h-expansion-panel>
 
         <h-expansion-panel index="control" header="控制">
-            <h-panel-switch v-model="properties.autofocus" label="Auto Focus : 启用自动聚焦"> </h-panel-switch>
-            <h-panel-switch v-model="properties.disabled" label="Disabled : 禁用输入"> </h-panel-switch>
+            <h-panel-switch v-model="properties.autofocus" label="Auto Focus : 启用自动聚焦"></h-panel-switch>
+            <h-panel-switch
+                v-model="properties[constants.tags.CacheItems]"
+                label="Cache Items"
+                tooltip="保留已经通过 items 属性的项在本地的唯一副本"
+            ></h-panel-switch>
+            <h-panel-switch
+                v-model="properties[constants.tags.DisableLookup]"
+                label="Disable Lookup"
+                tooltip="禁用键盘查询"
+            ></h-panel-switch>
+            <h-panel-switch v-model="properties.disabled" label="Disabled : 禁用输入"></h-panel-switch>
+            <h-panel-switch
+                v-model="properties.eager"
+                label="Eager"
+                tooltip="将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的。"
+            ></h-panel-switch>
             <h-panel-switch
                 v-model="properties.loading"
                 label="Loading : 加载状态"
@@ -65,7 +105,17 @@
                 min="1"
                 :disabled="!properties.loading"
             ></h-panel-number>
+            <h-panel-switch
+                v-model="properties.multiple"
+                label="Multiple : 多选"
+                tooltip="将预期模型更改为数组"
+            ></h-panel-switch>
             <h-panel-switch v-model="properties.readonly" label="Readonly : 只读状态"></h-panel-switch>
+            <h-panel-switch
+                v-model="properties[constants.tags.ReturnObject]"
+                label="Return Object"
+                tooltip="将选择器的行为更改为直接返回对象，而不是 item-value 指定的值"
+            ></h-panel-switch>
             <h-panel-switch v-model="properties.reverse" label="Reverse : 反转输入方向"></h-panel-switch>
             <h-panel-switch
                 v-model="properties[constants.tags.ValidateOnBlur]"
@@ -85,13 +135,6 @@
                 label="Append Outer Icon"
                 tooltip="在组件的外部添加一个图标，使用与 v-icon 相同的语法"
             ></h-panel-icon>
-            <h-panel-switch v-model="properties.clearable" label="Clearable : 显示清除按钮"> </h-panel-switch>
-            <h-panel-icon
-                v-model="properties[constants.tags.ClearIcon]"
-                label="Clear Icon"
-                tooltip="当使用 clearable 且有输入值时应用"
-                :disabled="!properties.clearable"
-            ></h-panel-icon>
             <h-panel-icon
                 v-model="properties[constants.tags.PrependIcon]"
                 label="Prepend Icon"
@@ -102,6 +145,19 @@
                 label="Prepend Inner Icon"
                 tooltip="在组件的输入中添加一个图标，使用与 v-icon 相同的语法"
             ></h-panel-icon>
+            <h-panel-switch v-model="properties.clearable" label="Clearable : 显示清除按钮"> </h-panel-switch>
+            <h-panel-icon
+                v-model="properties[constants.tags.ClearIcon]"
+                label="Clear Icon"
+                tooltip="当使用 clearable 且有输入值时应用"
+                :disabled="!properties.clearable"
+            ></h-panel-icon>
+            <h-panel-switch
+                v-model="properties[constants.tags.OpenOnClear]"
+                label="Open On Clear"
+                tooltip="当使用 clearable 属性, 一旦清除，选择菜单将打开或保持打开，这个取决于当前状态"
+                :disabled="!properties.clearable"
+            ></h-panel-switch>
         </h-expansion-panel>
 
         <h-expansion-panel index="content" header="内容">
@@ -178,26 +234,42 @@ export default {
         HExpansionPanel,
         HPanelColor,
         HPanelIcon,
+        HPanelNumber,
+        HPanelSelect,
         HPanelSwitch,
-        HPanelTextField,
+        HPanelTextField
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
         constants,
         element: {},
+        typeItems: [
+            { value: 'text', text: '文字输入模式（默认）' },
+            { value: 'password', text: '密码模式' },
+            { value: 'number', text: '数字模式' },
+            { value: 'color', text: '选择颜色模式' },
+            { value: 'datetime-local', text: '选择日期时间模式' },
+            { value: 'time', text: '选择时间模式' },
+            { value: 'date', text: '选择日期模式' },
+            { value: 'week', text: '选择周模式' },
+            { value: 'month', text: '选择月模式' }
+        ]
     }),
 
     computed: {
         properties() {
             return this.element[this.constants.annotations.xprops];
         },
+        isNumberType() {
+            return this.properties.type === 'number';
+        }
     },
 
     watch: {
@@ -205,13 +277,13 @@ export default {
             handler(newValue, oldValue) {
                 this.element = newValue;
             },
-            immediate: true,
+            immediate: true
         },
         element: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
-        },
-    },
+            }
+        }
+    }
 };
 </script>

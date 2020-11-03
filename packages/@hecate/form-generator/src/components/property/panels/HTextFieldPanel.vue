@@ -85,13 +85,6 @@
                 label="Append Outer Icon"
                 tooltip="在组件的外部添加一个图标，使用与 v-icon 相同的语法"
             ></h-panel-icon>
-            <h-panel-switch v-model="properties.clearable" label="Clearable : 显示清除按钮"> </h-panel-switch>
-            <h-panel-icon
-                v-model="properties[constants.tags.ClearIcon]"
-                label="Clear Icon"
-                tooltip="当使用 clearable 且有输入值时应用"
-                :disabled="!properties.clearable"
-            ></h-panel-icon>
             <h-panel-icon
                 v-model="properties[constants.tags.PrependIcon]"
                 label="Prepend Icon"
@@ -101,6 +94,13 @@
                 v-model="properties[constants.tags.PrependInnerIcon]"
                 label="Prepend Inner Icon"
                 tooltip="在组件的输入中添加一个图标，使用与 v-icon 相同的语法"
+            ></h-panel-icon>
+            <h-panel-switch v-model="properties.clearable" label="Clearable : 显示清除按钮"> </h-panel-switch>
+            <h-panel-icon
+                v-model="properties[constants.tags.ClearIcon]"
+                label="Clear Icon"
+                tooltip="当使用 clearable 且有输入值时应用"
+                :disabled="!properties.clearable"
             ></h-panel-icon>
         </h-expansion-panel>
 
@@ -181,14 +181,14 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField,
+        HPanelTextField
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
@@ -203,8 +203,8 @@ export default {
             { value: 'time', text: '选择时间模式' },
             { value: 'date', text: '选择日期模式' },
             { value: 'week', text: '选择周模式' },
-            { value: 'month', text: '选择月模式' },
-        ],
+            { value: 'month', text: '选择月模式' }
+        ]
     }),
 
     computed: {
@@ -213,7 +213,7 @@ export default {
         },
         isNumberType() {
             return this.properties.type === 'number';
-        },
+        }
     },
 
     watch: {
@@ -221,13 +221,13 @@ export default {
             handler(newValue, oldValue) {
                 this.element = newValue;
             },
-            immediate: true,
+            immediate: true
         },
         element: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
-        },
-    },
+            }
+        }
+    }
 };
 </script>

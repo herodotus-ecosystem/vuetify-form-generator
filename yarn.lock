@@ -4854,10 +4854,10 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.43.0 < 2"
 
-compression-webpack-plugin@^6.0.4:
-  version "6.0.4"
-  resolved "https://registry.npm.taobao.org/compression-webpack-plugin/download/compression-webpack-plugin-6.0.4.tgz#524699c0ad4e94cab0eb199c734e291f6ab685b9"
-  integrity sha1-UkaZwK1OlMqw6xmcc04pH2q2hbk=
+compression-webpack-plugin@^6.0.5:
+  version "6.0.5"
+  resolved "https://registry.npm.taobao.org/compression-webpack-plugin/download/compression-webpack-plugin-6.0.5.tgz?cache=0&sync_timestamp=1604326179245&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcompression-webpack-plugin%2Fdownload%2Fcompression-webpack-plugin-6.0.5.tgz#3d185efaf4b1f496db4155797cc8e7a5cd917552"
+  integrity sha1-PRhe+vSx9JbbQVV5fMjnpc2RdVI=
   dependencies:
     cacache "^15.0.5"
     find-cache-dir "^3.3.1"
@@ -12177,10 +12177,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.33.0:
-  version "2.33.0"
-  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.33.0.tgz#dc105b312e2817f996d0b6a192b7033f607ef08d"
-  integrity sha1-3BBbMS4oF/mW0LahkrcDP2B+8I0=
+rollup@^2.33.1:
+  version "2.33.1"
+  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.33.1.tgz?cache=0&sync_timestamp=1604300133153&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frollup%2Fdownload%2Frollup-2.33.1.tgz#802795164164ee63cd47769d8879c33ec8ae0c40"
+  integrity sha1-gCeVFkFk7mPNR3adiHnDPsiuDEA=
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -12245,10 +12245,10 @@ sass-graph@2.2.5:
     scss-tokenizer "^0.2.3"
     yargs "^13.3.2"
 
-sass-loader@^10.0.4:
-  version "10.0.4"
-  resolved "https://registry.npm.taobao.org/sass-loader/download/sass-loader-10.0.4.tgz#ec7181096947d078d60a1d76d527f47c19b151d8"
-  integrity sha1-7HGBCWlH0HjWCh121Sf0fBmxUdg=
+sass-loader@^10.0.5:
+  version "10.0.5"
+  resolved "https://registry.npm.taobao.org/sass-loader/download/sass-loader-10.0.5.tgz#f53505b5ddbedf43797470ceb34066ded82bb769"
+  integrity sha1-9TUFtd2+30N5dHDOs0Bm3tgrt2k=
   dependencies:
     klona "^2.0.4"
     loader-utils "^2.0.0"
@@ -14010,10 +14010,10 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-loader@^15.9.4:
-  version "15.9.4"
-  resolved "https://registry.npm.taobao.org/vue-loader/download/vue-loader-15.9.4.tgz#c2ecef8a1a0802ac76c6d686641b5dde522ae267"
-  integrity sha1-wuzvihoIAqx2xtaGZBtd3lIq4mc=
+vue-loader@^15.9.5:
+  version "15.9.5"
+  resolved "https://registry.npm.taobao.org/vue-loader/download/vue-loader-15.9.5.tgz?cache=0&sync_timestamp=1604303321553&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-loader%2Fdownload%2Fvue-loader-15.9.5.tgz#7a960dc420a3439deaacdda038fdcdbf7c432706"
+  integrity sha1-epYNxCCjQ53qrN2gOP3Nv3xDJwY=
   dependencies:
     "@vue/component-compiler-utils" "^3.1.0"
     hash-sum "^1.0.2"
