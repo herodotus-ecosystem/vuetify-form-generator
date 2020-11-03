@@ -67,7 +67,26 @@ export default {
     },
 
     data: () => ({
-        modeOptions: ['default', 'json', 'sql', 'javascript', 'css', 'xml', 'html', 'yaml', 'markdown', 'python'],
+        modeOptions: [
+            'default',
+            'json',
+            'dockerfile',
+            'html',
+            'http',
+            'javascript',
+            'jsx',
+            'markdown',
+            'powershell',
+            'properties',
+            'python',
+            'sass',
+            'shell',
+            'sql',
+            'css',
+            'xml',
+            'yaml',
+            'vue',
+        ],
         themeOptions: [
             'default',
             '3024-day',

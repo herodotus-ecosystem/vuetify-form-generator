@@ -1,6 +1,6 @@
 <template>
     <!-- <codemirror ref="editor" :value="editorValue" :options="cmOptions" @changes="onCmCodeChanges" @blur="onCmBlur" @keydown.native="onKeyDown" @mousedown.native="onMouseDown" @paste.native="OnPaste"></codemirror> -->
-    <codemirror ref="editor" :value="inputValue" :options="options" @ready="onReady" @input="onInput"></codemirror>
+    <codemirror ref="editor" v-model="sourceCode" :options="options" @ready="onReady"></codemirror>
 </template>
 <script>
 // 引入全局实例
@@ -18,9 +18,13 @@ import 'codemirror/mode/dockerfile/dockerfile.js';
 import 'codemirror/mode/htmlmixed/htmlmixed.js';
 import 'codemirror/mode/http/http.js';
 import 'codemirror/mode/javascript/javascript.js';
+import 'codemirror/mode/jsx/jsx.js';
 import 'codemirror/mode/markdown/markdown.js';
+import 'codemirror/mode/powershell/powershell.js';
+import 'codemirror/mode/properties/properties.js';
 import 'codemirror/mode/python/python.js';
 import 'codemirror/mode/sass/sass.js';
+import 'codemirror/mode/shell/shell.js';
 import 'codemirror/mode/sql/sql.js';
 import 'codemirror/mode/vue/vue.js';
 import 'codemirror/mode/xml/xml.js';
@@ -108,7 +112,7 @@ export default {
     },
 
     data: () => ({
-        editorValue: '',
+        sourceCode: '',
     }),
 
     computed: {
@@ -180,14 +184,22 @@ export default {
         currentCodeMirror() {
             return this.$refs.editor.codemirror;
         },
-        inputValue() {
-            return this.editorValue;
-        },
     },
 
     created() {},
 
     watch: {
+        value: {
+            handler(newValue, oldValue) {
+                this.sourceCode = newValue;
+            },
+            immediate: true,
+        },
+        sourceCode: {
+            handler(newValue, oldValue) {
+                this.$emit('input', newValue);
+            },
+        },
         mode: {
             handler(newValue, oldValue) {
                 this.resetLint();
@@ -206,11 +218,6 @@ export default {
             cm.on('keypress', () => {
                 cm.showHint({ completeSingle: false });
             });
-        },
-        onInput(event) {
-            let value = event;
-            this.editorValue = value;
-            this.$emit('input', value); //触发 input 事件，并传入新值
         },
     },
 };

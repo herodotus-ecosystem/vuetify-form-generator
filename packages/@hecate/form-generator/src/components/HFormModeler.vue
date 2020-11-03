@@ -48,12 +48,12 @@
             </v-tooltip>
             <v-dialog v-model="codeDialog" fullscreen hide-overlay transition="dialog-bottom-transition">
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn large dark icon v-bind="attrs" v-on="on">
-                        <v-icon>mdi-language-javascript</v-icon>
+                    <v-btn large dark icon v-bind="attrs" v-on="on" @click="generateVueCode">
+                        <v-icon>mdi-vuejs</v-icon>
                     </v-btn>
                 </template>
                 <v-card>
-                    <v-toolbar dark color="primary">
+                    <v-toolbar dark color="primary" dense>
                         <v-btn icon dark @click="codeDialog = false">
                             <v-icon>mdi-close</v-icon>
                         </v-btn>
@@ -63,18 +63,18 @@
                             <v-btn dark text @click="codeDialog = false">Save</v-btn>
                         </v-toolbar-items>
                     </v-toolbar>
-                    <h-code-editor></h-code-editor>
+                    <h-code-mirror v-model="vueCode" mode="vue" read-only></h-code-mirror>
                 </v-card>
             </v-dialog>
 
-            <v-tooltip bottom>
+            <!-- <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn large dark icon v-bind="attrs" v-on="on" @click="getCanvasItemModels">
                         <v-icon>mdi-language-javascript</v-icon>
                     </v-btn>
                 </template>
                 <span>生成代码</span>
-            </v-tooltip>
+            </v-tooltip> -->
         </v-app-bar>
 
         <v-navigation-drawer clipped app right width="360px">
@@ -126,7 +126,7 @@ import { debounce } from 'throttle-debounce';
 import HCanvasContainer from '@/components/canvas/HCanvasContainer';
 import HDraggableItem from '@/components/canvas/HDraggableItem';
 import HPropertyPanel from '@/components/property/HPropertyPanel';
-import HCodeEditor from '@hecate/h-code-editor';
+import HCodeMirror from '@hecate/h-code-mirror';
 
 import { leftPanelComponents } from '@/lib/modeler/configurations';
 import { DataObject, DB } from '@/lib/modeler/logic';
@@ -139,7 +139,7 @@ export default {
         HCanvasContainer,
         HDraggableItem,
         HPropertyPanel,
-        HCodeEditor,
+        HCodeMirror,
     },
 
     data: () => ({
@@ -149,6 +149,7 @@ export default {
         selectedCanvasItemData: {},
         saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
         codeDialog: false,
+        vueCode: '',
     }),
 
     watch: {
@@ -221,8 +222,11 @@ export default {
             });
         },
 
-        getCanvasItemModels() {
-            console.log(Template.create(this.drawingCanvas));
+        generateVueCode() {
+            let code = Template.create(this.drawingCanvas);
+            if (code) {
+                this.vueCode = code.code;
+            }
         },
     },
 };

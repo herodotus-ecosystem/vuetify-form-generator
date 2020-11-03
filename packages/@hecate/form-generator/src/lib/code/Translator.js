@@ -8,13 +8,12 @@ function dataObjectToTag(dataObject) {
 
         let transform = {};
         transform.tag = schema.tag;
-        transform.attributes = attributes;
+        transform.attributes = {};
         transform.attributes['v-model'] = dataObject.configs.formId;
         transform.attributes['label'] = schema.title;
+        Object.assign(transform.attributes, attributes);
 
         let tag = convertor.json2html.build(transform);
-
-        console.log('tag', tag);
         return lib.lodash.replace(tag, /="true"/g, '');
     }
 
@@ -24,7 +23,7 @@ function dataObjectToTag(dataObject) {
 function toTag(canvas) {
     let tags = lib.lodash.map(canvas, dataObjectToTag);
     if (!lib.lodash.isEmpty(tags)) {
-        return lib.lodash.join(tags, ' \n ');
+        return lib.lodash.join(tags, '\n' + '\t'.repeat(7));
     }
     return '';
 }
@@ -60,7 +59,6 @@ function toData(canvas) {
             data[formId] = getDefaultValue(itemSchema.type);
         });
     }
-
     return data;
 }
 
