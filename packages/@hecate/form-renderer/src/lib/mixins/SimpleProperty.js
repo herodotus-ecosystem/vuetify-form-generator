@@ -16,64 +16,22 @@ export default {
     methods: {
         renderSimpleProp(h) {
             if (!this.isSimpleProp) return;
-            let tag;
+
             const props = { ...this.commonFieldProps };
 
-            const domProps = {};
-            // const children = [...this.renderPropSlots(h)];
             const children = [];
             const on = {
                 input: (value) => this.input(value),
                 change: (value) => this.change(value)
             };
             const scopedSlots = {};
-            let tooltipSlot = 'append-outer';
-
-            if (this.fullSchema.type === 'string') {
-                // if (
-                // this.display === 'textarea'
-                // this.display === 'textarea' ||
-                // (this.fullSchema.maxLength && this.fullSchema.maxLength > 1000 && this.display !== 'single-line')
-                // ) {
-                //tag = 'v-textarea';
-                // Object.assign(props, this.fullOptions.textareaProps);
-                // domProps.class = 'v-text-field--box v-text-field--enclosed';
-                // } else {
-                //tag = 'v-text-field';
-                // Object.assign(props, this.fullOptions.textFieldProps);
-                // if (this.display === 'password') props.type = 'password';
-                //}
-            }
 
             if (['number', 'integer'].includes(this.fullSchema.type)) {
-                // if (this.display === 'slider') {
-                // tag = 'v-slider';
-                // Object.assign(props, this.fullOptions.sliderProps);
-                // } else if (this.display === 'range-slider') {
-                // tag = 'v-range-slider';
-                // } else {
-                // tag = 'v-text-field';
-                // Object.assign(props, this.fullOptions.textFieldProps);
-                // Object.assign(props, this.fullOptions.numberProps);
-                // }
-                // props.type = 'number';
-                // if (this.fullSchema.minimum !== undefined) props.min = this.fullSchema.minimum;
-                // if (this.fullSchema.maximum !== undefined) props.max = this.fullSchema.maximum;
-                // props.step = this.fullSchema['x-step'] || (this.fullSchema.type === 'integer' ? 1 : 0.01);
-
                 on.input = (value) =>
                     this.input(this.fullSchema.type === 'integer' ? parseInt(value, 10) : parseFloat(value));
             }
 
             if (this.fullSchema.type === 'boolean') {
-                // tooltipSlot = 'append';
-                // if (this.display === 'switch') {
-                //     tag = 'v-switch';
-                //      Object.assign(props, this.fullOptions.switchProps);
-                // } else {
-                //     tag = 'v-checkbox';
-                //     Object.assign(props, this.fullOptions.checkboxProps);
-                // }
                 on.change = (value) => {
                     this.input(value || false);
                     this.change(value || false);
@@ -84,13 +42,6 @@ export default {
                 this.fullSchema.type === 'array' &&
                 ['string', 'number', 'integer'].includes(this.fullSchema.items.type)
             ) {
-                tag = 'v-combobox';
-                Object.assign(props, this.fullOptions.comboboxProps);
-                props.chips = true;
-                props.multiple = true;
-                props.appendIcon = '';
-                props.type = 'string';
-                props.validateOnBlur = true;
                 const itemRules = getRules(schemaUtils.prepareFullSchema(this.fullSchema.items), this.fullOptions);
                 props.rules = props.rules.concat([
                     (values) => {
@@ -138,15 +89,11 @@ export default {
             }
 
             if (this.htmlDescription) {
+                let tooltipSlot = 'append-outer';
                 children.push(this.renderTooltip(h, tooltipSlot));
             }
 
-            // tag = this.customTag ? this.customTag : this.fullSchema.tag;
-            // tag = this.fullSchema.tag;
-
-            return this.fullSchema.tag
-                ? [h(this.fullSchema.tag, { props, domProps, on, scopedSlots }, children)]
-                : null;
+            return this.fullSchema.tag ? [h(this.fullSchema.tag, { props, on, scopedSlots }, children)] : null;
         }
     }
 };
