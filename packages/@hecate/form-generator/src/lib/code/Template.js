@@ -31,7 +31,8 @@ function formatData(data) {
     let format = JSON.stringify(data);
     format = format.replace('{', '');
     format = format.replace('}', '');
-    format = format.replace(',', ',\n' + '\t'.repeat(3));
+    let reg = new RegExp(',', 'g');
+    format = format.replace(reg, ',\n' + '\t'.repeat(3));
     return format;
 }
 

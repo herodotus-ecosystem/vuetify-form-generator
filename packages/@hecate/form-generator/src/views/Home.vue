@@ -1,13 +1,13 @@
 <template>
-    <h-form-modeler></h-form-modeler>
+    <h-form-generator></h-form-generator>
 </template>
 
 <script>
-import HFormModeler from '@/components/HFormModeler.vue';
+import HFormGenerator from '@/components/HFormGenerator.vue';
 
 export default {
     components: {
-        HFormModeler,
-    },
+        HFormGenerator
+    }
 };
 </script>

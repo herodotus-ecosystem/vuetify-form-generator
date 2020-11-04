@@ -65,13 +65,13 @@ function toData(canvas) {
 function toCompleteSchema(canvas) {
     const schema = {
         type: 'object',
-        properties: {},
+        properties: {}
     };
 
     if (!lib.lodash.isEmpty(canvas)) {
         canvas.map((item, index, array) => {
             let formId = item.configs.formId;
-            let itemSchema = getSchema(item);
+            let itemSchema = DataObject.getSchema(item);
             schema.properties[formId] = itemSchema;
         });
         return schema;

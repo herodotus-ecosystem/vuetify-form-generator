@@ -1,5 +1,5 @@
 <template>
-    <v-list-item dense class="pa-1">
+    <v-list-item dense class="pa-0 ml-1">
         <v-list-item-content>
             <v-list-item-title v-if="label">{{ label }}</v-list-item-title>
             <h-icon-list v-model="icon" dense :disabled="disabled"></h-icon-list>
@@ -24,18 +24,18 @@ export default {
     name: 'HPanelIcon',
 
     components: {
-        HIconList,
+        HIconList
     },
 
     props: {
         value: { type: String },
         label: String,
         tooltip: String,
-        disabled: { type: Boolean, default: false },
+        disabled: { type: Boolean, default: false }
     },
 
     data: () => ({
-        icon: '',
+        icon: ''
     }),
 
     watch: {
@@ -44,13 +44,13 @@ export default {
                 if (newValue) {
                     this.icon = newValue;
                 }
-            },
+            }
         },
         icon: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
-        },
-    },
+            }
+        }
+    }
 };
 </script>

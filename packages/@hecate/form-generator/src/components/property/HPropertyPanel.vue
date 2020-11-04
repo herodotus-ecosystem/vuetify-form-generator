@@ -184,3 +184,10 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.property-panel--scroll {
+    height: calc(100vh);
+    overflow: auto;
+}
+</style>
