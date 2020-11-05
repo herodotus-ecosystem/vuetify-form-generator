@@ -7,6 +7,7 @@
         "packages/@hecate/h-code-mirror",
         "packages/@hecate/h-code-editor",
         "packages/@hecate/h-form-renderer",
+        "packages/@hecate/h-form-runtime",
         "packages/@hecate/h-icon-list",
         "packages/@hecate/form-generator"
     ],
@@ -20,6 +21,7 @@
         "ws:mirror": "yarn workspace @hecate/h-code-mirror",
         "ws:editor": "yarn workspace @hecate/h-code-editor",
         "ws:renderer": "yarn workspace @hecate/h-form-renderer",
+        "ws:runtime": "yarn workspace @hecate/h-form-runtime",
         "ws:iconlist": "yarn workspace @hecate/h-icon-list",
         "storybook": "start-storybook -p 9898"
     },
