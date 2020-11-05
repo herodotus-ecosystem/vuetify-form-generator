@@ -29,32 +29,32 @@
 
 <script>
 import HCodeMirror from '@hecate/h-code-mirror';
-import { HFormRenderer } from '@hecate/form-renderer';
+import HFormRenderer from '@hecate/h-form-renderer';
 
 export default {
     name: 'HFormPreviewDrawer',
 
     components: {
         HCodeMirror,
-        HFormRenderer
+        HFormRenderer,
     },
 
     props: {
         value: {
             type: Boolean,
-            default: false
+            default: false,
         },
         source: {
             type: String,
-            default: ''
-        }
+            default: '',
+        },
     },
 
     data: () => ({
         drawer: false,
         schema: {},
         model: {},
-        config: ''
+        config: '',
     }),
 
     watch: {
@@ -62,12 +62,12 @@ export default {
             handler(newValue, oldValue) {
                 this.drawer = newValue;
             },
-            immediate: true
+            immediate: true,
         },
         drawer: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
+            },
         },
         source: {
             handler(newValue, oldValue) {
@@ -76,10 +76,10 @@ export default {
                     this.config = newValue;
                 }
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
 
-    methods: {}
+    methods: {},
 };
 </script>

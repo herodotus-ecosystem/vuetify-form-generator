@@ -17,5 +17,5 @@ export {
     SelectProperty,
     EditableArray,
     Tooltip,
-    Validatable
+    Validatable,
 };

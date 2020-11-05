@@ -11,7 +11,7 @@ export default {
                 (this.fullSchema.type === 'array' &&
                     ['string', 'number', 'integer'].includes(this.fullSchema.items.type))
             );
-        }
+        },
     },
     methods: {
         renderSimpleProp(h) {
@@ -22,7 +22,7 @@ export default {
             const children = [];
             const on = {
                 input: (value) => this.input(value),
-                change: (value) => this.change(value)
+                change: (value) => this.change(value),
             };
             const scopedSlots = {};
 
@@ -53,7 +53,7 @@ export default {
                         });
                         const firstMessage = valuesMessages.find((m) => !!m);
                         return firstMessage || true;
-                    }
+                    },
                 ]);
 
                 if (this.fullSchema.items.type !== 'string') {
@@ -81,7 +81,7 @@ export default {
                         'v-chip',
                         {
                             props: { close: true, color: brokenRule ? 'error' : 'default' },
-                            on: { 'click:close': onClose }
+                            on: { 'click:close': onClose },
                         },
                         slotProps.item
                     );
@@ -94,6 +94,6 @@ export default {
             }
 
             return this.fullSchema.tag ? [h(this.fullSchema.tag, { props, on, scopedSlots }, children)] : null;
-        }
-    }
+        },
+    },
 };

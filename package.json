@@ -6,8 +6,8 @@
         "packages/@hecate/h-button",
         "packages/@hecate/h-code-mirror",
         "packages/@hecate/h-code-editor",
+        "packages/@hecate/h-form-renderer",
         "packages/@hecate/h-icon-list",
-        "packages/@hecate/form-renderer",
         "packages/@hecate/form-generator"
     ],
     "scripts": {
@@ -15,11 +15,11 @@
         "push": "yarn commit && git push --set-upstream origin develop",
         "commit": "git add . && git status && git-cz",
         "ws:core": "yarn workspace @hecate/core",
-        "ws:renderer": "yarn workspace @hecate/form-renderer",
         "ws:generator": "yarn workspace @hecate/form-generator",
         "ws:button": "yarn workspace @hecate/h-button",
         "ws:mirror": "yarn workspace @hecate/h-code-mirror",
         "ws:editor": "yarn workspace @hecate/h-code-editor",
+        "ws:renderer": "yarn workspace @hecate/h-form-renderer",
         "ws:iconlist": "yarn workspace @hecate/h-icon-list",
         "storybook": "start-storybook -p 9898"
     },
@@ -60,7 +60,7 @@
         "commitizen": "^4.2.2",
         "compression-webpack-plugin": "^6.0.5",
         "cross-env": "^7.0.2",
-        "css-loader": "^5.0.0",
+        "css-loader": "^5.0.1",
         "cssnano": "^4.1.10",
         "cssnano-preset-default": "^4.0.7",
         "cz-lerna-changelog": "^2.0.3",

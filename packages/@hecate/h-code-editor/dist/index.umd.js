@@ -14,7 +14,7 @@
     function i(e, t, o, n, r, a, i, d, l, s) {
         'boolean' != typeof i && ((l = d), (d = i), (i = !1));
         const c = 'function' == typeof o ? o.options : o;
-        let u;
+        let h;
         if (
             (e &&
                 e.render &&
@@ -24,7 +24,7 @@
                 r && (c.functional = !0)),
             n && (c._scopeId = n),
             a
-                ? ((u = function (e) {
+                ? ((h = function (e) {
                       (e =
                           e ||
                           (this.$vnode && this.$vnode.ssrContext) ||
@@ -34,25 +34,25 @@
                           t && t.call(this, l(e)),
                           e && e._registeredComponents && e._registeredComponents.add(a);
                   }),
-                  (c._ssrRegister = u))
+                  (c._ssrRegister = h))
                 : t &&
-                  (u = i
+                  (h = i
                       ? function (e) {
                             t.call(this, s(e, this.$root.$options.shadowRoot));
                         }
                       : function (e) {
                             t.call(this, d(e));
                         }),
-            u)
+            h)
         )
             if (c.functional) {
                 const e = c.render;
                 c.render = function (t, o) {
-                    return u.call(o), e(t, o);
+                    return h.call(o), e(t, o);
                 };
             } else {
                 const e = c.beforeCreate;
-                c.beforeCreate = e ? [].concat(e, u) : [u];
+                c.beforeCreate = e ? [].concat(e, h) : [h];
             }
         return o;
     }
@@ -170,14 +170,22 @@
                 modeOptions: [
                     'default',
                     'json',
-                    'sql',
+                    'dockerfile',
+                    'html',
+                    'http',
                     'javascript',
+                    'jsx',
+                    'markdown',
+                    'powershell',
+                    'properties',
+                    'python',
+                    'sass',
+                    'shell',
+                    'sql',
                     'css',
                     'xml',
-                    'html',
                     'yaml',
-                    'markdown',
-                    'python',
+                    'vue',
                 ],
                 themeOptions: [
                     'default',
