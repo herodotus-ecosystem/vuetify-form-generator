@@ -4,7 +4,7 @@
         <v-list-item-group color="primary" class="mb-1">
             <v-list-item dense v-for="(item, i) in selectedItems" :key="i" class="pl-2 pr-2">
                 <v-list-item-avatar size="28">
-                    <v-icon small class="error lighten-1 white--text" @click="deleteSelectedItem(item)"
+                    <v-icon small class="error lighten-1 white--text" @click="removeSelectedItem(item)"
                         >mdi-delete-alert</v-icon
                     >
                 </v-list-item-avatar>
@@ -54,7 +54,15 @@ export default {
         HPanelBetween,
     },
 
+    props: {
+        value: {
+            type: String,
+            default: '',
+        },
+    },
+
     data: () => ({
+        expressions: '',
         ruleItems: [
             { name: 'Alpha', type: 'alpha', description: '输入内容只能包含字母' },
             { name: 'Alpha Dash', type: 'alpha_dash', description: '输入内容包含字母数字、破折号和下划线' },
@@ -90,13 +98,31 @@ export default {
     }),
 
     watch: {
+        value: {
+            handler(newValue, oldValue) {
+                this.expressions = newValue;
+                this.readExpressions(this.expressions);
+            },
+            immediate: true,
+        },
+        expressions: {
+            handler(newValue, oldValue) {
+                this.$emit('input', newValue);
+            },
+        },
         selectedRule: {
             handler(newValue, oldValue) {
                 if (newValue) {
                     this.changeRuleSettingPanel(newValue.type);
                 } else {
                     this.ruleParamSettingPanel = '';
+                    this.ruleParam = '';
                 }
+            },
+        },
+        selectedItems: {
+            handler(newValue, oldValue) {
+                this.expressions = this.constructExpression(newValue);
             },
         },
     },
@@ -110,51 +136,51 @@ export default {
     methods: {
         changeRuleSettingPanel(type) {
             let panel = '';
+            let param = '';
             switch (type) {
                 case 'between':
                     panel = 'HPanelBetween';
+                    param = this.readSelectedItemParam(type);
                     break;
                 default:
                     panel = '';
+                    param = '';
                     break;
             }
             this.ruleParamSettingPanel = panel;
+            this.ruleParam = param;
         },
 
-        addRule() {
-            if (this.ruleParamSettingPanel) {
-                this.$refs.rulePanel.validate();
-                if (this.$refs.rulePanel.valid) {
-                    this.addSelectedItem();
-                }
-            } else {
-                this.addSelectedItem();
-            }
-        },
-
-        getRule() {
-            if (!this.$lib.lodash.isEmpty(this.selectedRule)) {
-                let rule = Object.assign({}, this.selectedRule);
-                if (this.ruleParam) {
-                    rule.value = this.selectedRule.type + ':' + this.ruleParam;
-                } else {
-                    rule.value = this.selectedRule.type;
-                }
-                return rule;
+        readSelectedItemParam(type) {
+            let selectedItem = this.$lib.lodash.find(this.selectedItems, function (i) {
+                return i.type === type;
+            });
+            if (selectedItem && selectedItem.param) {
+                return selectedItem.param;
             } else {
                 return '';
             }
         },
 
-        addSelectedItem() {
-            let rule = this.getRule();
+        findRuleItemByType(type) {
+            return this.$lib.lodash.find(this.ruleItems, function (i) {
+                return i.type === type;
+            });
+        },
+
+        changeRuleItemStatus(rule, status = true) {
+            let item = this.findRuleItemByType(rule.type);
+            item.disabled = status;
+        },
+
+        pushSelectedItem(rule) {
             if (rule) {
                 this.selectedItems.push(rule);
                 this.changeRuleItemStatus(rule, true);
             }
         },
 
-        deleteSelectedItem(rule) {
+        removeSelectedItem(rule) {
             this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (i) {
                 return i.type !== rule.type;
             });
@@ -162,11 +188,85 @@ export default {
             this.selectedRule = {};
         },
 
-        changeRuleItemStatus(rule, status = true) {
-            let item = this.$lib.lodash.find(this.ruleItems, function (i) {
-                return i.type === rule.type;
-            });
-            item.disabled = status;
+        parseExpression(expression) {
+            let result = {};
+            if (expression) {
+                if (expression.search(':') != -1) {
+                    let expressionArray = this.$lib.lodash.split(value, ':');
+                    if (expressionArray) {
+                        result.type = expressionArray[0];
+                        result.param = expressionArray[1];
+                    }
+                } else {
+                    result.type = expression;
+                    result.param = '';
+                }
+            }
+
+            return result;
+        },
+
+        addSelectedItemByExpression(expression) {
+            let parser = this.parseExpression(expression);
+            let rule = this.findRuleItemByType(parser.type);
+            if (parser.param) {
+                rule.param = parser.param;
+            }
+            this.pushSelectedItem(rule);
+        },
+
+        readExpressions(expressions) {
+            if (expressions && expressions.search('|') != -1) {
+                let expressionArray = this.$lib.lodash.split(value, '|');
+                for (let expression in expressionArray) {
+                    this.addSelectedItemByExpression(expression);
+                }
+            } else {
+                return this.addSelectedItemByExpression(expressions);
+            }
+        },
+
+        readSelectedRule() {
+            if (!this.$lib.lodash.isEmpty(this.selectedRule)) {
+                let rule = Object.assign({}, this.selectedRule);
+                if (this.ruleParam) {
+                    rule.param = this.ruleParam;
+                }
+                return rule;
+            } else {
+                return '';
+            }
+        },
+
+        addSelectedItemBySelector() {
+            let rule = this.readSelectedRule();
+            this.pushSelectedItem(rule);
+        },
+
+        addRule() {
+            if (this.ruleParamSettingPanel) {
+                this.$refs.rulePanel.validate();
+                if (this.$refs.rulePanel.valid) {
+                    this.addSelectedItemBySelector();
+                }
+            } else {
+                this.addSelectedItemBySelector();
+            }
+        },
+
+        constructExpression(selectedItems) {
+            if (selectedItems) {
+                let result = selectedItems
+                    .map((item) => {
+                        if (item.param) {
+                            return item.type + ':' + item.param;
+                        } else {
+                            return item.type;
+                        }
+                    })
+                    .join('|');
+                return result;
+            }
         },
     },
 };
