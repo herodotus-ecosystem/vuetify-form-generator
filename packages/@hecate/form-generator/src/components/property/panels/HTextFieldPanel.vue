@@ -71,8 +71,10 @@
                 v-model="properties[constants.tags.ValidateOnBlur]"
                 label="Validate On Blur : 延迟验证"
                 tooltip="延迟验证直到失去焦点的事件被触发"
-            ></h-panel-switch
-        ></h-expansion-panel>
+            ></h-panel-switch>
+        </h-expansion-panel>
+
+        <h-rule-expansion-panel></h-rule-expansion-panel>
 
         <h-expansion-panel index="icon" header="图标">
             <h-panel-icon
@@ -168,6 +170,7 @@ import HPanelNumber from '@/components/property/controls/HPanelNumber';
 import HPanelSelect from '@/components/property/controls/HPanelSelect';
 import HPanelSwitch from '@/components/property/controls/HPanelSwitch';
 import HPanelTextField from '@/components/property/controls/HPanelTextField';
+import HRuleExpansionPanel from '@/components/property/validates/HRuleExpansionPanel';
 
 import { constants } from '@/lib/modeler/configurations';
 
@@ -181,14 +184,15 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField
+        HPanelTextField,
+        HRuleExpansionPanel,
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
@@ -203,8 +207,8 @@ export default {
             { value: 'time', text: '选择时间模式' },
             { value: 'date', text: '选择日期模式' },
             { value: 'week', text: '选择周模式' },
-            { value: 'month', text: '选择月模式' }
-        ]
+            { value: 'month', text: '选择月模式' },
+        ],
     }),
 
     computed: {
@@ -213,7 +217,7 @@ export default {
         },
         isNumberType() {
             return this.properties.type === 'number';
-        }
+        },
     },
 
     watch: {
@@ -221,13 +225,13 @@ export default {
             handler(newValue, oldValue) {
                 this.element = newValue;
             },
-            immediate: true
+            immediate: true,
         },
         element: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
-        }
-    }
+            },
+        },
+    },
 };
 </script>

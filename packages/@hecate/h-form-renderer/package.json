@@ -20,7 +20,7 @@
         "property-expr": "^2.0.4"
     },
     "devDependencies": {
-        "core-js": "^3.6.5",
+        "core-js": "^3.7.0",
         "vuetify": "^2.3.16"
     }
 }

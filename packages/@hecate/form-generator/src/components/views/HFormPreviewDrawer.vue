@@ -18,9 +18,7 @@
                     </v-card>
                 </v-col>
                 <v-col cols="12" md="6">
-                    <v-form>
-                        <h-form-renderer v-model="model" :schema="schema"></h-form-renderer>
-                    </v-form>
+                    <h-form-runtime :schema="schema" class="mr-3"></h-form-runtime>
                 </v-col>
             </v-row>
         </v-card>
@@ -29,14 +27,14 @@
 
 <script>
 import HCodeMirror from '@hecate/h-code-mirror';
-import HFormRenderer from '@hecate/h-form-renderer';
+import HFormRuntime from '@hecate/h-form-runtime';
 
 export default {
     name: 'HFormPreviewDrawer',
 
     components: {
         HCodeMirror,
-        HFormRenderer,
+        HFormRuntime,
     },
 
     props: {
@@ -79,7 +77,11 @@ export default {
             immediate: true,
         },
     },
-
-    methods: {},
 };
 </script>
+
+<style lang="scss">
+.CodeMirror {
+    height: calc(100vh - 48px) !important;
+}
+</style>

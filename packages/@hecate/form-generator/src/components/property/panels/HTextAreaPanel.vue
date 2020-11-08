@@ -202,14 +202,14 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField
+        HPanelTextField,
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
@@ -224,8 +224,8 @@ export default {
             { value: 'time', text: '时间模式' },
             { value: 'date', text: '日期模式' },
             { value: 'week', text: '周模式' },
-            { value: 'month', text: '月模式' }
-        ]
+            { value: 'month', text: '月模式' },
+        ],
     }),
 
     computed: {
@@ -234,7 +234,7 @@ export default {
         },
         isNumberType() {
             return this.properties.type === 'number';
-        }
+        },
     },
 
     watch: {
@@ -242,13 +242,13 @@ export default {
             handler(newValue, oldValue) {
                 this.element = newValue;
             },
-            immediate: true
+            immediate: true,
         },
         element: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
-        }
-    }
+            },
+        },
+    },
 };
 </script>

@@ -16,6 +16,7 @@
         "@hecate/core": "1.0.0",
         "@hecate/h-code-mirror": "^1.0.0",
         "@hecate/h-form-renderer": "^1.0.0",
+        "@hecate/h-form-runtime": "^1.0.0",
         "@hecate/h-icon-list": "^1.0.0",
         "@mdi/font": "^5.8.55",
         "babel-polyfill": "^6.26.0",
@@ -23,7 +24,7 @@
         "roboto-fontface": "*",
         "throttle-debounce": "^3.0.1",
         "vee-validate": "3.4.3",
-        "vue-router": "^3.4.8",
+        "vue-router": "^3.4.9",
         "vuedraggable": "^2.24.3",
         "vuetify": "^2.3.16"
     },

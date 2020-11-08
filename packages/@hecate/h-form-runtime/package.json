@@ -13,6 +13,7 @@
         "lib": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
     },
     "dependencies": {
-        "@hecate/h-form-renderer": "^1.0.0"
+        "@hecate/h-form-renderer": "^1.0.0",
+        "vee-validate": "^3.4.3"
     }
 }
