@@ -21,23 +21,13 @@ const { rollups } = require('../../../scripts');
 const configs = {
     types: ['umd', 'iife'],
     globals: {
-        jshint: 'jshint',
-        csslint: 'csslint',
-        jsonlint: 'jsonlint',
-        htmlhint: 'htmlhint',
-        'vue-codemirror': 'vueCodemirror',
+        '@mdi/js': 'mdi-js',
+        '@hecate/core': 'core',
     },
     external: [
         // 不被打包的库，比如在项目中会被引入
-        'csslint',
-        'file',
-        'htmlhint',
-        'jshint',
-        'jsonlint',
-        'script-loader',
-        'system',
-        'vue-codemirror',
-        'script-loader!jsonlint',
+        '@mdi/js',
+        '@hecate/core',
     ],
 };
 

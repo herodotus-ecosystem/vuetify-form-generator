@@ -58,7 +58,7 @@ const configs = {
 };
 
 const entries = (() => {
-    let entries = utils.getEntries(['./src/lib', './src/locales'], /^index\.js$/);
+    let entries = utils.getEntries(['./src/lib', './src/locales', './src/convertor'], /^index\.js$/);
     entries['main'] = './src/index.js';
 
     let result = rollups.establish(entries, configs);

@@ -206,7 +206,7 @@ export default {
     },
 
     props: {
-        value: {
+        element: {
             type: Object,
             default: () => {},
         },
@@ -214,7 +214,7 @@ export default {
 
     data: () => ({
         constants,
-        element: {},
+        dataObject: {},
         typeItems: [
             { value: 'text', text: '文字模式(默认)' },
             { value: 'password', text: '密码模式' },
@@ -230,7 +230,7 @@ export default {
 
     computed: {
         properties() {
-            return this.element[this.constants.annotations.xprops];
+            return this.dataObject[this.constants.annotations.xprops];
         },
         isNumberType() {
             return this.properties.type === 'number';
@@ -238,16 +238,11 @@ export default {
     },
 
     watch: {
-        value: {
-            handler(newValue, oldValue) {
-                this.element = newValue;
-            },
-            immediate: true,
-        },
         element: {
             handler(newValue, oldValue) {
-                this.$emit('input', newValue);
+                this.dataObject = newValue;
             },
+            immediate: true,
         },
     },
 };

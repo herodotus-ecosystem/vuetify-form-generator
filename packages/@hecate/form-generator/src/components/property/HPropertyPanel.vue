@@ -59,7 +59,7 @@
                                     @input="editId"
                                 />
                                 <v-divider class="mb-3"></v-divider>
-                                <component :is="currentPanel" v-model="element"></component>
+                                <component :is="currentPanel" :element="element"></component>
                             </v-card>
                         </v-col>
                     </v-row>
@@ -110,14 +110,14 @@ export default {
         DATE_PICKER: HDatePickerPanel,
         TIME_PICKER: HTimePickerPanel,
         SELECT_SINGLE: HSelectSinglePanel,
-        COMBOBOX: HComboBoxPanel
+        COMBOBOX: HComboBoxPanel,
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
@@ -125,9 +125,9 @@ export default {
         tab: null,
         tabs: [
             { key: 'element', name: '组件属性' },
-            { key: 'form', name: '表单属性' }
+            { key: 'form', name: '表单属性' },
         ],
-        schema: {}
+        schema: {},
     }),
 
     computed: {
@@ -142,7 +142,7 @@ export default {
         },
         properties() {
             return this.element[this.constants.annotations.xprops];
-        }
+        },
     },
 
     watch: {
@@ -150,13 +150,13 @@ export default {
             handler(newValue, oldValue) {
                 this.schema = newValue;
             },
-            immediate: true
+            immediate: true,
         },
         schema: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
-        }
+            },
+        },
     },
 
     methods: {
@@ -180,8 +180,8 @@ export default {
                 this.$set(this.properties, 'label', newLabel);
                 this.$set(this.element, 'title', newLabel);
             }
-        }
-    }
+        },
+    },
 };
 </script>
 

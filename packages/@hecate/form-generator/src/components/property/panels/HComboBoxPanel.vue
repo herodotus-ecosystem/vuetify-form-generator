@@ -284,19 +284,19 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField
+        HPanelTextField,
     },
 
     props: {
-        value: {
+        element: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
         constants,
-        element: {},
+        dataObject: {},
         typeItems: [
             { value: 'text', text: '文字输入模式（默认）' },
             { value: 'password', text: '密码模式' },
@@ -306,31 +306,26 @@ export default {
             { value: 'time', text: '选择时间模式' },
             { value: 'date', text: '选择日期模式' },
             { value: 'week', text: '选择周模式' },
-            { value: 'month', text: '选择月模式' }
-        ]
+            { value: 'month', text: '选择月模式' },
+        ],
     }),
 
     computed: {
         properties() {
-            return this.element[this.constants.annotations.xprops];
+            return this.dataObject[this.constants.annotations.xprops];
         },
         isNumberType() {
             return this.properties.type === 'number';
-        }
+        },
     },
 
     watch: {
-        value: {
-            handler(newValue, oldValue) {
-                this.element = newValue;
-            },
-            immediate: true
-        },
         element: {
             handler(newValue, oldValue) {
-                this.$emit('input', newValue);
-            }
-        }
-    }
+                this.dataObject = newValue;
+            },
+            immediate: true,
+        },
+    },
 };
 </script>

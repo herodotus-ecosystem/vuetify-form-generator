@@ -1,5 +1,3 @@
-import { mdiCalendar, mdiClock, mdiInformation, mdiPlus, mdiPencil, mdiDelete } from '@mdi/js';
-
 export const defaultOptions = {
     locale: 'en',
     rootDisplay: '',
@@ -132,14 +130,6 @@ export const formats = {
 };
 
 export const iconSets = {
-    mdiSvg: {
-        calendar: mdiCalendar,
-        clock: mdiClock,
-        info: mdiInformation,
-        add: mdiPlus,
-        edit: mdiPencil,
-        delete: mdiDelete,
-    },
     mdi: {
         calendar: 'mdi-calendar',
         clock: 'mdi-clock',

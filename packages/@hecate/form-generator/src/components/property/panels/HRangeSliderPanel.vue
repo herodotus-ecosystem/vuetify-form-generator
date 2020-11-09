@@ -173,7 +173,7 @@ export default {
     },
 
     props: {
-        value: {
+        element: {
             type: Object,
             default: () => {},
         },
@@ -181,26 +181,21 @@ export default {
 
     data: () => ({
         constants,
-        element: {},
+        dataObject: {},
     }),
 
     computed: {
         properties() {
-            return this.element[this.constants.annotations.xprops];
+            return this.dataObject[this.constants.annotations.xprops];
         },
     },
 
     watch: {
-        value: {
-            handler(newValue, oldValue) {
-                this.element = newValue;
-            },
-            immediate: true,
-        },
         element: {
             handler(newValue, oldValue) {
-                this.$emit('input', newValue);
+                this.dataObject = newValue;
             },
+            immediate: true,
         },
     },
 };

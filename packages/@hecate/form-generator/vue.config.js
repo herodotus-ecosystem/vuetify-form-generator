@@ -156,6 +156,13 @@ module.exports = {
                             reuseExistingChunk: true,
                             enforce: true,
                         },
+                        'vee-validate': {
+                            name: 'vee-validate',
+                            test: /[\\/]node_modules[\\/]vee-validate[\\/]/,
+                            priority: 90,
+                            reuseExistingChunk: true,
+                            enforce: true,
+                        },
                         codemirror: {
                             name: 'codemirror',
                             test: /[\\/]node_modules[\\/]codemirror[\\/]/,
@@ -250,6 +257,20 @@ module.exports = {
                         sortablejs: {
                             name: 'parserlib',
                             test: /[\\/]node_modules[\\/]sortablejs[\\/]/,
+                            priority: 10,
+                            reuseExistingChunk: true,
+                            enforce: true,
+                        },
+                        'core-js': {
+                            name: 'core-js',
+                            test: /[\\/]node_modules[\\/]core-js[\\/]/,
+                            priority: 10,
+                            reuseExistingChunk: true,
+                            enforce: true,
+                        },
+                        'mdi-js': {
+                            name: 'mdi-js',
+                            test: /[\\/]node_modules[\\/]@mdi[\\/]js[\\/]/,
                             priority: 10,
                             reuseExistingChunk: true,
                             enforce: true,
