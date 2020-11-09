@@ -13283,10 +13283,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^10.9.0:
-  version "10.9.0"
-  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.9.0.tgz#f3d0c63caa87a5804d8205cbbbe5d1369fb8af24"
-  integrity sha1-89DGPKqHpYBNggXLu+XRNp+4ryQ=
+sweetalert2@^10.9.1:
+  version "10.9.1"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.9.1.tgz#e3df396230d829925dbb30aadea5430b5e17dec1"
+  integrity sha1-4985YjDYKZJduzCq3qVDC14X3sE=
 
 system@^2.0.1:
   version "2.0.1"
@@ -13980,10 +13980,10 @@ vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vee-validate@3.4.3, vee-validate@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.4.3.tgz#3b85adb1b15dadceb525dc27d894136a6353bbcf"
-  integrity sha1-O4WtsbFdrc61Jdwn2JQTamNTu88=
+vee-validate@3.4.4, vee-validate@^3.4.4:
+  version "3.4.4"
+  resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.4.4.tgz#c5c5890417b573f984102999e0008f5012f4b9d9"
+  integrity sha1-xcWJBBe1c/mEECmZ4ACPUBL0udk=
 
 vendors@^1.0.0:
   version "1.0.4"

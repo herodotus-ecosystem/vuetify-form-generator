@@ -74,7 +74,7 @@
             ></h-panel-switch>
         </h-expansion-panel>
 
-        <h-rule-expansion-panel></h-rule-expansion-panel>
+        <h-rule-expansion-panel v-model="rules"></h-rule-expansion-panel>
 
         <h-expansion-panel index="icon" header="图标">
             <h-panel-icon
@@ -185,14 +185,14 @@ export default {
         HPanelSelect,
         HPanelSwitch,
         HPanelTextField,
-        HRuleExpansionPanel,
+        HRuleExpansionPanel
     },
 
     props: {
         value: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
@@ -207,17 +207,25 @@ export default {
             { value: 'time', text: '选择时间模式' },
             { value: 'date', text: '选择日期模式' },
             { value: 'week', text: '选择周模式' },
-            { value: 'month', text: '选择月模式' },
-        ],
+            { value: 'month', text: '选择月模式' }
+        ]
     }),
 
     computed: {
         properties() {
             return this.element[this.constants.annotations.xprops];
         },
+        rules: {
+            get: function() {
+                return this.element[this.constants.annotations.xrules];
+            },
+            set: function(value) {
+                this.element[this.constants.annotations.xrules] = value;
+            }
+        },
         isNumberType() {
             return this.properties.type === 'number';
-        },
+        }
     },
 
     watch: {
@@ -225,13 +233,13 @@ export default {
             handler(newValue, oldValue) {
                 this.element = newValue;
             },
-            immediate: true,
+            immediate: true
         },
         element: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
-        },
-    },
+            }
+        }
+    }
 };
 </script>

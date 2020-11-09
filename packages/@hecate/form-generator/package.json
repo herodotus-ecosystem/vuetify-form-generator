@@ -20,10 +20,10 @@
         "@hecate/h-icon-list": "^1.0.0",
         "@mdi/font": "^5.8.55",
         "babel-polyfill": "^6.26.0",
-        "core-js": "^3.6.5",
+        "core-js": "^3.7.0",
         "roboto-fontface": "*",
         "throttle-debounce": "^3.0.1",
-        "vee-validate": "3.4.3",
+        "vee-validate": "3.4.4",
         "vue-router": "^3.4.9",
         "vuedraggable": "^2.24.3",
         "vuetify": "^2.3.16"
