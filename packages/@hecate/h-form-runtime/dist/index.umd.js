@@ -10,11 +10,11 @@
           );
 })(this, function (e, t, o) {
     'use strict';
-    function n(e) {
+    function r(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    var r = n(o);
-    function i(e, t, o, n, r, i, a, s, l, d) {
+    var n = r(o);
+    function i(e, t, o, r, n, i, a, s, l, d) {
         'boolean' != typeof a && ((l = s), (s = a), (a = !1));
         const c = 'function' == typeof o ? o.options : o;
         let f;
@@ -24,8 +24,8 @@
                 ((c.render = e.render),
                 (c.staticRenderFns = e.staticRenderFns),
                 (c._compiled = !0),
-                r && (c.functional = !0)),
-            n && (c._scopeId = n),
+                n && (c.functional = !0)),
+            r && (c._scopeId = r),
             i
                 ? ((f = function (e) {
                       (e =
@@ -81,7 +81,7 @@
                                             {
                                                 key: 'activator',
                                                 fn: function (t) {
-                                                    var n = t.on;
+                                                    var r = t.on;
                                                     return [
                                                         o(
                                                             'v-icon',
@@ -90,7 +90,7 @@
                                                                     staticClass: 'mr-2',
                                                                     attrs: { tile: '', color: 'teal', large: '' },
                                                                 },
-                                                                n
+                                                                r
                                                             ),
                                                             [e._v('mdi-clipboard-edit')]
                                                         ),
@@ -121,6 +121,7 @@
                                             [
                                                 o(
                                                     'v-form',
+                                                    { ref: 'form' },
                                                     [
                                                         o('h-form-renderer', {
                                                             attrs: { schema: e.schema },
@@ -133,8 +134,6 @@
                                                             },
                                                         }),
                                                         e._v(' '),
-                                                        o('v-divider'),
-                                                        e._v(' '),
                                                         o(
                                                             'v-btn',
                                                             {
@@ -143,6 +142,16 @@
                                                                 on: { click: e.saveOrUpdate },
                                                             },
                                                             [e._v('保存')]
+                                                        ),
+                                                        e._v(' '),
+                                                        o(
+                                                            'v-btn',
+                                                            {
+                                                                staticClass: 'mr-4',
+                                                                attrs: { color: 'warning' },
+                                                                on: { click: e.clear },
+                                                            },
+                                                            [e._v('重置')]
                                                         ),
                                                     ],
                                                     1
@@ -167,7 +176,7 @@
             name: 'HFormRuntime',
             components: {
                 ValidationObserver: t.ValidationObserver,
-                HFormRenderer: r.default,
+                HFormRenderer: n.default,
                 VIcon: e.VIcon,
                 VTooltip: e.VTooltip,
                 VToolbarTitle: e.VToolbarTitle,
@@ -184,6 +193,9 @@
             methods: {
                 saveOrUpdate() {
                     this.$refs.observer.validate().then((e) => {});
+                },
+                clear() {
+                    (this.model = {}), this.$refs.form.reset(), this.$refs.observer.reset();
                 },
             },
         },

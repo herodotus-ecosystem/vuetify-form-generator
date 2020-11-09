@@ -20,16 +20,16 @@
                 return i;
             },
             findIds: function (e, t) {
-                var i, l, r, n;
+                var i, l, r, a;
                 for (l in ((i = !1), (r = {}), e))
-                    (n = e[l]),
+                    (a = e[l]),
                         null != e.id && (i = e.id),
-                        i && 'id' !== l && (r[l] = n),
-                        'object' == typeof n && s.findIds(n, t);
+                        i && 'id' !== l && (r[l] = a),
+                        'object' == typeof a && s.findIds(a, t);
                 if (i) return (t[i] = r), r;
             },
             get_json_pointer: function (e, t, l) {
-                var r, n;
+                var r, a;
                 (r = e
                     .replace(/\\\//, '#SLASH#')
                     .replace(/\//g, '.')
@@ -39,24 +39,24 @@
                     }),
                     '.' === (r = r.replace(new RegExp('^' + s.pathtoken), ''))[0] && (r = r.substr(1, r.length - 1));
                 try {
-                    s.debug, (n = i.getter(r)(t));
+                    s.debug, (a = i.getter(r)(t));
                 } catch (e) {
-                    n = '';
+                    a = '';
                 }
-                return n;
+                return a;
             },
             replace: function (e, t, i, l) {
-                var r, n, a, o, h, u;
+                var r, a, n, o, h, u;
                 for (r in ((h = []), e))
                     null != (u = e[r]) && null != u[s.reftoken]
-                        ? ((n = u[s.reftoken]),
+                        ? ((a = u[s.reftoken]),
                           Object.keys(u).length,
-                          Array.isArray(n)
-                              ? (n = s.replace(n, t, i, l))
-                              : null != t[n]
-                              ? (e[r] = t[n])
-                              : String(n).match(new RegExp('^' + s.pathtoken)) && (e[r] = s.get_json_pointer(n, i, l)),
-                          null != (null != (a = e[r]) ? a.length : void 0) &&
+                          Array.isArray(a)
+                              ? (a = s.replace(a, t, i, l))
+                              : null != t[a]
+                              ? (e[r] = t[a])
+                              : String(a).match(new RegExp('^' + s.pathtoken)) && (e[r] = s.get_json_pointer(a, i, l)),
+                          null != (null != (n = e[r]) ? n.length : void 0) &&
                               0 === (null != (o = e[r]) ? o.length : void 0) &&
                               s.debug,
                           h.push(void 0))
@@ -66,12 +66,12 @@
                 return h;
             },
             extend: function (e, t) {
-                var i, l, r, n, a, o;
+                var i, l, r, a, n, o;
                 if ('object' == typeof e) {
                     for (i in ((r = []), e)) {
                         if (((o = e[i]), i === s.extendtoken && null != o[s.reftoken])) {
-                            for (n in ((l = s.get_json_pointer(o[s.reftoken], e, t)), o))
-                                (a = o[n]), n !== s.reftoken && (l[n] = a);
+                            for (a in ((l = s.get_json_pointer(o[s.reftoken], e, t)), o))
+                                (n = o[a]), a !== s.reftoken && (l[a] = n);
                             delete e[i];
                         }
                         'object' == typeof o ? r.push((o = s.extend(o))) : r.push(void 0);
@@ -84,30 +84,30 @@
                 return (i = {}), s.findIds(e, i), s.debug && Object.keys(i).length, s.replace(e, i, e, t), e;
             },
             evaluate: function (e, t, i) {
-                var l, r, n;
+                var l, r, a;
                 for (l in (null == i && (i = s.evaluateStr), (r = s.clone(e))))
-                    'string' == typeof (n = r[l]) && (e[l] = i(n, t)),
-                        'object' == typeof n && (e[l] = s.evaluate(n, t));
+                    'string' == typeof (a = r[l]) && (e[l] = i(a, t)),
+                        'object' == typeof a && (e[l] = s.evaluate(a, t));
                 return e;
             },
             evaluateStr: function (e, t) {
                 if ('string' != typeof e) return e;
                 if ('{' !== e[0] || '}' !== e[e.length - 1])
                     return e.replace(/(\{)(.*?)(\})/g, function (e, l, r) {
-                        var n;
-                        if (((n = ''), null == t || null == r)) return n;
-                        if (null != t[r] && 'function' == typeof t[r]) n = t[r]();
-                        else if (null != t[r]) n = t[r];
+                        var a;
+                        if (((a = ''), null == t || null == r)) return a;
+                        if (null != t[r] && 'function' == typeof t[r]) a = t[r]();
+                        else if (null != t[r]) a = t[r];
                         else {
                             try {
                                 (r = r.replace(new RegExp('^' + s.pathtoken + '/'), '').replace(/\//g, '.')),
-                                    (n = i.getter(r)(t));
+                                    (a = i.getter(r)(t));
                             } catch (e) {
-                                (err = e), (n = '');
+                                (err = e), (a = '');
                             }
-                            null == n && (n = '');
+                            null == a && (a = '');
                         }
-                        return s.evaluateStr(n, t), n;
+                        return s.evaluateStr(a, t), a;
                     });
                 try {
                     return i.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
@@ -151,7 +151,7 @@
             i
         );
     };
-    const n = {
+    const a = {
             locale: 'en',
             rootDisplay: '',
             objectContainerClass: '',
@@ -192,7 +192,7 @@
             idPrefix: '',
             markdownit: {},
         },
-        a = {
+        n = {
             en: {
                 required: 'This information is required',
                 noData: 'No matching value found',
@@ -350,7 +350,7 @@
                 s &&
                     'array' === e.type &&
                     l.push((t) => null == t || !t.find((t) => !e.items.oneOf.find((e) => e.const === t)) || '');
-            const r = (e['x-rules'] || []).map((e) => {
+            const r = (e['x-ruless'] || []).map((e) => {
                 if ('string' == typeof e) {
                     return t.rules && t.rules[e];
                 }
@@ -505,21 +505,21 @@
             },
             renderChildProp(e, t, i, s, l) {
                 const r = i ? this.subModels : this.value,
-                    n = i || t.key;
-                let a = r[n];
+                    a = i || t.key;
+                let n = r[a];
                 return (
-                    void 0 === a &&
-                        ((a = this.defaultValue(t)),
-                        void 0 !== t.default && (a = JSON.parse(JSON.stringify(t.default))),
-                        null != a && (this.$set(r, n, a), this.input(this.value))),
+                    void 0 === n &&
+                        ((n = this.defaultValue(t)),
+                        void 0 !== t.default && (n = JSON.parse(JSON.stringify(t.default))),
+                        null != n && (this.$set(r, a, n), this.input(this.value))),
                     e(
                         'h-form-renderer',
                         {
                             props: {
                                 schema: { readOnly: this.fullSchema.readOnly, ...t },
-                                value: a,
+                                value: n,
                                 modelRoot: this.modelRoot || this.value,
-                                modelKey: n,
+                                modelKey: a,
                                 parentKey: this.fullKey + '.',
                                 required:
                                     l || !(!this.fullSchema.required || !this.fullSchema.required.includes(t.key)),
@@ -532,10 +532,10 @@
                                 error: (e) => this.$emit('error', e),
                                 input: (e) => {
                                     void 0 === e
-                                        ? Array.isArray(r) && parseInt(n) < r.length - 1
-                                            ? this.$set(r, n, e)
-                                            : this.$delete(r, n)
-                                        : this.$set(r, n, e),
+                                        ? Array.isArray(r) && parseInt(a) < r.length - 1
+                                            ? this.$set(r, a, e)
+                                            : this.$delete(r, a)
+                                        : this.$set(r, a, e),
                                         this.$emit('input', this.value);
                                 },
                                 change: (e) => this.$emit('change', this.value),
@@ -561,11 +561,11 @@
                     Array.isArray(this.fullSchema.items) &&
                         this.fullSchema.items.forEach((s, l) => {
                             const r = { ...s, key: '' + l },
-                                n = this.value.length > l || (this.fullSchema.minItems && this.fullSchema.minItems > l);
+                                a = this.value.length > l || (this.fullSchema.minItems && this.fullSchema.minItems > l);
                             if (this.isSection(s)) {
-                                const t = this.renderChildProp(e, r, null, this.sectionDepth + 1, n);
+                                const t = this.renderChildProp(e, r, null, this.sectionDepth + 1, a);
                                 i = i.concat(this.renderSection(e, r, null, t));
-                            } else t.push(this.renderChildProp(e, r, null, this.sectionDepth, n));
+                            } else t.push(this.renderChildProp(e, r, null, this.sectionDepth, a));
                         }),
                     this.fullSchema.allOf &&
                         this.fullSchema.allOf.forEach((s, l) => {
@@ -863,14 +863,15 @@
                     if (!this.isSimpleProp) return;
                     const t = { ...this.commonFieldProps },
                         i = [],
-                        s = { input: (e) => this.input(e), change: (e) => this.change(e) },
-                        r = {};
+                        s = {},
+                        r = { input: (e) => this.input(e), change: (e) => this.change(e) };
                     if (
                         (['number', 'integer'].includes(this.fullSchema.type) &&
-                            (s.input = (e) =>
-                                this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e))),
+                            (r.input = (e) => {
+                                this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e));
+                            }),
                         'boolean' === this.fullSchema.type &&
-                            (s.change = (e) => {
+                            (r.change = (e) => {
                                 this.input(e || !1), this.change(e || !1);
                             }),
                         'array' === this.fullSchema.type &&
@@ -888,7 +889,7 @@
                         ])),
                             'string' !== this.fullSchema.items.type &&
                                 ((t.type = 'number'),
-                                (s.input = (e) => {
+                                (r.input = (e) => {
                                     const t = e
                                         .map((e) =>
                                             'integer' === this.fullSchema.items.type ? parseInt(e, 10) : parseFloat(e)
@@ -896,7 +897,7 @@
                                         .filter((e) => !isNaN(e));
                                     this.input(t);
                                 })),
-                            (r.selection = (t) => {
+                            (s.selection = (t) => {
                                 const s = i.find((e) => 'string' == typeof e(t.item));
                                 return e(
                                     'v-chip',
@@ -918,9 +919,26 @@
                         let t = 'append-outer';
                         i.push(this.renderTooltip(e, t));
                     }
-                    return this.fullSchema.tag
-                        ? [e(this.fullSchema.tag, { props: t, on: s, scopedSlots: r }, i)]
-                        : null;
+                    let a = this.fullSchema['x-rules'];
+                    return a
+                        ? [
+                              e('validation-provider', {
+                                  props: { name: t.label, rules: a },
+                                  scopedSlots: {
+                                      default: ({ errors: l }) =>
+                                          e(
+                                              this.fullSchema.tag,
+                                              {
+                                                  props: { ...t, required: !0, 'error-messages': l },
+                                                  on: r,
+                                                  scopedSlots: s,
+                                              },
+                                              i
+                                          ),
+                                  },
+                              }),
+                          ]
+                        : [e(this.fullSchema.tag, { props: t, on: r, scopedSlots: s }, i)];
                 },
             },
         };
@@ -1138,8 +1156,8 @@
         });
     const x = require('match-all'),
         P = require('debounce');
-    function I(e, t, i, s, l, r, n, a, o, h) {
-        'boolean' != typeof n && ((o = a), (a = n), (n = !1));
+    function I(e, t, i, s, l, r, a, n, o, h) {
+        'boolean' != typeof a && ((o = n), (n = a), (a = !1));
         const u = 'function' == typeof i ? i.options : i;
         let c;
         if (
@@ -1163,12 +1181,12 @@
                   }),
                   (u._ssrRegister = c))
                 : t &&
-                  (c = n
+                  (c = a
                       ? function (e) {
                             t.call(this, h(e, this.$root.$options.shadowRoot));
                         }
                       : function (e) {
-                            t.call(this, a(e));
+                            t.call(this, n(e));
                         }),
             c)
         )
@@ -1609,7 +1627,7 @@
                                             [e('v-icon', s ? this.fullOptions.icons.add : this.fullOptions.icons.edit)]
                                         ),
                                 },
-                                n = () => {
+                                a = () => {
                                     l.componentInstance.resetValidation(),
                                         (this.editabledArrayProp.currentDialog = null);
                                 };
@@ -1622,7 +1640,7 @@
                                         closeOnContentClick: !1,
                                     },
                                     scopedSlots: r,
-                                    on: { 'click:outside': n },
+                                    on: { 'click:outside': a },
                                 },
                                 [
                                     e('v-card', [
@@ -1634,7 +1652,7 @@
                                                 'v-btn',
                                                 {
                                                     props: { text: !0 },
-                                                    on: { click: n },
+                                                    on: { click: a },
                                                     attrs: {
                                                         id:
                                                             this.fullOptions.idPrefix +
@@ -1939,14 +1957,14 @@
                 fullOptions() {
                     const e =
                             ('undefined' != typeof window && window) || ('undefined' != typeof global && global) || {},
-                        t = Object.assign({}, n, this.options || {}, this.resolvedSchema['x-options'] || {});
+                        t = Object.assign({}, a, this.options || {}, this.resolvedSchema['x-options'] || {});
                     (t.markdown =
                         t.markdown || (e.markdownit && ((i) => e.markdownit(t.markdownit).render(i))) || ((e) => e)),
                         (t.httpLib = t.httpLib || this.axios || this.$http || this.$axios || e.axios);
                     const i = (this.$vuetify.icons && this.$vuetify.icons.iconfont) || 'mdi';
                     return (
                         (t.icons = { ...h[i], ...t.icons }),
-                        (t.messages = { ...(a[t.locale] || a.en), ...t.messages }),
+                        (t.messages = { ...(n[t.locale] || n.en), ...t.messages }),
                         (t.formats = { ...o, ...t.formats }),
                         t.deleteReadOnly && (t.hideReadOnly = !0),
                         t

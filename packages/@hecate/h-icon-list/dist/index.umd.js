@@ -8120,7 +8120,7 @@
         );
     let We;
     const Ue = (e) => {
-            Hn.isVisible() && We !== e.target.value && Hn.resetValidationMessage(), (We = e.target.value);
+            Gn.isVisible() && We !== e.target.value && Gn.resetValidationMessage(), (We = e.target.value);
         },
         Fe = (e) => {
             const t = (() => {
@@ -8509,7 +8509,7 @@
         yt = () => se() && se().click();
     const _t = () => {
             let e = X();
-            e || Hn.fire(), (e = X());
+            e || Gn.fire(), (e = X());
             const t = fe(),
                 n = se(),
                 r = ce();
@@ -8856,22 +8856,21 @@
         Lt = (e) => {
             const t = e.target,
                 n = K();
-            return (
-                (!e.touches || !e.touches.length || 'stylus' !== e.touches[0].touchType) &&
-                (t === n || !(je(n) || 'INPUT' === t.tagName || (je(re()) && re().contains(t))))
-            );
+            return !Bt(e) && !Wt(e) && (t === n || !(je(n) || 'INPUT' === t.tagName || (je(re()) && re().contains(t))));
         },
-        Bt = () => !!window.MSInputMethodContext && !!document.documentMode,
-        Wt = () => {
+        Bt = (e) => e.touches && e.touches.length && 'stylus' === e.touches[0].touchType,
+        Wt = (e) => e.touches && e.touches.length > 1,
+        Ut = () => !!window.MSInputMethodContext && !!document.documentMode,
+        Ft = () => {
             const e = K(),
                 t = X();
             e.style.removeProperty('align-items'), t.offsetTop < 0 && (e.style.alignItems = 'flex-start');
         };
-    var Ut = { swalPromiseResolve: new WeakMap() };
-    function Ft(e, t, n, r) {
+    var Vt = { swalPromiseResolve: new WeakMap() };
+    function $t(e, t, n, r) {
         n
-            ? Gt(e, r)
-            : (wt().then(() => Gt(e, r)),
+            ? Kt(e, r)
+            : (wt().then(() => Kt(e, r)),
               bt.keydownTarget.removeEventListener('keydown', bt.keydownHandler, {
                   capture: bt.keydownListenerCapture,
               }),
@@ -8887,7 +8886,7 @@
                         De(document.body, G.iosfix), (document.body.style.top = ''), (document.body.scrollTop = -1 * e);
                     }
                 })(),
-                'undefined' != typeof window && Bt() && window.removeEventListener('resize', Wt),
+                'undefined' != typeof window && Ut() && window.removeEventListener('resize', Ft),
                 Y(document.body.children).forEach((e) => {
                     e.hasAttribute('data-previous-aria-hidden')
                         ? (e.setAttribute('aria-hidden', e.getAttribute('data-previous-aria-hidden')),
@@ -8899,55 +8898,55 @@
                 [G.shown, G['height-auto'], G['no-backdrop'], G['toast-shown'], G['toast-column']]
             );
     }
-    function Vt(e) {
+    function zt(e) {
         const t = X();
         if (!t) return;
-        e = $t(e);
+        e = Ht(e);
         const n = Ke.innerParams.get(this);
         if (!n || we(t, n.hideClass.popup)) return;
-        const r = Ut.swalPromiseResolve.get(this);
+        const r = Vt.swalPromiseResolve.get(this);
         De(t, n.showClass.popup), Oe(t, n.hideClass.popup);
         const i = K();
-        De(i, n.showClass.backdrop), Oe(i, n.hideClass.backdrop), zt(this, t, n), r(e);
+        De(i, n.showClass.backdrop), Oe(i, n.hideClass.backdrop), qt(this, t, n), r(e);
     }
-    const $t = (e) =>
+    const Ht = (e) =>
             void 0 === e
                 ? { isConfirmed: !1, isDenied: !1, isDismissed: !0 }
                 : Object.assign({ isConfirmed: !1, isDenied: !1, isDismissed: !1 }, e),
-        zt = (e, t, n) => {
+        qt = (e, t, n) => {
             const r = K(),
                 i = He && Ye(t),
                 { onClose: o, onAfterClose: a, willClose: s, didClose: u } = n;
-            Ht(t, s, o), i ? qt(e, t, r, u || a) : Ft(e, r, ye(), u || a);
+            Gt(t, s, o), i ? Zt(e, t, r, u || a) : $t(e, r, ye(), u || a);
         },
-        Ht = (e, t, n) => {
+        Gt = (e, t, n) => {
             null !== t && 'function' == typeof t ? t(e) : null !== n && 'function' == typeof n && n(e);
         },
-        qt = (e, t, n, r) => {
-            (bt.swalCloseEventFinishedCallback = Ft.bind(null, e, n, ye(), r)),
+        Zt = (e, t, n, r) => {
+            (bt.swalCloseEventFinishedCallback = $t.bind(null, e, n, ye(), r)),
                 t.addEventListener(He, function (e) {
                     e.target === t && (bt.swalCloseEventFinishedCallback(), delete bt.swalCloseEventFinishedCallback);
                 });
         },
-        Gt = (e, t) => {
+        Kt = (e, t) => {
             setTimeout(() => {
                 'function' == typeof t && t(), e._destroy();
             });
         };
-    function Zt(e, t, n) {
+    function Jt(e, t, n) {
         const r = Ke.domCache.get(e);
         t.forEach((e) => {
             r[e].disabled = n;
         });
     }
-    function Kt(e, t) {
+    function Qt(e, t) {
         if (!e) return !1;
         if ('radio' === e.type) {
             const n = e.parentNode.parentNode.querySelectorAll('input');
             for (let e = 0; e < n.length; e++) n[e].disabled = t;
         } else e.disabled = t;
     }
-    class Jt {
+    class Xt {
         constructor(e, t) {
             (this.callback = e), (this.remaining = t), (this.running = !1), this.start();
         }
@@ -8978,7 +8977,7 @@
             return this.running;
         }
     }
-    var Qt = {
+    var en = {
         email: (e, t) =>
             /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(e)
                 ? Promise.resolve()
@@ -8988,11 +8987,11 @@
                 ? Promise.resolve()
                 : Promise.resolve(t || 'Invalid URL'),
     };
-    function Xt(e) {
+    function tn(e) {
         !(function (e) {
             e.inputValidator ||
-                Object.keys(Qt).forEach((t) => {
-                    e.input === t && (e.inputValidator = Qt[t]);
+                Object.keys(en).forEach((t) => {
+                    e.input === t && (e.inputValidator = en[t]);
                 });
         })(e),
             e.showLoaderOnConfirm &&
@@ -9010,17 +9009,17 @@
             'string' == typeof e.title && (e.title = e.title.split('\n').join('<br />')),
             Fe(e);
     }
-    const en = (e) => {
+    const nn = (e) => {
             const t = K(),
                 n = X();
             'function' == typeof e.willOpen ? e.willOpen(n) : 'function' == typeof e.onBeforeOpen && e.onBeforeOpen(n);
             const r = window.getComputedStyle(document.body).overflowY;
-            an(t, n, e),
+            un(t, n, e),
                 setTimeout(() => {
-                    rn(t, n);
+                    an(t, n);
                 }, 10),
                 ge() &&
-                    (on(t, e.scrollbarPadding, r),
+                    (sn(t, e.scrollbarPadding, r),
                     Y(document.body.children).forEach((e) => {
                         e === K() ||
                             ((e, t) => {
@@ -9031,24 +9030,24 @@
                             e.setAttribute('aria-hidden', 'true'));
                     })),
                 ye() || bt.previousActiveElement || (bt.previousActiveElement = document.activeElement),
-                tn(n, e),
+                rn(n, e),
                 De(t, G['no-transition']);
         },
-        tn = (e, t) => {
+        rn = (e, t) => {
             'function' == typeof t.didOpen
                 ? setTimeout(() => t.didOpen(e))
                 : 'function' == typeof t.onOpen && setTimeout(() => t.onOpen(e));
         },
-        nn = (e) => {
+        on = (e) => {
             const t = X();
             if (e.target !== t) return;
             const n = K();
-            t.removeEventListener(He, nn), (n.style.overflowY = 'auto');
+            t.removeEventListener(He, on), (n.style.overflowY = 'auto');
         },
-        rn = (e, t) => {
-            He && Ye(t) ? ((e.style.overflowY = 'hidden'), t.addEventListener(He, nn)) : (e.style.overflowY = 'auto');
+        an = (e, t) => {
+            He && Ye(t) ? ((e.style.overflowY = 'hidden'), t.addEventListener(He, on)) : (e.style.overflowY = 'auto');
         },
-        on = (e, t, n) => {
+        sn = (e, t, n) => {
             (() => {
                 if (
                     ((/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ||
@@ -9059,13 +9058,13 @@
                     (document.body.style.top = -1 * e + 'px'), Oe(document.body, G.iosfix), Rt(), Yt();
                 }
             })(),
-                'undefined' != typeof window && Bt() && (Wt(), window.addEventListener('resize', Wt)),
+                'undefined' != typeof window && Ut() && (Ft(), window.addEventListener('resize', Ft)),
                 t && 'hidden' !== n && jt(),
                 setTimeout(() => {
                     e.scrollTop = 0;
                 });
         },
-        an = (e, t, n) => {
+        un = (e, t, n) => {
             Oe(e, n.showClass.backdrop),
                 t.style.setProperty('opacity', '0', 'important'),
                 Ae(t),
@@ -9078,12 +9077,12 @@
                     !n.toast &&
                     Oe([document.documentElement, document.body], G['height-auto']);
         },
-        sn = (e) => (e.checked ? 1 : 0),
-        un = (e) => (e.checked ? e.value : null),
-        cn = (e) => (e.files.length ? (null !== e.getAttribute('multiple') ? e.files : e.files[0]) : null),
-        ln = (e, t) => {
+        cn = (e) => (e.checked ? 1 : 0),
+        ln = (e) => (e.checked ? e.value : null),
+        fn = (e) => (e.files.length ? (null !== e.getAttribute('multiple') ? e.files : e.files[0]) : null),
+        dn = (e, t) => {
             const n = re(),
-                r = (e) => dn[t.input](n, hn(e), t);
+                r = (e) => pn[t.input](n, vn(e), t);
             F(t.inputOptions) || $(t.inputOptions)
                 ? (_t(),
                   V(t.inputOptions).then((t) => {
@@ -9093,7 +9092,7 @@
                 ? r(t.inputOptions)
                 : L('Unexpected type of inputOptions! Expected object, Map or Promise, got ' + typeof t.inputOptions);
         },
-        fn = (e, t) => {
+        hn = (e, t) => {
             const n = e.getInput();
             Ie(n),
                 V(t.inputValue)
@@ -9107,7 +9106,7 @@
                         L('Error in inputValue promise: ' + t), (n.value = ''), Ae(n), n.focus(), e.hideLoading();
                     });
         },
-        dn = {
+        pn = {
             select: (e, t, n) => {
                 const r = Me(e, G.select),
                     i = (e, t, r) => {
@@ -9145,53 +9144,53 @@
                 i.length && i[0].focus();
             },
         },
-        hn = (e) => {
+        vn = (e) => {
             const t = [];
             return (
                 'undefined' != typeof Map && e instanceof Map
                     ? e.forEach((e, n) => {
                           let r = e;
-                          'object' == typeof r && (r = hn(r)), t.push([n, r]);
+                          'object' == typeof r && (r = vn(r)), t.push([n, r]);
                       })
                     : Object.keys(e).forEach((n) => {
                           let r = e[n];
-                          'object' == typeof r && (r = hn(r)), t.push([n, r]);
+                          'object' == typeof r && (r = vn(r)), t.push([n, r]);
                       }),
                 t
             );
         },
-        pn = (e, t, n) => {
+        mn = (e, t, n) => {
             const r = ((e, t) => {
                 const n = e.getInput();
                 if (!n) return null;
                 switch (t.input) {
                     case 'checkbox':
-                        return sn(n);
-                    case 'radio':
-                        return un(n);
-                    case 'file':
                         return cn(n);
+                    case 'radio':
+                        return ln(n);
+                    case 'file':
+                        return fn(n);
                     default:
                         return t.inputAutoTrim ? n.value.trim() : n.value;
                 }
             })(e, t);
             t.inputValidator
-                ? vn(e, t, r)
+                ? gn(e, t, r)
                 : e.getInput().checkValidity()
                 ? 'deny' === n
-                    ? mn(e, t, r)
-                    : yn(e, t, r)
+                    ? yn(e, t, r)
+                    : bn(e, t, r)
                 : (e.enableButtons(), e.showValidationMessage(t.validationMessage));
         },
-        vn = (e, t, n) => {
+        gn = (e, t, n) => {
             e.disableInput();
             Promise.resolve()
                 .then(() => V(t.inputValidator(n, t.validationMessage)))
                 .then((r) => {
-                    e.enableButtons(), e.enableInput(), r ? e.showValidationMessage(r) : yn(e, t, n);
+                    e.enableButtons(), e.enableInput(), r ? e.showValidationMessage(r) : bn(e, t, n);
                 });
         },
-        mn = (e, t, n) => {
+        yn = (e, t, n) => {
             if (t.preDeny) {
                 Promise.resolve()
                     .then(() => V(t.preDeny(n, t.validationMessage)))
@@ -9200,46 +9199,46 @@
                     });
             } else e.closePopup({ isDenied: !0, value: n });
         },
-        gn = (e, t) => {
+        _n = (e, t) => {
             e.closePopup({ isConfirmed: !0, value: t });
         },
-        yn = (e, t, n) => {
+        bn = (e, t, n) => {
             if ((t.showLoaderOnConfirm && _t(), t.preConfirm)) {
                 e.resetValidationMessage();
                 Promise.resolve()
                     .then(() => V(t.preConfirm(n, t.validationMessage)))
                     .then((t) => {
-                        Ne(ae()) || !1 === t ? e.hideLoading() : gn(e, void 0 === t ? n : t);
+                        Ne(ae()) || !1 === t ? e.hideLoading() : _n(e, void 0 === t ? n : t);
                     });
-            } else gn(e, n);
+            } else _n(e, n);
         },
-        _n = (e, t, n) => {
+        wn = (e, t, n) => {
             const r = me();
             for (let e = 0; e < r.length; e++)
                 return (t += n) === r.length ? (t = 0) : -1 === t && (t = r.length - 1), r[t].focus();
             X().focus();
         },
-        bn = ['ArrowRight', 'ArrowDown', 'Right', 'Down'],
-        wn = ['ArrowLeft', 'ArrowUp', 'Left', 'Up'],
-        kn = ['Escape', 'Esc'],
-        Sn = (e, t, n) => {
+        kn = ['ArrowRight', 'ArrowDown', 'Right', 'Down'],
+        Sn = ['ArrowLeft', 'ArrowUp', 'Left', 'Up'],
+        xn = ['Escape', 'Esc'],
+        Cn = (e, t, n) => {
             const r = Ke.innerParams.get(e);
             r.stopKeydownPropagation && t.stopPropagation(),
                 'Enter' === t.key
-                    ? xn(e, t, r)
+                    ? On(e, t, r)
                     : 'Tab' === t.key
-                    ? Cn(t, r)
-                    : [...bn, ...wn].includes(t.key)
-                    ? On(t.key)
-                    : kn.includes(t.key) && Dn(t, r, n);
+                    ? Dn(t, r)
+                    : [...kn, ...Sn].includes(t.key)
+                    ? Mn(t.key)
+                    : xn.includes(t.key) && Tn(t, r, n);
         },
-        xn = (e, t, n) => {
+        On = (e, t, n) => {
             if (!t.isComposing && t.target && e.getInput() && t.target.outerHTML === e.getInput().outerHTML) {
                 if (['textarea', 'file'].includes(n.input)) return;
                 yt(), t.preventDefault();
             }
         },
-        Cn = (e, t) => {
+        Dn = (e, t) => {
             const n = e.target,
                 r = me();
             let i = -1;
@@ -9248,18 +9247,18 @@
                     i = e;
                     break;
                 }
-            e.shiftKey ? _n(0, i, -1) : _n(0, i, 1), e.stopPropagation(), e.preventDefault();
+            e.shiftKey ? wn(0, i, -1) : wn(0, i, 1), e.stopPropagation(), e.preventDefault();
         },
-        On = (e) => {
+        Mn = (e) => {
             if (![se(), ue(), le()].includes(document.activeElement)) return;
-            const t = bn.includes(e) ? 'nextElementSibling' : 'previousElementSibling',
+            const t = kn.includes(e) ? 'nextElementSibling' : 'previousElementSibling',
                 n = document.activeElement[t];
             n && n.focus();
         },
-        Dn = (e, t, n) => {
+        Tn = (e, t, n) => {
             U(t.allowEscapeKey) && (e.preventDefault(), n(z.esc));
         },
-        Mn = (e, t, n) => {
+        An = (e, t, n) => {
             t.popup.onclick = () => {
                 const t = Ke.innerParams.get(e);
                 t.showConfirmButton ||
@@ -9270,28 +9269,28 @@
                     n(z.close);
             };
         };
-    let Tn = !1;
-    const An = (e) => {
+    let In = !1;
+    const En = (e) => {
             e.popup.onmousedown = () => {
                 e.container.onmouseup = function (t) {
-                    (e.container.onmouseup = void 0), t.target === e.container && (Tn = !0);
+                    (e.container.onmouseup = void 0), t.target === e.container && (In = !0);
                 };
             };
         },
-        In = (e) => {
+        Pn = (e) => {
             e.container.onmousedown = () => {
                 e.popup.onmouseup = function (t) {
-                    (e.popup.onmouseup = void 0), (t.target === e.popup || e.popup.contains(t.target)) && (Tn = !0);
+                    (e.popup.onmouseup = void 0), (t.target === e.popup || e.popup.contains(t.target)) && (In = !0);
                 };
             };
         },
-        En = (e, t, n) => {
+        Nn = (e, t, n) => {
             t.container.onclick = (r) => {
                 const i = Ke.innerParams.get(e);
-                Tn ? (Tn = !1) : r.target === t.container && U(i.allowOutsideClick) && n(z.backdrop);
+                In ? (In = !1) : r.target === t.container && U(i.allowOutsideClick) && n(z.backdrop);
             };
         };
-    const Pn = (e) => {
+    const jn = (e) => {
             const t = Object.assign({}, xt.showClass, e.showClass),
                 n = Object.assign({}, xt.hideClass, e.hideClass),
                 r = Object.assign({}, xt, e);
@@ -9303,19 +9302,19 @@
                 r
             );
         },
-        Nn = (e, t, n) =>
+        Yn = (e, t, n) =>
             new Promise((r) => {
                 const i = (t) => {
                     e.closePopup({ isDismissed: !0, dismiss: t });
                 };
-                Ut.swalPromiseResolve.set(e, r),
+                Vt.swalPromiseResolve.set(e, r),
                     (t.confirmButton.onclick = () =>
                         ((e, t) => {
-                            e.disableButtons(), t.input ? pn(e, t, 'confirm') : yn(e, t, !0);
+                            e.disableButtons(), t.input ? mn(e, t, 'confirm') : bn(e, t, !0);
                         })(e, n)),
                     (t.denyButton.onclick = () =>
                         ((e, t) => {
-                            e.disableButtons(), t.returnInputValueOnDeny ? pn(e, t, 'deny') : mn(e, t, !1);
+                            e.disableButtons(), t.returnInputValueOnDeny ? mn(e, t, 'deny') : yn(e, t, !1);
                         })(e, n)),
                     (t.cancelButton.onclick = () =>
                         ((e, t) => {
@@ -9323,7 +9322,7 @@
                         })(e, i)),
                     (t.closeButton.onclick = () => i(z.close)),
                     ((e, t, n) => {
-                        Ke.innerParams.get(e).toast ? Mn(e, t, n) : (An(t), In(t), En(e, t, n));
+                        Ke.innerParams.get(e).toast ? An(e, t, n) : (En(t), Pn(t), Nn(e, t, n));
                     })(e, t, i),
                     ((e, t, n, r) => {
                         t.keydownTarget &&
@@ -9333,7 +9332,7 @@
                             }),
                             (t.keydownHandlerAdded = !1)),
                             n.toast ||
-                                ((t.keydownHandler = (t) => Sn(e, t, r)),
+                                ((t.keydownHandler = (t) => Cn(e, t, r)),
                                 (t.keydownTarget = n.keydownListenerCapture ? window : X()),
                                 (t.keydownListenerCapture = n.keydownListenerCapture),
                                 t.keydownTarget.addEventListener('keydown', t.keydownHandler, {
@@ -9346,19 +9345,19 @@
                         : De(document.body, G['toast-column']),
                     ((e, t) => {
                         'select' === t.input || 'radio' === t.input
-                            ? ln(e, t)
+                            ? dn(e, t)
                             : ['text', 'email', 'number', 'tel', 'textarea'].includes(t.input) &&
                               (F(t.inputValue) || $(t.inputValue)) &&
-                              fn(e, t);
+                              hn(e, t);
                     })(e, n),
-                    en(n),
-                    Yn(bt, n, i),
-                    Rn(t, n),
+                    nn(n),
+                    Ln(bt, n, i),
+                    Bn(t, n),
                     setTimeout(() => {
                         t.container.scrollTop = 0;
                     });
             }),
-        jn = (e) => {
+        Rn = (e) => {
             const t = {
                 popup: X(),
                 container: K(),
@@ -9374,11 +9373,11 @@
             };
             return Ke.domCache.set(e, t), t;
         },
-        Yn = (e, t, n) => {
+        Ln = (e, t, n) => {
             const r = pe();
             Ie(r),
                 t.timer &&
-                    ((e.timeout = new Jt(() => {
+                    ((e.timeout = new Xt(() => {
                         n('timer'), delete e.timeout;
                     }, t.timer)),
                     t.timerProgressBar &&
@@ -9387,28 +9386,28 @@
                             e.timeout.running && Re(t.timer);
                         })));
         },
-        Rn = (e, t) => {
-            if (!t.toast) return U(t.allowEnterKey) ? void (Ln(e, t) || _n(0, -1, 1)) : Bn();
+        Bn = (e, t) => {
+            if (!t.toast) return U(t.allowEnterKey) ? void (Wn(e, t) || wn(0, -1, 1)) : Un();
         },
-        Ln = (e, t) =>
+        Wn = (e, t) =>
             t.focusDeny && Ne(e.denyButton)
                 ? (e.denyButton.focus(), !0)
                 : t.focusCancel && Ne(e.cancelButton)
                 ? (e.cancelButton.focus(), !0)
                 : !(!t.focusConfirm || !Ne(e.confirmButton)) && (e.confirmButton.focus(), !0),
-        Bn = () => {
+        Un = () => {
             document.activeElement && 'function' == typeof document.activeElement.blur && document.activeElement.blur();
         };
-    const Wn = (e) => {
+    const Fn = (e) => {
             'function' == typeof e.didDestroy ? e.didDestroy() : 'function' == typeof e.onDestroy && e.onDestroy();
         },
-        Un = (e) => {
-            delete e.params, delete bt.keydownHandler, delete bt.keydownTarget, Fn(Ke), Fn(Ut);
+        Vn = (e) => {
+            delete e.params, delete bt.keydownHandler, delete bt.keydownTarget, $n(Ke), $n(Vt);
         },
-        Fn = (e) => {
+        $n = (e) => {
             for (const t in e) e[t] = new WeakMap();
         };
-    var Vn = Object.freeze({
+    var zn = Object.freeze({
         __proto__: null,
         hideLoading: Nt,
         disableLoading: Nt,
@@ -9417,21 +9416,21 @@
                 n = Ke.domCache.get(e || this);
             return n ? Se(n.content, t.input) : null;
         },
-        close: Vt,
-        closePopup: Vt,
-        closeModal: Vt,
-        closeToast: Vt,
+        close: zt,
+        closePopup: zt,
+        closeModal: zt,
+        closeToast: zt,
         enableButtons: function () {
-            Zt(this, ['confirmButton', 'denyButton', 'cancelButton'], !1);
+            Jt(this, ['confirmButton', 'denyButton', 'cancelButton'], !1);
         },
         disableButtons: function () {
-            Zt(this, ['confirmButton', 'denyButton', 'cancelButton'], !0);
+            Jt(this, ['confirmButton', 'denyButton', 'cancelButton'], !0);
         },
         enableInput: function () {
-            return Kt(this.getInput(), !1);
+            return Qt(this.getInput(), !1);
         },
         disableInput: function () {
-            return Kt(this.getInput(), !0);
+            return Qt(this.getInput(), !0);
         },
         showValidationMessage: function (e) {
             const t = Ke.domCache.get(this),
@@ -9464,13 +9463,13 @@
             })(e),
                 bt.currentInstance && bt.currentInstance._destroy(),
                 (bt.currentInstance = this);
-            const t = Pn(e);
-            Xt(t),
+            const t = jn(e);
+            tn(t),
                 Object.freeze(t),
                 bt.timeout && (bt.timeout.stop(), delete bt.timeout),
                 clearTimeout(bt.restoreFocusTimeout);
-            const n = jn(this);
-            return gt(this, t), Ke.innerParams.set(this, t), Nn(this, n, t);
+            const n = Rn(this);
+            return gt(this, t), Ke.innerParams.set(this, t), Yn(this, n, t);
         },
         update: function (e) {
             const t = X(),
@@ -9481,7 +9480,7 @@
                 );
             const r = {};
             Object.keys(e).forEach((t) => {
-                Hn.isUpdatableParameter(t)
+                Gn.isUpdatableParameter(t)
                     ? (r[t] = e[t])
                     : R(
                           `Invalid parameter to update: "${t}". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js\n\nIf you think this parameter should be updatable, request it here: https://github.com/sweetalert2/sweetalert2/issues/new?template=02_feature_request.md`
@@ -9502,19 +9501,19 @@
                     bt.swalCloseEventFinishedCallback &&
                     (bt.swalCloseEventFinishedCallback(), delete bt.swalCloseEventFinishedCallback),
                 bt.deferDisposalTimer && (clearTimeout(bt.deferDisposalTimer), delete bt.deferDisposalTimer),
-                Wn(t),
-                Un(this));
+                Fn(t),
+                Vn(this));
         },
     });
-    let $n;
-    class zn {
+    let Hn;
+    class qn {
         constructor(...e) {
             if ('undefined' == typeof window) return;
             'undefined' == typeof Promise &&
                 L(
                     'This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)'
                 ),
-                ($n = this);
+                (Hn = this);
             const t = Object.freeze(this.constructor.argsToParams(e));
             Object.defineProperties(this, { params: { value: t, writable: !1, enumerable: !0, configurable: !0 } });
             const n = this._main(this.params);
@@ -9527,18 +9526,18 @@
             return Ke.promise.get(this).finally(e);
         }
     }
-    Object.assign(zn.prototype, Vn),
-        Object.assign(zn, Pt),
-        Object.keys(Vn).forEach((e) => {
-            zn[e] = function (...t) {
-                if ($n) return $n[e](...t);
+    Object.assign(qn.prototype, zn),
+        Object.assign(qn, Pt),
+        Object.keys(zn).forEach((e) => {
+            qn[e] = function (...t) {
+                if (Hn) return Hn[e](...t);
             };
         }),
-        (zn.DismissReason = z),
-        (zn.version = '10.9.0');
-    const Hn = zn;
-    Hn.default = Hn;
-    var qn = l(function (e, t) {
+        (qn.DismissReason = z),
+        (qn.version = '10.9.1');
+    const Gn = qn;
+    Gn.default = Gn;
+    var Zn = l(function (e, t) {
         /*!
 	    localForage -- Offline Storage, Improved
 	    Version 1.9.0
@@ -11460,9 +11459,9 @@
         };
         return t(this, (e = 'object' == typeof e ? e : Array.prototype.slice.call(arguments, 0)));
     };
-    const Gn = Hn,
-        Zn = {
-            information: (e, t) => Gn.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
+    const Kn = Gn,
+        Jn = {
+            information: (e, t) => Kn.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
             info(e) {
                 this.information(e, 'info');
             },
@@ -11479,10 +11478,10 @@
                 this.information(e, 'question');
             },
         },
-        Kn = {
+        Qn = {
             getItem: (e) =>
                 new Promise((t, n) => {
-                    qn.getItem(e)
+                    Zn.getItem(e)
                         .then((e) => {
                             t(e);
                         })
@@ -11492,7 +11491,7 @@
                 }),
             setItem: (e, t) =>
                 new Promise((n, r) => {
-                    qn.setItem(e, t)
+                    Zn.setItem(e, t)
                         .then((e) => {
                             n(e);
                         })
@@ -11502,7 +11501,7 @@
                 }),
             removeItem: (e) =>
                 new Promise((t, n) => {
-                    qn.removeItem(e)
+                    Zn.removeItem(e)
                         .then(() => {
                             t();
                         })
@@ -11512,7 +11511,7 @@
                 }),
             clear: () =>
                 new Promise((e, t) => {
-                    qn.clear()
+                    Zn.clear()
                         .then(() => {
                             e();
                         })
@@ -11522,7 +11521,7 @@
                 }),
             length: () =>
                 new Promise((e, t) => {
-                    qn.length()
+                    Zn.length()
                         .then((t) => {
                             e(t);
                         })
@@ -11532,7 +11531,7 @@
                 }),
             key: (e) =>
                 new Promise((t, n) => {
-                    qn.key(e)
+                    Zn.key(e)
                         .then((e) => {
                             t(e);
                         })
@@ -11542,7 +11541,7 @@
                 }),
             keys: () =>
                 new Promise((e, t) => {
-                    qn.keys()
+                    Zn.keys()
                         .then((t) => {
                             e(t);
                         })
@@ -11552,7 +11551,7 @@
                 }),
             iterate: () =>
                 new Promise((e, t) => {
-                    qn.iterate((t, n, r) => {
+                    Zn.iterate((t, n, r) => {
                         e([t, n, r]);
                     })
                         .then((t) => {
@@ -11564,18 +11563,18 @@
                 }),
             setDriver: (e) =>
                 new Promise((t, n) => {
-                    t(qn.setDriver(e));
+                    t(Zn.setDriver(e));
                 }),
             config: (e) =>
                 new Promise((t, n) => {
-                    t(qn.config(e));
+                    t(Zn.config(e));
                 }),
             createInstance: (e) =>
                 new Promise((t, n) => {
-                    t(qn.createInstance(e));
+                    t(Zn.createInstance(e));
                 }),
         },
-        Jn = {
+        Xn = {
             setObject(e, t) {
                 localStorage.setItem(e, JSON.stringify(t));
             },
@@ -11595,7 +11594,7 @@
             },
             isExist: (e) => !(!e || !(e in localStorage)),
         },
-        Qn = {
+        er = {
             array: {
                 groupBy(e, t) {
                     const n = {};
@@ -11632,16 +11631,16 @@
             },
         };
     d.locale('zh-cn');
-    var Xn = Object.freeze({
+    var tr = Object.freeze({
         __proto__: null,
-        notify: Zn,
-        swal: Gn,
+        notify: Jn,
+        swal: Kn,
         moment: d,
-        storage: Kn,
-        storageSync: Jn,
+        storage: Qn,
+        storageSync: Xn,
         lodash: p,
         shortid: N,
-        tools: Qn,
+        tools: er,
     });
     Object.freeze({
         __proto__: null,
@@ -11748,7 +11747,7 @@
             },
         },
     });
-    class er {
+    class nr {
         static get selfCloseTags() {
             return [
                 'area',
@@ -11772,9 +11771,9 @@
         }
         static build(e) {
             if (!e || !e.tag) return '';
-            const t = tr.attributes(e);
-            if (tr.isSelfCloseTag(e)) return `<${e.tag} ${t}/>`;
-            const n = tr.children(e);
+            const t = rr.attributes(e);
+            if (rr.isSelfCloseTag(e)) return `<${e.tag} ${t}/>`;
+            const n = rr.children(e);
             return `<${e.tag} ${t}>${n}</${e.tag}>`;
         }
         static unbuild(e) {
@@ -11784,10 +11783,10 @@
             const n = t.querySelector('body');
             if (!n) return {};
             const [r] = n.children;
-            return r ? nr.node2json(r) : {};
+            return r ? ir.node2json(r) : {};
         }
     }
-    class tr {
+    class rr {
         static attributes(e) {
             if (!e.attributes) return '';
             let t = '';
@@ -11800,14 +11799,14 @@
             let t = '';
             for (const n in e.children)
                 ({}.hasOwnProperty.call(e.children, n) &&
-                    ('object' == typeof e.children[n] ? (t += er.build(e.children[n])) : (t += e.children[n])));
+                    ('object' == typeof e.children[n] ? (t += nr.build(e.children[n])) : (t += e.children[n])));
             return t;
         }
         static isSelfCloseTag(e) {
-            return er.selfCloseTags.indexOf(e.tag) > -1;
+            return nr.selfCloseTags.indexOf(e.tag) > -1;
         }
     }
-    class nr {
+    class ir {
         static attributes(e) {
             const t = {},
                 n = Object.keys(e.attributes);
@@ -11822,17 +11821,17 @@
         static children(e) {
             const t = [];
             for (const n in e.childNodes)
-                e.childNodes[n].nodeType === Node.ELEMENT_NODE && t.push(nr.node2json(e.childNodes[n])),
+                e.childNodes[n].nodeType === Node.ELEMENT_NODE && t.push(ir.node2json(e.childNodes[n])),
                     e.childNodes[n].nodeType === Node.TEXT_NODE && t.push(e.childNodes[n].textContent);
             return t;
         }
         static node2json(e) {
-            return { tag: e.tagName.toLowerCase(), attributes: nr.attributes(e), children: nr.children(e) };
+            return { tag: e.tagName.toLowerCase(), attributes: ir.attributes(e), children: ir.children(e) };
         }
     }
-    const rr = er;
-    Object.freeze({ __proto__: null, json2html: rr });
-    function ir(e, t, n, r, i, o, a, s, u, c) {
+    const or = nr;
+    Object.freeze({ __proto__: null, json2html: or });
+    function ar(e, t, n, r, i, o, a, s, u, c) {
         'boolean' != typeof a && ((u = s), (s = a), (a = !1));
         const l = 'function' == typeof n ? n.options : n;
         let f;
@@ -11877,7 +11876,7 @@
             }
         return n;
     }
-    const or = ir(
+    const sr = ar(
         {
             render: function () {
                 var e = this,
@@ -12104,7 +12103,7 @@
             watch: {
                 value: {
                     handler(e, t) {
-                        e && Xn.lodash.startsWith(e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
+                        e && tr.lodash.startsWith(e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
                     },
                     immediate: !0,
                 },
@@ -12113,14 +12112,14 @@
                         this.filteredIcons.length > 0 && !this.menu
                             ? (this.menu = !0)
                             : this.filteredIcons.length || (this.menu = !1),
-                            e && !Xn.lodash.startsWith(e, 'mdi-')
+                            e && !tr.lodash.startsWith(e, 'mdi-')
                                 ? this.$emit('input', 'mdi-' + e)
                                 : this.$emit('input', e);
                     },
                 },
             },
             mounted() {
-                this.icons = Object.keys(a).map((e) => Xn.lodash.kebabCase(e));
+                this.icons = Object.keys(a).map((e) => tr.lodash.kebabCase(e));
             },
             methods: {
                 select(e) {
@@ -12139,8 +12138,8 @@
         void 0,
         void 0
     );
-    (or.install = function (e) {
-        e.component(or.name, or);
+    (sr.install = function (e) {
+        e.component(sr.name, sr);
     }),
-        null != typeof window && window.Vue && or.install(window.Vue);
+        null != typeof window && window.Vue && sr.install(window.Vue);
 });
