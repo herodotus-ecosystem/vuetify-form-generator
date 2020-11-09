@@ -11,24 +11,24 @@ export default {
                 (this.fullSchema.type === 'array' &&
                     ['string', 'number', 'integer'].includes(this.fullSchema.items.type))
             );
-        },
+        }
     },
     methods: {
         renderSimpleProp(h) {
             if (!this.isSimpleProp) return;
 
             const props = { ...this.commonFieldProps };
-
             const children = [];
+            const scopedSlots = {};
             const on = {
                 input: (value) => this.input(value),
-                change: (value) => this.change(value),
+                change: (value) => this.change(value)
             };
-            const scopedSlots = {};
 
             if (['number', 'integer'].includes(this.fullSchema.type)) {
-                on.input = (value) =>
+                on.input = (value) => {
                     this.input(this.fullSchema.type === 'integer' ? parseInt(value, 10) : parseFloat(value));
+                };
             }
 
             if (this.fullSchema.type === 'boolean') {
@@ -38,6 +38,7 @@ export default {
                 };
             }
 
+            // TODO：下面的代码关注一下ComboBox，如果这个实现，下面的代码可以干掉了
             if (
                 this.fullSchema.type === 'array' &&
                 ['string', 'number', 'integer'].includes(this.fullSchema.items.type)
@@ -53,7 +54,7 @@ export default {
                         });
                         const firstMessage = valuesMessages.find((m) => !!m);
                         return firstMessage || true;
-                    },
+                    }
                 ]);
 
                 if (this.fullSchema.items.type !== 'string') {
@@ -81,7 +82,7 @@ export default {
                         'v-chip',
                         {
                             props: { close: true, color: brokenRule ? 'error' : 'default' },
-                            on: { 'click:close': onClose },
+                            on: { 'click:close': onClose }
                         },
                         slotProps.item
                     );
@@ -93,7 +94,35 @@ export default {
                 children.push(this.renderTooltip(h, tooltipSlot));
             }
 
-            return this.fullSchema.tag ? [h(this.fullSchema.tag, { props, on, scopedSlots }, children)] : null;
-        },
-    },
+            let rules = this.fullSchema['x-rules'];
+            if (rules) {
+                return [
+                    h('validation-provider', {
+                        props: {
+                            name: props.label,
+                            rules: rules
+                        },
+                        scopedSlots: {
+                            default: ({ errors }) =>
+                                h(
+                                    this.fullSchema.tag,
+                                    {
+                                        props: {
+                                            ...props,
+                                            required: true,
+                                            'error-messages': errors
+                                        },
+                                        on,
+                                        scopedSlots
+                                    },
+                                    children
+                                )
+                        }
+                    })
+                ];
+            } else {
+                return [h(this.fullSchema.tag, { props, on, scopedSlots }, children)];
+            }
+        }
+    }
 };

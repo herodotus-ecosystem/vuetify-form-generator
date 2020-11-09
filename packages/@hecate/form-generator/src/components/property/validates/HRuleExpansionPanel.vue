@@ -10,7 +10,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                     <v-list-item-title v-text="item.name"></v-list-item-title>
-                    <v-list-item-subtitle v-text="item.description"></v-list-item-subtitle>
+                    <v-list-item-subtitle v-text="item.message"></v-list-item-subtitle>
                 </v-list-item-content>
             </v-list-item>
         </v-list-item-group>
@@ -51,64 +51,40 @@ export default {
 
     components: {
         HExpansionPanel,
-        HPanelBetween,
+        HPanelBetween
     },
 
     props: {
         value: {
             type: String,
-            default: '',
-        },
+            default: ''
+        }
     },
 
     data: () => ({
         expressions: '',
-        ruleItems: [
-            { name: 'Alpha', type: 'alpha', description: '输入内容只能包含字母' },
-            { name: 'Alpha Dash', type: 'alpha_dash', description: '输入内容包含字母数字、破折号和下划线' },
-            { name: 'Alpha Num', type: 'alpha_num', description: '输入内容只能包含字母和数字' },
-            { name: 'Alpha Spaces', type: 'alpha_spaces', description: '输入内容只能包含字母和空格' },
-            { name: 'Between', type: 'between', description: '输入内容必须介于在{min}与{max}之间' },
-            { name: 'Confirmed', type: 'confirmed', description: '输入内容与{target}不匹配' },
-            { name: 'Digits', type: 'digits', description: 'Digits：输入内容必须是数字，且精确到{length}位数' },
-            { name: 'Dimensions', type: 'dimensions', description: '{_field_}必须在{width}像素与{height}像素之间' },
-            { name: 'Email', type: 'email', description: '{_field_}不是一个有效的邮箱' },
-            { name: 'Excluded', type: 'excluded', description: '{_field_}不是一个有效值' },
-            { name: 'Ext', type: 'ext', description: '{_field_}不是一个有效的文件' },
-            { name: 'Image', type: 'image', description: '{_field_}不是一张有效的图片' },
-            { name: 'OneOf', type: 'oneOf', description: '{_field_}不是一个有效值' },
-            { name: 'Integer', type: 'integer', description: '{_field_}必须是整数' },
-            { name: 'Length', type: 'length', description: '{_field_}长度必须为{length}' },
-            { name: 'Max', type: 'max', description: '{_field_}不能超过{length}个字符' },
-            { name: 'Max_value', type: 'max_value', description: '{_field_}必须小于或等于{max}' },
-            { name: 'Mimes', type: 'mimes', description: '{_field_}不是一个有效的文件类型' },
-            { name: 'Min', type: 'min', description: '{_field_}必须至少有{length}个字符' },
-            { name: 'Min_value', type: 'min_value', description: '{_field_}必须大于或等于{min}' },
-            { name: 'Numeric', type: 'numeric', description: '{_field_}只能包含数字字符' },
-            { name: 'Negex', type: 'regex', description: '{_field_}格式无效' },
-            { name: 'Required', type: 'required', description: '{_field_}是必须的' },
-            { name: 'Required_if', type: 'required_if', description: '{_field_}是必须的' },
-            { name: 'Size', type: 'size', description: '{_field_}必须小于{size}KB' },
-            { name: 'Double', type: 'double', description: '{_field_}字段必须为有效的小数' },
-        ],
+        ruleItems: [],
         ruleParamSettingPanel: '',
         ruleParam: '',
         selectedItems: [],
-        selectedRule: {},
+        selectedRule: {}
     }),
 
     watch: {
         value: {
             handler(newValue, oldValue) {
                 this.expressions = newValue;
+                if (this.$lib.lodash.isEmpty(this.ruleItems)) {
+                    this.ruleItems = this.$rules;
+                }
                 this.readExpressions(this.expressions);
             },
-            immediate: true,
+            immediate: true
         },
         expressions: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
+            }
         },
         selectedRule: {
             handler(newValue, oldValue) {
@@ -118,19 +94,19 @@ export default {
                     this.ruleParamSettingPanel = '';
                     this.ruleParam = '';
                 }
-            },
+            }
         },
         selectedItems: {
             handler(newValue, oldValue) {
                 this.expressions = this.constructExpression(newValue);
-            },
-        },
+            }
+        }
     },
 
     computed: {
         isButtonDisabled() {
             return this.$lib.lodash.isEmpty(this.selectedRule) ? true : false;
-        },
+        }
     },
 
     methods: {
@@ -152,7 +128,7 @@ export default {
         },
 
         readSelectedItemParam(type) {
-            let selectedItem = this.$lib.lodash.find(this.selectedItems, function (i) {
+            let selectedItem = this.$lib.lodash.find(this.selectedItems, function(i) {
                 return i.type === type;
             });
             if (selectedItem && selectedItem.param) {
@@ -163,7 +139,7 @@ export default {
         },
 
         findRuleItemByType(type) {
-            return this.$lib.lodash.find(this.ruleItems, function (i) {
+            return this.$lib.lodash.find(this.ruleItems, function(i) {
                 return i.type === type;
             });
         },
@@ -181,7 +157,7 @@ export default {
         },
 
         removeSelectedItem(rule) {
-            this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (i) {
+            this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function(i) {
                 return i.type !== rule.type;
             });
             this.changeRuleItemStatus(rule, false);
@@ -216,13 +192,15 @@ export default {
         },
 
         readExpressions(expressions) {
-            if (expressions && expressions.search('|') != -1) {
-                let expressionArray = this.$lib.lodash.split(value, '|');
-                for (let expression in expressionArray) {
-                    this.addSelectedItemByExpression(expression);
+            if (expressions) {
+                if (expressions.indexOf('|') !== -1) {
+                    let expressionArray = this.$lib.lodash.split(expressions, '|');
+                    for (let expression in expressionArray) {
+                        this.addSelectedItemByExpression(expression);
+                    }
+                } else {
+                    this.addSelectedItemByExpression(expressions);
                 }
-            } else {
-                return this.addSelectedItemByExpression(expressions);
             }
         },
 
@@ -267,7 +245,7 @@ export default {
                     .join('|');
                 return result;
             }
-        },
-    },
+        }
+    }
 };
 </script>

@@ -10,7 +10,7 @@ import {
     SelectProperty,
     EditableArray,
     Tooltip,
-    Validatable,
+    Validatable
 } from '../lib/mixins';
 
 export default {
@@ -24,7 +24,7 @@ export default {
         FileProperty,
         EditableArray,
         Tooltip,
-        Validatable,
+        Validatable
     ],
     inject: ['theme'],
     props: {
@@ -35,12 +35,12 @@ export default {
         modelKey: { type: [String, Number], default: 'root' },
         parentKey: { type: String, default: '' },
         required: { type: Boolean, default: false },
-        sectionDepth: { type: Number, default: 0 },
+        sectionDepth: { type: Number, default: 0 }
     },
     data() {
         return {
             ready: false,
-            loading: false,
+            loading: false
         };
     },
     computed: {
@@ -62,7 +62,7 @@ export default {
             fullOptions.icons = { ...iconSets[iconfont], ...fullOptions.icons };
             fullOptions.messages = {
                 ...(localizedMessages[fullOptions.locale] || localizedMessages.en),
-                ...fullOptions.messages,
+                ...fullOptions.messages
             };
             fullOptions.formats = { ...formats, ...fullOptions.formats };
             if (fullOptions.deleteReadOnly) fullOptions.hideReadOnly = true;
@@ -121,8 +121,8 @@ export default {
                 htmlDescription: this.htmlDescription,
                 on: {
                     input: (e) => this.input(e instanceof Event ? e.target.value : e),
-                    change: (e) => this.change(e),
-                },
+                    change: (e) => this.change(e)
+                }
             };
         },
         dashKey() {
@@ -140,7 +140,7 @@ export default {
                 rules: this.rules,
                 required: this.required,
                 ...this.fullOptions.fieldProps,
-                ...this.fullSchema['x-props'],
+                ...this.fullSchema['x-props']
             };
         },
         propertyClass() {
@@ -156,7 +156,7 @@ export default {
                 this.fullOptions.formats[this.fullSchema.format] &&
                 this.fullOptions.formats[this.fullSchema.format](this.value, this.fullOptions.locale)
             );
-        },
+        }
     },
     watch: {
         fullSchema: {
@@ -169,8 +169,8 @@ export default {
                     this.ready = true;
                 }
             },
-            immediate: true,
-        },
+            immediate: true
+        }
     },
     render(h) {
         // hide const ? Or make a readonly field ?
@@ -310,7 +310,7 @@ export default {
                 model = model.filter((item) => ![undefined, null].includes(item));
             }
             this.input(model);
-        },
-    },
+        }
+    }
 };
 </script>

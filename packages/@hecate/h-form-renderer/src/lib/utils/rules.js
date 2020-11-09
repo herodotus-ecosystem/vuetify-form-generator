@@ -72,7 +72,7 @@ export const getRules = (fullSchema, options, required, isOneOfSelect) => {
         );
     }
 
-    const customRules = (fullSchema['x-rules'] || []).map((rule) => {
+    const customRules = (fullSchema['x-ruless'] || []).map((rule) => {
         if (typeof rule === 'string') {
             const ruleFunction = options.rules && options.rules[rule];
             if (!ruleFunction) console.error(`rule ${rule} is referenced but not define in options`);

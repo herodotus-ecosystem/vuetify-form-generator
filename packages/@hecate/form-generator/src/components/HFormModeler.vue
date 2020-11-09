@@ -38,45 +38,47 @@
                     <v-row>
                         <v-col class="canvas-body">
                             <v-card class="ml-1 mr-1">
-                                <v-form>
-                                    <draggable
-                                        v-if="drawingCanvas.length > 0"
-                                        :list="drawingCanvas"
-                                        :animation="300"
-                                        group="componentsGroup"
-                                        @change="onChange"
-                                        @start="drag = true"
-                                        @end="drag = false"
-                                    >
-                                        <h-draggable-item
-                                            ref="canvas"
-                                            v-for="item in drawingCanvas"
-                                            :key="item.renderKey"
-                                            :schema="item"
-                                            :selected-item-id="selectedCanvasItemId"
-                                            @select="selectCanvasItem"
-                                            @copy="copyCanvasItem"
-                                            @delete="deleteCanvasItem"
-                                        />
-                                    </draggable>
-                                    <draggable v-else :animation="300" group="componentsGroup">
-                                        <v-row>
-                                            <v-col cols="12">
-                                                <v-row align="center" justify="center">
-                                                    <v-card height="100" width="600" class="ma-12">
-                                                        <v-card-text class="text-center title"
-                                                            >从左侧拖入或点选组件进行表单设计</v-card-text
-                                                        >
-                                                    </v-card>
-                                                </v-row>
-                                            </v-col>
-                                        </v-row>
-                                    </draggable>
-                                </v-form>
+                                <validation-observer ref="observer">
+                                    <v-form>
+                                        <draggable
+                                            v-if="drawingCanvas.length > 0"
+                                            :list="drawingCanvas"
+                                            :animation="300"
+                                            group="componentsGroup"
+                                            @change="onChange"
+                                            @start="drag = true"
+                                            @end="drag = false"
+                                        >
+                                            <h-draggable-item
+                                                ref="canvas"
+                                                v-for="item in drawingCanvas"
+                                                :key="item.renderKey"
+                                                :schema="item"
+                                                :selected-item-id="selectedCanvasItemId"
+                                                @select="selectCanvasItem"
+                                                @copy="copyCanvasItem"
+                                                @delete="deleteCanvasItem"
+                                            />
+                                        </draggable>
+                                        <draggable v-else :animation="300" group="componentsGroup">
+                                            <v-row>
+                                                <v-col cols="12">
+                                                    <v-row align="center" justify="center">
+                                                        <v-card height="100" width="600" class="ma-12">
+                                                            <v-card-text class="text-center title"
+                                                                >从左侧拖入或点选组件进行表单设计</v-card-text
+                                                            >
+                                                        </v-card>
+                                                    </v-row>
+                                                </v-col>
+                                            </v-row>
+                                        </draggable>
+                                    </v-form>
+                                </validation-observer>
                             </v-card>
                         </v-col>
-                    </v-row></v-card
-                >
+                    </v-row>
+                </v-card>
             </v-col>
             <v-col cols="2">
                 <v-card class="overflow-y-auto overflow-x-hidden" :height="height">

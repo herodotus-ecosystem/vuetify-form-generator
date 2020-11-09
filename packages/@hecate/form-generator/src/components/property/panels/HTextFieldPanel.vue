@@ -220,7 +220,7 @@ export default {
                 return this.element[this.constants.annotations.xrules];
             },
             set: function(value) {
-                this.element[this.constants.annotations.xrules] = value;
+                this.$set(this.element, this.constants.annotations.xrules, value);
             }
         },
         isNumberType() {

@@ -7,10 +7,8 @@ import VeeValidate from './plugins/vee-validate';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import '@mdi/font/css/materialdesignicons.css';
 import Draggable from 'vuedraggable';
-import { lib } from '@hecate/core';
 
 Vue.config.productionTip = false;
-Vue.prototype.$lib = lib;
 
 Vue.use(VeeValidate);
 
