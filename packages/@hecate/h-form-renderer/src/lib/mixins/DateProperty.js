@@ -29,7 +29,7 @@ const getDateTimeWithOffset = (date) => {
 const getDateTimeParts = (date) => {
     return [
         `${date.getFullYear()}-${padTimeComponent(date.getMonth() + 1)}-${padTimeComponent(date.getDate())}`,
-        `${padTimeComponent(date.getHours())}:${padTimeComponent(date.getMinutes())}`,
+        `${padTimeComponent(date.getHours())}:${padTimeComponent(date.getMinutes())}`
     ];
 };
 
@@ -65,8 +65,8 @@ export default {
                 tab: 'tab-date',
                 menu: false,
                 parts: [null, null],
-                lastValue: null,
-            },
+                lastValue: null
+            }
         };
     },
     methods: {
@@ -80,31 +80,31 @@ export default {
                 child = h('v-time-picker', {
                     props: {
                         // ...this.fullOptions.timePickerProps,
-                        locale: this.fullOptions.locale,
+                        // locale: this.fullOptions.locale,
                         value: getShortTime(this.value),
-                        ...this.fullSchema['x-props'],
+                        ...this.fullSchema['x-props']
                     },
                     on: {
                         input: (value) => this.input(getLongTime(value)),
-                        change: (value) => this.change(getLongTime(value)),
-                    },
+                        change: (value) => this.change(getLongTime(value))
+                    }
                 });
                 prependIcon = this.fullOptions.icons.clock;
             } else if (this.fullSchema.format === 'date') {
                 child = h('v-date-picker', {
                     props: {
                         // ...this.fullOptions.datePickerProps,
-                        locale: this.fullOptions.locale,
+                        // locale: this.fullOptions.locale,
                         value: this.value,
-                        ...this.fullSchema['x-props'],
+                        ...this.fullSchema['x-props']
                     },
                     on: {
                         input: (value) => {
                             this.input(value);
                             this.dateProp.menu = false;
                         },
-                        change: (value) => this.change(value),
-                    },
+                        change: (value) => this.change(value)
+                    }
                 });
             } else {
                 if (this.value !== this.dateProp.lastValue)
@@ -120,39 +120,39 @@ export default {
                 const tabs = [
                     h('v-tab', { props: { href: '#tab-date' } }, [h('v-icon', [this.fullOptions.icons.calendar])]),
                     h('v-tab', { props: { href: '#tab-time', disabled: !this.dateProp.parts[0] } }, [
-                        h('v-icon', [this.fullOptions.icons.clock]),
+                        h('v-icon', [this.fullOptions.icons.clock])
                     ]),
                     h('v-tab-item', { props: { value: 'tab-date' } }, [
                         h('v-date-picker', {
                             props: {
                                 ...this.fullOptions.datePickerProps,
                                 locale: this.fullOptions.locale,
-                                value: this.dateProp.parts[0],
+                                value: this.dateProp.parts[0]
                             },
                             on: {
                                 input: (value) => {
                                     this.dateProp.parts[0] = value;
                                     this.dateProp.tab = 'tab-time';
                                     setValue();
-                                },
-                            },
-                        }),
+                                }
+                            }
+                        })
                     ]),
                     h('v-tab-item', { props: { value: 'tab-time' } }, [
                         h('v-time-picker', {
                             props: {
                                 ...this.fullOptions.timePickerProps,
                                 locale: this.fullOptions.locale,
-                                value: this.dateProp.parts[1],
+                                value: this.dateProp.parts[1]
                             },
                             on: {
                                 input: (value) => {
                                     this.dateProp.parts[1] = value;
                                     setValue();
-                                },
-                            },
-                        }),
-                    ]),
+                                }
+                            }
+                        })
+                    ])
                 ];
                 child = h(
                     'v-tabs',
@@ -161,9 +161,9 @@ export default {
                         on: {
                             input: (value) => {
                                 this.dateProp.tab = value;
-                            },
+                            }
                         },
-                        class: 'vjsf-date-time',
+                        class: 'vjsf-date-time'
                     },
                     tabs
                 );
@@ -179,10 +179,10 @@ export default {
                             value: this.formattedValue,
                             clearable: !this.required,
                             readonly: true,
-                            prependIcon,
+                            prependIcon
                         },
                         // text field is not editable, we listen to input/change for when it is cleared
-                        on: { ...on, input: (value) => this.input(value), change: (value) => this.change(value) },
+                        on: { ...on, input: (value) => this.input(value), change: (value) => this.change(value) }
                     },
                     [this.renderTooltip(h, 'append-outer')]
                 );
@@ -201,18 +201,18 @@ export default {
                             transition: 'scale-transition',
                             offsetY: true,
                             fullWidth: true,
-                            minWidth: '290px',
+                            minWidth: '290px'
                         },
                         on: {
                             input: (value) => {
                                 this.dateProp.menu = value;
                                 this.dateProp.tab = 'tab-date';
-                            },
-                        },
+                            }
+                        }
                     },
                     [child]
-                ),
+                )
             ];
-        },
-    },
+        }
+    }
 };

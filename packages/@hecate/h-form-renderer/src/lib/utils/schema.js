@@ -16,11 +16,14 @@ const getDeepKey = (obj, key) => {
 };
 
 schemaUtils.prepareFullSchema = (schema, value) => {
+    // 做一个对象拷贝
     const fullSchema = JSON.parse(JSON.stringify(schema));
 
     if (fullSchema.pattern) fullSchema.patternRegexp = new RegExp(fullSchema.pattern);
 
-    if (!fullSchema.type && fullSchema.properties) fullSchema.type = 'object';
+    // 以下部分应该是对Schema的空值进行相关的处理
+    // if (!fullSchema.type && fullSchema.properties) fullSchema.type = 'object';
+    // TODO:以下if内容可以删除，目前没有用到这个逻辑
     if (Array.isArray(fullSchema.type)) {
         fullSchema.nullable = fullSchema.type.includes('null');
         fullSchema.type = fullSchema.type.find((t) => t !== 'null');

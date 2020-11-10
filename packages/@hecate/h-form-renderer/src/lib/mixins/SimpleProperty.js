@@ -14,6 +14,10 @@ export default {
         }
     },
     methods: {
+        // 主要代码逻辑照搬v-jsf。
+        // 随着功能的推进，发现v-jsf更偏重绘制，而本系统除了绘制以外，还有属性的动态设置
+        // 实现逻辑偏差越来越大，原v-jsf的逻辑需要的进行的重构就越来越多。
+        // 后面希望通过重构，来构建自己的绘制核心代码。
         renderSimpleProp(h) {
             if (!this.isSimpleProp) return;
 
@@ -38,25 +42,10 @@ export default {
                 };
             }
 
-            // TODO：下面的代码关注一下ComboBox，如果这个实现，下面的代码可以干掉了
             if (
                 this.fullSchema.type === 'array' &&
                 ['string', 'number', 'integer'].includes(this.fullSchema.items.type)
             ) {
-                const itemRules = getRules(schemaUtils.prepareFullSchema(this.fullSchema.items), this.fullOptions);
-                props.rules = props.rules.concat([
-                    (values) => {
-                        const valuesMessages = values.map((value) => {
-                            const brokenRule = itemRules.find((rule) => {
-                                return typeof rule(value) === 'string';
-                            });
-                            return brokenRule && brokenRule(value);
-                        });
-                        const firstMessage = valuesMessages.find((m) => !!m);
-                        return firstMessage || true;
-                    }
-                ]);
-
                 if (this.fullSchema.items.type !== 'string') {
                     props.type = 'number';
                     on.input = (value) => {
@@ -68,25 +57,6 @@ export default {
                         this.input(vals);
                     };
                 }
-
-                scopedSlots.selection = (slotProps) => {
-                    const onClose = () => {
-                        this.value.splice(slotProps.index, 1);
-                        this.input(this.value);
-                        this.change(this.value);
-                    };
-                    const brokenRule = itemRules.find((rule) => {
-                        return typeof rule(slotProps.item) === 'string';
-                    });
-                    return h(
-                        'v-chip',
-                        {
-                            props: { close: true, color: brokenRule ? 'error' : 'default' },
-                            on: { 'click:close': onClose }
-                        },
-                        slotProps.item
-                    );
-                };
             }
 
             if (this.htmlDescription) {

@@ -1,20 +1,21 @@
 import Vue from 'vue';
-import Vuetify, { VContainer, VRow, VCol, VTextField, VCard, VMain } from 'vuetify/lib';
-import zhHans from 'vuetify/lib/locale/zh-Hans';
+import Vuetify from 'vuetify/lib';
+import VueI18n from 'vue-i18n';
 
-Vue.use(Vuetify, {
-    components: { VContainer, VRow, VCol, VTextField, VCard, VMain },
+import { locales } from '@hecate/core';
+
+Vue.use(Vuetify);
+Vue.use(VueI18n);
+
+const { en, zh } = locales;
+
+const i18n = new VueI18n({
+    locale: 'zh',
+    messages: { zh, en }
 });
 
 export default new Vuetify({
-    rtl: false,
-    theme: {
-        options: {
-            customProperties: true,
-        },
-    },
     lang: {
-        locales: { zhHans },
-        current: 'zh-Hans',
-    },
+        t: (key, ...params) => i18n.t(key, params)
+    }
 });

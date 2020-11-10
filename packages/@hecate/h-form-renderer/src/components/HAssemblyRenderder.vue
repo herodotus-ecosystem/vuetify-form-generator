@@ -28,8 +28,8 @@ export default {
     ],
     inject: ['theme'],
     props: {
+        value: { required: true }, // v-model中的value 与 input对应
         schema: { type: Object, required: true },
-        value: { required: true },
         options: { type: Object },
         modelRoot: { type: Object },
         modelKey: { type: [String, Number], default: 'root' },
@@ -200,12 +200,12 @@ export default {
         } else {
             const mainChildren =
                 this.renderDateProp(h) ||
-                this.renderColorProp(h) ||
+                // this.renderColorProp(h) ||
                 this.renderSelectProp(h) ||
                 this.renderFileProp(h) ||
                 this.renderSimpleProp(h) ||
                 this.renderObjectContainer(h) ||
-                this.renderEditableArray(h) ||
+                // this.renderEditableArray(h) ||
                 [];
             mainChildren.forEach((child) => children.push(child));
         }
@@ -235,14 +235,24 @@ export default {
             });
             return slots;
         },
+
+        /**
+         * v-jsf核心通用method，基本所有常规组件都会用到
+         */
         change() {
-            this.updateSelectItems();
+            // this.updateSelectItems();
             this.$emit('change', this.value);
         },
+
+        /**
+         * v-jsf核心通用method，基本所有常规组件都会用到
+         */
         input(value) {
             if (value === null || value === undefined || value === '') {
-                if (this.fullSchema.nullable) this.$emit('input', null);
-                else this.$emit('input', undefined);
+                // nullable 逻辑没有用到，删除
+                // if (this.fullSchema.nullable) this.$emit('input', null);
+                // else this.$emit('input', undefined);
+                this.$emit('input', undefined);
             } else {
                 this.$emit('input', value);
             }
@@ -253,6 +263,7 @@ export default {
             if (schema.tag === 'v-range-slider') return [0, 10];
             return null;
         },
+
         fixProperties() {
             if (this.fullSchema.type !== 'object') return;
             const nonSchematized =

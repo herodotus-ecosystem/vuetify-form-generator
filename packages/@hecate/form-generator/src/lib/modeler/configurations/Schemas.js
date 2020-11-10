@@ -94,6 +94,7 @@ const definitions = {
             format: 'date',
             'x-props': {
                 'first-day-of-week': 0,
+                locale: 'zh-cn',
                 type: 'date'
             }
         }
