@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer v-model="drawer" fixed temporary bottom width="100%">
+    <v-navigation-drawer v-model="drawer" fixed temporary hide-overlay bottom width="100%">
         <v-toolbar dark class="blue darken-3" dense>
             <v-btn icon dark @click="drawer = false">
                 <v-icon>mdi-close-box</v-icon>
@@ -34,25 +34,25 @@ export default {
 
     components: {
         HCodeMirror,
-        HFormRuntime,
+        HFormRuntime
     },
 
     props: {
         value: {
             type: Boolean,
-            default: false,
+            default: false
         },
         source: {
             type: String,
-            default: '',
-        },
+            default: ''
+        }
     },
 
     data: () => ({
         drawer: false,
         schema: {},
         model: {},
-        config: '',
+        config: ''
     }),
 
     watch: {
@@ -60,12 +60,12 @@ export default {
             handler(newValue, oldValue) {
                 this.drawer = newValue;
             },
-            immediate: true,
+            immediate: true
         },
         drawer: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            },
+            }
         },
         source: {
             handler(newValue, oldValue) {
@@ -74,9 +74,9 @@ export default {
                     this.config = newValue;
                 }
             },
-            immediate: true,
-        },
-    },
+            immediate: true
+        }
+    }
 };
 </script>
 

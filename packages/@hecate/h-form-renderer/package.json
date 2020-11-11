@@ -20,6 +20,6 @@
     },
     "devDependencies": {
         "core-js": "^3.7.0",
-        "vuetify": "^2.3.16"
+        "vuetify": "^2.3.17"
     }
 }

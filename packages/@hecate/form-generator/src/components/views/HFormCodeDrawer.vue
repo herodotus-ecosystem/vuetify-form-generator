@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer v-model="drawer" fixed temporary bottom width="100%">
+    <v-navigation-drawer v-model="drawer" fixed temporary hide-overlay bottom width="100%">
         <v-toolbar dark class="blue darken-3" dense>
             <v-btn icon dark @click="drawer = false">
                 <v-icon>mdi-close-box</v-icon>
