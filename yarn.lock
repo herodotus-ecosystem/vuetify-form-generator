@@ -13468,6 +13468,11 @@ remark-external-links@^8.0.0:
     space-separated-tokens "^1.0.0"
     unist-util-visit "^2.0.0"
 
+remark-footnotes@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/remark-footnotes/download/remark-footnotes-2.0.0.tgz#9001c4c2ffebba55695d2dd80ffb8b82f7e6303f"
+  integrity sha1-kAHEwv/rulVpXS3YD/uLgvfmMD8=
+
 remark-footnotes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/remark-footnotes/download/remark-footnotes-3.0.0.tgz#5756b56f8464fa7ed80dbba0c966136305d8cb8d"
