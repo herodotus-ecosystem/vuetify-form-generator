@@ -122,7 +122,6 @@
         const i = JSON.parse(JSON.stringify(e));
         return (
             i.pattern && (i.patternRegexp = new RegExp(i.pattern)),
-            !i.type && i.properties && (i.type = 'object'),
             Array.isArray(i.type) &&
                 ((i.nullable = i.type.includes('null')),
                 (i.type = i.type.find((e) => 'null' !== e)),
@@ -161,7 +160,7 @@
             fieldProps: {},
             fieldColProps: { cols: 12 },
             textFieldProps: {},
-            textareaProps: {},
+            textareaProps: { filled: !0 },
             numberProps: {},
             sliderProps: {},
             checkboxProps: {},
@@ -174,6 +173,7 @@
             tabsProps: { grow: !0 },
             expansionPanelsProps: { mandatory: !0 },
             dialogProps: { maxWidth: 500 },
+            dialogCardProps: {},
             colorPickerProps: {},
             timePickerProps: {},
             datePickerProps: { scrollable: !0 },
@@ -265,6 +265,18 @@
                 maxItems: 'En çok seçenek sayısı {maxItems}',
                 pattern: 'İstenilen paten tutmuyor',
             },
+            nl: {
+                required: 'Deze informatie is vereist',
+                noData: 'Geen overeenkomstig resultaat gevonden',
+                search: 'Zoeken...',
+                minimum: 'Waarde moet meer zijn dan {minimum}',
+                maximum: 'Waarde moet minder zijn dan {maximum}',
+                minLength: 'Minimaal {minLength} tekens',
+                maxLength: 'Maximaal {maxLength} tekens',
+                minItems: 'Minimaal {minItems} antwoorden',
+                maxItems: 'Maximaal {maxItems} antwoorden',
+                pattern: 'Invoer voldoet niet aan verwachte patroon',
+            },
         },
         n = {
             time: (e, t) => {
@@ -295,62 +307,8 @@
                 edit: 'fa-edit',
                 delete: 'fa-trash',
             },
-        },
-        h = (e, t, i, s) => {
-            const l = [];
-            if (
-                (i && l.push((e) => (null != e && '' !== e) || t.messages.required),
-                'array' === e.type && void 0 !== e.minItems)
-            ) {
-                const i = t.messages.minItems.replace('{minItems}', e.minItems.toLocaleString(t.locale));
-                l.push((t) => !t || t.length >= e.minItems || i);
-            }
-            if ('array' === e.type && void 0 !== e.maxItems) {
-                const i = t.messages.maxItems.replace('{maxItems}', e.maxItems.toLocaleString(t.locale));
-                l.push((t) => !t || t.length <= e.maxItems || i);
-            }
-            if ('string' === e.type && void 0 !== e.minLength) {
-                const i = t.messages.minLength.replace('{minLength}', e.minLength.toLocaleString(t.locale));
-                l.push((t) => null == t || t.length >= e.minLength || i);
-            }
-            if ('string' === e.type && void 0 !== e.maxLength) {
-                const i = t.messages.maxLength.replace('{maxLength}', e.maxLength.toLocaleString(t.locale));
-                l.push((t) => null == t || t.length <= e.maxLength || i);
-            }
-            if ('string' === e.type && void 0 !== e.patternRegexp) {
-                const i = t.messages.pattern.replace('{pattern}', e.pattern);
-                l.push((t) => null == t || !!t.match(e.patternRegexp) || i);
-            }
-            if (['number', 'integer'].includes(e.type) && void 0 !== e.maximum) {
-                const i = t.messages.maximum.replace('{maximum}', e.maximum.toLocaleString(t.locale));
-                l.push((t) => null == t || t <= e.maximum || i);
-            }
-            if (['number', 'integer'].includes(e.type) && void 0 !== e.minimum) {
-                const i = t.messages.minimum.replace('{minimum}', e.minimum.toLocaleString(t.locale));
-                l.push((t) => null == t || t >= e.minimum || i);
-            }
-            e.enum && l.push((t) => null == t || !!e.enum.find((e) => JSON.stringify(e) === JSON.stringify(t)) || ''),
-                'array' === e.type &&
-                    e.items.enum &&
-                    l.push(
-                        (t) =>
-                            null == t ||
-                            !t.find((t) => !e.items.enum.find((e) => JSON.stringify(e) === JSON.stringify(t))) ||
-                            ''
-                    ),
-                s && 'array' !== e.type && l.push((t) => null == t || !!e.oneOf.find((e) => e.const === t) || ''),
-                s &&
-                    'array' === e.type &&
-                    l.push((t) => null == t || !t.find((t) => !e.items.oneOf.find((e) => e.const === t)) || '');
-            const r = (e['x-ruless'] || []).map((e) => {
-                if ('string' == typeof e) {
-                    return t.rules && t.rules[e];
-                }
-                if ('function' == typeof e) return e;
-            });
-            return l.concat(r);
         };
-    var u = {
+    var h = {
         data: () => ({ currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} }),
         computed: {
             subSchemas() {
@@ -504,37 +462,29 @@
                         ((n = this.defaultValue(t)),
                         void 0 !== t.default && (n = JSON.parse(JSON.stringify(t.default))),
                         null != n && (this.$set(r, a, n), this.input(this.value))),
-                    e(
-                        'h-form-renderer',
-                        {
-                            props: {
-                                schema: { readOnly: this.fullSchema.readOnly, ...t },
-                                value: n,
-                                modelRoot: this.modelRoot || this.value,
-                                modelKey: a,
-                                parentKey: this.fullKey + '.',
-                                required:
-                                    l || !(!this.fullSchema.required || !this.fullSchema.required.includes(t.key)),
-                                options: this.fullOptions,
-                                sectionDepth: s,
-                            },
-                            class: this.fullOptions.childrenClass,
-                            scopedSlots: this.childScopedSlots(t.key),
-                            on: {
-                                error: (e) => this.$emit('error', e),
-                                input: (e) => {
-                                    void 0 === e
-                                        ? Array.isArray(r) && parseInt(a) < r.length - 1
-                                            ? this.$set(r, a, e)
-                                            : this.$delete(r, a)
-                                        : this.$set(r, a, e),
-                                        this.$emit('input', this.value);
-                                },
-                                change: (e) => this.$emit('change', this.value),
-                            },
+                    e('h-form-renderer', {
+                        props: {
+                            schema: { readOnly: this.fullSchema.readOnly, ...t },
+                            value: n,
+                            modelRoot: this.modelRoot || this.value,
+                            modelKey: a,
+                            parentKey: this.fullKey + '.',
+                            options: this.fullOptions,
+                            sectionDepth: s,
                         },
-                        this.childSlots(e, t.key)
-                    )
+                        on: {
+                            error: (e) => this.$emit('error', e),
+                            input: (e) => {
+                                void 0 === e
+                                    ? Array.isArray(r) && parseInt(a) < r.length - 1
+                                        ? this.$set(r, a, e)
+                                        : this.$delete(r, a)
+                                    : this.$set(r, a, e),
+                                    this.$emit('input', this.value);
+                            },
+                            change: (e) => this.$emit('change', this.value),
+                        },
+                    })
                 );
             },
             renderObjectContainer(e) {
@@ -643,35 +593,13 @@
                     ),
                 ];
             },
-            childSlots(e, t) {
-                return Object.keys(this.$slots)
-                    .filter((e) => e.startsWith(t + '.') || e.startsWith(t + '-'))
-                    .map((i) => {
-                        const s = i.startsWith(t + '.') ? i.replace(t + '.', '') : i.replace(t + '-', '');
-                        return e('template', { slot: s }, this.$slots[i]);
-                    });
-            },
-            childScopedSlots(e) {
-                return Object.keys(this.$scopedSlots)
-                    .filter((t) => t.startsWith('custom-') || t.startsWith(e + '.') || t.startsWith(e + '-') || t === e)
-                    .reduce((t, i) => {
-                        let s = 'default';
-                        return (
-                            i.startsWith(e + '.') && (s = i.replace(e + '.', '')),
-                            i.startsWith(e + '-') && (s = i.replace(e + '-', '')),
-                            i.startsWith('custom-') && (s = i),
-                            (t[s] = this.$scopedSlots[i]),
-                            t
-                        );
-                    }, {});
-            },
         },
     };
-    const c = (e) => {
+    const u = (e) => {
             const t = '' + e;
             return 1 === t.length ? '0' + t : t;
         },
-        p = (e) => {
+        c = (e) => {
             const t = new Date(),
                 i = e[0].split('-');
             t.setFullYear(Number(i[0])), t.setMonth(Number(i[1]) - 1), t.setDate(Number(i[2]));
@@ -682,19 +610,19 @@
                 t.setSeconds(0),
                 ((e) => {
                     const t = e.getTimezoneOffset(),
-                        i = `${c(parseInt(Math.abs(t / 60)))}:${c(Math.abs(t % 60))}`;
+                        i = `${u(parseInt(Math.abs(t / 60)))}:${u(Math.abs(t % 60))}`;
                     let s;
                     return (
                         (s = t < 0 ? '+' + i : t > 0 ? '-' + i : 'Z'),
-                        `${e.getFullYear()}-${c(e.getMonth() + 1)}-${c(e.getDate())}T${c(e.getHours())}:${c(
+                        `${e.getFullYear()}-${u(e.getMonth() + 1)}-${u(e.getDate())}T${u(e.getHours())}:${u(
                             e.getMinutes()
-                        )}:${c(e.getSeconds())}${s}`
+                        )}:${u(e.getSeconds())}${s}`
                     );
                 })(t)
             );
         },
-        m = (e) => e + ':00Z';
-    var d = {
+        p = (e) => e + ':00Z';
+    var m = {
             data: () => ({ dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } }),
             methods: {
                 renderDateProp(e) {
@@ -707,21 +635,13 @@
                         i = this.fullOptions.icons.calendar;
                     if ('time' === this.fullSchema.format)
                         (t = e('v-time-picker', {
-                            props: {
-                                locale: this.fullOptions.locale,
-                                value: ((l = this.value), l ? l.slice(0, 5) : ''),
-                                ...this.fullSchema['x-props'],
-                            },
-                            on: { input: (e) => this.input(m(e)), change: (e) => this.change(m(e)) },
+                            props: { value: ((l = this.value), l ? l.slice(0, 5) : ''), ...this.fullSchema['x-props'] },
+                            on: { input: (e) => this.input(p(e)), change: (e) => this.change(p(e)) },
                         })),
                             (i = this.fullOptions.icons.clock);
                     else if ('date' === this.fullSchema.format)
                         t = e('v-date-picker', {
-                            props: {
-                                locale: this.fullOptions.locale,
-                                value: this.value,
-                                ...this.fullSchema['x-props'],
-                            },
+                            props: { value: this.value, ...this.fullSchema['x-props'] },
                             on: {
                                 input: (e) => {
                                     this.input(e), (this.dateProp.menu = !1);
@@ -732,13 +652,13 @@
                     else {
                         this.value !== this.dateProp.lastValue &&
                             (this.dateProp.parts = [
-                                `${(s = new Date(this.value)).getFullYear()}-${c(s.getMonth() + 1)}-${c(s.getDate())}`,
-                                `${c(s.getHours())}:${c(s.getMinutes())}`,
+                                `${(s = new Date(this.value)).getFullYear()}-${u(s.getMonth() + 1)}-${u(s.getDate())}`,
+                                `${u(s.getHours())}:${u(s.getMinutes())}`,
                             ]),
                             (this.dateProp.lastValue = this.value);
                         const i = () => {
                                 if (this.dateProp.parts[1]) {
-                                    const e = p(this.dateProp.parts);
+                                    const e = c(this.dateProp.parts);
                                     this.input(e), this.change(e);
                                 }
                             },
@@ -838,7 +758,7 @@
                 },
             },
         },
-        f = {
+        d = {
             computed: {
                 isSimpleProp() {
                     return (
@@ -855,86 +775,58 @@
                     if (!this.isSimpleProp) return;
                     const t = { ...this.commonFieldProps },
                         i = [],
-                        l = {},
-                        r = { input: (e) => this.input(e), change: (e) => this.change(e) };
+                        s = {},
+                        l = { input: (e) => this.input(e), change: (e) => this.change(e) };
                     if (
                         (['number', 'integer'].includes(this.fullSchema.type) &&
-                            (r.input = (e) => {
+                            (l.input = (e) => {
                                 this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e));
                             }),
                         'boolean' === this.fullSchema.type &&
-                            (r.change = (e) => {
+                            (l.change = (e) => {
                                 this.input(e || !1), this.change(e || !1);
                             }),
                         'array' === this.fullSchema.type &&
-                            ['string', 'number', 'integer'].includes(this.fullSchema.items.type))
-                    ) {
-                        const i = h(s.prepareFullSchema(this.fullSchema.items), this.fullOptions);
-                        (t.rules = t.rules.concat([
-                            (e) =>
-                                e
-                                    .map((e) => {
-                                        const t = i.find((t) => 'string' == typeof t(e));
-                                        return t && t(e);
-                                    })
-                                    .find((e) => !!e) || !0,
-                        ])),
+                            ['string', 'number', 'integer'].includes(this.fullSchema.items.type) &&
                             'string' !== this.fullSchema.items.type &&
-                                ((t.type = 'number'),
-                                (r.input = (e) => {
-                                    const t = e
-                                        .map((e) =>
-                                            'integer' === this.fullSchema.items.type ? parseInt(e, 10) : parseFloat(e)
-                                        )
-                                        .filter((e) => !isNaN(e));
-                                    this.input(t);
-                                })),
-                            (l.selection = (t) => {
-                                const s = i.find((e) => 'string' == typeof e(t.item));
-                                return e(
-                                    'v-chip',
-                                    {
-                                        props: { close: !0, color: s ? 'error' : 'default' },
-                                        on: {
-                                            'click:close': () => {
-                                                this.value.splice(t.index, 1),
-                                                    this.input(this.value),
-                                                    this.change(this.value);
-                                            },
-                                        },
-                                    },
-                                    t.item
-                                );
-                            });
-                    }
-                    if (this.htmlDescription) {
+                            ((t.type = 'number'),
+                            (l.input = (e) => {
+                                const t = e
+                                    .map((e) =>
+                                        'integer' === this.fullSchema.items.type ? parseInt(e, 10) : parseFloat(e)
+                                    )
+                                    .filter((e) => !isNaN(e));
+                                this.input(t);
+                            })),
+                        this.htmlDescription)
+                    ) {
                         let t = 'append-outer';
                         i.push(this.renderTooltip(e, t));
                     }
-                    let a = this.fullSchema['x-rules'];
-                    return a
+                    let r = this.fullSchema['x-rules'];
+                    return r
                         ? [
                               e('validation-provider', {
-                                  props: { name: t.label, rules: a },
+                                  props: { name: t.label, rules: r },
                                   scopedSlots: {
-                                      default: ({ errors: s }) =>
+                                      default: ({ errors: r }) =>
                                           e(
                                               this.fullSchema.tag,
                                               {
-                                                  props: { ...t, required: !0, 'error-messages': s },
-                                                  on: r,
-                                                  scopedSlots: l,
+                                                  props: { ...t, required: !0, 'error-messages': r },
+                                                  on: l,
+                                                  scopedSlots: s,
                                               },
                                               i
                                           ),
                                   },
                               }),
                           ]
-                        : [e(this.fullSchema.tag, { props: t, on: r, scopedSlots: l }, i)];
+                        : [e(this.fullSchema.tag, { props: t, on: l, scopedSlots: s }, i)];
                 },
             },
         };
-    const y = async (e, t, i) => {
+    const f = async (e, t, i) => {
         let s = e;
         if ('string' === t.type || (t.properties.data && 'string' === t.properties.data.type)) {
             const t = await ((e) =>
@@ -954,7 +846,7 @@
                   data: s,
               };
     };
-    var S = {
+    var y = {
             computed: {
                 isFileProp() {
                     return (
@@ -1004,11 +896,11 @@
                             change: async (e) => {
                                 if ('array' === this.fullSchema.type) {
                                     const t = await Promise.all(
-                                        e.map((e) => y(e, this.fullSchema.items, this.fullOptions.filesAsDataUrl))
+                                        e.map((e) => f(e, this.fullSchema.items, this.fullOptions.filesAsDataUrl))
                                     );
                                     this.input(t), this.change(t);
                                 } else {
-                                    const t = await y(e, this.resolvedSchema, this.fullOptions.filesAsDataUrl);
+                                    const t = await f(e, this.resolvedSchema, this.fullOptions.filesAsDataUrl);
                                     this.input(t), this.change(t);
                                 }
                             },
@@ -1020,7 +912,7 @@
                 },
             },
         },
-        g = {
+        S = {
             computed: {
                 isColorProp() {
                     return (
@@ -1083,7 +975,7 @@
                 },
             },
         };
-    const b = {
+    const g = {
             getSelectItems: (e, t, i, s) => {
                 const l = [];
                 if (e)
@@ -1115,40 +1007,40 @@
                 return l;
             },
         },
-        v = (e, t, i) => {
+        b = (e, t, i) => {
             if ([null, void 0].includes(e)) return !1;
             if ([null, void 0].includes(t)) return !1;
             return JSON.stringify(e[i]) === JSON.stringify(t[i]);
         };
-    (b.fillSelectItems = (e, t, i, s, l) => {
+    (g.fillSelectItems = (e, t, i, s, l) => {
         if (t)
             if ('array' === e.type)
                 t.map((e) => e)
                     .reverse()
                     .forEach((e) => {
                         const t = l ? e : { [s]: e };
-                        i.find((e) => v(e, t, s)) || i.push(t);
+                        i.find((e) => b(e, t, s)) || i.push(t);
                     });
             else {
                 const e = l ? t : { [s]: t };
-                i.find((t) => v(t, e, s)) || i.push(e);
+                i.find((t) => b(t, e, s)) || i.push(e);
             }
     }),
-        (b.fillList = (e, t, i, s) => {
+        (g.fillList = (e, t, i, s) => {
             if (t)
                 return i.length
                     ? (i.forEach((e) => {
-                          t.find((t) => v(e, t, s)) || t.push(e);
+                          t.find((t) => b(e, t, s)) || t.push(e);
                       }),
                       t.forEach((e, l) => {
-                          i.find((t) => v(t, e, s)) || (t[l] = null);
+                          i.find((t) => b(t, e, s)) || (t[l] = null);
                       }),
                       t.filter((e) => !!e))
                     : [];
         });
-    const O = require('match-all'),
-        x = require('debounce');
-    function P(e, t, i, s, l, r, a, n, o, h) {
+    const v = require('match-all'),
+        O = require('debounce');
+    function x(e, t, i, s, l, r, a, n, o, h) {
         'boolean' != typeof a && ((o = n), (n = a), (a = !1));
         const u = 'function' == typeof i ? i.options : i;
         let c;
@@ -1193,16 +1085,16 @@
             }
         return i;
     }
-    const I = P(
+    const P = x(
         {},
         undefined,
         {
             name: 'HAssemblyRenderder',
             mixins: [
-                u,
-                f,
+                h,
                 d,
-                g,
+                m,
+                S,
                 {
                     data: () => ({ rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} }),
                     computed: {
@@ -1243,7 +1135,7 @@
                         },
                         fromUrlKeys() {
                             return this.fullSchema['x-fromUrl']
-                                ? O(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g)
+                                ? v(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g)
                                       .toArray()
                                       .filter((e) => 'q' !== e)
                                 : null;
@@ -1330,7 +1222,7 @@
                                 return this.$emit('error', 'No http lib found to perform ajax request');
                             (this.debouncedFetch =
                                 this.debouncedFetch ||
-                                x(() => {
+                                O(() => {
                                     let e = this.fullSchema['x-fromUrl'].replace('{q}', this.q || '');
                                     for (const t of this.fromUrlKeys) {
                                         if (void 0 === this.fromUrlParams[t]) return;
@@ -1355,15 +1247,15 @@
                                 this.debouncedFetch();
                         },
                         updateSelectItems() {
-                            const e = b.getSelectItems(
+                            const e = g.getSelectItems(
                                 this.rawSelectItems,
                                 this.fullSchema,
                                 this.itemKey,
                                 this.itemIcon
                             );
                             'list' === this.display &&
-                                this.input(b.fillList(this.fullSchema, this.value, e, this.itemKey)),
-                                b.fillSelectItems(this.fullSchema, this.value, e, this.itemKey, this.returnObject),
+                                this.input(g.fillList(this.fullSchema, this.value, e, this.itemKey)),
+                                g.fillSelectItems(this.fullSchema, this.value, e, this.itemKey, this.returnObject),
                                 JSON.stringify(e) !== JSON.stringify(this.selectItems) && (this.selectItems = e);
                         },
                         renderSelectIcon(e, t) {
@@ -1526,7 +1418,7 @@
                         },
                     },
                 },
-                S,
+                y,
                 {
                     data: () => ({ editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} } }),
                     computed: {
@@ -1570,7 +1462,7 @@
                                 (this.fullOptions.idPrefix.endsWith('--dialog--') ||
                                     (this.fullOptions.idPrefix = this.fullOptions.idPrefix + '--dialog--'),
                                 (l = e(
-                                    'h-form-renderer',
+                                    'v-jsf',
                                     {
                                         props: {
                                             schema: this.fullSchema.items,
@@ -1635,7 +1527,7 @@
                                     on: { 'click:outside': a },
                                 },
                                 [
-                                    e('v-card', [
+                                    e('v-card', { props: this.fullOptions.dialogCardProps }, [
                                         e('v-card-title', this.itemTitle && t[this.itemTitle]),
                                         e('v-card-text', [l]),
                                         e('v-card-actions', [
@@ -1698,7 +1590,7 @@
                             );
                         },
                         renderArrayItemRO(e, t, i) {
-                            return e('h-form-renderer', {
+                            return e('v-jsf', {
                                 props: {
                                     schema: this.readonlyItemSchema,
                                     value: JSON.parse(JSON.stringify(t)),
@@ -1935,8 +1827,8 @@
             ],
             inject: ['theme'],
             props: {
-                schema: { type: Object, required: !0 },
                 value: { required: !0 },
+                schema: { type: Object, required: !0 },
                 options: { type: Object },
                 modelRoot: { type: Object },
                 modelKey: { type: [String, Number], default: 'root' },
@@ -1990,7 +1882,66 @@
                     return this.fullSchema['x-tag'];
                 },
                 rules() {
-                    return h(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
+                    return ((e, t, i, s) => {
+                        const l = [];
+                        if (
+                            (i && l.push((e) => (null != e && '' !== e) || t.messages.required),
+                            'array' === e.type && void 0 !== e.minItems)
+                        ) {
+                            const i = t.messages.minItems.replace('{minItems}', e.minItems.toLocaleString(t.locale));
+                            l.push((t) => !t || t.length >= e.minItems || i);
+                        }
+                        if ('array' === e.type && void 0 !== e.maxItems) {
+                            const i = t.messages.maxItems.replace('{maxItems}', e.maxItems.toLocaleString(t.locale));
+                            l.push((t) => !t || t.length <= e.maxItems || i);
+                        }
+                        if ('string' === e.type && void 0 !== e.minLength) {
+                            const i = t.messages.minLength.replace('{minLength}', e.minLength.toLocaleString(t.locale));
+                            l.push((t) => null == t || t.length >= e.minLength || i);
+                        }
+                        if ('string' === e.type && void 0 !== e.maxLength) {
+                            const i = t.messages.maxLength.replace('{maxLength}', e.maxLength.toLocaleString(t.locale));
+                            l.push((t) => null == t || t.length <= e.maxLength || i);
+                        }
+                        if ('string' === e.type && void 0 !== e.patternRegexp) {
+                            const i = t.messages.pattern.replace('{pattern}', e.pattern);
+                            l.push((t) => null == t || !!t.match(e.patternRegexp) || i);
+                        }
+                        if (['number', 'integer'].includes(e.type) && void 0 !== e.maximum) {
+                            const i = t.messages.maximum.replace('{maximum}', e.maximum.toLocaleString(t.locale));
+                            l.push((t) => null == t || t <= e.maximum || i);
+                        }
+                        if (['number', 'integer'].includes(e.type) && void 0 !== e.minimum) {
+                            const i = t.messages.minimum.replace('{minimum}', e.minimum.toLocaleString(t.locale));
+                            l.push((t) => null == t || t >= e.minimum || i);
+                        }
+                        e.enum &&
+                            l.push(
+                                (t) => null == t || !!e.enum.find((e) => JSON.stringify(e) === JSON.stringify(t)) || ''
+                            ),
+                            'array' === e.type &&
+                                e.items.enum &&
+                                l.push(
+                                    (t) =>
+                                        null == t ||
+                                        !t.find(
+                                            (t) => !e.items.enum.find((e) => JSON.stringify(e) === JSON.stringify(t))
+                                        ) ||
+                                        ''
+                                ),
+                            s &&
+                                'array' !== e.type &&
+                                l.push((t) => null == t || !!e.oneOf.find((e) => e.const === t) || ''),
+                            s &&
+                                'array' === e.type &&
+                                l.push(
+                                    (t) => null == t || !t.find((t) => !e.items.oneOf.find((e) => e.const === t)) || ''
+                                );
+                        const r = (e['x-ruless'] || []).map((e) =>
+                            'string' == typeof e ? t.rules && t.rules[e] : 'function' == typeof e ? e : void 0
+                        );
+                        return l.concat(r);
+                    })(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
                 },
                 disabled() {
                     return this.fullOptions.disableAll || this.fullSchema.readOnly;
@@ -2092,12 +2043,10 @@
                 else {
                     (
                         this.renderDateProp(e) ||
-                        this.renderColorProp(e) ||
                         this.renderSelectProp(e) ||
                         this.renderFileProp(e) ||
                         this.renderSimpleProp(e) ||
                         this.renderObjectContainer(e) ||
-                        this.renderEditableArray(e) ||
                         []
                     ).forEach((e) => t.push(e));
                 }
@@ -2132,14 +2081,10 @@
                     );
                 },
                 change() {
-                    this.updateSelectItems(), this.$emit('change', this.value);
+                    this.$emit('change', this.value);
                 },
                 input(e) {
-                    null == e || '' === e
-                        ? this.fullSchema.nullable
-                            ? this.$emit('input', null)
-                            : this.$emit('input', void 0)
-                        : this.$emit('input', e);
+                    null == e || '' === e ? this.$emit('input', void 0) : this.$emit('input', e);
                 },
                 defaultValue: (e) =>
                     'object' !== e.type || e['x-fromUrl'] || e['x-fromData'] || e.enum
@@ -2198,7 +2143,7 @@
         void 0,
         void 0
     );
-    const k = P(
+    const I = x(
         {},
         undefined,
         {
@@ -2246,7 +2191,7 @@
                 VTimePicker: e.VTimePicker,
                 VTooltip: e.VTooltip,
             },
-            mixins: [I],
+            mixins: [P],
         },
         undefined,
         undefined,
@@ -2256,8 +2201,8 @@
         void 0,
         void 0
     );
-    (k.install = function (e) {
-        e.component(k.name, k);
+    (I.install = function (e) {
+        e.component(I.name, I);
     }),
-        null != typeof window && window.Vue && k.install(window.Vue);
+        null != typeof window && window.Vue && I.install(window.Vue);
 });
