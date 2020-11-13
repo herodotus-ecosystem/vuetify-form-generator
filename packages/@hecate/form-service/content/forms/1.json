@@ -1,0 +1,114 @@
+{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "TextField_CVBuzhm1r": {
+                "type": "string",
+                "title": "单行文本",
+                "tag": "v-text-field",
+                "x-props": {
+                    "loader-height": 2,
+                    "outlined": true,
+                    "type": "text",
+                    "dense": false
+                },
+                "x-rules": ""
+            },
+            "TextArea_n8i5uZqnY": {
+                "type": "string",
+                "title": "多行文本",
+                "tag": "v-textarea",
+                "x-props": {
+                    "loader-height": 2,
+                    "outlined": true,
+                    "row-height": 24,
+                    "rows": 2,
+                    "type": "text"
+                },
+                "x-display": "textarea",
+                "x-rules": ""
+            },
+            "Slider_fptI7IzDf": {
+                "type": "integer",
+                "title": "滑块",
+                "tag": "v-slider",
+                "x-props": {
+                    "loader-height": 2,
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "thumb-size": 32,
+                    "tick-size": 2
+                },
+                "x-display": "slider"
+            },
+            "Range_Slider_66zDtcPWd": {
+                "type": "integer",
+                "title": "范围滑块",
+                "tag": "v-range-slider",
+                "x-props": {
+                    "loader-height": 2,
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "thumb-size": 32,
+                    "tick-size": 2
+                },
+                "x-display": "range-slider"
+            },
+            "Checkbox_aTEBUdHmBO": {
+                "type": "boolean",
+                "title": "复选框",
+                "tag": "v-checkbox",
+                "x-props": {}
+            },
+            "Switch_W3hwWpqzz": {
+                "type": "boolean",
+                "title": "开关",
+                "tag": "v-switch",
+                "x-display": "switch",
+                "x-props": {}
+            },
+            "Select_d6O_kTUrX": {
+                "type": "string",
+                "title": "单项下拉",
+                "tag": "v-select",
+                "x-props": {
+                    "no-data-text": "没有可用选项",
+                    "outlined": true
+                },
+                "enum": ["value 1", "value 2"]
+            },
+            "Combobox_ernB9zNKa": {
+                "type": "array",
+                "title": "组合框",
+                "tag": "v-combobox",
+                "x-props": {
+                    "no-data-text": "没有可用选项",
+                    "outlined": true
+                },
+                "items": {
+                    "type": "string"
+                }
+            },
+            "Date_XPaWOssx9": {
+                "type": "string",
+                "title": "日期选择",
+                "tag": "v-date-picker",
+                "format": "date",
+                "x-props": {
+                    "first-day-of-week": 0,
+                    "locale": "zh-cn",
+                    "type": "date"
+                }
+            },
+            "Time__Wt3Ye5l5": {
+                "type": "string",
+                "title": "时间选择",
+                "tag": "v-time-picker",
+                "format": "time",
+                "x-props": {}
+            }
+        }
+    }
+}
