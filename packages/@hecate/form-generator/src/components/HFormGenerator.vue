@@ -9,7 +9,7 @@
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn large dark icon v-bind="attrs" v-on="on" @click="formPreview">
-                        <v-icon>mdi-play-box-multiple-outline</v-icon>
+                        <v-icon>mdi-code-braces</v-icon>
                     </v-btn>
                 </template>
                 <span>表单预览</span>
@@ -17,7 +17,7 @@
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn large dark icon v-bind="attrs" v-on="on" @click="codePreview">
-                        <v-icon>mdi-code-braces</v-icon>
+                        <v-icon>mdi-play-box-multiple-outline</v-icon>
                     </v-btn>
                 </template>
                 <span>查看代码</span>

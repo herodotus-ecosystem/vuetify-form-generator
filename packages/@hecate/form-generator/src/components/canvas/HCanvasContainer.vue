@@ -2,10 +2,8 @@
     <v-container>
         <v-row>
             <v-col class="canvas-body">
-                <v-card>
-                    <v-form>
-                        <slot></slot>
-                    </v-form>
+                <v-card class="ml-1 mr-1">
+                    <slot></slot>
                 </v-card>
             </v-col>
         </v-row>
@@ -22,6 +20,6 @@ export default {
 
     created() {},
 
-    data: () => ({}),
+    data: () => ({})
 };
 </script>

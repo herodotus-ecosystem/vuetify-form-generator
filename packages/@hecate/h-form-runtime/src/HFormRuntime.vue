@@ -9,7 +9,7 @@
             </v-tooltip>
             <v-toolbar-title class="pl-0 font-weight-light">{{ title }}</v-toolbar-title>
         </v-toolbar>
-        <v-divider></v-divider>
+        <v-divider class="mb-2"></v-divider>
         <v-row>
             <v-col>
                 <ValidationObserver ref="observer">
@@ -33,22 +33,22 @@ export default {
 
     components: {
         ValidationObserver,
-        HFormRenderer,
+        HFormRenderer
     },
 
     props: {
         schema: {
             type: Object,
-            default: () => {},
+            default: () => {}
         },
         title: {
             type: String,
-            default: '动态表单',
-        },
+            default: '动态表单'
+        }
     },
 
     data: () => ({
-        model: {},
+        model: {}
     }),
 
     methods: {
@@ -63,7 +63,7 @@ export default {
             this.model = {};
             this.$refs.form.reset();
             this.$refs.observer.reset();
-        },
-    },
+        }
+    }
 };
 </script>

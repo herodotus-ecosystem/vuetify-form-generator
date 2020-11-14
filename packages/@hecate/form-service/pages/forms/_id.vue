@@ -6,8 +6,10 @@
 import HFormRuntime from '@hecate/h-form-runtime';
 
 export default {
+    layout: 'form',
+
     components: {
-        HFormRuntime,
+        HFormRuntime
     },
 
     async asyncData({ $content, params }) {
@@ -15,8 +17,8 @@ export default {
         const { schema } = await $content('forms', params.id).fetch();
         console.log(schema);
         return {
-            schema,
+            schema
         };
-    },
+    }
 };
 </script>

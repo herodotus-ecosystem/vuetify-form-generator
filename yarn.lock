@@ -2238,13 +2238,13 @@
     eslint-plugin-unicorn "^22.0.0"
     eslint-plugin-vue "^6.2.2"
 
-"@nuxtjs/eslint-module@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npm.taobao.org/@nuxtjs/eslint-module/download/@nuxtjs/eslint-module-3.0.0.tgz#128d28bfd6364475e1782d3b0fe4ebbdea631682"
-  integrity sha1-Eo0ov9Y2RHXheC07D+TrvepjFoI=
+"@nuxtjs/eslint-module@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/@nuxtjs/eslint-module/download/@nuxtjs/eslint-module-3.0.1.tgz#885c5d6f82eba7da52bdbdff1672bfe3e514b74d"
+  integrity sha1-iFxdb4Lrp9pSvb3/FnK/4+UUt00=
   dependencies:
     consola "^2.15.0"
-    eslint-webpack-plugin "^2.1.0"
+    eslint-webpack-plugin "^2.3.0"
 
 "@nuxtjs/proxy@^2.0.1":
   version "2.0.1"
@@ -6791,10 +6791,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-2.0.0.tgz?cache=0&sync_timestamp=1597435347526&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha1-If3I+82ceVzAMh8FY3AglXUVEag=
 
-eslint-webpack-plugin@^2.1.0:
-  version "2.2.1"
-  resolved "https://registry.npm.taobao.org/eslint-webpack-plugin/download/eslint-webpack-plugin-2.2.1.tgz#2b3d1cf1a568419f14dc8472e9f833732be04504"
-  integrity sha1-Kz0c8aVoQZ8U3IRy6fgzcyvgRQQ=
+eslint-webpack-plugin@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/eslint-webpack-plugin/download/eslint-webpack-plugin-2.3.0.tgz?cache=0&sync_timestamp=1605284715890&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-webpack-plugin%2Fdownload%2Feslint-webpack-plugin-2.3.0.tgz#28f8521176abc9139d29dcfdf3991b1345041667"
+  integrity sha1-KPhSEXaryROdKdz985kbE0UEFmc=
   dependencies:
     "@types/eslint" "^7.2.4"
     arrify "^2.0.1"

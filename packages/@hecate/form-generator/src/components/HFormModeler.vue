@@ -1,92 +1,81 @@
 <template>
-    <v-container fluid class="grey lighten-5 pa-0">
-        <v-row no-gutters>
-            <v-col cols="2">
-                <v-card :height="height">
-                    <div class="components-list">
-                        <div v-for="(componentsGroup, groupIndex) in components" :key="groupIndex">
-                            <div class="components-title">
-                                <v-icon>mdi-puzzle-outline</v-icon>
-                                {{ componentsGroup.title }}
+    <v-app id="modeler">
+        <v-navigation-drawer app clipped hide-overlay>
+            <div class="components-list">
+                <div v-for="(componentsGroup, groupIndex) in components" :key="groupIndex">
+                    <div class="components-title">
+                        <v-icon>mdi-puzzle-outline</v-icon>
+                        {{ componentsGroup.title }}
+                    </div>
+                    <draggable
+                        class="components-draggable"
+                        :list="componentsGroup.list"
+                        :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
+                        :clone="addComponent"
+                        draggable=".components-item"
+                        :sort="false"
+                    >
+                        <div
+                            v-for="(component, index) in componentsGroup.list"
+                            :key="index"
+                            class="components-item"
+                            @click="addComponent(component)"
+                        >
+                            <div class="components-body">
+                                <v-icon small class="mr-1">{{ component.configs.icon }}</v-icon>
+                                {{ component.configs.title }}
                             </div>
-                            <draggable
-                                class="components-draggable"
-                                :list="componentsGroup.list"
-                                :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
-                                :clone="addComponent"
-                                draggable=".components-item"
-                                :sort="false"
-                            >
-                                <div
-                                    v-for="(component, index) in componentsGroup.list"
-                                    :key="index"
-                                    class="components-item"
-                                    @click="addComponent(component)"
-                                >
-                                    <div class="components-body">
-                                        <v-icon small class="mr-1">{{ component.configs.icon }}</v-icon>
-                                        {{ component.configs.title }}
-                                    </div>
-                                </div>
-                            </draggable>
-                            <v-divider></v-divider>
-                        </div></div
-                ></v-card>
-            </v-col>
-            <v-col cols="8">
-                <v-card class="ma-2">
-                    <v-row>
-                        <v-col class="canvas-body">
-                            <v-card class="ml-1 mr-1">
-                                <validation-observer ref="observer">
-                                    <v-form>
-                                        <draggable
-                                            v-if="drawingCanvas.length > 0"
-                                            :list="drawingCanvas"
-                                            :animation="300"
-                                            group="componentsGroup"
-                                            @change="onChange"
-                                            @start="drag = true"
-                                            @end="drag = false"
-                                        >
-                                            <h-draggable-item
-                                                ref="canvas"
-                                                v-for="item in drawingCanvas"
-                                                :key="item.renderKey"
-                                                :schema="item"
-                                                :selected-item-id="selectedCanvasItemId"
-                                                @select="selectCanvasItem"
-                                                @copy="copyCanvasItem"
-                                                @delete="deleteCanvasItem"
-                                            />
-                                        </draggable>
-                                        <draggable v-else :animation="300" group="componentsGroup">
-                                            <v-row>
-                                                <v-col cols="12">
-                                                    <v-row align="center" justify="center">
-                                                        <v-card height="100" width="600" class="ma-12">
-                                                            <v-card-text class="text-center title"
-                                                                >从左侧拖入或点选组件进行表单设计</v-card-text
-                                                            >
-                                                        </v-card>
-                                                    </v-row>
-                                                </v-col>
-                                            </v-row>
-                                        </draggable>
-                                    </v-form>
-                                </validation-observer>
-                            </v-card>
-                        </v-col>
-                    </v-row>
-                </v-card>
-            </v-col>
-            <v-col cols="2">
-                <v-card class="overflow-y-auto overflow-x-hidden" :height="height">
-                    <h-property-panel v-model="selectedCanvasItemData"></h-property-panel>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-container>
+                        </div>
+                    </draggable>
+                    <v-divider></v-divider>
+                </div>
+            </div>
+        </v-navigation-drawer>
+        <v-main app class="pa-0">
+            <h-canvas-container>
+                <validation-observer ref="observer">
+                    <v-form>
+                        <draggable
+                            v-if="drawingCanvas.length > 0"
+                            :list="drawingCanvas"
+                            :animation="300"
+                            group="componentsGroup"
+                            @change="onChange"
+                            @start="drag = true"
+                            @end="drag = false"
+                        >
+                            <h-draggable-item
+                                ref="canvas"
+                                v-for="item in drawingCanvas"
+                                :key="item.renderKey"
+                                :schema="item"
+                                :selected-item-id="selectedCanvasItemId"
+                                @select="selectCanvasItem"
+                                @copy="copyCanvasItem"
+                                @delete="deleteCanvasItem"
+                            />
+                        </draggable>
+                        <draggable v-else :animation="300" group="componentsGroup">
+                            <v-row>
+                                <v-col cols="12">
+                                    <v-row align="center" justify="center">
+                                        <v-card height="100" width="600" class="ma-12">
+                                            <v-card-text class="text-center title"
+                                                >从左侧拖入或点选组件进行表单设计</v-card-text
+                                            >
+                                        </v-card>
+                                    </v-row>
+                                </v-col>
+                            </v-row>
+                        </draggable>
+                    </v-form>
+                </validation-observer>
+            </h-canvas-container>
+        </v-main>
+        <v-navigation-drawer clipped app hide-overlay right width="360px">
+            <h-property-panel v-model="selectedCanvasItemData"></h-property-panel>
+        </v-navigation-drawer>
+    </v-app>
 </template>
 
 <script>
@@ -95,6 +84,7 @@ import { debounce } from 'throttle-debounce';
 import { leftPanelComponents } from '@/lib/modeler/configurations';
 import { DataObject, DB } from '@/lib/modeler/logic';
 
+import HCanvasContainer from '@/components/canvas/HCanvasContainer';
 import HDraggableItem from '@/components/canvas/HDraggableItem';
 import HPropertyPanel from '@/components/property/HPropertyPanel';
 
@@ -102,6 +92,7 @@ export default {
     name: 'HFormModeler',
 
     components: {
+        HCanvasContainer,
         HDraggableItem,
         HPropertyPanel
     },
