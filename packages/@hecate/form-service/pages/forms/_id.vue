@@ -3,15 +3,8 @@
 </template>
 
 <script>
-import HFormRuntime from '@hecate/h-form-runtime';
-
 export default {
     layout: 'form',
-    fetchOnServer: false,
-
-    components: {
-        HFormRuntime,
-    },
 
     created() {
         let params = this.$route.params.id;

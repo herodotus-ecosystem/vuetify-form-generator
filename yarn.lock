@@ -15939,7 +15939,7 @@ vuetify-loader@^1.3.0, vuetify-loader@^1.4.3:
 
 vuetify@^2, vuetify@^2.3.17:
   version "2.3.17"
-  resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.17.tgz#f27eefd52dbe8ba19cae8d62ba8a77b05184fdf6"
+  resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.17.tgz?cache=0&sync_timestamp=1605069230757&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuetify%2Fdownload%2Fvuetify-2.3.17.tgz#f27eefd52dbe8ba19cae8d62ba8a77b05184fdf6"
   integrity sha1-8n7v1S2+i6Gcro1iuop3sFGE/fY=
 
 vuex@^3.5.1:

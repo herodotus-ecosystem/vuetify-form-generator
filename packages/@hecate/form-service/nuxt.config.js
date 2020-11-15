@@ -17,7 +17,7 @@ export default {
     css: [],
 
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-    plugins: [],
+    plugins: ['~/plugins/h-form-runtime'],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
@@ -67,6 +67,18 @@ export default {
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
     build: {
-        transpile: ['@hecate/h-form-runtime'],
+        // 提取css到单独link文件
+        extractCSS: true,
+        transpile: [/^@hecate/],
+    },
+
+    filenames: {
+        // 打包的文件名规则
+        app: ({ isDev }) => (isDev ? '[name].js' : '[chunkhash].js'),
+        chunk: ({ isDev }) => (isDev ? '[name].js' : '[chunkhash].js'),
+        css: ({ isDev }) => (isDev ? '[name].css' : '[contenthash].css'),
+        img: ({ isDev }) => (isDev ? '[path][name].[ext]' : 'img/[hash:7].[ext]'),
+        font: ({ isDev }) => (isDev ? '[path][name].[ext]' : 'fonts/[hash:7].[ext]'),
+        video: ({ isDev }) => (isDev ? '[path][name].[ext]' : 'videos/[hash:7].[ext]'),
     },
 };
