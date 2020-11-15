@@ -66,5 +66,7 @@ export default {
     },
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
-    build: {},
+    build: {
+        transpile: ['@hecate/h-form-runtime'],
+    },
 };

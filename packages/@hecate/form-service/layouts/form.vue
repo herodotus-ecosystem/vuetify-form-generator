@@ -7,7 +7,7 @@
                         <v-sheet></v-sheet>
                     </v-col>
                     <v-col cols="12" sm="8">
-                        <nuxt />
+                        <nuxt keep-alive />
                     </v-col>
                     <v-col cols="12" sm="2">
                         <v-sheet></v-sheet>

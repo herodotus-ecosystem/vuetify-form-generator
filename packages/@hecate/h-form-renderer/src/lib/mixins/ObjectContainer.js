@@ -4,7 +4,7 @@ export default {
             currentOneOf: null,
             currentTab: null,
             showCurrentOneOf: true,
-            subModels: {} // a container for objects from root subSchemass and allOfs
+            subModels: {}, // a container for objects from root subSchemass and allOfs
         };
     },
     computed: {
@@ -35,7 +35,7 @@ export default {
                     (val) => (val !== undefined && val !== null && val !== '') || this.fullOptions.messages.required
                 );
             return rules;
-        }
+        },
     },
     watch: {
         currentOneOf(newVal, oldVal) {
@@ -54,8 +54,8 @@ export default {
             handler() {
                 this.fixProperties();
             },
-            deep: true
-        }
+            deep: true,
+        },
     },
     methods: {
         isSection(prop) {
@@ -117,13 +117,13 @@ export default {
                                 class: {
                                     'error--text':
                                         this.childrenInputs[modelKey] &&
-                                        this.childrenInputs[modelKey].hasValidatedChildError
-                                }
+                                        this.childrenInputs[modelKey].hasValidatedChildError,
+                                },
                             },
                             [schema.title]
                         ),
-                        h('v-expansion-panel-content', { props: { eager: true } }, [childProp])
-                    ])
+                        h('v-expansion-panel-content', { props: { eager: true } }, [childProp]),
+                    ]),
                 ];
             } else if (this.display === 'tabs') {
                 return [
@@ -134,22 +134,22 @@ export default {
                                 class: {
                                     'error--text':
                                         this.childrenInputs[modelKey] &&
-                                        this.childrenInputs[modelKey].hasValidatedChildError
-                                }
+                                        this.childrenInputs[modelKey].hasValidatedChildError,
+                                },
                             },
                             [schema.title]
-                        )
+                        ),
                     ]),
                     h(
                         'v-tab-item',
                         {
                             props: {
                                 value: `tab-${this.fullOptions.idPrefix}${this.dashKey}-${modelKey}`,
-                                eager: true
-                            }
+                                eager: true,
+                            },
                         },
                         [h('v-card', { props: { tile: true, flat: true } }, [h('v-card-text', [childProp])])]
-                    )
+                    ),
                 ];
             } else {
                 return [
@@ -162,21 +162,18 @@ export default {
                                     (this.fullOptions.sectionsTitlesClasses[this.sectionDepth] ||
                                         this.fullOptions.sectionsTitlesClasses[
                                             this.fullOptions.sectionsTitlesClasses.length - 1
-                                        ])
+                                        ]),
                             },
                             [`${schema.title}\xa0`]
                         ),
-                        childProp
-                    ])
+                        childProp,
+                    ]),
                 ];
             }
         },
         renderChildProp(h, schema, subModelKey, sectionDepth, forceRequired) {
             const wrapper = subModelKey ? this.subModels : this.value;
             const modelKey = subModelKey || schema.key;
-
-            console.log('[HFR] wrapper:', wrapper);
-            console.log('[HFR] modelKey:', modelKey);
 
             // Manage default values
             let value = wrapper[modelKey];
@@ -201,7 +198,7 @@ export default {
                         //     forceRequired ||
                         //     !!(this.fullSchema.required && this.fullSchema.required.includes(schema.key)),
                         options: this.fullOptions,
-                        sectionDepth
+                        sectionDepth,
                     },
                     // class: this.fullOptions.childrenClass,
                     // scopedSlots: this.childScopedSlots(schema.key),
@@ -221,14 +218,13 @@ export default {
                             }
                             this.$emit('input', this.value);
                         },
-                        change: (v) => this.$emit('change', this.value)
-                    }
+                        change: (v) => this.$emit('change', this.value),
+                    },
                 }
                 // this.childSlots(h, schema.key)
             );
         },
         renderObjectContainer(h) {
-            console.log('[HFR] renderObjectContainer');
             if (this.fullSchema.type !== 'object' && !Array.isArray(this.fullSchema.items)) return;
 
             this.isObjectContainer = true;
@@ -294,11 +290,11 @@ export default {
                             on: {
                                 change: (value) => {
                                     this.currentTab = value.split('-').pop();
-                                }
-                            }
+                                },
+                            },
                         },
                         sectionsChildren
-                    )
+                    ),
                 ];
             }
 
@@ -315,12 +311,12 @@ export default {
                     itemValue: (item) => item.properties[this.subSchemasConstProp.key].const,
                     itemText: 'title',
                     rules: this.subSchemasRules,
-                    returnObject: true
+                    returnObject: true,
                 };
                 const on = {
                     input: (value) => {
                         this.currentOneOf = value;
-                    }
+                    },
                 };
                 flatChildren.push(h('v-select', { props, on }, [this.renderTooltip(h, 'append-outer')]));
                 if (this.currentOneOf && this.showCurrentOneOf) {
@@ -344,14 +340,14 @@ export default {
                             h('v-col', {
                                 props: { cols: 12 },
                                 class: { 'pa-0': true },
-                                domProps: { innerHTML: this.htmlDescription }
-                            })
+                                domProps: { innerHTML: this.htmlDescription },
+                            }),
                     ]
                         .concat(flatChildren)
                         .concat(sectionsChildren)
-                )
+                ),
             ];
-        }
+        },
         // pass an  extract of $slots from current container to a child by matching then removing the prefix
         // childSlots(h, childKey) {
         //     return Object.keys(this.$slots)
@@ -381,5 +377,5 @@ export default {
         //             return a;
         //         }, {});
         // },
-    }
+    },
 };

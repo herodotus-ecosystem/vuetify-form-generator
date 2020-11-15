@@ -7,18 +7,28 @@ import HFormRuntime from '@hecate/h-form-runtime';
 
 export default {
     layout: 'form',
+    fetchOnServer: false,
 
     components: {
-        HFormRuntime
+        HFormRuntime,
     },
 
-    async asyncData({ $content, params }) {
+    created() {
+        let params = this.$route.params.id;
+        console.log(params);
+    },
+
+    async asyncData(context) {
+        let $content = context.$content;
+        let params = context.params;
+        console.log($content);
+        console.log(params);
         // fetch our article here
         const { schema } = await $content('forms', params.id).fetch();
         console.log(schema);
         return {
-            schema
+            schema,
         };
-    }
+    },
 };
 </script>
