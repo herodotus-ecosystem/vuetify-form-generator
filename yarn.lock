@@ -14875,10 +14875,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^10.10.0:
-  version "10.10.0"
-  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.10.0.tgz#84e8fe1c1c756059196fd89c49790d4bfb954b93"
-  integrity sha1-hOj+HBx1YFkZb9icSXkNS/uVS5M=
+sweetalert2@^10.10.1:
+  version "10.10.1"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.10.1.tgz#47c46929eff4837c8296836aa169073bae418031"
+  integrity sha1-R8RpKe/0g3yCloNqoWkHO65BgDE=
 
 system@^2.0.1:
   version "2.0.1"

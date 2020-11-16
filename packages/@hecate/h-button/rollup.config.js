@@ -20,7 +20,7 @@ const { rollups } = require('../../../scripts');
  */
 
 const configs = {
-    types: ['umd', 'iife'],
+    types: ['umd', 'iife', 'esm']
 };
 
 const entries = (() => {

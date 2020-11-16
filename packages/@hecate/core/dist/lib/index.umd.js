@@ -1,4 +1,4 @@
-!(function (e, t) {
+!(function(e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
               exports,
@@ -18,7 +18,7 @@
               e.Swal,
               e.localForage
           );
-})(this, function (e, t, r, o, n, i) {
+})(this, function(e, t, r, o, n, i) {
     'use strict';
     function a(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -28,7 +28,7 @@
         var t = Object.create(null);
         return (
             e &&
-                Object.keys(e).forEach(function (r) {
+                Object.keys(e).forEach(function(r) {
                     if ('default' !== r) {
                         var o = Object.getOwnPropertyDescriptor(e, r);
                         Object.defineProperty(
@@ -38,9 +38,9 @@
                                 ? o
                                 : {
                                       enumerable: !0,
-                                      get: function () {
+                                      get: function() {
                                           return e[r];
-                                      },
+                                      }
                                   }
                         );
                     }
@@ -54,11 +54,11 @@
         f = a(o),
         u = a(n),
         m = a(i);
-    String.prototype.format = function (e) {
-        var t = function (e, t) {
+    String.prototype.format = function(e) {
+        var t = function(e, t) {
             return (
                 (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
-                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
+                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function(e, r) {
                     return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
                 })
             );
@@ -82,7 +82,7 @@
             },
             question(e) {
                 this.information(e, 'question');
-            },
+            }
         },
         g = {
             getItem: (e) =>
@@ -186,7 +186,7 @@
             createInstance: (e) =>
                 new Promise((t, r) => {
                     t(m.default.createInstance(e));
-                }),
+                })
         },
         p = {
             setObject(e, t) {
@@ -206,24 +206,24 @@
             clear() {
                 localStorage.clear();
             },
-            isExist: (e) => !(!e || !(e in localStorage)),
+            isExist: (e) => !(!e || !(e in localStorage))
         },
         y = {
             array: {
                 groupBy(e, t) {
                     const r = {};
                     return (
-                        e.forEach(function (e) {
+                        e.forEach(function(e) {
                             const o = t(e);
                             (r[o] = r[o] || []), r[o].push(e);
                         }),
-                        Object.keys(r).map(function (e) {
+                        Object.keys(r).map(function(e) {
                             return r[e];
                         })
                     );
                 },
                 sort: (e, t) =>
-                    e.sort(function (e, r) {
+                    e.sort(function(e, r) {
                         var o = e[t],
                             n = r[t];
                         return o < n ? -1 : o > n ? 1 : 0;
@@ -232,7 +232,7 @@
                 remove(e, t, r) {
                     const o = e.findIndex((e) => e[r] === t[r]);
                     return e.splice(o, 1), e;
-                },
+                }
             },
             object: {
                 isEmpty(e) {
@@ -241,22 +241,22 @@
                         return !(t && t.length > 0);
                     }
                     return !0;
-                },
-            },
+                }
+            }
         };
     l.default.locale('zh-cn'),
         Object.defineProperty(e, 'moment', {
             enumerable: !0,
-            get: function () {
+            get: function() {
                 return l.default;
-            },
+            }
         }),
         (e.lodash = s),
         Object.defineProperty(e, 'shortid', {
             enumerable: !0,
-            get: function () {
+            get: function() {
                 return f.default;
-            },
+            }
         }),
         (e.notify = h),
         (e.storage = g),

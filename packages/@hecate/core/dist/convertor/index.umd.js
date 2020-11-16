@@ -1,10 +1,10 @@
-!(function (e, t) {
+!(function(e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(exports)
         : 'function' == typeof define && define.amd
         ? define(['exports'], t)
         : t(((e = 'undefined' != typeof globalThis ? globalThis : e || self).convertor = {}));
-})(this, function (e) {
+})(this, function(e) {
     'use strict';
     class t {
         static get selfCloseTags() {
@@ -25,7 +25,7 @@
                 'wbr',
                 'command',
                 'keygen',
-                'menuitem',
+                'menuitem'
             ];
         }
         static build(e) {

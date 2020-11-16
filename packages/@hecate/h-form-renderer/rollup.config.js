@@ -19,9 +19,9 @@ const { rollups } = require('../../../scripts');
  * };
  */
 const configs = {
-    types: ['umd', 'iife'],
+    types: ['umd', 'iife', 'esm'],
     globals: {
-        'vuetify/lib': 'Vuetify',
+        'vuetify/lib': 'Vuetify'
     },
     external: [
         // 不被打包的库，比如在项目中会被引入
@@ -29,8 +29,8 @@ const configs = {
         'markdown-it',
         'match-all',
         'property-expr',
-        'vuetify/lib',
-    ],
+        'vuetify/lib'
+    ]
 };
 
 const entries = (() => {

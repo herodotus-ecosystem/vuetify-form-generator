@@ -19,16 +19,16 @@ const { rollups } = require('../../../scripts');
  * };
  */
 const configs = {
-    types: ['umd', 'iife'],
+    types: ['umd', 'iife', 'esm'],
     globals: {
         '@hecate/h-button': 'HButton',
-        '@hecate/h-code-mirror': 'HCodeMirror',
+        '@hecate/h-code-mirror': 'HCodeMirror'
     },
     external: [
         // 不被打包的库，比如在项目中会被引入
         '@hecate/h-button',
-        '@hecate/h-code-mirror',
-    ],
+        '@hecate/h-code-mirror'
+    ]
 };
 
 const entries = (() => {

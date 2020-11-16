@@ -3,11 +3,11 @@ import * as t from 'lodash';
 import r from 'shortid';
 import a from 'sweetalert2';
 import o from 'localforage';
-String.prototype.format = function (e) {
-    var t = function (e, t) {
+String.prototype.format = function(e) {
+    var t = function(e, t) {
         return (
             (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
-            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
+            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function(e, r) {
                 return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
             })
         );
@@ -31,7 +31,7 @@ const n = a,
         },
         question(e) {
             this.information(e, 'question');
-        },
+        }
     },
     s = {
         getItem: (e) =>
@@ -127,7 +127,7 @@ const n = a,
         createInstance: (e) =>
             new Promise((t, r) => {
                 t(o.createInstance(e));
-            }),
+            })
     },
     c = {
         setObject(e, t) {
@@ -147,24 +147,24 @@ const n = a,
         clear() {
             localStorage.clear();
         },
-        isExist: (e) => !(!e || !(e in localStorage)),
+        isExist: (e) => !(!e || !(e in localStorage))
     },
     l = {
         array: {
             groupBy(e, t) {
                 const r = {};
                 return (
-                    e.forEach(function (e) {
+                    e.forEach(function(e) {
                         const a = t(e);
                         (r[a] = r[a] || []), r[a].push(e);
                     }),
-                    Object.keys(r).map(function (e) {
+                    Object.keys(r).map(function(e) {
                         return r[e];
                     })
                 );
             },
             sort: (e, t) =>
-                e.sort(function (e, r) {
+                e.sort(function(e, r) {
                     var a = e[t],
                         o = r[t];
                     return a < o ? -1 : a > o ? 1 : 0;
@@ -173,7 +173,7 @@ const n = a,
             remove(e, t, r) {
                 const a = e.findIndex((e) => e[r] === t[r]);
                 return e.splice(a, 1), e;
-            },
+            }
         },
         object: {
             isEmpty(e) {
@@ -182,8 +182,8 @@ const n = a,
                     return !(t && t.length > 0);
                 }
                 return !0;
-            },
-        },
+            }
+        }
     };
 e.locale('zh-cn');
 var g = Object.freeze({
@@ -195,7 +195,7 @@ var g = Object.freeze({
     storageSync: c,
     lodash: t,
     shortid: r,
-    tools: l,
+    tools: l
 });
 var m = Object.freeze({
     __proto__: null,
@@ -212,9 +212,9 @@ var m = Object.freeze({
                     sortNone: 'Not sorted.',
                     activateNone: 'Activate to remove sorting.',
                     activateDescending: 'Activate to sort descending.',
-                    activateAscending: 'Activate to sort ascending.',
+                    activateAscending: 'Activate to sort ascending.'
                 },
-                sortBy: 'Sort by',
+                sortBy: 'Sort by'
             },
             dataFooter: {
                 itemsPerPageText: 'Items per page:',
@@ -223,20 +223,20 @@ var m = Object.freeze({
                 prevPage: 'Previous page',
                 firstPage: 'First page',
                 lastPage: 'Last page',
-                pageText: '{0}-{1} of {2}',
+                pageText: '{0}-{1} of {2}'
             },
             datePicker: {
                 itemsSelected: '{0} selected',
                 nextMonthAriaLabel: 'Next month',
                 nextYearAriaLabel: 'Next year',
                 prevMonthAriaLabel: 'Previous month',
-                prevYearAriaLabel: 'Previous year',
+                prevYearAriaLabel: 'Previous year'
             },
             noDataText: 'No data available',
             carousel: {
                 prev: 'Previous visual',
                 next: 'Next visual',
-                ariaLabel: { delimiter: 'Carousel slide {0} of {1}' },
+                ariaLabel: { delimiter: 'Carousel slide {0} of {1}' }
             },
             calendar: { moreEvents: '{0} more' },
             fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
@@ -247,10 +247,10 @@ var m = Object.freeze({
                     next: 'Next page',
                     previous: 'Previous page',
                     page: 'Goto Page {0}',
-                    currentPage: 'Current Page, Page {0}',
-                },
-            },
-        },
+                    currentPage: 'Current Page, Page {0}'
+                }
+            }
+        }
     },
     zh: {
         $vuetify: {
@@ -265,9 +265,9 @@ var m = Object.freeze({
                     sortNone: '：未排序。',
                     activateNone: '点击以移除排序。',
                     activateDescending: '点击以降序排列。',
-                    activateAscending: '点击以升序排列。',
+                    activateAscending: '点击以升序排列。'
                 },
-                sortBy: '排序方式',
+                sortBy: '排序方式'
             },
             dataFooter: {
                 itemsPerPageText: '每页数目：',
@@ -276,14 +276,14 @@ var m = Object.freeze({
                 prevPage: '上一页',
                 firstPage: '首页',
                 lastPage: '尾页',
-                pageText: '{0}-{1} 共 {2}',
+                pageText: '{0}-{1} 共 {2}'
             },
             datePicker: {
                 itemsSelected: '已选择 {0}',
                 nextMonthAriaLabel: '下个月',
                 nextYearAriaLabel: '明年',
                 prevMonthAriaLabel: '前一个月',
-                prevYearAriaLabel: '前一年',
+                prevYearAriaLabel: '前一年'
             },
             noDataText: '没有数据',
             carousel: { prev: '上一张', next: '下一张', ariaLabel: { delimiter: 'Carousel slide {0} of {1}' } },
@@ -296,11 +296,11 @@ var m = Object.freeze({
                     next: '下一页',
                     previous: '上一页',
                     page: '转到页面 {0}',
-                    currentPage: '当前页 {0}',
-                },
-            },
-        },
-    },
+                    currentPage: '当前页 {0}'
+                }
+            }
+        }
+    }
 });
 class u {
     static get selfCloseTags() {
@@ -321,7 +321,7 @@ class u {
             'wbr',
             'command',
             'keygen',
-            'menuitem',
+            'menuitem'
         ];
     }
     static build(e) {
