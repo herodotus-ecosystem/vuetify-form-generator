@@ -14,7 +14,6 @@
     },
     "dependencies": {
         "@hecate/h-form-renderer": "^1.0.0",
-        "vee-validate": "^3.4.5",
-        "vuetify": "^2.3.17"
+        "vee-validate": "^3.4.5"
     }
 }

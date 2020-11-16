@@ -11,14 +11,9 @@ export default {
         console.log(params);
     },
 
-    async asyncData(context) {
-        let $content = context.$content;
-        let params = context.params;
-        console.log($content);
-        console.log(params);
+    async asyncData({ $content, params }) {
         // fetch our article here
         const { schema } = await $content('forms', params.id).fetch();
-        console.log(schema);
         return {
             schema,
         };

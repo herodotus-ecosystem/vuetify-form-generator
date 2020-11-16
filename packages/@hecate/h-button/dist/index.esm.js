@@ -12,7 +12,7 @@ function e(n, t, o, e, i, r, s, c, l, d) {
             i && (a.functional = !0)),
         e && (a._scopeId = e),
         r
-            ? ((f = function(n) {
+            ? ((f = function (n) {
                   (n =
                       n ||
                       (this.$vnode && this.$vnode.ssrContext) ||
@@ -25,17 +25,17 @@ function e(n, t, o, e, i, r, s, c, l, d) {
               (a._ssrRegister = f))
             : t &&
               (f = s
-                  ? function(n) {
+                  ? function (n) {
                         t.call(this, d(n, this.$root.$options.shadowRoot));
                     }
-                  : function(n) {
+                  : function (n) {
                         t.call(this, c(n));
                     }),
         f)
     )
         if (a.functional) {
             const n = a.render;
-            a.render = function(t, o) {
+            a.render = function (t, o) {
                 return f.call(o), n(t, o);
             };
         } else {
@@ -46,7 +46,7 @@ function e(n, t, o, e, i, r, s, c, l, d) {
 }
 const i = e(
     {
-        render: function() {
+        render: function () {
             var n = this,
                 t = n.$createElement,
                 o = n._self._c || t;
@@ -57,7 +57,7 @@ const i = e(
                     scopedSlots: n._u([
                         {
                             key: 'activator',
-                            fn: function(t) {
+                            fn: function (t) {
                                 var e = t.on;
                                 return [
                                     o(
@@ -66,25 +66,25 @@ const i = e(
                                             {
                                                 attrs: { color: n.color, icon: n.icon },
                                                 on: {
-                                                    click: function(t) {
+                                                    click: function (t) {
                                                         return n.handleClick();
-                                                    }
-                                                }
+                                                    },
+                                                },
                                             },
                                             e
                                         ),
                                         [o('v-icon', [n._v(n._s(n.iconName))])],
                                         1
-                                    )
+                                    ),
                                 ];
-                            }
-                        }
-                    ])
+                            },
+                        },
+                    ]),
                 },
                 [n._v(' '), o('span', [n._v(n._s(n.tooltip))])]
             );
         },
-        staticRenderFns: []
+        staticRenderFns: [],
     },
     undefined,
     {
@@ -94,8 +94,8 @@ const i = e(
         methods: {
             handleClick() {
                 this.$emit('click');
-            }
-        }
+            },
+        },
     },
     undefined,
     false,
@@ -105,7 +105,7 @@ const i = e(
     void 0,
     void 0
 );
-(i.install = function(n) {
+(i.install = function (n) {
     n.component(i.name, i);
 }),
     null != typeof window && window.Vue && i.install(window.Vue);

@@ -6,7 +6,7 @@ import {
     VSwitch as n,
     VSelect as a,
     VToolbar as i,
-    VCard as d
+    VCard as d,
 } from 'vuetify/lib';
 import s from '@hecate/h-button';
 import l from '@hecate/h-code-mirror';
@@ -23,7 +23,7 @@ function c(e, t, o, r, n, a, i, d, s, l) {
             n && (c.functional = !0)),
         r && (c._scopeId = r),
         a
-            ? ((h = function(e) {
+            ? ((h = function (e) {
                   (e =
                       e ||
                       (this.$vnode && this.$vnode.ssrContext) ||
@@ -36,17 +36,17 @@ function c(e, t, o, r, n, a, i, d, s, l) {
               (c._ssrRegister = h))
             : t &&
               (h = i
-                  ? function(e) {
+                  ? function (e) {
                         t.call(this, l(e, this.$root.$options.shadowRoot));
                     }
-                  : function(e) {
+                  : function (e) {
                         t.call(this, d(e));
                     }),
         h)
     )
         if (c.functional) {
             const e = c.render;
-            c.render = function(t, o) {
+            c.render = function (t, o) {
                 return h.call(o), e(t, o);
             };
         } else {
@@ -57,7 +57,7 @@ function c(e, t, o, r, n, a, i, d, s, l) {
 }
 const h = c(
     {
-        render: function() {
+        render: function () {
             var e = this,
                 t = e.$createElement,
                 o = e._self._c || t;
@@ -83,15 +83,15 @@ const h = c(
                                     'true-value': !1,
                                     'false-value': !0,
                                     inset: '',
-                                    'hide-details': ''
+                                    'hide-details': '',
                                 },
                                 model: {
                                     value: e.readOnly,
-                                    callback: function(t) {
+                                    callback: function (t) {
                                         e.readOnly = t;
                                     },
-                                    expression: 'readOnly'
-                                }
+                                    expression: 'readOnly',
+                                },
                             }),
                             e._v(' '),
                             o('v-select', {
@@ -104,9 +104,9 @@ const h = c(
                                     dense: '',
                                     label: '请选择主题',
                                     'prepend-inner-icon': 'mdi-theme-light-dark',
-                                    'no-data-text': '没有数据'
+                                    'no-data-text': '没有数据',
                                 },
-                                on: { change: e.onThemeChange }
+                                on: { change: e.onThemeChange },
                             }),
                             e._v(' '),
                             o('v-select', {
@@ -119,12 +119,12 @@ const h = c(
                                     dense: '',
                                     label: '请选择编辑模式',
                                     'prepend-inner-icon': 'mdi-codepen',
-                                    'no-data-text': '没有数据'
+                                    'no-data-text': '没有数据',
                                 },
-                                on: { change: e.onModeChange }
+                                on: { change: e.onModeChange },
                             }),
                             e._v(' '),
-                            o('v-btn', { attrs: { icon: '' } }, [o('v-icon', [e._v('mdi-apps')])], 1)
+                            o('v-btn', { attrs: { icon: '' } }, [o('v-icon', [e._v('mdi-apps')])], 1),
                         ],
                         1
                     ),
@@ -133,17 +133,17 @@ const h = c(
                         attrs: { mode: e.codeMirrorMode, theme: e.codeMirrorTheme, 'read-only': e.readOnly },
                         model: {
                             value: e.sourceCode,
-                            callback: function(t) {
+                            callback: function (t) {
                                 e.sourceCode = t;
                             },
-                            expression: 'sourceCode'
-                        }
-                    })
+                            expression: 'sourceCode',
+                        },
+                    }),
                 ],
                 1
             );
         },
-        staticRenderFns: []
+        staticRenderFns: [],
     },
     undefined,
     {
@@ -158,7 +158,7 @@ const h = c(
             VSwitch: n,
             VSelect: a,
             VToolbar: i,
-            VCard: d
+            VCard: d,
         },
         data: () => ({
             modeOptions: [
@@ -179,7 +179,7 @@ const h = c(
                 'css',
                 'xml',
                 'yaml',
-                'vue'
+                'vue',
             ],
             themeOptions: [
                 'default',
@@ -244,17 +244,17 @@ const h = c(
                 'xq-light',
                 'yeti',
                 'yonce',
-                'zenburn'
+                'zenburn',
             ],
             codeMirrorMode: 'default',
             codeMirrorTheme: 'default',
             sourceCode: '',
-            readOnly: !1
+            readOnly: !1,
         }),
         computed: {
             readOnlyLabel() {
                 return this.readOnly ? '只读' : '编辑';
-            }
+            },
         },
         methods: {
             switchCodeMirrorMode(e) {
@@ -272,8 +272,8 @@ const h = c(
             },
             onThemeChange(e) {
                 this.codeMirrorTheme = e;
-            }
-        }
+            },
+        },
     },
     undefined,
     false,
@@ -283,7 +283,7 @@ const h = c(
     void 0,
     void 0
 );
-(h.install = function(e) {
+(h.install = function (e) {
     e.component(h.name, h);
 }),
     null != typeof window && window.Vue && h.install(window.Vue);

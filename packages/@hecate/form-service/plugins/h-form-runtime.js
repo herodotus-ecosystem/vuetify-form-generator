@@ -1,4 +1,4 @@
 import Vue from 'vue';
 import HFormRuntime from '@hecate/h-form-runtime';
 
-Vue.component(HFormRuntime);
+Vue.use(HFormRuntime);

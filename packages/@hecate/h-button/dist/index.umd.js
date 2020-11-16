@@ -1,10 +1,10 @@
-!(function(n, e) {
+!(function (n, e) {
     'object' == typeof exports && 'undefined' != typeof module
         ? e(require('vuetify/lib'))
         : 'function' == typeof define && define.amd
         ? define(['vuetify/lib'], e)
         : e((n = 'undefined' != typeof globalThis ? globalThis : n || self).Vuetify);
-})(this, function(n) {
+})(this, function (n) {
     'use strict';
     function e(n, e, t, o, i, s, r, c, l, d) {
         'boolean' != typeof r && ((l = c), (c = r), (r = !1));
@@ -19,7 +19,7 @@
                 i && (f.functional = !0)),
             o && (f._scopeId = o),
             s
-                ? ((a = function(n) {
+                ? ((a = function (n) {
                       (n =
                           n ||
                           (this.$vnode && this.$vnode.ssrContext) ||
@@ -32,17 +32,17 @@
                   (f._ssrRegister = a))
                 : e &&
                   (a = r
-                      ? function(n) {
+                      ? function (n) {
                             e.call(this, d(n, this.$root.$options.shadowRoot));
                         }
-                      : function(n) {
+                      : function (n) {
                             e.call(this, c(n));
                         }),
             a)
         )
             if (f.functional) {
                 const n = f.render;
-                f.render = function(e, t) {
+                f.render = function (e, t) {
                     return a.call(t), n(e, t);
                 };
             } else {
@@ -53,7 +53,7 @@
     }
     const t = e(
         {
-            render: function() {
+            render: function () {
                 var n = this,
                     e = n.$createElement,
                     t = n._self._c || e;
@@ -64,7 +64,7 @@
                         scopedSlots: n._u([
                             {
                                 key: 'activator',
-                                fn: function(e) {
+                                fn: function (e) {
                                     var o = e.on;
                                     return [
                                         t(
@@ -73,25 +73,25 @@
                                                 {
                                                     attrs: { color: n.color, icon: n.icon },
                                                     on: {
-                                                        click: function(e) {
+                                                        click: function (e) {
                                                             return n.handleClick();
-                                                        }
-                                                    }
+                                                        },
+                                                    },
                                                 },
                                                 o
                                             ),
                                             [t('v-icon', [n._v(n._s(n.iconName))])],
                                             1
-                                        )
+                                        ),
                                     ];
-                                }
-                            }
-                        ])
+                                },
+                            },
+                        ]),
                     },
                     [n._v(' '), t('span', [n._v(n._s(n.tooltip))])]
                 );
             },
-            staticRenderFns: []
+            staticRenderFns: [],
         },
         undefined,
         {
@@ -101,8 +101,8 @@
             methods: {
                 handleClick() {
                     this.$emit('click');
-                }
-            }
+                },
+            },
         },
         undefined,
         false,
@@ -112,7 +112,7 @@
         void 0,
         void 0
     );
-    (t.install = function(n) {
+    (t.install = function (n) {
         n.component(t.name, t);
     }),
         null != typeof window && window.Vue && t.install(window.Vue);

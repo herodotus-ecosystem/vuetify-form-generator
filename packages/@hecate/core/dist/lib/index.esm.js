@@ -5,11 +5,11 @@ export { t as lodash };
 export { default as shortid } from 'shortid';
 import r from 'sweetalert2';
 import o from 'localforage';
-String.prototype.format = function(e) {
-    var t = function(e, t) {
+String.prototype.format = function (e) {
+    var t = function (e, t) {
         return (
             (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
-            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function(e, r) {
+            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
                 return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
             })
         );
@@ -33,7 +33,7 @@ const n = r,
         },
         question(e) {
             this.information(e, 'question');
-        }
+        },
     },
     c = {
         getItem: (e) =>
@@ -129,7 +129,7 @@ const n = r,
         createInstance: (e) =>
             new Promise((t, r) => {
                 t(o.createInstance(e));
-            })
+            }),
     },
     a = {
         setObject(e, t) {
@@ -149,24 +149,24 @@ const n = r,
         clear() {
             localStorage.clear();
         },
-        isExist: (e) => !(!e || !(e in localStorage))
+        isExist: (e) => !(!e || !(e in localStorage)),
     },
     s = {
         array: {
             groupBy(e, t) {
                 const r = {};
                 return (
-                    e.forEach(function(e) {
+                    e.forEach(function (e) {
                         const o = t(e);
                         (r[o] = r[o] || []), r[o].push(e);
                     }),
-                    Object.keys(r).map(function(e) {
+                    Object.keys(r).map(function (e) {
                         return r[e];
                     })
                 );
             },
             sort: (e, t) =>
-                e.sort(function(e, r) {
+                e.sort(function (e, r) {
                     var o = e[t],
                         n = r[t];
                     return o < n ? -1 : o > n ? 1 : 0;
@@ -175,7 +175,7 @@ const n = r,
             remove(e, t, r) {
                 const o = e.findIndex((e) => e[r] === t[r]);
                 return e.splice(o, 1), e;
-            }
+            },
         },
         object: {
             isEmpty(e) {
@@ -184,8 +184,8 @@ const n = r,
                     return !(t && t.length > 0);
                 }
                 return !0;
-            }
-        }
+            },
+        },
     };
 e.locale('zh-cn');
 export { i as notify, c as storage, a as storageSync, n as swal, s as tools };

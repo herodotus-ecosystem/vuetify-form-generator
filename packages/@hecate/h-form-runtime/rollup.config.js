@@ -23,14 +23,12 @@ const configs = {
     globals: {
         '@hecate/h-form-renderer': 'HFormRenderer',
         'vee-validate': 'vee-validate',
-        'vuetify/lib': 'Vuetify'
     },
     external: [
         // 不被打包的库，比如在项目中会被引入
         '@hecate/h-form-renderer',
         'vee-validate',
-        'vuetify/lib'
-    ]
+    ],
 };
 
 const entries = (() => {

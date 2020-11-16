@@ -39,7 +39,7 @@ import {
     VTextarea as R,
     VTextField as q,
     VTimePicker as M,
-    VTooltip as N
+    VTooltip as N,
 } from 'vuetify/lib';
 var F = require('property-expr');
 const U = {
@@ -48,13 +48,13 @@ const U = {
         reftoken: '$ref',
         pathtoken: '#',
         debug: !1,
-        clone: function(e) {
+        clone: function (e) {
             var t, i;
             if (null === e || 'object' != typeof e || 'function' == typeof e) return e;
             for (t in ((i = e.constructor()), e)) i[t] = U.clone(e[t]);
             return i;
         },
-        findIds: function(e, t) {
+        findIds: function (e, t) {
             var i, s, l, r;
             for (s in ((i = !1), (l = {}), e))
                 (r = e[s]),
@@ -63,7 +63,7 @@ const U = {
                     'object' == typeof r && U.findIds(r, t);
             if (i) return (t[i] = l), l;
         },
-        get_json_pointer: function(e, t, i) {
+        get_json_pointer: function (e, t, i) {
             var s, l;
             (s = e
                 .replace(/\\\//, '#SLASH#')
@@ -80,7 +80,7 @@ const U = {
             }
             return l;
         },
-        replace: function(e, t, i, s) {
+        replace: function (e, t, i, s) {
             var l, r, a, n, o, h;
             for (l in ((o = []), e))
                 null != (h = e[l]) && null != h[U.reftoken]
@@ -100,7 +100,7 @@ const U = {
                     : o.push(void 0);
             return o;
         },
-        extend: function(e, t) {
+        extend: function (e, t) {
             var i, s, l, r, a, n;
             if ('object' == typeof e) {
                 for (i in ((l = []), e)) {
@@ -114,20 +114,20 @@ const U = {
                 return l;
             }
         },
-        resolve: function(e, t) {
+        resolve: function (e, t) {
             var i;
             return (i = {}), U.findIds(e, i), U.debug && Object.keys(i).length, U.replace(e, i, e, t), e;
         },
-        evaluate: function(e, t, i) {
+        evaluate: function (e, t, i) {
             var s, l, r;
             for (s in (null == i && (i = U.evaluateStr), (l = U.clone(e))))
                 'string' == typeof (r = l[s]) && (e[s] = i(r, t)), 'object' == typeof r && (e[s] = U.evaluate(r, t));
             return e;
         },
-        evaluateStr: function(e, t) {
+        evaluateStr: function (e, t) {
             if ('string' != typeof e) return e;
             if ('{' !== e[0] || '}' !== e[e.length - 1])
-                return e.replace(/(\{)(.*?)(\})/g, function(e, i, s) {
+                return e.replace(/(\{)(.*?)(\})/g, function (e, i, s) {
                     var l;
                     if (((l = ''), null == t || null == s)) return l;
                     if (null != t[s] && 'function' == typeof t[s]) l = t[s]();
@@ -148,7 +148,7 @@ const U = {
             } catch (e) {
                 return null;
             }
-        }
+        },
     },
     _ = {},
     J = (e) => Object.keys(e || {}).map((t) => ({ ...e[t], key: t }));
@@ -224,7 +224,7 @@ const W = {
         rules: {},
         initialValidation: 'defined',
         idPrefix: '',
-        markdownit: {}
+        markdownit: {},
     },
     H = {
         en: {
@@ -237,7 +237,7 @@ const W = {
             maxLength: '{maxLength} characters maximum',
             minItems: 'No less than {minItems} items',
             maxItems: 'No more than {maxItems} items',
-            pattern: 'The expected pattern is not satisfied'
+            pattern: 'The expected pattern is not satisfied',
         },
         fr: {
             required: 'Cette information est obligatoire',
@@ -249,7 +249,7 @@ const W = {
             maxLength: '{maxLength} caractères maximum',
             minItems: 'Au moins {minItems} éléments',
             maxItems: 'Au plus {maxItems} éléments',
-            pattern: "Le format attendu n'est pas respecté"
+            pattern: "Le format attendu n'est pas respecté",
         },
         es: {
             required: 'Esta información es requerida',
@@ -261,7 +261,7 @@ const W = {
             maxLength: '{maxLength} caractères máximo',
             minItems: 'Al menos {minItems} articulos',
             maxItems: 'Hasta {maxItems} articulos',
-            pattern: 'El formato esperado no se respeta'
+            pattern: 'El formato esperado no se respeta',
         },
         de: {
             required: 'Diese Informationen sind erforderlich',
@@ -273,7 +273,7 @@ const W = {
             maxLength: 'Maximal {maxLength} Zeichen',
             minItems: 'Mindestens {minItems} Elemente',
             maxItems: 'Bis zu {maxItems} Artikel',
-            pattern: 'Das erwartete Format wird nicht eingehalten'
+            pattern: 'Das erwartete Format wird nicht eingehalten',
         },
         ar: {
             required: 'هذه المعلومة مطلوبة',
@@ -285,7 +285,7 @@ const W = {
             maxLength: '{maxLength} الحد الأقصى للحروف المطلوبة هو',
             minItems: 'قطع {minItems} لا يمكن اختيار أقل من ',
             maxItems: 'قطع {maxItems} لا يمكن اختيار أكثر من ',
-            pattern: 'لا يوجد تشابه مع النموذج المطلوب'
+            pattern: 'لا يوجد تشابه مع النموذج المطلوب',
         },
         tr: {
             required: 'Zorunlu alan',
@@ -297,7 +297,7 @@ const W = {
             maxLength: '{maxLength} azami  karakter sayısı',
             minItems: 'En az seçenek sayısı {minItems}',
             maxItems: 'En çok seçenek sayısı {maxItems}',
-            pattern: 'İstenilen paten tutmuyor'
+            pattern: 'İstenilen paten tutmuyor',
         },
         nl: {
             required: 'Deze informatie is vereist',
@@ -309,8 +309,8 @@ const W = {
             maxLength: 'Maximaal {maxLength} tekens',
             minItems: 'Minimaal {minItems} antwoorden',
             maxItems: 'Maximaal {maxItems} antwoorden',
-            pattern: 'Invoer voldoet niet aan verwachte patroon'
-        }
+            pattern: 'Invoer voldoet niet aan verwachte patroon',
+        },
     },
     z = {
         time: (e, t) => {
@@ -321,7 +321,7 @@ const W = {
             const i = new Date(e);
             return new Date(i.getTime() + 6e4 * i.getTimezoneOffset()).toLocaleDateString(t);
         },
-        'date-time': (e, t) => new Date(e).toLocaleString(t)
+        'date-time': (e, t) => new Date(e).toLocaleString(t),
     },
     B = {
         mdi: {
@@ -330,7 +330,7 @@ const W = {
             info: 'mdi-information',
             add: 'mdi-plus',
             edit: 'mdi-pencil',
-            delete: 'mdi-delete'
+            delete: 'mdi-delete',
         },
         md: { calendar: 'event', clock: 'clock', info: 'info', add: 'add', edit: 'create', delete: 'delete' },
         fa: {
@@ -339,8 +339,8 @@ const W = {
             info: 'fa-info',
             add: 'fa-plus',
             edit: 'fa-edit',
-            delete: 'fa-trash'
-        }
+            delete: 'fa-trash',
+        },
     };
 var G = {
     data: () => ({ currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} }),
@@ -363,7 +363,7 @@ var G = {
                         this.fullSchema.required &&
                         this.fullSchema.required.find((e) => e === this.oneOfConstProp.key)
                     ) ||
-                        void 0)
+                    void 0)
             );
         },
         subSchemasRules() {
@@ -372,7 +372,7 @@ var G = {
                 this.subSchemasRequired && e.push((e) => (null != e && '' !== e) || this.fullOptions.messages.required),
                 e
             );
-        }
+        },
     },
     watch: {
         currentOneOf(e, t) {
@@ -388,8 +388,8 @@ var G = {
             handler() {
                 this.fixProperties();
             },
-            deep: !0
-        }
+            deep: !0,
+        },
     },
     methods: {
         isSection: (e) =>
@@ -437,13 +437,13 @@ var G = {
                               {
                                   class: {
                                       'error--text':
-                                          this.childrenInputs[l] && this.childrenInputs[l].hasValidatedChildError
-                                  }
+                                          this.childrenInputs[l] && this.childrenInputs[l].hasValidatedChildError,
+                                  },
                               },
                               [t.title]
                           ),
-                          e('v-expansion-panel-content', { props: { eager: !0 } }, [s])
-                      ])
+                          e('v-expansion-panel-content', { props: { eager: !0 } }, [s]),
+                      ]),
                   ]
                 : 'tabs' === this.display
                 ? [
@@ -453,17 +453,17 @@ var G = {
                               {
                                   class: {
                                       'error--text':
-                                          this.childrenInputs[l] && this.childrenInputs[l].hasValidatedChildError
-                                  }
+                                          this.childrenInputs[l] && this.childrenInputs[l].hasValidatedChildError,
+                                  },
                               },
                               [t.title]
-                          )
+                          ),
                       ]),
                       e(
                           'v-tab-item',
                           { props: { value: `tab-${this.fullOptions.idPrefix}${this.dashKey}-${l}`, eager: !0 } },
                           [e('v-card', { props: { tile: !0, flat: !0 } }, [e('v-card-text', [s])])]
-                      )
+                      ),
                   ]
                 : [
                       e('v-row', { class: 'ma-0 ' + this.fullOptions.sectionsClass }, [
@@ -475,12 +475,12 @@ var G = {
                                       (this.fullOptions.sectionsTitlesClasses[this.sectionDepth] ||
                                           this.fullOptions.sectionsTitlesClasses[
                                               this.fullOptions.sectionsTitlesClasses.length - 1
-                                          ])
+                                          ]),
                               },
                               [t.title + ' ']
                           ),
-                          s
-                      ])
+                          s,
+                      ]),
                   ];
         },
         renderChildProp(e, t, i, s, l) {
@@ -500,7 +500,7 @@ var G = {
                         modelKey: a,
                         parentKey: this.fullKey + '.',
                         options: this.fullOptions,
-                        sectionDepth: s
+                        sectionDepth: s,
                     },
                     on: {
                         error: (e) => this.$emit('error', e),
@@ -512,8 +512,8 @@ var G = {
                                 : this.$set(r, a, e),
                                 this.$emit('input', this.value);
                         },
-                        change: (e) => this.$emit('change', this.value)
-                    }
+                        change: (e) => this.$emit('change', this.value),
+                    },
                 })
             );
         },
@@ -566,11 +566,11 @@ var G = {
                                 on: {
                                     change: (e) => {
                                         this.currentTab = e.split('-').pop();
-                                    }
-                                }
+                                    },
+                                },
                             },
                             i
-                        )
+                        ),
                     ]);
             }
             if (this.subSchemas && this.subSchemas.length) {
@@ -586,12 +586,12 @@ var G = {
                         itemValue: (e) => e.properties[this.subSchemasConstProp.key].const,
                         itemText: 'title',
                         rules: this.subSchemasRules,
-                        returnObject: !0
+                        returnObject: !0,
                     },
                     s = {
                         input: (e) => {
                             this.currentOneOf = e;
-                        }
+                        },
                     };
                 t.push(e('v-select', { props: i, on: s }, [this.renderTooltip(e, 'append-outer')])),
                     this.currentOneOf &&
@@ -614,15 +614,15 @@ var G = {
                             e('v-col', {
                                 props: { cols: 12 },
                                 class: { 'pa-0': !0 },
-                                domProps: { innerHTML: this.htmlDescription }
-                            })
+                                domProps: { innerHTML: this.htmlDescription },
+                            }),
                     ]
                         .concat(t)
                         .concat(i)
-                )
+                ),
             ];
-        }
-    }
+        },
+    },
 };
 const Z = (e) => {
         const t = '' + e;
@@ -665,7 +665,7 @@ var X = {
                 if ('time' === this.fullSchema.format)
                     (t = e('v-time-picker', {
                         props: { value: ((l = this.value), l ? l.slice(0, 5) : ''), ...this.fullSchema['x-props'] },
-                        on: { input: (e) => this.input(Q(e)), change: (e) => this.change(Q(e)) }
+                        on: { input: (e) => this.input(Q(e)), change: (e) => this.change(Q(e)) },
                     })),
                         (i = this.fullOptions.icons.clock);
                 else if ('date' === this.fullSchema.format)
@@ -675,14 +675,14 @@ var X = {
                             input: (e) => {
                                 this.input(e), (this.dateProp.menu = !1);
                             },
-                            change: (e) => this.change(e)
-                        }
+                            change: (e) => this.change(e),
+                        },
                     });
                 else {
                     this.value !== this.dateProp.lastValue &&
                         (this.dateProp.parts = [
                             `${(s = new Date(this.value)).getFullYear()}-${Z(s.getMonth() + 1)}-${Z(s.getDate())}`,
-                            `${Z(s.getHours())}:${Z(s.getMinutes())}`
+                            `${Z(s.getHours())}:${Z(s.getMinutes())}`,
                         ]),
                         (this.dateProp.lastValue = this.value);
                     const i = () => {
@@ -693,39 +693,39 @@ var X = {
                         },
                         l = [
                             e('v-tab', { props: { href: '#tab-date' } }, [
-                                e('v-icon', [this.fullOptions.icons.calendar])
+                                e('v-icon', [this.fullOptions.icons.calendar]),
                             ]),
                             e('v-tab', { props: { href: '#tab-time', disabled: !this.dateProp.parts[0] } }, [
-                                e('v-icon', [this.fullOptions.icons.clock])
+                                e('v-icon', [this.fullOptions.icons.clock]),
                             ]),
                             e('v-tab-item', { props: { value: 'tab-date' } }, [
                                 e('v-date-picker', {
                                     props: {
                                         ...this.fullOptions.datePickerProps,
                                         locale: this.fullOptions.locale,
-                                        value: this.dateProp.parts[0]
+                                        value: this.dateProp.parts[0],
                                     },
                                     on: {
                                         input: (e) => {
                                             (this.dateProp.parts[0] = e), (this.dateProp.tab = 'tab-time'), i();
-                                        }
-                                    }
-                                })
+                                        },
+                                    },
+                                }),
                             ]),
                             e('v-tab-item', { props: { value: 'tab-time' } }, [
                                 e('v-time-picker', {
                                     props: {
                                         ...this.fullOptions.timePickerProps,
                                         locale: this.fullOptions.locale,
-                                        value: this.dateProp.parts[1]
+                                        value: this.dateProp.parts[1],
                                     },
                                     on: {
                                         input: (e) => {
                                             (this.dateProp.parts[1] = e), i();
-                                        }
-                                    }
-                                })
-                            ])
+                                        },
+                                    },
+                                }),
+                            ]),
                         ];
                     t = e(
                         'v-tabs',
@@ -734,9 +734,9 @@ var X = {
                             on: {
                                 input: (e) => {
                                     this.dateProp.tab = e;
-                                }
+                                },
                             },
-                            class: 'vjsf-date-time'
+                            class: 'vjsf-date-time',
                         },
                         l
                     );
@@ -753,9 +753,9 @@ var X = {
                                     value: this.formattedValue,
                                     clearable: !this.required,
                                     readonly: !0,
-                                    prependIcon: i
+                                    prependIcon: i,
                                 },
-                                on: { ...t, input: (e) => this.input(e), change: (e) => this.change(e) }
+                                on: { ...t, input: (e) => this.input(e), change: (e) => this.change(e) },
                             },
                             [this.renderTooltip(e, 'append-outer')]
                         )),
@@ -772,20 +772,20 @@ var X = {
                                     transition: 'scale-transition',
                                     offsetY: !0,
                                     fullWidth: !0,
-                                    minWidth: '290px'
+                                    minWidth: '290px',
                                 },
                                 on: {
                                     input: (e) => {
                                         (this.dateProp.menu = e), (this.dateProp.tab = 'tab-date');
-                                    }
-                                }
+                                    },
+                                },
                             },
                             [t]
-                        )
+                        ),
                     ]
                 );
-            }
-        }
+            },
+        },
     },
     ee = {
         computed: {
@@ -797,7 +797,7 @@ var X = {
                     ('array' === this.fullSchema.type &&
                         ['string', 'number', 'integer'].includes(this.fullSchema.items.type))
                 );
-            }
+            },
         },
         methods: {
             renderSimpleProp(e) {
@@ -843,13 +843,13 @@ var X = {
                                           this.fullSchema.tag,
                                           { props: { ...t, required: !0, 'error-messages': r }, on: l, scopedSlots: s },
                                           i
-                                      )
-                              }
-                          })
+                                      ),
+                              },
+                          }),
                       ]
                     : [e(this.fullSchema.tag, { props: t, on: l, scopedSlots: s }, i)];
-            }
-        }
+            },
+        },
     };
 const te = async (e, t, i) => {
     let s = e;
@@ -881,20 +881,20 @@ var ie = {
                             'file' !== this.display &&
                             'file' !== this.fullSchema.items['x-display'])
                     ) ||
-                        !(
-                            'object' !== this.fullSchema.type ||
-                            (!this.fullSchema.contentMediaType && 'file' !== this.display)
-                        ) ||
-                            !(
-                                'array' !== this.fullSchema.type ||
-                                !this.fullSchema.items ||
-                                'object' !== this.fullSchema.items.type ||
-                                (!this.fullSchema.items.contentMediaType &&
-                                    'file' !== this.display &&
-                                    'file' !== this.fullSchema.items['x-display'])
-                            )
+                    !(
+                        'object' !== this.fullSchema.type ||
+                        (!this.fullSchema.contentMediaType && 'file' !== this.display)
+                    ) ||
+                    !(
+                        'array' !== this.fullSchema.type ||
+                        !this.fullSchema.items ||
+                        'object' !== this.fullSchema.items.type ||
+                        (!this.fullSchema.items.contentMediaType &&
+                            'file' !== this.display &&
+                            'file' !== this.fullSchema.items['x-display'])
+                    )
                 );
-            }
+            },
         },
         created() {
             this.isFileProp && this.fullSchema.writeOnly;
@@ -922,14 +922,14 @@ var ie = {
                                 const t = await te(e, this.resolvedSchema, this.fullOptions.filesAsDataUrl);
                                 this.input(t), this.change(t);
                             }
-                        }
+                        },
                     };
                 return (
                     this.htmlDescription && s.push(this.renderTooltip(e, 'append-outer')),
                     [e('v-file-input', { props: t, attrs: i, on: l }, s)]
                 );
-            }
-        }
+            },
+        },
     },
     se = {
         computed: {
@@ -938,7 +938,7 @@ var ie = {
                     'string' === this.fullSchema.type &&
                     ('hexcolor' === this.fullSchema.format || 'color-picker' === this.display)
                 );
-            }
+            },
         },
         methods: {
             renderColorProp(e) {
@@ -955,7 +955,7 @@ var ie = {
                                         style: `background-color: ${this.value};margin-left: 10px;`,
                                         class: this.value
                                             ? 'color-picker-trigger'
-                                            : 'color-picker-trigger color-picker-trigger-empty'
+                                            : 'color-picker-trigger color-picker-trigger-empty',
                                     }),
                                 default: () =>
                                     e('v-color-picker', {
@@ -963,15 +963,15 @@ var ie = {
                                             flat: !0,
                                             ...this.fullOptions.colorPickerProps,
                                             ...this.fullSchema['x-props'],
-                                            value: this.value || ''
+                                            value: this.value || '',
                                         },
                                         on: {
                                             input: (e) => {
                                                 this.input(e), this.change(e);
-                                            }
-                                        }
-                                    })
-                            }
+                                            },
+                                        },
+                                    }),
+                            },
                         })
                     ),
                     [
@@ -984,15 +984,15 @@ var ie = {
                                     required: this.required,
                                     rules: this.rules,
                                     disabled: this.disabled,
-                                    ...this.fullOptions.fieldProps
-                                }
+                                    ...this.fullOptions.fieldProps,
+                                },
                             },
                             t
-                        )
+                        ),
                     ]
                 );
-            }
-        }
+            },
+        },
     };
 const le = {
         getSelectItems: (e, t, i, s) => {
@@ -1024,7 +1024,7 @@ const le = {
                     });
             else;
             return l;
-        }
+        },
     },
     re = (e, t, i) => {
         if ([null, void 0].includes(e)) return !1;
@@ -1072,7 +1072,7 @@ function oe(e, t, i, s, l, r, a, n, o, h) {
             l && (u.functional = !0)),
         s && (u._scopeId = s),
         r
-            ? ((c = function(e) {
+            ? ((c = function (e) {
                   (e =
                       e ||
                       (this.$vnode && this.$vnode.ssrContext) ||
@@ -1085,17 +1085,17 @@ function oe(e, t, i, s, l, r, a, n, o, h) {
               (u._ssrRegister = c))
             : t &&
               (c = a
-                  ? function(e) {
+                  ? function (e) {
                         t.call(this, h(e, this.$root.$options.shadowRoot));
                     }
-                  : function(e) {
+                  : function (e) {
                         t.call(this, n(e));
                     }),
         c)
     )
         if (u.functional) {
             const e = u.render;
-            u.render = function(t, i) {
+            u.render = function (t, i) {
                 return c.call(i), e(t, i);
             };
         } else {
@@ -1150,7 +1150,7 @@ const he = oe(
             VTextarea: R,
             VTextField: q,
             VTimePicker: M,
-            VTooltip: N
+            VTooltip: N,
         },
         mixins: [
             oe(
@@ -1175,7 +1175,9 @@ const he = oe(
                                                 !this.fullSchema.items ||
                                                 !this.fullSchema.items.enum
                                             ) ||
-                                                !!this.oneOfSelect || !!this.fromUrl || !!this.fromData)
+                                            !!this.oneOfSelect ||
+                                            !!this.fromUrl ||
+                                            !!this.fromData)
                                     );
                                 },
                                 oneOfSelect() {
@@ -1226,7 +1228,7 @@ const he = oe(
                                         'object' === this.fullSchema.type ||
                                         (this.fullSchema.items && 'object' === this.fullSchema.items.type)
                                     );
-                                }
+                                },
                             },
                             watch: {
                                 q() {
@@ -1236,8 +1238,8 @@ const he = oe(
                                     handler() {
                                         this.updateSelectItems();
                                     },
-                                    immediate: !0
-                                }
+                                    immediate: !0,
+                                },
                             },
                             methods: {
                                 initSelectProp(e) {
@@ -1259,7 +1261,7 @@ const he = oe(
                                             ).oneOf.map((e) => ({
                                                 ...e,
                                                 [this.itemKey]: e.const || (e.enum && e.enum[0]),
-                                                [this.itemTitle]: e.title
+                                                [this.itemTitle]: e.title,
                                             })));
                                     const t = this.modelRoot ? 'modelRoot.' : 'value.';
                                     this.fullSchema['x-fromData'] &&
@@ -1354,21 +1356,21 @@ const he = oe(
                                 },
                                 renderSelectItem(e, t) {
                                     return e('v-list-item-content', [
-                                        e('v-list-item-title', t[this.itemTitle] || t[this.itemKey])
+                                        e('v-list-item-title', t[this.itemTitle] || t[this.itemKey]),
                                     ]);
                                 },
                                 renderSelectionControlItem(e, t) {
                                     const i = {
                                             change: (e) => {
                                                 this.input(e), this.$emit('change', e);
-                                            }
+                                            },
                                         },
                                         s = {
                                             label: t[this.itemTitle] || t[this.itemKey],
                                             value: t[this.itemKey],
                                             inputValue: this.value,
                                             multiple: 'array' === this.fullSchema.type,
-                                            hideDetails: !0
+                                            hideDetails: !0,
                                         };
                                     return e('v-' + this.display, { props: s, on: i, class: 'pb-1' });
                                 },
@@ -1376,19 +1378,19 @@ const he = oe(
                                     const t = {
                                             change: (e) => {
                                                 this.input(e), this.change(e);
-                                            }
+                                            },
                                         },
                                         i = {
                                             ...this.commonFieldProps,
                                             multiple: 'array' === this.fullSchema.type,
-                                            label: null
+                                            label: null,
                                         },
                                         s = e(
                                             'legend',
                                             {
                                                 class: `v-label theme--${this.theme.isDark ? 'dark' : 'light'} ${
                                                     this.hasError ? 'error--text' : ''
-                                                }`
+                                                }`,
                                             },
                                             this.commonFieldProps.label
                                         ),
@@ -1400,20 +1402,20 @@ const he = oe(
                                                 props: i,
                                                 on: t,
                                                 class:
-                                                    'v-input--selection-controls v-input--radio-group v-input--radio-group--column'
+                                                    'v-input--selection-controls v-input--radio-group v-input--radio-group--column',
                                             },
                                             [
                                                 e('div', { class: 'v-input--radio-group__input' }, [s, ...l]),
-                                                this.renderTooltip(e, 'append')
+                                                this.renderTooltip(e, 'append'),
                                             ]
-                                        )
+                                        ),
                                     ];
                                 },
                                 renderRadioItem(e, t) {
                                     const i = t[this.itemTitle] || t[this.itemKey],
                                         s = t[this.itemKey];
                                     return e('v-radio', {
-                                        props: { ...this.fullOptions.radioItemProps, label: i, value: s }
+                                        props: { ...this.fullOptions.radioItemProps, label: i, value: s },
                                     });
                                 },
                                 renderRadioGroup(e) {
@@ -1426,14 +1428,14 @@ const he = oe(
                                                 on: {
                                                     change: (e) => {
                                                         this.input(e), this.change(e);
-                                                    }
-                                                }
+                                                    },
+                                                },
                                             },
                                             [
                                                 ...this.selectItems.map((t) => this.renderRadioItem(e, t)),
-                                                this.renderTooltip(e, 'append')
+                                                this.renderTooltip(e, 'append'),
                                             ]
-                                        )
+                                        ),
                                     ];
                                 },
                                 renderSelectProp(e) {
@@ -1456,20 +1458,20 @@ const he = oe(
                                                             class: {
                                                                 'v-select__selection': !0,
                                                                 'v-select__selection--comma': !0,
-                                                                'v-select__selection--disabled': this.disabled
-                                                            }
+                                                                'v-select__selection--disabled': this.disabled,
+                                                            },
                                                         },
                                                         [
                                                             this.renderSelectIcon(e, t.item),
-                                                            e('span', { domProps: { innerHTML: i }, class: 'mt-1' })
+                                                            e('span', { domProps: { innerHTML: i }, class: 'mt-1' }),
                                                         ]
                                                     )
                                                 );
                                             },
                                             item: (t) => [
                                                 this.renderSelectIcon(e, t.item),
-                                                this.renderSelectItem(e, t.item)
-                                            ]
+                                                this.renderSelectItem(e, t.item),
+                                            ],
                                         },
                                         s = [...this.renderPropSlots(e)];
                                     this.htmlDescription && s.push(this.renderTooltip(e, 'append-outer'));
@@ -1481,7 +1483,7 @@ const he = oe(
                                         multiple: 'array' === this.fullSchema.type,
                                         itemValue: this.itemKey,
                                         items: this.selectItems,
-                                        returnObject: this.returnObject
+                                        returnObject: this.returnObject,
                                     };
                                     return (
                                         (this.fromUrlWithQuery ||
@@ -1502,13 +1504,13 @@ const he = oe(
                                         (l = this.customTag ? this.customTag : l),
                                         [e(l, { props: r, on: t, scopedSlots: i }, s)]
                                     );
-                                }
-                            }
+                                },
+                            },
                         },
                         ie,
                         {
                             data: () => ({
-                                editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} }
+                                editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} },
                             }),
                             computed: {
                                 isEditableArray() {
@@ -1540,7 +1542,7 @@ const he = oe(
                                                 })),
                                         e
                                     );
-                                }
+                                },
                             },
                             watch: {},
                             methods: {
@@ -1561,15 +1563,15 @@ const he = oe(
                                                     parentKey: this.fullKey + '.',
                                                     options: this.fullOptions,
                                                     sectionDepth: this.sectionDepth + 1,
-                                                    separateValidation: !0
+                                                    separateValidation: !0,
                                                 },
                                                 scopedSlots: this.childScopedSlots(this.fullSchema.key),
                                                 on: {
                                                     error: (e) => this.$emit('error', e),
                                                     input: (e) => {
                                                         this.editabledArrayProp.editItem = e;
-                                                    }
-                                                }
+                                                    },
+                                                },
                                             },
                                             this.childSlots(e, this.fullSchema.key)
                                         )));
@@ -1584,7 +1586,7 @@ const he = oe(
                                                                     JSON.stringify(t)
                                                                 )),
                                                                     (this.editabledArrayProp.currentDialog = i);
-                                                            }
+                                                            },
                                                         },
                                                         attrs: {
                                                             id:
@@ -1592,18 +1594,18 @@ const he = oe(
                                                                 this.dashKey +
                                                                 '-' +
                                                                 (s ? '-add' : i + '--edit') +
-                                                                '-button'
+                                                                '-button',
                                                         },
                                                         class: { 'vjsf-array-add-button': !0, 'ml-3': s },
-                                                        props: { icon: !s, fab: s, small: s, color: 'primary' }
+                                                        props: { icon: !s, fab: s, small: s, color: 'primary' },
                                                     },
                                                     [
                                                         e(
                                                             'v-icon',
                                                             s ? this.fullOptions.icons.add : this.fullOptions.icons.edit
-                                                        )
+                                                        ),
                                                     ]
-                                                )
+                                                ),
                                         },
                                         a = () => {
                                             l.componentInstance.resetValidation(),
@@ -1615,10 +1617,10 @@ const he = oe(
                                             props: {
                                                 ...this.fullOptions.dialogProps,
                                                 value: this.editabledArrayProp.currentDialog === i,
-                                                closeOnContentClick: !1
+                                                closeOnContentClick: !1,
                                             },
                                             scopedSlots: r,
-                                            on: { 'click:outside': a }
+                                            on: { 'click:outside': a },
                                         },
                                         [
                                             e('v-card', { props: this.fullOptions.dialogCardProps }, [
@@ -1635,9 +1637,9 @@ const he = oe(
                                                                 id:
                                                                     this.fullOptions.idPrefix +
                                                                     this.dashKey +
-                                                                    '--dialog-cancel-button'
+                                                                    '--dialog-cancel-button',
                                                             },
-                                                            class: { 'vjsf-array-dialog-cancel-button': !0 }
+                                                            class: { 'vjsf-array-dialog-cancel-button': !0 },
                                                         },
                                                         'cancel'
                                                     ),
@@ -1672,20 +1674,20 @@ const he = oe(
                                                                         this.$emit('change', this.value),
                                                                         (this.shouldValidate = !0),
                                                                         (this.editabledArrayProp.currentDialog = null));
-                                                                }
+                                                                },
                                                             },
                                                             attrs: {
                                                                 id:
                                                                     this.fullOptions.idPrefix +
                                                                     this.dashKey +
-                                                                    '--dialog-ok-button'
+                                                                    '--dialog-ok-button',
                                                             },
-                                                            class: { 'vjsf-array-dialog-ok-button': !0 }
+                                                            class: { 'vjsf-array-dialog-ok-button': !0 },
                                                         },
                                                         'ok'
-                                                    )
-                                                ])
-                                            ])
+                                                    ),
+                                                ]),
+                                            ]),
                                         ]
                                     );
                                 },
@@ -1700,17 +1702,17 @@ const he = oe(
                                             options: {
                                                 ...this.fullOptions,
                                                 hideReadOnly: !1,
-                                                fieldProps: { ...this.fullOptions.fieldProps, dense: !0 }
+                                                fieldProps: { ...this.fullOptions.fieldProps, dense: !0 },
                                             },
                                             sectionDepth: this.sectionDepth + 1,
-                                            separateValidation: !0
+                                            separateValidation: !0,
                                         },
                                         ref: 'roItem-' + i,
                                         on: {
                                             input: (e) => {
                                                 this.editabledArrayProp.editedItems[i] || this.$set(this.value, i, e);
-                                            }
-                                        }
+                                            },
+                                        },
                                     });
                                 },
                                 renderEditableArray(e) {
@@ -1736,8 +1738,8 @@ const he = oe(
                                                 rules: this.rules,
                                                 value: this.value,
                                                 validateOnBlur: !this.shouldValidate,
-                                                hideDetails: !this.hasError
-                                            }
+                                                hideDetails: !this.hasError,
+                                            },
                                         },
                                         t
                                     );
@@ -1754,7 +1756,7 @@ const he = oe(
                                                             this.itemTitle && t[this.itemTitle]
                                                         ),
                                                         e('v-card-text', { class: 'pb-0' }, [
-                                                            this.renderArrayItemRO(e, t, s)
+                                                            this.renderArrayItemRO(e, t, s),
                                                         ]),
                                                         e('v-card-actions', [
                                                             e('v-spacer'),
@@ -1772,7 +1774,7 @@ const he = oe(
                                                                                 this.dashKey +
                                                                                 '-' +
                                                                                 s +
-                                                                                '--delete-button'
+                                                                                '--delete-button',
                                                                         },
                                                                         class: { 'vjsf-array-delete-button': !0 },
                                                                         on: {
@@ -1784,20 +1786,20 @@ const he = oe(
                                                                                     this.$emit('change', e),
                                                                                     (this.shouldValidate = !0),
                                                                                     i.componentInstance.validate();
-                                                                            }
-                                                                        }
+                                                                            },
+                                                                        },
                                                                     },
                                                                     [e('v-icon', this.fullOptions.icons.delete)]
-                                                                )
-                                                        ])
-                                                    ])
+                                                                ),
+                                                        ]),
+                                                    ]),
                                                 ])
                                             );
                                         s = e(
                                             'v-row',
                                             {
                                                 props: { gridListMd: !0 },
-                                                class: 'pt-0 px-2 ' + this.fullOptions.objectContainerClass
+                                                class: 'pt-0 px-2 ' + this.fullOptions.objectContainerClass,
                                             },
                                             this.fullOptions.disableSorting
                                                 ? t
@@ -1819,17 +1821,17 @@ const he = oe(
                                                                                       'roItem-' + t
                                                                                   ].initFromSchema();
                                                                           });
-                                                                  }
-                                                              }
+                                                                  },
+                                                              },
                                                           },
                                                           t
-                                                      )
+                                                      ),
                                                   ]
                                         );
                                     }
                                     return [i, s];
-                                }
-                            }
+                                },
+                            },
                         },
                         {
                             data: () => ({ tooltip: { show: !1, maxWidth: 200 } }),
@@ -1851,7 +1853,7 @@ const he = oe(
                                                     left: !0,
                                                     openOnHover: !1,
                                                     openOnClick: !1,
-                                                    contentClass: 'vjsf-tooltip'
+                                                    contentClass: 'vjsf-tooltip',
                                                 },
                                                 scopedSlots: {
                                                     activator: () =>
@@ -1861,24 +1863,24 @@ const he = oe(
                                                                 on: {
                                                                     click: () => {
                                                                         this.tooltip.show = !this.tooltip.show;
-                                                                    }
+                                                                    },
                                                                 },
                                                                 props: { icon: !0 },
-                                                                style: 'pointer-events: auto'
+                                                                style: 'pointer-events: auto',
                                                             },
                                                             [e('v-icon', {}, this.fullOptions.icons.info)]
-                                                        )
-                                                }
+                                                        ),
+                                                },
                                             },
                                             [
                                                 e('div', {
                                                     style: `max-width: ${this.tooltip.maxWidth}px`,
-                                                    domProps: { innerHTML: this.htmlDescription }
-                                                })
+                                                    domProps: { innerHTML: this.htmlDescription },
+                                                }),
                                             ]
                                         );
-                                }
-                            }
+                                },
+                            },
                         },
                         {
                             inject: ['form'],
@@ -1900,7 +1902,7 @@ const he = oe(
                                             e.hasValidatedChildError ||
                                             (e.hasError && (e.validated || e.shouldValidate))
                                     );
-                                }
+                                },
                             },
                             created() {
                                 this.separateValidation || (this.form && this.form.register(this));
@@ -1935,9 +1937,9 @@ const he = oe(
                                     (this.shouldValidate = !1),
                                         (this.validated = !1),
                                         this.inputs.forEach((e) => e.resetValidation());
-                                }
-                            }
-                        }
+                                },
+                            },
+                        },
                     ],
                     inject: ['theme'],
                     props: {
@@ -1948,7 +1950,7 @@ const he = oe(
                         modelKey: { type: [String, Number], default: 'root' },
                         parentKey: { type: String, default: '' },
                         required: { type: Boolean, default: !1 },
-                        sectionDepth: { type: Number, default: 0 }
+                        sectionDepth: { type: Number, default: 0 },
                     },
                     data: () => ({ ready: !1, loading: !1 }),
                     computed: {
@@ -2111,8 +2113,8 @@ const he = oe(
                                 htmlDescription: this.htmlDescription,
                                 on: {
                                     input: (e) => this.input(e instanceof Event ? e.target.value : e),
-                                    change: (e) => this.change(e)
-                                }
+                                    change: (e) => this.change(e),
+                                },
                             };
                         },
                         dashKey() {
@@ -2129,12 +2131,13 @@ const he = oe(
                                 rules: this.rules,
                                 required: this.required,
                                 ...this.fullOptions.fieldProps,
-                                ...this.fullSchema['x-props']
+                                ...this.fullSchema['x-props'],
                             };
                         },
                         propertyClass() {
-                            return `vjsf-property vjsf-property-${this.dashKey} pa-0 ${this.fullSchema['x-class'] ||
-                                ''}`;
+                            return `vjsf-property vjsf-property-${this.dashKey} pa-0 ${
+                                this.fullSchema['x-class'] || ''
+                            }`;
                         },
                         xSlots() {
                             return { ...this.fullSchema['x-slots'] };
@@ -2146,7 +2149,7 @@ const he = oe(
                                 this.fullOptions.formats[this.fullSchema.format] &&
                                 this.fullOptions.formats[this.fullSchema.format](this.value, this.fullOptions.locale)
                             );
-                        }
+                        },
                     },
                     watch: {
                         fullSchema: {
@@ -2158,8 +2161,8 @@ const he = oe(
                                     this.fixProperties(),
                                     (this.ready = !0));
                             },
-                            immediate: !0
-                        }
+                            immediate: !0,
+                        },
                     },
                     render(e) {
                         if (
@@ -2178,7 +2181,7 @@ const he = oe(
                                 : this.xSlots.before &&
                                   t.push(
                                       e('div', {
-                                          domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) }
+                                          domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) },
                                       })
                                   ),
                             this.$scopedSlots.default)
@@ -2226,7 +2229,7 @@ const he = oe(
                                     t.push(
                                         e('div', {
                                             slot: i,
-                                            domProps: { innerHTML: this.fullOptions.markdown(this.xSlots[i]) }
+                                            domProps: { innerHTML: this.fullOptions.markdown(this.xSlots[i]) },
                                         })
                                     );
                                 }),
@@ -2292,8 +2295,8 @@ const he = oe(
                                 this.initObjectContainer(e),
                                 'array' === this.fullSchema.type && (e = e.filter((e) => ![void 0, null].includes(e))),
                                 this.input(e);
-                        }
-                    }
+                        },
+                    },
                 },
                 undefined,
                 undefined,
@@ -2302,8 +2305,8 @@ const he = oe(
                 void 0,
                 void 0,
                 void 0
-            )
-        ]
+            ),
+        ],
     },
     undefined,
     undefined,
@@ -2313,7 +2316,7 @@ const he = oe(
     void 0,
     void 0
 );
-(he.install = function(e) {
+(he.install = function (e) {
     e.component(he.name, he);
 }),
     null != typeof window && window.Vue && he.install(window.Vue);

@@ -8,7 +8,7 @@ import {
     VForm as i,
     VCol as a,
     VRow as l,
-    VCard as d
+    VCard as d,
 } from 'vuetify/lib';
 import { ValidationObserver as c } from 'vee-validate';
 import v from '@hecate/h-form-renderer';
@@ -25,7 +25,7 @@ function f(e, t, o, r, n, s, i, a, l, d) {
             n && (c.functional = !0)),
         r && (c._scopeId = r),
         s
-            ? ((v = function(e) {
+            ? ((v = function (e) {
                   (e =
                       e ||
                       (this.$vnode && this.$vnode.ssrContext) ||
@@ -38,17 +38,17 @@ function f(e, t, o, r, n, s, i, a, l, d) {
               (c._ssrRegister = v))
             : t &&
               (v = i
-                  ? function(e) {
+                  ? function (e) {
                         t.call(this, d(e, this.$root.$options.shadowRoot));
                     }
-                  : function(e) {
+                  : function (e) {
                         t.call(this, a(e));
                     }),
         v)
     )
         if (c.functional) {
             const e = c.render;
-            c.render = function(t, o) {
+            c.render = function (t, o) {
                 return v.call(o), e(t, o);
             };
         } else {
@@ -59,7 +59,7 @@ function f(e, t, o, r, n, s, i, a, l, d) {
 }
 const m = f(
     {
-        render: function() {
+        render: function () {
             var e = this,
                 t = e.$createElement,
                 o = e._self._c || t;
@@ -78,7 +78,7 @@ const m = f(
                                     scopedSlots: e._u([
                                         {
                                             key: 'activator',
-                                            fn: function(t) {
+                                            fn: function (t) {
                                                 var r = t.on;
                                                 return [
                                                     o(
@@ -86,21 +86,21 @@ const m = f(
                                                         e._g(
                                                             {
                                                                 staticClass: 'mr-2',
-                                                                attrs: { tile: '', color: 'teal', large: '' }
+                                                                attrs: { tile: '', color: 'teal', large: '' },
                                                             },
                                                             r
                                                         ),
                                                         [e._v('mdi-clipboard-edit')]
-                                                    )
+                                                    ),
                                                 ];
-                                            }
-                                        }
-                                    ])
+                                            },
+                                        },
+                                    ]),
                                 },
                                 [e._v(' '), o('span', [e._v('返回')])]
                             ),
                             e._v(' '),
-                            o('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))])
+                            o('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))]),
                         ],
                         1
                     ),
@@ -125,11 +125,11 @@ const m = f(
                                                         attrs: { schema: e.schema },
                                                         model: {
                                                             value: e.model,
-                                                            callback: function(t) {
+                                                            callback: function (t) {
                                                                 e.model = t;
                                                             },
-                                                            expression: 'model'
-                                                        }
+                                                            expression: 'model',
+                                                        },
                                                     }),
                                                     e._v(' '),
                                                     o(
@@ -137,7 +137,7 @@ const m = f(
                                                         {
                                                             staticClass: 'mr-4',
                                                             attrs: { color: 'primary' },
-                                                            on: { click: e.saveOrUpdate }
+                                                            on: { click: e.saveOrUpdate },
                                                         },
                                                         [e._v('保存')]
                                                     ),
@@ -147,27 +147,27 @@ const m = f(
                                                         {
                                                             staticClass: 'mr-4',
                                                             attrs: { color: 'warning' },
-                                                            on: { click: e.clear }
+                                                            on: { click: e.clear },
                                                         },
                                                         [e._v('重置')]
-                                                    )
+                                                    ),
                                                 ],
                                                 1
-                                            )
+                                            ),
                                         ],
                                         1
-                                    )
+                                    ),
                                 ],
                                 1
-                            )
+                            ),
                         ],
                         1
-                    )
+                    ),
                 ],
                 1
             );
         },
-        staticRenderFns: []
+        staticRenderFns: [],
     },
     undefined,
     {
@@ -184,7 +184,7 @@ const m = f(
             VForm: i,
             VCol: a,
             VRow: l,
-            VCard: d
+            VCard: d,
         },
         props: { schema: { type: Object, default: () => {} }, title: { type: String, default: '动态表单' } },
         data: () => ({ model: {} }),
@@ -194,8 +194,8 @@ const m = f(
             },
             clear() {
                 (this.model = {}), this.$refs.form.reset(), this.$refs.observer.reset();
-            }
-        }
+            },
+        },
     },
     undefined,
     false,
@@ -205,7 +205,7 @@ const m = f(
     void 0,
     void 0
 );
-(m.install = function(e) {
+(m.install = function (e) {
     e.component(m.name, m);
 }),
     null != typeof window && window.Vue && m.install(window.Vue);

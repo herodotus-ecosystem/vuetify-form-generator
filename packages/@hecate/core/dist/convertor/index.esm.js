@@ -17,7 +17,7 @@ class t {
             'wbr',
             'command',
             'keygen',
-            'menuitem'
+            'menuitem',
         ];
     }
     static build(t) {

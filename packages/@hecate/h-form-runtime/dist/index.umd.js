@@ -1,4 +1,4 @@
-!(function(e, t) {
+!(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(require('vuetify/lib'), require('vee-validate'), require('@hecate/h-form-renderer'))
         : 'function' == typeof define && define.amd
@@ -8,7 +8,7 @@
               e['vee-validate'],
               e.HFormRenderer
           );
-})(this, function(e, t, o) {
+})(this, function (e, t, o) {
     'use strict';
     function r(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -27,7 +27,7 @@
                 n && (c.functional = !0)),
             r && (c._scopeId = r),
             i
-                ? ((f = function(e) {
+                ? ((f = function (e) {
                       (e =
                           e ||
                           (this.$vnode && this.$vnode.ssrContext) ||
@@ -40,17 +40,17 @@
                   (c._ssrRegister = f))
                 : t &&
                   (f = a
-                      ? function(e) {
+                      ? function (e) {
                             t.call(this, d(e, this.$root.$options.shadowRoot));
                         }
-                      : function(e) {
+                      : function (e) {
                             t.call(this, s(e));
                         }),
             f)
         )
             if (c.functional) {
                 const e = c.render;
-                c.render = function(t, o) {
+                c.render = function (t, o) {
                     return f.call(o), e(t, o);
                 };
             } else {
@@ -61,7 +61,7 @@
     }
     const a = i(
         {
-            render: function() {
+            render: function () {
                 var e = this,
                     t = e.$createElement,
                     o = e._self._c || t;
@@ -80,7 +80,7 @@
                                         scopedSlots: e._u([
                                             {
                                                 key: 'activator',
-                                                fn: function(t) {
+                                                fn: function (t) {
                                                     var r = t.on;
                                                     return [
                                                         o(
@@ -88,21 +88,21 @@
                                                             e._g(
                                                                 {
                                                                     staticClass: 'mr-2',
-                                                                    attrs: { tile: '', color: 'teal', large: '' }
+                                                                    attrs: { tile: '', color: 'teal', large: '' },
                                                                 },
                                                                 r
                                                             ),
                                                             [e._v('mdi-clipboard-edit')]
-                                                        )
+                                                        ),
                                                     ];
-                                                }
-                                            }
-                                        ])
+                                                },
+                                            },
+                                        ]),
                                     },
                                     [e._v(' '), o('span', [e._v('返回')])]
                                 ),
                                 e._v(' '),
-                                o('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))])
+                                o('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))]),
                             ],
                             1
                         ),
@@ -127,11 +127,11 @@
                                                             attrs: { schema: e.schema },
                                                             model: {
                                                                 value: e.model,
-                                                                callback: function(t) {
+                                                                callback: function (t) {
                                                                     e.model = t;
                                                                 },
-                                                                expression: 'model'
-                                                            }
+                                                                expression: 'model',
+                                                            },
                                                         }),
                                                         e._v(' '),
                                                         o(
@@ -139,7 +139,7 @@
                                                             {
                                                                 staticClass: 'mr-4',
                                                                 attrs: { color: 'primary' },
-                                                                on: { click: e.saveOrUpdate }
+                                                                on: { click: e.saveOrUpdate },
                                                             },
                                                             [e._v('保存')]
                                                         ),
@@ -149,27 +149,27 @@
                                                             {
                                                                 staticClass: 'mr-4',
                                                                 attrs: { color: 'warning' },
-                                                                on: { click: e.clear }
+                                                                on: { click: e.clear },
                                                             },
                                                             [e._v('重置')]
-                                                        )
+                                                        ),
                                                     ],
                                                     1
-                                                )
+                                                ),
                                             ],
                                             1
-                                        )
+                                        ),
                                     ],
                                     1
-                                )
+                                ),
                             ],
                             1
-                        )
+                        ),
                     ],
                     1
                 );
             },
-            staticRenderFns: []
+            staticRenderFns: [],
         },
         undefined,
         {
@@ -186,7 +186,7 @@
                 VForm: e.VForm,
                 VCol: e.VCol,
                 VRow: e.VRow,
-                VCard: e.VCard
+                VCard: e.VCard,
             },
             props: { schema: { type: Object, default: () => {} }, title: { type: String, default: '动态表单' } },
             data: () => ({ model: {} }),
@@ -196,8 +196,8 @@
                 },
                 clear() {
                     (this.model = {}), this.$refs.form.reset(), this.$refs.observer.reset();
-                }
-            }
+                },
+            },
         },
         undefined,
         false,
@@ -207,7 +207,7 @@
         void 0,
         void 0
     );
-    (a.install = function(e) {
+    (a.install = function (e) {
         e.component(a.name, a);
     }),
         null != typeof window && window.Vue && a.install(window.Vue);
