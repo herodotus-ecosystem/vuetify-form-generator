@@ -315,3 +315,4 @@ const m = u(
     e.component(m.name, m);
 }),
     null != typeof window && window.Vue && m.install(window.Vue);
+export { m as HIconList };

@@ -8,4 +8,4 @@ if (typeof window != undefined && window.Vue) {
     HFormRuntime.install(window.Vue);
 }
 
-export default HFormRuntime;
+export { HFormRuntime };

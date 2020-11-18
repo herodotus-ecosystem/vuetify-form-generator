@@ -1,35 +1,35 @@
 !(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
-        ? t(require('vuetify/lib'))
+        ? t(exports, require('vuetify/lib'))
         : 'function' == typeof define && define.amd
-        ? define(['vuetify/lib'], t)
-        : t((e = 'undefined' != typeof globalThis ? globalThis : e || self).Vuetify);
-})(this, function (e) {
+        ? define(['exports', 'vuetify/lib'], t)
+        : t(((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}), e.Vuetify);
+})(this, function (e, t) {
     'use strict';
-    var t = require('property-expr');
-    const i = {
+    var i = require('property-expr');
+    const s = {
             cache: {},
             extendtoken: '$extend',
             reftoken: '$ref',
             pathtoken: '#',
             debug: !1,
             clone: function (e) {
-                var t, s;
+                var t, i;
                 if (null === e || 'object' != typeof e || 'function' == typeof e) return e;
-                for (t in ((s = e.constructor()), e)) s[t] = i.clone(e[t]);
-                return s;
+                for (t in ((i = e.constructor()), e)) i[t] = s.clone(e[t]);
+                return i;
             },
             findIds: function (e, t) {
-                var s, l, r, a;
-                for (l in ((s = !1), (r = {}), e))
-                    (a = e[l]),
-                        null != e.id && (s = e.id),
-                        s && 'id' !== l && (r[l] = a),
-                        'object' == typeof a && i.findIds(a, t);
-                if (s) return (t[s] = r), r;
+                var i, l, r, n;
+                for (l in ((i = !1), (r = {}), e))
+                    (n = e[l]),
+                        null != e.id && (i = e.id),
+                        i && 'id' !== l && (r[l] = n),
+                        'object' == typeof n && s.findIds(n, t);
+                if (i) return (t[i] = r), r;
             },
-            get_json_pointer: function (e, s, l) {
-                var r, a;
+            get_json_pointer: function (e, t, l) {
+                var r, n;
                 (r = e
                     .replace(/\\\//, '#SLASH#')
                     .replace(/\//g, '.')
@@ -37,88 +37,88 @@
                     Object.keys(l).forEach((e) => {
                         r = r.replace(e, l[e]);
                     }),
-                    '.' === (r = r.replace(new RegExp('^' + i.pathtoken), ''))[0] && (r = r.substr(1, r.length - 1));
+                    '.' === (r = r.replace(new RegExp('^' + s.pathtoken), ''))[0] && (r = r.substr(1, r.length - 1));
                 try {
-                    i.debug, (a = t.getter(r)(s));
+                    s.debug, (n = i.getter(r)(t));
                 } catch (e) {
-                    a = '';
+                    n = '';
                 }
-                return a;
+                return n;
             },
-            replace: function (e, t, s, l) {
-                var r, a, n, o, h, u;
+            replace: function (e, t, i, l) {
+                var r, n, a, o, h, u;
                 for (r in ((h = []), e))
-                    null != (u = e[r]) && null != u[i.reftoken]
-                        ? ((a = u[i.reftoken]),
+                    null != (u = e[r]) && null != u[s.reftoken]
+                        ? ((n = u[s.reftoken]),
                           Object.keys(u).length,
-                          Array.isArray(a)
-                              ? (a = i.replace(a, t, s, l))
-                              : null != t[a]
-                              ? (e[r] = t[a])
-                              : String(a).match(new RegExp('^' + i.pathtoken)) && (e[r] = i.get_json_pointer(a, s, l)),
-                          null != (null != (n = e[r]) ? n.length : void 0) &&
+                          Array.isArray(n)
+                              ? (n = s.replace(n, t, i, l))
+                              : null != t[n]
+                              ? (e[r] = t[n])
+                              : String(n).match(new RegExp('^' + s.pathtoken)) && (e[r] = s.get_json_pointer(n, i, l)),
+                          null != (null != (a = e[r]) ? a.length : void 0) &&
                               0 === (null != (o = e[r]) ? o.length : void 0) &&
-                              i.debug,
+                              s.debug,
                           h.push(void 0))
                         : 'object' == typeof u
-                        ? h.push(i.replace(u, t, s, l))
+                        ? h.push(s.replace(u, t, i, l))
                         : h.push(void 0);
                 return h;
             },
             extend: function (e, t) {
-                var s, l, r, a, n, o;
+                var i, l, r, n, a, o;
                 if ('object' == typeof e) {
-                    for (s in ((r = []), e)) {
-                        if (((o = e[s]), s === i.extendtoken && null != o[i.reftoken])) {
-                            for (a in ((l = i.get_json_pointer(o[i.reftoken], e, t)), o))
-                                (n = o[a]), a !== i.reftoken && (l[a] = n);
-                            delete e[s];
+                    for (i in ((r = []), e)) {
+                        if (((o = e[i]), i === s.extendtoken && null != o[s.reftoken])) {
+                            for (n in ((l = s.get_json_pointer(o[s.reftoken], e, t)), o))
+                                (a = o[n]), n !== s.reftoken && (l[n] = a);
+                            delete e[i];
                         }
-                        'object' == typeof o ? r.push((o = i.extend(o))) : r.push(void 0);
+                        'object' == typeof o ? r.push((o = s.extend(o))) : r.push(void 0);
                     }
                     return r;
                 }
             },
             resolve: function (e, t) {
-                var s;
-                return (s = {}), i.findIds(e, s), i.debug && Object.keys(s).length, i.replace(e, s, e, t), e;
+                var i;
+                return (i = {}), s.findIds(e, i), s.debug && Object.keys(i).length, s.replace(e, i, e, t), e;
             },
-            evaluate: function (e, t, s) {
-                var l, r, a;
-                for (l in (null == s && (s = i.evaluateStr), (r = i.clone(e))))
-                    'string' == typeof (a = r[l]) && (e[l] = s(a, t)),
-                        'object' == typeof a && (e[l] = i.evaluate(a, t));
+            evaluate: function (e, t, i) {
+                var l, r, n;
+                for (l in (null == i && (i = s.evaluateStr), (r = s.clone(e))))
+                    'string' == typeof (n = r[l]) && (e[l] = i(n, t)),
+                        'object' == typeof n && (e[l] = s.evaluate(n, t));
                 return e;
             },
-            evaluateStr: function (e, s) {
+            evaluateStr: function (e, t) {
                 if ('string' != typeof e) return e;
                 if ('{' !== e[0] || '}' !== e[e.length - 1])
                     return e.replace(/(\{)(.*?)(\})/g, function (e, l, r) {
-                        var a;
-                        if (((a = ''), null == s || null == r)) return a;
-                        if (null != s[r] && 'function' == typeof s[r]) a = s[r]();
-                        else if (null != s[r]) a = s[r];
+                        var n;
+                        if (((n = ''), null == t || null == r)) return n;
+                        if (null != t[r] && 'function' == typeof t[r]) n = t[r]();
+                        else if (null != t[r]) n = t[r];
                         else {
                             try {
-                                (r = r.replace(new RegExp('^' + i.pathtoken + '/'), '').replace(/\//g, '.')),
-                                    (a = t.getter(r)(s));
+                                (r = r.replace(new RegExp('^' + s.pathtoken + '/'), '').replace(/\//g, '.')),
+                                    (n = i.getter(r)(t));
                             } catch (e) {
-                                (err = e), (a = '');
+                                (err = e), (n = '');
                             }
-                            null == a && (a = '');
+                            null == n && (n = '');
                         }
-                        return i.evaluateStr(a, s), a;
+                        return s.evaluateStr(n, t), n;
                     });
                 try {
-                    return t.getter(e.replace(/^{/, '').replace(/}$/, ''))(s);
+                    return i.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
                 } catch (e) {
                     return null;
                 }
             },
         },
-        s = {},
-        l = (e) => Object.keys(e || {}).map((t) => ({ ...e[t], key: t }));
-    s.prepareFullSchema = (e, t) => {
+        l = {},
+        r = (e) => Object.keys(e || {}).map((t) => ({ ...e[t], key: t }));
+    l.prepareFullSchema = (e, t) => {
         const i = JSON.parse(JSON.stringify(e));
         return (
             i.pattern && (i.patternRegexp = new RegExp(i.pattern)),
@@ -127,30 +127,30 @@
                 (i.type = i.type.find((e) => 'null' !== e)),
                 i.nullable && i.enum && (i.enum = i.enum.filter((e) => null !== e))),
             'object' !== i.type ||
-                ((i.properties = JSON.parse(JSON.stringify(l(i.properties)))),
+                ((i.properties = JSON.parse(JSON.stringify(r(i.properties)))),
                 (i.required = i.required || []),
                 (i.dependencies = i.dependencies || {}),
                 i.dependencies &&
                     Object.keys(i.dependencies).forEach((e) => {
                         const s = i.dependencies[e];
                         if (!t) return;
-                        const r = ((e, t) => {
+                        const l = ((e, t) => {
                             const i = t.split('.');
                             for (let t = 0; t < i.length && ![null, void 0].includes(e); t++) e = e[i[t]];
                             return e;
                         })(t, e);
-                        [null, void 0, !1].includes(r) ||
-                            (Array.isArray(r) && 0 === r.length) ||
-                            ('object' == typeof r && 0 === Object.keys(r).length) ||
+                        [null, void 0, !1].includes(l) ||
+                            (Array.isArray(l) && 0 === l.length) ||
+                            ('object' == typeof l && 0 === Object.keys(l).length) ||
                             ((i.required = i.required.concat(s.required || [])),
-                            (i.properties = i.properties.concat(l(s.properties))),
+                            (i.properties = i.properties.concat(r(s.properties))),
                             s.oneOf && (i.oneOf = (i.oneOf || []).concat(s.oneOf)),
                             s.allOf && (i.allOf = (i.allOf || []).concat(s.allOf)));
                     })),
             i
         );
     };
-    const r = {
+    const n = {
             locale: 'en',
             rootDisplay: '',
             objectContainerClass: '',
@@ -278,7 +278,7 @@
                 pattern: 'Invoer voldoet niet aan verwachte patroon',
             },
         },
-        n = {
+        o = {
             time: (e, t) => {
                 const i = new Date(`${new Date().toISOString().split('T')[0]}T${e}`);
                 return new Date(i.getTime() + 6e4 * i.getTimezoneOffset()).toLocaleTimeString(t);
@@ -289,7 +289,7 @@
             },
             'date-time': (e, t) => new Date(e).toLocaleString(t),
         },
-        o = {
+        h = {
             mdi: {
                 calendar: 'mdi-calendar',
                 clock: 'mdi-clock',
@@ -308,7 +308,7 @@
                 delete: 'fa-trash',
             },
         };
-    var h = {
+    var u = {
         data: () => ({ currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} }),
         computed: {
             subSchemas() {
@@ -455,19 +455,19 @@
             },
             renderChildProp(e, t, i, s, l) {
                 const r = i ? this.subModels : this.value,
-                    a = i || t.key;
-                let n = r[a];
+                    n = i || t.key;
+                let a = r[n];
                 return (
-                    void 0 === n &&
-                        ((n = this.defaultValue(t)),
-                        void 0 !== t.default && (n = JSON.parse(JSON.stringify(t.default))),
-                        null != n && (this.$set(r, a, n), this.input(this.value))),
+                    void 0 === a &&
+                        ((a = this.defaultValue(t)),
+                        void 0 !== t.default && (a = JSON.parse(JSON.stringify(t.default))),
+                        null != a && (this.$set(r, n, a), this.input(this.value))),
                     e('h-form-renderer', {
                         props: {
                             schema: { readOnly: this.fullSchema.readOnly, ...t },
-                            value: n,
+                            value: a,
                             modelRoot: this.modelRoot || this.value,
-                            modelKey: a,
+                            modelKey: n,
                             parentKey: this.fullKey + '.',
                             options: this.fullOptions,
                             sectionDepth: s,
@@ -476,10 +476,10 @@
                             error: (e) => this.$emit('error', e),
                             input: (e) => {
                                 void 0 === e
-                                    ? Array.isArray(r) && parseInt(a) < r.length - 1
-                                        ? this.$set(r, a, e)
-                                        : this.$delete(r, a)
-                                    : this.$set(r, a, e),
+                                    ? Array.isArray(r) && parseInt(n) < r.length - 1
+                                        ? this.$set(r, n, e)
+                                        : this.$delete(r, n)
+                                    : this.$set(r, n, e),
                                     this.$emit('input', this.value);
                             },
                             change: (e) => this.$emit('change', this.value),
@@ -503,11 +503,11 @@
                     Array.isArray(this.fullSchema.items) &&
                         this.fullSchema.items.forEach((s, l) => {
                             const r = { ...s, key: '' + l },
-                                a = this.value.length > l || (this.fullSchema.minItems && this.fullSchema.minItems > l);
+                                n = this.value.length > l || (this.fullSchema.minItems && this.fullSchema.minItems > l);
                             if (this.isSection(s)) {
-                                const t = this.renderChildProp(e, r, null, this.sectionDepth + 1, a);
+                                const t = this.renderChildProp(e, r, null, this.sectionDepth + 1, n);
                                 i = i.concat(this.renderSection(e, r, null, t));
-                            } else t.push(this.renderChildProp(e, r, null, this.sectionDepth, a));
+                            } else t.push(this.renderChildProp(e, r, null, this.sectionDepth, n));
                         }),
                     this.fullSchema.allOf &&
                         this.fullSchema.allOf.forEach((s, l) => {
@@ -595,11 +595,11 @@
             },
         },
     };
-    const u = (e) => {
+    const c = (e) => {
             const t = '' + e;
             return 1 === t.length ? '0' + t : t;
         },
-        c = (e) => {
+        p = (e) => {
             const t = new Date(),
                 i = e[0].split('-');
             t.setFullYear(Number(i[0])), t.setMonth(Number(i[1]) - 1), t.setDate(Number(i[2]));
@@ -610,19 +610,19 @@
                 t.setSeconds(0),
                 ((e) => {
                     const t = e.getTimezoneOffset(),
-                        i = `${u(parseInt(Math.abs(t / 60)))}:${u(Math.abs(t % 60))}`;
+                        i = `${c(parseInt(Math.abs(t / 60)))}:${c(Math.abs(t % 60))}`;
                     let s;
                     return (
                         (s = t < 0 ? '+' + i : t > 0 ? '-' + i : 'Z'),
-                        `${e.getFullYear()}-${u(e.getMonth() + 1)}-${u(e.getDate())}T${u(e.getHours())}:${u(
+                        `${e.getFullYear()}-${c(e.getMonth() + 1)}-${c(e.getDate())}T${c(e.getHours())}:${c(
                             e.getMinutes()
-                        )}:${u(e.getSeconds())}${s}`
+                        )}:${c(e.getSeconds())}${s}`
                     );
                 })(t)
             );
         },
-        p = (e) => e + ':00Z';
-    var m = {
+        m = (e) => e + ':00Z';
+    var d = {
             data: () => ({ dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } }),
             methods: {
                 renderDateProp(e) {
@@ -636,7 +636,7 @@
                     if ('time' === this.fullSchema.format)
                         (t = e('v-time-picker', {
                             props: { value: ((l = this.value), l ? l.slice(0, 5) : ''), ...this.fullSchema['x-props'] },
-                            on: { input: (e) => this.input(p(e)), change: (e) => this.change(p(e)) },
+                            on: { input: (e) => this.input(m(e)), change: (e) => this.change(m(e)) },
                         })),
                             (i = this.fullOptions.icons.clock);
                     else if ('date' === this.fullSchema.format)
@@ -652,13 +652,13 @@
                     else {
                         this.value !== this.dateProp.lastValue &&
                             (this.dateProp.parts = [
-                                `${(s = new Date(this.value)).getFullYear()}-${u(s.getMonth() + 1)}-${u(s.getDate())}`,
-                                `${u(s.getHours())}:${u(s.getMinutes())}`,
+                                `${(s = new Date(this.value)).getFullYear()}-${c(s.getMonth() + 1)}-${c(s.getDate())}`,
+                                `${c(s.getHours())}:${c(s.getMinutes())}`,
                             ]),
                             (this.dateProp.lastValue = this.value);
                         const i = () => {
                                 if (this.dateProp.parts[1]) {
-                                    const e = c(this.dateProp.parts);
+                                    const e = p(this.dateProp.parts);
                                     this.input(e), this.change(e);
                                 }
                             },
@@ -758,7 +758,7 @@
                 },
             },
         },
-        d = {
+        f = {
             computed: {
                 isSimpleProp() {
                     return (
@@ -826,7 +826,7 @@
                 },
             },
         };
-    const f = async (e, t, i) => {
+    const y = async (e, t, i) => {
         let s = e;
         if ('string' === t.type || (t.properties.data && 'string' === t.properties.data.type)) {
             const t = await ((e) =>
@@ -846,7 +846,7 @@
                   data: s,
               };
     };
-    var y = {
+    var S = {
             computed: {
                 isFileProp() {
                     return (
@@ -896,11 +896,11 @@
                             change: async (e) => {
                                 if ('array' === this.fullSchema.type) {
                                     const t = await Promise.all(
-                                        e.map((e) => f(e, this.fullSchema.items, this.fullOptions.filesAsDataUrl))
+                                        e.map((e) => y(e, this.fullSchema.items, this.fullOptions.filesAsDataUrl))
                                     );
                                     this.input(t), this.change(t);
                                 } else {
-                                    const t = await f(e, this.resolvedSchema, this.fullOptions.filesAsDataUrl);
+                                    const t = await y(e, this.resolvedSchema, this.fullOptions.filesAsDataUrl);
                                     this.input(t), this.change(t);
                                 }
                             },
@@ -912,7 +912,7 @@
                 },
             },
         },
-        S = {
+        g = {
             computed: {
                 isColorProp() {
                     return (
@@ -975,7 +975,7 @@
                 },
             },
         };
-    const g = {
+    const b = {
             getSelectItems: (e, t, i, s) => {
                 const l = [];
                 if (e)
@@ -1007,41 +1007,41 @@
                 return l;
             },
         },
-        b = (e, t, i) => {
+        v = (e, t, i) => {
             if ([null, void 0].includes(e)) return !1;
             if ([null, void 0].includes(t)) return !1;
             return JSON.stringify(e[i]) === JSON.stringify(t[i]);
         };
-    (g.fillSelectItems = (e, t, i, s, l) => {
+    (b.fillSelectItems = (e, t, i, s, l) => {
         if (t)
             if ('array' === e.type)
                 t.map((e) => e)
                     .reverse()
                     .forEach((e) => {
                         const t = l ? e : { [s]: e };
-                        i.find((e) => b(e, t, s)) || i.push(t);
+                        i.find((e) => v(e, t, s)) || i.push(t);
                     });
             else {
                 const e = l ? t : { [s]: t };
-                i.find((t) => b(t, e, s)) || i.push(e);
+                i.find((t) => v(t, e, s)) || i.push(e);
             }
     }),
-        (g.fillList = (e, t, i, s) => {
+        (b.fillList = (e, t, i, s) => {
             if (t)
                 return i.length
                     ? (i.forEach((e) => {
-                          t.find((t) => b(e, t, s)) || t.push(e);
+                          t.find((t) => v(e, t, s)) || t.push(e);
                       }),
                       t.forEach((e, l) => {
-                          i.find((t) => b(t, e, s)) || (t[l] = null);
+                          i.find((t) => v(t, e, s)) || (t[l] = null);
                       }),
                       t.filter((e) => !!e))
                     : [];
         });
-    const v = require('match-all'),
-        O = require('debounce');
-    function x(e, t, i, s, l, r, a, n, o, h) {
-        'boolean' != typeof a && ((o = n), (n = a), (a = !1));
+    const O = require('match-all'),
+        x = require('debounce');
+    function P(e, t, i, s, l, r, n, a, o, h) {
+        'boolean' != typeof n && ((o = a), (a = n), (n = !1));
         const u = 'function' == typeof i ? i.options : i;
         let c;
         if (
@@ -1065,12 +1065,12 @@
                   }),
                   (u._ssrRegister = c))
                 : t &&
-                  (c = a
+                  (c = n
                       ? function (e) {
                             t.call(this, h(e, this.$root.$options.shadowRoot));
                         }
                       : function (e) {
-                            t.call(this, n(e));
+                            t.call(this, a(e));
                         }),
             c)
         )
@@ -1085,16 +1085,16 @@
             }
         return i;
     }
-    const P = x(
+    const I = P(
         {},
         undefined,
         {
             name: 'HAssemblyRenderder',
             mixins: [
-                h,
+                u,
+                f,
                 d,
-                m,
-                S,
+                g,
                 {
                     data: () => ({ rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} }),
                     computed: {
@@ -1135,7 +1135,7 @@
                         },
                         fromUrlKeys() {
                             return this.fullSchema['x-fromUrl']
-                                ? v(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g)
+                                ? O(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g)
                                       .toArray()
                                       .filter((e) => 'q' !== e)
                                 : null;
@@ -1222,7 +1222,7 @@
                                 return this.$emit('error', 'No http lib found to perform ajax request');
                             (this.debouncedFetch =
                                 this.debouncedFetch ||
-                                O(() => {
+                                x(() => {
                                     let e = this.fullSchema['x-fromUrl'].replace('{q}', this.q || '');
                                     for (const t of this.fromUrlKeys) {
                                         if (void 0 === this.fromUrlParams[t]) return;
@@ -1247,15 +1247,15 @@
                                 this.debouncedFetch();
                         },
                         updateSelectItems() {
-                            const e = g.getSelectItems(
+                            const e = b.getSelectItems(
                                 this.rawSelectItems,
                                 this.fullSchema,
                                 this.itemKey,
                                 this.itemIcon
                             );
                             'list' === this.display &&
-                                this.input(g.fillList(this.fullSchema, this.value, e, this.itemKey)),
-                                g.fillSelectItems(this.fullSchema, this.value, e, this.itemKey, this.returnObject),
+                                this.input(b.fillList(this.fullSchema, this.value, e, this.itemKey)),
+                                b.fillSelectItems(this.fullSchema, this.value, e, this.itemKey, this.returnObject),
                                 JSON.stringify(e) !== JSON.stringify(this.selectItems) && (this.selectItems = e);
                         },
                         renderSelectIcon(e, t) {
@@ -1418,7 +1418,7 @@
                         },
                     },
                 },
-                y,
+                S,
                 {
                     data: () => ({ editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} } }),
                     computed: {
@@ -1511,7 +1511,7 @@
                                             [e('v-icon', s ? this.fullOptions.icons.add : this.fullOptions.icons.edit)]
                                         ),
                                 },
-                                a = () => {
+                                n = () => {
                                     l.componentInstance.resetValidation(),
                                         (this.editabledArrayProp.currentDialog = null);
                                 };
@@ -1524,7 +1524,7 @@
                                         closeOnContentClick: !1,
                                     },
                                     scopedSlots: r,
-                                    on: { 'click:outside': a },
+                                    on: { 'click:outside': n },
                                 },
                                 [
                                     e('v-card', { props: this.fullOptions.dialogCardProps }, [
@@ -1536,7 +1536,7 @@
                                                 'v-btn',
                                                 {
                                                     props: { text: !0 },
-                                                    on: { click: a },
+                                                    on: { click: n },
                                                     attrs: {
                                                         id:
                                                             this.fullOptions.idPrefix +
@@ -1841,26 +1841,26 @@
                 fullOptions() {
                     const e =
                             ('undefined' != typeof window && window) || ('undefined' != typeof global && global) || {},
-                        t = Object.assign({}, r, this.options || {}, this.resolvedSchema['x-options'] || {});
+                        t = Object.assign({}, n, this.options || {}, this.resolvedSchema['x-options'] || {});
                     (t.markdown =
                         t.markdown || (e.markdownit && ((i) => e.markdownit(t.markdownit).render(i))) || ((e) => e)),
                         (t.httpLib = t.httpLib || this.axios || this.$http || this.$axios || e.axios);
                     const i = (this.$vuetify.icons && this.$vuetify.icons.iconfont) || 'mdi';
                     return (
-                        (t.icons = { ...o[i], ...t.icons }),
+                        (t.icons = { ...h[i], ...t.icons }),
                         (t.messages = { ...(a[t.locale] || a.en), ...t.messages }),
-                        (t.formats = { ...n, ...t.formats }),
+                        (t.formats = { ...o, ...t.formats }),
                         t.deleteReadOnly && (t.hideReadOnly = !0),
                         t
                     );
                 },
                 resolvedSchema() {
                     return 'root' === this.modelKey
-                        ? i.resolve(this.schema, { '~$locale~': (this.options && this.options.locale) || 'en' })
+                        ? s.resolve(this.schema, { '~$locale~': (this.options && this.options.locale) || 'en' })
                         : this.schema;
                 },
                 fullSchema() {
-                    return s.prepareFullSchema(this.resolvedSchema, this.value);
+                    return l.prepareFullSchema(this.resolvedSchema, this.value);
                 },
                 htmlDescription() {
                     return this.fullSchema && this.fullSchema.description
@@ -2143,55 +2143,55 @@
         void 0,
         void 0
     );
-    const I = x(
+    const k = P(
         {},
         undefined,
         {
             name: 'HFormRenderer',
             components: {
-                VAvatar: e.VAvatar,
-                VAutocomplete: e.VAutocomplete,
-                VBtn: e.VBtn,
-                VCard: e.VCard,
-                VCardActions: e.VCardActions,
-                VCardText: e.VCardText,
-                VCardTitle: e.VCardTitle,
-                VCheckbox: e.VCheckbox,
-                VChip: e.VChip,
-                VColorPicker: e.VColorPicker,
-                VCombobox: e.VCombobox,
-                VContainer: e.VContainer,
-                VDatePicker: e.VDatePicker,
-                VDialog: e.VDialog,
-                VExpansionPanels: e.VExpansionPanels,
-                VExpansionPanel: e.VExpansionPanel,
-                VExpansionPanelHeader: e.VExpansionPanelHeader,
-                VExpansionPanelContent: e.VExpansionPanelContent,
-                VCol: e.VCol,
-                VFileInput: e.VFileInput,
-                VIcon: e.VIcon,
-                VInput: e.VInput,
-                VRow: e.VRow,
-                VListItemContent: e.VListItemContent,
-                VListItemTitle: e.VListItemTitle,
-                VMenu: e.VMenu,
-                VRadio: e.VRadio,
-                VRadioGroup: e.VRadioGroup,
-                VRangeSlider: e.VRangeSlider,
-                VSelect: e.VSelect,
-                VSlider: e.VSlider,
-                VSpacer: e.VSpacer,
-                VSubheader: e.VSubheader,
-                VSwitch: e.VSwitch,
-                VTabs: e.VTabs,
-                VTab: e.VTab,
-                VTabItem: e.VTabItem,
-                VTextarea: e.VTextarea,
-                VTextField: e.VTextField,
-                VTimePicker: e.VTimePicker,
-                VTooltip: e.VTooltip,
+                VAvatar: t.VAvatar,
+                VAutocomplete: t.VAutocomplete,
+                VBtn: t.VBtn,
+                VCard: t.VCard,
+                VCardActions: t.VCardActions,
+                VCardText: t.VCardText,
+                VCardTitle: t.VCardTitle,
+                VCheckbox: t.VCheckbox,
+                VChip: t.VChip,
+                VColorPicker: t.VColorPicker,
+                VCombobox: t.VCombobox,
+                VContainer: t.VContainer,
+                VDatePicker: t.VDatePicker,
+                VDialog: t.VDialog,
+                VExpansionPanels: t.VExpansionPanels,
+                VExpansionPanel: t.VExpansionPanel,
+                VExpansionPanelHeader: t.VExpansionPanelHeader,
+                VExpansionPanelContent: t.VExpansionPanelContent,
+                VCol: t.VCol,
+                VFileInput: t.VFileInput,
+                VIcon: t.VIcon,
+                VInput: t.VInput,
+                VRow: t.VRow,
+                VListItemContent: t.VListItemContent,
+                VListItemTitle: t.VListItemTitle,
+                VMenu: t.VMenu,
+                VRadio: t.VRadio,
+                VRadioGroup: t.VRadioGroup,
+                VRangeSlider: t.VRangeSlider,
+                VSelect: t.VSelect,
+                VSlider: t.VSlider,
+                VSpacer: t.VSpacer,
+                VSubheader: t.VSubheader,
+                VSwitch: t.VSwitch,
+                VTabs: t.VTabs,
+                VTab: t.VTab,
+                VTabItem: t.VTabItem,
+                VTextarea: t.VTextarea,
+                VTextField: t.VTextField,
+                VTimePicker: t.VTimePicker,
+                VTooltip: t.VTooltip,
             },
-            mixins: [P],
+            mixins: [I],
         },
         undefined,
         undefined,
@@ -2201,8 +2201,10 @@
         void 0,
         void 0
     );
-    (I.install = function (e) {
-        e.component(I.name, I);
+    (k.install = function (e) {
+        e.component(k.name, k);
     }),
-        null != typeof window && window.Vue && I.install(window.Vue);
+        null != typeof window && window.Vue && k.install(window.Vue),
+        (e.HFormRenderer = k),
+        Object.defineProperty(e, '__esModule', { value: !0 });
 });

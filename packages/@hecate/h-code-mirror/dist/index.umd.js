@@ -1,6 +1,7 @@
 !(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
+              exports,
               require('vuetify/lib'),
               require('vue-codemirror'),
               require('script-loader!jsonlint'),
@@ -11,6 +12,7 @@
           )
         : 'function' == typeof define && define.amd
         ? define([
+              'exports',
               'vuetify/lib',
               'vue-codemirror',
               'script-loader!jsonlint',
@@ -20,7 +22,8 @@
               'jsonlint',
           ], t)
         : t(
-              (e = 'undefined' != typeof globalThis ? globalThis : e || self).Vuetify,
+              ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
+              e.Vuetify,
               e.vueCodemirror,
               null,
               e.htmlhint,
@@ -28,13 +31,13 @@
               e.csslint,
               e.jsonlint
           );
-})(this, function (e, t, n, r, i, o, a) {
+})(this, function (e, t, n, r, i, o, a, l) {
     'use strict';
-    function l(e) {
+    function s(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    var s = l(r),
-        c = l(o);
+    var c = s(i),
+        u = s(a);
     'undefined' != typeof globalThis
         ? globalThis
         : 'undefined' != typeof window
@@ -42,7 +45,7 @@
         : 'undefined' != typeof global
         ? global
         : 'undefined' != typeof self && self;
-    function u(e, t, n) {
+    function d(e, t, n) {
         return (
             e(
                 (n = {
@@ -59,7 +62,7 @@
             n.exports
         );
     }
-    var d = u(function (e, t) {
+    var f = d(function (e, t) {
         e.exports = (function () {
             var e = navigator.userAgent,
                 t = navigator.platform,
@@ -8129,7 +8132,7 @@
             );
         })();
     });
-    u(function (e, t) {
+    d(function (e, t) {
         !(function (e) {
             function t(e) {
                 for (var t = {}, n = 0; n < e.length; ++n) t[e[n].toLowerCase()] = !0;
@@ -9814,9 +9817,9 @@
                     name: 'css',
                     helperType: 'gss',
                 });
-        })(d);
+        })(f);
     }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t) {
                     if (!e.hasOwnProperty(t)) throw new Error('Undefined state ' + t + ' in simple mode');
@@ -10001,11 +10004,11 @@
                         if (l) for (var g in l) l.hasOwnProperty(g) && (m[g] = l[g]);
                         return m;
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
-            var n, r, i, o, a, l, s, c, u, f, p;
-            (n = d),
+        d(function (e, t) {
+            var n, r, i, o, a, l, s, c, u, d, p;
+            (n = f),
                 (r = 'from'),
                 (i = new RegExp('^(\\s*)\\b(' + r + ')\\b', 'i')),
                 (o = ['run', 'cmd', 'entrypoint', 'shell']),
@@ -10029,13 +10032,13 @@
                     'shell',
                 ]),
                 (u = '(' + [r, l].concat(o).concat(c).join('|') + ')'),
-                (f = new RegExp('^(\\s*)' + u + '(\\s*)(#.*)?$', 'i')),
+                (d = new RegExp('^(\\s*)' + u + '(\\s*)(#.*)?$', 'i')),
                 (p = new RegExp('^(\\s*)' + u + '(\\s+)', 'i')),
                 n.defineSimpleMode('dockerfile', {
                     start: [
                         { regex: /^\s*#.*$/, sol: !0, token: 'comment' },
                         { regex: i, token: [null, 'keyword'], sol: !0, next: 'from' },
-                        { regex: f, token: [null, 'keyword', null, 'error'], sol: !0 },
+                        { regex: d, token: [null, 'keyword', null, 'error'], sol: !0 },
                         { regex: a, token: [null, 'keyword', null], sol: !0, next: 'array' },
                         { regex: s, token: [null, 'keyword', null], sol: !0, next: 'expose' },
                         { regex: p, token: [null, 'keyword', null], sol: !0, next: 'arguments' },
@@ -10081,7 +10084,7 @@
                 }),
                 n.defineMIME('text/x-dockerfile', 'dockerfile');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n, r, i;
             (r = {
                 autoSelfClosers: {
@@ -10177,7 +10180,7 @@
                     allowMissingTagName: !1,
                     caseFold: !1,
                 }),
-                (n = d).defineMode('xml', function (e, t) {
+                (n = f).defineMode('xml', function (e, t) {
                     var o,
                         a,
                         l = e.indentUnit,
@@ -10431,9 +10434,9 @@
                 n.defineMIME('application/xml', 'xml'),
                 n.mimeModes.hasOwnProperty('text/html') || n.defineMIME('text/html', { name: 'xml', htmlMode: !0 });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('javascript', function (e, t) {
+            (n = f).defineMode('javascript', function (e, t) {
                 var r,
                     i,
                     o = e.indentUnit,
@@ -11328,7 +11331,7 @@
                 n.defineMIME('text/typescript', { name: 'javascript', typescript: !0 }),
                 n.defineMIME('application/typescript', { name: 'javascript', typescript: !0 });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = {
                     script: [
@@ -11461,11 +11464,11 @@
                     'css'
                 ),
                     e.defineMIME('text/html', 'htmlmixed');
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('http', function () {
+            (n = f).defineMode('http', function () {
                 function e(e, t) {
                     return e.skipToEnd(), (t.cur = a), 'error';
                 }
@@ -11527,7 +11530,7 @@
             }),
                 n.defineMIME('message/http', 'http');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t, n, r) {
                     (this.state = e), (this.mode = t), (this.depth = n), (this.prev = r);
@@ -11627,9 +11630,9 @@
                 ),
                     e.defineMIME('text/jsx', 'jsx'),
                     e.defineMIME('text/typescript-jsx', { name: 'jsx', base: { name: 'javascript', typescript: !0 } });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 e.modeInfo = [
                     { name: 'APL', mime: 'text/apl', mode: 'apl', ext: ['dyalog', 'apl'] },
@@ -12025,11 +12028,11 @@
                                 for (var i = 0; i < r.alias.length; i++) if (r.alias[i].toLowerCase() == t) return r;
                         }
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode(
+            (n = f).defineMode(
                 'markdown',
                 function (e, t) {
                     var r = n.getMode(e, 'text/html'),
@@ -12629,9 +12632,9 @@
                 n.defineMIME('text/markdown', 'markdown'),
                 n.defineMIME('text/x-markdown', 'markdown');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('powershell', function () {
+            (n = f).defineMode('powershell', function () {
                 function e(e, t) {
                     for (
                         var n = void 0 !== (t = t || {}).prefix ? t.prefix : '^',
@@ -12904,9 +12907,9 @@
             }),
                 n.defineMIME('application/x-powershell', 'powershell');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('properties', function () {
+            (n = f).defineMode('properties', function () {
                 return {
                     token: function (e, t) {
                         var n = e.sol() || t.afterSection,
@@ -12939,7 +12942,7 @@
                 n.defineMIME('text/x-properties', 'properties'),
                 n.defineMIME('text/x-ini', 'properties');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e) {
                     return new RegExp('^((' + e.join(')|(') + '))\\b');
@@ -13279,11 +13282,11 @@
                         'by cdef cimport cpdef ctypedef enum except extern gil include nogil property public readonly struct union DEF IF ELIF ELSE'
                     ),
                 });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode(
+            (n = f).defineMode(
                 'sass',
                 function (e) {
                     var t = n.mimeModes['text/css'],
@@ -13486,9 +13489,9 @@
             ),
                 n.defineMIME('text/x-sass', 'sass');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('shell', function () {
+            (n = f).defineMode('shell', function () {
                 var e = {};
                 function t(t, n) {
                     for (var r = 0; r < n.length; r++) e[n[r]] = t;
@@ -13653,7 +13656,7 @@
                 n.defineMIME('text/x-sh', 'shell'),
                 n.defineMIME('application/x-sh', 'shell');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e) {
                     for (var t; null != (t = e.next()); ) if ('`' == t && !e.eat('`')) return 'variable-2';
@@ -14047,11 +14050,11 @@
                         dateSQL: a('time'),
                         support: a('decimallessFloat zerolessFloat binaryNumber hexNumber'),
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).overlayMode = function (e, t, r) {
+            (n = f).overlayMode = function (e, t, r) {
                 return {
                     startState: function () {
                         return {
@@ -14110,9 +14113,9 @@
                 };
             };
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('coffeescript', function (e, t) {
+            (n = f).defineMode('coffeescript', function (e, t) {
                 var n = 'error';
                 function r(e) {
                     return new RegExp('^((' + e.join(')|(') + '))\\b');
@@ -14309,7 +14312,7 @@
                 n.defineMIME('text/x-coffeescript', 'coffeescript'),
                 n.defineMIME('text/coffeescript', 'coffeescript');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 e.defineMode('stylus', function (e) {
                     for (
@@ -15974,11 +15977,11 @@
                     return e.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
                 }
                 e.registerHelper('hintWords', 'stylus', h), e.defineMIME('text/x-styl', 'stylus');
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode(
+            (n = f).defineMode(
                 'pug',
                 function (e) {
                     var t = 'keyword',
@@ -16356,9 +16359,9 @@
                 n.defineMIME('text/x-pug', 'pug'),
                 n.defineMIME('text/x-jade', 'pug');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).multiplexingMode = function (e) {
+            (n = f).multiplexingMode = function (e) {
                 var t = Array.prototype.slice.call(arguments, 1);
                 function r(e, t, n, r) {
                     if ('string' == typeof t) {
@@ -16446,9 +16449,9 @@
                 };
             };
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineSimpleMode('handlebars-tags', {
+            (n = f).defineSimpleMode('handlebars-tags', {
                 start: [
                     { regex: /\{\{\{/, push: 'handlebars_raw', token: 'tag' },
                     { regex: /\{\{!--/, push: 'dash_comment', token: 'comment' },
@@ -16489,7 +16492,7 @@
                 }),
                 n.defineMIME('text/x-handlebars-template', 'handlebars');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n, r;
             (r = {
                 script: [
@@ -16518,7 +16521,7 @@
                     [null, null, 'vue-template'],
                 ],
             }),
-                (n = d).defineMode('vue-template', function (e, t) {
+                (n = f).defineMode('vue-template', function (e, t) {
                     var r = {
                         token: function (e) {
                             if (e.match(/^\{\{.*?\}\}/)) return 'meta mustache';
@@ -16546,9 +16549,9 @@
                 n.defineMIME('script/x-vue', 'vue'),
                 n.defineMIME('text/x-vue', 'vue');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).defineMode('yaml', function () {
+            (n = f).defineMode('yaml', function () {
                 var e = new RegExp('\\b((' + ['true', 'false', 'on', 'off', 'yes', 'no'].join(')|(') + '))$', 'i');
                 return {
                     token: function (t, n) {
@@ -16609,7 +16612,7 @@
                 n.defineMIME('text/x-yaml', 'yaml'),
                 n.defineMIME('text/yaml', 'yaml');
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = 'CodeMirror-hint',
                     n = 'CodeMirror-hint-active';
@@ -17047,9 +17050,9 @@
                     extraKeys: null,
                 };
                 e.defineOption('hintOptions', null);
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n, r;
             (r = {
                 active: 1,
@@ -17092,7 +17095,7 @@
                 valid: 1,
                 visited: 1,
             }),
-                (n = d).registerHelper('hint', 'css', function (e) {
+                (n = f).registerHelper('hint', 'css', function (e) {
                     var t = e.getCursor(),
                         i = e.getTokenAt(t),
                         o = n.innerMode(e.getMode(), i.state);
@@ -17122,7 +17125,7 @@
                     }
                 });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = e.Pos;
                 function n(e, t, n) {
@@ -17225,9 +17228,9 @@
                     }
                 }
                 e.registerHelper('hint', 'xml', r);
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = 'ab aa af ak sq am ar an hy as av ae ay az bm ba eu be bn bh bi bs br bg my ca ch ce ny zh cv kw co cr hr cs da dv nl dz en eo et ee fo fj fi fr ff gl ka de el gn gu ht ha he hz hi ho hu ia id ie ga ig ik io is it iu ja jv kl kn kr ks kk km ki rw ky kv kg ko ku kj la lb lg li ln lo lt lu lv gv mk mg ms ml mt mi mr mh mn na nv nb nd ne ng nn no ii nr oc oj cu om or os pa pi fa pl ps pt qu rm rn ro ru sa sc sd se sm sg sr gd sn si sk sl so st es su sw ss sv ta te tg th ti bo tk tl tn to tr ts tt tw ty ug uk ur uz ve vi vo wa cy wo fy xh yi yo za zu'.split(
                         ' '
@@ -17713,9 +17716,9 @@
                     return e.hint.xml(t, r);
                 }
                 (e.htmlSchema = s), e.registerHelper('hint', 'html', f);
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = e.Pos;
                 function n(e, t) {
@@ -17841,9 +17844,9 @@
                     }
                     return a;
                 }
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t,
                     n,
@@ -18038,13 +18041,13 @@
                     }
                     return { list: y, from: a(g.line, d), to: a(g.line, f) };
                 });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n, r, i;
             (r = /[\w$]+/),
                 (i = 500),
-                (n = d).registerHelper('hint', 'anyword', function (e, t) {
+                (n = f).registerHelper('hint', 'anyword', function (e, t) {
                     for (
                         var o = (t && t.word) || r,
                             a = (t && t.range) || i,
@@ -18078,7 +18081,7 @@
                     return { list: f, from: n.Pos(l.line, u), to: n.Pos(l.line, c) };
                 });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = 'CodeMirror-lint-markers';
                 function n(t, n, r) {
@@ -18317,11 +18320,11 @@
                     e.defineExtension('performLint', function () {
                         this.state.lint && h(this);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).registerHelper('lint', 'json', function (e) {
+            (n = f).registerHelper('lint', 'json', function (e) {
                 var t = [];
                 if (!window.jsonlint)
                     return (
@@ -18346,9 +18349,9 @@
                 return t;
             });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).registerHelper('lint', 'css', function (e, t) {
+            (n = f).registerHelper('lint', 'css', function (e, t) {
                 var r = [];
                 if (!window.CSSLint)
                     return (
@@ -18368,10 +18371,10 @@
                 return r;
             });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n, r, i;
-            (n = d),
-                (r = s.default),
+            (n = f),
+                (r = c.default),
                 (i = {
                     'tagname-lowercase': !0,
                     'attr-lowercase': !0,
@@ -18408,7 +18411,7 @@
                     return o;
                 });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t) {
                     if (!window.JSHINT)
@@ -18450,11 +18453,11 @@
                     }
                 }
                 e.registerHelper('lint', 'javascript', t);
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).registerHelper('lint', 'yaml', function (e) {
+            (n = f).registerHelper('lint', 'yaml', function (e) {
                 var t = [];
                 if (!window.jsyaml)
                     return (
@@ -18475,7 +18478,7 @@
                 return t;
             });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(t, r, o, a) {
                     if (o && o.call) {
@@ -18578,9 +18581,9 @@
                     e.defineExtension('foldOption', function (e, t) {
                         return i(this, e, t);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 e.defineOption('foldGutter', !1, function (t, i, o) {
                     o &&
@@ -18712,11 +18715,11 @@
                         r >= n.from && r < n.to && a(e, r, r + 1);
                     }
                 }
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).registerHelper('fold', 'brace', function (e, t) {
+            (n = f).registerHelper('fold', 'brace', function (e, t) {
                 var r,
                     i = t.line,
                     o = e.getLine(i);
@@ -18799,7 +18802,7 @@
                     return { from: n.Pos(i, o + 1), to: e.clipPos(n.Pos(a)) };
                 });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = e.Pos;
                 function n(e, t) {
@@ -18963,11 +18966,11 @@
                     (e.scanForClosingTag = function (e, t, n, r) {
                         return p(new o(e, t.line, t.ch, r ? { from: 0, to: r } : null), n);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).registerGlobalHelper(
+            (n = f).registerGlobalHelper(
                 'fold',
                 'comment',
                 function (e) {
@@ -19021,9 +19024,9 @@
                 }
             );
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             var n;
-            (n = d).registerHelper('fold', 'markdown', function (e, t) {
+            (n = f).registerHelper('fold', 'markdown', function (e, t) {
                 var r = 100;
                 function i(t) {
                     var r = e.getTokenTypeAt(n.Pos(t, 0));
@@ -19049,7 +19052,7 @@
                 }
             });
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(t, n) {
                     var r = t.getLine(n),
@@ -19074,9 +19077,9 @@
                             : void 0;
                     }
                 });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = { pairs: '()[]{}\'\'""', closeBefore: ')]}\'":;>', triples: '', explode: '[]{}' },
                     n = e.Pos;
@@ -19228,9 +19231,9 @@
                     );
                 }
                 o(t.pairs + '`');
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 e.defineOption('autoCloseTags', !1, function (t, n, i) {
                     if ((i != e.Init && i && t.removeKeyMap('autoCloseTags'), n)) {
@@ -19404,9 +19407,9 @@
                 e.commands.closeTag = function (e) {
                     return i(e);
                 };
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = /^(\s*)(>[> ]*|[*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
                     n = /^(\s*)(>[> ]*|[*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
@@ -19469,9 +19472,9 @@
                     }
                     o.replaceSelections(l);
                 };
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t =
                         /MSIE \d/.test(navigator.userAgent) &&
@@ -19597,9 +19600,9 @@
                     e.defineExtension('scanForBracket', function (e, t, n, r) {
                         return a(this, e, t, n, r);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e) {
                     e.state.tagHit && e.state.tagHit.clear(),
@@ -19650,9 +19653,9 @@
                             r && t.extendSelection(r.to, r.from);
                         }
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t,
                     n,
@@ -19903,9 +19906,9 @@
                             r.push({ anchor: i.from(), head: i.to() });
                         r.length && this.setSelections(r, 0);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t) {
                     function n(e) {
@@ -20015,9 +20018,9 @@
                             this.changeHandler && this.cm.off('changes', this.changeHandler),
                             this.div.parentNode.removeChild(this.div);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t, n, r) {
                     (this.cm = e), (this.options = r);
@@ -20101,9 +20104,9 @@
                     (t.prototype.clear = function () {
                         this.cm.off('change', this.changeHandler), this.annotation.clear();
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = {
                     style: 'matchhighlight',
@@ -20226,9 +20229,9 @@
                         t.hasFocus() ? ((c.active = !0), s(t)) : t.on('focus', i), t.on('cursorActivity', r);
                     }
                 });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(t, n, r) {
                     var i,
@@ -20349,9 +20352,9 @@
                             c
                         );
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t, n, r, i) {
                     e.openDialog ? e.openDialog(t, i, { value: r, selectValueOnOpen: !0 }) : i(prompt(n, r));
@@ -20382,9 +20385,9 @@
                     });
                 }),
                     (e.keyMap.default['Alt-G'] = 'jumpToLine');
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e, t) {
                     return (
@@ -20637,9 +20640,9 @@
                     (e.commands.replaceAll = function (e) {
                         x(e, !0);
                     });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 var t = 'CodeMirror-activeline',
                     n = 'CodeMirror-activeline-background',
@@ -20683,9 +20686,9 @@
                         (o && (t.off('beforeSelectionChange', l), i(t), delete t.state.activeLines),
                         n && ((t.state.activeLines = []), a(t, t.listSelections()), t.on('beforeSelectionChange', l)));
                 });
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(e) {
                     e.state.markedSelection &&
@@ -20758,9 +20761,9 @@
                         i.pop().clear(), (u = i[i.length - 1].find());
                     o(n, u.to) > 0 && (n.line - u.from.line < r ? (i.pop().clear(), a(e, u.from, n)) : a(e, u.to, n));
                 }
-            })(d);
+            })(f);
         }),
-        u(function (e, t) {
+        d(function (e, t) {
             !(function (e) {
                 function t(t, r) {
                     function i() {
@@ -20784,9 +20787,9 @@
                             0 == e.display.wrapper.offsetHeight &&
                             t(e, (e.state.autoRefresh = { delay: r.delay || 250 }));
                 });
-            })(d);
+            })(f);
         });
-    function f(e, t, n, r, i, o, a, l, s, c) {
+    function p(e, t, n, r, i, o, a, l, s, c) {
         'boolean' != typeof a && ((s = l), (l = a), (a = !1));
         const u = 'function' == typeof n ? n.options : n;
         let d;
@@ -20831,7 +20834,7 @@
             }
         return n;
     }
-    const p = f(
+    const h = p(
         {
             render: function () {
                 var e = this,
@@ -20854,7 +20857,7 @@
         undefined,
         {
             name: 'HCodeMirror',
-            components: { codemirror: t.codemirror },
+            components: { codemirror: n.codemirror },
             props: {
                 value: { type: String, default: '', required: !0 },
                 theme: { type: String, default: 'default' },
@@ -20946,11 +20949,13 @@
         void 0,
         void 0
     );
-    (window.JSHINT = i.JSHINT),
-        (window.CSSLint = c.default),
-        (window.jsonlint = a.parser),
-        (p.install = function (e) {
-            e.component(p.name, p);
+    (window.JSHINT = o.JSHINT),
+        (window.CSSLint = u.default),
+        (window.jsonlint = l.parser),
+        (h.install = function (e) {
+            e.component(h.name, h);
         }),
-        null != typeof window && window.Vue && p.install(window.Vue);
+        null != typeof window && window.Vue && h.install(window.Vue),
+        (e.HCodeMirror = h),
+        Object.defineProperty(e, '__esModule', { value: !0 });
 });

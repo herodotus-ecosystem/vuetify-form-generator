@@ -1,13 +1,13 @@
 !(function (n, e) {
     'object' == typeof exports && 'undefined' != typeof module
-        ? e(require('vuetify/lib'))
+        ? e(exports, require('vuetify/lib'))
         : 'function' == typeof define && define.amd
-        ? define(['vuetify/lib'], e)
-        : e((n = 'undefined' != typeof globalThis ? globalThis : n || self).Vuetify);
-})(this, function (n) {
+        ? define(['exports', 'vuetify/lib'], e)
+        : e(((n = 'undefined' != typeof globalThis ? globalThis : n || self).main = {}), n.Vuetify);
+})(this, function (n, e) {
     'use strict';
-    function e(n, e, t, o, i, s, r, c, l, d) {
-        'boolean' != typeof r && ((l = c), (c = r), (r = !1));
+    function t(n, e, t, o, i, r, s, c, l, d) {
+        'boolean' != typeof s && ((l = c), (c = s), (s = !1));
         const f = 'function' == typeof t ? t.options : t;
         let a;
         if (
@@ -18,7 +18,7 @@
                 (f._compiled = !0),
                 i && (f.functional = !0)),
             o && (f._scopeId = o),
-            s
+            r
                 ? ((a = function (n) {
                       (n =
                           n ||
@@ -27,11 +27,11 @@
                           'undefined' == typeof __VUE_SSR_CONTEXT__ ||
                           (n = __VUE_SSR_CONTEXT__),
                           e && e.call(this, l(n)),
-                          n && n._registeredComponents && n._registeredComponents.add(s);
+                          n && n._registeredComponents && n._registeredComponents.add(r);
                   }),
                   (f._ssrRegister = a))
                 : e &&
-                  (a = r
+                  (a = s
                       ? function (n) {
                             e.call(this, d(n, this.$root.$options.shadowRoot));
                         }
@@ -51,7 +51,7 @@
             }
         return t;
     }
-    const t = e(
+    const o = t(
         {
             render: function () {
                 var n = this,
@@ -95,7 +95,7 @@
         },
         undefined,
         {
-            components: { VIcon: n.VIcon, VBtn: n.VBtn, VTooltip: n.VTooltip },
+            components: { VIcon: e.VIcon, VBtn: e.VBtn, VTooltip: e.VTooltip },
             name: 'HButton',
             props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
             methods: {
@@ -112,8 +112,10 @@
         void 0,
         void 0
     );
-    (t.install = function (n) {
-        n.component(t.name, t);
+    (o.install = function (n) {
+        n.component(o.name, o);
     }),
-        null != typeof window && window.Vue && t.install(window.Vue);
+        null != typeof window && window.Vue && o.install(window.Vue),
+        (n.HButton = o),
+        Object.defineProperty(n, '__esModule', { value: !0 });
 });

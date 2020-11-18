@@ -1,15 +1,12 @@
 <template>
-    <h-form-runtime :schema="schema"></h-form-runtime>
+    <client-only>
+        <h-form-runtime :schema="schema"></h-form-runtime>
+    </client-only>
 </template>
 
 <script>
 export default {
     layout: 'form',
-
-    created() {
-        let params = this.$route.params.id;
-        console.log(params);
-    },
 
     async asyncData({ $content, params }) {
         // fetch our article here

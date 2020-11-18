@@ -17,7 +17,7 @@ export default {
     css: [],
 
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-    plugins: [{ src: '~/plugins/h-form-runtime', ssr: 'false' }],
+    plugins: [{ src: '~/plugins/h-form-runtime', ssr: false }],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
@@ -67,6 +67,6 @@ export default {
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
     build: {
-        transpile: ['@hecate/h-form-runtime'],
+        transpile: [/^vuetify/],
     },
 };

@@ -26,29 +26,29 @@
 
 <script>
 import { ValidationObserver } from 'vee-validate';
-import HFormRenderer from '@hecate/h-form-renderer';
+import { HFormRenderer } from '@hecate/h-form-renderer';
 
 export default {
     name: 'HFormRuntime',
 
     components: {
         ValidationObserver,
-        HFormRenderer
+        HFormRenderer,
     },
 
     props: {
         schema: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         title: {
             type: String,
-            default: '动态表单'
-        }
+            default: '动态表单',
+        },
     },
 
     data: () => ({
-        model: {}
+        model: {},
     }),
 
     methods: {
@@ -63,7 +63,7 @@ export default {
             this.model = {};
             this.$refs.form.reset();
             this.$refs.observer.reset();
-        }
-    }
+        },
+    },
 };
 </script>

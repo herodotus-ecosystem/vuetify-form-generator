@@ -1,18 +1,18 @@
 !(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
-        ? t(require('vuetify/lib'), require('@hecate/h-button'), require('@hecate/h-code-mirror'))
+        ? t(exports, require('vuetify/lib'), require('@hecate/h-button'), require('@hecate/h-code-mirror'))
         : 'function' == typeof define && define.amd
-        ? define(['vuetify/lib', '@hecate/h-button', '@hecate/h-code-mirror'], t)
-        : t((e = 'undefined' != typeof globalThis ? globalThis : e || self).Vuetify, e.HButton, e.HCodeMirror);
-})(this, function (e, t, o) {
+        ? define(['exports', 'vuetify/lib', '@hecate/h-button', '@hecate/h-code-mirror'], t)
+        : t(
+              ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
+              e.Vuetify,
+              e.HButton,
+              e.HCodeMirror
+          );
+})(this, function (e, t, o, r) {
     'use strict';
-    function n(e) {
-        return e && 'object' == typeof e && 'default' in e ? e : { default: e };
-    }
-    var r = n(t),
-        a = n(o);
-    function i(e, t, o, n, r, a, i, d, l, s) {
-        'boolean' != typeof i && ((l = d), (d = i), (i = !1));
+    function n(e, t, o, r, n, i, a, d, l, s) {
+        'boolean' != typeof a && ((l = d), (d = a), (a = !1));
         const c = 'function' == typeof o ? o.options : o;
         let h;
         if (
@@ -21,9 +21,9 @@
                 ((c.render = e.render),
                 (c.staticRenderFns = e.staticRenderFns),
                 (c._compiled = !0),
-                r && (c.functional = !0)),
-            n && (c._scopeId = n),
-            a
+                n && (c.functional = !0)),
+            r && (c._scopeId = r),
+            i
                 ? ((h = function (e) {
                       (e =
                           e ||
@@ -32,11 +32,11 @@
                           'undefined' == typeof __VUE_SSR_CONTEXT__ ||
                           (e = __VUE_SSR_CONTEXT__),
                           t && t.call(this, l(e)),
-                          e && e._registeredComponents && e._registeredComponents.add(a);
+                          e && e._registeredComponents && e._registeredComponents.add(i);
                   }),
                   (c._ssrRegister = h))
                 : t &&
-                  (h = i
+                  (h = a
                       ? function (e) {
                             t.call(this, s(e, this.$root.$options.shadowRoot));
                         }
@@ -56,7 +56,7 @@
             }
         return o;
     }
-    const d = i(
+    const i = n(
         {
             render: function () {
                 var e = this,
@@ -155,16 +155,16 @@
         {
             name: 'HCodeEditor',
             components: {
-                HButton: r.default,
-                HCodeMirror: a.default,
-                VIcon: e.VIcon,
-                VBtn: e.VBtn,
-                VToolbarTitle: e.VToolbarTitle,
-                VSpacer: e.VSpacer,
-                VSwitch: e.VSwitch,
-                VSelect: e.VSelect,
-                VToolbar: e.VToolbar,
-                VCard: e.VCard,
+                HButton: o.HButton,
+                HCodeMirror: r.HCodeMirror,
+                VIcon: t.VIcon,
+                VBtn: t.VBtn,
+                VToolbarTitle: t.VToolbarTitle,
+                VSpacer: t.VSpacer,
+                VSwitch: t.VSwitch,
+                VSelect: t.VSelect,
+                VToolbar: t.VToolbar,
+                VCard: t.VCard,
             },
             data: () => ({
                 modeOptions: [
@@ -289,8 +289,10 @@
         void 0,
         void 0
     );
-    (d.install = function (e) {
-        e.component(d.name, d);
+    (i.install = function (e) {
+        e.component(i.name, i);
     }),
-        null != typeof window && window.Vue && d.install(window.Vue);
+        null != typeof window && window.Vue && i.install(window.Vue),
+        (e.HCodeEditor = i),
+        Object.defineProperty(e, '__esModule', { value: !0 });
 });

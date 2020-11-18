@@ -8,4 +8,4 @@ if (typeof window != undefined && window.Vue) {
     HIconList.install(window.Vue);
 }
 
-export default HIconList;
+export { HIconList };

@@ -8,8 +8,8 @@ import {
     VToolbar as i,
     VCard as d,
 } from 'vuetify/lib';
-import s from '@hecate/h-button';
-import l from '@hecate/h-code-mirror';
+import { HButton as s } from '@hecate/h-button';
+import { HCodeMirror as l } from '@hecate/h-code-mirror';
 function c(e, t, o, r, n, a, i, d, s, l) {
     'boolean' != typeof i && ((s = d), (d = i), (i = !1));
     const c = 'function' == typeof o ? o.options : o;
@@ -287,3 +287,4 @@ const h = c(
     e.component(h.name, h);
 }),
     null != typeof window && window.Vue && h.install(window.Vue);
+export { h as HCodeEditor };

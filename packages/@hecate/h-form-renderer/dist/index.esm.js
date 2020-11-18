@@ -3,8 +3,8 @@ import {
     VAutocomplete as t,
     VBtn as i,
     VCard as s,
-    VCardActions as l,
-    VCardText as r,
+    VCardActions as r,
+    VCardText as l,
     VCardTitle as a,
     VCheckbox as n,
     VChip as o,
@@ -35,8 +35,8 @@ import {
     VSwitch as L,
     VTabs as A,
     VTab as E,
-    VTabItem as K,
-    VTextarea as R,
+    VTabItem as R,
+    VTextarea as K,
     VTextField as q,
     VTimePicker as M,
     VTooltip as N,
@@ -55,16 +55,16 @@ const U = {
             return i;
         },
         findIds: function (e, t) {
-            var i, s, l, r;
-            for (s in ((i = !1), (l = {}), e))
-                (r = e[s]),
+            var i, s, r, l;
+            for (s in ((i = !1), (r = {}), e))
+                (l = e[s]),
                     null != e.id && (i = e.id),
-                    i && 'id' !== s && (l[s] = r),
-                    'object' == typeof r && U.findIds(r, t);
-            if (i) return (t[i] = l), l;
+                    i && 'id' !== s && (r[s] = l),
+                    'object' == typeof l && U.findIds(l, t);
+            if (i) return (t[i] = r), r;
         },
         get_json_pointer: function (e, t, i) {
-            var s, l;
+            var s, r;
             (s = e
                 .replace(/\\\//, '#SLASH#')
                 .replace(/\//g, '.')
@@ -74,25 +74,25 @@ const U = {
                 }),
                 '.' === (s = s.replace(new RegExp('^' + U.pathtoken), ''))[0] && (s = s.substr(1, s.length - 1));
             try {
-                U.debug, (l = F.getter(s)(t));
+                U.debug, (r = F.getter(s)(t));
             } catch (e) {
-                l = '';
+                r = '';
             }
-            return l;
+            return r;
         },
         replace: function (e, t, i, s) {
-            var l, r, a, n, o, h;
-            for (l in ((o = []), e))
-                null != (h = e[l]) && null != h[U.reftoken]
-                    ? ((r = h[U.reftoken]),
+            var r, l, a, n, o, h;
+            for (r in ((o = []), e))
+                null != (h = e[r]) && null != h[U.reftoken]
+                    ? ((l = h[U.reftoken]),
                       Object.keys(h).length,
-                      Array.isArray(r)
-                          ? (r = U.replace(r, t, i, s))
-                          : null != t[r]
-                          ? (e[l] = t[r])
-                          : String(r).match(new RegExp('^' + U.pathtoken)) && (e[l] = U.get_json_pointer(r, i, s)),
-                      null != (null != (a = e[l]) ? a.length : void 0) &&
-                          0 === (null != (n = e[l]) ? n.length : void 0) &&
+                      Array.isArray(l)
+                          ? (l = U.replace(l, t, i, s))
+                          : null != t[l]
+                          ? (e[r] = t[l])
+                          : String(l).match(new RegExp('^' + U.pathtoken)) && (e[r] = U.get_json_pointer(l, i, s)),
+                      null != (null != (a = e[r]) ? a.length : void 0) &&
+                          0 === (null != (n = e[r]) ? n.length : void 0) &&
                           U.debug,
                       o.push(void 0))
                     : 'object' == typeof h
@@ -101,17 +101,17 @@ const U = {
             return o;
         },
         extend: function (e, t) {
-            var i, s, l, r, a, n;
+            var i, s, r, l, a, n;
             if ('object' == typeof e) {
-                for (i in ((l = []), e)) {
+                for (i in ((r = []), e)) {
                     if (((n = e[i]), i === U.extendtoken && null != n[U.reftoken])) {
-                        for (r in ((s = U.get_json_pointer(n[U.reftoken], e, t)), n))
-                            (a = n[r]), r !== U.reftoken && (s[r] = a);
+                        for (l in ((s = U.get_json_pointer(n[U.reftoken], e, t)), n))
+                            (a = n[l]), l !== U.reftoken && (s[l] = a);
                         delete e[i];
                     }
-                    'object' == typeof n ? l.push((n = U.extend(n))) : l.push(void 0);
+                    'object' == typeof n ? r.push((n = U.extend(n))) : r.push(void 0);
                 }
-                return l;
+                return r;
             }
         },
         resolve: function (e, t) {
@@ -119,29 +119,29 @@ const U = {
             return (i = {}), U.findIds(e, i), U.debug && Object.keys(i).length, U.replace(e, i, e, t), e;
         },
         evaluate: function (e, t, i) {
-            var s, l, r;
-            for (s in (null == i && (i = U.evaluateStr), (l = U.clone(e))))
-                'string' == typeof (r = l[s]) && (e[s] = i(r, t)), 'object' == typeof r && (e[s] = U.evaluate(r, t));
+            var s, r, l;
+            for (s in (null == i && (i = U.evaluateStr), (r = U.clone(e))))
+                'string' == typeof (l = r[s]) && (e[s] = i(l, t)), 'object' == typeof l && (e[s] = U.evaluate(l, t));
             return e;
         },
         evaluateStr: function (e, t) {
             if ('string' != typeof e) return e;
             if ('{' !== e[0] || '}' !== e[e.length - 1])
                 return e.replace(/(\{)(.*?)(\})/g, function (e, i, s) {
-                    var l;
-                    if (((l = ''), null == t || null == s)) return l;
-                    if (null != t[s] && 'function' == typeof t[s]) l = t[s]();
-                    else if (null != t[s]) l = t[s];
+                    var r;
+                    if (((r = ''), null == t || null == s)) return r;
+                    if (null != t[s] && 'function' == typeof t[s]) r = t[s]();
+                    else if (null != t[s]) r = t[s];
                     else {
                         try {
                             (s = s.replace(new RegExp('^' + U.pathtoken + '/'), '').replace(/\//g, '.')),
-                                (l = F.getter(s)(t));
+                                (r = F.getter(s)(t));
                         } catch (e) {
-                            (err = e), (l = '');
+                            (err = e), (r = '');
                         }
-                        null == l && (l = '');
+                        null == r && (r = '');
                     }
-                    return U.evaluateStr(l, t), l;
+                    return U.evaluateStr(r, t), r;
                 });
             try {
                 return F.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
@@ -168,14 +168,14 @@ _.prepareFullSchema = (e, t) => {
                 Object.keys(i.dependencies).forEach((e) => {
                     const s = i.dependencies[e];
                     if (!t) return;
-                    const l = ((e, t) => {
+                    const r = ((e, t) => {
                         const i = t.split('.');
                         for (let t = 0; t < i.length && ![null, void 0].includes(e); t++) e = e[i[t]];
                         return e;
                     })(t, e);
-                    [null, void 0, !1].includes(l) ||
-                        (Array.isArray(l) && 0 === l.length) ||
-                        ('object' == typeof l && 0 === Object.keys(l).length) ||
+                    [null, void 0, !1].includes(r) ||
+                        (Array.isArray(r) && 0 === r.length) ||
+                        ('object' == typeof r && 0 === Object.keys(r).length) ||
                         ((i.required = i.required.concat(s.required || [])),
                         (i.properties = i.properties.concat(J(s.properties))),
                         s.oneOf && (i.oneOf = (i.oneOf || []).concat(s.oneOf)),
@@ -426,7 +426,7 @@ var G = {
         },
         renderSection(e, t, i, s) {
             if (!s) return;
-            const l = i || t.key;
+            const r = i || t.key;
             return 'hidden' === t['x-display'] || (t.readOnly && this.fullOptions.hideReadOnly)
                 ? [s]
                 : 'expansion-panels' === this.display
@@ -437,7 +437,7 @@ var G = {
                               {
                                   class: {
                                       'error--text':
-                                          this.childrenInputs[l] && this.childrenInputs[l].hasValidatedChildError,
+                                          this.childrenInputs[r] && this.childrenInputs[r].hasValidatedChildError,
                                   },
                               },
                               [t.title]
@@ -447,13 +447,13 @@ var G = {
                   ]
                 : 'tabs' === this.display
                 ? [
-                      e('v-tab', { props: { href: `#tab-${this.fullOptions.idPrefix}${this.dashKey}-${l}` } }, [
+                      e('v-tab', { props: { href: `#tab-${this.fullOptions.idPrefix}${this.dashKey}-${r}` } }, [
                           e(
                               'span',
                               {
                                   class: {
                                       'error--text':
-                                          this.childrenInputs[l] && this.childrenInputs[l].hasValidatedChildError,
+                                          this.childrenInputs[r] && this.childrenInputs[r].hasValidatedChildError,
                                   },
                               },
                               [t.title]
@@ -461,7 +461,7 @@ var G = {
                       ]),
                       e(
                           'v-tab-item',
-                          { props: { value: `tab-${this.fullOptions.idPrefix}${this.dashKey}-${l}`, eager: !0 } },
+                          { props: { value: `tab-${this.fullOptions.idPrefix}${this.dashKey}-${r}`, eager: !0 } },
                           [e('v-card', { props: { tile: !0, flat: !0 } }, [e('v-card-text', [s])])]
                       ),
                   ]
@@ -483,15 +483,15 @@ var G = {
                       ]),
                   ];
         },
-        renderChildProp(e, t, i, s, l) {
-            const r = i ? this.subModels : this.value,
+        renderChildProp(e, t, i, s, r) {
+            const l = i ? this.subModels : this.value,
                 a = i || t.key;
-            let n = r[a];
+            let n = l[a];
             return (
                 void 0 === n &&
                     ((n = this.defaultValue(t)),
                     void 0 !== t.default && (n = JSON.parse(JSON.stringify(t.default))),
-                    null != n && (this.$set(r, a, n), this.input(this.value))),
+                    null != n && (this.$set(l, a, n), this.input(this.value))),
                 e('h-form-renderer', {
                     props: {
                         schema: { readOnly: this.fullSchema.readOnly, ...t },
@@ -506,10 +506,10 @@ var G = {
                         error: (e) => this.$emit('error', e),
                         input: (e) => {
                             void 0 === e
-                                ? Array.isArray(r) && parseInt(a) < r.length - 1
-                                    ? this.$set(r, a, e)
-                                    : this.$delete(r, a)
-                                : this.$set(r, a, e),
+                                ? Array.isArray(l) && parseInt(a) < l.length - 1
+                                    ? this.$set(l, a, e)
+                                    : this.$delete(l, a)
+                                : this.$set(l, a, e),
                                 this.$emit('input', this.value);
                         },
                         change: (e) => this.$emit('change', this.value),
@@ -531,21 +531,21 @@ var G = {
                         } else t.push(this.renderChildProp(e, s, null, this.sectionDepth));
                     }),
                 Array.isArray(this.fullSchema.items) &&
-                    this.fullSchema.items.forEach((s, l) => {
-                        const r = { ...s, key: '' + l },
-                            a = this.value.length > l || (this.fullSchema.minItems && this.fullSchema.minItems > l);
+                    this.fullSchema.items.forEach((s, r) => {
+                        const l = { ...s, key: '' + r },
+                            a = this.value.length > r || (this.fullSchema.minItems && this.fullSchema.minItems > r);
                         if (this.isSection(s)) {
-                            const t = this.renderChildProp(e, r, null, this.sectionDepth + 1, a);
-                            i = i.concat(this.renderSection(e, r, null, t));
-                        } else t.push(this.renderChildProp(e, r, null, this.sectionDepth, a));
+                            const t = this.renderChildProp(e, l, null, this.sectionDepth + 1, a);
+                            i = i.concat(this.renderSection(e, l, null, t));
+                        } else t.push(this.renderChildProp(e, l, null, this.sectionDepth, a));
                     }),
                 this.fullSchema.allOf &&
-                    this.fullSchema.allOf.forEach((s, l) => {
-                        const r = { ...s, type: 'object', key: '' + l };
+                    this.fullSchema.allOf.forEach((s, r) => {
+                        const l = { ...s, type: 'object', key: '' + r };
                         if (this.isSection(s)) {
-                            const t = this.renderChildProp(e, r, 'allOf-' + l, this.sectionDepth + 1);
-                            i = i.concat(this.renderSection(e, r, 'allOf-' + l, t));
-                        } else t.push(this.renderChildProp(e, r, 'allOf-' + l, this.sectionDepth));
+                            const t = this.renderChildProp(e, l, 'allOf-' + r, this.sectionDepth + 1);
+                            i = i.concat(this.renderSection(e, l, 'allOf-' + r, t));
+                        } else t.push(this.renderChildProp(e, l, 'allOf-' + r, this.sectionDepth));
                     }),
                 'expansion-panels' === this.display && i.length)
             ) {
@@ -664,7 +664,7 @@ var X = {
                     i = this.fullOptions.icons.calendar;
                 if ('time' === this.fullSchema.format)
                     (t = e('v-time-picker', {
-                        props: { value: ((l = this.value), l ? l.slice(0, 5) : ''), ...this.fullSchema['x-props'] },
+                        props: { value: ((r = this.value), r ? r.slice(0, 5) : ''), ...this.fullSchema['x-props'] },
                         on: { input: (e) => this.input(Q(e)), change: (e) => this.change(Q(e)) },
                     })),
                         (i = this.fullOptions.icons.clock);
@@ -691,7 +691,7 @@ var X = {
                                 this.input(e), this.change(e);
                             }
                         },
-                        l = [
+                        r = [
                             e('v-tab', { props: { href: '#tab-date' } }, [
                                 e('v-icon', [this.fullOptions.icons.calendar]),
                             ]),
@@ -738,13 +738,13 @@ var X = {
                             },
                             class: 'vjsf-date-time',
                         },
-                        l
+                        r
                     );
                 }
-                var s, l;
-                const r = {};
+                var s, r;
+                const l = {};
                 return (
-                    (r.activator = ({ on: t }) =>
+                    (l.activator = ({ on: t }) =>
                         e(
                             'v-text-field',
                             {
@@ -763,7 +763,7 @@ var X = {
                         e(
                             'v-menu',
                             {
-                                scopedSlots: r,
+                                scopedSlots: l,
                                 props: {
                                     value: this.dateProp.menu,
                                     disabled: this.disabled,
@@ -805,21 +805,21 @@ var X = {
                 const t = { ...this.commonFieldProps },
                     i = [],
                     s = {},
-                    l = { input: (e) => this.input(e), change: (e) => this.change(e) };
+                    r = { input: (e) => this.input(e), change: (e) => this.change(e) };
                 if (
                     (['number', 'integer'].includes(this.fullSchema.type) &&
-                        (l.input = (e) => {
+                        (r.input = (e) => {
                             this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e));
                         }),
                     'boolean' === this.fullSchema.type &&
-                        (l.change = (e) => {
+                        (r.change = (e) => {
                             this.input(e || !1), this.change(e || !1);
                         }),
                     'array' === this.fullSchema.type &&
                         ['string', 'number', 'integer'].includes(this.fullSchema.items.type) &&
                         'string' !== this.fullSchema.items.type &&
                         ((t.type = 'number'),
-                        (l.input = (e) => {
+                        (r.input = (e) => {
                             const t = e
                                 .map((e) =>
                                     'integer' === this.fullSchema.items.type ? parseInt(e, 10) : parseFloat(e)
@@ -832,22 +832,22 @@ var X = {
                     let t = 'append-outer';
                     i.push(this.renderTooltip(e, t));
                 }
-                let r = this.fullSchema['x-rules'];
-                return r
+                let l = this.fullSchema['x-rules'];
+                return l
                     ? [
                           e('validation-provider', {
-                              props: { name: t.label, rules: r },
+                              props: { name: t.label, rules: l },
                               scopedSlots: {
-                                  default: ({ errors: r }) =>
+                                  default: ({ errors: l }) =>
                                       e(
                                           this.fullSchema.tag,
-                                          { props: { ...t, required: !0, 'error-messages': r }, on: l, scopedSlots: s },
+                                          { props: { ...t, required: !0, 'error-messages': l }, on: r, scopedSlots: s },
                                           i
                                       ),
                               },
                           }),
                       ]
-                    : [e(this.fullSchema.tag, { props: t, on: l, scopedSlots: s }, i)];
+                    : [e(this.fullSchema.tag, { props: t, on: r, scopedSlots: s }, i)];
             },
         },
     };
@@ -911,7 +911,7 @@ var ie = {
                         (i.accept = this.fullSchema.items.contentMediaType),
                     'array' === this.fullSchema.type && (i.multiple = !0);
                 const s = [...this.renderPropSlots(e)],
-                    l = {
+                    r = {
                         change: async (e) => {
                             if ('array' === this.fullSchema.type) {
                                 const t = await Promise.all(
@@ -926,7 +926,7 @@ var ie = {
                     };
                 return (
                     this.htmlDescription && s.push(this.renderTooltip(e, 'append-outer')),
-                    [e('v-file-input', { props: t, attrs: i, on: l }, s)]
+                    [e('v-file-input', { props: t, attrs: i, on: r }, s)]
                 );
             },
         },
@@ -994,9 +994,9 @@ var ie = {
             },
         },
     };
-const le = {
+const re = {
         getSelectItems: (e, t, i, s) => {
-            const l = [];
+            const r = [];
             if (e)
                 if (
                     ('object' === t.type && t.properties && Object.keys(t.properties).length) ||
@@ -1012,54 +1012,54 @@ const le = {
                         i.forEach((i) => {
                             void 0 !== e[i] && (t[i] = e[i]);
                         }),
-                            l.push(t);
+                            r.push(t);
                     });
                 } else
                     e.forEach((e) => {
-                        if ('object' == typeof e) l.push(e);
+                        if ('object' == typeof e) r.push(e);
                         else {
                             const t = { [i]: e };
-                            s && (t[s] = e), l.push(t);
+                            s && (t[s] = e), r.push(t);
                         }
                     });
             else;
-            return l;
+            return r;
         },
     },
-    re = (e, t, i) => {
+    le = (e, t, i) => {
         if ([null, void 0].includes(e)) return !1;
         if ([null, void 0].includes(t)) return !1;
         return JSON.stringify(e[i]) === JSON.stringify(t[i]);
     };
-(le.fillSelectItems = (e, t, i, s, l) => {
+(re.fillSelectItems = (e, t, i, s, r) => {
     if (t)
         if ('array' === e.type)
             t.map((e) => e)
                 .reverse()
                 .forEach((e) => {
-                    const t = l ? e : { [s]: e };
-                    i.find((e) => re(e, t, s)) || i.push(t);
+                    const t = r ? e : { [s]: e };
+                    i.find((e) => le(e, t, s)) || i.push(t);
                 });
         else {
-            const e = l ? t : { [s]: t };
-            i.find((t) => re(t, e, s)) || i.push(e);
+            const e = r ? t : { [s]: t };
+            i.find((t) => le(t, e, s)) || i.push(e);
         }
 }),
-    (le.fillList = (e, t, i, s) => {
+    (re.fillList = (e, t, i, s) => {
         if (t)
             return i.length
                 ? (i.forEach((e) => {
-                      t.find((t) => re(e, t, s)) || t.push(e);
+                      t.find((t) => le(e, t, s)) || t.push(e);
                   }),
-                  t.forEach((e, l) => {
-                      i.find((t) => re(t, e, s)) || (t[l] = null);
+                  t.forEach((e, r) => {
+                      i.find((t) => le(t, e, s)) || (t[r] = null);
                   }),
                   t.filter((e) => !!e))
                 : [];
     });
 const ae = require('match-all'),
     ne = require('debounce');
-function oe(e, t, i, s, l, r, a, n, o, h) {
+function oe(e, t, i, s, r, l, a, n, o, h) {
     'boolean' != typeof a && ((o = n), (n = a), (a = !1));
     const u = 'function' == typeof i ? i.options : i;
     let c;
@@ -1069,9 +1069,9 @@ function oe(e, t, i, s, l, r, a, n, o, h) {
             ((u.render = e.render),
             (u.staticRenderFns = e.staticRenderFns),
             (u._compiled = !0),
-            l && (u.functional = !0)),
+            r && (u.functional = !0)),
         s && (u._scopeId = s),
-        r
+        l
             ? ((c = function (e) {
                   (e =
                       e ||
@@ -1080,7 +1080,7 @@ function oe(e, t, i, s, l, r, a, n, o, h) {
                       'undefined' == typeof __VUE_SSR_CONTEXT__ ||
                       (e = __VUE_SSR_CONTEXT__),
                       t && t.call(this, o(e)),
-                      e && e._registeredComponents && e._registeredComponents.add(r);
+                      e && e._registeredComponents && e._registeredComponents.add(l);
               }),
               (u._ssrRegister = c))
             : t &&
@@ -1114,8 +1114,8 @@ const he = oe(
             VAutocomplete: t,
             VBtn: i,
             VCard: s,
-            VCardActions: l,
-            VCardText: r,
+            VCardActions: r,
+            VCardText: l,
             VCardTitle: a,
             VCheckbox: n,
             VChip: o,
@@ -1146,8 +1146,8 @@ const he = oe(
             VSwitch: L,
             VTabs: A,
             VTab: E,
-            VTabItem: K,
-            VTextarea: R,
+            VTabItem: R,
+            VTextarea: K,
             VTextField: q,
             VTimePicker: M,
             VTooltip: N,
@@ -1323,15 +1323,15 @@ const he = oe(
                                         this.debouncedFetch();
                                 },
                                 updateSelectItems() {
-                                    const e = le.getSelectItems(
+                                    const e = re.getSelectItems(
                                         this.rawSelectItems,
                                         this.fullSchema,
                                         this.itemKey,
                                         this.itemIcon
                                     );
                                     'list' === this.display &&
-                                        this.input(le.fillList(this.fullSchema, this.value, e, this.itemKey)),
-                                        le.fillSelectItems(
+                                        this.input(re.fillList(this.fullSchema, this.value, e, this.itemKey)),
+                                        re.fillSelectItems(
                                             this.fullSchema,
                                             this.value,
                                             e,
@@ -1394,7 +1394,7 @@ const he = oe(
                                             },
                                             this.commonFieldProps.label
                                         ),
-                                        l = this.selectItems.map((t) => this.renderSelectionControlItem(e, t));
+                                        r = this.selectItems.map((t) => this.renderSelectionControlItem(e, t));
                                     return [
                                         e(
                                             'v-input',
@@ -1405,7 +1405,7 @@ const he = oe(
                                                     'v-input--selection-controls v-input--radio-group v-input--radio-group--column',
                                             },
                                             [
-                                                e('div', { class: 'v-input--radio-group__input' }, [s, ...l]),
+                                                e('div', { class: 'v-input--radio-group__input' }, [s, ...r]),
                                                 this.renderTooltip(e, 'append'),
                                             ]
                                         ),
@@ -1475,8 +1475,8 @@ const he = oe(
                                         },
                                         s = [...this.renderPropSlots(e)];
                                     this.htmlDescription && s.push(this.renderTooltip(e, 'append-outer'));
-                                    let l = 'v-select';
-                                    const r = {
+                                    let r = 'v-select';
+                                    const l = {
                                         ...this.commonFieldProps,
                                         ...this.fullOptions.selectProps,
                                         clearable: !this.required,
@@ -1488,21 +1488,21 @@ const he = oe(
                                     return (
                                         (this.fromUrlWithQuery ||
                                             (this.rawSelectItems && this.rawSelectItems.length > 20)) &&
-                                            ((l = 'v-autocomplete'),
-                                            (r.noDataText = this.fullOptions.messages.noData),
-                                            (r.placeholder = this.fullOptions.messages.search),
+                                            ((r = 'v-autocomplete'),
+                                            (l.noDataText = this.fullOptions.messages.noData),
+                                            (l.placeholder = this.fullOptions.messages.search),
                                             this.fromUrlWithQuery
-                                                ? ((r.filter = () => !0),
-                                                  (r.searchInput = this.q),
+                                                ? ((l.filter = () => !0),
+                                                  (l.searchInput = this.q),
                                                   (t['update:search-input'] = (e) => {
                                                       this.q = e;
                                                   }))
-                                                : (r.filter = (e, t) =>
+                                                : (l.filter = (e, t) =>
                                                       (e[this.itemTitle] || e[this.itemKey])
                                                           .toLowerCase()
                                                           .includes(t.toLowerCase()))),
-                                        (l = this.customTag ? this.customTag : l),
-                                        [e(l, { props: r, on: t, scopedSlots: i }, s)]
+                                        (r = this.customTag ? this.customTag : r),
+                                        [e(r, { props: l, on: t, scopedSlots: i }, s)]
                                     );
                                 },
                             },
@@ -1548,11 +1548,11 @@ const he = oe(
                             methods: {
                                 renderArrayItemModal(e, t, i) {
                                     const s = -1 === i;
-                                    let l;
+                                    let r;
                                     this.editabledArrayProp.currentDialog === i &&
                                         (this.fullOptions.idPrefix.endsWith('--dialog--') ||
                                             (this.fullOptions.idPrefix = this.fullOptions.idPrefix + '--dialog--'),
-                                        (l = e(
+                                        (r = e(
                                             'v-jsf',
                                             {
                                                 props: {
@@ -1575,7 +1575,7 @@ const he = oe(
                                             },
                                             this.childSlots(e, this.fullSchema.key)
                                         )));
-                                    const r = {
+                                    const l = {
                                             activator: () =>
                                                 e(
                                                     'v-btn',
@@ -1608,7 +1608,7 @@ const he = oe(
                                                 ),
                                         },
                                         a = () => {
-                                            l.componentInstance.resetValidation(),
+                                            r.componentInstance.resetValidation(),
                                                 (this.editabledArrayProp.currentDialog = null);
                                         };
                                     return e(
@@ -1619,13 +1619,13 @@ const he = oe(
                                                 value: this.editabledArrayProp.currentDialog === i,
                                                 closeOnContentClick: !1,
                                             },
-                                            scopedSlots: r,
+                                            scopedSlots: l,
                                             on: { 'click:outside': a },
                                         },
                                         [
                                             e('v-card', { props: this.fullOptions.dialogCardProps }, [
                                                 e('v-card-title', this.itemTitle && t[this.itemTitle]),
-                                                e('v-card-text', [l]),
+                                                e('v-card-text', [r]),
                                                 e('v-card-actions', [
                                                     e('v-spacer'),
                                                     e(
@@ -1649,7 +1649,7 @@ const he = oe(
                                                             props: { color: 'primary' },
                                                             on: {
                                                                 click: () => {
-                                                                    l.componentInstance.validate(!0) &&
+                                                                    r.componentInstance.validate(!0) &&
                                                                         (s
                                                                             ? ((this.editabledArrayProp.editedItems[
                                                                                   this.value.length
@@ -2003,58 +2003,58 @@ const he = oe(
                         },
                         rules() {
                             return ((e, t, i, s) => {
-                                const l = [];
+                                const r = [];
                                 if (
-                                    (i && l.push((e) => (null != e && '' !== e) || t.messages.required),
+                                    (i && r.push((e) => (null != e && '' !== e) || t.messages.required),
                                     'array' === e.type && void 0 !== e.minItems)
                                 ) {
                                     const i = t.messages.minItems.replace(
                                         '{minItems}',
                                         e.minItems.toLocaleString(t.locale)
                                     );
-                                    l.push((t) => !t || t.length >= e.minItems || i);
+                                    r.push((t) => !t || t.length >= e.minItems || i);
                                 }
                                 if ('array' === e.type && void 0 !== e.maxItems) {
                                     const i = t.messages.maxItems.replace(
                                         '{maxItems}',
                                         e.maxItems.toLocaleString(t.locale)
                                     );
-                                    l.push((t) => !t || t.length <= e.maxItems || i);
+                                    r.push((t) => !t || t.length <= e.maxItems || i);
                                 }
                                 if ('string' === e.type && void 0 !== e.minLength) {
                                     const i = t.messages.minLength.replace(
                                         '{minLength}',
                                         e.minLength.toLocaleString(t.locale)
                                     );
-                                    l.push((t) => null == t || t.length >= e.minLength || i);
+                                    r.push((t) => null == t || t.length >= e.minLength || i);
                                 }
                                 if ('string' === e.type && void 0 !== e.maxLength) {
                                     const i = t.messages.maxLength.replace(
                                         '{maxLength}',
                                         e.maxLength.toLocaleString(t.locale)
                                     );
-                                    l.push((t) => null == t || t.length <= e.maxLength || i);
+                                    r.push((t) => null == t || t.length <= e.maxLength || i);
                                 }
                                 if ('string' === e.type && void 0 !== e.patternRegexp) {
                                     const i = t.messages.pattern.replace('{pattern}', e.pattern);
-                                    l.push((t) => null == t || !!t.match(e.patternRegexp) || i);
+                                    r.push((t) => null == t || !!t.match(e.patternRegexp) || i);
                                 }
                                 if (['number', 'integer'].includes(e.type) && void 0 !== e.maximum) {
                                     const i = t.messages.maximum.replace(
                                         '{maximum}',
                                         e.maximum.toLocaleString(t.locale)
                                     );
-                                    l.push((t) => null == t || t <= e.maximum || i);
+                                    r.push((t) => null == t || t <= e.maximum || i);
                                 }
                                 if (['number', 'integer'].includes(e.type) && void 0 !== e.minimum) {
                                     const i = t.messages.minimum.replace(
                                         '{minimum}',
                                         e.minimum.toLocaleString(t.locale)
                                     );
-                                    l.push((t) => null == t || t >= e.minimum || i);
+                                    r.push((t) => null == t || t >= e.minimum || i);
                                 }
                                 e.enum &&
-                                    l.push(
+                                    r.push(
                                         (t) =>
                                             null == t ||
                                             !!e.enum.find((e) => JSON.stringify(e) === JSON.stringify(t)) ||
@@ -2062,7 +2062,7 @@ const he = oe(
                                     ),
                                     'array' === e.type &&
                                         e.items.enum &&
-                                        l.push(
+                                        r.push(
                                             (t) =>
                                                 null == t ||
                                                 !t.find(
@@ -2075,19 +2075,19 @@ const he = oe(
                                         ),
                                     s &&
                                         'array' !== e.type &&
-                                        l.push((t) => null == t || !!e.oneOf.find((e) => e.const === t) || ''),
+                                        r.push((t) => null == t || !!e.oneOf.find((e) => e.const === t) || ''),
                                     s &&
                                         'array' === e.type &&
-                                        l.push(
+                                        r.push(
                                             (t) =>
                                                 null == t ||
                                                 !t.find((t) => !e.items.oneOf.find((e) => e.const === t)) ||
                                                 ''
                                         );
-                                const r = (e['x-ruless'] || []).map((e) =>
+                                const l = (e['x-ruless'] || []).map((e) =>
                                     'string' == typeof e ? t.rules && t.rules[e] : 'function' == typeof e ? e : void 0
                                 );
-                                return l.concat(r);
+                                return r.concat(l);
                             })(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
                         },
                         disabled() {
@@ -2320,3 +2320,4 @@ const he = oe(
     e.component(he.name, he);
 }),
     null != typeof window && window.Vue && he.install(window.Vue);
+export { he as HFormRenderer };

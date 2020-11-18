@@ -16,7 +16,6 @@
         "@nuxt/content": "^1.9.0",
         "@nuxtjs/axios": "^5.12.2",
         "@nuxtjs/pwa": "^3.0.2",
-        "core-js": "^3.6.5",
         "nuxt": "^2.14.6",
         "vee-validate": "^3.4.5",
         "vuetify": "^2.3.18"

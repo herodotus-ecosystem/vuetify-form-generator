@@ -8,4 +8,4 @@ if (typeof window != undefined && window.Vue) {
     HButton.install(window.Vue);
 }
 
-export default HButton;
+export { HButton };

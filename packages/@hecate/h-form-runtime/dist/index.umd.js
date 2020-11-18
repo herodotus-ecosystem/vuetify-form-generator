@@ -1,21 +1,18 @@
 !(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
-        ? t(require('vuetify/lib'), require('vee-validate'), require('@hecate/h-form-renderer'))
+        ? t(exports, require('vuetify/lib'), require('vee-validate'), require('@hecate/h-form-renderer'))
         : 'function' == typeof define && define.amd
-        ? define(['vuetify/lib', 'vee-validate', '@hecate/h-form-renderer'], t)
+        ? define(['exports', 'vuetify/lib', 'vee-validate', '@hecate/h-form-renderer'], t)
         : t(
-              (e = 'undefined' != typeof globalThis ? globalThis : e || self).Vuetify,
+              ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
+              e.Vuetify,
               e['vee-validate'],
               e.HFormRenderer
           );
-})(this, function (e, t, o) {
+})(this, function (e, t, o, r) {
     'use strict';
-    function r(e) {
-        return e && 'object' == typeof e && 'default' in e ? e : { default: e };
-    }
-    var n = r(o);
-    function i(e, t, o, r, n, i, a, s, l, d) {
-        'boolean' != typeof a && ((l = s), (s = a), (a = !1));
+    function n(e, t, o, r, n, i, s, a, l, d) {
+        'boolean' != typeof s && ((l = a), (a = s), (s = !1));
         const c = 'function' == typeof o ? o.options : o;
         let f;
         if (
@@ -39,12 +36,12 @@
                   }),
                   (c._ssrRegister = f))
                 : t &&
-                  (f = a
+                  (f = s
                       ? function (e) {
                             t.call(this, d(e, this.$root.$options.shadowRoot));
                         }
                       : function (e) {
-                            t.call(this, s(e));
+                            t.call(this, a(e));
                         }),
             f)
         )
@@ -59,7 +56,7 @@
             }
         return o;
     }
-    const a = i(
+    const i = n(
         {
             render: function () {
                 var e = this,
@@ -175,18 +172,18 @@
         {
             name: 'HFormRuntime',
             components: {
-                ValidationObserver: t.ValidationObserver,
-                HFormRenderer: n.default,
-                VIcon: e.VIcon,
-                VTooltip: e.VTooltip,
-                VToolbarTitle: e.VToolbarTitle,
-                VToolbar: e.VToolbar,
-                VDivider: e.VDivider,
-                VBtn: e.VBtn,
-                VForm: e.VForm,
-                VCol: e.VCol,
-                VRow: e.VRow,
-                VCard: e.VCard,
+                ValidationObserver: o.ValidationObserver,
+                HFormRenderer: r.HFormRenderer,
+                VIcon: t.VIcon,
+                VTooltip: t.VTooltip,
+                VToolbarTitle: t.VToolbarTitle,
+                VToolbar: t.VToolbar,
+                VDivider: t.VDivider,
+                VBtn: t.VBtn,
+                VForm: t.VForm,
+                VCol: t.VCol,
+                VRow: t.VRow,
+                VCard: t.VCard,
             },
             props: { schema: { type: Object, default: () => {} }, title: { type: String, default: '动态表单' } },
             data: () => ({ model: {} }),
@@ -207,8 +204,10 @@
         void 0,
         void 0
     );
-    (a.install = function (e) {
-        e.component(a.name, a);
+    (i.install = function (e) {
+        e.component(i.name, i);
     }),
-        null != typeof window && window.Vue && a.install(window.Vue);
+        null != typeof window && window.Vue && i.install(window.Vue),
+        (e.HFormRuntime = i),
+        Object.defineProperty(e, '__esModule', { value: !0 });
 });

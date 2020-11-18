@@ -11,7 +11,7 @@ import {
     VCard as d,
 } from 'vuetify/lib';
 import { ValidationObserver as c } from 'vee-validate';
-import v from '@hecate/h-form-renderer';
+import { HFormRenderer as v } from '@hecate/h-form-renderer';
 function f(e, t, o, r, n, s, i, a, l, d) {
     'boolean' != typeof i && ((l = a), (a = i), (i = !1));
     const c = 'function' == typeof o ? o.options : o;
@@ -209,3 +209,4 @@ const m = f(
     e.component(m.name, m);
 }),
     null != typeof window && window.Vue && m.install(window.Vue);
+export { m as HFormRuntime };

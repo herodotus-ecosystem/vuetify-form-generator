@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import HButton from '@hecate/h-button';
-import HCodeMirror from '@hecate/h-code-mirror';
+import { HButton } from '@hecate/h-button';
+import { HCodeMirror } from '@hecate/h-code-mirror';
 export default {
     name: 'HCodeEditor',
 

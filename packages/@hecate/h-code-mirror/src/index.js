@@ -15,4 +15,4 @@ if (typeof window != undefined && window.Vue) {
     HCodeMirror.install(window.Vue);
 }
 
-export default HCodeMirror;
+export { HCodeMirror };

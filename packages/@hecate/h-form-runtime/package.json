@@ -5,7 +5,7 @@
     "license": "ISC",
     "private": false,
     "main": "dist/index.umd.js",
-    "module": "src/index.js",
+    "module": "dist/index.esm.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",
@@ -14,10 +14,12 @@
     },
     "dependencies": {
         "@hecate/h-form-renderer": "^1.0.0",
-        "vee-validate": "^3.4.5"
+        "vee-validate": "^3.4.5",
+        "vuetify": "^2.3.18"
     },
     "peerDependencies": {
         "@hecate/h-form-renderer": "^1.0.0",
-        "vee-validate": "^3.4.5"
+        "vee-validate": "^3.4.5",
+        "vuetify": "^2.3.18"
     }
 }

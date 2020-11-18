@@ -1,16 +1,16 @@
 import { VIcon as n, VBtn as t, VTooltip as o } from 'vuetify/lib';
-function e(n, t, o, e, i, r, s, c, l, d) {
+function e(n, t, o, e, i, r, s, c, l, a) {
     'boolean' != typeof s && ((l = c), (c = s), (s = !1));
-    const a = 'function' == typeof o ? o.options : o;
+    const d = 'function' == typeof o ? o.options : o;
     let f;
     if (
         (n &&
             n.render &&
-            ((a.render = n.render),
-            (a.staticRenderFns = n.staticRenderFns),
-            (a._compiled = !0),
-            i && (a.functional = !0)),
-        e && (a._scopeId = e),
+            ((d.render = n.render),
+            (d.staticRenderFns = n.staticRenderFns),
+            (d._compiled = !0),
+            i && (d.functional = !0)),
+        e && (d._scopeId = e),
         r
             ? ((f = function (n) {
                   (n =
@@ -22,25 +22,25 @@ function e(n, t, o, e, i, r, s, c, l, d) {
                       t && t.call(this, l(n)),
                       n && n._registeredComponents && n._registeredComponents.add(r);
               }),
-              (a._ssrRegister = f))
+              (d._ssrRegister = f))
             : t &&
               (f = s
                   ? function (n) {
-                        t.call(this, d(n, this.$root.$options.shadowRoot));
+                        t.call(this, a(n, this.$root.$options.shadowRoot));
                     }
                   : function (n) {
                         t.call(this, c(n));
                     }),
         f)
     )
-        if (a.functional) {
-            const n = a.render;
-            a.render = function (t, o) {
+        if (d.functional) {
+            const n = d.render;
+            d.render = function (t, o) {
                 return f.call(o), n(t, o);
             };
         } else {
-            const n = a.beforeCreate;
-            a.beforeCreate = n ? [].concat(n, f) : [f];
+            const n = d.beforeCreate;
+            d.beforeCreate = n ? [].concat(n, f) : [f];
         }
     return o;
 }
@@ -109,3 +109,4 @@ const i = e(
     n.component(i.name, i);
 }),
     null != typeof window && window.Vue && i.install(window.Vue);
+export { i as HButton };
