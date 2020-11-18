@@ -5,6 +5,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import strip from '@rollup/plugin-strip';
 import multi from '@rollup/plugin-multi-entry';
 import { terser } from 'rollup-plugin-terser';
+import filesize from 'rollup-plugin-filesize';
 
 const { utils, rollups } = require('../../../scripts');
 
@@ -44,16 +45,17 @@ const configs = {
         'lodash',
     ],
     plugins: [
-        json(),
-        strip(),
-        multi(),
         nodeResolve(),
+        commonjs(),
         babel({
             exclude: 'node_modules/**',
             babelHelpers: 'runtime',
         }),
         terser(),
-        commonjs(),
+        filesize(),
+        json(),
+        strip(),
+        multi(),
     ],
 };
 

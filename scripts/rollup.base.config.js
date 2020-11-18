@@ -9,6 +9,7 @@ const vue = require('rollup-plugin-vue');
 const postcss = require('rollup-plugin-postcss');
 const vuetify = require('rollup-plugin-vuetify');
 const terser = require('rollup-plugin-terser').terser;
+const filesize = require('rollup-plugin-filesize');
 
 /**
  * globals配置写法与import配置写法正好相反
@@ -36,14 +37,7 @@ const defaultPlugins = [
     }),
     nodeResolve(),
     commonjs(),
-    image(),
-    json(),
-    strip(),
-    multi(),
-    vue({
-        css: false,
-    }),
-    vuetify(),
+    filesize(),
     postcss({
         // extract: utils.path.resolve("dist/" + name + "/style.css"),
 
@@ -59,6 +53,14 @@ const defaultPlugins = [
         extensions: ['.sass', '.scss', '.css'],
     }),
     terser(),
+    image(),
+    json(),
+    strip(),
+    multi(),
+    vue({
+        css: false,
+    }),
+    vuetify(),
 ];
 
 const defaultGlobal = {

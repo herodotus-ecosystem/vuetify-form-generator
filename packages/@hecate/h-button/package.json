@@ -4,7 +4,6 @@
     "license": "MIT",
     "main": "dist/index.umd.js",
     "module": "src/index.js",
-    "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",
         "clean": "rimraf dist",
