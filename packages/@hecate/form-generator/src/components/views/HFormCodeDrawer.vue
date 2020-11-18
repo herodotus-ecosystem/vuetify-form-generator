@@ -15,29 +15,29 @@
 </template>
 
 <script>
-import HCodeMirror from '@hecate/h-code-mirror';
+import { HCodeMirror } from '@hecate/h-code-mirror';
 
 export default {
     name: 'HFormCodeDrawer',
 
     components: {
-        HCodeMirror
+        HCodeMirror,
     },
 
     props: {
         value: {
             type: Boolean,
-            default: false
+            default: false,
         },
         source: {
             type: String,
-            default: ''
-        }
+            default: '',
+        },
     },
 
     data: () => ({
         drawer: false,
-        code: ''
+        code: '',
     }),
 
     watch: {
@@ -45,21 +45,21 @@ export default {
             handler(newValue, oldValue) {
                 this.drawer = newValue;
             },
-            immediate: true
+            immediate: true,
         },
         drawer: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
+            },
         },
         source: {
             handler(newValue, oldValue) {
                 this.code = newValue;
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
 
-    methods: {}
+    methods: {},
 };
 </script>

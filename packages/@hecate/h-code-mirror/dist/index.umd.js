@@ -20863,7 +20863,6 @@
                 theme: { type: String, default: 'default' },
                 mode: { type: String, default: 'default' },
                 readOnly: { type: Boolean, default: !1 },
-                source: { type: String, default: '' },
             },
             data: () => ({ sourceCode: '' }),
             computed: {

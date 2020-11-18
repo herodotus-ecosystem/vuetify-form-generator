@@ -18,24 +18,24 @@
 </template>
 
 <script>
-import HIconList from '@hecate/h-icon-list';
+import { HIconList } from '@hecate/h-icon-list';
 
 export default {
     name: 'HPanelIcon',
 
     components: {
-        HIconList
+        HIconList,
     },
 
     props: {
         value: { type: String },
         label: String,
         tooltip: String,
-        disabled: { type: Boolean, default: false }
+        disabled: { type: Boolean, default: false },
     },
 
     data: () => ({
-        icon: ''
+        icon: '',
     }),
 
     watch: {
@@ -44,13 +44,13 @@ export default {
                 if (newValue) {
                     this.icon = newValue;
                 }
-            }
+            },
         },
         icon: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
-        }
-    }
+            },
+        },
+    },
 };
 </script>

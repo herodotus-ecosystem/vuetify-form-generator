@@ -10,6 +10,7 @@ const postcss = require('rollup-plugin-postcss');
 const vuetify = require('rollup-plugin-vuetify');
 const terser = require('rollup-plugin-terser').terser;
 const filesize = require('rollup-plugin-filesize');
+const progress = require('rollup-plugin-progress');
 
 /**
  * globals配置写法与import配置写法正好相反
@@ -53,7 +54,9 @@ const defaultPlugins = [
         extensions: ['.sass', '.scss', '.css'],
     }),
     terser(),
-    image(),
+    // image({
+    //     dom: true,
+    // }),
     json(),
     strip(),
     multi(),
@@ -61,6 +64,9 @@ const defaultPlugins = [
         css: false,
     }),
     vuetify(),
+    progress({
+        clearLine: false,
+    }),
 ];
 
 const defaultGlobal = {

@@ -6,6 +6,7 @@ import strip from '@rollup/plugin-strip';
 import multi from '@rollup/plugin-multi-entry';
 import { terser } from 'rollup-plugin-terser';
 import filesize from 'rollup-plugin-filesize';
+import progress from 'rollup-plugin-progress';
 
 const { utils, rollups } = require('../../../scripts');
 
@@ -56,6 +57,9 @@ const configs = {
         json(),
         strip(),
         multi(),
+        progress({
+            clearLine: false,
+        }),
     ],
 };
 

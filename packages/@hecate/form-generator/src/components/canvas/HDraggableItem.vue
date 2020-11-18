@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import HFormRenderer from '@hecate/h-form-renderer';
+import { HFormRenderer } from '@hecate/h-form-renderer';
 
 export default {
     name: 'HDraggableItem',
