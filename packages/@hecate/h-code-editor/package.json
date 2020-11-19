@@ -14,10 +14,6 @@
         "transpile": "vue-cli-service build --target lib ./src/index.js",
         "dev": "yarn build"
     },
-    "dependencies": {
-        "@hecate/h-button": "^1.0.0",
-        "@hecate/h-code-mirror": "^1.0.0"
-    },
     "peerDependencies": {
         "@hecate/h-button": "^1.0.0",
         "@hecate/h-code-mirror": "^1.0.0"

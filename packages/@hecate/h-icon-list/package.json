@@ -15,7 +15,6 @@
         "dev": "yarn build"
     },
     "dependencies": {
-        "@hecate/core": "^1.0.0",
         "@mdi/js": "^5.8.55"
     },
     "peerDependencies": {
