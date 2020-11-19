@@ -1,16 +1,17 @@
 const babel = require('@rollup/plugin-babel').babel;
 const nodeResolve = require('@rollup/plugin-node-resolve').nodeResolve;
 const commonjs = require('@rollup/plugin-commonjs');
-const image = require('@rollup/plugin-image');
 const json = require('@rollup/plugin-json');
 const strip = require('@rollup/plugin-strip');
 const multi = require('@rollup/plugin-multi-entry');
+const image = require('@rollup/plugin-image');
 const vue = require('rollup-plugin-vue');
 const postcss = require('rollup-plugin-postcss');
 const vuetify = require('rollup-plugin-vuetify');
 const terser = require('rollup-plugin-terser').terser;
 const filesize = require('rollup-plugin-filesize');
 const progress = require('rollup-plugin-progress');
+const url = require('postcss-url');
 
 /**
  * globals配置写法与import配置写法正好相反
@@ -32,13 +33,13 @@ const progress = require('rollup-plugin-progress');
  */
 
 const defaultPlugins = [
+    image(),
     babel({
-        exclude: 'node_modules/**',
+        exclude: '**/node_modules/**',
         babelHelpers: 'runtime',
     }),
     nodeResolve(),
     commonjs(),
-    filesize(),
     postcss({
         // extract: utils.path.resolve("dist/" + name + "/style.css"),
 
@@ -52,11 +53,15 @@ const defaultPlugins = [
         sourceMap: true,
         // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
         extensions: ['.sass', '.scss', '.css'],
+        plugins: [
+            url({
+                url: 'inline', // enable inline assets using base64 encoding
+                maxSize: 10, // maximum file size to inline (in kilobytes)
+                fallback: 'copy', // fallback method to use if max size is exceeded
+            }),
+        ],
     }),
     terser(),
-    // image({
-    //     dom: true,
-    // }),
     json(),
     strip(),
     multi(),
@@ -64,6 +69,7 @@ const defaultPlugins = [
         css: false,
     }),
     vuetify(),
+    filesize(),
     progress({
         clearLine: false,
     }),
