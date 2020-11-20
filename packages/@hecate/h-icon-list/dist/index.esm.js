@@ -1,69 +1,35 @@
+import 'core-js/modules/es.function.name';
+import e from '@babel/runtime-corejs3/helpers/esm/typeof';
+import 'core-js/modules/es.number.constructor';
+import 'core-js/modules/es.regexp.exec';
+import 'core-js/modules/es.string.match';
+import 'core-js/modules/es.string.search';
+import t from '@babel/runtime-corejs3/core-js/object/keys';
+import i from '@babel/runtime-corejs3/core-js/instance/map';
+import n from '@babel/runtime-corejs3/core-js/instance/starts-with';
+import s from '@babel/runtime-corejs3/core-js/instance/filter';
 import {
-    VIcon as e,
-    VTextField as t,
-    VListItemIcon as n,
-    VListItemTitle as s,
-    VListItemContent as i,
-    VBtn as o,
-    VListItem as r,
-    VVirtualScroll as c,
-    VList as l,
-    VMenu as a,
+    VIcon as o,
+    VTextField as r,
+    VListItemIcon as c,
+    VListItemTitle as l,
+    VListItemContent as a,
+    VBtn as m,
+    VListItem as d,
+    VVirtualScroll as u,
+    VList as h,
+    VMenu as f,
 } from 'vuetify/lib';
-import * as d from '@mdi/js';
-import { lib as h } from '@hecate/core';
-function u(e, t, n, s, i, o, r, c, l, a) {
-    'boolean' != typeof r && ((l = c), (c = r), (r = !1));
-    const d = 'function' == typeof n ? n.options : n;
-    let h;
-    if (
-        (e &&
-            e.render &&
-            ((d.render = e.render),
-            (d.staticRenderFns = e.staticRenderFns),
-            (d._compiled = !0),
-            i && (d.functional = !0)),
-        s && (d._scopeId = s),
-        o
-            ? ((h = function (e) {
-                  (e =
-                      e ||
-                      (this.$vnode && this.$vnode.ssrContext) ||
-                      (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext)) ||
-                      'undefined' == typeof __VUE_SSR_CONTEXT__ ||
-                      (e = __VUE_SSR_CONTEXT__),
-                      t && t.call(this, l(e)),
-                      e && e._registeredComponents && e._registeredComponents.add(o);
-              }),
-              (d._ssrRegister = h))
-            : t &&
-              (h = r
-                  ? function (e) {
-                        t.call(this, a(e, this.$root.$options.shadowRoot));
-                    }
-                  : function (e) {
-                        t.call(this, c(e));
-                    }),
-        h)
-    )
-        if (d.functional) {
-            const e = d.render;
-            d.render = function (t, n) {
-                return h.call(n), e(t, n);
-            };
-        } else {
-            const e = d.beforeCreate;
-            d.beforeCreate = e ? [].concat(e, h) : [h];
-        }
-    return n;
-}
-const m = u(
+import * as p from '@mdi/js';
+import { lib as v } from '@hecate/core';
+import b from 'vue-runtime-helpers/dist/normalize-component.mjs';
+var g = b(
     {
         render: function () {
             var e = this,
                 t = e.$createElement,
-                n = e._self._c || t;
-            return n(
+                i = e._self._c || t;
+            return i(
                 'v-menu',
                 {
                     attrs: {
@@ -77,10 +43,10 @@ const m = u(
                         {
                             key: 'activator',
                             fn: function (t) {
-                                var s = t.on,
-                                    i = t.attrs;
+                                var n = t.on,
+                                    s = t.attrs;
                                 return [
-                                    n(
+                                    i(
                                         'v-text-field',
                                         e._g(
                                             e._b(
@@ -102,14 +68,14 @@ const m = u(
                                                                 fn: function () {
                                                                     return [
                                                                         e.isSelected
-                                                                            ? n(
+                                                                            ? i(
                                                                                   'v-icon',
                                                                                   { attrs: { color: 'primary' } },
                                                                                   [e._v(' mdi-' + e._s(e.search) + ' ')]
                                                                               )
                                                                             : e._e(),
                                                                         e._v(' '),
-                                                                        n('code', { staticClass: 'mx-1 py-1' }, [
+                                                                        i('code', { staticClass: 'mx-1 py-1' }, [
                                                                             e._v('mdi-'),
                                                                         ]),
                                                                     ];
@@ -129,10 +95,10 @@ const m = u(
                                                     },
                                                 },
                                                 'v-text-field',
-                                                i,
+                                                s,
                                                 !1
                                             ),
-                                            s
+                                            n
                                         )
                                     ),
                                 ];
@@ -149,7 +115,7 @@ const m = u(
                 },
                 [
                     e._v(' '),
-                    n(
+                    i(
                         'v-list',
                         {
                             directives: [
@@ -162,7 +128,7 @@ const m = u(
                             ],
                         },
                         [
-                            n('v-virtual-scroll', {
+                            i('v-virtual-scroll', {
                                 attrs: {
                                     items: e.filteredIcons,
                                     'item-height': e.itemHeight,
@@ -172,54 +138,54 @@ const m = u(
                                     {
                                         key: 'default',
                                         fn: function (t) {
-                                            var s = t.item;
+                                            var n = t.item;
                                             return [
-                                                n(
+                                                i(
                                                     'v-list-item',
                                                     {
-                                                        key: s,
+                                                        key: n,
                                                         attrs: { dense: e.dense },
                                                         on: {
                                                             click: function (t) {
-                                                                return t.stopPropagation(), e.select(s);
+                                                                return t.stopPropagation(), e.select(n);
                                                             },
                                                         },
                                                     },
                                                     [
-                                                        n(
+                                                        i(
                                                             'v-list-item-icon',
                                                             [
-                                                                n('v-icon', {
+                                                                i('v-icon', {
                                                                     staticClass: 'mr-2',
                                                                     attrs: { color: 'primary' },
-                                                                    domProps: { textContent: e._s(s) },
+                                                                    domProps: { textContent: e._s(n) },
                                                                 }),
                                                             ],
                                                             1
                                                         ),
                                                         e._v(' '),
-                                                        n(
+                                                        i(
                                                             'v-list-item-content',
                                                             [
-                                                                n('v-list-item-title', {
-                                                                    domProps: { textContent: e._s(s.substring(4)) },
+                                                                i('v-list-item-title', {
+                                                                    domProps: { textContent: e._s(n.substring(4)) },
                                                                 }),
                                                             ],
                                                             1
                                                         ),
                                                         e._v(' '),
-                                                        n(
+                                                        i(
                                                             'v-btn',
                                                             {
                                                                 attrs: { icon: '' },
                                                                 on: {
                                                                     click: function (t) {
-                                                                        return t.stopPropagation(), e.select(s);
+                                                                        return t.stopPropagation(), e.select(n);
                                                                     },
                                                                 },
                                                             },
                                                             [
-                                                                n('v-icon', { attrs: { size: '20' } }, [
+                                                                i('v-icon', { attrs: { size: '20' } }, [
                                                                     e._v(' mdi-content-copy '),
                                                                 ]),
                                                             ],
@@ -245,16 +211,16 @@ const m = u(
     undefined,
     {
         components: {
-            VIcon: e,
-            VTextField: t,
-            VListItemIcon: n,
-            VListItemTitle: s,
-            VListItemContent: i,
-            VBtn: o,
-            VListItem: r,
-            VVirtualScroll: c,
-            VList: l,
-            VMenu: a,
+            VIcon: o,
+            VTextField: r,
+            VListItemIcon: c,
+            VListItemTitle: l,
+            VListItemContent: a,
+            VBtn: m,
+            VListItem: d,
+            VVirtualScroll: u,
+            VList: h,
+            VMenu: f,
         },
         name: 'HIconList',
         props: {
@@ -263,42 +229,55 @@ const m = u(
             disabled: { type: Boolean, default: !1 },
             itemHeight: { type: Number, default: 40 },
         },
-        data: () => ({ isSelected: !1, icons: [], menu: !1, search: '' }),
+        data: function () {
+            return { isSelected: !1, icons: [], menu: !1, search: '' };
+        },
         computed: {
-            filteredIcons() {
+            filteredIcons: function () {
+                var e,
+                    t = this;
                 return this.icons.length && this.search
                     ? this.search
                         ? this.isSelected
                             ? []
-                            : this.icons.filter((e) => e.toLowerCase().match(this.search.toLowerCase()))
+                            : s((e = this.icons)).call(e, function (e) {
+                                  return e.toLowerCase().match(t.search.toLowerCase());
+                              })
                         : this.icons
                     : [];
             },
         },
         watch: {
             value: {
-                handler(e, t) {
-                    e && h.lodash.startsWith(e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
+                handler: function (e, t) {
+                    var i;
+                    e && n((i = v.lodash)).call(i, e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
                 },
                 immediate: !0,
             },
             search: {
-                handler(e, t) {
+                handler: function (e, t) {
+                    var i;
                     this.filteredIcons.length > 0 && !this.menu
                         ? (this.menu = !0)
                         : this.filteredIcons.length || (this.menu = !1),
-                        e && !h.lodash.startsWith(e, 'mdi-') ? this.$emit('input', 'mdi-' + e) : this.$emit('input', e);
+                        e && !n((i = v.lodash)).call(i, e, 'mdi-')
+                            ? this.$emit('input', 'mdi-' + e)
+                            : this.$emit('input', e);
                 },
             },
         },
-        mounted() {
-            this.icons = Object.keys(d).map((e) => h.lodash.kebabCase(e));
+        mounted: function () {
+            var e;
+            this.icons = i((e = t(p))).call(e, function (e) {
+                return v.lodash.kebabCase(e);
+            });
         },
         methods: {
-            select(e) {
+            select: function (e) {
                 (this.search = e.substring(4)), (this.isSelected = !0);
             },
-            reset() {
+            reset: function () {
                 (this.menu = !1), (this.isSelected = !1), (this.search = '');
             },
         },
@@ -311,8 +290,8 @@ const m = u(
     void 0,
     void 0
 );
-(m.install = function (e) {
-    e.component(m.name, m);
+(g.install = function (e) {
+    e.component(g.name, g);
 }),
-    null != typeof window && window.Vue && m.install(window.Vue);
-export { m as HIconList };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && g.install(window.Vue);
+export { g as HIconList };

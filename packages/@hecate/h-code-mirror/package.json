@@ -5,7 +5,7 @@
     "license": "MIT",
     "private": false,
     "main": "dist/index.umd.js",
-    "module": "src/index.js",
+    "module": "dist/index.esm.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",
@@ -15,6 +15,7 @@
         "dev": "yarn build"
     },
     "dependencies": {
+        "core-js": "^3.7.0",
         "csslint": "^1.0.5",
         "file": "^0.2.2",
         "htmlhint": "^0.14.2",

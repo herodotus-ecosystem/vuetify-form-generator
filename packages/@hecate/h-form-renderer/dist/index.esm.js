@@ -1,190 +1,292 @@
+import 'core-js/modules/es.function.name';
+import e from '@babel/runtime-corejs3/helpers/esm/typeof';
+import 'core-js/modules/es.symbol';
+import 'core-js/modules/es.symbol.description';
+import 'core-js/modules/es.number.constructor';
+import 'core-js/modules/es.regexp.exec';
+import 'core-js/modules/es.string.replace';
+import t from '@babel/runtime-corejs3/core-js/object/define-property';
+import i from '@babel/runtime-corejs3/core-js/object/define-properties';
+import r from '@babel/runtime-corejs3/core-js/object/get-own-property-descriptors';
+import n from '@babel/runtime-corejs3/core-js/object/get-own-property-descriptor';
+import l from '@babel/runtime-corejs3/core-js/object/get-own-property-symbols';
+import s from '@babel/runtime-corejs3/core-js/instance/filter';
+import a from '@babel/runtime-corejs3/core-js/instance/includes';
+import o from '@babel/runtime-corejs3/core-js/instance/find';
+import u from '@babel/runtime-corejs3/core-js/object/keys';
+import c from '@babel/runtime-corejs3/core-js/instance/for-each';
+import h from '@babel/runtime-corejs3/core-js/json/stringify';
+import m from '@babel/runtime-corejs3/core-js/instance/concat';
+import p from '@babel/runtime-corejs3/core-js/instance/starts-with';
+import f from '@babel/runtime-corejs3/helpers/esm/defineProperty';
+import d from '@babel/runtime-corejs3/core-js/object/assign';
+import 'core-js/modules/es.regexp.constructor';
+import 'core-js/modules/es.regexp.to-string';
+import 'core-js/modules/es.string.match';
+import v from '@babel/runtime-corejs3/core-js/array/is-array';
+import 'core-js/modules/es.string.split';
+import b from '@babel/runtime-corejs3/core-js/instance/map';
+import y from '@babel/runtime-corejs3/core-js/parse-int';
+import S from '@babel/runtime-corejs3/core-js/instance/slice';
+import g from '@babel/runtime-corejs3/core-js/parse-float';
+import 'core-js/modules/es.array.iterator';
+import 'core-js/modules/es.object.to-string';
+import 'core-js/modules/es.promise';
+import 'core-js/modules/es.string.iterator';
+import 'core-js/modules/web.dom-collections.iterator';
+import O from '@babel/runtime-corejs3/helpers/esm/toConsumableArray';
+import x from '@babel/runtime-corejs3/regenerator';
+import 'regenerator-runtime/runtime';
+import P from '@babel/runtime-corejs3/helpers/esm/asyncToGenerator';
+import j from '@babel/runtime-corejs3/core-js/promise';
+import 'core-js/modules/es.array.filter';
+import 'core-js/modules/es.string.search';
+import I from '@babel/runtime-corejs3/core-js/get-iterator';
+import k from '@babel/runtime-corejs3/core-js/get-iterator-method';
+import w from '@babel/runtime-corejs3/core-js/symbol';
+import C from '@babel/runtime-corejs3/core-js/array/from';
+import T from '@babel/runtime-corejs3/core-js/instance/index-of';
+import D from '@babel/runtime-corejs3/core-js/instance/reverse';
+import V from '@babel/runtime-corejs3/core-js/instance/ends-with';
+import L from '@babel/runtime-corejs3/core-js/instance/reduce';
+import $ from 'vue-runtime-helpers/dist/normalize-component.mjs';
 import {
-    VAvatar as e,
-    VAutocomplete as t,
-    VBtn as i,
-    VCard as s,
-    VCardActions as r,
-    VCardText as l,
-    VCardTitle as a,
-    VCheckbox as n,
-    VChip as o,
-    VColorPicker as h,
-    VCombobox as u,
-    VContainer as c,
-    VDatePicker as m,
-    VDialog as p,
-    VExpansionPanels as d,
-    VExpansionPanel as f,
-    VExpansionPanelHeader as y,
-    VExpansionPanelContent as S,
-    VCol as g,
-    VFileInput as v,
-    VIcon as b,
-    VInput as O,
-    VRow as x,
-    VListItemContent as P,
-    VListItemTitle as I,
-    VMenu as k,
-    VRadio as C,
-    VRadioGroup as $,
-    VRangeSlider as T,
-    VSelect as D,
-    VSlider as w,
-    VSpacer as V,
-    VSubheader as j,
-    VSwitch as L,
-    VTabs as A,
-    VTab as E,
-    VTabItem as R,
-    VTextarea as K,
-    VTextField as q,
-    VTimePicker as M,
-    VTooltip as N,
+    VAvatar as K,
+    VAutocomplete as q,
+    VBtn as M,
+    VCard as R,
+    VCardActions as A,
+    VCardText as F,
+    VCardTitle as E,
+    VCheckbox as U,
+    VChip as N,
+    VColorPicker as H,
+    VCombobox as _,
+    VContainer as z,
+    VDatePicker as W,
+    VDialog as B,
+    VExpansionPanels as G,
+    VExpansionPanel as J,
+    VExpansionPanelHeader as Z,
+    VExpansionPanelContent as Y,
+    VCol as Q,
+    VFileInput as X,
+    VIcon as ee,
+    VInput as te,
+    VRow as ie,
+    VListItemContent as re,
+    VListItemTitle as ne,
+    VMenu as le,
+    VRadio as se,
+    VRadioGroup as ae,
+    VRangeSlider as oe,
+    VSelect as ue,
+    VSlider as ce,
+    VSpacer as he,
+    VSubheader as me,
+    VSwitch as pe,
+    VTabs as fe,
+    VTab as de,
+    VTabItem as ve,
+    VTextarea as be,
+    VTextField as ye,
+    VTimePicker as Se,
+    VTooltip as ge,
 } from 'vuetify/lib';
-var F = require('property-expr');
-const U = {
-        cache: {},
-        extendtoken: '$extend',
-        reftoken: '$ref',
-        pathtoken: '#',
-        debug: !1,
-        clone: function (e) {
-            var t, i;
-            if (null === e || 'object' != typeof e || 'function' == typeof e) return e;
-            for (t in ((i = e.constructor()), e)) i[t] = U.clone(e[t]);
-            return i;
-        },
-        findIds: function (e, t) {
-            var i, s, r, l;
-            for (s in ((i = !1), (r = {}), e))
-                (l = e[s]),
-                    null != e.id && (i = e.id),
-                    i && 'id' !== s && (r[s] = l),
-                    'object' == typeof l && U.findIds(l, t);
-            if (i) return (t[i] = r), r;
-        },
-        get_json_pointer: function (e, t, i) {
-            var s, r;
-            (s = e
-                .replace(/\\\//, '#SLASH#')
-                .replace(/\//g, '.')
-                .replace(/#SLASH#/, '/')),
-                Object.keys(i).forEach((e) => {
-                    s = s.replace(e, i[e]);
-                }),
-                '.' === (s = s.replace(new RegExp('^' + U.pathtoken), ''))[0] && (s = s.substr(1, s.length - 1));
-            try {
-                U.debug, (r = F.getter(s)(t));
-            } catch (e) {
-                r = '';
-            }
-            return r;
-        },
-        replace: function (e, t, i, s) {
-            var r, l, a, n, o, h;
-            for (r in ((o = []), e))
-                null != (h = e[r]) && null != h[U.reftoken]
-                    ? ((l = h[U.reftoken]),
-                      Object.keys(h).length,
-                      Array.isArray(l)
-                          ? (l = U.replace(l, t, i, s))
-                          : null != t[l]
-                          ? (e[r] = t[l])
-                          : String(l).match(new RegExp('^' + U.pathtoken)) && (e[r] = U.get_json_pointer(l, i, s)),
-                      null != (null != (a = e[r]) ? a.length : void 0) &&
-                          0 === (null != (n = e[r]) ? n.length : void 0) &&
-                          U.debug,
-                      o.push(void 0))
-                    : 'object' == typeof h
-                    ? o.push(U.replace(h, t, i, s))
-                    : o.push(void 0);
-            return o;
-        },
-        extend: function (e, t) {
-            var i, s, r, l, a, n;
-            if ('object' == typeof e) {
-                for (i in ((r = []), e)) {
-                    if (((n = e[i]), i === U.extendtoken && null != n[U.reftoken])) {
-                        for (l in ((s = U.get_json_pointer(n[U.reftoken], e, t)), n))
-                            (a = n[l]), l !== U.reftoken && (s[l] = a);
-                        delete e[i];
-                    }
-                    'object' == typeof n ? r.push((n = U.extend(n))) : r.push(void 0);
+var Oe = require('property-expr'),
+    xe = {};
+function Pe(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function je(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = Pe(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = Pe(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+(xe.cache = {}),
+    (xe.extendtoken = '$extend'),
+    (xe.reftoken = '$ref'),
+    (xe.pathtoken = '#'),
+    (xe.debug = !1),
+    (xe.clone = function (t) {
+        var i, r;
+        if (null === t || 'object' !== e(t) || 'function' == typeof t) return t;
+        for (i in ((r = t.constructor()), t)) r[i] = xe.clone(t[i]);
+        return r;
+    }),
+    (xe.findIds = function (t, i) {
+        var r, n, l, s;
+        for (n in ((r = !1), (l = {}), t))
+            (s = t[n]),
+                null != t.id && (r = t.id),
+                r && 'id' !== n && (l[n] = s),
+                'object' === e(s) && xe.findIds(s, i);
+        if (r) return (i[r] = l), l;
+    }),
+    (xe.get_json_pointer = function (e, t, i) {
+        var r, n, l;
+        (n = e
+            .replace(/\\\//, '#SLASH#')
+            .replace(/\//g, '.')
+            .replace(/#SLASH#/, '/')),
+            c((r = u(i))).call(r, function (e) {
+                n = n.replace(e, i[e]);
+            }),
+            '.' === (n = n.replace(new RegExp('^' + xe.pathtoken), ''))[0] && (n = n.substr(1, n.length - 1));
+        try {
+            xe.debug, (l = Oe.getter(n)(t));
+        } catch (e) {
+            l = '';
+        }
+        return l;
+    }),
+    (xe.replace = function (t, i, r, n) {
+        var l, s, a, o, c, h;
+        for (l in ((c = []), t))
+            null != (h = t[l]) && null != h[xe.reftoken]
+                ? ((s = h[xe.reftoken]),
+                  u(h).length,
+                  v(s)
+                      ? (s = xe.replace(s, i, r, n))
+                      : null != i[s]
+                      ? (t[l] = i[s])
+                      : String(s).match(new RegExp('^' + xe.pathtoken)) && (t[l] = xe.get_json_pointer(s, r, n)),
+                  null != (null != (a = t[l]) ? a.length : void 0) &&
+                      0 === (null != (o = t[l]) ? o.length : void 0) &&
+                      xe.debug,
+                  c.push(void 0))
+                : 'object' === e(h)
+                ? c.push(xe.replace(h, i, r, n))
+                : c.push(void 0);
+        return c;
+    }),
+    (xe.extend = function (t, i) {
+        var r, n, l, s, a, o;
+        if ('object' === e(t)) {
+            for (r in ((l = []), t)) {
+                if (((o = t[r]), r === xe.extendtoken && null != o[xe.reftoken])) {
+                    for (s in ((n = xe.get_json_pointer(o[xe.reftoken], t, i)), o))
+                        (a = o[s]), s !== xe.reftoken && (n[s] = a);
+                    delete t[r];
                 }
-                return r;
+                'object' === e(o) ? l.push((o = xe.extend(o))) : l.push(void 0);
             }
-        },
-        resolve: function (e, t) {
-            var i;
-            return (i = {}), U.findIds(e, i), U.debug && Object.keys(i).length, U.replace(e, i, e, t), e;
-        },
-        evaluate: function (e, t, i) {
-            var s, r, l;
-            for (s in (null == i && (i = U.evaluateStr), (r = U.clone(e))))
-                'string' == typeof (l = r[s]) && (e[s] = i(l, t)), 'object' == typeof l && (e[s] = U.evaluate(l, t));
-            return e;
-        },
-        evaluateStr: function (e, t) {
-            if ('string' != typeof e) return e;
-            if ('{' !== e[0] || '}' !== e[e.length - 1])
-                return e.replace(/(\{)(.*?)(\})/g, function (e, i, s) {
-                    var r;
-                    if (((r = ''), null == t || null == s)) return r;
-                    if (null != t[s] && 'function' == typeof t[s]) r = t[s]();
-                    else if (null != t[s]) r = t[s];
-                    else {
-                        try {
-                            (s = s.replace(new RegExp('^' + U.pathtoken + '/'), '').replace(/\//g, '.')),
-                                (r = F.getter(s)(t));
-                        } catch (e) {
-                            (err = e), (r = '');
-                        }
-                        null == r && (r = '');
+            return l;
+        }
+    }),
+    (xe.resolve = function (e, t) {
+        var i;
+        return (i = {}), xe.findIds(e, i), xe.debug && u(i).length, xe.replace(e, i, e, t), e;
+    }),
+    (xe.evaluate = function (t, i, r) {
+        var n, l, s;
+        for (n in (null == r && (r = xe.evaluateStr), (l = xe.clone(t))))
+            'string' == typeof (s = l[n]) && (t[n] = r(s, i)), 'object' === e(s) && (t[n] = xe.evaluate(s, i));
+        return t;
+    }),
+    (xe.evaluateStr = function (e, t) {
+        if ('string' != typeof e) return e;
+        if ('{' !== e[0] || '}' !== e[e.length - 1])
+            return e.replace(/(\{)(.*?)(\})/g, function (e, i, r) {
+                var n;
+                if (((n = ''), null == t || null == r)) return n;
+                if (null != t[r] && 'function' == typeof t[r]) n = t[r]();
+                else if (null != t[r]) n = t[r];
+                else {
+                    try {
+                        (r = r.replace(new RegExp('^' + xe.pathtoken + '/'), '').replace(/\//g, '.')),
+                            (n = Oe.getter(r)(t));
+                    } catch (e) {
+                        (err = e), (n = '');
                     }
-                    return U.evaluateStr(r, t), r;
-                });
-            try {
-                return F.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
-            } catch (e) {
-                return null;
+                    null == n && (n = '');
+                }
+                return xe.evaluateStr(n, t), n;
+            });
+        try {
+            return Oe.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
+        } catch (e) {
+            return null;
+        }
+    });
+var Ie = {},
+    ke = function (e) {
+        var t;
+        return b((t = u(e || {}))).call(t, function (t) {
+            return je(je({}, e[t]), {}, { key: t });
+        });
+    };
+Ie.prepareFullSchema = function (t, i) {
+    var r,
+        n,
+        l,
+        p,
+        f = JSON.parse(h(t));
+    (f.pattern && (f.patternRegexp = new RegExp(f.pattern)), v(f.type)) &&
+        ((f.nullable = a((r = f.type)).call(r, 'null')),
+        (f.type = o((n = f.type)).call(n, function (e) {
+            return 'null' !== e;
+        })),
+        f.nullable &&
+            f.enum &&
+            (f.enum = s((l = f.enum)).call(l, function (e) {
+                return null !== e;
+            })));
+    if ('object' !== f.type) return f;
+    ((f.properties = JSON.parse(h(ke(f.properties)))),
+    (f.required = f.required || []),
+    (f.dependencies = f.dependencies || {}),
+    f.dependencies) &&
+        c((p = u(f.dependencies))).call(p, function (t) {
+            var r,
+                n,
+                l,
+                s,
+                o,
+                c = f.dependencies[t];
+            if (i) {
+                var h = (function (e, t) {
+                    for (var i = t.split('.'), r = 0; r < i.length; r++) {
+                        var n;
+                        if (a((n = [null, void 0])).call(n, e)) break;
+                        e = e[i[r]];
+                    }
+                    return e;
+                })(i, t);
+                a((r = [null, void 0, !1])).call(r, h) ||
+                    (v(h) && 0 === h.length) ||
+                    ('object' === e(h) && 0 === u(h).length) ||
+                    ((f.required = m((n = f.required)).call(n, c.required || [])),
+                    (f.properties = m((l = f.properties)).call(l, ke(c.properties))),
+                    c.oneOf && (f.oneOf = m((s = f.oneOf || [])).call(s, c.oneOf)),
+                    c.allOf && (f.allOf = m((o = f.allOf || [])).call(o, c.allOf)));
             }
-        },
-    },
-    _ = {},
-    J = (e) => Object.keys(e || {}).map((t) => ({ ...e[t], key: t }));
-_.prepareFullSchema = (e, t) => {
-    const i = JSON.parse(JSON.stringify(e));
-    return (
-        i.pattern && (i.patternRegexp = new RegExp(i.pattern)),
-        Array.isArray(i.type) &&
-            ((i.nullable = i.type.includes('null')),
-            (i.type = i.type.find((e) => 'null' !== e)),
-            i.nullable && i.enum && (i.enum = i.enum.filter((e) => null !== e))),
-        'object' !== i.type ||
-            ((i.properties = JSON.parse(JSON.stringify(J(i.properties)))),
-            (i.required = i.required || []),
-            (i.dependencies = i.dependencies || {}),
-            i.dependencies &&
-                Object.keys(i.dependencies).forEach((e) => {
-                    const s = i.dependencies[e];
-                    if (!t) return;
-                    const r = ((e, t) => {
-                        const i = t.split('.');
-                        for (let t = 0; t < i.length && ![null, void 0].includes(e); t++) e = e[i[t]];
-                        return e;
-                    })(t, e);
-                    [null, void 0, !1].includes(r) ||
-                        (Array.isArray(r) && 0 === r.length) ||
-                        ('object' == typeof r && 0 === Object.keys(r).length) ||
-                        ((i.required = i.required.concat(s.required || [])),
-                        (i.properties = i.properties.concat(J(s.properties))),
-                        s.oneOf && (i.oneOf = (i.oneOf || []).concat(s.oneOf)),
-                        s.allOf && (i.allOf = (i.allOf || []).concat(s.allOf)));
-                })),
-        i
-    );
+        });
+    return f;
 };
-const W = {
+var we = {
         locale: 'en',
         rootDisplay: '',
         objectContainerClass: '',
@@ -226,7 +328,7 @@ const W = {
         idPrefix: '',
         markdownit: {},
     },
-    H = {
+    Ce = {
         en: {
             required: 'This information is required',
             noData: 'No matching value found',
@@ -312,18 +414,21 @@ const W = {
             pattern: 'Invoer voldoet niet aan verwachte patroon',
         },
     },
-    z = {
-        time: (e, t) => {
-            const i = new Date(`${new Date().toISOString().split('T')[0]}T${e}`);
-            return new Date(i.getTime() + 6e4 * i.getTimezoneOffset()).toLocaleTimeString(t);
+    Te = {
+        time: function (e, t) {
+            var i,
+                r = new Date(m((i = ''.concat(new Date().toISOString().split('T')[0], 'T'))).call(i, e));
+            return new Date(r.getTime() + 6e4 * r.getTimezoneOffset()).toLocaleTimeString(t);
         },
-        date: (e, t) => {
-            const i = new Date(e);
+        date: function (e, t) {
+            var i = new Date(e);
             return new Date(i.getTime() + 6e4 * i.getTimezoneOffset()).toLocaleDateString(t);
         },
-        'date-time': (e, t) => new Date(e).toLocaleString(t),
+        'date-time': function (e, t) {
+            return new Date(e).toLocaleString(t);
+        },
     },
-    B = {
+    De = {
         mdi: {
             calendar: 'mdi-calendar',
             clock: 'mdi-clock',
@@ -342,428 +447,629 @@ const W = {
             delete: 'fa-trash',
         },
     };
-var G = {
-    data: () => ({ currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} }),
+function Ve(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function Le(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = Ve(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = Ve(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+var $e = {
+    data: function () {
+        return { currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} };
+    },
     computed: {
-        subSchemas() {
+        subSchemas: function () {
             return this.fullSchema.oneOf || this.fullSchema.anyOf;
         },
-        subSchemasConstProp() {
-            if (!this.subSchemas) return;
-            const e = this.subSchemas[0].properties,
-                t = Object.keys(e).find((t) => !!e[t].const);
-            return t ? { ...e[t], key: t, htmlDescription: this.fullOptions.markdown(e[t].description || '') } : void 0;
+        subSchemasConstProp: function () {
+            var e;
+            if (this.subSchemas) {
+                var t = this.subSchemas[0].properties,
+                    i = o((e = u(t))).call(e, function (e) {
+                        return !!t[e].const;
+                    });
+                if (i)
+                    return Le(
+                        Le({}, t[i]),
+                        {},
+                        { key: i, htmlDescription: this.fullOptions.markdown(t[i].description || '') }
+                    );
+            }
         },
-        subSchemasRequired() {
+        subSchemasRequired: function () {
+            var e,
+                t = this;
             return (
                 !(!this.subSchemas || !this.subSchemasConstProp) &&
                 (!!this.fullSchema.oneOf ||
                     !!(
                         this.fullSchema.anyOf &&
                         this.fullSchema.required &&
-                        this.fullSchema.required.find((e) => e === this.oneOfConstProp.key)
+                        o((e = this.fullSchema.required)).call(e, function (e) {
+                            return e === t.oneOfConstProp.key;
+                        })
                     ) ||
                     void 0)
             );
         },
-        subSchemasRules() {
-            const e = [];
+        subSchemasRules: function () {
+            var e = this,
+                t = [];
             return (
-                this.subSchemasRequired && e.push((e) => (null != e && '' !== e) || this.fullOptions.messages.required),
-                e
+                this.subSchemasRequired &&
+                    t.push(function (t) {
+                        return (null != t && '' !== t) || e.fullOptions.messages.required;
+                    }),
+                t
             );
         },
     },
     watch: {
-        currentOneOf(e, t) {
+        currentOneOf: function (e, t) {
+            var i = this;
             (this.showCurrentOneOf = !1),
-                this.$nextTick(() => {
-                    (this.showCurrentOneOf = !0),
-                        this.currentOneOf ? this.fixProperties() : this.$set(this.subModels, 'currentOneOf', {}),
-                        this.input(this.value),
-                        this.$emit('change', this.value);
+                this.$nextTick(function () {
+                    (i.showCurrentOneOf = !0),
+                        i.currentOneOf ? i.fixProperties() : i.$set(i.subModels, 'currentOneOf', {}),
+                        i.input(i.value),
+                        i.$emit('change', i.value);
                 });
         },
         subModels: {
-            handler() {
+            handler: function () {
                 this.fixProperties();
             },
             deep: !0,
         },
     },
     methods: {
-        isSection: (e) =>
-            (e.properties || e.allOf || Array.isArray(e.items)) &&
-            e.title &&
-            !e['x-fromUrl'] &&
-            !e['x-fromData'] &&
-            !e.contentMediaType &&
-            'file' !== e['x-display'],
-        initObjectContainer(e) {
-            'object' === this.fullSchema.type &&
-                (this.fullSchema.allOf &&
-                    this.fullSchema.allOf.forEach((t, i) => {
-                        this.$set(this.subModels, 'allOf-' + i, JSON.parse(JSON.stringify(e)));
-                    }),
-                (this.currentOneOf = null),
-                this.subSchemas &&
-                    !this.currentOneOf &&
-                    this.subSchemasConstProp &&
-                    (e && e[this.subSchemasConstProp.key]
-                        ? (this.currentOneOf = this.subSchemas.find(
-                              (t) =>
-                                  t.properties[this.subSchemasConstProp.key].const === e[this.subSchemasConstProp.key]
-                          ))
-                        : this.fullSchema.default &&
-                          (this.currentOneOf = this.subSchemas.find(
-                              (e) =>
-                                  e.properties[this.subSchemasConstProp.key].const ===
-                                  this.fullSchema.default[this.subSchemasConstProp.key]
-                          ))),
-                this.currentOneOf
-                    ? this.$set(this.subModels, 'currentOneOf', JSON.parse(JSON.stringify(e)))
-                    : this.$set(this.subModels, 'currentOneOf', {}));
-        },
-        renderSection(e, t, i, s) {
-            if (!s) return;
-            const r = i || t.key;
-            return 'hidden' === t['x-display'] || (t.readOnly && this.fullOptions.hideReadOnly)
-                ? [s]
-                : 'expansion-panels' === this.display
-                ? [
-                      e('v-expansion-panel', [
-                          e(
-                              'v-expansion-panel-header',
-                              {
-                                  class: {
-                                      'error--text':
-                                          this.childrenInputs[r] && this.childrenInputs[r].hasValidatedChildError,
-                                  },
-                              },
-                              [t.title]
-                          ),
-                          e('v-expansion-panel-content', { props: { eager: !0 } }, [s]),
-                      ]),
-                  ]
-                : 'tabs' === this.display
-                ? [
-                      e('v-tab', { props: { href: `#tab-${this.fullOptions.idPrefix}${this.dashKey}-${r}` } }, [
-                          e(
-                              'span',
-                              {
-                                  class: {
-                                      'error--text':
-                                          this.childrenInputs[r] && this.childrenInputs[r].hasValidatedChildError,
-                                  },
-                              },
-                              [t.title]
-                          ),
-                      ]),
-                      e(
-                          'v-tab-item',
-                          { props: { value: `tab-${this.fullOptions.idPrefix}${this.dashKey}-${r}`, eager: !0 } },
-                          [e('v-card', { props: { tile: !0, flat: !0 } }, [e('v-card-text', [s])])]
-                      ),
-                  ]
-                : [
-                      e('v-row', { class: 'ma-0 ' + this.fullOptions.sectionsClass }, [
-                          e(
-                              'span',
-                              {
-                                  class:
-                                      'py-2 ' +
-                                      (this.fullOptions.sectionsTitlesClasses[this.sectionDepth] ||
-                                          this.fullOptions.sectionsTitlesClasses[
-                                              this.fullOptions.sectionsTitlesClasses.length - 1
-                                          ]),
-                              },
-                              [t.title + ' ']
-                          ),
-                          s,
-                      ]),
-                  ];
-        },
-        renderChildProp(e, t, i, s, r) {
-            const l = i ? this.subModels : this.value,
-                a = i || t.key;
-            let n = l[a];
+        isSection: function (e) {
             return (
-                void 0 === n &&
-                    ((n = this.defaultValue(t)),
-                    void 0 !== t.default && (n = JSON.parse(JSON.stringify(t.default))),
-                    null != n && (this.$set(l, a, n), this.input(this.value))),
+                (e.properties || e.allOf || v(e.items)) &&
+                e.title &&
+                !e['x-fromUrl'] &&
+                !e['x-fromData'] &&
+                !e.contentMediaType &&
+                'file' !== e['x-display']
+            );
+        },
+        initObjectContainer: function (e) {
+            var t = this;
+            if ('object' === this.fullSchema.type) {
+                var i, r;
+                if (this.fullSchema.allOf)
+                    c((i = this.fullSchema.allOf)).call(i, function (i, r) {
+                        t.$set(t.subModels, 'allOf-' + r, JSON.parse(h(e)));
+                    });
+                if (((this.currentOneOf = null), this.subSchemas && !this.currentOneOf && this.subSchemasConstProp))
+                    if (e && e[this.subSchemasConstProp.key])
+                        this.currentOneOf = o((r = this.subSchemas)).call(r, function (i) {
+                            return i.properties[t.subSchemasConstProp.key].const === e[t.subSchemasConstProp.key];
+                        });
+                    else if (this.fullSchema.default) {
+                        var n;
+                        this.currentOneOf = o((n = this.subSchemas)).call(n, function (e) {
+                            return (
+                                e.properties[t.subSchemasConstProp.key].const ===
+                                t.fullSchema.default[t.subSchemasConstProp.key]
+                            );
+                        });
+                    }
+                this.currentOneOf
+                    ? this.$set(this.subModels, 'currentOneOf', JSON.parse(h(e)))
+                    : this.$set(this.subModels, 'currentOneOf', {});
+            }
+        },
+        renderSection: function (e, t, i, r) {
+            if (r) {
+                var n,
+                    l,
+                    s,
+                    a,
+                    o = i || t.key;
+                return 'hidden' === t['x-display'] || (t.readOnly && this.fullOptions.hideReadOnly)
+                    ? [r]
+                    : 'expansion-panels' === this.display
+                    ? [
+                          e('v-expansion-panel', [
+                              e(
+                                  'v-expansion-panel-header',
+                                  {
+                                      class: {
+                                          'error--text':
+                                              this.childrenInputs[o] && this.childrenInputs[o].hasValidatedChildError,
+                                      },
+                                  },
+                                  [t.title]
+                              ),
+                              e('v-expansion-panel-content', { props: { eager: !0 } }, [r]),
+                          ]),
+                      ]
+                    : 'tabs' === this.display
+                    ? [
+                          e(
+                              'v-tab',
+                              {
+                                  props: {
+                                      href: m(
+                                          (n = m((l = '#tab-'.concat(this.fullOptions.idPrefix))).call(
+                                              l,
+                                              this.dashKey,
+                                              '-'
+                                          ))
+                                      ).call(n, o),
+                                  },
+                              },
+                              [
+                                  e(
+                                      'span',
+                                      {
+                                          class: {
+                                              'error--text':
+                                                  this.childrenInputs[o] &&
+                                                  this.childrenInputs[o].hasValidatedChildError,
+                                          },
+                                      },
+                                      [t.title]
+                                  ),
+                              ]
+                          ),
+                          e(
+                              'v-tab-item',
+                              {
+                                  props: {
+                                      value: m(
+                                          (s = m((a = 'tab-'.concat(this.fullOptions.idPrefix))).call(
+                                              a,
+                                              this.dashKey,
+                                              '-'
+                                          ))
+                                      ).call(s, o),
+                                      eager: !0,
+                                  },
+                              },
+                              [e('v-card', { props: { tile: !0, flat: !0 } }, [e('v-card-text', [r])])]
+                          ),
+                      ]
+                    : [
+                          e('v-row', { class: 'ma-0 '.concat(this.fullOptions.sectionsClass) }, [
+                              e(
+                                  'span',
+                                  {
+                                      class:
+                                          'py-2 ' +
+                                          (this.fullOptions.sectionsTitlesClasses[this.sectionDepth] ||
+                                              this.fullOptions.sectionsTitlesClasses[
+                                                  this.fullOptions.sectionsTitlesClasses.length - 1
+                                              ]),
+                                  },
+                                  [''.concat(t.title, ' ')]
+                              ),
+                              r,
+                          ]),
+                      ];
+            }
+        },
+        renderChildProp: function (e, t, i, r, n) {
+            var l = this,
+                s = i ? this.subModels : this.value,
+                a = i || t.key,
+                o = s[a];
+            return (
+                void 0 === o &&
+                    ((o = this.defaultValue(t)),
+                    void 0 !== t.default && (o = JSON.parse(h(t.default))),
+                    null != o && (this.$set(s, a, o), this.input(this.value))),
                 e('h-form-renderer', {
                     props: {
-                        schema: { readOnly: this.fullSchema.readOnly, ...t },
-                        value: n,
+                        schema: Le({ readOnly: this.fullSchema.readOnly }, t),
+                        value: o,
                         modelRoot: this.modelRoot || this.value,
                         modelKey: a,
-                        parentKey: this.fullKey + '.',
+                        parentKey: ''.concat(this.fullKey, '.'),
                         options: this.fullOptions,
-                        sectionDepth: s,
+                        sectionDepth: r,
                     },
                     on: {
-                        error: (e) => this.$emit('error', e),
-                        input: (e) => {
-                            void 0 === e
-                                ? Array.isArray(l) && parseInt(a) < l.length - 1
-                                    ? this.$set(l, a, e)
-                                    : this.$delete(l, a)
-                                : this.$set(l, a, e),
-                                this.$emit('input', this.value);
+                        error: function (e) {
+                            return l.$emit('error', e);
                         },
-                        change: (e) => this.$emit('change', this.value),
+                        input: function (e) {
+                            void 0 === e
+                                ? v(s) && y(a) < s.length - 1
+                                    ? l.$set(s, a, e)
+                                    : l.$delete(s, a)
+                                : l.$set(s, a, e),
+                                l.$emit('input', l.value);
+                        },
+                        change: function (e) {
+                            return l.$emit('change', l.value);
+                        },
                     },
                 })
             );
         },
-        renderObjectContainer(e) {
-            if ('object' !== this.fullSchema.type && !Array.isArray(this.fullSchema.items)) return;
-            if (((this.isObjectContainer = !0), [void 0, null].includes(this.value))) return [];
-            const t = [];
-            let i = [];
-            if (
-                (this.fullSchema.properties &&
-                    this.fullSchema.properties.forEach((s) => {
-                        if (this.isSection(s)) {
-                            const t = this.renderChildProp(e, s, null, this.sectionDepth + 1);
-                            i = i.concat(this.renderSection(e, s, null, t));
-                        } else t.push(this.renderChildProp(e, s, null, this.sectionDepth));
-                    }),
-                Array.isArray(this.fullSchema.items) &&
-                    this.fullSchema.items.forEach((s, r) => {
-                        const l = { ...s, key: '' + r },
-                            a = this.value.length > r || (this.fullSchema.minItems && this.fullSchema.minItems > r);
-                        if (this.isSection(s)) {
-                            const t = this.renderChildProp(e, l, null, this.sectionDepth + 1, a);
-                            i = i.concat(this.renderSection(e, l, null, t));
-                        } else t.push(this.renderChildProp(e, l, null, this.sectionDepth, a));
-                    }),
-                this.fullSchema.allOf &&
-                    this.fullSchema.allOf.forEach((s, r) => {
-                        const l = { ...s, type: 'object', key: '' + r };
-                        if (this.isSection(s)) {
-                            const t = this.renderChildProp(e, l, 'allOf-' + r, this.sectionDepth + 1);
-                            i = i.concat(this.renderSection(e, l, 'allOf-' + r, t));
-                        } else t.push(this.renderChildProp(e, l, 'allOf-' + r, this.sectionDepth));
-                    }),
-                'expansion-panels' === this.display && i.length)
-            ) {
-                const t = { ...this.fullOptions.expansionPanelsProps, ...this.fullSchema['x-props'] };
-                i = [e('v-expansion-panels', { props: t }, i)];
-            }
-            if ('tabs' === this.display && i.length) {
-                const t = { ...this.fullOptions.tabsProps, ...this.fullSchema['x-props'] };
-                this.currentTab &&
-                    this.childrenInputs[this.currentTab] &&
-                    this.childrenInputs[this.currentTab].hasValidatedChildError &&
-                    (t.sliderColor = 'error'),
-                    (i = [
-                        e(
-                            'v-tabs',
-                            {
-                                props: t,
-                                on: {
-                                    change: (e) => {
-                                        this.currentTab = e.split('-').pop();
+        renderObjectContainer: function (e) {
+            var t,
+                i,
+                r,
+                n = this;
+            if ('object' === this.fullSchema.type || v(this.fullSchema.items)) {
+                if (((this.isObjectContainer = !0), a((t = [void 0, null])).call(t, this.value))) return [];
+                var l,
+                    o,
+                    u,
+                    h = [],
+                    p = [];
+                if (this.fullSchema.properties)
+                    c((l = this.fullSchema.properties)).call(l, function (t) {
+                        if (n.isSection(t)) {
+                            var i = n.renderChildProp(e, t, null, n.sectionDepth + 1);
+                            p = m(p).call(p, n.renderSection(e, t, null, i));
+                        } else h.push(n.renderChildProp(e, t, null, n.sectionDepth));
+                    });
+                if (v(this.fullSchema.items))
+                    c((o = this.fullSchema.items)).call(o, function (t, i) {
+                        var r = Le(Le({}, t), {}, { key: '' + i }),
+                            l = n.value.length > i || (n.fullSchema.minItems && n.fullSchema.minItems > i);
+                        if (n.isSection(t)) {
+                            var s = n.renderChildProp(e, r, null, n.sectionDepth + 1, l);
+                            p = m(p).call(p, n.renderSection(e, r, null, s));
+                        } else h.push(n.renderChildProp(e, r, null, n.sectionDepth, l));
+                    });
+                if (this.fullSchema.allOf)
+                    c((u = this.fullSchema.allOf)).call(u, function (t, i) {
+                        var r = Le(Le({}, t), {}, { type: 'object', key: '' + i });
+                        if (n.isSection(t)) {
+                            var l = n.renderChildProp(e, r, 'allOf-' + i, n.sectionDepth + 1);
+                            p = m(p).call(p, n.renderSection(e, r, 'allOf-' + i, l));
+                        } else h.push(n.renderChildProp(e, r, 'allOf-' + i, n.sectionDepth));
+                    });
+                if ('expansion-panels' === this.display && p.length) {
+                    var f = Le(Le({}, this.fullOptions.expansionPanelsProps), this.fullSchema['x-props']);
+                    p = [e('v-expansion-panels', { props: f }, p)];
+                }
+                if ('tabs' === this.display && p.length) {
+                    var d = Le(Le({}, this.fullOptions.tabsProps), this.fullSchema['x-props']);
+                    this.currentTab &&
+                        this.childrenInputs[this.currentTab] &&
+                        this.childrenInputs[this.currentTab].hasValidatedChildError &&
+                        (d.sliderColor = 'error'),
+                        (p = [
+                            e(
+                                'v-tabs',
+                                {
+                                    props: d,
+                                    on: {
+                                        change: function (e) {
+                                            n.currentTab = e.split('-').pop();
+                                        },
                                     },
                                 },
+                                p
+                            ),
+                        ]);
+                }
+                if (this.subSchemas && this.subSchemas.length) {
+                    var b,
+                        y = Le(
+                            Le({}, this.commonFieldProps),
+                            {},
+                            {
+                                value: this.currentOneOf,
+                                label:
+                                    (this.subSchemasConstProp && this.subSchemasConstProp.title) ||
+                                    this.fullSchema.title,
+                                items: s((b = this.subSchemas)).call(b, function (e) {
+                                    return e.properties && e.properties[n.subSchemasConstProp.key];
+                                }),
+                                required: this.subSchemasRequired,
+                                clearable: !this.subSchemasRequired,
+                                itemValue: function (e) {
+                                    return e.properties[n.subSchemasConstProp.key].const;
+                                },
+                                itemText: 'title',
+                                rules: this.subSchemasRules,
+                                returnObject: !0,
+                            }
+                        ),
+                        S = {
+                            input: function (e) {
+                                n.currentOneOf = e;
                             },
-                            i
-                        ),
-                    ]);
+                        };
+                    h.push(e('v-select', { props: y, on: S }, [this.renderTooltip(e, 'append-outer')])),
+                        this.currentOneOf &&
+                            this.showCurrentOneOf &&
+                            h.push(
+                                this.renderChildProp(
+                                    e,
+                                    Le(Le({}, this.currentOneOf), {}, { type: 'object', title: null }),
+                                    'currentOneOf',
+                                    this.sectionDepth + 1
+                                )
+                            );
+                }
+                return [
+                    e(
+                        'v-row',
+                        { class: 'ma-0 '.concat(this.fullOptions.objectContainerClass) },
+                        m(
+                            (i = m(
+                                (r = [
+                                    this.fullSchema.description &&
+                                        e('v-col', {
+                                            props: { cols: 12 },
+                                            class: { 'pa-0': !0 },
+                                            domProps: { innerHTML: this.htmlDescription },
+                                        }),
+                                ])
+                            ).call(r, h))
+                        ).call(i, p)
+                    ),
+                ];
             }
-            if (this.subSchemas && this.subSchemas.length) {
-                const i = {
-                        ...this.commonFieldProps,
-                        value: this.currentOneOf,
-                        label: (this.subSchemasConstProp && this.subSchemasConstProp.title) || this.fullSchema.title,
-                        items: this.subSchemas.filter(
-                            (e) => e.properties && e.properties[this.subSchemasConstProp.key]
-                        ),
-                        required: this.subSchemasRequired,
-                        clearable: !this.subSchemasRequired,
-                        itemValue: (e) => e.properties[this.subSchemasConstProp.key].const,
-                        itemText: 'title',
-                        rules: this.subSchemasRules,
-                        returnObject: !0,
-                    },
-                    s = {
-                        input: (e) => {
-                            this.currentOneOf = e;
-                        },
-                    };
-                t.push(e('v-select', { props: i, on: s }, [this.renderTooltip(e, 'append-outer')])),
-                    this.currentOneOf &&
-                        this.showCurrentOneOf &&
-                        t.push(
-                            this.renderChildProp(
-                                e,
-                                { ...this.currentOneOf, type: 'object', title: null },
-                                'currentOneOf',
-                                this.sectionDepth + 1
-                            )
-                        );
-            }
-            return [
-                e(
-                    'v-row',
-                    { class: 'ma-0 ' + this.fullOptions.objectContainerClass },
-                    [
-                        this.fullSchema.description &&
-                            e('v-col', {
-                                props: { cols: 12 },
-                                class: { 'pa-0': !0 },
-                                domProps: { innerHTML: this.htmlDescription },
-                            }),
-                    ]
-                        .concat(t)
-                        .concat(i)
-                ),
-            ];
         },
     },
 };
-const Z = (e) => {
-        const t = '' + e;
+function Ke(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function qe(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = Ke(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = Ke(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+var Me = function (e) {
+        var t = '' + e;
         return 1 === t.length ? '0' + t : t;
     },
-    Y = (e) => {
-        const t = new Date(),
+    Re = function (e) {
+        var t = new Date(),
             i = e[0].split('-');
         t.setFullYear(Number(i[0])), t.setMonth(Number(i[1]) - 1), t.setDate(Number(i[2]));
-        const s = e[1].split(':');
+        var r = e[1].split(':');
         return (
-            t.setHours(Number(s[0] || '00')),
-            t.setMinutes(Number(s[1] || '00')),
+            t.setHours(Number(r[0] || '00')),
+            t.setMinutes(Number(r[1] || '00')),
             t.setSeconds(0),
-            ((e) => {
-                const t = e.getTimezoneOffset(),
-                    i = `${Z(parseInt(Math.abs(t / 60)))}:${Z(Math.abs(t % 60))}`;
-                let s;
+            (function (e) {
+                var t,
+                    i,
+                    r,
+                    n,
+                    l,
+                    s,
+                    a,
+                    o,
+                    u = e.getTimezoneOffset(),
+                    c = m((t = ''.concat(Me(y(Math.abs(u / 60))), ':'))).call(t, Me(Math.abs(u % 60)));
                 return (
-                    (s = t < 0 ? '+' + i : t > 0 ? '-' + i : 'Z'),
-                    `${e.getFullYear()}-${Z(e.getMonth() + 1)}-${Z(e.getDate())}T${Z(e.getHours())}:${Z(
-                        e.getMinutes()
-                    )}:${Z(e.getSeconds())}${s}`
+                    (o = u < 0 ? '+'.concat(c) : u > 0 ? '-'.concat(c) : 'Z'),
+                    m(
+                        (i = m(
+                            (r = m(
+                                (n = m(
+                                    (l = m(
+                                        (s = m((a = ''.concat(e.getFullYear(), '-'))).call(
+                                            a,
+                                            Me(e.getMonth() + 1),
+                                            '-'
+                                        ))
+                                    ).call(s, Me(e.getDate()), 'T'))
+                                ).call(l, Me(e.getHours()), ':'))
+                            ).call(n, Me(e.getMinutes()), ':'))
+                        ).call(r, Me(e.getSeconds())))
+                    ).call(i, o)
                 );
             })(t)
         );
     },
-    Q = (e) => e + ':00Z';
-var X = {
-        data: () => ({ dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } }),
+    Ae = function (e) {
+        return e + ':00Z';
+    },
+    Fe = {
+        data: function () {
+            return { dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } };
+        },
         methods: {
-            renderDateProp(e) {
+            renderDateProp: function (e) {
+                var t,
+                    i = this;
                 if (
-                    'string' !== this.fullSchema.type ||
-                    !['date', 'date-time', 'time'].includes(this.fullSchema.format)
-                )
-                    return;
-                let t,
-                    i = this.fullOptions.icons.calendar;
-                if ('time' === this.fullSchema.format)
-                    (t = e('v-time-picker', {
-                        props: { value: ((r = this.value), r ? r.slice(0, 5) : ''), ...this.fullSchema['x-props'] },
-                        on: { input: (e) => this.input(Q(e)), change: (e) => this.change(Q(e)) },
-                    })),
-                        (i = this.fullOptions.icons.clock);
-                else if ('date' === this.fullSchema.format)
-                    t = e('v-date-picker', {
-                        props: { value: this.value, ...this.fullSchema['x-props'] },
-                        on: {
-                            input: (e) => {
-                                this.input(e), (this.dateProp.menu = !1);
-                            },
-                            change: (e) => this.change(e),
-                        },
-                    });
-                else {
-                    this.value !== this.dateProp.lastValue &&
-                        (this.dateProp.parts = [
-                            `${(s = new Date(this.value)).getFullYear()}-${Z(s.getMonth() + 1)}-${Z(s.getDate())}`,
-                            `${Z(s.getHours())}:${Z(s.getMinutes())}`,
-                        ]),
-                        (this.dateProp.lastValue = this.value);
-                    const i = () => {
-                            if (this.dateProp.parts[1]) {
-                                const e = Y(this.dateProp.parts);
-                                this.input(e), this.change(e);
-                            }
-                        },
-                        r = [
-                            e('v-tab', { props: { href: '#tab-date' } }, [
-                                e('v-icon', [this.fullOptions.icons.calendar]),
-                            ]),
-                            e('v-tab', { props: { href: '#tab-time', disabled: !this.dateProp.parts[0] } }, [
-                                e('v-icon', [this.fullOptions.icons.clock]),
-                            ]),
-                            e('v-tab-item', { props: { value: 'tab-date' } }, [
-                                e('v-date-picker', {
-                                    props: {
-                                        ...this.fullOptions.datePickerProps,
-                                        locale: this.fullOptions.locale,
-                                        value: this.dateProp.parts[0],
-                                    },
-                                    on: {
-                                        input: (e) => {
-                                            (this.dateProp.parts[0] = e), (this.dateProp.tab = 'tab-time'), i();
-                                        },
-                                    },
-                                }),
-                            ]),
-                            e('v-tab-item', { props: { value: 'tab-time' } }, [
-                                e('v-time-picker', {
-                                    props: {
-                                        ...this.fullOptions.timePickerProps,
-                                        locale: this.fullOptions.locale,
-                                        value: this.dateProp.parts[1],
-                                    },
-                                    on: {
-                                        input: (e) => {
-                                            (this.dateProp.parts[1] = e), i();
-                                        },
-                                    },
-                                }),
-                            ]),
-                        ];
-                    t = e(
-                        'v-tabs',
-                        {
-                            props: { grow: !0, value: this.dateProp.tab },
+                    'string' === this.fullSchema.type &&
+                    a((t = ['date', 'date-time', 'time'])).call(t, this.fullSchema.format)
+                ) {
+                    var r,
+                        n,
+                        l,
+                        s,
+                        o,
+                        u,
+                        c = this.fullOptions.icons.calendar;
+                    if ('time' === this.fullSchema.format)
+                        (r = e('v-time-picker', {
+                            props: qe(
+                                { value: ((u = this.value), u ? S(u).call(u, 0, 5) : '') },
+                                this.fullSchema['x-props']
+                            ),
                             on: {
-                                input: (e) => {
-                                    this.dateProp.tab = e;
+                                input: function (e) {
+                                    return i.input(Ae(e));
+                                },
+                                change: function (e) {
+                                    return i.change(Ae(e));
                                 },
                             },
-                            class: 'vjsf-date-time',
-                        },
-                        r
-                    );
-                }
-                var s, r;
-                const l = {};
-                return (
-                    (l.activator = ({ on: t }) =>
-                        e(
-                            'v-text-field',
+                        })),
+                            (c = this.fullOptions.icons.clock);
+                    else if ('date' === this.fullSchema.format)
+                        r = e('v-date-picker', {
+                            props: qe({ value: this.value }, this.fullSchema['x-props']),
+                            on: {
+                                input: function (e) {
+                                    i.input(e), (i.dateProp.menu = !1);
+                                },
+                                change: function (e) {
+                                    return i.change(e);
+                                },
+                            },
+                        });
+                    else {
+                        this.value !== this.dateProp.lastValue &&
+                            (this.dateProp.parts =
+                                ((n = new Date(this.value)),
+                                [
+                                    m(
+                                        (l = m((s = ''.concat(n.getFullYear(), '-'))).call(
+                                            s,
+                                            Me(n.getMonth() + 1),
+                                            '-'
+                                        ))
+                                    ).call(l, Me(n.getDate())),
+                                    m((o = ''.concat(Me(n.getHours()), ':'))).call(o, Me(n.getMinutes())),
+                                ])),
+                            (this.dateProp.lastValue = this.value);
+                        var h = function () {
+                                if (i.dateProp.parts[1]) {
+                                    var e = Re(i.dateProp.parts);
+                                    i.input(e), i.change(e);
+                                }
+                            },
+                            p = [
+                                e('v-tab', { props: { href: '#tab-date' } }, [
+                                    e('v-icon', [this.fullOptions.icons.calendar]),
+                                ]),
+                                e('v-tab', { props: { href: '#tab-time', disabled: !this.dateProp.parts[0] } }, [
+                                    e('v-icon', [this.fullOptions.icons.clock]),
+                                ]),
+                                e('v-tab-item', { props: { value: 'tab-date' } }, [
+                                    e('v-date-picker', {
+                                        props: qe(
+                                            qe({}, this.fullOptions.datePickerProps),
+                                            {},
+                                            { locale: this.fullOptions.locale, value: this.dateProp.parts[0] }
+                                        ),
+                                        on: {
+                                            input: function (e) {
+                                                (i.dateProp.parts[0] = e), (i.dateProp.tab = 'tab-time'), h();
+                                            },
+                                        },
+                                    }),
+                                ]),
+                                e('v-tab-item', { props: { value: 'tab-time' } }, [
+                                    e('v-time-picker', {
+                                        props: qe(
+                                            qe({}, this.fullOptions.timePickerProps),
+                                            {},
+                                            { locale: this.fullOptions.locale, value: this.dateProp.parts[1] }
+                                        ),
+                                        on: {
+                                            input: function (e) {
+                                                (i.dateProp.parts[1] = e), h();
+                                            },
+                                        },
+                                    }),
+                                ]),
+                            ];
+                        r = e(
+                            'v-tabs',
                             {
-                                props: {
-                                    ...this.commonFieldProps,
-                                    value: this.formattedValue,
-                                    clearable: !this.required,
-                                    readonly: !0,
-                                    prependIcon: i,
+                                props: { grow: !0, value: this.dateProp.tab },
+                                on: {
+                                    input: function (e) {
+                                        i.dateProp.tab = e;
+                                    },
                                 },
-                                on: { ...t, input: (e) => this.input(e), change: (e) => this.change(e) },
+                                class: 'vjsf-date-time',
                             },
-                            [this.renderTooltip(e, 'append-outer')]
-                        )),
-                    [
+                            p
+                        );
+                    }
+                    var f = {
+                        activator: function (t) {
+                            var r = t.on;
+                            return e(
+                                'v-text-field',
+                                {
+                                    props: qe(
+                                        qe({}, i.commonFieldProps),
+                                        {},
+                                        {
+                                            value: i.formattedValue,
+                                            clearable: !i.required,
+                                            readonly: !0,
+                                            prependIcon: c,
+                                        }
+                                    ),
+                                    on: qe(
+                                        qe({}, r),
+                                        {},
+                                        {
+                                            input: function (e) {
+                                                return i.input(e);
+                                            },
+                                            change: function (e) {
+                                                return i.change(e);
+                                            },
+                                        }
+                                    ),
+                                },
+                                [i.renderTooltip(e, 'append-outer')]
+                            );
+                        },
+                    };
+                    return [
                         e(
                             'v-menu',
                             {
-                                scopedSlots: l,
+                                scopedSlots: f,
                                 props: {
                                     value: this.dateProp.menu,
                                     disabled: this.disabled,
@@ -775,99 +1081,220 @@ var X = {
                                     minWidth: '290px',
                                 },
                                 on: {
-                                    input: (e) => {
-                                        (this.dateProp.menu = e), (this.dateProp.tab = 'tab-date');
+                                    input: function (e) {
+                                        (i.dateProp.menu = e), (i.dateProp.tab = 'tab-date');
                                     },
                                 },
                             },
-                            [t]
+                            [r]
                         ),
-                    ]
-                );
-            },
-        },
-    },
-    ee = {
-        computed: {
-            isSimpleProp() {
-                return (
-                    'string' === this.fullSchema.type ||
-                    ['number', 'integer'].includes(this.fullSchema.type) ||
-                    'boolean' === this.fullSchema.type ||
-                    ('array' === this.fullSchema.type &&
-                        ['string', 'number', 'integer'].includes(this.fullSchema.items.type))
-                );
-            },
-        },
-        methods: {
-            renderSimpleProp(e) {
-                if (!this.isSimpleProp) return;
-                const t = { ...this.commonFieldProps },
-                    i = [],
-                    s = {},
-                    r = { input: (e) => this.input(e), change: (e) => this.change(e) };
-                if (
-                    (['number', 'integer'].includes(this.fullSchema.type) &&
-                        (r.input = (e) => {
-                            this.input('integer' === this.fullSchema.type ? parseInt(e, 10) : parseFloat(e));
-                        }),
-                    'boolean' === this.fullSchema.type &&
-                        (r.change = (e) => {
-                            this.input(e || !1), this.change(e || !1);
-                        }),
-                    'array' === this.fullSchema.type &&
-                        ['string', 'number', 'integer'].includes(this.fullSchema.items.type) &&
-                        'string' !== this.fullSchema.items.type &&
-                        ((t.type = 'number'),
-                        (r.input = (e) => {
-                            const t = e
-                                .map((e) =>
-                                    'integer' === this.fullSchema.items.type ? parseInt(e, 10) : parseFloat(e)
-                                )
-                                .filter((e) => !isNaN(e));
-                            this.input(t);
-                        })),
-                    this.htmlDescription)
-                ) {
-                    let t = 'append-outer';
-                    i.push(this.renderTooltip(e, t));
+                    ];
                 }
-                let l = this.fullSchema['x-rules'];
-                return l
-                    ? [
-                          e('validation-provider', {
-                              props: { name: t.label, rules: l },
-                              scopedSlots: {
-                                  default: ({ errors: l }) =>
-                                      e(
-                                          this.fullSchema.tag,
-                                          { props: { ...t, required: !0, 'error-messages': l }, on: r, scopedSlots: s },
-                                          i
-                                      ),
-                              },
-                          }),
-                      ]
-                    : [e(this.fullSchema.tag, { props: t, on: r, scopedSlots: s }, i)];
             },
         },
     };
-const te = async (e, t, i) => {
-    let s = e;
-    if ('string' === t.type || (t.properties.data && 'string' === t.properties.data.type)) {
-        const t = await ((e) =>
-            new Promise((t) => {
-                const i = new FileReader();
-                (i.onload = () => t(i.result)), i.readAsDataURL(e);
-            }))(e);
-        s = i ? t : t.split(';base64,')[1];
+function Ee(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
     }
-    return 'string' === t.type
-        ? s
-        : { name: e.name, lastModified: new Date(e.lastModified).toISOString(), size: e.size, type: e.type, data: s };
+    return i;
+}
+function Ue(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = Ee(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = Ee(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+var Ne = {
+    computed: {
+        isSimpleProp: function () {
+            var e, t;
+            return (
+                'string' === this.fullSchema.type ||
+                a((e = ['number', 'integer'])).call(e, this.fullSchema.type) ||
+                'boolean' === this.fullSchema.type ||
+                ('array' === this.fullSchema.type &&
+                    a((t = ['string', 'number', 'integer'])).call(t, this.fullSchema.items.type))
+            );
+        },
+    },
+    methods: {
+        renderSimpleProp: function (e) {
+            var t,
+                i,
+                r = this;
+            if (this.isSimpleProp) {
+                var n = Ue({}, this.commonFieldProps),
+                    l = [],
+                    o = {},
+                    u = {
+                        input: function (e) {
+                            return r.input(e);
+                        },
+                        change: function (e) {
+                            return r.change(e);
+                        },
+                    };
+                if (
+                    (a((t = ['number', 'integer'])).call(t, this.fullSchema.type) &&
+                        (u.input = function (e) {
+                            r.input('integer' === r.fullSchema.type ? y(e, 10) : g(e));
+                        }),
+                    'boolean' === this.fullSchema.type &&
+                        (u.change = function (e) {
+                            r.input(e || !1), r.change(e || !1);
+                        }),
+                    'array' === this.fullSchema.type &&
+                        a((i = ['string', 'number', 'integer'])).call(i, this.fullSchema.items.type) &&
+                        'string' !== this.fullSchema.items.type &&
+                        ((n.type = 'number'),
+                        (u.input = function (e) {
+                            var t,
+                                i = s(
+                                    (t = b(e).call(e, function (e) {
+                                        return 'integer' === r.fullSchema.items.type ? y(e, 10) : g(e);
+                                    }))
+                                ).call(t, function (e) {
+                                    return !isNaN(e);
+                                });
+                            r.input(i);
+                        })),
+                    this.htmlDescription)
+                ) {
+                    l.push(this.renderTooltip(e, 'append-outer'));
+                }
+                var c = this.fullSchema['x-rules'];
+                return c
+                    ? [
+                          e('validation-provider', {
+                              props: { name: n.label, rules: c },
+                              scopedSlots: {
+                                  default: function (t) {
+                                      var i = t.errors;
+                                      return e(
+                                          r.fullSchema.tag,
+                                          {
+                                              props: Ue(Ue({}, n), {}, { required: !0, 'error-messages': i }),
+                                              on: u,
+                                              scopedSlots: o,
+                                          },
+                                          l
+                                      );
+                                  },
+                              },
+                          }),
+                      ]
+                    : [e(this.fullSchema.tag, { props: n, on: u, scopedSlots: o }, l)];
+            }
+        },
+    },
 };
-var ie = {
+function He(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function _e(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = He(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = He(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+var ze = function (e) {
+        return new j(function (t) {
+            var i = new FileReader();
+            (i.onload = function () {
+                return t(i.result);
+            }),
+                i.readAsDataURL(e);
+        });
+    },
+    We = (function () {
+        var e = P(
+            x.mark(function e(t, i, r) {
+                var n, l;
+                return x.wrap(function (e) {
+                    for (;;)
+                        switch ((e.prev = e.next)) {
+                            case 0:
+                                if (
+                                    ((n = t),
+                                    !(
+                                        'string' === i.type ||
+                                        (i.properties.data && 'string' === i.properties.data.type)
+                                    ))
+                                ) {
+                                    e.next = 7;
+                                    break;
+                                }
+                                return (e.next = 5), ze(t);
+                            case 5:
+                                (l = e.sent), (n = r ? l : l.split(';base64,')[1]);
+                            case 7:
+                                if ('string' !== i.type) {
+                                    e.next = 9;
+                                    break;
+                                }
+                                return e.abrupt('return', n);
+                            case 9:
+                                return e.abrupt('return', {
+                                    name: t.name,
+                                    lastModified: new Date(t.lastModified).toISOString(),
+                                    size: t.size,
+                                    type: t.type,
+                                    data: n,
+                                });
+                            case 10:
+                            case 'end':
+                                return e.stop();
+                        }
+                }, e);
+            })
+        );
+        return function (t, i, r) {
+            return e.apply(this, arguments);
+        };
+    })(),
+    Be = {
         computed: {
-            isFileProp() {
+            isFileProp: function () {
                 return (
                     !(
                         'string' !== this.fullSchema.type ||
@@ -896,44 +1323,110 @@ var ie = {
                 );
             },
         },
-        created() {
+        created: function () {
             this.isFileProp && this.fullSchema.writeOnly;
         },
         methods: {
-            renderFileProp(e) {
-                if (!this.isFileProp) return;
-                const t = { ...this.commonFieldProps, ...this.fullOptions.fileInputProps };
-                delete t.value;
-                const i = {};
-                this.fullSchema.contentMediaType && (i.accept = this.fullSchema.contentMediaType),
-                    this.fullSchema.items &&
-                        this.fullSchema.items.contentMediaType &&
-                        (i.accept = this.fullSchema.items.contentMediaType),
-                    'array' === this.fullSchema.type && (i.multiple = !0);
-                const s = [...this.renderPropSlots(e)],
-                    r = {
-                        change: async (e) => {
-                            if ('array' === this.fullSchema.type) {
-                                const t = await Promise.all(
-                                    e.map((e) => te(e, this.fullSchema.items, this.fullOptions.filesAsDataUrl))
-                                );
-                                this.input(t), this.change(t);
-                            } else {
-                                const t = await te(e, this.resolvedSchema, this.fullOptions.filesAsDataUrl);
-                                this.input(t), this.change(t);
-                            }
-                        },
-                    };
-                return (
-                    this.htmlDescription && s.push(this.renderTooltip(e, 'append-outer')),
-                    [e('v-file-input', { props: t, attrs: i, on: r }, s)]
-                );
+            renderFileProp: function (e) {
+                var t = this;
+                if (this.isFileProp) {
+                    var i = _e(_e({}, this.commonFieldProps), this.fullOptions.fileInputProps);
+                    delete i.value;
+                    var r = {};
+                    this.fullSchema.contentMediaType && (r.accept = this.fullSchema.contentMediaType),
+                        this.fullSchema.items &&
+                            this.fullSchema.items.contentMediaType &&
+                            (r.accept = this.fullSchema.items.contentMediaType),
+                        'array' === this.fullSchema.type && (r.multiple = !0);
+                    var n,
+                        l = O(this.renderPropSlots(e)),
+                        s = {
+                            change:
+                                ((n = P(
+                                    x.mark(function e(i) {
+                                        var r, n;
+                                        return x.wrap(function (e) {
+                                            for (;;)
+                                                switch ((e.prev = e.next)) {
+                                                    case 0:
+                                                        if ('array' !== t.fullSchema.type) {
+                                                            e.next = 8;
+                                                            break;
+                                                        }
+                                                        return (
+                                                            (e.next = 3),
+                                                            j.all(
+                                                                b(i).call(i, function (e) {
+                                                                    return We(
+                                                                        e,
+                                                                        t.fullSchema.items,
+                                                                        t.fullOptions.filesAsDataUrl
+                                                                    );
+                                                                })
+                                                            )
+                                                        );
+                                                    case 3:
+                                                        (r = e.sent), t.input(r), t.change(r), (e.next = 13);
+                                                        break;
+                                                    case 8:
+                                                        return (
+                                                            (e.next = 10),
+                                                            We(i, t.resolvedSchema, t.fullOptions.filesAsDataUrl)
+                                                        );
+                                                    case 10:
+                                                        (n = e.sent), t.input(n), t.change(n);
+                                                    case 13:
+                                                    case 'end':
+                                                        return e.stop();
+                                                }
+                                        }, e);
+                                    })
+                                )),
+                                function (e) {
+                                    return n.apply(this, arguments);
+                                }),
+                        };
+                    return (
+                        this.htmlDescription && l.push(this.renderTooltip(e, 'append-outer')),
+                        [e('v-file-input', { props: i, attrs: r, on: s }, l)]
+                    );
+                }
             },
         },
-    },
-    se = {
+    };
+function Ge(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function Je(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = Ge(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = Ge(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+var Ze = {
         computed: {
-            isColorProp() {
+            isColorProp: function () {
                 return (
                     'string' === this.fullSchema.type &&
                     ('hexcolor' === this.fullSchema.format || 'color-picker' === this.display)
@@ -941,232 +1434,369 @@ var ie = {
             },
         },
         methods: {
-            renderColorProp(e) {
-                if (!this.isColorProp) return;
-                const t = [this.renderTooltip(e, 'append')];
-                return (
-                    t.push(
-                        e('v-menu', {
-                            props: { closeOnContentClick: !1, closeOneClick: !0, direction: 'bottom', offsetY: !0 },
-                            scopedSlots: {
-                                activator: ({ on: t }) =>
-                                    e('div', {
-                                        on: t,
-                                        style: `background-color: ${this.value};margin-left: 10px;`,
-                                        class: this.value
-                                            ? 'color-picker-trigger'
-                                            : 'color-picker-trigger color-picker-trigger-empty',
-                                    }),
-                                default: () =>
-                                    e('v-color-picker', {
-                                        props: {
-                                            flat: !0,
-                                            ...this.fullOptions.colorPickerProps,
-                                            ...this.fullSchema['x-props'],
-                                            value: this.value || '',
-                                        },
-                                        on: {
-                                            input: (e) => {
-                                                this.input(e), this.change(e);
+            renderColorProp: function (e) {
+                var t = this;
+                if (this.isColorProp) {
+                    var i = [this.renderTooltip(e, 'append')];
+                    return (
+                        i.push(
+                            e('v-menu', {
+                                props: { closeOnContentClick: !1, closeOneClick: !0, direction: 'bottom', offsetY: !0 },
+                                scopedSlots: {
+                                    activator: function (i) {
+                                        var r = i.on;
+                                        return e('div', {
+                                            on: r,
+                                            style: 'background-color: '.concat(t.value, ';margin-left: 10px;'),
+                                            class: t.value
+                                                ? 'color-picker-trigger'
+                                                : 'color-picker-trigger color-picker-trigger-empty',
+                                        });
+                                    },
+                                    default: function () {
+                                        return e('v-color-picker', {
+                                            props: Je(
+                                                Je(
+                                                    Je({ flat: !0 }, t.fullOptions.colorPickerProps),
+                                                    t.fullSchema['x-props']
+                                                ),
+                                                {},
+                                                { value: t.value || '' }
+                                            ),
+                                            on: {
+                                                input: function (e) {
+                                                    t.input(e), t.change(e);
+                                                },
                                             },
-                                        },
-                                    }),
-                            },
-                        })
-                    ),
-                    [
-                        e(
-                            'v-input',
-                            {
-                                props: {
-                                    name: this.fullKey,
-                                    label: this.label,
-                                    required: this.required,
-                                    rules: this.rules,
-                                    disabled: this.disabled,
-                                    ...this.fullOptions.fieldProps,
+                                        });
+                                    },
                                 },
-                            },
-                            t
+                            })
                         ),
-                    ]
-                );
+                        [
+                            e(
+                                'v-input',
+                                {
+                                    props: Je(
+                                        {
+                                            name: this.fullKey,
+                                            label: this.label,
+                                            required: this.required,
+                                            rules: this.rules,
+                                            disabled: this.disabled,
+                                        },
+                                        this.fullOptions.fieldProps
+                                    ),
+                                },
+                                i
+                            ),
+                        ]
+                    );
+                }
             },
         },
-    };
-const re = {
-        getSelectItems: (e, t, i, s) => {
-            const r = [];
-            if (e)
+    },
+    Ye = {
+        getSelectItems: function (t, i, r, n) {
+            var l = [];
+            if (t)
                 if (
-                    ('object' === t.type && t.properties && Object.keys(t.properties).length) ||
-                    ('array' === t.type &&
-                        t.items &&
-                        'object' === t.items.type &&
-                        t.items.properties &&
-                        Object.keys(t.items.properties).length)
+                    ('object' === i.type && i.properties && u(i.properties).length) ||
+                    ('array' === i.type &&
+                        i.items &&
+                        'object' === i.items.type &&
+                        i.items.properties &&
+                        u(i.items.properties).length)
                 ) {
-                    const i = t.properties ? t.properties.map((e) => e.key) : Object.keys(t.items.properties);
-                    e.forEach((e) => {
-                        const t = {};
-                        i.forEach((i) => {
+                    var s,
+                        a = i.properties
+                            ? b((s = i.properties)).call(s, function (e) {
+                                  return e.key;
+                              })
+                            : u(i.items.properties);
+                    c(t).call(t, function (e) {
+                        var t = {};
+                        c(a).call(a, function (i) {
                             void 0 !== e[i] && (t[i] = e[i]);
                         }),
-                            r.push(t);
+                            l.push(t);
                     });
                 } else
-                    e.forEach((e) => {
-                        if ('object' == typeof e) r.push(e);
+                    c(t).call(t, function (t) {
+                        if ('object' === e(t)) l.push(t);
                         else {
-                            const t = { [i]: e };
-                            s && (t[s] = e), r.push(t);
+                            var i = f({}, r, t);
+                            n && (i[n] = t), l.push(i);
                         }
                     });
             else;
-            return r;
+            return l;
         },
     },
-    le = (e, t, i) => {
-        if ([null, void 0].includes(e)) return !1;
-        if ([null, void 0].includes(t)) return !1;
-        return JSON.stringify(e[i]) === JSON.stringify(t[i]);
+    Qe = function (e, t, i) {
+        var r, n;
+        return !a((r = [null, void 0])).call(r, e) && !a((n = [null, void 0])).call(n, t) && h(e[i]) === h(t[i]);
     };
-(re.fillSelectItems = (e, t, i, s, r) => {
-    if (t)
-        if ('array' === e.type)
-            t.map((e) => e)
-                .reverse()
-                .forEach((e) => {
-                    const t = r ? e : { [s]: e };
-                    i.find((e) => le(e, t, s)) || i.push(t);
-                });
-        else {
-            const e = r ? t : { [s]: t };
-            i.find((t) => le(t, e, s)) || i.push(e);
-        }
-}),
-    (re.fillList = (e, t, i, s) => {
-        if (t)
-            return i.length
-                ? (i.forEach((e) => {
-                      t.find((t) => le(e, t, s)) || t.push(e);
-                  }),
-                  t.forEach((e, r) => {
-                      i.find((t) => le(t, e, s)) || (t[r] = null);
-                  }),
-                  t.filter((e) => !!e))
-                : [];
-    });
-const ae = require('match-all'),
-    ne = require('debounce');
-function oe(e, t, i, s, r, l, a, n, o, h) {
-    'boolean' != typeof a && ((o = n), (n = a), (a = !1));
-    const u = 'function' == typeof i ? i.options : i;
-    let c;
-    if (
-        (e &&
-            e.render &&
-            ((u.render = e.render),
-            (u.staticRenderFns = e.staticRenderFns),
-            (u._compiled = !0),
-            r && (u.functional = !0)),
-        s && (u._scopeId = s),
-        l
-            ? ((c = function (e) {
-                  (e =
-                      e ||
-                      (this.$vnode && this.$vnode.ssrContext) ||
-                      (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext)) ||
-                      'undefined' == typeof __VUE_SSR_CONTEXT__ ||
-                      (e = __VUE_SSR_CONTEXT__),
-                      t && t.call(this, o(e)),
-                      e && e._registeredComponents && e._registeredComponents.add(l);
-              }),
-              (u._ssrRegister = c))
-            : t &&
-              (c = a
-                  ? function (e) {
-                        t.call(this, h(e, this.$root.$options.shadowRoot));
-                    }
-                  : function (e) {
-                        t.call(this, n(e));
-                    }),
-        c)
-    )
-        if (u.functional) {
-            const e = u.render;
-            u.render = function (t, i) {
-                return c.call(i), e(t, i);
+function Xe(e, t) {
+    var i;
+    if (void 0 === w || null == k(e)) {
+        if (
+            v(e) ||
+            (i = (function (e, t) {
+                var i;
+                if (!e) return;
+                if ('string' == typeof e) return et(e, t);
+                var r = S((i = Object.prototype.toString.call(e))).call(i, 8, -1);
+                'Object' === r && e.constructor && (r = e.constructor.name);
+                if ('Map' === r || 'Set' === r) return C(e);
+                if ('Arguments' === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)) return et(e, t);
+            })(e)) ||
+            (t && e && 'number' == typeof e.length)
+        ) {
+            i && (e = i);
+            var r = 0,
+                n = function () {};
+            return {
+                s: n,
+                n: function () {
+                    return r >= e.length ? { done: !0 } : { done: !1, value: e[r++] };
+                },
+                e: function (e) {
+                    throw e;
+                },
+                f: n,
             };
-        } else {
-            const e = u.beforeCreate;
-            u.beforeCreate = e ? [].concat(e, c) : [c];
         }
+        throw new TypeError(
+            'Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
+        );
+    }
+    var l,
+        s = !0,
+        a = !1;
+    return {
+        s: function () {
+            i = I(e);
+        },
+        n: function () {
+            var e = i.next();
+            return (s = e.done), e;
+        },
+        e: function (e) {
+            (a = !0), (l = e);
+        },
+        f: function () {
+            try {
+                s || null == i.return || i.return();
+            } finally {
+                if (a) throw l;
+            }
+        },
+    };
+}
+function et(e, t) {
+    (null == t || t > e.length) && (t = e.length);
+    for (var i = 0, r = new Array(t); i < t; i++) r[i] = e[i];
+    return r;
+}
+function tt(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
     return i;
 }
-const he = oe(
+function it(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = tt(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = tt(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+(Ye.fillSelectItems = function (e, t, i, r, n) {
+    if (t)
+        if ('array' === e.type) {
+            var l, s;
+            c(
+                (l = D(
+                    (s = b(t).call(t, function (e) {
+                        return e;
+                    }))
+                ).call(s))
+            ).call(l, function (e) {
+                var t = n ? e : f({}, r, e);
+                o(i).call(i, function (e) {
+                    return Qe(e, t, r);
+                }) || i.push(t);
+            });
+        } else {
+            var a = n ? t : f({}, r, t);
+            o(i).call(i, function (e) {
+                return Qe(e, a, r);
+            }) || i.push(a);
+        }
+}),
+    (Ye.fillList = function (e, t, i, r) {
+        if (t)
+            return i.length
+                ? (c(i).call(i, function (e) {
+                      o(t).call(t, function (t) {
+                          return Qe(e, t, r);
+                      }) || t.push(e);
+                  }),
+                  c(t).call(t, function (e, n) {
+                      o(i).call(i, function (t) {
+                          return Qe(t, e, r);
+                      }) || (t[n] = null);
+                  }),
+                  s(t).call(t, function (e) {
+                      return !!e;
+                  }))
+                : [];
+    });
+var rt = require('match-all'),
+    nt = require('debounce');
+function lt(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function st(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = lt(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = lt(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+function at(e, t) {
+    var i = u(e);
+    if (l) {
+        var r = l(e);
+        t &&
+            (r = s(r).call(r, function (t) {
+                return n(e, t).enumerable;
+            })),
+            i.push.apply(i, r);
+    }
+    return i;
+}
+function ot(e) {
+    for (var l = arguments, s = 1; s < arguments.length; s++) {
+        var a,
+            o = null != l[s] ? l[s] : {};
+        if (s % 2)
+            c((a = at(Object(o), !0))).call(a, function (t) {
+                f(e, t, o[t]);
+            });
+        else if (r) i(e, r(o));
+        else {
+            var u;
+            c((u = at(Object(o)))).call(u, function (i) {
+                t(e, i, n(o, i));
+            });
+        }
+    }
+    return e;
+}
+var ut = $(
     {},
     undefined,
     {
         name: 'HFormRenderer',
         components: {
-            VAvatar: e,
-            VAutocomplete: t,
-            VBtn: i,
-            VCard: s,
-            VCardActions: r,
-            VCardText: l,
-            VCardTitle: a,
-            VCheckbox: n,
-            VChip: o,
-            VColorPicker: h,
-            VCombobox: u,
-            VContainer: c,
-            VDatePicker: m,
-            VDialog: p,
-            VExpansionPanels: d,
-            VExpansionPanel: f,
-            VExpansionPanelHeader: y,
-            VExpansionPanelContent: S,
-            VCol: g,
-            VFileInput: v,
-            VIcon: b,
-            VInput: O,
-            VRow: x,
-            VListItemContent: P,
-            VListItemTitle: I,
-            VMenu: k,
-            VRadio: C,
-            VRadioGroup: $,
-            VRangeSlider: T,
-            VSelect: D,
-            VSlider: w,
-            VSpacer: V,
-            VSubheader: j,
-            VSwitch: L,
-            VTabs: A,
-            VTab: E,
-            VTabItem: R,
-            VTextarea: K,
-            VTextField: q,
-            VTimePicker: M,
-            VTooltip: N,
+            VAvatar: K,
+            VAutocomplete: q,
+            VBtn: M,
+            VCard: R,
+            VCardActions: A,
+            VCardText: F,
+            VCardTitle: E,
+            VCheckbox: U,
+            VChip: N,
+            VColorPicker: H,
+            VCombobox: _,
+            VContainer: z,
+            VDatePicker: W,
+            VDialog: B,
+            VExpansionPanels: G,
+            VExpansionPanel: J,
+            VExpansionPanelHeader: Z,
+            VExpansionPanelContent: Y,
+            VCol: Q,
+            VFileInput: X,
+            VIcon: ee,
+            VInput: te,
+            VRow: ie,
+            VListItemContent: re,
+            VListItemTitle: ne,
+            VMenu: le,
+            VRadio: se,
+            VRadioGroup: ae,
+            VRangeSlider: oe,
+            VSelect: ue,
+            VSlider: ce,
+            VSpacer: he,
+            VSubheader: me,
+            VSwitch: pe,
+            VTabs: fe,
+            VTab: de,
+            VTabItem: ve,
+            VTextarea: be,
+            VTextField: ye,
+            VTimePicker: Se,
+            VTooltip: ge,
         },
         mixins: [
-            oe(
+            $(
                 {},
                 undefined,
                 {
                     name: 'HAssemblyRenderder',
                     mixins: [
-                        G,
-                        ee,
-                        X,
-                        se,
+                        $e,
+                        Ne,
+                        Fe,
+                        Ze,
                         {
-                            data: () => ({ rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} }),
+                            data: function () {
+                                return { rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} };
+                            },
                             computed: {
-                                isSelectProp() {
+                                isSelectProp: function () {
                                     return (
                                         'list' !== this.display &&
                                         (!!this.fullSchema.enum ||
@@ -1180,50 +1810,59 @@ const he = oe(
                                             !!this.fromData)
                                     );
                                 },
-                                oneOfSelect() {
+                                oneOfSelect: function () {
+                                    var e, t;
                                     return (
                                         !(
                                             'array' !== this.fullSchema.type ||
-                                            !['string', 'integer', 'number'].includes(this.fullSchema.items.type) ||
+                                            !a((e = ['string', 'integer', 'number'])).call(
+                                                e,
+                                                this.fullSchema.items.type
+                                            ) ||
                                             !this.fullSchema.items.oneOf
                                         ) ||
                                         !(
-                                            !['string', 'integer', 'number'].includes(this.fullSchema.type) ||
+                                            !a((t = ['string', 'integer', 'number'])).call(t, this.fullSchema.type) ||
                                             !this.fullSchema.oneOf
                                         )
                                     );
                                 },
-                                fromUrl() {
+                                fromUrl: function () {
                                     return this.fullSchema['x-fromUrl'];
                                 },
-                                fromUrlWithQuery() {
+                                fromUrlWithQuery: function () {
+                                    var e;
                                     return !(
                                         !this.fullSchema['x-fromUrl'] ||
-                                        -1 === this.fullSchema['x-fromUrl'].indexOf('{q}')
+                                        -1 === T((e = this.fullSchema['x-fromUrl'])).call(e, '{q}')
                                     );
                                 },
-                                fromUrlKeys() {
+                                fromUrlKeys: function () {
+                                    var e;
                                     return this.fullSchema['x-fromUrl']
-                                        ? ae(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g)
-                                              .toArray()
-                                              .filter((e) => 'q' !== e)
+                                        ? s((e = rt(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray())).call(
+                                              e,
+                                              function (e) {
+                                                  return 'q' !== e;
+                                              }
+                                          )
                                         : null;
                                 },
-                                fromData() {
+                                fromData: function () {
                                     return this.fullSchema['x-fromData'];
                                 },
-                                itemKey() {
+                                itemKey: function () {
                                     return this.fullSchema['x-itemKey'] || 'key';
                                 },
-                                itemTitle() {
+                                itemTitle: function () {
                                     return this.fullSchema['x-itemTitle'] || 'title';
                                 },
-                                itemIcon() {
+                                itemIcon: function () {
                                     return (
                                         this.fullSchema['x-itemIcon'] || ('icon' === this.display ? this.itemKey : null)
                                     );
                                 },
-                                returnObject() {
+                                returnObject: function () {
                                     return (
                                         'object' === this.fullSchema.type ||
                                         (this.fullSchema.items && 'object' === this.fullSchema.items.type)
@@ -1231,289 +1870,356 @@ const he = oe(
                                 },
                             },
                             watch: {
-                                q() {
+                                q: function () {
                                     (this.value && this.value[this.itemTitle] === this.q) || this.fetchSelectItems();
                                 },
                                 rawSelectItems: {
-                                    handler() {
+                                    handler: function () {
                                         this.updateSelectItems();
                                     },
                                     immediate: !0,
                                 },
                             },
                             methods: {
-                                initSelectProp(e) {
-                                    this.fromUrlWithQuery &&
+                                initSelectProp: function (e) {
+                                    var t,
+                                        i = this;
+                                    (this.fromUrlWithQuery &&
                                         e &&
                                         void 0 !== e[this.itemTitle] &&
                                         (this.q = e[this.itemTitle]),
-                                        this.fromUrl && this.fetchSelectItems(),
-                                        (('array' === this.fullSchema.type && this.fullSchema.items.enum) ||
-                                            this.fullSchema.enum) &&
-                                            (this.rawSelectItems =
-                                                'array' === this.fullSchema.type
-                                                    ? this.fullSchema.items.enum
-                                                    : this.fullSchema.enum),
-                                        this.oneOfSelect &&
-                                            (this.rawSelectItems = ('array' === this.fullSchema.type
+                                    this.fromUrl && this.fetchSelectItems(),
+                                    (('array' === this.fullSchema.type && this.fullSchema.items.enum) ||
+                                        this.fullSchema.enum) &&
+                                        (this.rawSelectItems =
+                                            'array' === this.fullSchema.type
+                                                ? this.fullSchema.items.enum
+                                                : this.fullSchema.enum),
+                                    this.oneOfSelect) &&
+                                        (this.rawSelectItems = b(
+                                            (t = ('array' === this.fullSchema.type
                                                 ? this.fullSchema.items
                                                 : this.fullSchema
-                                            ).oneOf.map((e) => ({
-                                                ...e,
-                                                [this.itemKey]: e.const || (e.enum && e.enum[0]),
-                                                [this.itemTitle]: e.title,
-                                            })));
-                                    const t = this.modelRoot ? 'modelRoot.' : 'value.';
-                                    this.fullSchema['x-fromData'] &&
+                                            ).oneOf)
+                                        ).call(t, function (e) {
+                                            var t;
+                                            return it(
+                                                it({}, e),
+                                                {},
+                                                (f((t = {}), i.itemKey, e.const || (e.enum && e.enum[0])),
+                                                f(t, i.itemTitle, e.title),
+                                                t)
+                                            );
+                                        }));
+                                    var r,
+                                        n = this.modelRoot ? 'modelRoot.' : 'value.';
+                                    (this.fullSchema['x-fromData'] &&
                                         this.$watch(
-                                            t + this.fullSchema['x-fromData'],
-                                            (e) => {
-                                                this.rawSelectItems = e;
+                                            n + this.fullSchema['x-fromData'],
+                                            function (e) {
+                                                i.rawSelectItems = e;
                                             },
                                             { immediate: !0 }
                                         ),
-                                        this.fromUrlKeys &&
-                                            this.fromUrlKeys.forEach((e) => {
-                                                e.startsWith('context.')
-                                                    ? this.$watch(
-                                                          'options.' + e,
-                                                          (t) => {
-                                                              (this.fromUrlParams[e] = t), this.fetchSelectItems();
-                                                          },
-                                                          { immediate: !0 }
-                                                      )
-                                                    : this.$watch(
-                                                          t + e,
-                                                          (t) => {
-                                                              (this.fromUrlParams[e] = t), this.fetchSelectItems();
-                                                          },
-                                                          { immediate: !0 }
-                                                      );
-                                            });
+                                    this.fromUrlKeys) &&
+                                        c((r = this.fromUrlKeys)).call(r, function (e) {
+                                            p(e).call(e, 'context.')
+                                                ? i.$watch(
+                                                      'options.' + e,
+                                                      function (t) {
+                                                          (i.fromUrlParams[e] = t), i.fetchSelectItems();
+                                                      },
+                                                      { immediate: !0 }
+                                                  )
+                                                : i.$watch(
+                                                      n + e,
+                                                      function (t) {
+                                                          (i.fromUrlParams[e] = t), i.fetchSelectItems();
+                                                      },
+                                                      { immediate: !0 }
+                                                  );
+                                        });
                                 },
-                                fetchSelectItems() {
+                                fetchSelectItems: function () {
+                                    var e = this;
                                     if (!this.fullOptions.httpLib)
                                         return this.$emit('error', 'No http lib found to perform ajax request');
                                     (this.debouncedFetch =
                                         this.debouncedFetch ||
-                                        ne(() => {
-                                            let e = this.fullSchema['x-fromUrl'].replace('{q}', this.q || '');
-                                            for (const t of this.fromUrlKeys) {
-                                                if (void 0 === this.fromUrlParams[t]) return;
-                                                e = e.replace(`{${t}}`, this.fromUrlParams[t]);
+                                        nt(function () {
+                                            var t,
+                                                i = e.fullSchema['x-fromUrl'].replace('{q}', e.q || ''),
+                                                r = Xe(e.fromUrlKeys);
+                                            try {
+                                                for (r.s(); !(t = r.n()).done; ) {
+                                                    var n = t.value;
+                                                    if (void 0 === e.fromUrlParams[n]) return;
+                                                    i = i.replace('{'.concat(n, '}'), e.fromUrlParams[n]);
+                                                }
+                                            } catch (e) {
+                                                r.e(e);
+                                            } finally {
+                                                r.f();
                                             }
-                                            (this.loading = !0),
-                                                this.fullOptions.httpLib
-                                                    .get(e)
-                                                    .then((t) => {
-                                                        const i = t.data || t.body,
-                                                            s = this.fullSchema['x-itemsProp']
-                                                                ? i[this.fullSchema['x-itemsProp']]
-                                                                : i;
-                                                        if (!Array.isArray(s))
+                                            (e.loading = !0),
+                                                e.fullOptions.httpLib
+                                                    .get(i)
+                                                    .then(function (t) {
+                                                        var r = t.data || t.body,
+                                                            n = e.fullSchema['x-itemsProp']
+                                                                ? r[e.fullSchema['x-itemsProp']]
+                                                                : r;
+                                                        if (!v(n))
                                                             throw new Error(
-                                                                `Result of http fetch ${e} is not an array`
+                                                                'Result of http fetch '.concat(i, ' is not an array')
                                                             );
-                                                        (this.rawSelectItems = s), (this.loading = !1);
+                                                        (e.rawSelectItems = n), (e.loading = !1);
                                                     })
-                                                    .catch((e) => {
-                                                        this.$emit('error', e.message), (this.loading = !1);
+                                                    .catch(function (t) {
+                                                        e.$emit('error', t.message), (e.loading = !1);
                                                     });
                                         }, 250)),
                                         this.debouncedFetch();
                                 },
-                                updateSelectItems() {
-                                    const e = re.getSelectItems(
+                                updateSelectItems: function () {
+                                    var e = Ye.getSelectItems(
                                         this.rawSelectItems,
                                         this.fullSchema,
                                         this.itemKey,
                                         this.itemIcon
                                     );
                                     'list' === this.display &&
-                                        this.input(re.fillList(this.fullSchema, this.value, e, this.itemKey)),
-                                        re.fillSelectItems(
+                                        this.input(Ye.fillList(this.fullSchema, this.value, e, this.itemKey)),
+                                        Ye.fillSelectItems(
                                             this.fullSchema,
                                             this.value,
                                             e,
                                             this.itemKey,
                                             this.returnObject
                                         ),
-                                        JSON.stringify(e) !== JSON.stringify(this.selectItems) &&
-                                            (this.selectItems = e);
+                                        h(e) !== h(this.selectItems) && (this.selectItems = e);
                                 },
-                                renderSelectIcon(e, t) {
-                                    if (!this.itemIcon) return;
-                                    const i = t[this.itemIcon];
-                                    if (!i) return;
-                                    let s = e('v-icon', null, i);
-                                    return (
-                                        i.startsWith('http://') || i.startsWith('https://')
-                                            ? (s = e('img', { domProps: { src: i }, style: 'height:100%;width:100%;' }))
-                                            : (i.startsWith('<?xml') || i.startsWith('<svg')) &&
-                                              (s = e('div', { domProps: { innerHTML: i } })),
-                                        e('v-avatar', { props: { tile: !0, size: 20 }, class: 'mr-2' }, [s])
-                                    );
+                                renderSelectIcon: function (e, t) {
+                                    if (this.itemIcon) {
+                                        var i = t[this.itemIcon];
+                                        if (i) {
+                                            var r = e('v-icon', null, i);
+                                            return (
+                                                p(i).call(i, 'http://') || p(i).call(i, 'https://')
+                                                    ? (r = e('img', {
+                                                          domProps: { src: i },
+                                                          style: 'height:100%;width:100%;',
+                                                      }))
+                                                    : (p(i).call(i, '<?xml') || p(i).call(i, '<svg')) &&
+                                                      (r = e('div', { domProps: { innerHTML: i } })),
+                                                e('v-avatar', { props: { tile: !0, size: 20 }, class: 'mr-2' }, [r])
+                                            );
+                                        }
+                                    }
                                 },
-                                renderSelectItem(e, t) {
+                                renderSelectItem: function (e, t) {
                                     return e('v-list-item-content', [
                                         e('v-list-item-title', t[this.itemTitle] || t[this.itemKey]),
                                     ]);
                                 },
-                                renderSelectionControlItem(e, t) {
-                                    const i = {
-                                            change: (e) => {
-                                                this.input(e), this.$emit('change', e);
+                                renderSelectionControlItem: function (e, t) {
+                                    var i = this,
+                                        r = {
+                                            change: function (e) {
+                                                i.input(e), i.$emit('change', e);
                                             },
                                         },
-                                        s = {
+                                        n = {
                                             label: t[this.itemTitle] || t[this.itemKey],
                                             value: t[this.itemKey],
                                             inputValue: this.value,
                                             multiple: 'array' === this.fullSchema.type,
                                             hideDetails: !0,
                                         };
-                                    return e('v-' + this.display, { props: s, on: i, class: 'pb-1' });
+                                    return e('v-'.concat(this.display), { props: n, on: r, class: 'pb-1' });
                                 },
-                                renderSelectionControlGroup(e) {
-                                    const t = {
-                                            change: (e) => {
-                                                this.input(e), this.change(e);
+                                renderSelectionControlGroup: function (e) {
+                                    var t,
+                                        i,
+                                        r,
+                                        n = this,
+                                        l = {
+                                            change: function (e) {
+                                                n.input(e), n.change(e);
                                             },
                                         },
-                                        i = {
-                                            ...this.commonFieldProps,
-                                            multiple: 'array' === this.fullSchema.type,
-                                            label: null,
-                                        },
-                                        s = e(
+                                        s = it(
+                                            it({}, this.commonFieldProps),
+                                            {},
+                                            { multiple: 'array' === this.fullSchema.type, label: null }
+                                        ),
+                                        a = e(
                                             'legend',
                                             {
-                                                class: `v-label theme--${this.theme.isDark ? 'dark' : 'light'} ${
-                                                    this.hasError ? 'error--text' : ''
-                                                }`,
+                                                class: m(
+                                                    (t = 'v-label theme--'.concat(
+                                                        this.theme.isDark ? 'dark' : 'light',
+                                                        ' '
+                                                    ))
+                                                ).call(t, this.hasError ? 'error--text' : ''),
                                             },
                                             this.commonFieldProps.label
                                         ),
-                                        r = this.selectItems.map((t) => this.renderSelectionControlItem(e, t));
+                                        o = b((i = this.selectItems)).call(i, function (t) {
+                                            return n.renderSelectionControlItem(e, t);
+                                        });
                                     return [
                                         e(
                                             'v-input',
                                             {
-                                                props: i,
-                                                on: t,
+                                                props: s,
+                                                on: l,
                                                 class:
                                                     'v-input--selection-controls v-input--radio-group v-input--radio-group--column',
                                             },
                                             [
-                                                e('div', { class: 'v-input--radio-group__input' }, [s, ...r]),
+                                                e(
+                                                    'div',
+                                                    { class: 'v-input--radio-group__input' },
+                                                    m((r = [a])).call(r, O(o))
+                                                ),
                                                 this.renderTooltip(e, 'append'),
                                             ]
                                         ),
                                     ];
                                 },
-                                renderRadioItem(e, t) {
-                                    const i = t[this.itemTitle] || t[this.itemKey],
-                                        s = t[this.itemKey];
+                                renderRadioItem: function (e, t) {
+                                    var i = t[this.itemTitle] || t[this.itemKey],
+                                        r = t[this.itemKey];
                                     return e('v-radio', {
-                                        props: { ...this.fullOptions.radioItemProps, label: i, value: s },
+                                        props: it(it({}, this.fullOptions.radioItemProps), {}, { label: i, value: r }),
                                     });
                                 },
-                                renderRadioGroup(e) {
-                                    const t = { ...this.commonFieldProps, ...this.fullOptions.radioGroupProps };
+                                renderRadioGroup: function (e) {
+                                    var t,
+                                        i,
+                                        r = this,
+                                        n = it(it({}, this.commonFieldProps), this.fullOptions.radioGroupProps);
                                     return [
                                         e(
                                             'v-radio-group',
                                             {
-                                                props: t,
+                                                props: n,
                                                 on: {
-                                                    change: (e) => {
-                                                        this.input(e), this.change(e);
+                                                    change: function (e) {
+                                                        r.input(e), r.change(e);
                                                     },
                                                 },
                                             },
-                                            [
-                                                ...this.selectItems.map((t) => this.renderRadioItem(e, t)),
-                                                this.renderTooltip(e, 'append'),
-                                            ]
+                                            m((t = [])).call(
+                                                t,
+                                                O(
+                                                    b((i = this.selectItems)).call(i, function (t) {
+                                                        return r.renderRadioItem(e, t);
+                                                    })
+                                                ),
+                                                [this.renderTooltip(e, 'append')]
+                                            )
                                         ),
                                     ];
                                 },
-                                renderSelectProp(e) {
-                                    if (!this.isSelectProp) return;
-                                    if ('radio' === this.display && 'array' !== this.fullSchema.type)
-                                        return this.renderRadioGroup(e);
-                                    if (['checkbox', 'switch'].includes(this.display))
-                                        return this.renderSelectionControlGroup(e);
-                                    const t = { input: (e) => this.input(e), change: (e) => this.change(e) },
-                                        i = {
-                                            selection: (t) => {
-                                                let i = t.item[this.itemTitle] || t.item[this.itemKey];
-                                                return (
-                                                    'array' === this.fullSchema.type &&
-                                                        t.index !== this.value.length - 1 &&
-                                                        (i += ',&nbsp;'),
-                                                    e(
-                                                        'div',
-                                                        {
-                                                            class: {
-                                                                'v-select__selection': !0,
-                                                                'v-select__selection--comma': !0,
-                                                                'v-select__selection--disabled': this.disabled,
-                                                            },
-                                                        },
-                                                        [
-                                                            this.renderSelectIcon(e, t.item),
-                                                            e('span', { domProps: { innerHTML: i }, class: 'mt-1' }),
-                                                        ]
-                                                    )
-                                                );
+                                renderSelectProp: function (e) {
+                                    var t,
+                                        i = this;
+                                    if (this.isSelectProp) {
+                                        if ('radio' === this.display && 'array' !== this.fullSchema.type)
+                                            return this.renderRadioGroup(e);
+                                        if (a((t = ['checkbox', 'switch'])).call(t, this.display))
+                                            return this.renderSelectionControlGroup(e);
+                                        var r = {
+                                                input: function (e) {
+                                                    return i.input(e);
+                                                },
+                                                change: function (e) {
+                                                    return i.change(e);
+                                                },
                                             },
-                                            item: (t) => [
-                                                this.renderSelectIcon(e, t.item),
-                                                this.renderSelectItem(e, t.item),
-                                            ],
-                                        },
-                                        s = [...this.renderPropSlots(e)];
-                                    this.htmlDescription && s.push(this.renderTooltip(e, 'append-outer'));
-                                    let r = 'v-select';
-                                    const l = {
-                                        ...this.commonFieldProps,
-                                        ...this.fullOptions.selectProps,
-                                        clearable: !this.required,
-                                        multiple: 'array' === this.fullSchema.type,
-                                        itemValue: this.itemKey,
-                                        items: this.selectItems,
-                                        returnObject: this.returnObject,
-                                    };
-                                    return (
-                                        (this.fromUrlWithQuery ||
-                                            (this.rawSelectItems && this.rawSelectItems.length > 20)) &&
-                                            ((r = 'v-autocomplete'),
-                                            (l.noDataText = this.fullOptions.messages.noData),
-                                            (l.placeholder = this.fullOptions.messages.search),
-                                            this.fromUrlWithQuery
-                                                ? ((l.filter = () => !0),
-                                                  (l.searchInput = this.q),
-                                                  (t['update:search-input'] = (e) => {
-                                                      this.q = e;
-                                                  }))
-                                                : (l.filter = (e, t) =>
-                                                      (e[this.itemTitle] || e[this.itemKey])
-                                                          .toLowerCase()
-                                                          .includes(t.toLowerCase()))),
-                                        (r = this.customTag ? this.customTag : r),
-                                        [e(r, { props: l, on: t, scopedSlots: i }, s)]
-                                    );
+                                            n = {
+                                                selection: function (t) {
+                                                    var r = t.item[i.itemTitle] || t.item[i.itemKey];
+                                                    return (
+                                                        'array' === i.fullSchema.type &&
+                                                            t.index !== i.value.length - 1 &&
+                                                            (r += ',&nbsp;'),
+                                                        e(
+                                                            'div',
+                                                            {
+                                                                class: {
+                                                                    'v-select__selection': !0,
+                                                                    'v-select__selection--comma': !0,
+                                                                    'v-select__selection--disabled': i.disabled,
+                                                                },
+                                                            },
+                                                            [
+                                                                i.renderSelectIcon(e, t.item),
+                                                                e('span', {
+                                                                    domProps: { innerHTML: r },
+                                                                    class: 'mt-1',
+                                                                }),
+                                                            ]
+                                                        )
+                                                    );
+                                                },
+                                                item: function (t) {
+                                                    return [
+                                                        i.renderSelectIcon(e, t.item),
+                                                        i.renderSelectItem(e, t.item),
+                                                    ];
+                                                },
+                                            },
+                                            l = O(this.renderPropSlots(e));
+                                        this.htmlDescription && l.push(this.renderTooltip(e, 'append-outer'));
+                                        var s = 'v-select',
+                                            o = it(
+                                                it(it({}, this.commonFieldProps), this.fullOptions.selectProps),
+                                                {},
+                                                {
+                                                    clearable: !this.required,
+                                                    multiple: 'array' === this.fullSchema.type,
+                                                    itemValue: this.itemKey,
+                                                    items: this.selectItems,
+                                                    returnObject: this.returnObject,
+                                                }
+                                            );
+                                        return (
+                                            (this.fromUrlWithQuery ||
+                                                (this.rawSelectItems && this.rawSelectItems.length > 20)) &&
+                                                ((s = 'v-autocomplete'),
+                                                (o.noDataText = this.fullOptions.messages.noData),
+                                                (o.placeholder = this.fullOptions.messages.search),
+                                                this.fromUrlWithQuery
+                                                    ? ((o.filter = function () {
+                                                          return !0;
+                                                      }),
+                                                      (o.searchInput = this.q),
+                                                      (r['update:search-input'] = function (e) {
+                                                          i.q = e;
+                                                      }))
+                                                    : (o.filter = function (e, t) {
+                                                          var r;
+                                                          return a(
+                                                              (r = (e[i.itemTitle] || e[i.itemKey]).toLowerCase())
+                                                          ).call(r, t.toLowerCase());
+                                                      })),
+                                            (s = this.customTag ? this.customTag : s),
+                                            [e(s, { props: o, on: r, scopedSlots: n }, l)]
+                                        );
+                                    }
                                 },
                             },
                         },
-                        ie,
+                        Be,
                         {
-                            data: () => ({
-                                editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} },
-                            }),
+                            data: function () {
+                                return { editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} } };
+                            },
                             computed: {
-                                isEditableArray() {
+                                isEditableArray: function () {
                                     if (
                                         'array' === this.fullSchema.type &&
                                         this.fullSchema.items &&
@@ -1521,36 +2227,41 @@ const he = oe(
                                     )
                                         return !0;
                                 },
-                                readonlyItemSchema() {
-                                    if (!this.fullSchema.items) return;
-                                    const e = JSON.parse(JSON.stringify(this.fullSchema.items));
-                                    return (
-                                        (e.readOnly = !0),
-                                        this.itemTitle &&
-                                            (e.properties &&
-                                                e.properties[this.itemTitle] &&
-                                                (e.properties[this.itemTitle]['x-display'] = 'hidden'),
-                                            e.oneOf &&
-                                                e.oneOf.forEach((e) => {
-                                                    e.properties[this.itemTitle] &&
-                                                        (e.properties[this.itemTitle]['x-display'] = 'hidden');
-                                                }),
-                                            this.fullSchema.items.allOf &&
-                                                e.allOf.forEach((e) => {
-                                                    e.properties[this.itemTitle] &&
-                                                        (e.properties[this.itemTitle]['x-display'] = 'hidden');
-                                                })),
-                                        e
-                                    );
+                                readonlyItemSchema: function () {
+                                    var e = this;
+                                    if (this.fullSchema.items) {
+                                        var t = JSON.parse(h(this.fullSchema.items));
+                                        if (((t.readOnly = !0), this.itemTitle)) {
+                                            var i, r;
+                                            if (
+                                                (t.properties &&
+                                                    t.properties[this.itemTitle] &&
+                                                    (t.properties[this.itemTitle]['x-display'] = 'hidden'),
+                                                t.oneOf)
+                                            )
+                                                c((i = t.oneOf)).call(i, function (t) {
+                                                    t.properties[e.itemTitle] &&
+                                                        (t.properties[e.itemTitle]['x-display'] = 'hidden');
+                                                });
+                                            if (this.fullSchema.items.allOf)
+                                                c((r = t.allOf)).call(r, function (t) {
+                                                    t.properties[e.itemTitle] &&
+                                                        (t.properties[e.itemTitle]['x-display'] = 'hidden');
+                                                });
+                                        }
+                                        return t;
+                                    }
                                 },
                             },
                             watch: {},
                             methods: {
-                                renderArrayItemModal(e, t, i) {
-                                    const s = -1 === i;
-                                    let r;
+                                renderArrayItemModal: function (e, t, i) {
+                                    var r,
+                                        n,
+                                        l = this,
+                                        s = -1 === i;
                                     this.editabledArrayProp.currentDialog === i &&
-                                        (this.fullOptions.idPrefix.endsWith('--dialog--') ||
+                                        (V((n = this.fullOptions.idPrefix)).call(n, '--dialog--') ||
                                             (this.fullOptions.idPrefix = this.fullOptions.idPrefix + '--dialog--'),
                                         (r = e(
                                             'v-jsf',
@@ -1560,38 +2271,38 @@ const he = oe(
                                                     value: this.editabledArrayProp.editItem,
                                                     modelRoot: this.modelRoot || this.value,
                                                     modelKey: i,
-                                                    parentKey: this.fullKey + '.',
+                                                    parentKey: ''.concat(this.fullKey, '.'),
                                                     options: this.fullOptions,
                                                     sectionDepth: this.sectionDepth + 1,
                                                     separateValidation: !0,
                                                 },
                                                 scopedSlots: this.childScopedSlots(this.fullSchema.key),
                                                 on: {
-                                                    error: (e) => this.$emit('error', e),
-                                                    input: (e) => {
-                                                        this.editabledArrayProp.editItem = e;
+                                                    error: function (e) {
+                                                        return l.$emit('error', e);
+                                                    },
+                                                    input: function (e) {
+                                                        l.editabledArrayProp.editItem = e;
                                                     },
                                                 },
                                             },
                                             this.childSlots(e, this.fullSchema.key)
                                         )));
-                                    const l = {
-                                            activator: () =>
-                                                e(
+                                    var a = {
+                                            activator: function () {
+                                                return e(
                                                     'v-btn',
                                                     {
                                                         on: {
-                                                            click: () => {
-                                                                (this.editabledArrayProp.editItem = JSON.parse(
-                                                                    JSON.stringify(t)
-                                                                )),
-                                                                    (this.editabledArrayProp.currentDialog = i);
+                                                            click: function () {
+                                                                (l.editabledArrayProp.editItem = JSON.parse(h(t))),
+                                                                    (l.editabledArrayProp.currentDialog = i);
                                                             },
                                                         },
                                                         attrs: {
                                                             id:
-                                                                this.fullOptions.idPrefix +
-                                                                this.dashKey +
+                                                                l.fullOptions.idPrefix +
+                                                                l.dashKey +
                                                                 '-' +
                                                                 (s ? '-add' : i + '--edit') +
                                                                 '-button',
@@ -1602,25 +2313,29 @@ const he = oe(
                                                     [
                                                         e(
                                                             'v-icon',
-                                                            s ? this.fullOptions.icons.add : this.fullOptions.icons.edit
+                                                            s ? l.fullOptions.icons.add : l.fullOptions.icons.edit
                                                         ),
                                                     ]
-                                                ),
+                                                );
+                                            },
                                         },
-                                        a = () => {
+                                        o = function () {
                                             r.componentInstance.resetValidation(),
-                                                (this.editabledArrayProp.currentDialog = null);
+                                                (l.editabledArrayProp.currentDialog = null);
                                         };
                                     return e(
                                         'v-dialog',
                                         {
-                                            props: {
-                                                ...this.fullOptions.dialogProps,
-                                                value: this.editabledArrayProp.currentDialog === i,
-                                                closeOnContentClick: !1,
-                                            },
-                                            scopedSlots: l,
-                                            on: { 'click:outside': a },
+                                            props: st(
+                                                st({}, this.fullOptions.dialogProps),
+                                                {},
+                                                {
+                                                    value: this.editabledArrayProp.currentDialog === i,
+                                                    closeOnContentClick: !1,
+                                                }
+                                            ),
+                                            scopedSlots: a,
+                                            on: { 'click:outside': o },
                                         },
                                         [
                                             e('v-card', { props: this.fullOptions.dialogCardProps }, [
@@ -1632,7 +2347,7 @@ const he = oe(
                                                         'v-btn',
                                                         {
                                                             props: { text: !0 },
-                                                            on: { click: a },
+                                                            on: { click: o },
                                                             attrs: {
                                                                 id:
                                                                     this.fullOptions.idPrefix +
@@ -1648,32 +2363,32 @@ const he = oe(
                                                         {
                                                             props: { color: 'primary' },
                                                             on: {
-                                                                click: () => {
+                                                                click: function () {
                                                                     r.componentInstance.validate(!0) &&
                                                                         (s
-                                                                            ? ((this.editabledArrayProp.editedItems[
-                                                                                  this.value.length
+                                                                            ? ((l.editabledArrayProp.editedItems[
+                                                                                  l.value.length
                                                                               ] = !0),
-                                                                              this.value.push(
-                                                                                  this.editabledArrayProp.editItem
+                                                                              l.value.push(
+                                                                                  l.editabledArrayProp.editItem
                                                                               ))
-                                                                            : ((this.editabledArrayProp.editedItems[
+                                                                            : ((l.editabledArrayProp.editedItems[
                                                                                   i
                                                                               ] = !0),
-                                                                              this.$set(
-                                                                                  this.value,
+                                                                              l.$set(
+                                                                                  l.value,
                                                                                   i,
-                                                                                  this.editabledArrayProp.editItem
+                                                                                  l.editabledArrayProp.editItem
                                                                               ),
-                                                                              this.$nextTick(() =>
-                                                                                  this.$refs[
+                                                                              l.$nextTick(function () {
+                                                                                  return l.$refs[
                                                                                       'roItem-' + i
-                                                                                  ].initFromSchema()
-                                                                              )),
-                                                                        this.input(this.value),
-                                                                        this.$emit('change', this.value),
-                                                                        (this.shouldValidate = !0),
-                                                                        (this.editabledArrayProp.currentDialog = null));
+                                                                                  ].initFromSchema();
+                                                                              })),
+                                                                        l.input(l.value),
+                                                                        l.$emit('change', l.value),
+                                                                        (l.shouldValidate = !0),
+                                                                        (l.editabledArrayProp.currentDialog = null));
                                                                 },
                                                             },
                                                             attrs: {
@@ -1691,158 +2406,179 @@ const he = oe(
                                         ]
                                     );
                                 },
-                                renderArrayItemRO(e, t, i) {
+                                renderArrayItemRO: function (e, t, i) {
+                                    var r = this;
                                     return e('v-jsf', {
                                         props: {
                                             schema: this.readonlyItemSchema,
-                                            value: JSON.parse(JSON.stringify(t)),
+                                            value: JSON.parse(h(t)),
                                             modelRoot: this.modelRoot || this.value,
                                             modelKey: i,
-                                            parentKey: this.fullKey + '.',
-                                            options: {
-                                                ...this.fullOptions,
-                                                hideReadOnly: !1,
-                                                fieldProps: { ...this.fullOptions.fieldProps, dense: !0 },
-                                            },
+                                            parentKey: ''.concat(this.fullKey, '.'),
+                                            options: st(
+                                                st({}, this.fullOptions),
+                                                {},
+                                                {
+                                                    hideReadOnly: !1,
+                                                    fieldProps: st(
+                                                        st({}, this.fullOptions.fieldProps),
+                                                        {},
+                                                        { dense: !0 }
+                                                    ),
+                                                }
+                                            ),
                                             sectionDepth: this.sectionDepth + 1,
                                             separateValidation: !0,
                                         },
                                         ref: 'roItem-' + i,
                                         on: {
-                                            input: (e) => {
-                                                this.editabledArrayProp.editedItems[i] || this.$set(this.value, i, e);
+                                            input: function (e) {
+                                                r.editabledArrayProp.editedItems[i] || r.$set(r.value, i, e);
                                             },
                                         },
                                     });
                                 },
-                                renderEditableArray(e) {
-                                    if (!this.isEditableArray) return;
-                                    const t = [];
-                                    this.disabled ||
-                                        this.fromUrl ||
-                                        this.fullSchema.fromData ||
-                                        t.push(
-                                            this.renderArrayItemModal(
-                                                e,
-                                                this.fullSchema.items.default ||
-                                                    this.defaultValue(this.fullSchema.items),
-                                                -1
-                                            )
-                                        );
-                                    const i = e(
-                                        'v-input',
-                                        {
-                                            class: 'mt-2 pr-1',
-                                            props: {
-                                                label: this.label,
-                                                rules: this.rules,
-                                                value: this.value,
-                                                validateOnBlur: !this.shouldValidate,
-                                                hideDetails: !this.hasError,
-                                            },
-                                        },
-                                        t
-                                    );
-                                    let s;
-                                    if (this.value && this.value.length) {
-                                        const t = this.value
-                                            .filter((e) => !!e)
-                                            .map((t, s) =>
-                                                e('v-col', { props: this.fullOptions.arrayItemColProps }, [
-                                                    e('v-card', { props: this.fullOptions.arrayItemCardProps }, [
-                                                        e(
-                                                            'v-card-title',
-                                                            { props: { primaryTitle: !0 } },
-                                                            this.itemTitle && t[this.itemTitle]
-                                                        ),
-                                                        e('v-card-text', { class: 'pb-0' }, [
-                                                            this.renderArrayItemRO(e, t, s),
-                                                        ]),
-                                                        e('v-card-actions', [
-                                                            e('v-spacer'),
-                                                            !this.disabled && this.renderArrayItemModal(e, t, s),
-                                                            !this.disabled &&
-                                                                !this.fromUrl &&
-                                                                !this.fullSchema.fromData &&
-                                                                e(
-                                                                    'v-btn',
-                                                                    {
-                                                                        props: { icon: !0, color: 'warning' },
-                                                                        attrs: {
-                                                                            id:
-                                                                                this.fullOptions.idPrefix +
-                                                                                this.dashKey +
-                                                                                '-' +
-                                                                                s +
-                                                                                '--delete-button',
-                                                                        },
-                                                                        class: { 'vjsf-array-delete-button': !0 },
-                                                                        on: {
-                                                                            click: () => {
-                                                                                const e = this.value.filter(
-                                                                                    (e) => e !== t
-                                                                                );
-                                                                                this.input(e),
-                                                                                    this.$emit('change', e),
-                                                                                    (this.shouldValidate = !0),
-                                                                                    i.componentInstance.validate();
+                                renderEditableArray: function (e) {
+                                    var t = this;
+                                    if (this.isEditableArray) {
+                                        var i = [];
+                                        this.disabled ||
+                                            this.fromUrl ||
+                                            this.fullSchema.fromData ||
+                                            i.push(
+                                                this.renderArrayItemModal(
+                                                    e,
+                                                    this.fullSchema.items.default ||
+                                                        this.defaultValue(this.fullSchema.items),
+                                                    -1
+                                                )
+                                            );
+                                        var r,
+                                            n = e(
+                                                'v-input',
+                                                {
+                                                    class: 'mt-2 pr-1',
+                                                    props: {
+                                                        label: this.label,
+                                                        rules: this.rules,
+                                                        value: this.value,
+                                                        validateOnBlur: !this.shouldValidate,
+                                                        hideDetails: !this.hasError,
+                                                    },
+                                                },
+                                                i
+                                            );
+                                        if (this.value && this.value.length) {
+                                            var l,
+                                                a,
+                                                o = b(
+                                                    (l = s((a = this.value)).call(a, function (e) {
+                                                        return !!e;
+                                                    }))
+                                                ).call(l, function (i, r) {
+                                                    return e('v-col', { props: t.fullOptions.arrayItemColProps }, [
+                                                        e('v-card', { props: t.fullOptions.arrayItemCardProps }, [
+                                                            e(
+                                                                'v-card-title',
+                                                                { props: { primaryTitle: !0 } },
+                                                                t.itemTitle && i[t.itemTitle]
+                                                            ),
+                                                            e('v-card-text', { class: 'pb-0' }, [
+                                                                t.renderArrayItemRO(e, i, r),
+                                                            ]),
+                                                            e('v-card-actions', [
+                                                                e('v-spacer'),
+                                                                !t.disabled && t.renderArrayItemModal(e, i, r),
+                                                                !t.disabled &&
+                                                                    !t.fromUrl &&
+                                                                    !t.fullSchema.fromData &&
+                                                                    e(
+                                                                        'v-btn',
+                                                                        {
+                                                                            props: { icon: !0, color: 'warning' },
+                                                                            attrs: {
+                                                                                id:
+                                                                                    t.fullOptions.idPrefix +
+                                                                                    t.dashKey +
+                                                                                    '-' +
+                                                                                    r +
+                                                                                    '--delete-button',
+                                                                            },
+                                                                            class: { 'vjsf-array-delete-button': !0 },
+                                                                            on: {
+                                                                                click: function () {
+                                                                                    var e,
+                                                                                        r = s((e = t.value)).call(
+                                                                                            e,
+                                                                                            function (e) {
+                                                                                                return e !== i;
+                                                                                            }
+                                                                                        );
+                                                                                    t.input(r),
+                                                                                        t.$emit('change', r),
+                                                                                        (t.shouldValidate = !0),
+                                                                                        n.componentInstance.validate();
+                                                                                },
                                                                             },
                                                                         },
-                                                                    },
-                                                                    [e('v-icon', this.fullOptions.icons.delete)]
-                                                                ),
+                                                                        [e('v-icon', t.fullOptions.icons.delete)]
+                                                                    ),
+                                                            ]),
                                                         ]),
-                                                    ]),
-                                                ])
-                                            );
-                                        s = e(
-                                            'v-row',
-                                            {
-                                                props: { gridListMd: !0 },
-                                                class: 'pt-0 px-2 ' + this.fullOptions.objectContainerClass,
-                                            },
-                                            this.fullOptions.disableSorting
-                                                ? t
-                                                : [
-                                                      e(
-                                                          'draggable',
-                                                          {
-                                                              props: { value: this.value },
-                                                              class: 'row',
-                                                              style: 'cursor: move;',
-                                                              on: {
-                                                                  input: (e) => {
-                                                                      this.input(e),
-                                                                          this.$emit('change', e),
-                                                                          (this.shouldValidate = !0),
-                                                                          this.$nextTick(() => {
-                                                                              for (let t = 0; t < e.length; t++)
-                                                                                  this.$refs[
-                                                                                      'roItem-' + t
-                                                                                  ].initFromSchema();
-                                                                          });
+                                                    ]);
+                                                });
+                                            r = e(
+                                                'v-row',
+                                                {
+                                                    props: { gridListMd: !0 },
+                                                    class: 'pt-0 px-2 ' + this.fullOptions.objectContainerClass,
+                                                },
+                                                this.fullOptions.disableSorting
+                                                    ? o
+                                                    : [
+                                                          e(
+                                                              'draggable',
+                                                              {
+                                                                  props: { value: this.value },
+                                                                  class: 'row',
+                                                                  style: 'cursor: move;',
+                                                                  on: {
+                                                                      input: function (e) {
+                                                                          t.input(e),
+                                                                              t.$emit('change', e),
+                                                                              (t.shouldValidate = !0),
+                                                                              t.$nextTick(function () {
+                                                                                  for (var i = 0; i < e.length; i++)
+                                                                                      t.$refs[
+                                                                                          'roItem-' + i
+                                                                                      ].initFromSchema();
+                                                                              });
+                                                                      },
                                                                   },
                                                               },
-                                                          },
-                                                          t
-                                                      ),
-                                                  ]
-                                        );
+                                                              o
+                                                          ),
+                                                      ]
+                                            );
+                                        }
+                                        return [n, r];
                                     }
-                                    return [i, s];
                                 },
                             },
                         },
                         {
-                            data: () => ({ tooltip: { show: !1, maxWidth: 200 } }),
-                            mounted() {
+                            data: function () {
+                                return { tooltip: { show: !1, maxWidth: 200 } };
+                            },
+                            mounted: function () {
                                 this.htmlDescription &&
                                     this.$el &&
                                     this.$el.getBoundingClientRect &&
                                     (this.tooltip.maxWidth = this.$el.getBoundingClientRect().left - 80);
                             },
                             methods: {
-                                renderTooltip(e, t) {
+                                renderTooltip: function (e, t) {
+                                    var i = this;
                                     if (this.htmlDescription && !this.fullOptions.hideTooltips)
                                         return e(
                                             'v-tooltip',
@@ -1856,25 +2592,26 @@ const he = oe(
                                                     contentClass: 'vjsf-tooltip',
                                                 },
                                                 scopedSlots: {
-                                                    activator: () =>
-                                                        e(
+                                                    activator: function () {
+                                                        return e(
                                                             'v-btn',
                                                             {
                                                                 on: {
-                                                                    click: () => {
-                                                                        this.tooltip.show = !this.tooltip.show;
+                                                                    click: function () {
+                                                                        i.tooltip.show = !i.tooltip.show;
                                                                     },
                                                                 },
                                                                 props: { icon: !0 },
                                                                 style: 'pointer-events: auto',
                                                             },
-                                                            [e('v-icon', {}, this.fullOptions.icons.info)]
-                                                        ),
+                                                            [e('v-icon', {}, i.fullOptions.icons.info)]
+                                                        );
+                                                    },
                                                 },
                                             },
                                             [
                                                 e('div', {
-                                                    style: `max-width: ${this.tooltip.maxWidth}px`,
+                                                    style: 'max-width: '.concat(this.tooltip.maxWidth, 'px'),
                                                     domProps: { innerHTML: this.htmlDescription },
                                                 }),
                                             ]
@@ -1884,59 +2621,89 @@ const he = oe(
                         },
                         {
                             inject: ['form'],
-                            provide() {
+                            provide: function () {
                                 return { form: { register: this.register, unregister: this.unregister } };
                             },
                             props: { separateValidation: { type: Boolean, default: !1 } },
-                            data: () => ({ inputs: [], validated: !1, shouldValidate: !1 }),
+                            data: function () {
+                                return { inputs: [], validated: !1, shouldValidate: !1 };
+                            },
                             computed: {
-                                childrenInputs() {
-                                    return this.inputs.reduce((e, t, i) => ((e[t.modelKey || i] = t), e), {});
-                                },
-                                hasError() {
-                                    return !!this.inputs.find((e) => e.hasError) || !!this.containerError;
-                                },
-                                hasValidatedChildError() {
-                                    return !!this.inputs.find(
-                                        (e) =>
-                                            e.hasValidatedChildError ||
-                                            (e.hasError && (e.validated || e.shouldValidate))
+                                childrenInputs: function () {
+                                    var e;
+                                    return L((e = this.inputs)).call(
+                                        e,
+                                        function (e, t, i) {
+                                            return (e[t.modelKey || i] = t), e;
+                                        },
+                                        {}
                                     );
                                 },
+                                hasError: function () {
+                                    var e;
+                                    return (
+                                        !!o((e = this.inputs)).call(e, function (e) {
+                                            return e.hasError;
+                                        }) || !!this.containerError
+                                    );
+                                },
+                                hasValidatedChildError: function () {
+                                    var e;
+                                    return !!o((e = this.inputs)).call(e, function (e) {
+                                        return (
+                                            e.hasValidatedChildError ||
+                                            (e.hasError && (e.validated || e.shouldValidate))
+                                        );
+                                    });
+                                },
                             },
-                            created() {
+                            created: function () {
                                 this.separateValidation || (this.form && this.form.register(this));
                             },
-                            mounted() {
-                                const e = this.fullOptions.initialValidation;
+                            mounted: function () {
+                                var e = this.fullOptions.initialValidation;
                                 'all' !== e || this.modelRoot || this.validate(!0),
                                     'defined' === e &&
                                         this.initiallyDefined &&
                                         !this.isObjectContainer &&
                                         this.validate(!0);
                             },
-                            beforeDestroy() {
+                            beforeDestroy: function () {
                                 this.separateValidation || (this.form && this.form.unregister(this));
                             },
                             methods: {
-                                register(e) {
+                                register: function (e) {
                                     this.inputs.push(e);
                                 },
-                                unregister(e) {
-                                    this.inputs = this.inputs.filter((t) => t._uid !== e._uid);
+                                unregister: function (e) {
+                                    var t;
+                                    this.inputs = s((t = this.inputs)).call(t, function (t) {
+                                        return t._uid !== e._uid;
+                                    });
                                 },
-                                validate(e) {
+                                validate: function (e) {
+                                    var t;
                                     return (
-                                        (this.validated = !0), 0 === this.inputs.filter((t) => !t.validate(e)).length
+                                        (this.validated = !0),
+                                        0 ===
+                                            s((t = this.inputs)).call(t, function (t) {
+                                                return !t.validate(e);
+                                            }).length
                                     );
                                 },
-                                reset() {
-                                    this.inputs.forEach((e) => e.reset());
+                                reset: function () {
+                                    var e;
+                                    c((e = this.inputs)).call(e, function (e) {
+                                        return e.reset();
+                                    });
                                 },
-                                resetValidation() {
+                                resetValidation: function () {
+                                    var e;
                                     (this.shouldValidate = !1),
                                         (this.validated = !1),
-                                        this.inputs.forEach((e) => e.resetValidation());
+                                        c((e = this.inputs)).call(e, function (e) {
+                                            return e.resetValidation();
+                                        });
                                 },
                             },
                         },
@@ -1952,153 +2719,203 @@ const he = oe(
                         required: { type: Boolean, default: !1 },
                         sectionDepth: { type: Number, default: 0 },
                     },
-                    data: () => ({ ready: !1, loading: !1 }),
+                    data: function () {
+                        return { ready: !1, loading: !1 };
+                    },
                     computed: {
-                        fullOptions() {
-                            const e =
+                        fullOptions: function () {
+                            var e =
                                     ('undefined' != typeof window && window) ||
                                     ('undefined' != typeof global && global) ||
                                     {},
-                                t = Object.assign({}, W, this.options || {}, this.resolvedSchema['x-options'] || {});
+                                t = d({}, we, this.options || {}, this.resolvedSchema['x-options'] || {});
                             (t.markdown =
                                 t.markdown ||
-                                (e.markdownit && ((i) => e.markdownit(t.markdownit).render(i))) ||
-                                ((e) => e)),
+                                (e.markdownit &&
+                                    function (i) {
+                                        return e.markdownit(t.markdownit).render(i);
+                                    }) ||
+                                function (e) {
+                                    return e;
+                                }),
                                 (t.httpLib = t.httpLib || this.axios || this.$http || this.$axios || e.axios);
-                            const i = (this.$vuetify.icons && this.$vuetify.icons.iconfont) || 'mdi';
+                            var i = (this.$vuetify.icons && this.$vuetify.icons.iconfont) || 'mdi';
                             return (
-                                (t.icons = { ...B[i], ...t.icons }),
-                                (t.messages = { ...(H[t.locale] || H.en), ...t.messages }),
-                                (t.formats = { ...z, ...t.formats }),
+                                (t.icons = ot(ot({}, De[i]), t.icons)),
+                                (t.messages = ot(ot({}, Ce[t.locale] || Ce.en), t.messages)),
+                                (t.formats = ot(ot({}, Te), t.formats)),
                                 t.deleteReadOnly && (t.hideReadOnly = !0),
                                 t
                             );
                         },
-                        resolvedSchema() {
+                        resolvedSchema: function () {
                             return 'root' === this.modelKey
-                                ? U.resolve(this.schema, { '~$locale~': (this.options && this.options.locale) || 'en' })
+                                ? xe.resolve(this.schema, {
+                                      '~$locale~': (this.options && this.options.locale) || 'en',
+                                  })
                                 : this.schema;
                         },
-                        fullSchema() {
-                            return _.prepareFullSchema(this.resolvedSchema, this.value);
+                        fullSchema: function () {
+                            return Ie.prepareFullSchema(this.resolvedSchema, this.value);
                         },
-                        htmlDescription() {
+                        htmlDescription: function () {
                             return this.fullSchema && this.fullSchema.description
                                 ? this.fullOptions.markdown(this.fullSchema.description)
                                 : null;
                         },
-                        fullKey() {
+                        fullKey: function () {
                             return (this.parentKey + this.modelKey).replace('root.', '');
                         },
-                        label() {
+                        label: function () {
                             return this.fullSchema.title || ('string' == typeof this.modelKey ? this.modelKey : '');
                         },
-                        display() {
+                        display: function () {
                             return 'root' === this.modelKey && this.fullOptions.rootDisplay
                                 ? this.fullOptions.rootDisplay
                                 : this.fullSchema['x-display'];
                         },
-                        customTag() {
+                        customTag: function () {
                             return this.fullSchema['x-tag'];
                         },
-                        rules() {
-                            return ((e, t, i, s) => {
-                                const r = [];
+                        rules: function () {
+                            return (function (e, t, i, r) {
+                                var n,
+                                    l,
+                                    s,
+                                    u = [];
                                 if (
-                                    (i && r.push((e) => (null != e && '' !== e) || t.messages.required),
+                                    (i &&
+                                        u.push(function (e) {
+                                            return (null != e && '' !== e) || t.messages.required;
+                                        }),
                                     'array' === e.type && void 0 !== e.minItems)
                                 ) {
-                                    const i = t.messages.minItems.replace(
+                                    var c = t.messages.minItems.replace(
                                         '{minItems}',
                                         e.minItems.toLocaleString(t.locale)
                                     );
-                                    r.push((t) => !t || t.length >= e.minItems || i);
+                                    u.push(function (t) {
+                                        return !t || t.length >= e.minItems || c;
+                                    });
                                 }
                                 if ('array' === e.type && void 0 !== e.maxItems) {
-                                    const i = t.messages.maxItems.replace(
+                                    var p = t.messages.maxItems.replace(
                                         '{maxItems}',
                                         e.maxItems.toLocaleString(t.locale)
                                     );
-                                    r.push((t) => !t || t.length <= e.maxItems || i);
+                                    u.push(function (t) {
+                                        return !t || t.length <= e.maxItems || p;
+                                    });
                                 }
                                 if ('string' === e.type && void 0 !== e.minLength) {
-                                    const i = t.messages.minLength.replace(
+                                    var f = t.messages.minLength.replace(
                                         '{minLength}',
                                         e.minLength.toLocaleString(t.locale)
                                     );
-                                    r.push((t) => null == t || t.length >= e.minLength || i);
+                                    u.push(function (t) {
+                                        return null == t || t.length >= e.minLength || f;
+                                    });
                                 }
                                 if ('string' === e.type && void 0 !== e.maxLength) {
-                                    const i = t.messages.maxLength.replace(
+                                    var d = t.messages.maxLength.replace(
                                         '{maxLength}',
                                         e.maxLength.toLocaleString(t.locale)
                                     );
-                                    r.push((t) => null == t || t.length <= e.maxLength || i);
+                                    u.push(function (t) {
+                                        return null == t || t.length <= e.maxLength || d;
+                                    });
                                 }
                                 if ('string' === e.type && void 0 !== e.patternRegexp) {
-                                    const i = t.messages.pattern.replace('{pattern}', e.pattern);
-                                    r.push((t) => null == t || !!t.match(e.patternRegexp) || i);
+                                    var v = t.messages.pattern.replace('{pattern}', e.pattern);
+                                    u.push(function (t) {
+                                        return null == t || !!t.match(e.patternRegexp) || v;
+                                    });
                                 }
-                                if (['number', 'integer'].includes(e.type) && void 0 !== e.maximum) {
-                                    const i = t.messages.maximum.replace(
-                                        '{maximum}',
-                                        e.maximum.toLocaleString(t.locale)
-                                    );
-                                    r.push((t) => null == t || t <= e.maximum || i);
+                                if (a((n = ['number', 'integer'])).call(n, e.type) && void 0 !== e.maximum) {
+                                    var y = t.messages.maximum.replace('{maximum}', e.maximum.toLocaleString(t.locale));
+                                    u.push(function (t) {
+                                        return null == t || t <= e.maximum || y;
+                                    });
                                 }
-                                if (['number', 'integer'].includes(e.type) && void 0 !== e.minimum) {
-                                    const i = t.messages.minimum.replace(
-                                        '{minimum}',
-                                        e.minimum.toLocaleString(t.locale)
-                                    );
-                                    r.push((t) => null == t || t >= e.minimum || i);
+                                if (a((l = ['number', 'integer'])).call(l, e.type) && void 0 !== e.minimum) {
+                                    var S = t.messages.minimum.replace('{minimum}', e.minimum.toLocaleString(t.locale));
+                                    u.push(function (t) {
+                                        return null == t || t >= e.minimum || S;
+                                    });
                                 }
                                 e.enum &&
-                                    r.push(
-                                        (t) =>
+                                    u.push(function (t) {
+                                        var i;
+                                        return (
                                             null == t ||
-                                            !!e.enum.find((e) => JSON.stringify(e) === JSON.stringify(t)) ||
+                                            !!o((i = e.enum)).call(i, function (e) {
+                                                return h(e) === h(t);
+                                            }) ||
                                             ''
-                                    ),
+                                        );
+                                    }),
                                     'array' === e.type &&
                                         e.items.enum &&
-                                        r.push(
-                                            (t) =>
+                                        u.push(function (t) {
+                                            return (
                                                 null == t ||
-                                                !t.find(
-                                                    (t) =>
-                                                        !e.items.enum.find(
-                                                            (e) => JSON.stringify(e) === JSON.stringify(t)
-                                                        )
-                                                ) ||
+                                                !o(t).call(t, function (t) {
+                                                    var i;
+                                                    return !o((i = e.items.enum)).call(i, function (e) {
+                                                        return h(e) === h(t);
+                                                    });
+                                                }) ||
                                                 ''
-                                        ),
-                                    s &&
+                                            );
+                                        }),
+                                    r &&
                                         'array' !== e.type &&
-                                        r.push((t) => null == t || !!e.oneOf.find((e) => e.const === t) || ''),
-                                    s &&
-                                        'array' === e.type &&
-                                        r.push(
-                                            (t) =>
+                                        u.push(function (t) {
+                                            var i;
+                                            return (
                                                 null == t ||
-                                                !t.find((t) => !e.items.oneOf.find((e) => e.const === t)) ||
+                                                !!o((i = e.oneOf)).call(i, function (e) {
+                                                    return e.const === t;
+                                                }) ||
                                                 ''
-                                        );
-                                const l = (e['x-ruless'] || []).map((e) =>
-                                    'string' == typeof e ? t.rules && t.rules[e] : 'function' == typeof e ? e : void 0
-                                );
-                                return r.concat(l);
+                                            );
+                                        }),
+                                    r &&
+                                        'array' === e.type &&
+                                        u.push(function (t) {
+                                            return (
+                                                null == t ||
+                                                !o(t).call(t, function (t) {
+                                                    var i;
+                                                    return !o((i = e.items.oneOf)).call(i, function (e) {
+                                                        return e.const === t;
+                                                    });
+                                                }) ||
+                                                ''
+                                            );
+                                        });
+                                var g = b((s = e['x-ruless'] || [])).call(s, function (e) {
+                                    return 'string' == typeof e
+                                        ? t.rules && t.rules[e]
+                                        : 'function' == typeof e
+                                        ? e
+                                        : void 0;
+                                });
+                                return m(u).call(u, g);
                             })(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
                         },
-                        disabled() {
+                        disabled: function () {
                             return this.fullOptions.disableAll || this.fullSchema.readOnly;
                         },
-                        slotName() {
-                            return this.fullSchema['x-display'] && this.fullSchema['x-display'].startsWith('custom-')
+                        slotName: function () {
+                            var e;
+                            return this.fullSchema['x-display'] &&
+                                p((e = this.fullSchema['x-display'])).call(e, 'custom-')
                                 ? this.fullSchema['x-display']
                                 : this.fullKey;
                         },
-                        slotParams() {
+                        slotParams: function () {
+                            var e = this;
                             return {
                                 value: this.value,
                                 modelKey: this.modelKey,
@@ -2112,37 +2929,47 @@ const he = oe(
                                 options: this.fullOptions,
                                 htmlDescription: this.htmlDescription,
                                 on: {
-                                    input: (e) => this.input(e instanceof Event ? e.target.value : e),
-                                    change: (e) => this.change(e),
+                                    input: function (t) {
+                                        return e.input(t instanceof Event ? t.target.value : t);
+                                    },
+                                    change: function (t) {
+                                        return e.change(t);
+                                    },
                                 },
                             };
                         },
-                        dashKey() {
+                        dashKey: function () {
                             return this.fullKey.replace(/\./g, '-');
                         },
-                        commonFieldProps() {
-                            return {
-                                value: this.value,
-                                inputValue: this.value,
-                                label: this.label,
-                                name: this.fullKey,
-                                id: this.fullOptions.idPrefix + this.dashKey,
-                                disabled: this.disabled,
-                                rules: this.rules,
-                                required: this.required,
-                                ...this.fullOptions.fieldProps,
-                                ...this.fullSchema['x-props'],
-                            };
+                        commonFieldProps: function () {
+                            return ot(
+                                ot(
+                                    {
+                                        value: this.value,
+                                        inputValue: this.value,
+                                        label: this.label,
+                                        name: this.fullKey,
+                                        id: this.fullOptions.idPrefix + this.dashKey,
+                                        disabled: this.disabled,
+                                        rules: this.rules,
+                                        required: this.required,
+                                    },
+                                    this.fullOptions.fieldProps
+                                ),
+                                this.fullSchema['x-props']
+                            );
                         },
-                        propertyClass() {
-                            return `vjsf-property vjsf-property-${this.dashKey} pa-0 ${
+                        propertyClass: function () {
+                            var e;
+                            return m((e = 'vjsf-property vjsf-property-'.concat(this.dashKey, ' pa-0 '))).call(
+                                e,
                                 this.fullSchema['x-class'] || ''
-                            }`;
+                            );
                         },
-                        xSlots() {
-                            return { ...this.fullSchema['x-slots'] };
+                        xSlots: function () {
+                            return ot({}, this.fullSchema['x-slots']);
                         },
-                        formattedValue() {
+                        formattedValue: function () {
                             return (
                                 this.value &&
                                 this.fullSchema.format &&
@@ -2153,10 +2980,10 @@ const he = oe(
                     },
                     watch: {
                         fullSchema: {
-                            handler() {
+                            handler: function () {
                                 this.fullSchema &&
-                                    JSON.stringify(this.fullSchema) !== this.lastFullSchema &&
-                                    ((this.lastFullSchema = JSON.stringify(this.fullSchema)),
+                                    h(this.fullSchema) !== this.lastFullSchema &&
+                                    ((this.lastFullSchema = h(this.fullSchema)),
                                     this.initFromSchema(),
                                     this.fixProperties(),
                                     (this.ready = !0));
@@ -2164,137 +2991,167 @@ const he = oe(
                             immediate: !0,
                         },
                     },
-                    render(e) {
+                    render: function (e) {
+                        var t, i;
                         if (
-                            !this.fullSchema ||
-                            void 0 !== this.fullSchema.const ||
-                            'hidden' === this.display ||
-                            (this.fullSchema.readOnly && this.fullOptions.hideReadOnly)
-                        )
-                            return;
-                        const t = [];
-                        if (
-                            (this.$scopedSlots.before
-                                ? t.push(this.$scopedSlots.before(this.slotParams))
-                                : this.$slots.before
-                                ? this.$slots.before.forEach((e) => t.push(e))
-                                : this.xSlots.before &&
-                                  t.push(
-                                      e('div', {
-                                          domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) },
-                                      })
-                                  ),
-                            this.$scopedSlots.default)
-                        )
-                            t.push(this.$scopedSlots.default(this.slotParams));
-                        else if (
-                            this.fullSchema['x-display'] &&
-                            this.fullSchema['x-display'] &&
-                            this.$scopedSlots[this.fullSchema['x-display']]
-                        )
-                            t.push(this.$scopedSlots[this.fullSchema['x-display']](this.slotParams));
-                        else {
-                            (
-                                this.renderDateProp(e) ||
-                                this.renderSelectProp(e) ||
-                                this.renderFileProp(e) ||
-                                this.renderSimpleProp(e) ||
-                                this.renderObjectContainer(e) ||
-                                []
-                            ).forEach((e) => t.push(e));
-                        }
-                        this.$scopedSlots.after
-                            ? t.push(this.$scopedSlots.after(this.slotParams))
-                            : this.$slots.after
-                            ? this.$slots.after.forEach((e) => t.push(e))
-                            : this.xSlots.after &&
-                              t.push(
-                                  e('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) } })
-                              );
-                        const i = { ...this.fullOptions.fieldColProps };
-                        return (
-                            this.fullSchema['x-cols'] && (i.cols = this.fullSchema['x-cols']),
-                            e(
-                                'v-col',
-                                { props: i, class: this.propertyClass, style: this.fullSchema['x-style'] || '' },
-                                t
+                            !(
+                                !this.fullSchema ||
+                                void 0 !== this.fullSchema.const ||
+                                'hidden' === this.display ||
+                                (this.fullSchema.readOnly && this.fullOptions.hideReadOnly)
                             )
-                        );
+                        ) {
+                            var r = [];
+                            if (
+                                (this.$scopedSlots.before
+                                    ? r.push(this.$scopedSlots.before(this.slotParams))
+                                    : this.$slots.before
+                                    ? c((t = this.$slots.before)).call(t, function (e) {
+                                          return r.push(e);
+                                      })
+                                    : this.xSlots.before &&
+                                      r.push(
+                                          e('div', {
+                                              domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) },
+                                          })
+                                      ),
+                                this.$scopedSlots.default)
+                            )
+                                r.push(this.$scopedSlots.default(this.slotParams));
+                            else if (
+                                this.fullSchema['x-display'] &&
+                                this.fullSchema['x-display'] &&
+                                this.$scopedSlots[this.fullSchema['x-display']]
+                            )
+                                r.push(this.$scopedSlots[this.fullSchema['x-display']](this.slotParams));
+                            else {
+                                var n =
+                                    this.renderDateProp(e) ||
+                                    this.renderSelectProp(e) ||
+                                    this.renderFileProp(e) ||
+                                    this.renderSimpleProp(e) ||
+                                    this.renderObjectContainer(e) ||
+                                    [];
+                                c(n).call(n, function (e) {
+                                    return r.push(e);
+                                });
+                            }
+                            this.$scopedSlots.after
+                                ? r.push(this.$scopedSlots.after(this.slotParams))
+                                : this.$slots.after
+                                ? c((i = this.$slots.after)).call(i, function (e) {
+                                      return r.push(e);
+                                  })
+                                : this.xSlots.after &&
+                                  r.push(
+                                      e('div', {
+                                          domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) },
+                                      })
+                                  );
+                            var l = ot({}, this.fullOptions.fieldColProps);
+                            return (
+                                this.fullSchema['x-cols'] && (l.cols = this.fullSchema['x-cols']),
+                                e(
+                                    'v-col',
+                                    { props: l, class: this.propertyClass, style: this.fullSchema['x-style'] || '' },
+                                    r
+                                )
+                            );
+                        }
                     },
                     methods: {
-                        renderPropSlots(e) {
-                            const t = [];
+                        renderPropSlots: function (e) {
+                            var t,
+                                i,
+                                r = this,
+                                n = [];
                             return (
-                                Object.keys(this.xSlots).forEach((i) => {
-                                    t.push(
+                                c((t = u(this.xSlots))).call(t, function (t) {
+                                    n.push(
                                         e('div', {
-                                            slot: i,
-                                            domProps: { innerHTML: this.fullOptions.markdown(this.xSlots[i]) },
+                                            slot: t,
+                                            domProps: { innerHTML: r.fullOptions.markdown(r.xSlots[t]) },
                                         })
                                     );
                                 }),
-                                Object.keys(this.$slots).forEach((i) => {
-                                    t.push(e('template', { slot: i }, this.$slots[i]));
+                                c((i = u(this.$slots))).call(i, function (t) {
+                                    n.push(e('template', { slot: t }, r.$slots[t]));
                                 }),
-                                t
+                                n
                             );
                         },
-                        change() {
+                        change: function () {
                             this.$emit('change', this.value);
                         },
-                        input(e) {
+                        input: function (e) {
                             null == e || '' === e ? this.$emit('input', void 0) : this.$emit('input', e);
                         },
-                        defaultValue: (e) =>
-                            'object' !== e.type || e['x-fromUrl'] || e['x-fromData'] || e.enum
+                        defaultValue: function (e) {
+                            return 'object' !== e.type || e['x-fromUrl'] || e['x-fromData'] || e.enum
                                 ? 'array' === e.type
                                     ? []
                                     : 'v-range-slider' === e.tag
                                     ? [0, 10]
                                     : null
-                                : {},
-                        fixProperties() {
-                            if ('object' !== this.fullSchema.type) return;
-                            !(
-                                (this.fullSchema.properties && this.fullSchema.properties.length) ||
-                                (Object.keys(this.subModels).length &&
-                                    !this.fullSchema['x-fromData'] &&
-                                    !this.fullSchema['x-fromUrl'])
-                            ) ||
-                                ((this.fullOptions.removeAdditionalProperties ||
-                                    !1 === this.fullSchema.additionalProperties) &&
-                                    this.value &&
-                                    Object.keys(this.value).forEach((e) => {
-                                        (this.fullSchema.properties || []).find((t) => t.key === e) ||
-                                            this.$delete(this.value, e);
-                                    }),
-                                Object.keys(this.subModels).forEach((e) => {
-                                    Object.keys(this.subModels[e]).forEach((t) => {
-                                        this.value[t] !== this.subModels[e][t] &&
-                                            this.$set(this.value, t, this.subModels[e][t]);
-                                    });
-                                }));
+                                : {};
                         },
-                        initFromSchema() {
+                        fixProperties: function () {
+                            var e,
+                                t = this;
+                            if (
+                                'object' === this.fullSchema.type &&
+                                !!(
+                                    (this.fullSchema.properties && this.fullSchema.properties.length) ||
+                                    (u(this.subModels).length &&
+                                        !this.fullSchema['x-fromData'] &&
+                                        !this.fullSchema['x-fromUrl'])
+                                )
+                            ) {
+                                var i;
+                                if (
+                                    (this.fullOptions.removeAdditionalProperties ||
+                                        !1 === this.fullSchema.additionalProperties) &&
+                                    this.value
+                                )
+                                    c((i = u(this.value))).call(i, function (e) {
+                                        var i;
+                                        o((i = t.fullSchema.properties || [])).call(i, function (t) {
+                                            return t.key === e;
+                                        }) || t.$delete(t.value, e);
+                                    });
+                                c((e = u(this.subModels))).call(e, function (e) {
+                                    var i;
+                                    c((i = u(t.subModels[e]))).call(i, function (i) {
+                                        t.value[i] !== t.subModels[e][i] && t.$set(t.value, i, t.subModels[e][i]);
+                                    });
+                                });
+                            }
+                        },
+                        initFromSchema: function () {
+                            var e;
                             if (
                                 ((this.initiallyDefined = void 0 !== this.value && null !== this.value),
                                 'array' === this.fullSchema.type &&
                                     (this.initiallyDefined = !(!this.value || !this.value.length)),
                                 'object' === this.fullSchema.type &&
-                                    (this.initiallyDefined = !(!this.value || !Object.keys(this.value).length)),
+                                    (this.initiallyDefined = !(!this.value || !u(this.value).length)),
                                 this.fullSchema.readOnly && this.fullOptions.deleteReadOnly)
                             )
                                 return this.input(void 0);
-                            let e = this.value;
+                            var t = this.value;
                             'object' === this.fullSchema.type &&
-                                [void 0, null].includes(e) &&
+                                a((e = [void 0, null])).call(e, t) &&
                                 !this.isSelectProp &&
-                                (e = {}),
-                                void 0 !== this.fullSchema.const && (e = this.fullSchema.const),
-                                this.initSelectProp(e),
-                                this.initObjectContainer(e),
-                                'array' === this.fullSchema.type && (e = e.filter((e) => ![void 0, null].includes(e))),
-                                this.input(e);
+                                (t = {}),
+                                void 0 !== this.fullSchema.const && (t = this.fullSchema.const),
+                                this.initSelectProp(t),
+                                this.initObjectContainer(t),
+                                'array' === this.fullSchema.type &&
+                                    (t = s(t).call(t, function (e) {
+                                        var t;
+                                        return !a((t = [void 0, null])).call(t, e);
+                                    })),
+                                this.input(t);
                         },
                     },
                 },
@@ -2316,8 +3173,8 @@ const he = oe(
     void 0,
     void 0
 );
-(he.install = function (e) {
-    e.component(he.name, he);
+(ut.install = function (e) {
+    e.component(ut.name, ut);
 }),
-    null != typeof window && window.Vue && he.install(window.Vue);
-export { he as HFormRenderer };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && ut.install(window.Vue);
+export { ut as HFormRenderer };

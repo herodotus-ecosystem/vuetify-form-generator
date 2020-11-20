@@ -6,40 +6,77 @@
               require('lodash'),
               require('shortid'),
               require('sweetalert2'),
-              require('localforage')
+              require('@babel/runtime-corejs3/core-js/json/stringify'),
+              require('@babel/runtime-corejs3/core-js/instance/keys'),
+              require('@babel/runtime-corejs3/core-js/promise'),
+              require('localforage'),
+              require('@babel/runtime-corejs3/core-js/instance/splice'),
+              require('@babel/runtime-corejs3/core-js/instance/find-index'),
+              require('@babel/runtime-corejs3/core-js/instance/find'),
+              require('@babel/runtime-corejs3/core-js/instance/sort'),
+              require('@babel/runtime-corejs3/core-js/object/keys'),
+              require('@babel/runtime-corejs3/core-js/instance/map'),
+              require('@babel/runtime-corejs3/core-js/instance/for-each')
           )
         : 'function' == typeof define && define.amd
-        ? define(['exports', 'moment', 'lodash', 'shortid', 'sweetalert2', 'localforage'], t)
+        ? define([
+              'exports',
+              'moment',
+              'lodash',
+              'shortid',
+              'sweetalert2',
+              '@babel/runtime-corejs3/core-js/json/stringify',
+              '@babel/runtime-corejs3/core-js/instance/keys',
+              '@babel/runtime-corejs3/core-js/promise',
+              'localforage',
+              '@babel/runtime-corejs3/core-js/instance/splice',
+              '@babel/runtime-corejs3/core-js/instance/find-index',
+              '@babel/runtime-corejs3/core-js/instance/find',
+              '@babel/runtime-corejs3/core-js/instance/sort',
+              '@babel/runtime-corejs3/core-js/object/keys',
+              '@babel/runtime-corejs3/core-js/instance/map',
+              '@babel/runtime-corejs3/core-js/instance/for-each',
+          ], t)
         : t(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).lib = {}),
               e.moment,
               e.lodash,
               e.shortid,
               e.Swal,
-              e.localForage
+              e._JSON$stringify,
+              e._keysInstanceProperty,
+              e._Promise,
+              e.localForage,
+              e._spliceInstanceProperty,
+              e._findIndexInstanceProperty,
+              e._findInstanceProperty,
+              e._sortInstanceProperty,
+              e._Object$keys,
+              e._mapInstanceProperty,
+              e._forEachInstanceProperty
           );
-})(this, function (e, t, r, o, n, i) {
+})(this, function (e, t, n, r, o, c, i, u, a, f, s, l, d, m, b, j) {
     'use strict';
-    function a(e) {
+    function p(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    function c(e) {
+    function h(e) {
         if (e && e.__esModule) return e;
         var t = Object.create(null);
         return (
             e &&
-                Object.keys(e).forEach(function (r) {
-                    if ('default' !== r) {
-                        var o = Object.getOwnPropertyDescriptor(e, r);
+                Object.keys(e).forEach(function (n) {
+                    if ('default' !== n) {
+                        var r = Object.getOwnPropertyDescriptor(e, n);
                         Object.defineProperty(
                             t,
-                            r,
-                            o.get
-                                ? o
+                            n,
+                            r.get
+                                ? r
                                 : {
                                       enumerable: !0,
                                       get: function () {
-                                          return e[r];
+                                          return e[n];
                                       },
                                   }
                         );
@@ -49,219 +86,257 @@
             Object.freeze(t)
         );
     }
-    var l = a(t),
-        s = c(r),
-        f = a(o),
-        u = a(n),
-        m = a(i);
+    var y = p(t),
+        g = h(n),
+        I = p(r),
+        q = p(o),
+        v = p(c),
+        w = p(i),
+        O = p(u),
+        _ = p(a),
+        P = p(f),
+        S = p(s),
+        k = p(l),
+        x = p(d),
+        E = p(m),
+        D = p(b),
+        z = p(j);
+    require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
+    var A = require('@babel/runtime-corejs3/core-js/instance/slice'),
+        B = require('@babel/runtime-corejs3/helpers/typeof');
     String.prototype.format = function (e) {
         var t = function (e, t) {
             return (
-                (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
-                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
-                    return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
+                (t = 'object' === B(t) ? t : A(Array.prototype).call(arguments, 1)),
+                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, n) {
+                    return '{{' == e ? '{' : '}}' == e ? '}' : t[n];
                 })
             );
         };
-        return t(this, (e = 'object' == typeof e ? e : Array.prototype.slice.call(arguments, 0)));
+        return t(this, (e = 'object' === B(e) ? e : A(Array.prototype).call(arguments, 0)));
     };
-    const d = u.default,
-        h = {
-            information: (e, t) => d.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
-            info(e) {
+    var J = q.default,
+        M = {
+            information: function (e, t) {
+                return J.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 });
+            },
+            info: function (e) {
                 this.information(e, 'info');
             },
-            error(e) {
+            error: function (e) {
                 this.information(e, 'error');
             },
-            warning(e) {
+            warning: function (e) {
                 this.information(e, 'warning');
             },
-            success(e) {
+            success: function (e) {
                 this.information(e, 'success');
             },
-            question(e) {
+            question: function (e) {
                 this.information(e, 'question');
             },
         },
-        g = {
-            getItem: (e) =>
-                new Promise((t, r) => {
-                    m.default
+        N = {
+            getItem: function (e) {
+                return new O.default(function (t, n) {
+                    _.default
                         .getItem(e)
-                        .then((e) => {
+                        .then(function (e) {
                             t(e);
                         })
-                        .catch((e) => {
-                            r(e);
+                        .catch(function (e) {
+                            n(e);
                         });
-                }),
-            setItem: (e, t) =>
-                new Promise((r, o) => {
-                    m.default
+                });
+            },
+            setItem: function (e, t) {
+                return new O.default(function (n, r) {
+                    _.default
                         .setItem(e, t)
-                        .then((e) => {
-                            r(e);
+                        .then(function (e) {
+                            n(e);
                         })
-                        .catch((e) => {
-                            o(e);
+                        .catch(function (e) {
+                            r(e);
                         });
-                }),
-            removeItem: (e) =>
-                new Promise((t, r) => {
-                    m.default
+                });
+            },
+            removeItem: function (e) {
+                return new O.default(function (t, n) {
+                    _.default
                         .removeItem(e)
-                        .then(() => {
+                        .then(function () {
                             t();
                         })
-                        .catch((e) => {
-                            r(e);
+                        .catch(function (e) {
+                            n(e);
                         });
-                }),
-            clear: () =>
-                new Promise((e, t) => {
-                    m.default
+                });
+            },
+            clear: function () {
+                return new O.default(function (e, t) {
+                    _.default
                         .clear()
-                        .then(() => {
+                        .then(function () {
                             e();
                         })
-                        .catch((e) => {
+                        .catch(function (e) {
                             t(e);
                         });
-                }),
-            length: () =>
-                new Promise((e, t) => {
-                    m.default
-                        .length()
-                        .then((t) => {
-                            e(t);
-                        })
-                        .catch((e) => {
-                            t(e);
-                        });
-                }),
-            key: (e) =>
-                new Promise((t, r) => {
-                    m.default
-                        .key(e)
-                        .then((e) => {
-                            t(e);
-                        })
-                        .catch((e) => {
-                            r(e);
-                        });
-                }),
-            keys: () =>
-                new Promise((e, t) => {
-                    m.default
-                        .keys()
-                        .then((t) => {
-                            e(t);
-                        })
-                        .catch((e) => {
-                            t(e);
-                        });
-                }),
-            iterate: () =>
-                new Promise((e, t) => {
-                    m.default
-                        .iterate((t, r, o) => {
-                            e([t, r, o]);
-                        })
-                        .then((t) => {
-                            e(t);
-                        })
-                        .catch((e) => {
-                            t(e);
-                        });
-                }),
-            setDriver: (e) =>
-                new Promise((t, r) => {
-                    t(m.default.setDriver(e));
-                }),
-            config: (e) =>
-                new Promise((t, r) => {
-                    t(m.default.config(e));
-                }),
-            createInstance: (e) =>
-                new Promise((t, r) => {
-                    t(m.default.createInstance(e));
-                }),
-        },
-        p = {
-            setObject(e, t) {
-                localStorage.setItem(e, JSON.stringify(t));
+                });
             },
-            getObject(e) {
-                let t = localStorage.getItem(e);
+            length: function () {
+                return new O.default(function (e, t) {
+                    _.default
+                        .length()
+                        .then(function (t) {
+                            e(t);
+                        })
+                        .catch(function (e) {
+                            t(e);
+                        });
+                });
+            },
+            key: function (e) {
+                return new O.default(function (t, n) {
+                    _.default
+                        .key(e)
+                        .then(function (e) {
+                            t(e);
+                        })
+                        .catch(function (e) {
+                            n(e);
+                        });
+                });
+            },
+            keys: function () {
+                return new O.default(function (e, t) {
+                    w.default(_.default)
+                        .call(_.default)
+                        .then(function (t) {
+                            e(t);
+                        })
+                        .catch(function (e) {
+                            t(e);
+                        });
+                });
+            },
+            iterate: function () {
+                return new O.default(function (e, t) {
+                    _.default
+                        .iterate(function (t, n, r) {
+                            e([t, n, r]);
+                        })
+                        .then(function (t) {
+                            e(t);
+                        })
+                        .catch(function (e) {
+                            t(e);
+                        });
+                });
+            },
+            setDriver: function (e) {
+                return new O.default(function (t, n) {
+                    t(_.default.setDriver(e));
+                });
+            },
+            config: function (e) {
+                return new O.default(function (t, n) {
+                    t(_.default.config(e));
+                });
+            },
+            createInstance: function (e) {
+                return new O.default(function (t, n) {
+                    t(_.default.createInstance(e));
+                });
+            },
+        },
+        T = {
+            setObject: function (e, t) {
+                localStorage.setItem(e, v.default(t));
+            },
+            getObject: function (e) {
+                var t = localStorage.getItem(e);
                 return t ? JSON.parse(t) : null;
             },
-            setItem(e, t) {
+            setItem: function (e, t) {
                 localStorage.setItem(e, t);
             },
-            getItem: (e) => localStorage.getItem(e),
-            removeItem(e) {
+            getItem: function (e) {
+                return localStorage.getItem(e);
+            },
+            removeItem: function (e) {
                 localStorage.removeItem(e);
             },
-            clear() {
+            clear: function () {
                 localStorage.clear();
             },
-            isExist: (e) => !(!e || !(e in localStorage)),
+            isExist: function (e) {
+                return !(!e || !(e in localStorage));
+            },
         },
-        y = {
+        $ = {
             array: {
-                groupBy(e, t) {
-                    const r = {};
+                groupBy: function (e, t) {
+                    var n,
+                        r = {};
                     return (
-                        e.forEach(function (e) {
-                            const o = t(e);
-                            (r[o] = r[o] || []), r[o].push(e);
+                        z.default(e).call(e, function (e) {
+                            var n = t(e);
+                            (r[n] = r[n] || []), r[n].push(e);
                         }),
-                        Object.keys(r).map(function (e) {
+                        D.default((n = E.default(r))).call(n, function (e) {
                             return r[e];
                         })
                     );
                 },
-                sort: (e, t) =>
-                    e.sort(function (e, r) {
-                        var o = e[t],
-                            n = r[t];
-                        return o < n ? -1 : o > n ? 1 : 0;
-                    }),
-                find: (e, t, r) => e.find((e) => e[r] === t[r]),
-                remove(e, t, r) {
-                    const o = e.findIndex((e) => e[r] === t[r]);
-                    return e.splice(o, 1), e;
+                sort: function (e, t) {
+                    return x.default(e).call(e, function (e, n) {
+                        var r = e[t],
+                            o = n[t];
+                        return r < o ? -1 : r > o ? 1 : 0;
+                    });
+                },
+                find: function (e, t, n) {
+                    return k.default(e).call(e, function (e) {
+                        return e[n] === t[n];
+                    });
+                },
+                remove: function (e, t, n) {
+                    var r = S.default(e).call(e, function (e) {
+                        return e[n] === t[n];
+                    });
+                    return P.default(e).call(e, r, 1), e;
                 },
             },
             object: {
-                isEmpty(e) {
+                isEmpty: function (e) {
                     if (e) {
-                        let t = Object.keys(e);
+                        var t = E.default(e);
                         return !(t && t.length > 0);
                     }
                     return !0;
                 },
             },
         };
-    l.default.locale('zh-cn'),
+    y.default.locale('zh-cn'),
         Object.defineProperty(e, 'moment', {
             enumerable: !0,
             get: function () {
-                return l.default;
+                return y.default;
             },
         }),
-        (e.lodash = s),
+        (e.lodash = g),
         Object.defineProperty(e, 'shortid', {
             enumerable: !0,
             get: function () {
-                return f.default;
+                return I.default;
             },
         }),
-        (e.notify = h),
-        (e.storage = g),
-        (e.storageSync = p),
-        (e.swal = d),
-        (e.tools = y),
+        (e.notify = M),
+        (e.storage = N),
+        (e.storageSync = T),
+        (e.swal = J),
+        (e.tools = $),
         Object.defineProperty(e, '__esModule', { value: !0 });
 });

@@ -1,4 +1,4 @@
-const e = {
+var e = {
         $vuetify: {
             badge: '徽章',
             close: '关闭',

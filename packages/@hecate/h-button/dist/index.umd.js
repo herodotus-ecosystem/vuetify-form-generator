@@ -1,121 +1,100 @@
-!(function (n, e) {
+!(function (e, n) {
     'object' == typeof exports && 'undefined' != typeof module
-        ? e(exports, require('vuetify/lib'))
+        ? n(
+              exports,
+              require('core-js/modules/es.function.name'),
+              require('@babel/runtime-corejs3/helpers/esm/typeof'),
+              require('vuetify/lib'),
+              require('vue-runtime-helpers/dist/normalize-component.mjs')
+          )
         : 'function' == typeof define && define.amd
-        ? define(['exports', 'vuetify/lib'], e)
-        : e(((n = 'undefined' != typeof globalThis ? globalThis : n || self).main = {}), n.Vuetify);
-})(this, function (n, e) {
+        ? define([
+              'exports',
+              'core-js/modules/es.function.name',
+              '@babel/runtime-corejs3/helpers/esm/typeof',
+              'vuetify/lib',
+              'vue-runtime-helpers/dist/normalize-component.mjs',
+          ], n)
+        : n(
+              ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
+              null,
+              e._typeof,
+              e.Vuetify,
+              e.__vue_normalize__
+          );
+})(this, function (e, n, o, t, i) {
     'use strict';
-    function t(n, e, t, o, i, r, s, c, l, d) {
-        'boolean' != typeof s && ((l = c), (c = s), (s = !1));
-        const f = 'function' == typeof t ? t.options : t;
-        let a;
-        if (
-            (n &&
-                n.render &&
-                ((f.render = n.render),
-                (f.staticRenderFns = n.staticRenderFns),
-                (f._compiled = !0),
-                i && (f.functional = !0)),
-            o && (f._scopeId = o),
-            r
-                ? ((a = function (n) {
-                      (n =
-                          n ||
-                          (this.$vnode && this.$vnode.ssrContext) ||
-                          (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext)) ||
-                          'undefined' == typeof __VUE_SSR_CONTEXT__ ||
-                          (n = __VUE_SSR_CONTEXT__),
-                          e && e.call(this, l(n)),
-                          n && n._registeredComponents && n._registeredComponents.add(r);
-                  }),
-                  (f._ssrRegister = a))
-                : e &&
-                  (a = s
-                      ? function (n) {
-                            e.call(this, d(n, this.$root.$options.shadowRoot));
-                        }
-                      : function (n) {
-                            e.call(this, c(n));
-                        }),
-            a)
-        )
-            if (f.functional) {
-                const n = f.render;
-                f.render = function (e, t) {
-                    return a.call(t), n(e, t);
-                };
-            } else {
-                const n = f.beforeCreate;
-                f.beforeCreate = n ? [].concat(n, a) : [a];
-            }
-        return t;
+    function r(e) {
+        return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    const o = t(
-        {
-            render: function () {
-                var n = this,
-                    e = n.$createElement,
-                    t = n._self._c || e;
-                return t(
-                    'v-tooltip',
-                    {
-                        attrs: { bottom: '' },
-                        scopedSlots: n._u([
-                            {
-                                key: 'activator',
-                                fn: function (e) {
-                                    var o = e.on;
-                                    return [
-                                        t(
-                                            'v-btn',
-                                            n._g(
-                                                {
-                                                    attrs: { color: n.color, icon: n.icon },
-                                                    on: {
-                                                        click: function (e) {
-                                                            return n.handleClick();
-                                                        },
-                                                    },
-                                                },
-                                                o
-                                            ),
-                                            [t('v-icon', [n._v(n._s(n.iconName))])],
-                                            1
-                                        ),
-                                    ];
-                                },
-                            },
-                        ]),
-                    },
-                    [n._v(' '), t('span', [n._v(n._s(n.tooltip))])]
-                );
-            },
-            staticRenderFns: [],
-        },
-        undefined,
-        {
-            components: { VIcon: e.VIcon, VBtn: e.VBtn, VTooltip: e.VTooltip },
+    var l = r(o),
+        u = r(i),
+        s = {
+            components: { VIcon: t.VIcon, VBtn: t.VBtn, VTooltip: t.VTooltip },
             name: 'HButton',
             props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
             methods: {
-                handleClick() {
+                handleClick: function () {
                     this.$emit('click');
                 },
             },
         },
-        undefined,
-        false,
-        undefined,
-        !1,
-        void 0,
-        void 0,
-        void 0
-    );
-    (o.install = function (n) {
-        n.component(o.name, o);
+        c = u.default(
+            {
+                render: function () {
+                    var e = this,
+                        n = e.$createElement,
+                        o = e._self._c || n;
+                    return o(
+                        'v-tooltip',
+                        {
+                            attrs: { bottom: '' },
+                            scopedSlots: e._u([
+                                {
+                                    key: 'activator',
+                                    fn: function (n) {
+                                        var t = n.on;
+                                        return [
+                                            o(
+                                                'v-btn',
+                                                e._g(
+                                                    {
+                                                        attrs: { color: e.color, icon: e.icon },
+                                                        on: {
+                                                            click: function (n) {
+                                                                return e.handleClick();
+                                                            },
+                                                        },
+                                                    },
+                                                    t
+                                                ),
+                                                [o('v-icon', [e._v(e._s(e.iconName))])],
+                                                1
+                                            ),
+                                        ];
+                                    },
+                                },
+                            ]),
+                        },
+                        [e._v(' '), o('span', [e._v(e._s(e.tooltip))])]
+                    );
+                },
+                staticRenderFns: [],
+            },
+            undefined,
+            s,
+            undefined,
+            false,
+            undefined,
+            !1,
+            void 0,
+            void 0,
+            void 0
+        );
+    (c.install = function (e) {
+        e.component(c.name, c);
     }),
-        null != typeof window && window.Vue && o.install(window.Vue),
-        (n.HButton = o),
-        Object.defineProperty(n, '__esModule', { value: !0 });
+        null != ('undefined' == typeof window ? 'undefined' : l.default(window)) && window.Vue && c.install(window.Vue),
+        (e.HButton = c),
+        Object.defineProperty(e, '__esModule', { value: !0 });
 });

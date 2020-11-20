@@ -6,36 +6,94 @@
               require('lodash'),
               require('shortid'),
               require('sweetalert2'),
-              require('localforage')
+              require('@babel/runtime-corejs3/core-js/json/stringify'),
+              require('@babel/runtime-corejs3/core-js/instance/keys'),
+              require('@babel/runtime-corejs3/core-js/promise'),
+              require('localforage'),
+              require('@babel/runtime-corejs3/core-js/instance/splice'),
+              require('@babel/runtime-corejs3/core-js/instance/find-index'),
+              require('@babel/runtime-corejs3/core-js/instance/find'),
+              require('@babel/runtime-corejs3/core-js/instance/sort'),
+              require('@babel/runtime-corejs3/core-js/object/keys'),
+              require('@babel/runtime-corejs3/core-js/instance/map'),
+              require('@babel/runtime-corejs3/core-js/instance/for-each'),
+              require('core-js/modules/es.function.name'),
+              require('@babel/runtime-corejs3/core-js/instance/index-of'),
+              require('@babel/runtime-corejs3/helpers/esm/typeof'),
+              require('@babel/runtime-corejs3/helpers/esm/slicedToArray'),
+              require('@babel/runtime-corejs3/core-js/instance/concat'),
+              require('@babel/runtime-corejs3/helpers/esm/classCallCheck'),
+              require('@babel/runtime-corejs3/helpers/esm/createClass')
           )
         : 'function' == typeof define && define.amd
-        ? define(['exports', 'moment', 'lodash', 'shortid', 'sweetalert2', 'localforage'], t)
+        ? define([
+              'exports',
+              'moment',
+              'lodash',
+              'shortid',
+              'sweetalert2',
+              '@babel/runtime-corejs3/core-js/json/stringify',
+              '@babel/runtime-corejs3/core-js/instance/keys',
+              '@babel/runtime-corejs3/core-js/promise',
+              'localforage',
+              '@babel/runtime-corejs3/core-js/instance/splice',
+              '@babel/runtime-corejs3/core-js/instance/find-index',
+              '@babel/runtime-corejs3/core-js/instance/find',
+              '@babel/runtime-corejs3/core-js/instance/sort',
+              '@babel/runtime-corejs3/core-js/object/keys',
+              '@babel/runtime-corejs3/core-js/instance/map',
+              '@babel/runtime-corejs3/core-js/instance/for-each',
+              'core-js/modules/es.function.name',
+              '@babel/runtime-corejs3/core-js/instance/index-of',
+              '@babel/runtime-corejs3/helpers/esm/typeof',
+              '@babel/runtime-corejs3/helpers/esm/slicedToArray',
+              '@babel/runtime-corejs3/core-js/instance/concat',
+              '@babel/runtime-corejs3/helpers/esm/classCallCheck',
+              '@babel/runtime-corejs3/helpers/esm/createClass',
+          ], t)
         : t(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
               e.moment,
               e.lodash,
               e.shortid,
               e.Swal,
-              e.localForage
+              e._JSON$stringify,
+              e._keysInstanceProperty,
+              e._Promise,
+              e.localForage,
+              e._spliceInstanceProperty,
+              e._findIndexInstanceProperty,
+              e._findInstanceProperty,
+              e._sortInstanceProperty,
+              e._Object$keys,
+              e._mapInstanceProperty,
+              e._forEachInstanceProperty,
+              null,
+              e._indexOfInstanceProperty,
+              e._typeof,
+              e._slicedToArray,
+              e._concatInstanceProperty,
+              e._classCallCheck,
+              e._createClass
           );
-})(this, function (e, t, r, a, n, o) {
+})(this, function (e, t, r, n, a, o, i, c, u, l, s, f, d, m, b, g, p, h, j, v, y, P, x) {
     'use strict';
-    function i(e) {
+    function _(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    function s(e) {
+    function I(e) {
         if (e && e.__esModule) return e;
         var t = Object.create(null);
         return (
             e &&
                 Object.keys(e).forEach(function (r) {
                     if ('default' !== r) {
-                        var a = Object.getOwnPropertyDescriptor(e, r);
+                        var n = Object.getOwnPropertyDescriptor(e, r);
                         Object.defineProperty(
                             t,
                             r,
-                            a.get
-                                ? a
+                            n.get
+                                ? n
                                 : {
                                       enumerable: !0,
                                       get: function () {
@@ -49,401 +107,515 @@
             Object.freeze(t)
         );
     }
-    var c = i(t),
-        l = s(r),
-        u = i(a),
-        d = i(n),
-        f = i(o);
+    var k = _(t),
+        q = I(r),
+        T = _(n),
+        w = _(a),
+        N = _(o),
+        A = _(i),
+        S = _(c),
+        O = _(u),
+        C = _(l),
+        L = _(s),
+        E = _(f),
+        M = _(d),
+        D = _(m),
+        z = _(b),
+        B = _(g),
+        F = _(h),
+        Y = _(j),
+        $ = _(v),
+        R = _(y),
+        J = _(P),
+        G = _(x);
+    require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
+    var H = require('@babel/runtime-corejs3/core-js/instance/slice'),
+        X = require('@babel/runtime-corejs3/helpers/typeof');
     String.prototype.format = function (e) {
         var t = function (e, t) {
             return (
-                (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
+                (t = 'object' === X(t) ? t : H(Array.prototype).call(arguments, 1)),
                 e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
                     return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
                 })
             );
         };
-        return t(this, (e = 'object' == typeof e ? e : Array.prototype.slice.call(arguments, 0)));
+        return t(this, (e = 'object' === X(e) ? e : H(Array.prototype).call(arguments, 0)));
     };
-    const g = d.default,
-        m = {
-            information: (e, t) => g.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
-            info(e) {
+    var K = w.default,
+        Q = {
+            information: function (e, t) {
+                return K.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 });
+            },
+            info: function (e) {
                 this.information(e, 'info');
             },
-            error(e) {
+            error: function (e) {
                 this.information(e, 'error');
             },
-            warning(e) {
+            warning: function (e) {
                 this.information(e, 'warning');
             },
-            success(e) {
+            success: function (e) {
                 this.information(e, 'success');
             },
-            question(e) {
+            question: function (e) {
                 this.information(e, 'question');
             },
         },
-        p = {
-            getItem: (e) =>
-                new Promise((t, r) => {
-                    f.default
+        U = {
+            getItem: function (e) {
+                return new S.default(function (t, r) {
+                    O.default
                         .getItem(e)
-                        .then((e) => {
+                        .then(function (e) {
                             t(e);
                         })
-                        .catch((e) => {
+                        .catch(function (e) {
                             r(e);
                         });
-                }),
-            setItem: (e, t) =>
-                new Promise((r, a) => {
-                    f.default
+                });
+            },
+            setItem: function (e, t) {
+                return new S.default(function (r, n) {
+                    O.default
                         .setItem(e, t)
-                        .then((e) => {
+                        .then(function (e) {
                             r(e);
                         })
-                        .catch((e) => {
-                            a(e);
+                        .catch(function (e) {
+                            n(e);
                         });
-                }),
-            removeItem: (e) =>
-                new Promise((t, r) => {
-                    f.default
+                });
+            },
+            removeItem: function (e) {
+                return new S.default(function (t, r) {
+                    O.default
                         .removeItem(e)
-                        .then(() => {
+                        .then(function () {
                             t();
                         })
-                        .catch((e) => {
+                        .catch(function (e) {
                             r(e);
                         });
-                }),
-            clear: () =>
-                new Promise((e, t) => {
-                    f.default
+                });
+            },
+            clear: function () {
+                return new S.default(function (e, t) {
+                    O.default
                         .clear()
-                        .then(() => {
+                        .then(function () {
                             e();
                         })
-                        .catch((e) => {
+                        .catch(function (e) {
                             t(e);
                         });
-                }),
-            length: () =>
-                new Promise((e, t) => {
-                    f.default
+                });
+            },
+            length: function () {
+                return new S.default(function (e, t) {
+                    O.default
                         .length()
-                        .then((t) => {
+                        .then(function (t) {
                             e(t);
                         })
-                        .catch((e) => {
+                        .catch(function (e) {
                             t(e);
                         });
-                }),
-            key: (e) =>
-                new Promise((t, r) => {
-                    f.default
+                });
+            },
+            key: function (e) {
+                return new S.default(function (t, r) {
+                    O.default
                         .key(e)
-                        .then((e) => {
+                        .then(function (e) {
                             t(e);
                         })
-                        .catch((e) => {
+                        .catch(function (e) {
                             r(e);
                         });
-                }),
-            keys: () =>
-                new Promise((e, t) => {
-                    f.default
-                        .keys()
-                        .then((t) => {
-                            e(t);
-                        })
-                        .catch((e) => {
-                            t(e);
-                        });
-                }),
-            iterate: () =>
-                new Promise((e, t) => {
-                    f.default
-                        .iterate((t, r, a) => {
-                            e([t, r, a]);
-                        })
-                        .then((t) => {
-                            e(t);
-                        })
-                        .catch((e) => {
-                            t(e);
-                        });
-                }),
-            setDriver: (e) =>
-                new Promise((t, r) => {
-                    t(f.default.setDriver(e));
-                }),
-            config: (e) =>
-                new Promise((t, r) => {
-                    t(f.default.config(e));
-                }),
-            createInstance: (e) =>
-                new Promise((t, r) => {
-                    t(f.default.createInstance(e));
-                }),
-        },
-        h = {
-            setObject(e, t) {
-                localStorage.setItem(e, JSON.stringify(t));
+                });
             },
-            getObject(e) {
-                let t = localStorage.getItem(e);
+            keys: function () {
+                return new S.default(function (e, t) {
+                    A.default(O.default)
+                        .call(O.default)
+                        .then(function (t) {
+                            e(t);
+                        })
+                        .catch(function (e) {
+                            t(e);
+                        });
+                });
+            },
+            iterate: function () {
+                return new S.default(function (e, t) {
+                    O.default
+                        .iterate(function (t, r, n) {
+                            e([t, r, n]);
+                        })
+                        .then(function (t) {
+                            e(t);
+                        })
+                        .catch(function (e) {
+                            t(e);
+                        });
+                });
+            },
+            setDriver: function (e) {
+                return new S.default(function (t, r) {
+                    t(O.default.setDriver(e));
+                });
+            },
+            config: function (e) {
+                return new S.default(function (t, r) {
+                    t(O.default.config(e));
+                });
+            },
+            createInstance: function (e) {
+                return new S.default(function (t, r) {
+                    t(O.default.createInstance(e));
+                });
+            },
+        },
+        V = {
+            setObject: function (e, t) {
+                localStorage.setItem(e, N.default(t));
+            },
+            getObject: function (e) {
+                var t = localStorage.getItem(e);
                 return t ? JSON.parse(t) : null;
             },
-            setItem(e, t) {
+            setItem: function (e, t) {
                 localStorage.setItem(e, t);
             },
-            getItem: (e) => localStorage.getItem(e),
-            removeItem(e) {
+            getItem: function (e) {
+                return localStorage.getItem(e);
+            },
+            removeItem: function (e) {
                 localStorage.removeItem(e);
             },
-            clear() {
+            clear: function () {
                 localStorage.clear();
             },
-            isExist: (e) => !(!e || !(e in localStorage)),
+            isExist: function (e) {
+                return !(!e || !(e in localStorage));
+            },
         },
-        b = {
+        W = {
             array: {
-                groupBy(e, t) {
-                    const r = {};
+                groupBy: function (e, t) {
+                    var r,
+                        n = {};
                     return (
-                        e.forEach(function (e) {
-                            const a = t(e);
-                            (r[a] = r[a] || []), r[a].push(e);
+                        B.default(e).call(e, function (e) {
+                            var r = t(e);
+                            (n[r] = n[r] || []), n[r].push(e);
                         }),
-                        Object.keys(r).map(function (e) {
-                            return r[e];
+                        z.default((r = D.default(n))).call(r, function (e) {
+                            return n[e];
                         })
                     );
                 },
-                sort: (e, t) =>
-                    e.sort(function (e, r) {
-                        var a = e[t],
-                            n = r[t];
-                        return a < n ? -1 : a > n ? 1 : 0;
-                    }),
-                find: (e, t, r) => e.find((e) => e[r] === t[r]),
-                remove(e, t, r) {
-                    const a = e.findIndex((e) => e[r] === t[r]);
-                    return e.splice(a, 1), e;
+                sort: function (e, t) {
+                    return M.default(e).call(e, function (e, r) {
+                        var n = e[t],
+                            a = r[t];
+                        return n < a ? -1 : n > a ? 1 : 0;
+                    });
+                },
+                find: function (e, t, r) {
+                    return E.default(e).call(e, function (e) {
+                        return e[r] === t[r];
+                    });
+                },
+                remove: function (e, t, r) {
+                    var n = L.default(e).call(e, function (e) {
+                        return e[r] === t[r];
+                    });
+                    return C.default(e).call(e, n, 1), e;
                 },
             },
             object: {
-                isEmpty(e) {
+                isEmpty: function (e) {
                     if (e) {
-                        let t = Object.keys(e);
+                        var t = D.default(e);
                         return !(t && t.length > 0);
                     }
                     return !0;
                 },
             },
         };
-    c.default.locale('zh-cn');
-    var P = Object.freeze({
-        __proto__: null,
-        notify: m,
-        swal: g,
-        moment: c.default,
-        storage: p,
-        storageSync: h,
-        lodash: l,
-        shortid: u.default,
-        tools: b,
-    });
-    var v = Object.freeze({
-        __proto__: null,
-        en: {
-            $vuetify: {
-                badge: 'Badge',
-                close: 'Close',
-                dataIterator: { noResultsText: 'No matching records found', loadingText: 'Loading items...' },
-                dataTable: {
-                    itemsPerPageText: 'Rows per page:',
-                    ariaLabel: {
-                        sortDescending: 'Sorted descending.',
-                        sortAscending: 'Sorted ascending.',
-                        sortNone: 'Not sorted.',
-                        activateNone: 'Activate to remove sorting.',
-                        activateDescending: 'Activate to sort descending.',
-                        activateAscending: 'Activate to sort ascending.',
+    k.default.locale('zh-cn');
+    var Z = Object.freeze({
+            __proto__: null,
+            notify: Q,
+            swal: K,
+            moment: k.default,
+            storage: U,
+            storageSync: V,
+            lodash: q,
+            shortid: T.default,
+            tools: W,
+        }),
+        ee = Object.freeze({
+            __proto__: null,
+            en: {
+                $vuetify: {
+                    badge: 'Badge',
+                    close: 'Close',
+                    dataIterator: { noResultsText: 'No matching records found', loadingText: 'Loading items...' },
+                    dataTable: {
+                        itemsPerPageText: 'Rows per page:',
+                        ariaLabel: {
+                            sortDescending: 'Sorted descending.',
+                            sortAscending: 'Sorted ascending.',
+                            sortNone: 'Not sorted.',
+                            activateNone: 'Activate to remove sorting.',
+                            activateDescending: 'Activate to sort descending.',
+                            activateAscending: 'Activate to sort ascending.',
+                        },
+                        sortBy: 'Sort by',
                     },
-                    sortBy: 'Sort by',
-                },
-                dataFooter: {
-                    itemsPerPageText: 'Items per page:',
-                    itemsPerPageAll: 'All',
-                    nextPage: 'Next page',
-                    prevPage: 'Previous page',
-                    firstPage: 'First page',
-                    lastPage: 'Last page',
-                    pageText: '{0}-{1} of {2}',
-                },
-                datePicker: {
-                    itemsSelected: '{0} selected',
-                    nextMonthAriaLabel: 'Next month',
-                    nextYearAriaLabel: 'Next year',
-                    prevMonthAriaLabel: 'Previous month',
-                    prevYearAriaLabel: 'Previous year',
-                },
-                noDataText: 'No data available',
-                carousel: {
-                    prev: 'Previous visual',
-                    next: 'Next visual',
-                    ariaLabel: { delimiter: 'Carousel slide {0} of {1}' },
-                },
-                calendar: { moreEvents: '{0} more' },
-                fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
-                timePicker: { am: 'AM', pm: 'PM' },
-                pagination: {
-                    ariaLabel: {
-                        wrapper: 'Pagination Navigation',
-                        next: 'Next page',
-                        previous: 'Previous page',
-                        page: 'Goto Page {0}',
-                        currentPage: 'Current Page, Page {0}',
+                    dataFooter: {
+                        itemsPerPageText: 'Items per page:',
+                        itemsPerPageAll: 'All',
+                        nextPage: 'Next page',
+                        prevPage: 'Previous page',
+                        firstPage: 'First page',
+                        lastPage: 'Last page',
+                        pageText: '{0}-{1} of {2}',
                     },
-                },
-            },
-        },
-        zh: {
-            $vuetify: {
-                badge: '徽章',
-                close: '关闭',
-                dataIterator: { noResultsText: '没有符合条件的结果', loadingText: '加载中……' },
-                dataTable: {
-                    itemsPerPageText: '每页数目：',
-                    ariaLabel: {
-                        sortDescending: '：降序排列。',
-                        sortAscending: '：升序排列。',
-                        sortNone: '：未排序。',
-                        activateNone: '点击以移除排序。',
-                        activateDescending: '点击以降序排列。',
-                        activateAscending: '点击以升序排列。',
+                    datePicker: {
+                        itemsSelected: '{0} selected',
+                        nextMonthAriaLabel: 'Next month',
+                        nextYearAriaLabel: 'Next year',
+                        prevMonthAriaLabel: 'Previous month',
+                        prevYearAriaLabel: 'Previous year',
                     },
-                    sortBy: '排序方式',
-                },
-                dataFooter: {
-                    itemsPerPageText: '每页数目：',
-                    itemsPerPageAll: '全部',
-                    nextPage: '下一页',
-                    prevPage: '上一页',
-                    firstPage: '首页',
-                    lastPage: '尾页',
-                    pageText: '{0}-{1} 共 {2}',
-                },
-                datePicker: {
-                    itemsSelected: '已选择 {0}',
-                    nextMonthAriaLabel: '下个月',
-                    nextYearAriaLabel: '明年',
-                    prevMonthAriaLabel: '前一个月',
-                    prevYearAriaLabel: '前一年',
-                },
-                noDataText: '没有数据',
-                carousel: { prev: '上一张', next: '下一张', ariaLabel: { delimiter: 'Carousel slide {0} of {1}' } },
-                calendar: { moreEvents: '还有 {0} 项' },
-                fileInput: { counter: '{0} 个文件', counterSize: '{0} 个文件（共 {1}）' },
-                timePicker: { am: 'AM', pm: 'PM' },
-                pagination: {
-                    ariaLabel: {
-                        wrapper: '分页导航',
-                        next: '下一页',
-                        previous: '上一页',
-                        page: '转到页面 {0}',
-                        currentPage: '当前页 {0}',
+                    noDataText: 'No data available',
+                    carousel: {
+                        prev: 'Previous visual',
+                        next: 'Next visual',
+                        ariaLabel: { delimiter: 'Carousel slide {0} of {1}' },
+                    },
+                    calendar: { moreEvents: '{0} more' },
+                    fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
+                    timePicker: { am: 'AM', pm: 'PM' },
+                    pagination: {
+                        ariaLabel: {
+                            wrapper: 'Pagination Navigation',
+                            next: 'Next page',
+                            previous: 'Previous page',
+                            page: 'Goto Page {0}',
+                            currentPage: 'Current Page, Page {0}',
+                        },
                     },
                 },
             },
-        },
-    });
-    class y {
-        static get selfCloseTags() {
-            return [
-                'area',
-                'base',
-                'br',
-                'col',
-                'embed',
-                'hr',
-                'img',
-                'input',
-                'link',
-                'meta',
-                'param',
-                'source',
-                'track',
-                'wbr',
-                'command',
-                'keygen',
-                'menuitem',
-            ];
-        }
-        static build(e) {
-            if (!e || !e.tag) return '';
-            const t = x.attributes(e);
-            if (x.isSelfCloseTag(e)) return `<${e.tag} ${t}/>`;
-            const r = x.children(e);
-            return `<${e.tag} ${t}>${r}</${e.tag}>`;
-        }
-        static unbuild(e) {
-            if (!e) return {};
-            const t = document.createElement('html');
-            t.innerHTML = e;
-            const r = t.querySelector('body');
-            if (!r) return {};
-            const [a] = r.children;
-            return a ? w.node2json(a) : {};
-        }
-    }
-    class x {
-        static attributes(e) {
-            if (!e.attributes) return '';
-            let t = '';
-            const r = Object.keys(e.attributes);
-            for (const a in r) ({}.hasOwnProperty.call(r, a) && (t += ` ${r[a]}="${e.attributes[r[a]]}"`));
-            return t;
-        }
-        static children(e) {
-            if (!e.children) return '';
-            let t = '';
-            for (const r in e.children)
-                ({}.hasOwnProperty.call(e.children, r) &&
-                    ('object' == typeof e.children[r] ? (t += y.build(e.children[r])) : (t += e.children[r])));
-            return t;
-        }
-        static isSelfCloseTag(e) {
-            return y.selfCloseTags.indexOf(e.tag) > -1;
-        }
-    }
-    class w {
-        static attributes(e) {
-            const t = {},
-                r = Object.keys(e.attributes);
-            for (const a in r)
-                if ({}.hasOwnProperty.call(r, a)) {
-                    const n = r[a],
-                        o = e.attributes[n];
-                    t[o.name] = o.value;
-                }
-            return t;
-        }
-        static children(e) {
-            const t = [];
-            for (const r in e.childNodes)
-                e.childNodes[r].nodeType === Node.ELEMENT_NODE && t.push(w.node2json(e.childNodes[r])),
-                    e.childNodes[r].nodeType === Node.TEXT_NODE && t.push(e.childNodes[r].textContent);
-            return t;
-        }
-        static node2json(e) {
-            return { tag: e.tagName.toLowerCase(), attributes: w.attributes(e), children: w.children(e) };
-        }
-    }
-    const N = y;
-    var T = Object.freeze({ __proto__: null, json2html: N });
-    (e.convertor = T), (e.lib = P), (e.locales = v), Object.defineProperty(e, '__esModule', { value: !0 });
+            zh: {
+                $vuetify: {
+                    badge: '徽章',
+                    close: '关闭',
+                    dataIterator: { noResultsText: '没有符合条件的结果', loadingText: '加载中……' },
+                    dataTable: {
+                        itemsPerPageText: '每页数目：',
+                        ariaLabel: {
+                            sortDescending: '：降序排列。',
+                            sortAscending: '：升序排列。',
+                            sortNone: '：未排序。',
+                            activateNone: '点击以移除排序。',
+                            activateDescending: '点击以降序排列。',
+                            activateAscending: '点击以升序排列。',
+                        },
+                        sortBy: '排序方式',
+                    },
+                    dataFooter: {
+                        itemsPerPageText: '每页数目：',
+                        itemsPerPageAll: '全部',
+                        nextPage: '下一页',
+                        prevPage: '上一页',
+                        firstPage: '首页',
+                        lastPage: '尾页',
+                        pageText: '{0}-{1} 共 {2}',
+                    },
+                    datePicker: {
+                        itemsSelected: '已选择 {0}',
+                        nextMonthAriaLabel: '下个月',
+                        nextYearAriaLabel: '明年',
+                        prevMonthAriaLabel: '前一个月',
+                        prevYearAriaLabel: '前一年',
+                    },
+                    noDataText: '没有数据',
+                    carousel: { prev: '上一张', next: '下一张', ariaLabel: { delimiter: 'Carousel slide {0} of {1}' } },
+                    calendar: { moreEvents: '还有 {0} 项' },
+                    fileInput: { counter: '{0} 个文件', counterSize: '{0} 个文件（共 {1}）' },
+                    timePicker: { am: 'AM', pm: 'PM' },
+                    pagination: {
+                        ariaLabel: {
+                            wrapper: '分页导航',
+                            next: '下一页',
+                            previous: '上一页',
+                            page: '转到页面 {0}',
+                            currentPage: '当前页 {0}',
+                        },
+                    },
+                },
+            },
+        }),
+        te = (function () {
+            function e() {
+                J.default(this, e);
+            }
+            return (
+                G.default(e, null, [
+                    {
+                        key: 'build',
+                        value: function (e) {
+                            var t, r, n;
+                            if (!e || !e.tag) return '';
+                            var a,
+                                o = re.attributes(e);
+                            if (re.isSelfCloseTag(e)) return R.default((a = '<'.concat(e.tag, ' '))).call(a, o, '/>');
+                            var i = re.children(e);
+                            return R.default(
+                                (t = R.default((r = R.default((n = '<'.concat(e.tag, ' '))).call(n, o, '>'))).call(
+                                    r,
+                                    i,
+                                    '</'
+                                ))
+                            ).call(t, e.tag, '>');
+                        },
+                    },
+                    {
+                        key: 'unbuild',
+                        value: function (e) {
+                            if (!e) return {};
+                            var t = document.createElement('html');
+                            t.innerHTML = e;
+                            var r = t.querySelector('body');
+                            if (!r) return {};
+                            var n = $.default(r.children, 1)[0];
+                            return n ? ne.node2json(n) : {};
+                        },
+                    },
+                    {
+                        key: 'selfCloseTags',
+                        get: function () {
+                            return [
+                                'area',
+                                'base',
+                                'br',
+                                'col',
+                                'embed',
+                                'hr',
+                                'img',
+                                'input',
+                                'link',
+                                'meta',
+                                'param',
+                                'source',
+                                'track',
+                                'wbr',
+                                'command',
+                                'keygen',
+                                'menuitem',
+                            ];
+                        },
+                    },
+                ]),
+                e
+            );
+        })(),
+        re = (function () {
+            function e() {
+                J.default(this, e);
+            }
+            return (
+                G.default(e, null, [
+                    {
+                        key: 'attributes',
+                        value: function (e) {
+                            if (!e.attributes) return '';
+                            var t = '',
+                                r = D.default(e.attributes);
+                            for (var n in r) {
+                                var a;
+                                if ({}.hasOwnProperty.call(r, n))
+                                    t += R.default((a = ' '.concat(r[n], '="'))).call(a, e.attributes[r[n]], '"');
+                            }
+                            return t;
+                        },
+                    },
+                    {
+                        key: 'children',
+                        value: function (e) {
+                            if (!e.children) return '';
+                            var t = '';
+                            for (var r in e.children)
+                                ({}.hasOwnProperty.call(e.children, r) &&
+                                    ('object' == Y.default(e.children[r])
+                                        ? (t += te.build(e.children[r]))
+                                        : (t += e.children[r])));
+                            return t;
+                        },
+                    },
+                    {
+                        key: 'isSelfCloseTag',
+                        value: function (e) {
+                            var t;
+                            return F.default((t = te.selfCloseTags)).call(t, e.tag) > -1;
+                        },
+                    },
+                ]),
+                e
+            );
+        })(),
+        ne = (function () {
+            function e() {
+                J.default(this, e);
+            }
+            return (
+                G.default(e, null, [
+                    {
+                        key: 'attributes',
+                        value: function (e) {
+                            var t = {},
+                                r = D.default(e.attributes);
+                            for (var n in r)
+                                if ({}.hasOwnProperty.call(r, n)) {
+                                    var a = r[n],
+                                        o = e.attributes[a];
+                                    t[o.name] = o.value;
+                                }
+                            return t;
+                        },
+                    },
+                    {
+                        key: 'children',
+                        value: function (t) {
+                            var r = [];
+                            for (var n in t.childNodes)
+                                t.childNodes[n].nodeType === Node.ELEMENT_NODE && r.push(e.node2json(t.childNodes[n])),
+                                    t.childNodes[n].nodeType === Node.TEXT_NODE && r.push(t.childNodes[n].textContent);
+                            return r;
+                        },
+                    },
+                    {
+                        key: 'node2json',
+                        value: function (t) {
+                            return {
+                                tag: t.tagName.toLowerCase(),
+                                attributes: e.attributes(t),
+                                children: e.children(t),
+                            };
+                        },
+                    },
+                ]),
+                e
+            );
+        })(),
+        ae = te,
+        oe = Object.freeze({ __proto__: null, json2html: ae });
+    (e.convertor = oe), (e.lib = Z), (e.locales = ee), Object.defineProperty(e, '__esModule', { value: !0 });
 });

@@ -1,17 +1,24 @@
-const babel = require('@rollup/plugin-babel').babel;
-const nodeResolve = require('@rollup/plugin-node-resolve').nodeResolve;
-const commonjs = require('@rollup/plugin-commonjs');
-const json = require('@rollup/plugin-json');
-const strip = require('@rollup/plugin-strip');
-const multi = require('@rollup/plugin-multi-entry');
-const image = require('@rollup/plugin-image');
-const vue = require('rollup-plugin-vue');
-const postcss = require('rollup-plugin-postcss');
-const vuetify = require('rollup-plugin-vuetify');
-const terser = require('rollup-plugin-terser').terser;
-const filesize = require('rollup-plugin-filesize');
-const progress = require('rollup-plugin-progress');
-const url = require('postcss-url');
+const {
+    babel,
+    buble,
+    commonjs,
+    filesize,
+    image,
+    json,
+    multi,
+    nodeResolve,
+    postcss,
+    progress,
+    sizes,
+    strip,
+    terser,
+    vue,
+    vuetify,
+    nested,
+    cssnext,
+    cssnano,
+} = require('./rollup.plugins');
+const { path } = require('./utils');
 
 /**
  * globals配置写法与import配置写法正好相反
@@ -33,13 +40,6 @@ const url = require('postcss-url');
  */
 
 const defaultPlugins = [
-    image(),
-    babel({
-        exclude: '**/node_modules/**',
-        babelHelpers: 'runtime',
-    }),
-    nodeResolve(),
-    commonjs(),
     postcss({
         // extract: utils.path.resolve("dist/" + name + "/style.css"),
 
@@ -53,33 +53,83 @@ const defaultPlugins = [
         sourceMap: true,
         // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
         extensions: ['.sass', '.scss', '.css'],
-        plugins: [
-            url({
-                url: 'inline', // enable inline assets using base64 encoding
-                maxSize: 10, // maximum file size to inline (in kilobytes)
-                fallback: 'copy', // fallback method to use if max size is exceeded
-            }),
-        ],
+        plugins: [nested(), cssnext({ warnForDuplicates: false }), cssnano()],
     }),
-    terser(),
-    json(),
-    strip(),
-    multi(),
     vue({
         css: false,
     }),
     vuetify(),
-    filesize(),
+    babel({
+        exclude: ['node_modules/**'],
+        babelHelpers: 'runtime',
+        configFile: path.resolve('../../../', 'babel.config.js'),
+    }),
+    nodeResolve(),
+    commonjs({
+        include: 'node_modules/**',
+    }),
+
+    json(),
+    image(),
+    multi(),
+    terser(),
+    strip(),
     progress({
         clearLine: false,
+    }),
+    filesize(),
+    buble(),
+    sizes({
+        details: true,
     }),
 ];
 
 const defaultGlobal = {
     'vuetify/lib': 'Vuetify',
     '@mdi/js': 'mdi-js',
+    '@babel/runtime-corejs3/helpers/esm/typeof': '_typeof',
+    '@babel/runtime-corejs3/core-js/object/define-property': '_Object$defineProperty',
+    '@babel/runtime-corejs3/core-js/object/define-properties': '_Object$defineProperties',
+    '@babel/runtime-corejs3/core-js/object/get-own-property-descriptors': '_Object$getOwnPropertyDescriptors',
+    '@babel/runtime-corejs3/core-js/object/get-own-property-descriptor': '_Object$getOwnPropertyDescriptor',
+    '@babel/runtime-corejs3/core-js/object/get-own-property-symbols': '_Object$getOwnPropertySymbols',
+    '@babel/runtime-corejs3/core-js/instance/filter': '_filterInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/includes': '_includesInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/find': '_findInstanceProperty',
+    '@babel/runtime-corejs3/core-js/object/keys': '_Object$keys',
+    '@babel/runtime-corejs3/core-js/instance/for-each': '_forEachInstanceProperty',
+    '@babel/runtime-corejs3/core-js/json/stringify': '_JSON$stringify',
+    '@babel/runtime-corejs3/core-js/instance/concat': '_concatInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/starts-with': '_startsWithInstanceProperty',
+    '@babel/runtime-corejs3/helpers/esm/defineProperty': '_defineProperty',
+    '@babel/runtime-corejs3/core-js/object/assign': '_Object$assign',
+    '@babel/runtime-corejs3/core-js/array/is-array': '_Array$isArray',
+    '@babel/runtime-corejs3/core-js/instance/map': '_mapInstanceProperty',
+    '@babel/runtime-corejs3/core-js/parse-int': '_parseInt',
+    '@babel/runtime-corejs3/core-js/instance/slice': '_sliceInstanceProperty',
+    '@babel/runtime-corejs3/core-js/parse-float': '_parseFloat',
+    '@babel/runtime-corejs3/helpers/esm/toConsumableArray': '_toConsumableArray',
+    '@babel/runtime-corejs3/regenerator': '_regeneratorRuntime',
+    '@babel/runtime-corejs3/helpers/esm/asyncToGenerator': '_asyncToGenerator',
+    '@babel/runtime-corejs3/core-js/promise': '_Promise',
+    '@babel/runtime-corejs3/core-js/get-iterator': '_getIterator',
+    '@babel/runtime-corejs3/core-js/get-iterator-method': '_getIteratorMethod',
+    '@babel/runtime-corejs3/core-js/symbol': '_Symbol',
+    '@babel/runtime-corejs3/core-js/array/from': '_Array$from',
+    '@babel/runtime-corejs3/core-js/instance/index-of': '_indexOfInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/reverse': '_reverseInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/ends-with': '_endsWithInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/reduce': '_reduceInstanceProperty',
+    'vue-runtime-helpers/dist/normalize-component.mjs': '__vue_normalize__',
 };
-const defaultExternal = ['vuetify/lib', '@mdi/js'];
+const defaultExternal = [
+    'vuetify/lib',
+    '@mdi/js',
+    /core-js/,
+    /@babel\/runtime-corejs3/,
+    /vue-runtime-helpers/,
+    /regenerator-runtime/,
+];
 
 const assignGlobal = (param = {}) => {
     if (param && Object.keys(param).length > 0) {

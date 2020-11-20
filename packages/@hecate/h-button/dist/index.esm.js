@@ -1,79 +1,37 @@
-import { VIcon as n, VBtn as t, VTooltip as o } from 'vuetify/lib';
-function e(n, t, o, e, i, r, s, c, l, a) {
-    'boolean' != typeof s && ((l = c), (c = s), (s = !1));
-    const d = 'function' == typeof o ? o.options : o;
-    let f;
-    if (
-        (n &&
-            n.render &&
-            ((d.render = n.render),
-            (d.staticRenderFns = n.staticRenderFns),
-            (d._compiled = !0),
-            i && (d.functional = !0)),
-        e && (d._scopeId = e),
-        r
-            ? ((f = function (n) {
-                  (n =
-                      n ||
-                      (this.$vnode && this.$vnode.ssrContext) ||
-                      (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext)) ||
-                      'undefined' == typeof __VUE_SSR_CONTEXT__ ||
-                      (n = __VUE_SSR_CONTEXT__),
-                      t && t.call(this, l(n)),
-                      n && n._registeredComponents && n._registeredComponents.add(r);
-              }),
-              (d._ssrRegister = f))
-            : t &&
-              (f = s
-                  ? function (n) {
-                        t.call(this, a(n, this.$root.$options.shadowRoot));
-                    }
-                  : function (n) {
-                        t.call(this, c(n));
-                    }),
-        f)
-    )
-        if (d.functional) {
-            const n = d.render;
-            d.render = function (t, o) {
-                return f.call(o), n(t, o);
-            };
-        } else {
-            const n = d.beforeCreate;
-            d.beforeCreate = n ? [].concat(n, f) : [f];
-        }
-    return o;
-}
-const i = e(
+import 'core-js/modules/es.function.name';
+import n from '@babel/runtime-corejs3/helpers/esm/typeof';
+import { VIcon as o, VBtn as t, VTooltip as e } from 'vuetify/lib';
+import i from 'vue-runtime-helpers/dist/normalize-component.mjs';
+var r = i(
     {
         render: function () {
             var n = this,
-                t = n.$createElement,
-                o = n._self._c || t;
-            return o(
+                o = n.$createElement,
+                t = n._self._c || o;
+            return t(
                 'v-tooltip',
                 {
                     attrs: { bottom: '' },
                     scopedSlots: n._u([
                         {
                             key: 'activator',
-                            fn: function (t) {
-                                var e = t.on;
+                            fn: function (o) {
+                                var e = o.on;
                                 return [
-                                    o(
+                                    t(
                                         'v-btn',
                                         n._g(
                                             {
                                                 attrs: { color: n.color, icon: n.icon },
                                                 on: {
-                                                    click: function (t) {
+                                                    click: function (o) {
                                                         return n.handleClick();
                                                     },
                                                 },
                                             },
                                             e
                                         ),
-                                        [o('v-icon', [n._v(n._s(n.iconName))])],
+                                        [t('v-icon', [n._v(n._s(n.iconName))])],
                                         1
                                     ),
                                 ];
@@ -81,18 +39,18 @@ const i = e(
                         },
                     ]),
                 },
-                [n._v(' '), o('span', [n._v(n._s(n.tooltip))])]
+                [n._v(' '), t('span', [n._v(n._s(n.tooltip))])]
             );
         },
         staticRenderFns: [],
     },
     undefined,
     {
-        components: { VIcon: n, VBtn: t, VTooltip: o },
+        components: { VIcon: o, VBtn: t, VTooltip: e },
         name: 'HButton',
         props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
         methods: {
-            handleClick() {
+            handleClick: function () {
                 this.$emit('click');
             },
         },
@@ -105,8 +63,8 @@ const i = e(
     void 0,
     void 0
 );
-(i.install = function (n) {
-    n.component(i.name, i);
+(r.install = function (n) {
+    n.component(r.name, r);
 }),
-    null != typeof window && window.Vue && i.install(window.Vue);
-export { i as HButton };
+    null != ('undefined' == typeof window ? 'undefined' : n(window)) && window.Vue && r.install(window.Vue);
+export { r as HButton };

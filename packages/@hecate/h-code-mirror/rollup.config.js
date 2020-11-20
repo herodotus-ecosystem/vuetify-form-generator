@@ -26,7 +26,6 @@ const configs = {
         jsonlint: 'jsonlint',
         htmlhint: 'htmlhint',
         'vue-codemirror': 'vueCodemirror',
-        'vuetify/lib': 'Vuetify',
     },
     external: [
         // 不被打包的库，比如在项目中会被引入
@@ -39,7 +38,7 @@ const configs = {
         'system',
         'vue-codemirror',
         'script-loader!jsonlint',
-        'vuetify/lib',
+        /codemirror/,
     ],
 };
 

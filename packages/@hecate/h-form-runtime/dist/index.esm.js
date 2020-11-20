@@ -1,77 +1,35 @@
+import 'core-js/modules/es.function.name';
+import e from '@babel/runtime-corejs3/helpers/esm/typeof';
 import {
-    VIcon as e,
-    VTooltip as t,
+    VIcon as t,
+    VTooltip as r,
     VToolbarTitle as o,
-    VToolbar as r,
+    VToolbar as i,
     VDivider as n,
-    VBtn as s,
-    VForm as i,
-    VCol as a,
-    VRow as l,
+    VBtn as a,
+    VForm as s,
+    VCol as l,
+    VRow as m,
     VCard as d,
 } from 'vuetify/lib';
 import { ValidationObserver as c } from 'vee-validate';
 import { HFormRenderer as v } from '@hecate/h-form-renderer';
-function f(e, t, o, r, n, s, i, a, l, d) {
-    'boolean' != typeof i && ((l = a), (a = i), (i = !1));
-    const c = 'function' == typeof o ? o.options : o;
-    let v;
-    if (
-        (e &&
-            e.render &&
-            ((c.render = e.render),
-            (c.staticRenderFns = e.staticRenderFns),
-            (c._compiled = !0),
-            n && (c.functional = !0)),
-        r && (c._scopeId = r),
-        s
-            ? ((v = function (e) {
-                  (e =
-                      e ||
-                      (this.$vnode && this.$vnode.ssrContext) ||
-                      (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext)) ||
-                      'undefined' == typeof __VUE_SSR_CONTEXT__ ||
-                      (e = __VUE_SSR_CONTEXT__),
-                      t && t.call(this, l(e)),
-                      e && e._registeredComponents && e._registeredComponents.add(s);
-              }),
-              (c._ssrRegister = v))
-            : t &&
-              (v = i
-                  ? function (e) {
-                        t.call(this, d(e, this.$root.$options.shadowRoot));
-                    }
-                  : function (e) {
-                        t.call(this, a(e));
-                    }),
-        v)
-    )
-        if (c.functional) {
-            const e = c.render;
-            c.render = function (t, o) {
-                return v.call(o), e(t, o);
-            };
-        } else {
-            const e = c.beforeCreate;
-            c.beforeCreate = e ? [].concat(e, v) : [v];
-        }
-    return o;
-}
-const m = f(
+import f from 'vue-runtime-helpers/dist/normalize-component.mjs';
+var u = f(
     {
         render: function () {
             var e = this,
                 t = e.$createElement,
-                o = e._self._c || t;
-            return o(
+                r = e._self._c || t;
+            return r(
                 'v-card',
                 { staticClass: 'pa-2' },
                 [
-                    o(
+                    r(
                         'v-toolbar',
                         { attrs: { flat: '' } },
                         [
-                            o(
+                            r(
                                 'v-tooltip',
                                 {
                                     attrs: { bottom: '' },
@@ -79,16 +37,16 @@ const m = f(
                                         {
                                             key: 'activator',
                                             fn: function (t) {
-                                                var r = t.on;
+                                                var o = t.on;
                                                 return [
-                                                    o(
+                                                    r(
                                                         'v-icon',
                                                         e._g(
                                                             {
                                                                 staticClass: 'mr-2',
                                                                 attrs: { tile: '', color: 'teal', large: '' },
                                                             },
-                                                            r
+                                                            o
                                                         ),
                                                         [e._v('mdi-clipboard-edit')]
                                                     ),
@@ -97,31 +55,31 @@ const m = f(
                                         },
                                     ]),
                                 },
-                                [e._v(' '), o('span', [e._v('返回')])]
+                                [e._v(' '), r('span', [e._v('返回')])]
                             ),
                             e._v(' '),
-                            o('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))]),
+                            r('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))]),
                         ],
                         1
                     ),
                     e._v(' '),
-                    o('v-divider', { staticClass: 'mb-2' }),
+                    r('v-divider', { staticClass: 'mb-2' }),
                     e._v(' '),
-                    o(
+                    r(
                         'v-row',
                         [
-                            o(
+                            r(
                                 'v-col',
                                 [
-                                    o(
+                                    r(
                                         'ValidationObserver',
                                         { ref: 'observer' },
                                         [
-                                            o(
+                                            r(
                                                 'v-form',
                                                 { ref: 'form' },
                                                 [
-                                                    o('h-form-renderer', {
+                                                    r('h-form-renderer', {
                                                         attrs: { schema: e.schema },
                                                         model: {
                                                             value: e.model,
@@ -132,7 +90,7 @@ const m = f(
                                                         },
                                                     }),
                                                     e._v(' '),
-                                                    o(
+                                                    r(
                                                         'v-btn',
                                                         {
                                                             staticClass: 'mr-4',
@@ -142,7 +100,7 @@ const m = f(
                                                         [e._v('保存')]
                                                     ),
                                                     e._v(' '),
-                                                    o(
+                                                    r(
                                                         'v-btn',
                                                         {
                                                             staticClass: 'mr-4',
@@ -175,24 +133,26 @@ const m = f(
         components: {
             ValidationObserver: c,
             HFormRenderer: v,
-            VIcon: e,
-            VTooltip: t,
+            VIcon: t,
+            VTooltip: r,
             VToolbarTitle: o,
-            VToolbar: r,
+            VToolbar: i,
             VDivider: n,
-            VBtn: s,
-            VForm: i,
-            VCol: a,
-            VRow: l,
+            VBtn: a,
+            VForm: s,
+            VCol: l,
+            VRow: m,
             VCard: d,
         },
-        props: { schema: { type: Object, default: () => {} }, title: { type: String, default: '动态表单' } },
-        data: () => ({ model: {} }),
+        props: { schema: { type: Object, default: function () {} }, title: { type: String, default: '动态表单' } },
+        data: function () {
+            return { model: {} };
+        },
         methods: {
-            saveOrUpdate() {
-                this.$refs.observer.validate().then((e) => {});
+            saveOrUpdate: function () {
+                this.$refs.observer.validate().then(function (e) {});
             },
-            clear() {
+            clear: function () {
                 (this.model = {}), this.$refs.form.reset(), this.$refs.observer.reset();
             },
         },
@@ -205,8 +165,8 @@ const m = f(
     void 0,
     void 0
 );
-(m.install = function (e) {
-    e.component(m.name, m);
+(u.install = function (e) {
+    e.component(u.name, u);
 }),
-    null != typeof window && window.Vue && m.install(window.Vue);
-export { m as HFormRuntime };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && u.install(window.Vue);
+export { u as HFormRuntime };

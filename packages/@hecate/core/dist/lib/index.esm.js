@@ -1,191 +1,230 @@
-import e from 'moment';
+import n from 'moment';
 export { default as moment } from 'moment';
 import * as t from 'lodash';
 export { t as lodash };
 export { default as shortid } from 'shortid';
-import r from 'sweetalert2';
-import o from 'localforage';
-String.prototype.format = function (e) {
-    var t = function (e, t) {
+import e from 'sweetalert2';
+import r from '@babel/runtime-corejs3/core-js/json/stringify';
+import o from '@babel/runtime-corejs3/core-js/instance/keys';
+import c from '@babel/runtime-corejs3/core-js/promise';
+import i from 'localforage';
+import u from '@babel/runtime-corejs3/core-js/instance/splice';
+import f from '@babel/runtime-corejs3/core-js/instance/find-index';
+import a from '@babel/runtime-corejs3/core-js/instance/find';
+import s from '@babel/runtime-corejs3/core-js/instance/sort';
+import m from '@babel/runtime-corejs3/core-js/object/keys';
+import l from '@babel/runtime-corejs3/core-js/instance/map';
+import p from '@babel/runtime-corejs3/core-js/instance/for-each';
+require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
+var h = require('@babel/runtime-corejs3/core-js/instance/slice'),
+    j = require('@babel/runtime-corejs3/helpers/typeof');
+String.prototype.format = function (n) {
+    var t = function (n, t) {
         return (
-            (t = 'object' == typeof t ? t : Array.prototype.slice.call(arguments, 1)),
-            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
-                return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
+            (t = 'object' === j(t) ? t : h(Array.prototype).call(arguments, 1)),
+            n.replace(/\{\{|\}\}|\{(\w+)\}/g, function (n, e) {
+                return '{{' == n ? '{' : '}}' == n ? '}' : t[e];
             })
         );
     };
-    return t(this, (e = 'object' == typeof e ? e : Array.prototype.slice.call(arguments, 0)));
+    return t(this, (n = 'object' === j(n) ? n : h(Array.prototype).call(arguments, 0)));
 };
-const n = r,
-    i = {
-        information: (e, t) => n.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 }),
-        info(e) {
-            this.information(e, 'info');
+var b = e,
+    g = {
+        information: function (n, t) {
+            return b.fire({ position: 'top', title: n, icon: t, timer: 2e3, showConfirmButton: !1 });
         },
-        error(e) {
-            this.information(e, 'error');
+        info: function (n) {
+            this.information(n, 'info');
         },
-        warning(e) {
-            this.information(e, 'warning');
+        error: function (n) {
+            this.information(n, 'error');
         },
-        success(e) {
-            this.information(e, 'success');
+        warning: function (n) {
+            this.information(n, 'warning');
         },
-        question(e) {
-            this.information(e, 'question');
+        success: function (n) {
+            this.information(n, 'success');
+        },
+        question: function (n) {
+            this.information(n, 'question');
         },
     },
-    c = {
-        getItem: (e) =>
-            new Promise((t, r) => {
-                o.getItem(e)
-                    .then((e) => {
-                        t(e);
+    v = {
+        getItem: function (n) {
+            return new c(function (t, e) {
+                i.getItem(n)
+                    .then(function (n) {
+                        t(n);
                     })
-                    .catch((e) => {
-                        r(e);
+                    .catch(function (n) {
+                        e(n);
                     });
-            }),
-        setItem: (e, t) =>
-            new Promise((r, n) => {
-                o.setItem(e, t)
-                    .then((e) => {
-                        r(e);
+            });
+        },
+        setItem: function (n, t) {
+            return new c(function (e, r) {
+                i.setItem(n, t)
+                    .then(function (n) {
+                        e(n);
                     })
-                    .catch((e) => {
-                        n(e);
+                    .catch(function (n) {
+                        r(n);
                     });
-            }),
-        removeItem: (e) =>
-            new Promise((t, r) => {
-                o.removeItem(e)
-                    .then(() => {
+            });
+        },
+        removeItem: function (n) {
+            return new c(function (t, e) {
+                i.removeItem(n)
+                    .then(function () {
                         t();
                     })
-                    .catch((e) => {
-                        r(e);
+                    .catch(function (n) {
+                        e(n);
                     });
-            }),
-        clear: () =>
-            new Promise((e, t) => {
-                o.clear()
-                    .then(() => {
-                        e();
-                    })
-                    .catch((e) => {
-                        t(e);
-                    });
-            }),
-        length: () =>
-            new Promise((e, t) => {
-                o.length()
-                    .then((t) => {
-                        e(t);
-                    })
-                    .catch((e) => {
-                        t(e);
-                    });
-            }),
-        key: (e) =>
-            new Promise((t, r) => {
-                o.key(e)
-                    .then((e) => {
-                        t(e);
-                    })
-                    .catch((e) => {
-                        r(e);
-                    });
-            }),
-        keys: () =>
-            new Promise((e, t) => {
-                o.keys()
-                    .then((t) => {
-                        e(t);
-                    })
-                    .catch((e) => {
-                        t(e);
-                    });
-            }),
-        iterate: () =>
-            new Promise((e, t) => {
-                o.iterate((t, r, o) => {
-                    e([t, r, o]);
-                })
-                    .then((t) => {
-                        e(t);
-                    })
-                    .catch((e) => {
-                        t(e);
-                    });
-            }),
-        setDriver: (e) =>
-            new Promise((t, r) => {
-                t(o.setDriver(e));
-            }),
-        config: (e) =>
-            new Promise((t, r) => {
-                t(o.config(e));
-            }),
-        createInstance: (e) =>
-            new Promise((t, r) => {
-                t(o.createInstance(e));
-            }),
-    },
-    a = {
-        setObject(e, t) {
-            localStorage.setItem(e, JSON.stringify(t));
+            });
         },
-        getObject(e) {
-            let t = localStorage.getItem(e);
+        clear: function () {
+            return new c(function (n, t) {
+                i.clear()
+                    .then(function () {
+                        n();
+                    })
+                    .catch(function (n) {
+                        t(n);
+                    });
+            });
+        },
+        length: function () {
+            return new c(function (n, t) {
+                i.length()
+                    .then(function (t) {
+                        n(t);
+                    })
+                    .catch(function (n) {
+                        t(n);
+                    });
+            });
+        },
+        key: function (n) {
+            return new c(function (t, e) {
+                i.key(n)
+                    .then(function (n) {
+                        t(n);
+                    })
+                    .catch(function (n) {
+                        e(n);
+                    });
+            });
+        },
+        keys: function () {
+            return new c(function (n, t) {
+                o(i)
+                    .call(i)
+                    .then(function (t) {
+                        n(t);
+                    })
+                    .catch(function (n) {
+                        t(n);
+                    });
+            });
+        },
+        iterate: function () {
+            return new c(function (n, t) {
+                i.iterate(function (t, e, r) {
+                    n([t, e, r]);
+                })
+                    .then(function (t) {
+                        n(t);
+                    })
+                    .catch(function (n) {
+                        t(n);
+                    });
+            });
+        },
+        setDriver: function (n) {
+            return new c(function (t, e) {
+                t(i.setDriver(n));
+            });
+        },
+        config: function (n) {
+            return new c(function (t, e) {
+                t(i.config(n));
+            });
+        },
+        createInstance: function (n) {
+            return new c(function (t, e) {
+                t(i.createInstance(n));
+            });
+        },
+    },
+    w = {
+        setObject: function (n, t) {
+            localStorage.setItem(n, r(t));
+        },
+        getObject: function (n) {
+            var t = localStorage.getItem(n);
             return t ? JSON.parse(t) : null;
         },
-        setItem(e, t) {
-            localStorage.setItem(e, t);
+        setItem: function (n, t) {
+            localStorage.setItem(n, t);
         },
-        getItem: (e) => localStorage.getItem(e),
-        removeItem(e) {
-            localStorage.removeItem(e);
+        getItem: function (n) {
+            return localStorage.getItem(n);
         },
-        clear() {
+        removeItem: function (n) {
+            localStorage.removeItem(n);
+        },
+        clear: function () {
             localStorage.clear();
         },
-        isExist: (e) => !(!e || !(e in localStorage)),
+        isExist: function (n) {
+            return !(!n || !(n in localStorage));
+        },
     },
-    s = {
+    I = {
         array: {
-            groupBy(e, t) {
-                const r = {};
+            groupBy: function (n, t) {
+                var e,
+                    r = {};
                 return (
-                    e.forEach(function (e) {
-                        const o = t(e);
-                        (r[o] = r[o] || []), r[o].push(e);
+                    p(n).call(n, function (n) {
+                        var e = t(n);
+                        (r[e] = r[e] || []), r[e].push(n);
                     }),
-                    Object.keys(r).map(function (e) {
-                        return r[e];
+                    l((e = m(r))).call(e, function (n) {
+                        return r[n];
                     })
                 );
             },
-            sort: (e, t) =>
-                e.sort(function (e, r) {
-                    var o = e[t],
-                        n = r[t];
-                    return o < n ? -1 : o > n ? 1 : 0;
-                }),
-            find: (e, t, r) => e.find((e) => e[r] === t[r]),
-            remove(e, t, r) {
-                const o = e.findIndex((e) => e[r] === t[r]);
-                return e.splice(o, 1), e;
+            sort: function (n, t) {
+                return s(n).call(n, function (n, e) {
+                    var r = n[t],
+                        o = e[t];
+                    return r < o ? -1 : r > o ? 1 : 0;
+                });
+            },
+            find: function (n, t, e) {
+                return a(n).call(n, function (n) {
+                    return n[e] === t[e];
+                });
+            },
+            remove: function (n, t, e) {
+                var r = f(n).call(n, function (n) {
+                    return n[e] === t[e];
+                });
+                return u(n).call(n, r, 1), n;
             },
         },
         object: {
-            isEmpty(e) {
-                if (e) {
-                    let t = Object.keys(e);
+            isEmpty: function (n) {
+                if (n) {
+                    var t = m(n);
                     return !(t && t.length > 0);
                 }
                 return !0;
             },
         },
     };
-e.locale('zh-cn');
-export { i as notify, c as storage, a as storageSync, n as swal, s as tools };
+n.locale('zh-cn');
+export { g as notify, v as storage, w as storageSync, b as swal, I as tools };

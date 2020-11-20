@@ -1,13 +1,3 @@
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import strip from '@rollup/plugin-strip';
-import multi from '@rollup/plugin-multi-entry';
-import { terser } from 'rollup-plugin-terser';
-import filesize from 'rollup-plugin-filesize';
-import progress from 'rollup-plugin-progress';
-
 const { utils, rollups } = require('../../../scripts');
 
 /**
@@ -44,22 +34,6 @@ const configs = {
         'shortid',
         'localforage',
         'lodash',
-    ],
-    plugins: [
-        nodeResolve(),
-        commonjs(),
-        babel({
-            exclude: 'node_modules/**',
-            babelHelpers: 'runtime',
-        }),
-        terser(),
-        filesize(),
-        json(),
-        strip(),
-        multi(),
-        progress({
-            clearLine: false,
-        }),
     ],
 };
 
