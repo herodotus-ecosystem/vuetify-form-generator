@@ -76,7 +76,7 @@
         "lint-staged": "^10.5.1",
         "postcss": "7.0.35",
         "postcss-url": "9.0.0",
-        "prettier": "^2.1.2",
+        "prettier": "^2.2.0",
         "rollup": "^2.33.3",
         "rollup-plugin-filesize": "^9.0.2",
         "rollup-plugin-postcss": "^3.1.8",
