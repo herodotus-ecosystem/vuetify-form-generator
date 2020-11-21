@@ -9,6 +9,7 @@
         "packages/@hecate/h-form-renderer",
         "packages/@hecate/h-form-runtime",
         "packages/@hecate/h-icon-list",
+        "packages/@hecate/h-bpmn-moddle",
         "packages/@hecate/form-generator",
         "packages/@hecate/form-service"
     ],
@@ -24,6 +25,7 @@
         "ws:renderer": "yarn workspace @hecate/h-form-renderer",
         "ws:runtime": "yarn workspace @hecate/h-form-runtime",
         "ws:iconlist": "yarn workspace @hecate/h-icon-list",
+        "ws:moddle": "yarn workspace @hecate/h-bpmn-moddle",
         "ws:service": "yarn workspace @hecate/form-service",
         "storybook": "start-storybook -p 9898"
     },
