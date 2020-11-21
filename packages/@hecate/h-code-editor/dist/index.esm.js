@@ -8,14 +8,14 @@ import {
     VSwitch as n,
     VSelect as i,
     VToolbar as d,
-    VCard as l,
+    VCard as l
 } from 'vuetify/lib';
 import { HButton as s } from '@hecate/h-button';
 import { HCodeMirror as c } from '@hecate/h-code-mirror';
 import m from 'vue-runtime-helpers/dist/normalize-component.mjs';
 var h = m(
     {
-        render: function () {
+        render: function() {
             var e = this,
                 o = e.$createElement,
                 t = e._self._c || o;
@@ -41,15 +41,15 @@ var h = m(
                                     'true-value': !1,
                                     'false-value': !0,
                                     inset: '',
-                                    'hide-details': '',
+                                    'hide-details': ''
                                 },
                                 model: {
                                     value: e.readOnly,
-                                    callback: function (o) {
+                                    callback: function(o) {
                                         e.readOnly = o;
                                     },
-                                    expression: 'readOnly',
-                                },
+                                    expression: 'readOnly'
+                                }
                             }),
                             e._v(' '),
                             t('v-select', {
@@ -62,9 +62,9 @@ var h = m(
                                     dense: '',
                                     label: '请选择主题',
                                     'prepend-inner-icon': 'mdi-theme-light-dark',
-                                    'no-data-text': '没有数据',
+                                    'no-data-text': '没有数据'
                                 },
-                                on: { change: e.onThemeChange },
+                                on: { change: e.onThemeChange }
                             }),
                             e._v(' '),
                             t('v-select', {
@@ -77,12 +77,12 @@ var h = m(
                                     dense: '',
                                     label: '请选择编辑模式',
                                     'prepend-inner-icon': 'mdi-codepen',
-                                    'no-data-text': '没有数据',
+                                    'no-data-text': '没有数据'
                                 },
-                                on: { change: e.onModeChange },
+                                on: { change: e.onModeChange }
                             }),
                             e._v(' '),
-                            t('v-btn', { attrs: { icon: '' } }, [t('v-icon', [e._v('mdi-apps')])], 1),
+                            t('v-btn', { attrs: { icon: '' } }, [t('v-icon', [e._v('mdi-apps')])], 1)
                         ],
                         1
                     ),
@@ -91,17 +91,17 @@ var h = m(
                         attrs: { mode: e.codeMirrorMode, theme: e.codeMirrorTheme, 'read-only': e.readOnly },
                         model: {
                             value: e.sourceCode,
-                            callback: function (o) {
+                            callback: function(o) {
                                 e.sourceCode = o;
                             },
-                            expression: 'sourceCode',
-                        },
-                    }),
+                            expression: 'sourceCode'
+                        }
+                    })
                 ],
                 1
             );
         },
-        staticRenderFns: [],
+        staticRenderFns: []
     },
     undefined,
     {
@@ -116,9 +116,9 @@ var h = m(
             VSwitch: n,
             VSelect: i,
             VToolbar: d,
-            VCard: l,
+            VCard: l
         },
-        data: function () {
+        data: function() {
             return {
                 modeOptions: [
                     'default',
@@ -138,7 +138,7 @@ var h = m(
                     'css',
                     'xml',
                     'yaml',
-                    'vue',
+                    'vue'
                 ],
                 themeOptions: [
                     'default',
@@ -203,21 +203,21 @@ var h = m(
                     'xq-light',
                     'yeti',
                     'yonce',
-                    'zenburn',
+                    'zenburn'
                 ],
                 codeMirrorMode: 'default',
                 codeMirrorTheme: 'default',
                 sourceCode: '',
-                readOnly: !1,
+                readOnly: !1
             };
         },
         computed: {
-            readOnlyLabel: function () {
+            readOnlyLabel: function() {
                 return this.readOnly ? '只读' : '编辑';
-            },
+            }
         },
         methods: {
-            switchCodeMirrorMode: function (e) {
+            switchCodeMirrorMode: function(e) {
                 switch (e) {
                     case 'json':
                         return 'application/json';
@@ -227,13 +227,13 @@ var h = m(
                         return e;
                 }
             },
-            onModeChange: function (e) {
+            onModeChange: function(e) {
                 this.codeMirrorMode = this.switchCodeMirrorMode(e);
             },
-            onThemeChange: function (e) {
+            onThemeChange: function(e) {
                 this.codeMirrorTheme = e;
-            },
-        },
+            }
+        }
     },
     undefined,
     false,
@@ -243,7 +243,7 @@ var h = m(
     void 0,
     void 0
 );
-(h.install = function (e) {
+(h.install = function(e) {
     e.component(h.name, h);
 }),
     null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && h.install(window.Vue);

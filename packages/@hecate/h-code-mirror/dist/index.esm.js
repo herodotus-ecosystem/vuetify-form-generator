@@ -66,7 +66,7 @@ import t from 'csslint';
 import { parser as d } from 'jsonlint';
 var n = e(
     {
-        render: function () {
+        render: function() {
             var o = this,
                 r = o.$createElement;
             return (o._self._c || r)('codemirror', {
@@ -75,14 +75,14 @@ var n = e(
                 on: { ready: o.onReady },
                 model: {
                     value: o.sourceCode,
-                    callback: function (r) {
+                    callback: function(r) {
                         o.sourceCode = r;
                     },
-                    expression: 'sourceCode',
-                },
+                    expression: 'sourceCode'
+                }
             });
         },
-        staticRenderFns: [],
+        staticRenderFns: []
     },
     undefined,
     {
@@ -92,20 +92,20 @@ var n = e(
             value: { type: String, default: '', required: !0 },
             theme: { type: String, default: 'default' },
             mode: { type: String, default: 'default' },
-            readOnly: { type: Boolean, default: !1 },
+            readOnly: { type: Boolean, default: !1 }
         },
-        data: function () {
+        data: function() {
             return { sourceCode: '' };
         },
         computed: {
-            currentMode: function () {
+            currentMode: function() {
                 return this.mode && 'default' != this.mode ? this.mode : 'application/json';
             },
-            currentTheme: function () {
+            currentTheme: function() {
                 var o = this.theme && 'default' != this.theme ? this.theme : 'material-darker';
                 return require('codemirror/theme/' + o + '.css'), o;
             },
-            options: function () {
+            options: function() {
                 return {
                     mode: this.currentMode,
                     theme: this.currentTheme,
@@ -132,46 +132,46 @@ var n = e(
                     lint: !0,
                     styleSelectedText: !0,
                     styleActiveLine: !0,
-                    hintOptions: { completeSingle: !1 },
+                    hintOptions: { completeSingle: !1 }
                 };
             },
-            currentCodeMirror: function () {
+            currentCodeMirror: function() {
                 return this.$refs.editor.codemirror;
-            },
+            }
         },
-        created: function () {},
+        created: function() {},
         watch: {
             value: {
-                handler: function (o, r) {
+                handler: function(o, r) {
                     this.sourceCode = o;
                 },
-                immediate: !0,
+                immediate: !0
             },
             sourceCode: {
-                handler: function (o, r) {
+                handler: function(o, r) {
                     this.$emit('input', o);
-                },
+                }
             },
             mode: {
-                handler: function (o, r) {
+                handler: function(o, r) {
                     this.resetLint();
-                },
-            },
+                }
+            }
         },
         methods: {
-            resetLint: function () {
+            resetLint: function() {
                 var o = this;
                 this.$refs.editor.codemirror.setOption('lint', !1),
-                    this.$nextTick(function () {
+                    this.$nextTick(function() {
                         o.$refs.editor.codemirror.setOption('lint', !0);
                     });
             },
-            onReady: function (o) {
-                o.on('keypress', function () {
+            onReady: function(o) {
+                o.on('keypress', function() {
                     o.showHint({ completeSingle: !1 });
                 });
-            },
-        },
+            }
+        }
     },
     undefined,
     false,
@@ -184,7 +184,7 @@ var n = e(
 (window.JSHINT = i),
     (window.CSSLint = t),
     (window.jsonlint = d),
-    (n.install = function (o) {
+    (n.install = function(o) {
         o.component(n.name, n);
     }),
     null != ('undefined' == typeof window ? 'undefined' : o(window)) && window.Vue && n.install(window.Vue);

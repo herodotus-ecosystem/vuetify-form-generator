@@ -16,9 +16,11 @@ const {
     vuetify,
     nested,
     cssnext,
-    cssnano,
+    cssnano
 } = require('./rollup.plugins');
-const { path } = require('./utils');
+
+const { path, assignObject, assignArray } = require('./utils');
+const { helperGlobal } = require('./runtime.helper');
 
 /**
  * globals配置写法与import配置写法正好相反
@@ -39,6 +41,23 @@ const { path } = require('./utils');
  * };
  */
 
+const commonGlobal = {
+    'vuetify/lib': 'Vuetify',
+    '@mdi/js': 'mdi-js'
+};
+
+const defaultGlobal = assignObject(helperGlobal, commonGlobal);
+
+const defaultExternal = [
+    'vuetify/lib',
+    '@mdi/js',
+    /core-js/,
+    /@babel/,
+    /@babel\/runtime-corejs3/,
+    /vue-runtime-helpers/,
+    /regenerator-runtime/
+];
+
 const defaultPlugins = [
     postcss({
         // extract: utils.path.resolve("dist/" + name + "/style.css"),
@@ -53,20 +72,24 @@ const defaultPlugins = [
         sourceMap: true,
         // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
         extensions: ['.sass', '.scss', '.css'],
-        plugins: [nested(), cssnext({ warnForDuplicates: false }), cssnano()],
+        plugins: [nested(), cssnext({ warnForDuplicates: false }), cssnano()]
     }),
     vue({
-        css: false,
+        css: false
     }),
     vuetify(),
     babel({
         exclude: ['node_modules/**'],
         babelHelpers: 'runtime',
-        configFile: path.resolve('../../../', 'babel.config.js'),
+        configFile: path.resolve('../../../', 'babel.config.js')
     }),
-    nodeResolve(),
+    nodeResolve({
+        customResolveOptions: {
+            moduleDirectory: 'node_modules'
+        }
+    }),
     commonjs({
-        include: 'node_modules/**',
+        include: 'node_modules/**'
     }),
 
     json(),
@@ -75,77 +98,14 @@ const defaultPlugins = [
     terser(),
     strip(),
     progress({
-        clearLine: false,
+        clearLine: false
     }),
     filesize(),
     buble(),
     sizes({
-        details: true,
-    }),
+        details: true
+    })
 ];
-
-const defaultGlobal = {
-    'vuetify/lib': 'Vuetify',
-    '@mdi/js': 'mdi-js',
-    '@babel/runtime-corejs3/core-js/array/from': '_Array$from',
-    '@babel/runtime-corejs3/core-js/array/is-array': '_Array$isArray',
-    '@babel/runtime-corejs3/core-js/get-iterator': '_getIterator',
-    '@babel/runtime-corejs3/core-js/get-iterator-method': '_getIteratorMethod',
-    '@babel/runtime-corejs3/core-js/json/stringify': '_JSON$stringify',
-    '@babel/runtime-corejs3/core-js/object/define-property': '_Object$defineProperty',
-    '@babel/runtime-corejs3/core-js/object/define-properties': '_Object$defineProperties',
-    '@babel/runtime-corejs3/core-js/object/get-own-property-descriptors': '_Object$getOwnPropertyDescriptors',
-    '@babel/runtime-corejs3/core-js/object/get-own-property-descriptor': '_Object$getOwnPropertyDescriptor',
-    '@babel/runtime-corejs3/core-js/object/get-own-property-symbols': '_Object$getOwnPropertySymbols',
-    '@babel/runtime-corejs3/core-js/object/keys': '_Object$keys',
-    '@babel/runtime-corejs3/core-js/object/assign': '_Object$assign',
-    '@babel/runtime-corejs3/core-js/parse-int': '_parseInt',
-    '@babel/runtime-corejs3/core-js/parse-float': '_parseFloat',
-    '@babel/runtime-corejs3/core-js/promise': '_Promise',
-    '@babel/runtime-corejs3/core-js/symbol': '_Symbol',
-    '@babel/runtime-corejs3/core-js/instance/map': '_mapInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/concat': '_concatInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/starts-with': '_startsWithInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/for-each': '_forEachInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/filter': '_filterInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/includes': '_includesInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/find': '_findInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/index-of': '_indexOfInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/reverse': '_reverseInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/ends-with': '_endsWithInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/reduce': '_reduceInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/slice': '_sliceInstanceProperty',
-    '@babel/runtime-corejs3/helpers/esm/asyncToGenerator': '_asyncToGenerator',
-    '@babel/runtime-corejs3/helpers/esm/defineProperty': '_defineProperty',
-    '@babel/runtime-corejs3/helpers/esm/toConsumableArray': '_toConsumableArray',
-    '@babel/runtime-corejs3/helpers/esm/typeof': '_typeof',
-    '@babel/runtime-corejs3/regenerator': '_regeneratorRuntime',
-    'vue-runtime-helpers/dist/normalize-component.mjs': '__vue_normalize__',
-};
-const defaultExternal = [
-    'vuetify/lib',
-    '@mdi/js',
-    /core-js/,
-    /@babel\/runtime-corejs3/,
-    /vue-runtime-helpers/,
-    /regenerator-runtime/,
-];
-
-const assignGlobal = (param = {}) => {
-    if (param && Object.keys(param).length > 0) {
-        return Object.assign(defaultGlobal, param);
-    } else {
-        return defaultGlobal;
-    }
-};
-
-const assignExternal = (param = []) => {
-    if (param && param.length > 0) {
-        return param.concat(defaultExternal);
-    } else {
-        return defaultExternal;
-    }
-};
 
 /**
  * amd – 异步模块定义，用于像RequireJS这样的模块加载器
@@ -166,7 +126,7 @@ const createOutputType = (entryKey, entryValue, format, globals = {}) => {
     }
 
     result.format = format;
-    result.globals = assignGlobal(globals);
+    result.globals = assignObject(globals, defaultGlobal);
 
     if (format === 'umd' || format === 'iife') {
         result.name = entryKey;
@@ -194,7 +154,7 @@ const createEntry = (name, path, configs) => {
         input: path,
         output: createOutput(name, path, configs),
         plugins: configs.plugins ? configs.plugins : defaultPlugins,
-        external: assignExternal(configs.external),
+        external: assignArray(configs.external, defaultExternal)
     };
 };
 

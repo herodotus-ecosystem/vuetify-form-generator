@@ -8,9 +8,9 @@ module.exports = {
                 useBuiltIns: 'usage',
                 shippedProposals: true,
                 corejs: { version: 3, proposals: true },
-                targets: '> 0.25%, not dead',
-            },
-        ],
+                targets: '> 0.25%, not dead'
+            }
+        ]
     ],
     plugins: [
         '@babel/plugin-syntax-dynamic-import',
@@ -19,10 +19,12 @@ module.exports = {
         [
             '@babel/plugin-transform-runtime',
             {
+                // 这里的corejs与presets里设置的corejs是不同的，这里的corejs指定了一个runtime-corejs的版本，因此使用时也需要通过 NPM 安装对应的包
+                // https://blog.windstone.cc/es6/babel/@babel/plugin-transform-runtime.html#%E4%BD%BF%E7%94%A8-babel-plugin-transform-runtime-%E7%9A%84%E5%8E%9F%E5%9B%A0
                 corejs: { version: 3, proposals: true },
-                useESModules: true,
-            },
-        ],
+                useESModules: true
+            }
+        ]
     ],
-    sourceType: 'unambiguous',
+    sourceType: 'unambiguous'
 };

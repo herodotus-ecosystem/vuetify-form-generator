@@ -15,7 +15,6 @@
         "dev": "yarn build"
     },
     "dependencies": {
-        "core-js": "^3.7.0",
         "csslint": "^1.0.5",
         "file": "^0.2.2",
         "htmlhint": "^0.14.2",

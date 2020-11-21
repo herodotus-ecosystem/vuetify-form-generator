@@ -24,7 +24,7 @@
         "@nuxtjs/eslint-config": "^5.0.0",
         "@nuxtjs/eslint-module": "^3.0.1",
         "@nuxtjs/vuetify": "^1.11.2",
-        "eslint": "^7.10.0",
+        "eslint": "^7.14.0",
         "eslint-plugin-nuxt": "^2.0.0",
         "remark-footnotes": "2.0.0"
     }

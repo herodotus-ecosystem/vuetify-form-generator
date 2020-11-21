@@ -37,11 +37,27 @@ function getEntries(folders, regex) {
 
     let entries = files.reduce((obj, file) => {
         return Object.assign(obj, {
-            [path.basename(path.dirname(file))]: './' + file,
+            [path.basename(path.dirname(file))]: './' + file
         });
     }, {});
 
     return entries;
 }
 
-module.exports = { path, resolve, getFiles, getEntries };
+function assignObject(params = {}, defaultParams = {}) {
+    if (params && Object.keys(params).length > 0) {
+        return Object.assign(defaultParams, params);
+    } else {
+        return defaultParams;
+    }
+}
+
+function assignArray(params = [], defaultParams = []) {
+    if (params && params.length > 0) {
+        return params.concat(defaultParams);
+    } else {
+        return defaultParams;
+    }
+}
+
+module.exports = { path, resolve, getFiles, getEntries, assignObject, assignArray };

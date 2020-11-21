@@ -23,11 +23,11 @@ import y from '@babel/runtime-corejs3/helpers/esm/createClass';
 require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
 var P = require('@babel/runtime-corejs3/core-js/instance/slice'),
     x = require('@babel/runtime-corejs3/helpers/typeof');
-String.prototype.format = function (e) {
-    var t = function (e, t) {
+String.prototype.format = function(e) {
+    var t = function(e, t) {
         return (
             (t = 'object' === x(t) ? t : P(Array.prototype).call(arguments, 1)),
-            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, r) {
+            e.replace(/\{\{|\}\}|\{(\w+)\}/g, function(e, r) {
                 return '{{' == e ? '{' : '}}' == e ? '}' : t[r];
             })
         );
@@ -36,200 +36,200 @@ String.prototype.format = function (e) {
 };
 var w = n,
     N = {
-        information: function (e, t) {
+        information: function(e, t) {
             return w.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 });
         },
-        info: function (e) {
+        info: function(e) {
             this.information(e, 'info');
         },
-        error: function (e) {
+        error: function(e) {
             this.information(e, 'error');
         },
-        warning: function (e) {
+        warning: function(e) {
             this.information(e, 'warning');
         },
-        success: function (e) {
+        success: function(e) {
             this.information(e, 'success');
         },
-        question: function (e) {
+        question: function(e) {
             this.information(e, 'question');
-        },
+        }
     },
     T = {
-        getItem: function (e) {
-            return new i(function (t, r) {
+        getItem: function(e) {
+            return new i(function(t, r) {
                 c.getItem(e)
-                    .then(function (e) {
+                    .then(function(e) {
                         t(e);
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         r(e);
                     });
             });
         },
-        setItem: function (e, t) {
-            return new i(function (r, n) {
+        setItem: function(e, t) {
+            return new i(function(r, n) {
                 c.setItem(e, t)
-                    .then(function (e) {
+                    .then(function(e) {
                         r(e);
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         n(e);
                     });
             });
         },
-        removeItem: function (e) {
-            return new i(function (t, r) {
+        removeItem: function(e) {
+            return new i(function(t, r) {
                 c.removeItem(e)
-                    .then(function () {
+                    .then(function() {
                         t();
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         r(e);
                     });
             });
         },
-        clear: function () {
-            return new i(function (e, t) {
+        clear: function() {
+            return new i(function(e, t) {
                 c.clear()
-                    .then(function () {
+                    .then(function() {
                         e();
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         t(e);
                     });
             });
         },
-        length: function () {
-            return new i(function (e, t) {
+        length: function() {
+            return new i(function(e, t) {
                 c.length()
-                    .then(function (t) {
+                    .then(function(t) {
                         e(t);
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         t(e);
                     });
             });
         },
-        key: function (e) {
-            return new i(function (t, r) {
+        key: function(e) {
+            return new i(function(t, r) {
                 c.key(e)
-                    .then(function (e) {
+                    .then(function(e) {
                         t(e);
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         r(e);
                     });
             });
         },
-        keys: function () {
-            return new i(function (e, t) {
+        keys: function() {
+            return new i(function(e, t) {
                 a(c)
                     .call(c)
-                    .then(function (t) {
+                    .then(function(t) {
                         e(t);
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         t(e);
                     });
             });
         },
-        iterate: function () {
-            return new i(function (e, t) {
-                c.iterate(function (t, r, n) {
+        iterate: function() {
+            return new i(function(e, t) {
+                c.iterate(function(t, r, n) {
                     e([t, r, n]);
                 })
-                    .then(function (t) {
+                    .then(function(t) {
                         e(t);
                     })
-                    .catch(function (e) {
+                    .catch(function(e) {
                         t(e);
                     });
             });
         },
-        setDriver: function (e) {
-            return new i(function (t, r) {
+        setDriver: function(e) {
+            return new i(function(t, r) {
                 t(c.setDriver(e));
             });
         },
-        config: function (e) {
-            return new i(function (t, r) {
+        config: function(e) {
+            return new i(function(t, r) {
                 t(c.config(e));
             });
         },
-        createInstance: function (e) {
-            return new i(function (t, r) {
+        createInstance: function(e) {
+            return new i(function(t, r) {
                 t(c.createInstance(e));
             });
-        },
+        }
     },
     A = {
-        setObject: function (e, t) {
+        setObject: function(e, t) {
             localStorage.setItem(e, o(t));
         },
-        getObject: function (e) {
+        getObject: function(e) {
             var t = localStorage.getItem(e);
             return t ? JSON.parse(t) : null;
         },
-        setItem: function (e, t) {
+        setItem: function(e, t) {
             localStorage.setItem(e, t);
         },
-        getItem: function (e) {
+        getItem: function(e) {
             return localStorage.getItem(e);
         },
-        removeItem: function (e) {
+        removeItem: function(e) {
             localStorage.removeItem(e);
         },
-        clear: function () {
+        clear: function() {
             localStorage.clear();
         },
-        isExist: function (e) {
+        isExist: function(e) {
             return !(!e || !(e in localStorage));
-        },
+        }
     },
     k = {
         array: {
-            groupBy: function (e, t) {
+            groupBy: function(e, t) {
                 var r,
                     n = {};
                 return (
-                    p(e).call(e, function (e) {
+                    p(e).call(e, function(e) {
                         var r = t(e);
                         (n[r] = n[r] || []), n[r].push(e);
                     }),
-                    g((r = m(n))).call(r, function (e) {
+                    g((r = m(n))).call(r, function(e) {
                         return n[e];
                     })
                 );
             },
-            sort: function (e, t) {
-                return f(e).call(e, function (e, r) {
+            sort: function(e, t) {
+                return f(e).call(e, function(e, r) {
                     var n = e[t],
                         o = r[t];
                     return n < o ? -1 : n > o ? 1 : 0;
                 });
             },
-            find: function (e, t, r) {
-                return l(e).call(e, function (e) {
+            find: function(e, t, r) {
+                return l(e).call(e, function(e) {
                     return e[r] === t[r];
                 });
             },
-            remove: function (e, t, r) {
-                var n = u(e).call(e, function (e) {
+            remove: function(e, t, r) {
+                var n = u(e).call(e, function(e) {
                     return e[r] === t[r];
                 });
                 return s(e).call(e, n, 1), e;
-            },
+            }
         },
         object: {
-            isEmpty: function (e) {
+            isEmpty: function(e) {
                 if (e) {
                     var t = m(e);
                     return !(t && t.length > 0);
                 }
                 return !0;
-            },
-        },
+            }
+        }
     };
 e.locale('zh-cn');
 var I = Object.freeze({
@@ -241,7 +241,7 @@ var I = Object.freeze({
         storageSync: A,
         lodash: t,
         shortid: r,
-        tools: k,
+        tools: k
     }),
     S = Object.freeze({
         __proto__: null,
@@ -258,9 +258,9 @@ var I = Object.freeze({
                         sortNone: 'Not sorted.',
                         activateNone: 'Activate to remove sorting.',
                         activateDescending: 'Activate to sort descending.',
-                        activateAscending: 'Activate to sort ascending.',
+                        activateAscending: 'Activate to sort ascending.'
                     },
-                    sortBy: 'Sort by',
+                    sortBy: 'Sort by'
                 },
                 dataFooter: {
                     itemsPerPageText: 'Items per page:',
@@ -269,20 +269,20 @@ var I = Object.freeze({
                     prevPage: 'Previous page',
                     firstPage: 'First page',
                     lastPage: 'Last page',
-                    pageText: '{0}-{1} of {2}',
+                    pageText: '{0}-{1} of {2}'
                 },
                 datePicker: {
                     itemsSelected: '{0} selected',
                     nextMonthAriaLabel: 'Next month',
                     nextYearAriaLabel: 'Next year',
                     prevMonthAriaLabel: 'Previous month',
-                    prevYearAriaLabel: 'Previous year',
+                    prevYearAriaLabel: 'Previous year'
                 },
                 noDataText: 'No data available',
                 carousel: {
                     prev: 'Previous visual',
                     next: 'Next visual',
-                    ariaLabel: { delimiter: 'Carousel slide {0} of {1}' },
+                    ariaLabel: { delimiter: 'Carousel slide {0} of {1}' }
                 },
                 calendar: { moreEvents: '{0} more' },
                 fileInput: { counter: '{0} files', counterSize: '{0} files ({1} in total)' },
@@ -293,10 +293,10 @@ var I = Object.freeze({
                         next: 'Next page',
                         previous: 'Previous page',
                         page: 'Goto Page {0}',
-                        currentPage: 'Current Page, Page {0}',
-                    },
-                },
-            },
+                        currentPage: 'Current Page, Page {0}'
+                    }
+                }
+            }
         },
         zh: {
             $vuetify: {
@@ -311,9 +311,9 @@ var I = Object.freeze({
                         sortNone: '：未排序。',
                         activateNone: '点击以移除排序。',
                         activateDescending: '点击以降序排列。',
-                        activateAscending: '点击以升序排列。',
+                        activateAscending: '点击以升序排列。'
                     },
-                    sortBy: '排序方式',
+                    sortBy: '排序方式'
                 },
                 dataFooter: {
                     itemsPerPageText: '每页数目：',
@@ -322,14 +322,14 @@ var I = Object.freeze({
                     prevPage: '上一页',
                     firstPage: '首页',
                     lastPage: '尾页',
-                    pageText: '{0}-{1} 共 {2}',
+                    pageText: '{0}-{1} 共 {2}'
                 },
                 datePicker: {
                     itemsSelected: '已选择 {0}',
                     nextMonthAriaLabel: '下个月',
                     nextYearAriaLabel: '明年',
                     prevMonthAriaLabel: '前一个月',
-                    prevYearAriaLabel: '前一年',
+                    prevYearAriaLabel: '前一年'
                 },
                 noDataText: '没有数据',
                 carousel: { prev: '上一张', next: '下一张', ariaLabel: { delimiter: 'Carousel slide {0} of {1}' } },
@@ -342,13 +342,13 @@ var I = Object.freeze({
                         next: '下一页',
                         previous: '上一页',
                         page: '转到页面 {0}',
-                        currentPage: '当前页 {0}',
-                    },
-                },
-            },
-        },
+                        currentPage: '当前页 {0}'
+                    }
+                }
+            }
+        }
     }),
-    L = (function () {
+    L = (function() {
         function e() {
             j(this, e);
         }
@@ -356,7 +356,7 @@ var I = Object.freeze({
             y(e, null, [
                 {
                     key: 'build',
-                    value: function (e) {
+                    value: function(e) {
                         var t, r, n;
                         if (!e || !e.tag) return '';
                         var o,
@@ -368,11 +368,11 @@ var I = Object.freeze({
                             e.tag,
                             '>'
                         );
-                    },
+                    }
                 },
                 {
                     key: 'unbuild',
-                    value: function (e) {
+                    value: function(e) {
                         if (!e) return {};
                         var t = document.createElement('html');
                         t.innerHTML = e;
@@ -380,11 +380,11 @@ var I = Object.freeze({
                         if (!r) return {};
                         var n = v(r.children, 1)[0];
                         return n ? _.node2json(n) : {};
-                    },
+                    }
                 },
                 {
                     key: 'selfCloseTags',
-                    get: function () {
+                    get: function() {
                         return [
                             'area',
                             'base',
@@ -402,15 +402,15 @@ var I = Object.freeze({
                             'wbr',
                             'command',
                             'keygen',
-                            'menuitem',
+                            'menuitem'
                         ];
-                    },
-                },
+                    }
+                }
             ]),
             e
         );
     })(),
-    C = (function () {
+    C = (function() {
         function e() {
             j(this, e);
         }
@@ -418,7 +418,7 @@ var I = Object.freeze({
             y(e, null, [
                 {
                     key: 'attributes',
-                    value: function (e) {
+                    value: function(e) {
                         if (!e.attributes) return '';
                         var t = '',
                             r = m(e.attributes);
@@ -428,31 +428,31 @@ var I = Object.freeze({
                                 t += h((o = ' '.concat(r[n], '="'))).call(o, e.attributes[r[n]], '"');
                         }
                         return t;
-                    },
+                    }
                 },
                 {
                     key: 'children',
-                    value: function (e) {
+                    value: function(e) {
                         if (!e.children) return '';
                         var t = '';
                         for (var r in e.children)
                             ({}.hasOwnProperty.call(e.children, r) &&
                                 ('object' == b(e.children[r]) ? (t += L.build(e.children[r])) : (t += e.children[r])));
                         return t;
-                    },
+                    }
                 },
                 {
                     key: 'isSelfCloseTag',
-                    value: function (e) {
+                    value: function(e) {
                         var t;
                         return d((t = L.selfCloseTags)).call(t, e.tag) > -1;
-                    },
-                },
+                    }
+                }
             ]),
             e
         );
     })(),
-    _ = (function () {
+    _ = (function() {
         function e() {
             j(this, e);
         }
@@ -460,7 +460,7 @@ var I = Object.freeze({
             y(e, null, [
                 {
                     key: 'attributes',
-                    value: function (e) {
+                    value: function(e) {
                         var t = {},
                             r = m(e.attributes);
                         for (var n in r)
@@ -470,24 +470,24 @@ var I = Object.freeze({
                                 t[a.name] = a.value;
                             }
                         return t;
-                    },
+                    }
                 },
                 {
                     key: 'children',
-                    value: function (t) {
+                    value: function(t) {
                         var r = [];
                         for (var n in t.childNodes)
                             t.childNodes[n].nodeType === Node.ELEMENT_NODE && r.push(e.node2json(t.childNodes[n])),
                                 t.childNodes[n].nodeType === Node.TEXT_NODE && r.push(t.childNodes[n].textContent);
                         return r;
-                    },
+                    }
                 },
                 {
                     key: 'node2json',
-                    value: function (t) {
+                    value: function(t) {
                         return { tag: t.tagName.toLowerCase(), attributes: e.attributes(t), children: e.children(t) };
-                    },
-                },
+                    }
+                }
             ]),
             e
         );

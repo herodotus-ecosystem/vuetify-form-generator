@@ -1,4 +1,4 @@
-!(function (e, t) {
+!(function(e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
               exports,
@@ -17,7 +17,7 @@
               'vuetify/lib',
               '@hecate/h-button',
               '@hecate/h-code-mirror',
-              'vue-runtime-helpers/dist/normalize-component.mjs',
+              'vue-runtime-helpers/dist/normalize-component.mjs'
           ], t)
         : t(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
@@ -28,7 +28,7 @@
               e.HCodeMirror,
               e.__vue_normalize__
           );
-})(this, function (e, t, o, r, n, i, a) {
+})(this, function(e, t, o, r, n, i, a) {
     'use strict';
     function d(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -47,9 +47,9 @@
                 VSwitch: r.VSwitch,
                 VSelect: r.VSelect,
                 VToolbar: r.VToolbar,
-                VCard: r.VCard,
+                VCard: r.VCard
             },
-            data: function () {
+            data: function() {
                 return {
                     modeOptions: [
                         'default',
@@ -69,7 +69,7 @@
                         'css',
                         'xml',
                         'yaml',
-                        'vue',
+                        'vue'
                     ],
                     themeOptions: [
                         'default',
@@ -134,21 +134,21 @@
                         'xq-light',
                         'yeti',
                         'yonce',
-                        'zenburn',
+                        'zenburn'
                     ],
                     codeMirrorMode: 'default',
                     codeMirrorTheme: 'default',
                     sourceCode: '',
-                    readOnly: !1,
+                    readOnly: !1
                 };
             },
             computed: {
-                readOnlyLabel: function () {
+                readOnlyLabel: function() {
                     return this.readOnly ? '只读' : '编辑';
-                },
+                }
             },
             methods: {
-                switchCodeMirrorMode: function (e) {
+                switchCodeMirrorMode: function(e) {
                     switch (e) {
                         case 'json':
                             return 'application/json';
@@ -158,17 +158,17 @@
                             return e;
                     }
                 },
-                onModeChange: function (e) {
+                onModeChange: function(e) {
                     this.codeMirrorMode = this.switchCodeMirrorMode(e);
                 },
-                onThemeChange: function (e) {
+                onThemeChange: function(e) {
                     this.codeMirrorTheme = e;
-                },
-            },
+                }
+            }
         },
         u = s.default(
             {
-                render: function () {
+                render: function() {
                     var e = this,
                         t = e.$createElement,
                         o = e._self._c || t;
@@ -191,7 +191,7 @@
                                     o('v-spacer'),
                                     e._v(' '),
                                     o('h-button', {
-                                        attrs: { icon: '', 'icon-name': 'mdi-lock-reset', tooltip: '重置' },
+                                        attrs: { icon: '', 'icon-name': 'mdi-lock-reset', tooltip: '重置' }
                                     }),
                                     e._v(' '),
                                     o('v-switch', {
@@ -201,15 +201,15 @@
                                             'true-value': !1,
                                             'false-value': !0,
                                             inset: '',
-                                            'hide-details': '',
+                                            'hide-details': ''
                                         },
                                         model: {
                                             value: e.readOnly,
-                                            callback: function (t) {
+                                            callback: function(t) {
                                                 e.readOnly = t;
                                             },
-                                            expression: 'readOnly',
-                                        },
+                                            expression: 'readOnly'
+                                        }
                                     }),
                                     e._v(' '),
                                     o('v-select', {
@@ -222,9 +222,9 @@
                                             dense: '',
                                             label: '请选择主题',
                                             'prepend-inner-icon': 'mdi-theme-light-dark',
-                                            'no-data-text': '没有数据',
+                                            'no-data-text': '没有数据'
                                         },
-                                        on: { change: e.onThemeChange },
+                                        on: { change: e.onThemeChange }
                                     }),
                                     e._v(' '),
                                     o('v-select', {
@@ -237,12 +237,12 @@
                                             dense: '',
                                             label: '请选择编辑模式',
                                             'prepend-inner-icon': 'mdi-codepen',
-                                            'no-data-text': '没有数据',
+                                            'no-data-text': '没有数据'
                                         },
-                                        on: { change: e.onModeChange },
+                                        on: { change: e.onModeChange }
                                     }),
                                     e._v(' '),
-                                    o('v-btn', { attrs: { icon: '' } }, [o('v-icon', [e._v('mdi-apps')])], 1),
+                                    o('v-btn', { attrs: { icon: '' } }, [o('v-icon', [e._v('mdi-apps')])], 1)
                                 ],
                                 1
                             ),
@@ -251,17 +251,17 @@
                                 attrs: { mode: e.codeMirrorMode, theme: e.codeMirrorTheme, 'read-only': e.readOnly },
                                 model: {
                                     value: e.sourceCode,
-                                    callback: function (t) {
+                                    callback: function(t) {
                                         e.sourceCode = t;
                                     },
-                                    expression: 'sourceCode',
-                                },
-                            }),
+                                    expression: 'sourceCode'
+                                }
+                            })
                         ],
                         1
                     );
                 },
-                staticRenderFns: [],
+                staticRenderFns: []
             },
             undefined,
             c,
@@ -273,7 +273,7 @@
             void 0,
             void 0
         );
-    (u.install = function (e) {
+    (u.install = function(e) {
         e.component(u.name, u);
     }),
         null != ('undefined' == typeof window ? 'undefined' : l.default(window)) && window.Vue && u.install(window.Vue),

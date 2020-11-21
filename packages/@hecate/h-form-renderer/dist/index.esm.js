@@ -1,15 +1,15 @@
 import 'core-js/modules/es.function.name';
 import e from '@babel/runtime-corejs3/helpers/esm/typeof';
-import 'core-js/modules/es.symbol';
-import 'core-js/modules/es.symbol.description';
-import 'core-js/modules/es.number.constructor';
-import 'core-js/modules/es.regexp.exec';
-import 'core-js/modules/es.string.replace';
 import t from '@babel/runtime-corejs3/core-js/object/define-property';
 import i from '@babel/runtime-corejs3/core-js/object/define-properties';
 import r from '@babel/runtime-corejs3/core-js/object/get-own-property-descriptors';
 import n from '@babel/runtime-corejs3/core-js/object/get-own-property-descriptor';
 import l from '@babel/runtime-corejs3/core-js/object/get-own-property-symbols';
+import 'core-js/modules/es.symbol';
+import 'core-js/modules/es.symbol.description';
+import 'core-js/modules/es.number.constructor';
+import 'core-js/modules/es.regexp.exec';
+import 'core-js/modules/es.string.replace';
 import s from '@babel/runtime-corejs3/core-js/instance/filter';
 import a from '@babel/runtime-corejs3/core-js/instance/includes';
 import o from '@babel/runtime-corejs3/core-js/instance/find';
@@ -39,12 +39,12 @@ import x from '@babel/runtime-corejs3/regenerator';
 import 'regenerator-runtime/runtime';
 import P from '@babel/runtime-corejs3/helpers/esm/asyncToGenerator';
 import j from '@babel/runtime-corejs3/core-js/promise';
-import 'core-js/modules/es.array.filter';
-import 'core-js/modules/es.string.search';
 import I from '@babel/runtime-corejs3/core-js/get-iterator';
 import k from '@babel/runtime-corejs3/core-js/get-iterator-method';
 import w from '@babel/runtime-corejs3/core-js/symbol';
 import C from '@babel/runtime-corejs3/core-js/array/from';
+import 'core-js/modules/es.array.filter';
+import 'core-js/modules/es.string.search';
 import T from '@babel/runtime-corejs3/core-js/instance/index-of';
 import D from '@babel/runtime-corejs3/core-js/instance/reverse';
 import V from '@babel/runtime-corejs3/core-js/instance/ends-with';
@@ -91,7 +91,7 @@ import {
     VTextarea as be,
     VTextField as ye,
     VTimePicker as Se,
-    VTooltip as ge,
+    VTooltip as ge
 } from 'vuetify/lib';
 var Oe = require('property-expr'),
     xe = {};
@@ -100,7 +100,7 @@ function Pe(e, t) {
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -112,13 +112,13 @@ function je(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = Pe(Object(o), !0))).call(a, function (t) {
+            c((a = Pe(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = Pe(Object(o)))).call(u, function (i) {
+            c((u = Pe(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
@@ -130,13 +130,13 @@ function je(e) {
     (xe.reftoken = '$ref'),
     (xe.pathtoken = '#'),
     (xe.debug = !1),
-    (xe.clone = function (t) {
+    (xe.clone = function(t) {
         var i, r;
         if (null === t || 'object' !== e(t) || 'function' == typeof t) return t;
         for (i in ((r = t.constructor()), t)) r[i] = xe.clone(t[i]);
         return r;
     }),
-    (xe.findIds = function (t, i) {
+    (xe.findIds = function(t, i) {
         var r, n, l, s;
         for (n in ((r = !1), (l = {}), t))
             (s = t[n]),
@@ -145,13 +145,13 @@ function je(e) {
                 'object' === e(s) && xe.findIds(s, i);
         if (r) return (i[r] = l), l;
     }),
-    (xe.get_json_pointer = function (e, t, i) {
+    (xe.get_json_pointer = function(e, t, i) {
         var r, n, l;
         (n = e
             .replace(/\\\//, '#SLASH#')
             .replace(/\//g, '.')
             .replace(/#SLASH#/, '/')),
-            c((r = u(i))).call(r, function (e) {
+            c((r = u(i))).call(r, function(e) {
                 n = n.replace(e, i[e]);
             }),
             '.' === (n = n.replace(new RegExp('^' + xe.pathtoken), ''))[0] && (n = n.substr(1, n.length - 1));
@@ -162,7 +162,7 @@ function je(e) {
         }
         return l;
     }),
-    (xe.replace = function (t, i, r, n) {
+    (xe.replace = function(t, i, r, n) {
         var l, s, a, o, c, h;
         for (l in ((c = []), t))
             null != (h = t[l]) && null != h[xe.reftoken]
@@ -182,7 +182,7 @@ function je(e) {
                 : c.push(void 0);
         return c;
     }),
-    (xe.extend = function (t, i) {
+    (xe.extend = function(t, i) {
         var r, n, l, s, a, o;
         if ('object' === e(t)) {
             for (r in ((l = []), t)) {
@@ -196,20 +196,20 @@ function je(e) {
             return l;
         }
     }),
-    (xe.resolve = function (e, t) {
+    (xe.resolve = function(e, t) {
         var i;
         return (i = {}), xe.findIds(e, i), xe.debug && u(i).length, xe.replace(e, i, e, t), e;
     }),
-    (xe.evaluate = function (t, i, r) {
+    (xe.evaluate = function(t, i, r) {
         var n, l, s;
         for (n in (null == r && (r = xe.evaluateStr), (l = xe.clone(t))))
             'string' == typeof (s = l[n]) && (t[n] = r(s, i)), 'object' === e(s) && (t[n] = xe.evaluate(s, i));
         return t;
     }),
-    (xe.evaluateStr = function (e, t) {
+    (xe.evaluateStr = function(e, t) {
         if ('string' != typeof e) return e;
         if ('{' !== e[0] || '}' !== e[e.length - 1])
-            return e.replace(/(\{)(.*?)(\})/g, function (e, i, r) {
+            return e.replace(/(\{)(.*?)(\})/g, function(e, i, r) {
                 var n;
                 if (((n = ''), null == t || null == r)) return n;
                 if (null != t[r] && 'function' == typeof t[r]) n = t[r]();
@@ -232,13 +232,13 @@ function je(e) {
         }
     });
 var Ie = {},
-    ke = function (e) {
+    ke = function(e) {
         var t;
-        return b((t = u(e || {}))).call(t, function (t) {
+        return b((t = u(e || {}))).call(t, function(t) {
             return je(je({}, e[t]), {}, { key: t });
         });
     };
-Ie.prepareFullSchema = function (t, i) {
+Ie.prepareFullSchema = function(t, i) {
     var r,
         n,
         l,
@@ -246,12 +246,12 @@ Ie.prepareFullSchema = function (t, i) {
         f = JSON.parse(h(t));
     (f.pattern && (f.patternRegexp = new RegExp(f.pattern)), v(f.type)) &&
         ((f.nullable = a((r = f.type)).call(r, 'null')),
-        (f.type = o((n = f.type)).call(n, function (e) {
+        (f.type = o((n = f.type)).call(n, function(e) {
             return 'null' !== e;
         })),
         f.nullable &&
             f.enum &&
-            (f.enum = s((l = f.enum)).call(l, function (e) {
+            (f.enum = s((l = f.enum)).call(l, function(e) {
                 return null !== e;
             })));
     if ('object' !== f.type) return f;
@@ -259,7 +259,7 @@ Ie.prepareFullSchema = function (t, i) {
     (f.required = f.required || []),
     (f.dependencies = f.dependencies || {}),
     f.dependencies) &&
-        c((p = u(f.dependencies))).call(p, function (t) {
+        c((p = u(f.dependencies))).call(p, function(t) {
             var r,
                 n,
                 l,
@@ -267,7 +267,7 @@ Ie.prepareFullSchema = function (t, i) {
                 o,
                 c = f.dependencies[t];
             if (i) {
-                var h = (function (e, t) {
+                var h = (function(e, t) {
                     for (var i = t.split('.'), r = 0; r < i.length; r++) {
                         var n;
                         if (a((n = [null, void 0])).call(n, e)) break;
@@ -326,7 +326,7 @@ var we = {
         rules: {},
         initialValidation: 'defined',
         idPrefix: '',
-        markdownit: {},
+        markdownit: {}
     },
     Ce = {
         en: {
@@ -339,7 +339,7 @@ var we = {
             maxLength: '{maxLength} characters maximum',
             minItems: 'No less than {minItems} items',
             maxItems: 'No more than {maxItems} items',
-            pattern: 'The expected pattern is not satisfied',
+            pattern: 'The expected pattern is not satisfied'
         },
         fr: {
             required: 'Cette information est obligatoire',
@@ -351,7 +351,7 @@ var we = {
             maxLength: '{maxLength} caractères maximum',
             minItems: 'Au moins {minItems} éléments',
             maxItems: 'Au plus {maxItems} éléments',
-            pattern: "Le format attendu n'est pas respecté",
+            pattern: "Le format attendu n'est pas respecté"
         },
         es: {
             required: 'Esta información es requerida',
@@ -363,7 +363,7 @@ var we = {
             maxLength: '{maxLength} caractères máximo',
             minItems: 'Al menos {minItems} articulos',
             maxItems: 'Hasta {maxItems} articulos',
-            pattern: 'El formato esperado no se respeta',
+            pattern: 'El formato esperado no se respeta'
         },
         de: {
             required: 'Diese Informationen sind erforderlich',
@@ -375,7 +375,7 @@ var we = {
             maxLength: 'Maximal {maxLength} Zeichen',
             minItems: 'Mindestens {minItems} Elemente',
             maxItems: 'Bis zu {maxItems} Artikel',
-            pattern: 'Das erwartete Format wird nicht eingehalten',
+            pattern: 'Das erwartete Format wird nicht eingehalten'
         },
         ar: {
             required: 'هذه المعلومة مطلوبة',
@@ -387,7 +387,7 @@ var we = {
             maxLength: '{maxLength} الحد الأقصى للحروف المطلوبة هو',
             minItems: 'قطع {minItems} لا يمكن اختيار أقل من ',
             maxItems: 'قطع {maxItems} لا يمكن اختيار أكثر من ',
-            pattern: 'لا يوجد تشابه مع النموذج المطلوب',
+            pattern: 'لا يوجد تشابه مع النموذج المطلوب'
         },
         tr: {
             required: 'Zorunlu alan',
@@ -399,7 +399,7 @@ var we = {
             maxLength: '{maxLength} azami  karakter sayısı',
             minItems: 'En az seçenek sayısı {minItems}',
             maxItems: 'En çok seçenek sayısı {maxItems}',
-            pattern: 'İstenilen paten tutmuyor',
+            pattern: 'İstenilen paten tutmuyor'
         },
         nl: {
             required: 'Deze informatie is vereist',
@@ -411,22 +411,22 @@ var we = {
             maxLength: 'Maximaal {maxLength} tekens',
             minItems: 'Minimaal {minItems} antwoorden',
             maxItems: 'Maximaal {maxItems} antwoorden',
-            pattern: 'Invoer voldoet niet aan verwachte patroon',
-        },
+            pattern: 'Invoer voldoet niet aan verwachte patroon'
+        }
     },
     Te = {
-        time: function (e, t) {
+        time: function(e, t) {
             var i,
                 r = new Date(m((i = ''.concat(new Date().toISOString().split('T')[0], 'T'))).call(i, e));
             return new Date(r.getTime() + 6e4 * r.getTimezoneOffset()).toLocaleTimeString(t);
         },
-        date: function (e, t) {
+        date: function(e, t) {
             var i = new Date(e);
             return new Date(i.getTime() + 6e4 * i.getTimezoneOffset()).toLocaleDateString(t);
         },
-        'date-time': function (e, t) {
+        'date-time': function(e, t) {
             return new Date(e).toLocaleString(t);
-        },
+        }
     },
     De = {
         mdi: {
@@ -435,7 +435,7 @@ var we = {
             info: 'mdi-information',
             add: 'mdi-plus',
             edit: 'mdi-pencil',
-            delete: 'mdi-delete',
+            delete: 'mdi-delete'
         },
         md: { calendar: 'event', clock: 'clock', info: 'info', add: 'add', edit: 'create', delete: 'delete' },
         fa: {
@@ -444,15 +444,15 @@ var we = {
             info: 'fa-info',
             add: 'fa-plus',
             edit: 'fa-edit',
-            delete: 'fa-trash',
-        },
+            delete: 'fa-trash'
+        }
     };
 function Ve(e, t) {
     var i = u(e);
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -464,13 +464,13 @@ function Le(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = Ve(Object(o), !0))).call(a, function (t) {
+            c((a = Ve(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = Ve(Object(o)))).call(u, function (i) {
+            c((u = Ve(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
@@ -478,18 +478,18 @@ function Le(e) {
     return e;
 }
 var $e = {
-    data: function () {
+    data: function() {
         return { currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} };
     },
     computed: {
-        subSchemas: function () {
+        subSchemas: function() {
             return this.fullSchema.oneOf || this.fullSchema.anyOf;
         },
-        subSchemasConstProp: function () {
+        subSchemasConstProp: function() {
             var e;
             if (this.subSchemas) {
                 var t = this.subSchemas[0].properties,
-                    i = o((e = u(t))).call(e, function (e) {
+                    i = o((e = u(t))).call(e, function(e) {
                         return !!t[e].const;
                     });
                 if (i)
@@ -500,7 +500,7 @@ var $e = {
                     );
             }
         },
-        subSchemasRequired: function () {
+        subSchemasRequired: function() {
             var e,
                 t = this;
             return (
@@ -509,30 +509,30 @@ var $e = {
                     !!(
                         this.fullSchema.anyOf &&
                         this.fullSchema.required &&
-                        o((e = this.fullSchema.required)).call(e, function (e) {
+                        o((e = this.fullSchema.required)).call(e, function(e) {
                             return e === t.oneOfConstProp.key;
                         })
                     ) ||
-                    void 0)
+                        void 0)
             );
         },
-        subSchemasRules: function () {
+        subSchemasRules: function() {
             var e = this,
                 t = [];
             return (
                 this.subSchemasRequired &&
-                    t.push(function (t) {
+                    t.push(function(t) {
                         return (null != t && '' !== t) || e.fullOptions.messages.required;
                     }),
                 t
             );
-        },
+        }
     },
     watch: {
-        currentOneOf: function (e, t) {
+        currentOneOf: function(e, t) {
             var i = this;
             (this.showCurrentOneOf = !1),
-                this.$nextTick(function () {
+                this.$nextTick(function() {
                     (i.showCurrentOneOf = !0),
                         i.currentOneOf ? i.fixProperties() : i.$set(i.subModels, 'currentOneOf', {}),
                         i.input(i.value),
@@ -540,14 +540,14 @@ var $e = {
                 });
         },
         subModels: {
-            handler: function () {
+            handler: function() {
                 this.fixProperties();
             },
-            deep: !0,
-        },
+            deep: !0
+        }
     },
     methods: {
-        isSection: function (e) {
+        isSection: function(e) {
             return (
                 (e.properties || e.allOf || v(e.items)) &&
                 e.title &&
@@ -557,22 +557,22 @@ var $e = {
                 'file' !== e['x-display']
             );
         },
-        initObjectContainer: function (e) {
+        initObjectContainer: function(e) {
             var t = this;
             if ('object' === this.fullSchema.type) {
                 var i, r;
                 if (this.fullSchema.allOf)
-                    c((i = this.fullSchema.allOf)).call(i, function (i, r) {
+                    c((i = this.fullSchema.allOf)).call(i, function(i, r) {
                         t.$set(t.subModels, 'allOf-' + r, JSON.parse(h(e)));
                     });
                 if (((this.currentOneOf = null), this.subSchemas && !this.currentOneOf && this.subSchemasConstProp))
                     if (e && e[this.subSchemasConstProp.key])
-                        this.currentOneOf = o((r = this.subSchemas)).call(r, function (i) {
+                        this.currentOneOf = o((r = this.subSchemas)).call(r, function(i) {
                             return i.properties[t.subSchemasConstProp.key].const === e[t.subSchemasConstProp.key];
                         });
                     else if (this.fullSchema.default) {
                         var n;
-                        this.currentOneOf = o((n = this.subSchemas)).call(n, function (e) {
+                        this.currentOneOf = o((n = this.subSchemas)).call(n, function(e) {
                             return (
                                 e.properties[t.subSchemasConstProp.key].const ===
                                 t.fullSchema.default[t.subSchemasConstProp.key]
@@ -584,7 +584,7 @@ var $e = {
                     : this.$set(this.subModels, 'currentOneOf', {});
             }
         },
-        renderSection: function (e, t, i, r) {
+        renderSection: function(e, t, i, r) {
             if (r) {
                 var n,
                     l,
@@ -601,13 +601,13 @@ var $e = {
                                   {
                                       class: {
                                           'error--text':
-                                              this.childrenInputs[o] && this.childrenInputs[o].hasValidatedChildError,
-                                      },
+                                              this.childrenInputs[o] && this.childrenInputs[o].hasValidatedChildError
+                                      }
                                   },
                                   [t.title]
                               ),
-                              e('v-expansion-panel-content', { props: { eager: !0 } }, [r]),
-                          ]),
+                              e('v-expansion-panel-content', { props: { eager: !0 } }, [r])
+                          ])
                       ]
                     : 'tabs' === this.display
                     ? [
@@ -621,8 +621,8 @@ var $e = {
                                               this.dashKey,
                                               '-'
                                           ))
-                                      ).call(n, o),
-                                  },
+                                      ).call(n, o)
+                                  }
                               },
                               [
                                   e(
@@ -631,11 +631,11 @@ var $e = {
                                           class: {
                                               'error--text':
                                                   this.childrenInputs[o] &&
-                                                  this.childrenInputs[o].hasValidatedChildError,
-                                          },
+                                                  this.childrenInputs[o].hasValidatedChildError
+                                          }
                                       },
                                       [t.title]
-                                  ),
+                                  )
                               ]
                           ),
                           e(
@@ -649,11 +649,11 @@ var $e = {
                                               '-'
                                           ))
                                       ).call(s, o),
-                                      eager: !0,
-                                  },
+                                      eager: !0
+                                  }
                               },
                               [e('v-card', { props: { tile: !0, flat: !0 } }, [e('v-card-text', [r])])]
-                          ),
+                          )
                       ]
                     : [
                           e('v-row', { class: 'ma-0 '.concat(this.fullOptions.sectionsClass) }, [
@@ -665,16 +665,16 @@ var $e = {
                                           (this.fullOptions.sectionsTitlesClasses[this.sectionDepth] ||
                                               this.fullOptions.sectionsTitlesClasses[
                                                   this.fullOptions.sectionsTitlesClasses.length - 1
-                                              ]),
+                                              ])
                                   },
                                   [''.concat(t.title, ' ')]
                               ),
-                              r,
-                          ]),
+                              r
+                          ])
                       ];
             }
         },
-        renderChildProp: function (e, t, i, r, n) {
+        renderChildProp: function(e, t, i, r, n) {
             var l = this,
                 s = i ? this.subModels : this.value,
                 a = i || t.key,
@@ -692,13 +692,13 @@ var $e = {
                         modelKey: a,
                         parentKey: ''.concat(this.fullKey, '.'),
                         options: this.fullOptions,
-                        sectionDepth: r,
+                        sectionDepth: r
                     },
                     on: {
-                        error: function (e) {
+                        error: function(e) {
                             return l.$emit('error', e);
                         },
-                        input: function (e) {
+                        input: function(e) {
                             void 0 === e
                                 ? v(s) && y(a) < s.length - 1
                                     ? l.$set(s, a, e)
@@ -706,14 +706,14 @@ var $e = {
                                 : l.$set(s, a, e),
                                 l.$emit('input', l.value);
                         },
-                        change: function (e) {
+                        change: function(e) {
                             return l.$emit('change', l.value);
-                        },
-                    },
+                        }
+                    }
                 })
             );
         },
-        renderObjectContainer: function (e) {
+        renderObjectContainer: function(e) {
             var t,
                 i,
                 r,
@@ -726,14 +726,14 @@ var $e = {
                     h = [],
                     p = [];
                 if (this.fullSchema.properties)
-                    c((l = this.fullSchema.properties)).call(l, function (t) {
+                    c((l = this.fullSchema.properties)).call(l, function(t) {
                         if (n.isSection(t)) {
                             var i = n.renderChildProp(e, t, null, n.sectionDepth + 1);
                             p = m(p).call(p, n.renderSection(e, t, null, i));
                         } else h.push(n.renderChildProp(e, t, null, n.sectionDepth));
                     });
                 if (v(this.fullSchema.items))
-                    c((o = this.fullSchema.items)).call(o, function (t, i) {
+                    c((o = this.fullSchema.items)).call(o, function(t, i) {
                         var r = Le(Le({}, t), {}, { key: '' + i }),
                             l = n.value.length > i || (n.fullSchema.minItems && n.fullSchema.minItems > i);
                         if (n.isSection(t)) {
@@ -742,7 +742,7 @@ var $e = {
                         } else h.push(n.renderChildProp(e, r, null, n.sectionDepth, l));
                     });
                 if (this.fullSchema.allOf)
-                    c((u = this.fullSchema.allOf)).call(u, function (t, i) {
+                    c((u = this.fullSchema.allOf)).call(u, function(t, i) {
                         var r = Le(Le({}, t), {}, { type: 'object', key: '' + i });
                         if (n.isSection(t)) {
                             var l = n.renderChildProp(e, r, 'allOf-' + i, n.sectionDepth + 1);
@@ -765,13 +765,13 @@ var $e = {
                                 {
                                     props: d,
                                     on: {
-                                        change: function (e) {
+                                        change: function(e) {
                                             n.currentTab = e.split('-').pop();
-                                        },
-                                    },
+                                        }
+                                    }
                                 },
                                 p
-                            ),
+                            )
                         ]);
                 }
                 if (this.subSchemas && this.subSchemas.length) {
@@ -784,23 +784,23 @@ var $e = {
                                 label:
                                     (this.subSchemasConstProp && this.subSchemasConstProp.title) ||
                                     this.fullSchema.title,
-                                items: s((b = this.subSchemas)).call(b, function (e) {
+                                items: s((b = this.subSchemas)).call(b, function(e) {
                                     return e.properties && e.properties[n.subSchemasConstProp.key];
                                 }),
                                 required: this.subSchemasRequired,
                                 clearable: !this.subSchemasRequired,
-                                itemValue: function (e) {
+                                itemValue: function(e) {
                                     return e.properties[n.subSchemasConstProp.key].const;
                                 },
                                 itemText: 'title',
                                 rules: this.subSchemasRules,
-                                returnObject: !0,
+                                returnObject: !0
                             }
                         ),
                         S = {
-                            input: function (e) {
+                            input: function(e) {
                                 n.currentOneOf = e;
-                            },
+                            }
                         };
                     h.push(e('v-select', { props: y, on: S }, [this.renderTooltip(e, 'append-outer')])),
                         this.currentOneOf &&
@@ -825,23 +825,23 @@ var $e = {
                                         e('v-col', {
                                             props: { cols: 12 },
                                             class: { 'pa-0': !0 },
-                                            domProps: { innerHTML: this.htmlDescription },
-                                        }),
+                                            domProps: { innerHTML: this.htmlDescription }
+                                        })
                                 ])
                             ).call(r, h))
                         ).call(i, p)
-                    ),
+                    )
                 ];
             }
-        },
-    },
+        }
+    }
 };
 function Ke(e, t) {
     var i = u(e);
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -853,24 +853,24 @@ function qe(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = Ke(Object(o), !0))).call(a, function (t) {
+            c((a = Ke(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = Ke(Object(o)))).call(u, function (i) {
+            c((u = Ke(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
     }
     return e;
 }
-var Me = function (e) {
+var Me = function(e) {
         var t = '' + e;
         return 1 === t.length ? '0' + t : t;
     },
-    Re = function (e) {
+    Re = function(e) {
         var t = new Date(),
             i = e[0].split('-');
         t.setFullYear(Number(i[0])), t.setMonth(Number(i[1]) - 1), t.setDate(Number(i[2]));
@@ -879,7 +879,7 @@ var Me = function (e) {
             t.setHours(Number(r[0] || '00')),
             t.setMinutes(Number(r[1] || '00')),
             t.setSeconds(0),
-            (function (e) {
+            (function(e) {
                 var t,
                     i,
                     r,
@@ -911,15 +911,15 @@ var Me = function (e) {
             })(t)
         );
     },
-    Ae = function (e) {
+    Ae = function(e) {
         return e + ':00Z';
     },
     Fe = {
-        data: function () {
+        data: function() {
             return { dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } };
         },
         methods: {
-            renderDateProp: function (e) {
+            renderDateProp: function(e) {
                 var t,
                     i = this;
                 if (
@@ -940,26 +940,26 @@ var Me = function (e) {
                                 this.fullSchema['x-props']
                             ),
                             on: {
-                                input: function (e) {
+                                input: function(e) {
                                     return i.input(Ae(e));
                                 },
-                                change: function (e) {
+                                change: function(e) {
                                     return i.change(Ae(e));
-                                },
-                            },
+                                }
+                            }
                         })),
                             (c = this.fullOptions.icons.clock);
                     else if ('date' === this.fullSchema.format)
                         r = e('v-date-picker', {
                             props: qe({ value: this.value }, this.fullSchema['x-props']),
                             on: {
-                                input: function (e) {
+                                input: function(e) {
                                     i.input(e), (i.dateProp.menu = !1);
                                 },
-                                change: function (e) {
+                                change: function(e) {
                                     return i.change(e);
-                                },
-                            },
+                                }
+                            }
                         });
                     else {
                         this.value !== this.dateProp.lastValue &&
@@ -973,10 +973,10 @@ var Me = function (e) {
                                             '-'
                                         ))
                                     ).call(l, Me(n.getDate())),
-                                    m((o = ''.concat(Me(n.getHours()), ':'))).call(o, Me(n.getMinutes())),
+                                    m((o = ''.concat(Me(n.getHours()), ':'))).call(o, Me(n.getMinutes()))
                                 ])),
                             (this.dateProp.lastValue = this.value);
-                        var h = function () {
+                        var h = function() {
                                 if (i.dateProp.parts[1]) {
                                     var e = Re(i.dateProp.parts);
                                     i.input(e), i.change(e);
@@ -984,10 +984,10 @@ var Me = function (e) {
                             },
                             p = [
                                 e('v-tab', { props: { href: '#tab-date' } }, [
-                                    e('v-icon', [this.fullOptions.icons.calendar]),
+                                    e('v-icon', [this.fullOptions.icons.calendar])
                                 ]),
                                 e('v-tab', { props: { href: '#tab-time', disabled: !this.dateProp.parts[0] } }, [
-                                    e('v-icon', [this.fullOptions.icons.clock]),
+                                    e('v-icon', [this.fullOptions.icons.clock])
                                 ]),
                                 e('v-tab-item', { props: { value: 'tab-date' } }, [
                                     e('v-date-picker', {
@@ -997,11 +997,11 @@ var Me = function (e) {
                                             { locale: this.fullOptions.locale, value: this.dateProp.parts[0] }
                                         ),
                                         on: {
-                                            input: function (e) {
+                                            input: function(e) {
                                                 (i.dateProp.parts[0] = e), (i.dateProp.tab = 'tab-time'), h();
-                                            },
-                                        },
-                                    }),
+                                            }
+                                        }
+                                    })
                                 ]),
                                 e('v-tab-item', { props: { value: 'tab-time' } }, [
                                     e('v-time-picker', {
@@ -1011,29 +1011,29 @@ var Me = function (e) {
                                             { locale: this.fullOptions.locale, value: this.dateProp.parts[1] }
                                         ),
                                         on: {
-                                            input: function (e) {
+                                            input: function(e) {
                                                 (i.dateProp.parts[1] = e), h();
-                                            },
-                                        },
-                                    }),
-                                ]),
+                                            }
+                                        }
+                                    })
+                                ])
                             ];
                         r = e(
                             'v-tabs',
                             {
                                 props: { grow: !0, value: this.dateProp.tab },
                                 on: {
-                                    input: function (e) {
+                                    input: function(e) {
                                         i.dateProp.tab = e;
-                                    },
+                                    }
                                 },
-                                class: 'vjsf-date-time',
+                                class: 'vjsf-date-time'
                             },
                             p
                         );
                     }
                     var f = {
-                        activator: function (t) {
+                        activator: function(t) {
                             var r = t.on;
                             return e(
                                 'v-text-field',
@@ -1045,25 +1045,25 @@ var Me = function (e) {
                                             value: i.formattedValue,
                                             clearable: !i.required,
                                             readonly: !0,
-                                            prependIcon: c,
+                                            prependIcon: c
                                         }
                                     ),
                                     on: qe(
                                         qe({}, r),
                                         {},
                                         {
-                                            input: function (e) {
+                                            input: function(e) {
                                                 return i.input(e);
                                             },
-                                            change: function (e) {
+                                            change: function(e) {
                                                 return i.change(e);
-                                            },
+                                            }
                                         }
-                                    ),
+                                    )
                                 },
                                 [i.renderTooltip(e, 'append-outer')]
                             );
-                        },
+                        }
                     };
                     return [
                         e(
@@ -1078,27 +1078,27 @@ var Me = function (e) {
                                     transition: 'scale-transition',
                                     offsetY: !0,
                                     fullWidth: !0,
-                                    minWidth: '290px',
+                                    minWidth: '290px'
                                 },
                                 on: {
-                                    input: function (e) {
+                                    input: function(e) {
                                         (i.dateProp.menu = e), (i.dateProp.tab = 'tab-date');
-                                    },
-                                },
+                                    }
+                                }
                             },
                             [r]
-                        ),
+                        )
                     ];
                 }
-            },
-        },
+            }
+        }
     };
 function Ee(e, t) {
     var i = u(e);
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -1110,13 +1110,13 @@ function Ue(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = Ee(Object(o), !0))).call(a, function (t) {
+            c((a = Ee(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = Ee(Object(o)))).call(u, function (i) {
+            c((u = Ee(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
@@ -1125,7 +1125,7 @@ function Ue(e) {
 }
 var Ne = {
     computed: {
-        isSimpleProp: function () {
+        isSimpleProp: function() {
             var e, t;
             return (
                 'string' === this.fullSchema.type ||
@@ -1134,10 +1134,10 @@ var Ne = {
                 ('array' === this.fullSchema.type &&
                     a((t = ['string', 'number', 'integer'])).call(t, this.fullSchema.items.type))
             );
-        },
+        }
     },
     methods: {
-        renderSimpleProp: function (e) {
+        renderSimpleProp: function(e) {
             var t,
                 i,
                 r = this;
@@ -1146,33 +1146,33 @@ var Ne = {
                     l = [],
                     o = {},
                     u = {
-                        input: function (e) {
+                        input: function(e) {
                             return r.input(e);
                         },
-                        change: function (e) {
+                        change: function(e) {
                             return r.change(e);
-                        },
+                        }
                     };
                 if (
                     (a((t = ['number', 'integer'])).call(t, this.fullSchema.type) &&
-                        (u.input = function (e) {
+                        (u.input = function(e) {
                             r.input('integer' === r.fullSchema.type ? y(e, 10) : g(e));
                         }),
                     'boolean' === this.fullSchema.type &&
-                        (u.change = function (e) {
+                        (u.change = function(e) {
                             r.input(e || !1), r.change(e || !1);
                         }),
                     'array' === this.fullSchema.type &&
                         a((i = ['string', 'number', 'integer'])).call(i, this.fullSchema.items.type) &&
                         'string' !== this.fullSchema.items.type &&
                         ((n.type = 'number'),
-                        (u.input = function (e) {
+                        (u.input = function(e) {
                             var t,
                                 i = s(
-                                    (t = b(e).call(e, function (e) {
+                                    (t = b(e).call(e, function(e) {
                                         return 'integer' === r.fullSchema.items.type ? y(e, 10) : g(e);
                                     }))
-                                ).call(t, function (e) {
+                                ).call(t, function(e) {
                                     return !isNaN(e);
                                 });
                             r.input(i);
@@ -1187,32 +1187,32 @@ var Ne = {
                           e('validation-provider', {
                               props: { name: n.label, rules: c },
                               scopedSlots: {
-                                  default: function (t) {
+                                  default: function(t) {
                                       var i = t.errors;
                                       return e(
                                           r.fullSchema.tag,
                                           {
                                               props: Ue(Ue({}, n), {}, { required: !0, 'error-messages': i }),
                                               on: u,
-                                              scopedSlots: o,
+                                              scopedSlots: o
                                           },
                                           l
                                       );
-                                  },
-                              },
-                          }),
+                                  }
+                              }
+                          })
                       ]
                     : [e(this.fullSchema.tag, { props: n, on: u, scopedSlots: o }, l)];
             }
-        },
-    },
+        }
+    }
 };
 function He(e, t) {
     var i = u(e);
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -1224,33 +1224,33 @@ function _e(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = He(Object(o), !0))).call(a, function (t) {
+            c((a = He(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = He(Object(o)))).call(u, function (i) {
+            c((u = He(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
     }
     return e;
 }
-var ze = function (e) {
-        return new j(function (t) {
+var ze = function(e) {
+        return new j(function(t) {
             var i = new FileReader();
-            (i.onload = function () {
+            (i.onload = function() {
                 return t(i.result);
             }),
                 i.readAsDataURL(e);
         });
     },
-    We = (function () {
+    We = (function() {
         var e = P(
             x.mark(function e(t, i, r) {
                 var n, l;
-                return x.wrap(function (e) {
+                return x.wrap(function(e) {
                     for (;;)
                         switch ((e.prev = e.next)) {
                             case 0:
@@ -1279,7 +1279,7 @@ var ze = function (e) {
                                     lastModified: new Date(t.lastModified).toISOString(),
                                     size: t.size,
                                     type: t.type,
-                                    data: n,
+                                    data: n
                                 });
                             case 10:
                             case 'end':
@@ -1288,13 +1288,13 @@ var ze = function (e) {
                 }, e);
             })
         );
-        return function (t, i, r) {
+        return function(t, i, r) {
             return e.apply(this, arguments);
         };
     })(),
     Be = {
         computed: {
-            isFileProp: function () {
+            isFileProp: function() {
                 return (
                     !(
                         'string' !== this.fullSchema.type ||
@@ -1308,26 +1308,26 @@ var ze = function (e) {
                             'file' !== this.display &&
                             'file' !== this.fullSchema.items['x-display'])
                     ) ||
-                    !(
-                        'object' !== this.fullSchema.type ||
-                        (!this.fullSchema.contentMediaType && 'file' !== this.display)
-                    ) ||
-                    !(
-                        'array' !== this.fullSchema.type ||
-                        !this.fullSchema.items ||
-                        'object' !== this.fullSchema.items.type ||
-                        (!this.fullSchema.items.contentMediaType &&
-                            'file' !== this.display &&
-                            'file' !== this.fullSchema.items['x-display'])
-                    )
+                        !(
+                            'object' !== this.fullSchema.type ||
+                            (!this.fullSchema.contentMediaType && 'file' !== this.display)
+                        ) ||
+                            !(
+                                'array' !== this.fullSchema.type ||
+                                !this.fullSchema.items ||
+                                'object' !== this.fullSchema.items.type ||
+                                (!this.fullSchema.items.contentMediaType &&
+                                    'file' !== this.display &&
+                                    'file' !== this.fullSchema.items['x-display'])
+                            )
                 );
-            },
+            }
         },
-        created: function () {
+        created: function() {
             this.isFileProp && this.fullSchema.writeOnly;
         },
         methods: {
-            renderFileProp: function (e) {
+            renderFileProp: function(e) {
                 var t = this;
                 if (this.isFileProp) {
                     var i = _e(_e({}, this.commonFieldProps), this.fullOptions.fileInputProps);
@@ -1345,7 +1345,7 @@ var ze = function (e) {
                                 ((n = P(
                                     x.mark(function e(i) {
                                         var r, n;
-                                        return x.wrap(function (e) {
+                                        return x.wrap(function(e) {
                                             for (;;)
                                                 switch ((e.prev = e.next)) {
                                                     case 0:
@@ -1356,7 +1356,7 @@ var ze = function (e) {
                                                         return (
                                                             (e.next = 3),
                                                             j.all(
-                                                                b(i).call(i, function (e) {
+                                                                b(i).call(i, function(e) {
                                                                     return We(
                                                                         e,
                                                                         t.fullSchema.items,
@@ -1382,24 +1382,24 @@ var ze = function (e) {
                                         }, e);
                                     })
                                 )),
-                                function (e) {
+                                function(e) {
                                     return n.apply(this, arguments);
-                                }),
+                                })
                         };
                     return (
                         this.htmlDescription && l.push(this.renderTooltip(e, 'append-outer')),
                         [e('v-file-input', { props: i, attrs: r, on: s }, l)]
                     );
                 }
-            },
-        },
+            }
+        }
     };
 function Ge(e, t) {
     var i = u(e);
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -1411,13 +1411,13 @@ function Je(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = Ge(Object(o), !0))).call(a, function (t) {
+            c((a = Ge(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = Ge(Object(o)))).call(u, function (i) {
+            c((u = Ge(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
@@ -1426,15 +1426,15 @@ function Je(e) {
 }
 var Ze = {
         computed: {
-            isColorProp: function () {
+            isColorProp: function() {
                 return (
                     'string' === this.fullSchema.type &&
                     ('hexcolor' === this.fullSchema.format || 'color-picker' === this.display)
                 );
-            },
+            }
         },
         methods: {
-            renderColorProp: function (e) {
+            renderColorProp: function(e) {
                 var t = this;
                 if (this.isColorProp) {
                     var i = [this.renderTooltip(e, 'append')];
@@ -1443,17 +1443,17 @@ var Ze = {
                             e('v-menu', {
                                 props: { closeOnContentClick: !1, closeOneClick: !0, direction: 'bottom', offsetY: !0 },
                                 scopedSlots: {
-                                    activator: function (i) {
+                                    activator: function(i) {
                                         var r = i.on;
                                         return e('div', {
                                             on: r,
                                             style: 'background-color: '.concat(t.value, ';margin-left: 10px;'),
                                             class: t.value
                                                 ? 'color-picker-trigger'
-                                                : 'color-picker-trigger color-picker-trigger-empty',
+                                                : 'color-picker-trigger color-picker-trigger-empty'
                                         });
                                     },
-                                    default: function () {
+                                    default: function() {
                                         return e('v-color-picker', {
                                             props: Je(
                                                 Je(
@@ -1464,13 +1464,13 @@ var Ze = {
                                                 { value: t.value || '' }
                                             ),
                                             on: {
-                                                input: function (e) {
+                                                input: function(e) {
                                                     t.input(e), t.change(e);
-                                                },
-                                            },
+                                                }
+                                            }
                                         });
-                                    },
-                                },
+                                    }
+                                }
                             })
                         ),
                         [
@@ -1483,21 +1483,21 @@ var Ze = {
                                             label: this.label,
                                             required: this.required,
                                             rules: this.rules,
-                                            disabled: this.disabled,
+                                            disabled: this.disabled
                                         },
                                         this.fullOptions.fieldProps
-                                    ),
+                                    )
                                 },
                                 i
-                            ),
+                            )
                         ]
                     );
                 }
-            },
-        },
+            }
+        }
     },
     Ye = {
-        getSelectItems: function (t, i, r, n) {
+        getSelectItems: function(t, i, r, n) {
             var l = [];
             if (t)
                 if (
@@ -1510,19 +1510,19 @@ var Ze = {
                 ) {
                     var s,
                         a = i.properties
-                            ? b((s = i.properties)).call(s, function (e) {
+                            ? b((s = i.properties)).call(s, function(e) {
                                   return e.key;
                               })
                             : u(i.items.properties);
-                    c(t).call(t, function (e) {
+                    c(t).call(t, function(e) {
                         var t = {};
-                        c(a).call(a, function (i) {
+                        c(a).call(a, function(i) {
                             void 0 !== e[i] && (t[i] = e[i]);
                         }),
                             l.push(t);
                     });
                 } else
-                    c(t).call(t, function (t) {
+                    c(t).call(t, function(t) {
                         if ('object' === e(t)) l.push(t);
                         else {
                             var i = f({}, r, t);
@@ -1531,9 +1531,9 @@ var Ze = {
                     });
             else;
             return l;
-        },
+        }
     },
-    Qe = function (e, t, i) {
+    Qe = function(e, t, i) {
         var r, n;
         return !a((r = [null, void 0])).call(r, e) && !a((n = [null, void 0])).call(n, t) && h(e[i]) === h(t[i]);
     };
@@ -1542,7 +1542,7 @@ function Xe(e, t) {
     if (void 0 === w || null == k(e)) {
         if (
             v(e) ||
-            (i = (function (e, t) {
+            (i = (function(e, t) {
                 var i;
                 if (!e) return;
                 if ('string' == typeof e) return et(e, t);
@@ -1555,16 +1555,16 @@ function Xe(e, t) {
         ) {
             i && (e = i);
             var r = 0,
-                n = function () {};
+                n = function() {};
             return {
                 s: n,
-                n: function () {
+                n: function() {
                     return r >= e.length ? { done: !0 } : { done: !1, value: e[r++] };
                 },
-                e: function (e) {
+                e: function(e) {
                     throw e;
                 },
-                f: n,
+                f: n
             };
         }
         throw new TypeError(
@@ -1575,23 +1575,23 @@ function Xe(e, t) {
         s = !0,
         a = !1;
     return {
-        s: function () {
+        s: function() {
             i = I(e);
         },
-        n: function () {
+        n: function() {
             var e = i.next();
             return (s = e.done), e;
         },
-        e: function (e) {
+        e: function(e) {
             (a = !0), (l = e);
         },
-        f: function () {
+        f: function() {
             try {
                 s || null == i.return || i.return();
             } finally {
                 if (a) throw l;
             }
-        },
+        }
     };
 }
 function et(e, t) {
@@ -1604,7 +1604,7 @@ function tt(e, t) {
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -1616,56 +1616,56 @@ function it(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = tt(Object(o), !0))).call(a, function (t) {
+            c((a = tt(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = tt(Object(o)))).call(u, function (i) {
+            c((u = tt(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
     }
     return e;
 }
-(Ye.fillSelectItems = function (e, t, i, r, n) {
+(Ye.fillSelectItems = function(e, t, i, r, n) {
     if (t)
         if ('array' === e.type) {
             var l, s;
             c(
                 (l = D(
-                    (s = b(t).call(t, function (e) {
+                    (s = b(t).call(t, function(e) {
                         return e;
                     }))
                 ).call(s))
-            ).call(l, function (e) {
+            ).call(l, function(e) {
                 var t = n ? e : f({}, r, e);
-                o(i).call(i, function (e) {
+                o(i).call(i, function(e) {
                     return Qe(e, t, r);
                 }) || i.push(t);
             });
         } else {
             var a = n ? t : f({}, r, t);
-            o(i).call(i, function (e) {
+            o(i).call(i, function(e) {
                 return Qe(e, a, r);
             }) || i.push(a);
         }
 }),
-    (Ye.fillList = function (e, t, i, r) {
+    (Ye.fillList = function(e, t, i, r) {
         if (t)
             return i.length
-                ? (c(i).call(i, function (e) {
-                      o(t).call(t, function (t) {
+                ? (c(i).call(i, function(e) {
+                      o(t).call(t, function(t) {
                           return Qe(e, t, r);
                       }) || t.push(e);
                   }),
-                  c(t).call(t, function (e, n) {
-                      o(i).call(i, function (t) {
+                  c(t).call(t, function(e, n) {
+                      o(i).call(i, function(t) {
                           return Qe(t, e, r);
                       }) || (t[n] = null);
                   }),
-                  s(t).call(t, function (e) {
+                  s(t).call(t, function(e) {
                       return !!e;
                   }))
                 : [];
@@ -1677,7 +1677,7 @@ function lt(e, t) {
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -1689,13 +1689,13 @@ function st(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = lt(Object(o), !0))).call(a, function (t) {
+            c((a = lt(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = lt(Object(o)))).call(u, function (i) {
+            c((u = lt(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
@@ -1707,7 +1707,7 @@ function at(e, t) {
     if (l) {
         var r = l(e);
         t &&
-            (r = s(r).call(r, function (t) {
+            (r = s(r).call(r, function(t) {
                 return n(e, t).enumerable;
             })),
             i.push.apply(i, r);
@@ -1719,13 +1719,13 @@ function ot(e) {
         var a,
             o = null != l[s] ? l[s] : {};
         if (s % 2)
-            c((a = at(Object(o), !0))).call(a, function (t) {
+            c((a = at(Object(o), !0))).call(a, function(t) {
                 f(e, t, o[t]);
             });
         else if (r) i(e, r(o));
         else {
             var u;
-            c((u = at(Object(o)))).call(u, function (i) {
+            c((u = at(Object(o)))).call(u, function(i) {
                 t(e, i, n(o, i));
             });
         }
@@ -1778,7 +1778,7 @@ var ut = $(
             VTextarea: be,
             VTextField: ye,
             VTimePicker: Se,
-            VTooltip: ge,
+            VTooltip: ge
         },
         mixins: [
             $(
@@ -1792,11 +1792,11 @@ var ut = $(
                         Fe,
                         Ze,
                         {
-                            data: function () {
+                            data: function() {
                                 return { rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} };
                             },
                             computed: {
-                                isSelectProp: function () {
+                                isSelectProp: function() {
                                     return (
                                         'list' !== this.display &&
                                         (!!this.fullSchema.enum ||
@@ -1805,12 +1805,10 @@ var ut = $(
                                                 !this.fullSchema.items ||
                                                 !this.fullSchema.items.enum
                                             ) ||
-                                            !!this.oneOfSelect ||
-                                            !!this.fromUrl ||
-                                            !!this.fromData)
+                                                !!this.oneOfSelect || !!this.fromUrl || !!this.fromData)
                                     );
                                 },
-                                oneOfSelect: function () {
+                                oneOfSelect: function() {
                                     var e, t;
                                     return (
                                         !(
@@ -1827,61 +1825,61 @@ var ut = $(
                                         )
                                     );
                                 },
-                                fromUrl: function () {
+                                fromUrl: function() {
                                     return this.fullSchema['x-fromUrl'];
                                 },
-                                fromUrlWithQuery: function () {
+                                fromUrlWithQuery: function() {
                                     var e;
                                     return !(
                                         !this.fullSchema['x-fromUrl'] ||
                                         -1 === T((e = this.fullSchema['x-fromUrl'])).call(e, '{q}')
                                     );
                                 },
-                                fromUrlKeys: function () {
+                                fromUrlKeys: function() {
                                     var e;
                                     return this.fullSchema['x-fromUrl']
                                         ? s((e = rt(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray())).call(
                                               e,
-                                              function (e) {
+                                              function(e) {
                                                   return 'q' !== e;
                                               }
                                           )
                                         : null;
                                 },
-                                fromData: function () {
+                                fromData: function() {
                                     return this.fullSchema['x-fromData'];
                                 },
-                                itemKey: function () {
+                                itemKey: function() {
                                     return this.fullSchema['x-itemKey'] || 'key';
                                 },
-                                itemTitle: function () {
+                                itemTitle: function() {
                                     return this.fullSchema['x-itemTitle'] || 'title';
                                 },
-                                itemIcon: function () {
+                                itemIcon: function() {
                                     return (
                                         this.fullSchema['x-itemIcon'] || ('icon' === this.display ? this.itemKey : null)
                                     );
                                 },
-                                returnObject: function () {
+                                returnObject: function() {
                                     return (
                                         'object' === this.fullSchema.type ||
                                         (this.fullSchema.items && 'object' === this.fullSchema.items.type)
                                     );
-                                },
+                                }
                             },
                             watch: {
-                                q: function () {
+                                q: function() {
                                     (this.value && this.value[this.itemTitle] === this.q) || this.fetchSelectItems();
                                 },
                                 rawSelectItems: {
-                                    handler: function () {
+                                    handler: function() {
                                         this.updateSelectItems();
                                     },
-                                    immediate: !0,
-                                },
+                                    immediate: !0
+                                }
                             },
                             methods: {
-                                initSelectProp: function (e) {
+                                initSelectProp: function(e) {
                                     var t,
                                         i = this;
                                     (this.fromUrlWithQuery &&
@@ -1901,7 +1899,7 @@ var ut = $(
                                                 ? this.fullSchema.items
                                                 : this.fullSchema
                                             ).oneOf)
-                                        ).call(t, function (e) {
+                                        ).call(t, function(e) {
                                             var t;
                                             return it(
                                                 it({}, e),
@@ -1916,37 +1914,37 @@ var ut = $(
                                     (this.fullSchema['x-fromData'] &&
                                         this.$watch(
                                             n + this.fullSchema['x-fromData'],
-                                            function (e) {
+                                            function(e) {
                                                 i.rawSelectItems = e;
                                             },
                                             { immediate: !0 }
                                         ),
                                     this.fromUrlKeys) &&
-                                        c((r = this.fromUrlKeys)).call(r, function (e) {
+                                        c((r = this.fromUrlKeys)).call(r, function(e) {
                                             p(e).call(e, 'context.')
                                                 ? i.$watch(
                                                       'options.' + e,
-                                                      function (t) {
+                                                      function(t) {
                                                           (i.fromUrlParams[e] = t), i.fetchSelectItems();
                                                       },
                                                       { immediate: !0 }
                                                   )
                                                 : i.$watch(
                                                       n + e,
-                                                      function (t) {
+                                                      function(t) {
                                                           (i.fromUrlParams[e] = t), i.fetchSelectItems();
                                                       },
                                                       { immediate: !0 }
                                                   );
                                         });
                                 },
-                                fetchSelectItems: function () {
+                                fetchSelectItems: function() {
                                     var e = this;
                                     if (!this.fullOptions.httpLib)
                                         return this.$emit('error', 'No http lib found to perform ajax request');
                                     (this.debouncedFetch =
                                         this.debouncedFetch ||
-                                        nt(function () {
+                                        nt(function() {
                                             var t,
                                                 i = e.fullSchema['x-fromUrl'].replace('{q}', e.q || ''),
                                                 r = Xe(e.fromUrlKeys);
@@ -1964,7 +1962,7 @@ var ut = $(
                                             (e.loading = !0),
                                                 e.fullOptions.httpLib
                                                     .get(i)
-                                                    .then(function (t) {
+                                                    .then(function(t) {
                                                         var r = t.data || t.body,
                                                             n = e.fullSchema['x-itemsProp']
                                                                 ? r[e.fullSchema['x-itemsProp']]
@@ -1975,13 +1973,13 @@ var ut = $(
                                                             );
                                                         (e.rawSelectItems = n), (e.loading = !1);
                                                     })
-                                                    .catch(function (t) {
+                                                    .catch(function(t) {
                                                         e.$emit('error', t.message), (e.loading = !1);
                                                     });
                                         }, 250)),
                                         this.debouncedFetch();
                                 },
-                                updateSelectItems: function () {
+                                updateSelectItems: function() {
                                     var e = Ye.getSelectItems(
                                         this.rawSelectItems,
                                         this.fullSchema,
@@ -1999,7 +1997,7 @@ var ut = $(
                                         ),
                                         h(e) !== h(this.selectItems) && (this.selectItems = e);
                                 },
-                                renderSelectIcon: function (e, t) {
+                                renderSelectIcon: function(e, t) {
                                     if (this.itemIcon) {
                                         var i = t[this.itemIcon];
                                         if (i) {
@@ -2008,7 +2006,7 @@ var ut = $(
                                                 p(i).call(i, 'http://') || p(i).call(i, 'https://')
                                                     ? (r = e('img', {
                                                           domProps: { src: i },
-                                                          style: 'height:100%;width:100%;',
+                                                          style: 'height:100%;width:100%;'
                                                       }))
                                                     : (p(i).call(i, '<?xml') || p(i).call(i, '<svg')) &&
                                                       (r = e('div', { domProps: { innerHTML: i } })),
@@ -2017,36 +2015,36 @@ var ut = $(
                                         }
                                     }
                                 },
-                                renderSelectItem: function (e, t) {
+                                renderSelectItem: function(e, t) {
                                     return e('v-list-item-content', [
-                                        e('v-list-item-title', t[this.itemTitle] || t[this.itemKey]),
+                                        e('v-list-item-title', t[this.itemTitle] || t[this.itemKey])
                                     ]);
                                 },
-                                renderSelectionControlItem: function (e, t) {
+                                renderSelectionControlItem: function(e, t) {
                                     var i = this,
                                         r = {
-                                            change: function (e) {
+                                            change: function(e) {
                                                 i.input(e), i.$emit('change', e);
-                                            },
+                                            }
                                         },
                                         n = {
                                             label: t[this.itemTitle] || t[this.itemKey],
                                             value: t[this.itemKey],
                                             inputValue: this.value,
                                             multiple: 'array' === this.fullSchema.type,
-                                            hideDetails: !0,
+                                            hideDetails: !0
                                         };
                                     return e('v-'.concat(this.display), { props: n, on: r, class: 'pb-1' });
                                 },
-                                renderSelectionControlGroup: function (e) {
+                                renderSelectionControlGroup: function(e) {
                                     var t,
                                         i,
                                         r,
                                         n = this,
                                         l = {
-                                            change: function (e) {
+                                            change: function(e) {
                                                 n.input(e), n.change(e);
-                                            },
+                                            }
                                         },
                                         s = it(
                                             it({}, this.commonFieldProps),
@@ -2061,11 +2059,11 @@ var ut = $(
                                                         this.theme.isDark ? 'dark' : 'light',
                                                         ' '
                                                     ))
-                                                ).call(t, this.hasError ? 'error--text' : ''),
+                                                ).call(t, this.hasError ? 'error--text' : '')
                                             },
                                             this.commonFieldProps.label
                                         ),
-                                        o = b((i = this.selectItems)).call(i, function (t) {
+                                        o = b((i = this.selectItems)).call(i, function(t) {
                                             return n.renderSelectionControlItem(e, t);
                                         });
                                     return [
@@ -2075,7 +2073,7 @@ var ut = $(
                                                 props: s,
                                                 on: l,
                                                 class:
-                                                    'v-input--selection-controls v-input--radio-group v-input--radio-group--column',
+                                                    'v-input--selection-controls v-input--radio-group v-input--radio-group--column'
                                             },
                                             [
                                                 e(
@@ -2083,19 +2081,19 @@ var ut = $(
                                                     { class: 'v-input--radio-group__input' },
                                                     m((r = [a])).call(r, O(o))
                                                 ),
-                                                this.renderTooltip(e, 'append'),
+                                                this.renderTooltip(e, 'append')
                                             ]
-                                        ),
+                                        )
                                     ];
                                 },
-                                renderRadioItem: function (e, t) {
+                                renderRadioItem: function(e, t) {
                                     var i = t[this.itemTitle] || t[this.itemKey],
                                         r = t[this.itemKey];
                                     return e('v-radio', {
-                                        props: it(it({}, this.fullOptions.radioItemProps), {}, { label: i, value: r }),
+                                        props: it(it({}, this.fullOptions.radioItemProps), {}, { label: i, value: r })
                                     });
                                 },
-                                renderRadioGroup: function (e) {
+                                renderRadioGroup: function(e) {
                                     var t,
                                         i,
                                         r = this,
@@ -2106,24 +2104,24 @@ var ut = $(
                                             {
                                                 props: n,
                                                 on: {
-                                                    change: function (e) {
+                                                    change: function(e) {
                                                         r.input(e), r.change(e);
-                                                    },
-                                                },
+                                                    }
+                                                }
                                             },
                                             m((t = [])).call(
                                                 t,
                                                 O(
-                                                    b((i = this.selectItems)).call(i, function (t) {
+                                                    b((i = this.selectItems)).call(i, function(t) {
                                                         return r.renderRadioItem(e, t);
                                                     })
                                                 ),
                                                 [this.renderTooltip(e, 'append')]
                                             )
-                                        ),
+                                        )
                                     ];
                                 },
-                                renderSelectProp: function (e) {
+                                renderSelectProp: function(e) {
                                     var t,
                                         i = this;
                                     if (this.isSelectProp) {
@@ -2132,15 +2130,15 @@ var ut = $(
                                         if (a((t = ['checkbox', 'switch'])).call(t, this.display))
                                             return this.renderSelectionControlGroup(e);
                                         var r = {
-                                                input: function (e) {
+                                                input: function(e) {
                                                     return i.input(e);
                                                 },
-                                                change: function (e) {
+                                                change: function(e) {
                                                     return i.change(e);
-                                                },
+                                                }
                                             },
                                             n = {
-                                                selection: function (t) {
+                                                selection: function(t) {
                                                     var r = t.item[i.itemTitle] || t.item[i.itemKey];
                                                     return (
                                                         'array' === i.fullSchema.type &&
@@ -2152,25 +2150,22 @@ var ut = $(
                                                                 class: {
                                                                     'v-select__selection': !0,
                                                                     'v-select__selection--comma': !0,
-                                                                    'v-select__selection--disabled': i.disabled,
-                                                                },
+                                                                    'v-select__selection--disabled': i.disabled
+                                                                }
                                                             },
                                                             [
                                                                 i.renderSelectIcon(e, t.item),
-                                                                e('span', {
-                                                                    domProps: { innerHTML: r },
-                                                                    class: 'mt-1',
-                                                                }),
+                                                                e('span', { domProps: { innerHTML: r }, class: 'mt-1' })
                                                             ]
                                                         )
                                                     );
                                                 },
-                                                item: function (t) {
+                                                item: function(t) {
                                                     return [
                                                         i.renderSelectIcon(e, t.item),
-                                                        i.renderSelectItem(e, t.item),
+                                                        i.renderSelectItem(e, t.item)
                                                     ];
-                                                },
+                                                }
                                             },
                                             l = O(this.renderPropSlots(e));
                                         this.htmlDescription && l.push(this.renderTooltip(e, 'append-outer'));
@@ -2183,7 +2178,7 @@ var ut = $(
                                                     multiple: 'array' === this.fullSchema.type,
                                                     itemValue: this.itemKey,
                                                     items: this.selectItems,
-                                                    returnObject: this.returnObject,
+                                                    returnObject: this.returnObject
                                                 }
                                             );
                                         return (
@@ -2193,14 +2188,14 @@ var ut = $(
                                                 (o.noDataText = this.fullOptions.messages.noData),
                                                 (o.placeholder = this.fullOptions.messages.search),
                                                 this.fromUrlWithQuery
-                                                    ? ((o.filter = function () {
+                                                    ? ((o.filter = function() {
                                                           return !0;
                                                       }),
                                                       (o.searchInput = this.q),
-                                                      (r['update:search-input'] = function (e) {
+                                                      (r['update:search-input'] = function(e) {
                                                           i.q = e;
                                                       }))
-                                                    : (o.filter = function (e, t) {
+                                                    : (o.filter = function(e, t) {
                                                           var r;
                                                           return a(
                                                               (r = (e[i.itemTitle] || e[i.itemKey]).toLowerCase())
@@ -2210,16 +2205,16 @@ var ut = $(
                                             [e(s, { props: o, on: r, scopedSlots: n }, l)]
                                         );
                                     }
-                                },
-                            },
+                                }
+                            }
                         },
                         Be,
                         {
-                            data: function () {
+                            data: function() {
                                 return { editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} } };
                             },
                             computed: {
-                                isEditableArray: function () {
+                                isEditableArray: function() {
                                     if (
                                         'array' === this.fullSchema.type &&
                                         this.fullSchema.items &&
@@ -2227,7 +2222,7 @@ var ut = $(
                                     )
                                         return !0;
                                 },
-                                readonlyItemSchema: function () {
+                                readonlyItemSchema: function() {
                                     var e = this;
                                     if (this.fullSchema.items) {
                                         var t = JSON.parse(h(this.fullSchema.items));
@@ -2239,23 +2234,23 @@ var ut = $(
                                                     (t.properties[this.itemTitle]['x-display'] = 'hidden'),
                                                 t.oneOf)
                                             )
-                                                c((i = t.oneOf)).call(i, function (t) {
+                                                c((i = t.oneOf)).call(i, function(t) {
                                                     t.properties[e.itemTitle] &&
                                                         (t.properties[e.itemTitle]['x-display'] = 'hidden');
                                                 });
                                             if (this.fullSchema.items.allOf)
-                                                c((r = t.allOf)).call(r, function (t) {
+                                                c((r = t.allOf)).call(r, function(t) {
                                                     t.properties[e.itemTitle] &&
                                                         (t.properties[e.itemTitle]['x-display'] = 'hidden');
                                                 });
                                         }
                                         return t;
                                     }
-                                },
+                                }
                             },
                             watch: {},
                             methods: {
-                                renderArrayItemModal: function (e, t, i) {
+                                renderArrayItemModal: function(e, t, i) {
                                     var r,
                                         n,
                                         l = this,
@@ -2274,30 +2269,30 @@ var ut = $(
                                                     parentKey: ''.concat(this.fullKey, '.'),
                                                     options: this.fullOptions,
                                                     sectionDepth: this.sectionDepth + 1,
-                                                    separateValidation: !0,
+                                                    separateValidation: !0
                                                 },
                                                 scopedSlots: this.childScopedSlots(this.fullSchema.key),
                                                 on: {
-                                                    error: function (e) {
+                                                    error: function(e) {
                                                         return l.$emit('error', e);
                                                     },
-                                                    input: function (e) {
+                                                    input: function(e) {
                                                         l.editabledArrayProp.editItem = e;
-                                                    },
-                                                },
+                                                    }
+                                                }
                                             },
                                             this.childSlots(e, this.fullSchema.key)
                                         )));
                                     var a = {
-                                            activator: function () {
+                                            activator: function() {
                                                 return e(
                                                     'v-btn',
                                                     {
                                                         on: {
-                                                            click: function () {
+                                                            click: function() {
                                                                 (l.editabledArrayProp.editItem = JSON.parse(h(t))),
                                                                     (l.editabledArrayProp.currentDialog = i);
-                                                            },
+                                                            }
                                                         },
                                                         attrs: {
                                                             id:
@@ -2305,21 +2300,21 @@ var ut = $(
                                                                 l.dashKey +
                                                                 '-' +
                                                                 (s ? '-add' : i + '--edit') +
-                                                                '-button',
+                                                                '-button'
                                                         },
                                                         class: { 'vjsf-array-add-button': !0, 'ml-3': s },
-                                                        props: { icon: !s, fab: s, small: s, color: 'primary' },
+                                                        props: { icon: !s, fab: s, small: s, color: 'primary' }
                                                     },
                                                     [
                                                         e(
                                                             'v-icon',
                                                             s ? l.fullOptions.icons.add : l.fullOptions.icons.edit
-                                                        ),
+                                                        )
                                                     ]
                                                 );
-                                            },
+                                            }
                                         },
-                                        o = function () {
+                                        o = function() {
                                             r.componentInstance.resetValidation(),
                                                 (l.editabledArrayProp.currentDialog = null);
                                         };
@@ -2331,11 +2326,11 @@ var ut = $(
                                                 {},
                                                 {
                                                     value: this.editabledArrayProp.currentDialog === i,
-                                                    closeOnContentClick: !1,
+                                                    closeOnContentClick: !1
                                                 }
                                             ),
                                             scopedSlots: a,
-                                            on: { 'click:outside': o },
+                                            on: { 'click:outside': o }
                                         },
                                         [
                                             e('v-card', { props: this.fullOptions.dialogCardProps }, [
@@ -2352,9 +2347,9 @@ var ut = $(
                                                                 id:
                                                                     this.fullOptions.idPrefix +
                                                                     this.dashKey +
-                                                                    '--dialog-cancel-button',
+                                                                    '--dialog-cancel-button'
                                                             },
-                                                            class: { 'vjsf-array-dialog-cancel-button': !0 },
+                                                            class: { 'vjsf-array-dialog-cancel-button': !0 }
                                                         },
                                                         'cancel'
                                                     ),
@@ -2363,7 +2358,7 @@ var ut = $(
                                                         {
                                                             props: { color: 'primary' },
                                                             on: {
-                                                                click: function () {
+                                                                click: function() {
                                                                     r.componentInstance.validate(!0) &&
                                                                         (s
                                                                             ? ((l.editabledArrayProp.editedItems[
@@ -2380,7 +2375,7 @@ var ut = $(
                                                                                   i,
                                                                                   l.editabledArrayProp.editItem
                                                                               ),
-                                                                              l.$nextTick(function () {
+                                                                              l.$nextTick(function() {
                                                                                   return l.$refs[
                                                                                       'roItem-' + i
                                                                                   ].initFromSchema();
@@ -2389,24 +2384,24 @@ var ut = $(
                                                                         l.$emit('change', l.value),
                                                                         (l.shouldValidate = !0),
                                                                         (l.editabledArrayProp.currentDialog = null));
-                                                                },
+                                                                }
                                                             },
                                                             attrs: {
                                                                 id:
                                                                     this.fullOptions.idPrefix +
                                                                     this.dashKey +
-                                                                    '--dialog-ok-button',
+                                                                    '--dialog-ok-button'
                                                             },
-                                                            class: { 'vjsf-array-dialog-ok-button': !0 },
+                                                            class: { 'vjsf-array-dialog-ok-button': !0 }
                                                         },
                                                         'ok'
-                                                    ),
-                                                ]),
-                                            ]),
+                                                    )
+                                                ])
+                                            ])
                                         ]
                                     );
                                 },
-                                renderArrayItemRO: function (e, t, i) {
+                                renderArrayItemRO: function(e, t, i) {
                                     var r = this;
                                     return e('v-jsf', {
                                         props: {
@@ -2424,21 +2419,21 @@ var ut = $(
                                                         st({}, this.fullOptions.fieldProps),
                                                         {},
                                                         { dense: !0 }
-                                                    ),
+                                                    )
                                                 }
                                             ),
                                             sectionDepth: this.sectionDepth + 1,
-                                            separateValidation: !0,
+                                            separateValidation: !0
                                         },
                                         ref: 'roItem-' + i,
                                         on: {
-                                            input: function (e) {
+                                            input: function(e) {
                                                 r.editabledArrayProp.editedItems[i] || r.$set(r.value, i, e);
-                                            },
-                                        },
+                                            }
+                                        }
                                     });
                                 },
-                                renderEditableArray: function (e) {
+                                renderEditableArray: function(e) {
                                     var t = this;
                                     if (this.isEditableArray) {
                                         var i = [];
@@ -2463,8 +2458,8 @@ var ut = $(
                                                         rules: this.rules,
                                                         value: this.value,
                                                         validateOnBlur: !this.shouldValidate,
-                                                        hideDetails: !this.hasError,
-                                                    },
+                                                        hideDetails: !this.hasError
+                                                    }
                                                 },
                                                 i
                                             );
@@ -2472,10 +2467,10 @@ var ut = $(
                                             var l,
                                                 a,
                                                 o = b(
-                                                    (l = s((a = this.value)).call(a, function (e) {
+                                                    (l = s((a = this.value)).call(a, function(e) {
                                                         return !!e;
                                                     }))
-                                                ).call(l, function (i, r) {
+                                                ).call(l, function(i, r) {
                                                     return e('v-col', { props: t.fullOptions.arrayItemColProps }, [
                                                         e('v-card', { props: t.fullOptions.arrayItemCardProps }, [
                                                             e(
@@ -2484,7 +2479,7 @@ var ut = $(
                                                                 t.itemTitle && i[t.itemTitle]
                                                             ),
                                                             e('v-card-text', { class: 'pb-0' }, [
-                                                                t.renderArrayItemRO(e, i, r),
+                                                                t.renderArrayItemRO(e, i, r)
                                                             ]),
                                                             e('v-card-actions', [
                                                                 e('v-spacer'),
@@ -2502,15 +2497,15 @@ var ut = $(
                                                                                     t.dashKey +
                                                                                     '-' +
                                                                                     r +
-                                                                                    '--delete-button',
+                                                                                    '--delete-button'
                                                                             },
                                                                             class: { 'vjsf-array-delete-button': !0 },
                                                                             on: {
-                                                                                click: function () {
+                                                                                click: function() {
                                                                                     var e,
                                                                                         r = s((e = t.value)).call(
                                                                                             e,
-                                                                                            function (e) {
+                                                                                            function(e) {
                                                                                                 return e !== i;
                                                                                             }
                                                                                         );
@@ -2518,20 +2513,20 @@ var ut = $(
                                                                                         t.$emit('change', r),
                                                                                         (t.shouldValidate = !0),
                                                                                         n.componentInstance.validate();
-                                                                                },
-                                                                            },
+                                                                                }
+                                                                            }
                                                                         },
                                                                         [e('v-icon', t.fullOptions.icons.delete)]
-                                                                    ),
-                                                            ]),
-                                                        ]),
+                                                                    )
+                                                            ])
+                                                        ])
                                                     ]);
                                                 });
                                             r = e(
                                                 'v-row',
                                                 {
                                                     props: { gridListMd: !0 },
-                                                    class: 'pt-0 px-2 ' + this.fullOptions.objectContainerClass,
+                                                    class: 'pt-0 px-2 ' + this.fullOptions.objectContainerClass
                                                 },
                                                 this.fullOptions.disableSorting
                                                     ? o
@@ -2543,41 +2538,41 @@ var ut = $(
                                                                   class: 'row',
                                                                   style: 'cursor: move;',
                                                                   on: {
-                                                                      input: function (e) {
+                                                                      input: function(e) {
                                                                           t.input(e),
                                                                               t.$emit('change', e),
                                                                               (t.shouldValidate = !0),
-                                                                              t.$nextTick(function () {
+                                                                              t.$nextTick(function() {
                                                                                   for (var i = 0; i < e.length; i++)
                                                                                       t.$refs[
                                                                                           'roItem-' + i
                                                                                       ].initFromSchema();
                                                                               });
-                                                                      },
-                                                                  },
+                                                                      }
+                                                                  }
                                                               },
                                                               o
-                                                          ),
+                                                          )
                                                       ]
                                             );
                                         }
                                         return [n, r];
                                     }
-                                },
-                            },
+                                }
+                            }
                         },
                         {
-                            data: function () {
+                            data: function() {
                                 return { tooltip: { show: !1, maxWidth: 200 } };
                             },
-                            mounted: function () {
+                            mounted: function() {
                                 this.htmlDescription &&
                                     this.$el &&
                                     this.$el.getBoundingClientRect &&
                                     (this.tooltip.maxWidth = this.$el.getBoundingClientRect().left - 80);
                             },
                             methods: {
-                                renderTooltip: function (e, t) {
+                                renderTooltip: function(e, t) {
                                     var i = this;
                                     if (this.htmlDescription && !this.fullOptions.hideTooltips)
                                         return e(
@@ -2589,78 +2584,78 @@ var ut = $(
                                                     left: !0,
                                                     openOnHover: !1,
                                                     openOnClick: !1,
-                                                    contentClass: 'vjsf-tooltip',
+                                                    contentClass: 'vjsf-tooltip'
                                                 },
                                                 scopedSlots: {
-                                                    activator: function () {
+                                                    activator: function() {
                                                         return e(
                                                             'v-btn',
                                                             {
                                                                 on: {
-                                                                    click: function () {
+                                                                    click: function() {
                                                                         i.tooltip.show = !i.tooltip.show;
-                                                                    },
+                                                                    }
                                                                 },
                                                                 props: { icon: !0 },
-                                                                style: 'pointer-events: auto',
+                                                                style: 'pointer-events: auto'
                                                             },
                                                             [e('v-icon', {}, i.fullOptions.icons.info)]
                                                         );
-                                                    },
-                                                },
+                                                    }
+                                                }
                                             },
                                             [
                                                 e('div', {
                                                     style: 'max-width: '.concat(this.tooltip.maxWidth, 'px'),
-                                                    domProps: { innerHTML: this.htmlDescription },
-                                                }),
+                                                    domProps: { innerHTML: this.htmlDescription }
+                                                })
                                             ]
                                         );
-                                },
-                            },
+                                }
+                            }
                         },
                         {
                             inject: ['form'],
-                            provide: function () {
+                            provide: function() {
                                 return { form: { register: this.register, unregister: this.unregister } };
                             },
                             props: { separateValidation: { type: Boolean, default: !1 } },
-                            data: function () {
+                            data: function() {
                                 return { inputs: [], validated: !1, shouldValidate: !1 };
                             },
                             computed: {
-                                childrenInputs: function () {
+                                childrenInputs: function() {
                                     var e;
                                     return L((e = this.inputs)).call(
                                         e,
-                                        function (e, t, i) {
+                                        function(e, t, i) {
                                             return (e[t.modelKey || i] = t), e;
                                         },
                                         {}
                                     );
                                 },
-                                hasError: function () {
+                                hasError: function() {
                                     var e;
                                     return (
-                                        !!o((e = this.inputs)).call(e, function (e) {
+                                        !!o((e = this.inputs)).call(e, function(e) {
                                             return e.hasError;
                                         }) || !!this.containerError
                                     );
                                 },
-                                hasValidatedChildError: function () {
+                                hasValidatedChildError: function() {
                                     var e;
-                                    return !!o((e = this.inputs)).call(e, function (e) {
+                                    return !!o((e = this.inputs)).call(e, function(e) {
                                         return (
                                             e.hasValidatedChildError ||
                                             (e.hasError && (e.validated || e.shouldValidate))
                                         );
                                     });
-                                },
+                                }
                             },
-                            created: function () {
+                            created: function() {
                                 this.separateValidation || (this.form && this.form.register(this));
                             },
-                            mounted: function () {
+                            mounted: function() {
                                 var e = this.fullOptions.initialValidation;
                                 'all' !== e || this.modelRoot || this.validate(!0),
                                     'defined' === e &&
@@ -2668,45 +2663,45 @@ var ut = $(
                                         !this.isObjectContainer &&
                                         this.validate(!0);
                             },
-                            beforeDestroy: function () {
+                            beforeDestroy: function() {
                                 this.separateValidation || (this.form && this.form.unregister(this));
                             },
                             methods: {
-                                register: function (e) {
+                                register: function(e) {
                                     this.inputs.push(e);
                                 },
-                                unregister: function (e) {
+                                unregister: function(e) {
                                     var t;
-                                    this.inputs = s((t = this.inputs)).call(t, function (t) {
+                                    this.inputs = s((t = this.inputs)).call(t, function(t) {
                                         return t._uid !== e._uid;
                                     });
                                 },
-                                validate: function (e) {
+                                validate: function(e) {
                                     var t;
                                     return (
                                         (this.validated = !0),
                                         0 ===
-                                            s((t = this.inputs)).call(t, function (t) {
+                                            s((t = this.inputs)).call(t, function(t) {
                                                 return !t.validate(e);
                                             }).length
                                     );
                                 },
-                                reset: function () {
+                                reset: function() {
                                     var e;
-                                    c((e = this.inputs)).call(e, function (e) {
+                                    c((e = this.inputs)).call(e, function(e) {
                                         return e.reset();
                                     });
                                 },
-                                resetValidation: function () {
+                                resetValidation: function() {
                                     var e;
                                     (this.shouldValidate = !1),
                                         (this.validated = !1),
-                                        c((e = this.inputs)).call(e, function (e) {
+                                        c((e = this.inputs)).call(e, function(e) {
                                             return e.resetValidation();
                                         });
-                                },
-                            },
-                        },
+                                }
+                            }
+                        }
                     ],
                     inject: ['theme'],
                     props: {
@@ -2717,13 +2712,13 @@ var ut = $(
                         modelKey: { type: [String, Number], default: 'root' },
                         parentKey: { type: String, default: '' },
                         required: { type: Boolean, default: !1 },
-                        sectionDepth: { type: Number, default: 0 },
+                        sectionDepth: { type: Number, default: 0 }
                     },
-                    data: function () {
+                    data: function() {
                         return { ready: !1, loading: !1 };
                     },
                     computed: {
-                        fullOptions: function () {
+                        fullOptions: function() {
                             var e =
                                     ('undefined' != typeof window && window) ||
                                     ('undefined' != typeof global && global) ||
@@ -2732,10 +2727,10 @@ var ut = $(
                             (t.markdown =
                                 t.markdown ||
                                 (e.markdownit &&
-                                    function (i) {
+                                    function(i) {
                                         return e.markdownit(t.markdownit).render(i);
                                     }) ||
-                                function (e) {
+                                function(e) {
                                     return e;
                                 }),
                                 (t.httpLib = t.httpLib || this.axios || this.$http || this.$axios || e.axios);
@@ -2748,44 +2743,44 @@ var ut = $(
                                 t
                             );
                         },
-                        resolvedSchema: function () {
+                        resolvedSchema: function() {
                             return 'root' === this.modelKey
                                 ? xe.resolve(this.schema, {
-                                      '~$locale~': (this.options && this.options.locale) || 'en',
+                                      '~$locale~': (this.options && this.options.locale) || 'en'
                                   })
                                 : this.schema;
                         },
-                        fullSchema: function () {
+                        fullSchema: function() {
                             return Ie.prepareFullSchema(this.resolvedSchema, this.value);
                         },
-                        htmlDescription: function () {
+                        htmlDescription: function() {
                             return this.fullSchema && this.fullSchema.description
                                 ? this.fullOptions.markdown(this.fullSchema.description)
                                 : null;
                         },
-                        fullKey: function () {
+                        fullKey: function() {
                             return (this.parentKey + this.modelKey).replace('root.', '');
                         },
-                        label: function () {
+                        label: function() {
                             return this.fullSchema.title || ('string' == typeof this.modelKey ? this.modelKey : '');
                         },
-                        display: function () {
+                        display: function() {
                             return 'root' === this.modelKey && this.fullOptions.rootDisplay
                                 ? this.fullOptions.rootDisplay
                                 : this.fullSchema['x-display'];
                         },
-                        customTag: function () {
+                        customTag: function() {
                             return this.fullSchema['x-tag'];
                         },
-                        rules: function () {
-                            return (function (e, t, i, r) {
+                        rules: function() {
+                            return (function(e, t, i, r) {
                                 var n,
                                     l,
                                     s,
                                     u = [];
                                 if (
                                     (i &&
-                                        u.push(function (e) {
+                                        u.push(function(e) {
                                             return (null != e && '' !== e) || t.messages.required;
                                         }),
                                     'array' === e.type && void 0 !== e.minItems)
@@ -2794,7 +2789,7 @@ var ut = $(
                                         '{minItems}',
                                         e.minItems.toLocaleString(t.locale)
                                     );
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return !t || t.length >= e.minItems || c;
                                     });
                                 }
@@ -2803,7 +2798,7 @@ var ut = $(
                                         '{maxItems}',
                                         e.maxItems.toLocaleString(t.locale)
                                     );
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return !t || t.length <= e.maxItems || p;
                                     });
                                 }
@@ -2812,7 +2807,7 @@ var ut = $(
                                         '{minLength}',
                                         e.minLength.toLocaleString(t.locale)
                                     );
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return null == t || t.length >= e.minLength || f;
                                     });
                                 }
@@ -2821,34 +2816,34 @@ var ut = $(
                                         '{maxLength}',
                                         e.maxLength.toLocaleString(t.locale)
                                     );
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return null == t || t.length <= e.maxLength || d;
                                     });
                                 }
                                 if ('string' === e.type && void 0 !== e.patternRegexp) {
                                     var v = t.messages.pattern.replace('{pattern}', e.pattern);
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return null == t || !!t.match(e.patternRegexp) || v;
                                     });
                                 }
                                 if (a((n = ['number', 'integer'])).call(n, e.type) && void 0 !== e.maximum) {
                                     var y = t.messages.maximum.replace('{maximum}', e.maximum.toLocaleString(t.locale));
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return null == t || t <= e.maximum || y;
                                     });
                                 }
                                 if (a((l = ['number', 'integer'])).call(l, e.type) && void 0 !== e.minimum) {
                                     var S = t.messages.minimum.replace('{minimum}', e.minimum.toLocaleString(t.locale));
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         return null == t || t >= e.minimum || S;
                                     });
                                 }
                                 e.enum &&
-                                    u.push(function (t) {
+                                    u.push(function(t) {
                                         var i;
                                         return (
                                             null == t ||
-                                            !!o((i = e.enum)).call(i, function (e) {
+                                            !!o((i = e.enum)).call(i, function(e) {
                                                 return h(e) === h(t);
                                             }) ||
                                             ''
@@ -2856,12 +2851,12 @@ var ut = $(
                                     }),
                                     'array' === e.type &&
                                         e.items.enum &&
-                                        u.push(function (t) {
+                                        u.push(function(t) {
                                             return (
                                                 null == t ||
-                                                !o(t).call(t, function (t) {
+                                                !o(t).call(t, function(t) {
                                                     var i;
-                                                    return !o((i = e.items.enum)).call(i, function (e) {
+                                                    return !o((i = e.items.enum)).call(i, function(e) {
                                                         return h(e) === h(t);
                                                     });
                                                 }) ||
@@ -2870,11 +2865,11 @@ var ut = $(
                                         }),
                                     r &&
                                         'array' !== e.type &&
-                                        u.push(function (t) {
+                                        u.push(function(t) {
                                             var i;
                                             return (
                                                 null == t ||
-                                                !!o((i = e.oneOf)).call(i, function (e) {
+                                                !!o((i = e.oneOf)).call(i, function(e) {
                                                     return e.const === t;
                                                 }) ||
                                                 ''
@@ -2882,19 +2877,19 @@ var ut = $(
                                         }),
                                     r &&
                                         'array' === e.type &&
-                                        u.push(function (t) {
+                                        u.push(function(t) {
                                             return (
                                                 null == t ||
-                                                !o(t).call(t, function (t) {
+                                                !o(t).call(t, function(t) {
                                                     var i;
-                                                    return !o((i = e.items.oneOf)).call(i, function (e) {
+                                                    return !o((i = e.items.oneOf)).call(i, function(e) {
                                                         return e.const === t;
                                                     });
                                                 }) ||
                                                 ''
                                             );
                                         });
-                                var g = b((s = e['x-ruless'] || [])).call(s, function (e) {
+                                var g = b((s = e['x-ruless'] || [])).call(s, function(e) {
                                     return 'string' == typeof e
                                         ? t.rules && t.rules[e]
                                         : 'function' == typeof e
@@ -2904,17 +2899,17 @@ var ut = $(
                                 return m(u).call(u, g);
                             })(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
                         },
-                        disabled: function () {
+                        disabled: function() {
                             return this.fullOptions.disableAll || this.fullSchema.readOnly;
                         },
-                        slotName: function () {
+                        slotName: function() {
                             var e;
                             return this.fullSchema['x-display'] &&
                                 p((e = this.fullSchema['x-display'])).call(e, 'custom-')
                                 ? this.fullSchema['x-display']
                                 : this.fullKey;
                         },
-                        slotParams: function () {
+                        slotParams: function() {
                             var e = this;
                             return {
                                 value: this.value,
@@ -2929,19 +2924,19 @@ var ut = $(
                                 options: this.fullOptions,
                                 htmlDescription: this.htmlDescription,
                                 on: {
-                                    input: function (t) {
+                                    input: function(t) {
                                         return e.input(t instanceof Event ? t.target.value : t);
                                     },
-                                    change: function (t) {
+                                    change: function(t) {
                                         return e.change(t);
-                                    },
-                                },
+                                    }
+                                }
                             };
                         },
-                        dashKey: function () {
+                        dashKey: function() {
                             return this.fullKey.replace(/\./g, '-');
                         },
-                        commonFieldProps: function () {
+                        commonFieldProps: function() {
                             return ot(
                                 ot(
                                     {
@@ -2952,35 +2947,35 @@ var ut = $(
                                         id: this.fullOptions.idPrefix + this.dashKey,
                                         disabled: this.disabled,
                                         rules: this.rules,
-                                        required: this.required,
+                                        required: this.required
                                     },
                                     this.fullOptions.fieldProps
                                 ),
                                 this.fullSchema['x-props']
                             );
                         },
-                        propertyClass: function () {
+                        propertyClass: function() {
                             var e;
                             return m((e = 'vjsf-property vjsf-property-'.concat(this.dashKey, ' pa-0 '))).call(
                                 e,
                                 this.fullSchema['x-class'] || ''
                             );
                         },
-                        xSlots: function () {
+                        xSlots: function() {
                             return ot({}, this.fullSchema['x-slots']);
                         },
-                        formattedValue: function () {
+                        formattedValue: function() {
                             return (
                                 this.value &&
                                 this.fullSchema.format &&
                                 this.fullOptions.formats[this.fullSchema.format] &&
                                 this.fullOptions.formats[this.fullSchema.format](this.value, this.fullOptions.locale)
                             );
-                        },
+                        }
                     },
                     watch: {
                         fullSchema: {
-                            handler: function () {
+                            handler: function() {
                                 this.fullSchema &&
                                     h(this.fullSchema) !== this.lastFullSchema &&
                                     ((this.lastFullSchema = h(this.fullSchema)),
@@ -2988,10 +2983,10 @@ var ut = $(
                                     this.fixProperties(),
                                     (this.ready = !0));
                             },
-                            immediate: !0,
-                        },
+                            immediate: !0
+                        }
                     },
-                    render: function (e) {
+                    render: function(e) {
                         var t, i;
                         if (
                             !(
@@ -3006,13 +3001,13 @@ var ut = $(
                                 (this.$scopedSlots.before
                                     ? r.push(this.$scopedSlots.before(this.slotParams))
                                     : this.$slots.before
-                                    ? c((t = this.$slots.before)).call(t, function (e) {
+                                    ? c((t = this.$slots.before)).call(t, function(e) {
                                           return r.push(e);
                                       })
                                     : this.xSlots.before &&
                                       r.push(
                                           e('div', {
-                                              domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) },
+                                              domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) }
                                           })
                                       ),
                                 this.$scopedSlots.default)
@@ -3032,20 +3027,20 @@ var ut = $(
                                     this.renderSimpleProp(e) ||
                                     this.renderObjectContainer(e) ||
                                     [];
-                                c(n).call(n, function (e) {
+                                c(n).call(n, function(e) {
                                     return r.push(e);
                                 });
                             }
                             this.$scopedSlots.after
                                 ? r.push(this.$scopedSlots.after(this.slotParams))
                                 : this.$slots.after
-                                ? c((i = this.$slots.after)).call(i, function (e) {
+                                ? c((i = this.$slots.after)).call(i, function(e) {
                                       return r.push(e);
                                   })
                                 : this.xSlots.after &&
                                   r.push(
                                       e('div', {
-                                          domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) },
+                                          domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) }
                                       })
                                   );
                             var l = ot({}, this.fullOptions.fieldColProps);
@@ -3060,33 +3055,33 @@ var ut = $(
                         }
                     },
                     methods: {
-                        renderPropSlots: function (e) {
+                        renderPropSlots: function(e) {
                             var t,
                                 i,
                                 r = this,
                                 n = [];
                             return (
-                                c((t = u(this.xSlots))).call(t, function (t) {
+                                c((t = u(this.xSlots))).call(t, function(t) {
                                     n.push(
                                         e('div', {
                                             slot: t,
-                                            domProps: { innerHTML: r.fullOptions.markdown(r.xSlots[t]) },
+                                            domProps: { innerHTML: r.fullOptions.markdown(r.xSlots[t]) }
                                         })
                                     );
                                 }),
-                                c((i = u(this.$slots))).call(i, function (t) {
+                                c((i = u(this.$slots))).call(i, function(t) {
                                     n.push(e('template', { slot: t }, r.$slots[t]));
                                 }),
                                 n
                             );
                         },
-                        change: function () {
+                        change: function() {
                             this.$emit('change', this.value);
                         },
-                        input: function (e) {
+                        input: function(e) {
                             null == e || '' === e ? this.$emit('input', void 0) : this.$emit('input', e);
                         },
-                        defaultValue: function (e) {
+                        defaultValue: function(e) {
                             return 'object' !== e.type || e['x-fromUrl'] || e['x-fromData'] || e.enum
                                 ? 'array' === e.type
                                     ? []
@@ -3095,7 +3090,7 @@ var ut = $(
                                     : null
                                 : {};
                         },
-                        fixProperties: function () {
+                        fixProperties: function() {
                             var e,
                                 t = this;
                             if (
@@ -3113,21 +3108,21 @@ var ut = $(
                                         !1 === this.fullSchema.additionalProperties) &&
                                     this.value
                                 )
-                                    c((i = u(this.value))).call(i, function (e) {
+                                    c((i = u(this.value))).call(i, function(e) {
                                         var i;
-                                        o((i = t.fullSchema.properties || [])).call(i, function (t) {
+                                        o((i = t.fullSchema.properties || [])).call(i, function(t) {
                                             return t.key === e;
                                         }) || t.$delete(t.value, e);
                                     });
-                                c((e = u(this.subModels))).call(e, function (e) {
+                                c((e = u(this.subModels))).call(e, function(e) {
                                     var i;
-                                    c((i = u(t.subModels[e]))).call(i, function (i) {
+                                    c((i = u(t.subModels[e]))).call(i, function(i) {
                                         t.value[i] !== t.subModels[e][i] && t.$set(t.value, i, t.subModels[e][i]);
                                     });
                                 });
                             }
                         },
-                        initFromSchema: function () {
+                        initFromSchema: function() {
                             var e;
                             if (
                                 ((this.initiallyDefined = void 0 !== this.value && null !== this.value),
@@ -3147,13 +3142,13 @@ var ut = $(
                                 this.initSelectProp(t),
                                 this.initObjectContainer(t),
                                 'array' === this.fullSchema.type &&
-                                    (t = s(t).call(t, function (e) {
+                                    (t = s(t).call(t, function(e) {
                                         var t;
                                         return !a((t = [void 0, null])).call(t, e);
                                     })),
                                 this.input(t);
-                        },
-                    },
+                        }
+                    }
                 },
                 undefined,
                 undefined,
@@ -3162,8 +3157,8 @@ var ut = $(
                 void 0,
                 void 0,
                 void 0
-            ),
-        ],
+            )
+        ]
     },
     undefined,
     undefined,
@@ -3173,7 +3168,7 @@ var ut = $(
     void 0,
     void 0
 );
-(ut.install = function (e) {
+(ut.install = function(e) {
     e.component(ut.name, ut);
 }),
     null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && ut.install(window.Vue);

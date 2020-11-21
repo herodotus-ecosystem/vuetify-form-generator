@@ -1,4 +1,4 @@
-!(function (e, r) {
+!(function(e, r) {
     'object' == typeof exports && 'undefined' != typeof module
         ? r(
               exports,
@@ -21,7 +21,7 @@
               '@babel/runtime-corejs3/helpers/esm/slicedToArray',
               '@babel/runtime-corejs3/core-js/instance/concat',
               '@babel/runtime-corejs3/helpers/esm/classCallCheck',
-              '@babel/runtime-corejs3/helpers/esm/createClass',
+              '@babel/runtime-corejs3/helpers/esm/createClass'
           ], r)
         : r(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).convertor = {}),
@@ -34,7 +34,7 @@
               e._classCallCheck,
               e._createClass
           );
-})(this, function (e, r, t, n, a, l, u, o, i) {
+})(this, function(e, r, t, n, a, l, u, o, i) {
     'use strict';
     function s(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -46,7 +46,7 @@
         h = s(u),
         m = s(o),
         y = s(i),
-        j = (function () {
+        j = (function() {
             function e() {
                 m.default(this, e);
             }
@@ -54,7 +54,7 @@
                 y.default(e, null, [
                     {
                         key: 'build',
-                        value: function (e) {
+                        value: function(e) {
                             var r, t, n;
                             if (!e || !e.tag) return '';
                             var a,
@@ -68,11 +68,11 @@
                                         .call(t, u, '</'))
                                 )
                                 .call(r, e.tag, '>');
-                        },
+                        }
                     },
                     {
                         key: 'unbuild',
-                        value: function (e) {
+                        value: function(e) {
                             if (!e) return {};
                             var r = document.createElement('html');
                             r.innerHTML = e;
@@ -80,11 +80,11 @@
                             if (!t) return {};
                             var n = b.default(t.children, 1)[0];
                             return n ? v.node2json(n) : {};
-                        },
+                        }
                     },
                     {
                         key: 'selfCloseTags',
-                        get: function () {
+                        get: function() {
                             return [
                                 'area',
                                 'base',
@@ -102,15 +102,15 @@
                                 'wbr',
                                 'command',
                                 'keygen',
-                                'menuitem',
+                                'menuitem'
                             ];
-                        },
-                    },
+                        }
+                    }
                 ]),
                 e
             );
         })(),
-        p = (function () {
+        p = (function() {
             function e() {
                 m.default(this, e);
             }
@@ -118,7 +118,7 @@
                 y.default(e, null, [
                     {
                         key: 'attributes',
-                        value: function (e) {
+                        value: function(e) {
                             if (!e.attributes) return '';
                             var r = '',
                                 t = f.default(e.attributes);
@@ -128,11 +128,11 @@
                                     r += h.default((a = ' '.concat(t[n], '="'))).call(a, e.attributes[t[n]], '"');
                             }
                             return r;
-                        },
+                        }
                     },
                     {
                         key: 'children',
-                        value: function (e) {
+                        value: function(e) {
                             if (!e.children) return '';
                             var r = '';
                             for (var t in e.children)
@@ -141,20 +141,20 @@
                                         ? (r += j.build(e.children[t]))
                                         : (r += e.children[t])));
                             return r;
-                        },
+                        }
                     },
                     {
                         key: 'isSelfCloseTag',
-                        value: function (e) {
+                        value: function(e) {
                             var r;
                             return c.default((r = j.selfCloseTags)).call(r, e.tag) > -1;
-                        },
-                    },
+                        }
+                    }
                 ]),
                 e
             );
         })(),
-        v = (function () {
+        v = (function() {
             function e() {
                 m.default(this, e);
             }
@@ -162,7 +162,7 @@
                 y.default(e, null, [
                     {
                         key: 'attributes',
-                        value: function (e) {
+                        value: function(e) {
                             var r = {},
                                 t = f.default(e.attributes);
                             for (var n in t)
@@ -172,28 +172,28 @@
                                     r[l.name] = l.value;
                                 }
                             return r;
-                        },
+                        }
                     },
                     {
                         key: 'children',
-                        value: function (r) {
+                        value: function(r) {
                             var t = [];
                             for (var n in r.childNodes)
                                 r.childNodes[n].nodeType === Node.ELEMENT_NODE && t.push(e.node2json(r.childNodes[n])),
                                     r.childNodes[n].nodeType === Node.TEXT_NODE && t.push(r.childNodes[n].textContent);
                             return t;
-                        },
+                        }
                     },
                     {
                         key: 'node2json',
-                        value: function (r) {
+                        value: function(r) {
                             return {
                                 tag: r.tagName.toLowerCase(),
                                 attributes: e.attributes(r),
-                                children: e.children(r),
+                                children: e.children(r)
                             };
-                        },
-                    },
+                        }
+                    }
                 ]),
                 e
             );

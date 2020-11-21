@@ -20,5 +20,8 @@
         "moment": "^2.29.1",
         "shortid": "^2.2.16",
         "sweetalert2": "^10.10.1"
+    },
+    "devDependencies": {
+        "@babel/runtime-corejs3": "^7.12.5"
     }
 }
