@@ -65,20 +65,32 @@
                     </v-row>
                 </v-container>
             </v-tab-item>
-            <!-- <v-tab-item :key="tabs[1].key">
+            <v-tab-item :key="tabs[1].key">
                 <v-container class="pb-0" fluid>
                     <v-row>
                         <v-col class="pb-0">
                             <v-card flat>
-                                <v-text-field v-model="formSettings.formRef" outlined dense label="表单名" placeholder="请输入表单名（ref）" />
-                                <v-text-field v-model="formSettings.formModel" outlined dense label="表单模型" placeholder="请输入数据模型" />
+                                <v-text-field
+                                    v-model="formSettings.formRef"
+                                    outlined
+                                    dense
+                                    label="表单名"
+                                    placeholder="请输入表单名（ref）"
+                                />
+                                <v-text-field
+                                    v-model="formSettings.formModel"
+                                    outlined
+                                    dense
+                                    label="表单模型"
+                                    placeholder="请输入数据模型"
+                                />
                                 <v-divider></v-divider>
-                                <h-form-panel :form-settings="formSettings"></h-form-panel>
+                                <!-- <h-form-panel :form-settings="formSettings"></h-form-panel> -->
                             </v-card>
                         </v-col>
                     </v-row>
                 </v-container>
-            </v-tab-item> -->
+            </v-tab-item>
         </v-tabs-items>
     </v-card>
 </template>
@@ -110,14 +122,18 @@ export default {
         DATE_PICKER: HDatePickerPanel,
         TIME_PICKER: HTimePickerPanel,
         SELECT_SINGLE: HSelectSinglePanel,
-        COMBOBOX: HComboBoxPanel,
+        COMBOBOX: HComboBoxPanel
     },
 
     props: {
-        value: {
+        selectedItem: {
             type: Object,
-            default: () => {},
+            default: () => {}
         },
+        formSchema: {
+            type: Object,
+            default: () => {}
+        }
     },
 
     data: () => ({
@@ -125,9 +141,10 @@ export default {
         tab: null,
         tabs: [
             { key: 'element', name: '组件属性' },
-            { key: 'form', name: '表单属性' },
+            { key: 'form', name: '表单属性' }
         ],
         schema: {},
+        formSettings: {}
     }),
 
     computed: {
@@ -142,21 +159,22 @@ export default {
         },
         properties() {
             return this.element[this.constants.annotations.xprops];
-        },
+        }
     },
 
     watch: {
-        value: {
+        selectedItem: {
             handler(newValue, oldValue) {
                 this.schema = newValue;
             },
-            immediate: true,
+            immediate: true
         },
-        schema: {
+        formSchema: {
             handler(newValue, oldValue) {
-                this.$emit('input', newValue);
+                this.formSettings = newValue;
             },
-        },
+            immediate: true
+        }
     },
 
     methods: {
@@ -180,8 +198,8 @@ export default {
                 this.$set(this.properties, 'label', newLabel);
                 this.$set(this.element, 'title', newLabel);
             }
-        },
-    },
+        }
+    }
 };
 </script>
 

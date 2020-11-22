@@ -73,7 +73,10 @@
             </h-canvas-container>
         </v-main>
         <v-navigation-drawer clipped app hide-overlay right width="360px">
-            <h-property-panel v-model="selectedCanvasItemData"></h-property-panel>
+            <h-property-panel
+                :selected-item="selectedCanvasItemData"
+                :form-schema="drawingCanvasForm"
+            ></h-property-panel>
         </v-navigation-drawer>
     </v-app>
 </template>
@@ -109,6 +112,7 @@ export default {
         drawingCanvas: [],
         selectedCanvasItemId: '',
         selectedCanvasItemData: {},
+        drawingCanvasForm: {},
         saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas)
     }),
 
