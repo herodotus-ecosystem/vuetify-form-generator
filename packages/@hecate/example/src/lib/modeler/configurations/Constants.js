@@ -17,7 +17,7 @@ const constants = {
         xfromData: 'x-fromData',
         xitemKey: 'x-itemKey',
         xitemTitle: 'x-itemTitle',
-        xitemIcon: 'x-itemIcon'
+        xitemIcon: 'x-itemIcon',
     },
     tags: {
         AlignContent: 'align-content',
@@ -84,11 +84,11 @@ const constants = {
         TrueValue: 'true-value',
         UseSeconds: 'use-seconds',
         ValidateOnBlur: 'validate-on-blur',
-        YearIcon: 'year-icon'
+        YearIcon: 'year-icon',
     },
     class: {
-        switch: 'mt-0 pt-0'
-    }
+        switch: 'mt-0 pt-0',
+    },
 };
 
 export default constants;

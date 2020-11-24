@@ -97,14 +97,14 @@ export default {
     components: {
         HCanvasContainer,
         HDraggableItem,
-        HPropertyPanel
+        HPropertyPanel,
     },
 
     props: {
         height: {
             type: String,
-            default: '100vh'
-        }
+            default: '100vh',
+        },
     },
 
     data: () => ({
@@ -113,7 +113,7 @@ export default {
         selectedCanvasItemId: '',
         selectedCanvasItemData: {},
         drawingCanvasForm: {},
-        saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas)
+        saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
     }),
 
     watch: {
@@ -122,8 +122,8 @@ export default {
                 console.info('[HFG] Save Canvas Data to local storage!');
                 this.saveDrawingCanvasDebounce(newValue);
             },
-            deep: true
-        }
+            deep: true,
+        },
     },
 
     created() {
@@ -184,8 +184,8 @@ export default {
                     this.selectCanvasItem(this.drawingCanvas[size - 1]);
                 }
             });
-        }
-    }
+        },
+    },
 };
 </script>
 

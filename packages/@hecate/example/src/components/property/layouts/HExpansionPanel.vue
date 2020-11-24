@@ -15,7 +15,7 @@ export default {
 
     props: {
         index: { type: String, required: true },
-        header: { type: String, required: true }
-    }
+        header: { type: String, required: true },
+    },
 };
 </script>

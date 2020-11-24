@@ -51,14 +51,14 @@ export default {
 
     components: {
         HExpansionPanel,
-        HPanelBetween
+        HPanelBetween,
     },
 
     props: {
         value: {
             type: String,
-            default: ''
-        }
+            default: '',
+        },
     },
 
     data: () => ({
@@ -67,7 +67,7 @@ export default {
         ruleParamSettingPanel: '',
         ruleParam: '',
         selectedItems: [],
-        selectedRule: {}
+        selectedRule: {},
     }),
 
     watch: {
@@ -79,12 +79,12 @@ export default {
                 }
                 this.readExpressions(this.expressions);
             },
-            immediate: true
+            immediate: true,
         },
         expressions: {
             handler(newValue, oldValue) {
                 this.$emit('input', newValue);
-            }
+            },
         },
         selectedRule: {
             handler(newValue, oldValue) {
@@ -94,19 +94,19 @@ export default {
                     this.ruleParamSettingPanel = '';
                     this.ruleParam = '';
                 }
-            }
+            },
         },
         selectedItems: {
             handler(newValue, oldValue) {
                 this.expressions = this.constructExpression(newValue);
-            }
-        }
+            },
+        },
     },
 
     computed: {
         isButtonDisabled() {
             return this.$lib.lodash.isEmpty(this.selectedRule) ? true : false;
-        }
+        },
     },
 
     methods: {
@@ -128,7 +128,7 @@ export default {
         },
 
         readSelectedItemParam(type) {
-            let selectedItem = this.$lib.lodash.find(this.selectedItems, function(i) {
+            let selectedItem = this.$lib.lodash.find(this.selectedItems, function (i) {
                 return i.type === type;
             });
             if (selectedItem && selectedItem.param) {
@@ -139,7 +139,7 @@ export default {
         },
 
         findRuleItemByType(type) {
-            return this.$lib.lodash.find(this.ruleItems, function(i) {
+            return this.$lib.lodash.find(this.ruleItems, function (i) {
                 return i.type === type;
             });
         },
@@ -157,7 +157,7 @@ export default {
         },
 
         removeSelectedItem(rule) {
-            this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function(i) {
+            this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (i) {
                 return i.type !== rule.type;
             });
             this.changeRuleItemStatus(rule, false);
@@ -245,7 +245,7 @@ export default {
                     .join('|');
                 return result;
             }
-        }
-    }
+        },
+    },
 };
 </script>

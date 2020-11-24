@@ -30,8 +30,8 @@ const CN = {
         required: '{_field_} 不能为空',
         required_if: '{_field_} 是必须的',
         size: '{_field_}必须小于{size}KB',
-        double: '{_field_}字段必须为有效的小数'
-    }
+        double: '{_field_}字段必须为有效的小数',
+    },
 };
 
 const excludeExtends = ['dimensions', 'oneOf', 'required_if'];
@@ -45,12 +45,12 @@ Object.keys(rules).forEach((rule) => {
         let message = CN.messages[rule];
         extend(rule, {
             ...rules[rule],
-            message
+            message,
         });
         ruleItems.push({
             name: lib.lodash.startCase(rule),
             type: rule,
-            message
+            message,
         });
     }
 });
@@ -63,7 +63,7 @@ const VeeValidate = {
         Vue.prototype.$rules = ruleItems;
         Vue.component('ValidationProvider', ValidationProvider);
         Vue.component('ValidationObserver', ValidationObserver);
-    }
+    },
 };
 
 export default VeeValidate;

@@ -65,7 +65,7 @@ function toData(canvas) {
 function toCompleteSchema(canvas) {
     const schema = {
         type: 'object',
-        properties: {}
+        properties: {},
     };
 
     if (!lib.lodash.isEmpty(canvas)) {

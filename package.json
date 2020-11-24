@@ -11,7 +11,7 @@
         "packages/@hecate/h-form-generator",
         "packages/@hecate/h-icon-list",
         "packages/@hecate/h-bpmn-moddle",
-        "packages/@hecate/form-generator",
+        "packages/@hecate/example",
         "packages/@hecate/form-service"
     ],
     "scripts": {
@@ -19,12 +19,13 @@
         "push": "yarn commit && git push --set-upstream origin develop",
         "commit": "git add . && git status && git-cz",
         "ws:core": "yarn workspace @hecate/core",
-        "ws:generator": "yarn workspace @hecate/form-generator",
+        "ws:example": "yarn workspace @hecate/example",
         "ws:button": "yarn workspace @hecate/h-button",
         "ws:mirror": "yarn workspace @hecate/h-code-mirror",
         "ws:editor": "yarn workspace @hecate/h-code-editor",
         "ws:renderer": "yarn workspace @hecate/h-form-renderer",
         "ws:runtime": "yarn workspace @hecate/h-form-runtime",
+        "ws:generator": "yarn workspace @hecate/h-form-generator",
         "ws:iconlist": "yarn workspace @hecate/h-icon-list",
         "ws:moddle": "yarn workspace @hecate/h-bpmn-moddle",
         "ws:service": "yarn workspace @hecate/form-service",

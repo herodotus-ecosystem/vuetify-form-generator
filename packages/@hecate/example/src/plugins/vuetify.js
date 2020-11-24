@@ -11,11 +11,11 @@ const { en, zh } = locales;
 
 const i18n = new VueI18n({
     locale: 'zh',
-    messages: { zh, en }
+    messages: { zh, en },
 });
 
 export default new Vuetify({
     lang: {
-        t: (key, ...params) => i18n.t(key, params)
-    }
+        t: (key, ...params) => i18n.t(key, params),
+    },
 });

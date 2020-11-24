@@ -122,18 +122,18 @@ export default {
         DATE_PICKER: HDatePickerPanel,
         TIME_PICKER: HTimePickerPanel,
         SELECT_SINGLE: HSelectSinglePanel,
-        COMBOBOX: HComboBoxPanel
+        COMBOBOX: HComboBoxPanel,
     },
 
     props: {
         selectedItem: {
             type: Object,
-            default: () => {}
+            default: () => {},
         },
         formSchema: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
@@ -141,10 +141,10 @@ export default {
         tab: null,
         tabs: [
             { key: 'element', name: '组件属性' },
-            { key: 'form', name: '表单属性' }
+            { key: 'form', name: '表单属性' },
         ],
         schema: {},
-        formSettings: {}
+        formSettings: {},
     }),
 
     computed: {
@@ -159,7 +159,7 @@ export default {
         },
         properties() {
             return this.element[this.constants.annotations.xprops];
-        }
+        },
     },
 
     watch: {
@@ -167,14 +167,14 @@ export default {
             handler(newValue, oldValue) {
                 this.schema = newValue;
             },
-            immediate: true
+            immediate: true,
         },
         formSchema: {
             handler(newValue, oldValue) {
                 this.formSettings = newValue;
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
 
     methods: {
@@ -198,8 +198,8 @@ export default {
                 this.$set(this.properties, 'label', newLabel);
                 this.$set(this.element, 'title', newLabel);
             }
-        }
-    }
+        },
+    },
 };
 </script>
 

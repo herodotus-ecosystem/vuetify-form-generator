@@ -48,7 +48,7 @@ export default {
     components: {
         HFormModeler,
         HFormCodeDrawer,
-        HFormPreviewDrawer
+        HFormPreviewDrawer,
     },
 
     data: () => ({
@@ -57,7 +57,7 @@ export default {
         codeDrawer: false,
         formDrawer: false,
         sourceCode: '',
-        schemaObject: ''
+        schemaObject: '',
     }),
 
     computed: {
@@ -66,7 +66,7 @@ export default {
         },
         canvas() {
             return this.$refs.modeler.drawingCanvas;
-        }
+        },
     },
 
     mounted() {
@@ -95,7 +95,7 @@ export default {
                 this.schemaObject = JSON.stringify(schemas, null, '\t');
             }
             this.formDrawer = true;
-        }
-    }
+        },
+    },
 };
 </script>

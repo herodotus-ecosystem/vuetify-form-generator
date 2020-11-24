@@ -20,6 +20,6 @@ export default {
 
     created() {},
 
-    data: () => ({})
+    data: () => ({}),
 };
 </script>

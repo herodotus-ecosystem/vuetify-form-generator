@@ -7,7 +7,7 @@ import HFormGenerator from '@/components/HFormGenerator.vue';
 
 export default {
     components: {
-        HFormGenerator
-    }
+        HFormGenerator,
+    },
 };
 </script>
