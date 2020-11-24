@@ -8,6 +8,7 @@
         "packages/@hecate/h-code-editor",
         "packages/@hecate/h-form-renderer",
         "packages/@hecate/h-form-runtime",
+        "packages/@hecate/h-form-generator",
         "packages/@hecate/h-icon-list",
         "packages/@hecate/h-bpmn-moddle",
         "packages/@hecate/form-generator",
@@ -45,7 +46,7 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.12.7",
+        "@babel/core": "^7.12.8",
         "@babel/plugin-external-helpers": "^7.12.1",
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@babel/plugin-transform-runtime": "^7.12.1",

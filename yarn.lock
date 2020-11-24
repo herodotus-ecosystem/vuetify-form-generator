@@ -41,10 +41,10 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.12.7":
-  version "7.12.7"
-  resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.12.7.tgz#bf55363c08c8352a37691f7216ec30090bf7e3bf"
-  integrity sha1-v1U2PAjINSo3aR9yFuwwCQv3478=
+"@babel/core@^7.12.8":
+  version "7.12.8"
+  resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.12.8.tgz#8ad76c1a7d2a6a3beecc4395fa4f7b4cb88390e6"
+  integrity sha1-itdsGn0qajvuzEOV+k97TLiDkOY=
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/generator" "^7.12.5"
@@ -52,7 +52,7 @@
     "@babel/helpers" "^7.12.5"
     "@babel/parser" "^7.12.7"
     "@babel/template" "^7.12.7"
-    "@babel/traverse" "^7.12.7"
+    "@babel/traverse" "^7.12.8"
     "@babel/types" "^7.12.7"
     convert-source-map "^1.7.0"
     debug "^4.1.0"
@@ -1058,10 +1058,10 @@
     globals "^11.1.0"
     lodash "^4.17.19"
 
-"@babel/traverse@^7.12.7":
-  version "7.12.7"
-  resolved "https://registry.npm.taobao.org/@babel/traverse/download/@babel/traverse-7.12.7.tgz#572a722408681cef17d6b0bef69ef2e728ca69f1"
-  integrity sha1-VypyJAhoHO8X1rC+9p7y5yjKafE=
+"@babel/traverse@^7.12.8":
+  version "7.12.8"
+  resolved "https://registry.npm.taobao.org/@babel/traverse/download/@babel/traverse-7.12.8.tgz?cache=0&sync_timestamp=1606171294605&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Ftraverse%2Fdownload%2F%40babel%2Ftraverse-7.12.8.tgz#c1c2983bf9ba0f4f0eaa11dff7e77fa63307b2a4"
+  integrity sha1-wcKYO/m6D08OqhHf9+d/pjMHsqQ=
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/generator" "^7.12.5"
@@ -4951,10 +4951,10 @@ camelcase@^6.0.0:
   resolved "https://registry.npm.taobao.org/camelcase/download/camelcase-6.2.0.tgz?cache=0&sync_timestamp=1603921882890&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcamelcase%2Fdownload%2Fcamelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
-camunda-bpmn-moddle@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.npm.taobao.org/camunda-bpmn-moddle/download/camunda-bpmn-moddle-4.4.1.tgz?cache=0&sync_timestamp=1603699298766&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcamunda-bpmn-moddle%2Fdownload%2Fcamunda-bpmn-moddle-4.4.1.tgz#85eb2350016f318bed0b320a7822a066484a60aa"
-  integrity sha1-hesjUAFvMYvtCzIKeCKgZkhKYKo=
+camunda-bpmn-moddle@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npm.taobao.org/camunda-bpmn-moddle/download/camunda-bpmn-moddle-4.5.0.tgz#f26e235cd3728ac66fcf0442afa895a35d5471cb"
+  integrity sha1-8m4jXNNyisZvzwRCr6iVo11Uccs=
   dependencies:
     min-dash "^3.0.0"
 
