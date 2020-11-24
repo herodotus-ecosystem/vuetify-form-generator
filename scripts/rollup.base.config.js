@@ -1,4 +1,5 @@
 const {
+    alias,
     babel,
     buble,
     commonjs,
@@ -16,10 +17,10 @@ const {
     vuetify,
     nested,
     cssnext,
-    cssnano
+    cssnano,
 } = require('./rollup.plugins');
 
-const { path, assignObject, assignArray } = require('./utils');
+const { path, resolve, assignObject, assignArray } = require('./utils');
 const { helperGlobal } = require('./runtime.helper');
 
 /**
@@ -43,7 +44,7 @@ const { helperGlobal } = require('./runtime.helper');
 
 const commonGlobal = {
     'vuetify/lib': 'Vuetify',
-    '@mdi/js': 'mdi-js'
+    '@mdi/js': 'mdi-js',
 };
 
 const defaultGlobal = assignObject(helperGlobal, commonGlobal);
@@ -52,13 +53,17 @@ const defaultExternal = [
     'vuetify/lib',
     '@mdi/js',
     /core-js/,
-    /@babel/,
+    /@babel\/runtime/,
     /@babel\/runtime-corejs3/,
     /vue-runtime-helpers/,
-    /regenerator-runtime/
+    /regenerator-runtime/,
 ];
 
 const defaultPlugins = [
+    alias({
+        resolve: ['.vue', '.js'],
+        entries: [{ find: '@', replacement: path.resolve('./', 'src') }],
+    }),
     postcss({
         // extract: utils.path.resolve("dist/" + name + "/style.css"),
 
@@ -72,24 +77,24 @@ const defaultPlugins = [
         sourceMap: true,
         // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
         extensions: ['.sass', '.scss', '.css'],
-        plugins: [nested(), cssnext({ warnForDuplicates: false }), cssnano()]
+        plugins: [nested(), cssnext({ warnForDuplicates: false }), cssnano()],
     }),
     vue({
-        css: false
+        css: false,
     }),
     vuetify(),
     babel({
         exclude: ['node_modules/**'],
         babelHelpers: 'runtime',
-        configFile: path.resolve('../../../', 'babel.config.js')
+        configFile: path.resolve('../../../', 'babel.config.js'),
     }),
     nodeResolve({
         customResolveOptions: {
-            moduleDirectory: 'node_modules'
-        }
+            moduleDirectory: 'node_modules',
+        },
     }),
     commonjs({
-        include: 'node_modules/**'
+        include: 'node_modules/**',
     }),
 
     json(),
@@ -98,13 +103,13 @@ const defaultPlugins = [
     terser(),
     strip(),
     progress({
-        clearLine: false
+        clearLine: false,
     }),
     filesize(),
     buble(),
     sizes({
-        details: true
-    })
+        details: true,
+    }),
 ];
 
 /**
@@ -154,7 +159,7 @@ const createEntry = (name, path, configs) => {
         input: path,
         output: createOutput(name, path, configs),
         plugins: configs.plugins ? configs.plugins : defaultPlugins,
-        external: assignArray(configs.external, defaultExternal)
+        external: assignArray(configs.external, defaultExternal),
     };
 };
 

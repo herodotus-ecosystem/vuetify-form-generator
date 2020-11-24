@@ -1,3 +1,4 @@
+const alias = require('@rollup/plugin-alias');
 const babel = require('@rollup/plugin-babel').babel;
 const buble = require('@rollup/plugin-buble');
 const commonjs = require('@rollup/plugin-commonjs');
@@ -20,6 +21,7 @@ const cssnext = require('postcss-cssnext');
 const cssnano = require('cssnano');
 
 module.exports = {
+    alias,
     babel,
     buble,
     commonjs,

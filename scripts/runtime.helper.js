@@ -25,8 +25,9 @@ const helperGlobal = {
     '@babel/runtime-corejs3/core-js/instance/index-of': '_indexOfInstanceProperty',
     '@babel/runtime-corejs3/core-js/instance/keys': '_keysInstanceProperty',
     '@babel/runtime-corejs3/core-js/instance/map': '_mapInstanceProperty',
-    '@babel/runtime-corejs3/core-js/instance/reverse': '_reverseInstanceProperty',
     '@babel/runtime-corejs3/core-js/instance/reduce': '_reduceInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/repeat': '_repeatInstanceProperty',
+    '@babel/runtime-corejs3/core-js/instance/reverse': '_reverseInstanceProperty',
     '@babel/runtime-corejs3/core-js/instance/sort': '_sortInstanceProperty',
     '@babel/runtime-corejs3/core-js/instance/splice': '_spliceInstanceProperty',
     '@babel/runtime-corejs3/core-js/instance/starts-with': '_startsWithInstanceProperty',
@@ -39,7 +40,7 @@ const helperGlobal = {
     '@babel/runtime-corejs3/helpers/esm/toConsumableArray': '_toConsumableArray',
     '@babel/runtime-corejs3/helpers/esm/typeof': '_typeof',
     '@babel/runtime-corejs3/regenerator': '_regeneratorRuntime',
-    'vue-runtime-helpers/dist/normalize-component.mjs': '__vue_normalize__'
+    'vue-runtime-helpers/dist/normalize-component.mjs': '__vue_normalize__',
 };
 
 module.exports = { helperGlobal };

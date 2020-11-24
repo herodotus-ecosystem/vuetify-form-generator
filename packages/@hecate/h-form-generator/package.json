@@ -18,5 +18,8 @@
         "@hecate/h-form-renderer": "^1.0.0",
         "@hecate/h-form-runtime": "^1.0.0",
         "@hecate/h-icon-list": "^1.0.0"
+    },
+    "dependencies": {
+        "throttle-debounce": "^3.0.1"
     }
 }
