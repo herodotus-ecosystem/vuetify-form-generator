@@ -19,7 +19,7 @@
         "lodash": "^4.17.20",
         "moment": "^2.29.1",
         "shortid": "^2.2.16",
-        "sweetalert2": "^10.10.1"
+        "sweetalert2": "^10.10.3"
     },
     "devDependencies": {
         "@babel/runtime-corejs3": "^7.12.5"
