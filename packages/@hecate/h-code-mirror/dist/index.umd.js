@@ -1,4 +1,4 @@
-!(function(r, e) {
+!(function (r, e) {
     'object' == typeof exports && 'undefined' != typeof module
         ? e(
               exports,
@@ -137,7 +137,7 @@
               'vue-runtime-helpers/dist/normalize-component.mjs',
               'jshint',
               'csslint',
-              'jsonlint'
+              'jsonlint',
           ], e)
         : e(
               ((r = 'undefined' != typeof globalThis ? globalThis : r || self).main = {}),
@@ -208,209 +208,217 @@
               r.csslint,
               r.jsonlint
           );
-})(this, function(
-    r,
-    e,
-    o,
-    d,
-    i,
-    n,
-    l,
-    s,
-    t,
-    c,
-    m,
-    a,
-    u,
-    h,
-    j,
-    f,
-    p,
-    q,
-    y,
-    g,
-    v,
-    w,
-    b,
-    k,
-    x,
-    C,
-    S,
-    T,
-    M,
-    _,
-    O,
-    $,
-    H,
-    z,
-    L,
-    B,
-    I,
-    N,
-    R,
-    V,
-    W,
-    J,
-    A,
-    D,
-    E,
-    F,
-    G,
-    K,
-    P,
-    U,
-    Q,
-    X,
-    Y,
-    Z,
-    rr,
-    er,
-    or,
-    dr,
-    ir,
-    nr,
-    lr,
-    sr,
-    tr,
-    cr,
-    mr,
-    ar,
-    ur
-) {
-    'use strict';
-    function hr(r) {
-        return r && 'object' == typeof r && 'default' in r ? r : { default: r };
-    }
-    var jr = hr(o),
-        fr = hr(cr),
-        pr = hr(ar),
-        qr = {
-            name: 'HCodeMirror',
-            components: { codemirror: i.codemirror },
-            props: {
-                value: { type: String, default: '', required: !0 },
-                theme: { type: String, default: 'default' },
-                mode: { type: String, default: 'default' },
-                readOnly: { type: Boolean, default: !1 }
-            },
-            data: function() {
-                return { sourceCode: '' };
-            },
-            computed: {
-                currentMode: function() {
-                    return this.mode && 'default' != this.mode ? this.mode : 'application/json';
+})(
+    this,
+    function (
+        r,
+        e,
+        o,
+        d,
+        i,
+        n,
+        l,
+        s,
+        t,
+        c,
+        m,
+        a,
+        u,
+        h,
+        j,
+        f,
+        p,
+        q,
+        y,
+        g,
+        v,
+        w,
+        b,
+        k,
+        x,
+        C,
+        S,
+        T,
+        M,
+        _,
+        O,
+        $,
+        H,
+        z,
+        L,
+        B,
+        I,
+        N,
+        R,
+        V,
+        W,
+        J,
+        A,
+        D,
+        E,
+        F,
+        G,
+        K,
+        P,
+        U,
+        Q,
+        X,
+        Y,
+        Z,
+        rr,
+        er,
+        or,
+        dr,
+        ir,
+        nr,
+        lr,
+        sr,
+        tr,
+        cr,
+        mr,
+        ar,
+        ur
+    ) {
+        'use strict';
+        function hr(r) {
+            return r && 'object' == typeof r && 'default' in r ? r : { default: r };
+        }
+        var jr = hr(o),
+            fr = hr(cr),
+            pr = hr(ar),
+            qr = {
+                name: 'HCodeMirror',
+                components: { codemirror: i.codemirror },
+                props: {
+                    value: { type: String, default: '', required: !0 },
+                    theme: { type: String, default: 'default' },
+                    mode: { type: String, default: 'default' },
+                    readOnly: { type: Boolean, default: !1 },
                 },
-                currentTheme: function() {
-                    var r = this.theme && 'default' != this.theme ? this.theme : 'material-darker';
-                    return require('codemirror/theme/' + r + '.css'), r;
+                data: function () {
+                    return { sourceCode: '' };
                 },
-                options: function() {
-                    return {
-                        mode: this.currentMode,
-                        theme: this.currentTheme,
-                        indentUnit: 4,
-                        smartIndent: !1,
-                        tabSize: 4,
-                        indentWithTabs: !0,
-                        extraKeys: { Ctrl: 'autocomplete' },
-                        lineWrapping: !0,
-                        lineNumbers: !0,
-                        gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-                        readOnly: this.readOnly,
-                        showCursorWhenSelecting: !0,
-                        autofocus: !0,
-                        dragDrop: !0,
-                        spellcheck: !0,
-                        autocorrect: !0,
-                        matchBrackets: !0,
-                        autoCloseBrackets: !0,
-                        matchTags: { bothTags: !0 },
-                        autoCloseTags: !0,
-                        foldGutter: !0,
-                        highlightSelectionMatches: { minChars: 2, style: 'matchhighlight', trim: !0, showToken: !1 },
-                        lint: !0,
-                        styleSelectedText: !0,
-                        styleActiveLine: !0,
-                        hintOptions: { completeSingle: !1 }
-                    };
-                },
-                currentCodeMirror: function() {
-                    return this.$refs.editor.codemirror;
-                }
-            },
-            created: function() {},
-            watch: {
-                value: {
-                    handler: function(r, e) {
-                        this.sourceCode = r;
+                computed: {
+                    currentMode: function () {
+                        return this.mode && 'default' != this.mode ? this.mode : 'application/json';
                     },
-                    immediate: !0
-                },
-                sourceCode: {
-                    handler: function(r, e) {
-                        this.$emit('input', r);
-                    }
-                },
-                mode: {
-                    handler: function(r, e) {
-                        this.resetLint();
-                    }
-                }
-            },
-            methods: {
-                resetLint: function() {
-                    var r = this;
-                    this.$refs.editor.codemirror.setOption('lint', !1),
-                        this.$nextTick(function() {
-                            r.$refs.editor.codemirror.setOption('lint', !0);
-                        });
-                },
-                onReady: function(r) {
-                    r.on('keypress', function() {
-                        r.showHint({ completeSingle: !1 });
-                    });
-                }
-            }
-        },
-        yr = fr.default(
-            {
-                render: function() {
-                    var r = this,
-                        e = r.$createElement;
-                    return (r._self._c || e)('codemirror', {
-                        ref: 'editor',
-                        attrs: { options: r.options },
-                        on: { ready: r.onReady },
-                        model: {
-                            value: r.sourceCode,
-                            callback: function(e) {
-                                r.sourceCode = e;
+                    currentTheme: function () {
+                        var r = this.theme && 'default' != this.theme ? this.theme : 'material-darker';
+                        return require('codemirror/theme/' + r + '.css'), r;
+                    },
+                    options: function () {
+                        return {
+                            mode: this.currentMode,
+                            theme: this.currentTheme,
+                            indentUnit: 4,
+                            smartIndent: !1,
+                            tabSize: 4,
+                            indentWithTabs: !0,
+                            extraKeys: { Ctrl: 'autocomplete' },
+                            lineWrapping: !0,
+                            lineNumbers: !0,
+                            gutters: ['CodeMirror-lint-markers', 'CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+                            readOnly: this.readOnly,
+                            showCursorWhenSelecting: !0,
+                            autofocus: !0,
+                            dragDrop: !0,
+                            spellcheck: !0,
+                            autocorrect: !0,
+                            matchBrackets: !0,
+                            autoCloseBrackets: !0,
+                            matchTags: { bothTags: !0 },
+                            autoCloseTags: !0,
+                            foldGutter: !0,
+                            highlightSelectionMatches: {
+                                minChars: 2,
+                                style: 'matchhighlight',
+                                trim: !0,
+                                showToken: !1,
                             },
-                            expression: 'sourceCode'
-                        }
-                    });
+                            lint: !0,
+                            styleSelectedText: !0,
+                            styleActiveLine: !0,
+                            hintOptions: { completeSingle: !1 },
+                        };
+                    },
+                    currentCodeMirror: function () {
+                        return this.$refs.editor.codemirror;
+                    },
                 },
-                staticRenderFns: []
+                created: function () {},
+                watch: {
+                    value: {
+                        handler: function (r, e) {
+                            this.sourceCode = r;
+                        },
+                        immediate: !0,
+                    },
+                    sourceCode: {
+                        handler: function (r, e) {
+                            this.$emit('input', r);
+                        },
+                    },
+                    mode: {
+                        handler: function (r, e) {
+                            this.resetLint();
+                        },
+                    },
+                },
+                methods: {
+                    resetLint: function () {
+                        var r = this;
+                        this.$refs.editor.codemirror.setOption('lint', !1),
+                            this.$nextTick(function () {
+                                r.$refs.editor.codemirror.setOption('lint', !0);
+                            });
+                    },
+                    onReady: function (r) {
+                        r.on('keypress', function () {
+                            r.showHint({ completeSingle: !1 });
+                        });
+                    },
+                },
             },
-            undefined,
-            qr,
-            undefined,
-            false,
-            undefined,
-            !1,
-            void 0,
-            void 0,
-            void 0
-        );
-    (window.JSHINT = mr.JSHINT),
-        (window.CSSLint = pr.default),
-        (window.jsonlint = ur.parser),
-        (yr.install = function(r) {
-            r.component(yr.name, yr);
-        }),
-        null != ('undefined' == typeof window ? 'undefined' : jr.default(window)) &&
-            window.Vue &&
-            yr.install(window.Vue),
-        (r.HCodeMirror = yr),
-        Object.defineProperty(r, '__esModule', { value: !0 });
-});
+            yr = fr.default(
+                {
+                    render: function () {
+                        var r = this,
+                            e = r.$createElement;
+                        return (r._self._c || e)('codemirror', {
+                            ref: 'editor',
+                            attrs: { options: r.options },
+                            on: { ready: r.onReady },
+                            model: {
+                                value: r.sourceCode,
+                                callback: function (e) {
+                                    r.sourceCode = e;
+                                },
+                                expression: 'sourceCode',
+                            },
+                        });
+                    },
+                    staticRenderFns: [],
+                },
+                undefined,
+                qr,
+                undefined,
+                false,
+                undefined,
+                !1,
+                void 0,
+                void 0,
+                void 0
+            );
+        (window.JSHINT = mr.JSHINT),
+            (window.CSSLint = pr.default),
+            (window.jsonlint = ur.parser),
+            (yr.install = function (r) {
+                r.component(yr.name, yr);
+            }),
+            null != ('undefined' == typeof window ? 'undefined' : jr.default(window)) &&
+                window.Vue &&
+                yr.install(window.Vue),
+            (r.HCodeMirror = yr),
+            Object.defineProperty(r, '__esModule', { value: !0 });
+    }
+);

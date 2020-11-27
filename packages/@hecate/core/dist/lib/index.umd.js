@@ -1,4 +1,4 @@
-!(function(e, t) {
+!(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
               exports,
@@ -35,7 +35,7 @@
               '@babel/runtime-corejs3/core-js/instance/sort',
               '@babel/runtime-corejs3/core-js/object/keys',
               '@babel/runtime-corejs3/core-js/instance/map',
-              '@babel/runtime-corejs3/core-js/instance/for-each'
+              '@babel/runtime-corejs3/core-js/instance/for-each',
           ], t)
         : t(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).lib = {}),
@@ -55,7 +55,7 @@
               e._mapInstanceProperty,
               e._forEachInstanceProperty
           );
-})(this, function(e, t, n, r, o, c, i, u, a, f, s, l, d, m, b, j) {
+})(this, function (e, t, n, r, o, c, i, u, a, f, s, l, d, m, b, j) {
     'use strict';
     function p(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -65,7 +65,7 @@
         var t = Object.create(null);
         return (
             e &&
-                Object.keys(e).forEach(function(n) {
+                Object.keys(e).forEach(function (n) {
                     if ('default' !== n) {
                         var r = Object.getOwnPropertyDescriptor(e, n);
                         Object.defineProperty(
@@ -75,9 +75,9 @@
                                 ? r
                                 : {
                                       enumerable: !0,
-                                      get: function() {
+                                      get: function () {
                                           return e[n];
-                                      }
+                                      },
                                   }
                         );
                     }
@@ -104,11 +104,11 @@
     require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
     var A = require('@babel/runtime-corejs3/core-js/instance/slice'),
         B = require('@babel/runtime-corejs3/helpers/typeof');
-    String.prototype.format = function(e) {
-        var t = function(e, t) {
+    String.prototype.format = function (e) {
+        var t = function (e, t) {
             return (
                 (t = 'object' === B(t) ? t : A(Array.prototype).call(arguments, 1)),
-                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function(e, n) {
+                e.replace(/\{\{|\}\}|\{(\w+)\}/g, function (e, n) {
                     return '{{' == e ? '{' : '}}' == e ? '}' : t[n];
                 })
             );
@@ -117,221 +117,221 @@
     };
     var J = q.default,
         M = {
-            information: function(e, t) {
+            information: function (e, t) {
                 return J.fire({ position: 'top', title: e, icon: t, timer: 2e3, showConfirmButton: !1 });
             },
-            info: function(e) {
+            info: function (e) {
                 this.information(e, 'info');
             },
-            error: function(e) {
+            error: function (e) {
                 this.information(e, 'error');
             },
-            warning: function(e) {
+            warning: function (e) {
                 this.information(e, 'warning');
             },
-            success: function(e) {
+            success: function (e) {
                 this.information(e, 'success');
             },
-            question: function(e) {
+            question: function (e) {
                 this.information(e, 'question');
-            }
+            },
         },
         N = {
-            getItem: function(e) {
-                return new O.default(function(t, n) {
+            getItem: function (e) {
+                return new O.default(function (t, n) {
                     _.default
                         .getItem(e)
-                        .then(function(e) {
+                        .then(function (e) {
                             t(e);
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             n(e);
                         });
                 });
             },
-            setItem: function(e, t) {
-                return new O.default(function(n, r) {
+            setItem: function (e, t) {
+                return new O.default(function (n, r) {
                     _.default
                         .setItem(e, t)
-                        .then(function(e) {
+                        .then(function (e) {
                             n(e);
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             r(e);
                         });
                 });
             },
-            removeItem: function(e) {
-                return new O.default(function(t, n) {
+            removeItem: function (e) {
+                return new O.default(function (t, n) {
                     _.default
                         .removeItem(e)
-                        .then(function() {
+                        .then(function () {
                             t();
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             n(e);
                         });
                 });
             },
-            clear: function() {
-                return new O.default(function(e, t) {
+            clear: function () {
+                return new O.default(function (e, t) {
                     _.default
                         .clear()
-                        .then(function() {
+                        .then(function () {
                             e();
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             t(e);
                         });
                 });
             },
-            length: function() {
-                return new O.default(function(e, t) {
+            length: function () {
+                return new O.default(function (e, t) {
                     _.default
                         .length()
-                        .then(function(t) {
+                        .then(function (t) {
                             e(t);
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             t(e);
                         });
                 });
             },
-            key: function(e) {
-                return new O.default(function(t, n) {
+            key: function (e) {
+                return new O.default(function (t, n) {
                     _.default
                         .key(e)
-                        .then(function(e) {
+                        .then(function (e) {
                             t(e);
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             n(e);
                         });
                 });
             },
-            keys: function() {
-                return new O.default(function(e, t) {
+            keys: function () {
+                return new O.default(function (e, t) {
                     w.default(_.default)
                         .call(_.default)
-                        .then(function(t) {
+                        .then(function (t) {
                             e(t);
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             t(e);
                         });
                 });
             },
-            iterate: function() {
-                return new O.default(function(e, t) {
+            iterate: function () {
+                return new O.default(function (e, t) {
                     _.default
-                        .iterate(function(t, n, r) {
+                        .iterate(function (t, n, r) {
                             e([t, n, r]);
                         })
-                        .then(function(t) {
+                        .then(function (t) {
                             e(t);
                         })
-                        .catch(function(e) {
+                        .catch(function (e) {
                             t(e);
                         });
                 });
             },
-            setDriver: function(e) {
-                return new O.default(function(t, n) {
+            setDriver: function (e) {
+                return new O.default(function (t, n) {
                     t(_.default.setDriver(e));
                 });
             },
-            config: function(e) {
-                return new O.default(function(t, n) {
+            config: function (e) {
+                return new O.default(function (t, n) {
                     t(_.default.config(e));
                 });
             },
-            createInstance: function(e) {
-                return new O.default(function(t, n) {
+            createInstance: function (e) {
+                return new O.default(function (t, n) {
                     t(_.default.createInstance(e));
                 });
-            }
+            },
         },
         T = {
-            setObject: function(e, t) {
+            setObject: function (e, t) {
                 localStorage.setItem(e, v.default(t));
             },
-            getObject: function(e) {
+            getObject: function (e) {
                 var t = localStorage.getItem(e);
                 return t ? JSON.parse(t) : null;
             },
-            setItem: function(e, t) {
+            setItem: function (e, t) {
                 localStorage.setItem(e, t);
             },
-            getItem: function(e) {
+            getItem: function (e) {
                 return localStorage.getItem(e);
             },
-            removeItem: function(e) {
+            removeItem: function (e) {
                 localStorage.removeItem(e);
             },
-            clear: function() {
+            clear: function () {
                 localStorage.clear();
             },
-            isExist: function(e) {
+            isExist: function (e) {
                 return !(!e || !(e in localStorage));
-            }
+            },
         },
         $ = {
             array: {
-                groupBy: function(e, t) {
+                groupBy: function (e, t) {
                     var n,
                         r = {};
                     return (
-                        z.default(e).call(e, function(e) {
+                        z.default(e).call(e, function (e) {
                             var n = t(e);
                             (r[n] = r[n] || []), r[n].push(e);
                         }),
-                        D.default((n = E.default(r))).call(n, function(e) {
+                        D.default((n = E.default(r))).call(n, function (e) {
                             return r[e];
                         })
                     );
                 },
-                sort: function(e, t) {
-                    return x.default(e).call(e, function(e, n) {
+                sort: function (e, t) {
+                    return x.default(e).call(e, function (e, n) {
                         var r = e[t],
                             o = n[t];
                         return r < o ? -1 : r > o ? 1 : 0;
                     });
                 },
-                find: function(e, t, n) {
-                    return k.default(e).call(e, function(e) {
+                find: function (e, t, n) {
+                    return k.default(e).call(e, function (e) {
                         return e[n] === t[n];
                     });
                 },
-                remove: function(e, t, n) {
-                    var r = S.default(e).call(e, function(e) {
+                remove: function (e, t, n) {
+                    var r = S.default(e).call(e, function (e) {
                         return e[n] === t[n];
                     });
                     return P.default(e).call(e, r, 1), e;
-                }
+                },
             },
             object: {
-                isEmpty: function(e) {
+                isEmpty: function (e) {
                     if (e) {
                         var t = E.default(e);
                         return !(t && t.length > 0);
                     }
                     return !0;
-                }
-            }
+                },
+            },
         };
     y.default.locale('zh-cn'),
         Object.defineProperty(e, 'moment', {
             enumerable: !0,
-            get: function() {
+            get: function () {
                 return y.default;
-            }
+            },
         }),
         (e.lodash = g),
         Object.defineProperty(e, 'shortid', {
             enumerable: !0,
-            get: function() {
+            get: function () {
                 return I.default;
-            }
+            },
         }),
         (e.notify = M),
         (e.storage = N),

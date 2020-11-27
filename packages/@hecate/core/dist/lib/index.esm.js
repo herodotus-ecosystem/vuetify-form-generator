@@ -18,11 +18,11 @@ import p from '@babel/runtime-corejs3/core-js/instance/for-each';
 require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
 var h = require('@babel/runtime-corejs3/core-js/instance/slice'),
     j = require('@babel/runtime-corejs3/helpers/typeof');
-String.prototype.format = function(n) {
-    var t = function(n, t) {
+String.prototype.format = function (n) {
+    var t = function (n, t) {
         return (
             (t = 'object' === j(t) ? t : h(Array.prototype).call(arguments, 1)),
-            n.replace(/\{\{|\}\}|\{(\w+)\}/g, function(n, e) {
+            n.replace(/\{\{|\}\}|\{(\w+)\}/g, function (n, e) {
                 return '{{' == n ? '{' : '}}' == n ? '}' : t[e];
             })
         );
@@ -31,200 +31,200 @@ String.prototype.format = function(n) {
 };
 var b = e,
     g = {
-        information: function(n, t) {
+        information: function (n, t) {
             return b.fire({ position: 'top', title: n, icon: t, timer: 2e3, showConfirmButton: !1 });
         },
-        info: function(n) {
+        info: function (n) {
             this.information(n, 'info');
         },
-        error: function(n) {
+        error: function (n) {
             this.information(n, 'error');
         },
-        warning: function(n) {
+        warning: function (n) {
             this.information(n, 'warning');
         },
-        success: function(n) {
+        success: function (n) {
             this.information(n, 'success');
         },
-        question: function(n) {
+        question: function (n) {
             this.information(n, 'question');
-        }
+        },
     },
     v = {
-        getItem: function(n) {
-            return new c(function(t, e) {
+        getItem: function (n) {
+            return new c(function (t, e) {
                 i.getItem(n)
-                    .then(function(n) {
+                    .then(function (n) {
                         t(n);
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         e(n);
                     });
             });
         },
-        setItem: function(n, t) {
-            return new c(function(e, r) {
+        setItem: function (n, t) {
+            return new c(function (e, r) {
                 i.setItem(n, t)
-                    .then(function(n) {
+                    .then(function (n) {
                         e(n);
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         r(n);
                     });
             });
         },
-        removeItem: function(n) {
-            return new c(function(t, e) {
+        removeItem: function (n) {
+            return new c(function (t, e) {
                 i.removeItem(n)
-                    .then(function() {
+                    .then(function () {
                         t();
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         e(n);
                     });
             });
         },
-        clear: function() {
-            return new c(function(n, t) {
+        clear: function () {
+            return new c(function (n, t) {
                 i.clear()
-                    .then(function() {
+                    .then(function () {
                         n();
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         t(n);
                     });
             });
         },
-        length: function() {
-            return new c(function(n, t) {
+        length: function () {
+            return new c(function (n, t) {
                 i.length()
-                    .then(function(t) {
+                    .then(function (t) {
                         n(t);
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         t(n);
                     });
             });
         },
-        key: function(n) {
-            return new c(function(t, e) {
+        key: function (n) {
+            return new c(function (t, e) {
                 i.key(n)
-                    .then(function(n) {
+                    .then(function (n) {
                         t(n);
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         e(n);
                     });
             });
         },
-        keys: function() {
-            return new c(function(n, t) {
+        keys: function () {
+            return new c(function (n, t) {
                 o(i)
                     .call(i)
-                    .then(function(t) {
+                    .then(function (t) {
                         n(t);
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         t(n);
                     });
             });
         },
-        iterate: function() {
-            return new c(function(n, t) {
-                i.iterate(function(t, e, r) {
+        iterate: function () {
+            return new c(function (n, t) {
+                i.iterate(function (t, e, r) {
                     n([t, e, r]);
                 })
-                    .then(function(t) {
+                    .then(function (t) {
                         n(t);
                     })
-                    .catch(function(n) {
+                    .catch(function (n) {
                         t(n);
                     });
             });
         },
-        setDriver: function(n) {
-            return new c(function(t, e) {
+        setDriver: function (n) {
+            return new c(function (t, e) {
                 t(i.setDriver(n));
             });
         },
-        config: function(n) {
-            return new c(function(t, e) {
+        config: function (n) {
+            return new c(function (t, e) {
                 t(i.config(n));
             });
         },
-        createInstance: function(n) {
-            return new c(function(t, e) {
+        createInstance: function (n) {
+            return new c(function (t, e) {
                 t(i.createInstance(n));
             });
-        }
+        },
     },
     w = {
-        setObject: function(n, t) {
+        setObject: function (n, t) {
             localStorage.setItem(n, r(t));
         },
-        getObject: function(n) {
+        getObject: function (n) {
             var t = localStorage.getItem(n);
             return t ? JSON.parse(t) : null;
         },
-        setItem: function(n, t) {
+        setItem: function (n, t) {
             localStorage.setItem(n, t);
         },
-        getItem: function(n) {
+        getItem: function (n) {
             return localStorage.getItem(n);
         },
-        removeItem: function(n) {
+        removeItem: function (n) {
             localStorage.removeItem(n);
         },
-        clear: function() {
+        clear: function () {
             localStorage.clear();
         },
-        isExist: function(n) {
+        isExist: function (n) {
             return !(!n || !(n in localStorage));
-        }
+        },
     },
     I = {
         array: {
-            groupBy: function(n, t) {
+            groupBy: function (n, t) {
                 var e,
                     r = {};
                 return (
-                    p(n).call(n, function(n) {
+                    p(n).call(n, function (n) {
                         var e = t(n);
                         (r[e] = r[e] || []), r[e].push(n);
                     }),
-                    l((e = m(r))).call(e, function(n) {
+                    l((e = m(r))).call(e, function (n) {
                         return r[n];
                     })
                 );
             },
-            sort: function(n, t) {
-                return s(n).call(n, function(n, e) {
+            sort: function (n, t) {
+                return s(n).call(n, function (n, e) {
                     var r = n[t],
                         o = e[t];
                     return r < o ? -1 : r > o ? 1 : 0;
                 });
             },
-            find: function(n, t, e) {
-                return a(n).call(n, function(n) {
+            find: function (n, t, e) {
+                return a(n).call(n, function (n) {
                     return n[e] === t[e];
                 });
             },
-            remove: function(n, t, e) {
-                var r = f(n).call(n, function(n) {
+            remove: function (n, t, e) {
+                var r = f(n).call(n, function (n) {
                     return n[e] === t[e];
                 });
                 return u(n).call(n, r, 1), n;
-            }
+            },
         },
         object: {
-            isEmpty: function(n) {
+            isEmpty: function (n) {
                 if (n) {
                     var t = m(n);
                     return !(t && t.length > 0);
                 }
                 return !0;
-            }
-        }
+            },
+        },
     };
 n.locale('zh-cn');
 export { g as notify, v as storage, w as storageSync, b as swal, I as tools };

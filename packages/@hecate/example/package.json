@@ -15,6 +15,7 @@
     "dependencies": {
         "@hecate/core": "1.0.0",
         "@hecate/h-code-mirror": "^1.0.0",
+        "@hecate/h-form-generator": "^1.0.0",
         "@hecate/h-form-renderer": "^1.0.0",
         "@hecate/h-form-runtime": "^1.0.0",
         "@hecate/h-icon-list": "^1.0.0",

@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import HFormGenerator from '@/components/HFormGenerator.vue';
+import '@hecate/h-form-generator/dist/index.esm.css';
+import { HFormGenerator } from '@hecate/h-form-generator';
 
 export default {
     components: {

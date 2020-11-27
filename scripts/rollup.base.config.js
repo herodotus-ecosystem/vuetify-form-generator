@@ -8,15 +8,16 @@ const {
     json,
     multi,
     nodeResolve,
-    postcss,
     progress,
     sizes,
     strip,
     terser,
     vue,
     vuetify,
+    postcss,
+    postcssPresetEnv,
+    simpleVars,
     nested,
-    cssnext,
     cssnano,
 } = require('./rollup.plugins');
 
@@ -65,19 +66,19 @@ const defaultPlugins = [
         entries: [{ find: '@', replacement: path.resolve('./', 'src') }],
     }),
     postcss({
-        // extract: utils.path.resolve("dist/" + name + "/style.css"),
-
+        // https://github.com/remaxjs/rollup-plugin-postcss
+        // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
+        extensions: ['.css'],
+        // PostCSS Plugins.
+        plugins: [simpleVars(), nested(), postcssPresetEnv(), cssnano()],
         // Extract CSS to the same location where JS file is generated but with .css extension.
         extract: true,
         // Use named exports alongside default export.
-        namedExports: true,
+        module: true,
         // Minimize CSS, boolean or options for cssnano.
         minimize: true,
         // Enable sourceMap.
         sourceMap: true,
-        // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
-        extensions: ['.sass', '.scss', '.css'],
-        plugins: [nested(), cssnext({ warnForDuplicates: false }), cssnano()],
     }),
     vue({
         css: false,

@@ -1,4 +1,4 @@
-!(function(e, t) {
+!(function (e, t) {
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
               exports,
@@ -33,7 +33,7 @@
               'vuetify/lib',
               '@mdi/js',
               '@hecate/core',
-              'vue-runtime-helpers/dist/normalize-component.mjs'
+              'vue-runtime-helpers/dist/normalize-component.mjs',
           ], t)
         : t(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
@@ -52,7 +52,7 @@
               e.core,
               e.__vue_normalize__
           );
-})(this, function(e, t, n, s, i, r, o, c, l, u, a, d, m, f, h) {
+})(this, function (e, t, n, s, i, r, o, c, l, u, a, d, m, f, h) {
     'use strict';
     function p(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -62,7 +62,7 @@
         var t = Object.create(null);
         return (
             e &&
-                Object.keys(e).forEach(function(n) {
+                Object.keys(e).forEach(function (n) {
                     if ('default' !== n) {
                         var s = Object.getOwnPropertyDescriptor(e, n);
                         Object.defineProperty(
@@ -72,9 +72,9 @@
                                 ? s
                                 : {
                                       enumerable: !0,
-                                      get: function() {
+                                      get: function () {
                                           return e[n];
-                                      }
+                                      },
                                   }
                         );
                     }
@@ -101,45 +101,45 @@
                 VListItem: d.VListItem,
                 VVirtualScroll: d.VVirtualScroll,
                 VList: d.VList,
-                VMenu: d.VMenu
+                VMenu: d.VMenu,
             },
             name: 'HIconList',
             props: {
                 value: String,
                 dense: { type: Boolean, default: !1 },
                 disabled: { type: Boolean, default: !1 },
-                itemHeight: { type: Number, default: 40 }
+                itemHeight: { type: Number, default: 40 },
             },
-            data: function() {
+            data: function () {
                 return { isSelected: !1, icons: [], menu: !1, search: '' };
             },
             computed: {
-                filteredIcons: function() {
+                filteredIcons: function () {
                     var e,
                         t = this;
                     return this.icons.length && this.search
                         ? this.search
                             ? this.isSelected
                                 ? []
-                                : _.default((e = this.icons)).call(e, function(e) {
+                                : _.default((e = this.icons)).call(e, function (e) {
                                       return e.toLowerCase().match(t.search.toLowerCase());
                                   })
                             : this.icons
                         : [];
-                }
+                },
             },
             watch: {
                 value: {
-                    handler: function(e, t) {
+                    handler: function (e, t) {
                         var n;
                         e && g.default((n = f.lib.lodash)).call(n, e, 'mdi-')
                             ? (this.search = e.substring(4))
                             : (this.search = e);
                     },
-                    immediate: !0
+                    immediate: !0,
                 },
                 search: {
-                    handler: function(e, t) {
+                    handler: function (e, t) {
                         var n;
                         this.filteredIcons.length > 0 && !this.menu
                             ? (this.menu = !0)
@@ -147,27 +147,27 @@
                             e && !g.default((n = f.lib.lodash)).call(n, e, 'mdi-')
                                 ? this.$emit('input', 'mdi-' + e)
                                 : this.$emit('input', e);
-                    }
-                }
+                    },
+                },
             },
-            mounted: function() {
+            mounted: function () {
                 var e;
-                this.icons = y.default((e = j.default(I))).call(e, function(e) {
+                this.icons = y.default((e = j.default(I))).call(e, function (e) {
                     return f.lib.lodash.kebabCase(e);
                 });
             },
             methods: {
-                select: function(e) {
+                select: function (e) {
                     (this.search = e.substring(4)), (this.isSelected = !0);
                 },
-                reset: function() {
+                reset: function () {
                     (this.menu = !1), (this.isSelected = !1), (this.search = '');
-                }
-            }
+                },
+            },
         },
         w = V.default(
             {
-                render: function() {
+                render: function () {
                     var e = this,
                         t = e.$createElement,
                         n = e._self._c || t;
@@ -179,12 +179,12 @@
                                 'close-on-content-click': '',
                                 'open-on-click': e.filteredIcons.length > 0,
                                 'offset-y': '',
-                                rounded: 'b-xl'
+                                rounded: 'b-xl',
                             },
                             scopedSlots: e._u([
                                 {
                                     key: 'activator',
-                                    fn: function(t) {
+                                    fn: function (t) {
                                         var s = t.on,
                                             i = t.attrs;
                                         return [
@@ -200,29 +200,29 @@
                                                                 'hide-details': '',
                                                                 clearable: '',
                                                                 outlined: '',
-                                                                placeholder: '搜索图标 (e.g. account)'
+                                                                placeholder: '搜索图标 (e.g. account)',
                                                             },
                                                             on: { 'click:clear': e.reset },
                                                             scopedSlots: e._u(
                                                                 [
                                                                     {
                                                                         key: 'prepend-inner',
-                                                                        fn: function() {
+                                                                        fn: function () {
                                                                             return [
                                                                                 e.isSelected
                                                                                     ? n(
                                                                                           'v-icon',
                                                                                           {
                                                                                               attrs: {
-                                                                                                  color: 'primary'
-                                                                                              }
+                                                                                                  color: 'primary',
+                                                                                              },
                                                                                           },
                                                                                           [
                                                                                               e._v(
                                                                                                   ' mdi-' +
                                                                                                       e._s(e.search) +
                                                                                                       ' '
-                                                                                              )
+                                                                                              ),
                                                                                           ]
                                                                                       )
                                                                                     : e._e(),
@@ -231,22 +231,22 @@
                                                                                     'code',
                                                                                     { staticClass: 'mx-1 py-1' },
                                                                                     [e._v('mdi-')]
-                                                                                )
+                                                                                ),
                                                                             ];
                                                                         },
-                                                                        proxy: !0
-                                                                    }
+                                                                        proxy: !0,
+                                                                    },
                                                                 ],
                                                                 null,
                                                                 !0
                                                             ),
                                                             model: {
                                                                 value: e.search,
-                                                                callback: function(t) {
+                                                                callback: function (t) {
                                                                     e.search = t;
                                                                 },
-                                                                expression: 'search'
-                                                            }
+                                                                expression: 'search',
+                                                            },
                                                         },
                                                         'v-text-field',
                                                         i,
@@ -254,18 +254,18 @@
                                                     ),
                                                     s
                                                 )
-                                            )
+                                            ),
                                         ];
-                                    }
-                                }
+                                    },
+                                },
                             ]),
                             model: {
                                 value: e.menu,
-                                callback: function(t) {
+                                callback: function (t) {
                                     e.menu = t;
                                 },
-                                expression: 'menu'
-                            }
+                                expression: 'menu',
+                            },
                         },
                         [
                             e._v(' '),
@@ -277,21 +277,21 @@
                                             name: 'show',
                                             rawName: 'v-show',
                                             value: e.filteredIcons.length > 0,
-                                            expression: 'filteredIcons.length > 0'
-                                        }
-                                    ]
+                                            expression: 'filteredIcons.length > 0',
+                                        },
+                                    ],
                                 },
                                 [
                                     n('v-virtual-scroll', {
                                         attrs: {
                                             items: e.filteredIcons,
                                             'item-height': e.itemHeight,
-                                            height: Math.min(e.filteredIcons.length * e.itemHeight, 300)
+                                            height: Math.min(e.filteredIcons.length * e.itemHeight, 300),
                                         },
                                         scopedSlots: e._u([
                                             {
                                                 key: 'default',
-                                                fn: function(t) {
+                                                fn: function (t) {
                                                     var s = t.item;
                                                     return [
                                                         n(
@@ -300,10 +300,10 @@
                                                                 key: s,
                                                                 attrs: { dense: e.dense },
                                                                 on: {
-                                                                    click: function(t) {
+                                                                    click: function (t) {
                                                                         return t.stopPropagation(), e.select(s);
-                                                                    }
-                                                                }
+                                                                    },
+                                                                },
                                                             },
                                                             [
                                                                 n(
@@ -312,8 +312,8 @@
                                                                         n('v-icon', {
                                                                             staticClass: 'mr-2',
                                                                             attrs: { color: 'primary' },
-                                                                            domProps: { textContent: e._s(s) }
-                                                                        })
+                                                                            domProps: { textContent: e._s(s) },
+                                                                        }),
                                                                     ],
                                                                     1
                                                                 ),
@@ -323,9 +323,9 @@
                                                                     [
                                                                         n('v-list-item-title', {
                                                                             domProps: {
-                                                                                textContent: e._s(s.substring(4))
-                                                                            }
-                                                                        })
+                                                                                textContent: e._s(s.substring(4)),
+                                                                            },
+                                                                        }),
                                                                     ],
                                                                     1
                                                                 ),
@@ -335,34 +335,34 @@
                                                                     {
                                                                         attrs: { icon: '' },
                                                                         on: {
-                                                                            click: function(t) {
+                                                                            click: function (t) {
                                                                                 return t.stopPropagation(), e.select(s);
-                                                                            }
-                                                                        }
+                                                                            },
+                                                                        },
                                                                     },
                                                                     [
                                                                         n('v-icon', { attrs: { size: '20' } }, [
-                                                                            e._v(' mdi-content-copy ')
-                                                                        ])
+                                                                            e._v(' mdi-content-copy '),
+                                                                        ]),
                                                                     ],
                                                                     1
-                                                                )
+                                                                ),
                                                             ],
                                                             1
-                                                        )
+                                                        ),
                                                     ];
-                                                }
-                                            }
-                                        ])
-                                    })
+                                                },
+                                            },
+                                        ]),
+                                    }),
                                 ],
                                 1
-                            )
+                            ),
                         ],
                         1
                     );
                 },
-                staticRenderFns: []
+                staticRenderFns: [],
             },
             undefined,
             x,
@@ -374,7 +374,7 @@
             void 0,
             void 0
         );
-    (w.install = function(e) {
+    (w.install = function (e) {
         e.component(w.name, w);
     }),
         null != ('undefined' == typeof window ? 'undefined' : v.default(window)) && window.Vue && w.install(window.Vue),

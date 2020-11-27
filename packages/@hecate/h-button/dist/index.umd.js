@@ -1,4 +1,4 @@
-!(function(e, n) {
+!(function (e, n) {
     'object' == typeof exports && 'undefined' != typeof module
         ? n(
               exports,
@@ -13,7 +13,7 @@
               'core-js/modules/es.function.name',
               '@babel/runtime-corejs3/helpers/esm/typeof',
               'vuetify/lib',
-              'vue-runtime-helpers/dist/normalize-component.mjs'
+              'vue-runtime-helpers/dist/normalize-component.mjs',
           ], n)
         : n(
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
@@ -22,7 +22,7 @@
               e.Vuetify,
               e.__vue_normalize__
           );
-})(this, function(e, n, o, t, i) {
+})(this, function (e, n, o, t, i) {
     'use strict';
     function r(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -34,14 +34,14 @@
             name: 'HButton',
             props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
             methods: {
-                handleClick: function() {
+                handleClick: function () {
                     this.$emit('click');
-                }
-            }
+                },
+            },
         },
         c = u.default(
             {
-                render: function() {
+                render: function () {
                     var e = this,
                         n = e.$createElement,
                         o = e._self._c || n;
@@ -52,7 +52,7 @@
                             scopedSlots: e._u([
                                 {
                                     key: 'activator',
-                                    fn: function(n) {
+                                    fn: function (n) {
                                         var t = n.on;
                                         return [
                                             o(
@@ -61,25 +61,25 @@
                                                     {
                                                         attrs: { color: e.color, icon: e.icon },
                                                         on: {
-                                                            click: function(n) {
+                                                            click: function (n) {
                                                                 return e.handleClick();
-                                                            }
-                                                        }
+                                                            },
+                                                        },
                                                     },
                                                     t
                                                 ),
                                                 [o('v-icon', [e._v(e._s(e.iconName))])],
                                                 1
-                                            )
+                                            ),
                                         ];
-                                    }
-                                }
-                            ])
+                                    },
+                                },
+                            ]),
                         },
                         [e._v(' '), o('span', [e._v(e._s(e.tooltip))])]
                     );
                 },
-                staticRenderFns: []
+                staticRenderFns: [],
             },
             undefined,
             s,
@@ -91,7 +91,7 @@
             void 0,
             void 0
         );
-    (c.install = function(e) {
+    (c.install = function (e) {
         e.component(c.name, c);
     }),
         null != ('undefined' == typeof window ? 'undefined' : l.default(window)) && window.Vue && c.install(window.Vue),

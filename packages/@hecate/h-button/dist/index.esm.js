@@ -4,7 +4,7 @@ import { VIcon as o, VBtn as t, VTooltip as e } from 'vuetify/lib';
 import i from 'vue-runtime-helpers/dist/normalize-component.mjs';
 var r = i(
     {
-        render: function() {
+        render: function () {
             var n = this,
                 o = n.$createElement,
                 t = n._self._c || o;
@@ -15,7 +15,7 @@ var r = i(
                     scopedSlots: n._u([
                         {
                             key: 'activator',
-                            fn: function(o) {
+                            fn: function (o) {
                                 var e = o.on;
                                 return [
                                     t(
@@ -24,25 +24,25 @@ var r = i(
                                             {
                                                 attrs: { color: n.color, icon: n.icon },
                                                 on: {
-                                                    click: function(o) {
+                                                    click: function (o) {
                                                         return n.handleClick();
-                                                    }
-                                                }
+                                                    },
+                                                },
                                             },
                                             e
                                         ),
                                         [t('v-icon', [n._v(n._s(n.iconName))])],
                                         1
-                                    )
+                                    ),
                                 ];
-                            }
-                        }
-                    ])
+                            },
+                        },
+                    ]),
                 },
                 [n._v(' '), t('span', [n._v(n._s(n.tooltip))])]
             );
         },
-        staticRenderFns: []
+        staticRenderFns: [],
     },
     undefined,
     {
@@ -50,10 +50,10 @@ var r = i(
         name: 'HButton',
         props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
         methods: {
-            handleClick: function() {
+            handleClick: function () {
                 this.$emit('click');
-            }
-        }
+            },
+        },
     },
     undefined,
     false,
@@ -63,7 +63,7 @@ var r = i(
     void 0,
     void 0
 );
-(r.install = function(n) {
+(r.install = function (n) {
     n.component(r.name, r);
 }),
     null != ('undefined' == typeof window ? 'undefined' : n(window)) && window.Vue && r.install(window.Vue);

@@ -18,14 +18,14 @@ import {
     VListItem as d,
     VVirtualScroll as u,
     VList as h,
-    VMenu as f
+    VMenu as f,
 } from 'vuetify/lib';
 import * as p from '@mdi/js';
 import { lib as v } from '@hecate/core';
 import b from 'vue-runtime-helpers/dist/normalize-component.mjs';
 var g = b(
     {
-        render: function() {
+        render: function () {
             var e = this,
                 t = e.$createElement,
                 i = e._self._c || t;
@@ -37,12 +37,12 @@ var g = b(
                         'close-on-content-click': '',
                         'open-on-click': e.filteredIcons.length > 0,
                         'offset-y': '',
-                        rounded: 'b-xl'
+                        rounded: 'b-xl',
                     },
                     scopedSlots: e._u([
                         {
                             key: 'activator',
-                            fn: function(t) {
+                            fn: function (t) {
                                 var n = t.on,
                                     s = t.attrs;
                                 return [
@@ -58,14 +58,14 @@ var g = b(
                                                         'hide-details': '',
                                                         clearable: '',
                                                         outlined: '',
-                                                        placeholder: '搜索图标 (e.g. account)'
+                                                        placeholder: '搜索图标 (e.g. account)',
                                                     },
                                                     on: { 'click:clear': e.reset },
                                                     scopedSlots: e._u(
                                                         [
                                                             {
                                                                 key: 'prepend-inner',
-                                                                fn: function() {
+                                                                fn: function () {
                                                                     return [
                                                                         e.isSelected
                                                                             ? i(
@@ -76,23 +76,23 @@ var g = b(
                                                                             : e._e(),
                                                                         e._v(' '),
                                                                         i('code', { staticClass: 'mx-1 py-1' }, [
-                                                                            e._v('mdi-')
-                                                                        ])
+                                                                            e._v('mdi-'),
+                                                                        ]),
                                                                     ];
                                                                 },
-                                                                proxy: !0
-                                                            }
+                                                                proxy: !0,
+                                                            },
                                                         ],
                                                         null,
                                                         !0
                                                     ),
                                                     model: {
                                                         value: e.search,
-                                                        callback: function(t) {
+                                                        callback: function (t) {
                                                             e.search = t;
                                                         },
-                                                        expression: 'search'
-                                                    }
+                                                        expression: 'search',
+                                                    },
                                                 },
                                                 'v-text-field',
                                                 s,
@@ -100,18 +100,18 @@ var g = b(
                                             ),
                                             n
                                         )
-                                    )
+                                    ),
                                 ];
-                            }
-                        }
+                            },
+                        },
                     ]),
                     model: {
                         value: e.menu,
-                        callback: function(t) {
+                        callback: function (t) {
                             e.menu = t;
                         },
-                        expression: 'menu'
-                    }
+                        expression: 'menu',
+                    },
                 },
                 [
                     e._v(' '),
@@ -123,21 +123,21 @@ var g = b(
                                     name: 'show',
                                     rawName: 'v-show',
                                     value: e.filteredIcons.length > 0,
-                                    expression: 'filteredIcons.length > 0'
-                                }
-                            ]
+                                    expression: 'filteredIcons.length > 0',
+                                },
+                            ],
                         },
                         [
                             i('v-virtual-scroll', {
                                 attrs: {
                                     items: e.filteredIcons,
                                     'item-height': e.itemHeight,
-                                    height: Math.min(e.filteredIcons.length * e.itemHeight, 300)
+                                    height: Math.min(e.filteredIcons.length * e.itemHeight, 300),
                                 },
                                 scopedSlots: e._u([
                                     {
                                         key: 'default',
-                                        fn: function(t) {
+                                        fn: function (t) {
                                             var n = t.item;
                                             return [
                                                 i(
@@ -146,10 +146,10 @@ var g = b(
                                                         key: n,
                                                         attrs: { dense: e.dense },
                                                         on: {
-                                                            click: function(t) {
+                                                            click: function (t) {
                                                                 return t.stopPropagation(), e.select(n);
-                                                            }
-                                                        }
+                                                            },
+                                                        },
                                                     },
                                                     [
                                                         i(
@@ -158,8 +158,8 @@ var g = b(
                                                                 i('v-icon', {
                                                                     staticClass: 'mr-2',
                                                                     attrs: { color: 'primary' },
-                                                                    domProps: { textContent: e._s(n) }
-                                                                })
+                                                                    domProps: { textContent: e._s(n) },
+                                                                }),
                                                             ],
                                                             1
                                                         ),
@@ -168,8 +168,8 @@ var g = b(
                                                             'v-list-item-content',
                                                             [
                                                                 i('v-list-item-title', {
-                                                                    domProps: { textContent: e._s(n.substring(4)) }
-                                                                })
+                                                                    domProps: { textContent: e._s(n.substring(4)) },
+                                                                }),
                                                             ],
                                                             1
                                                         ),
@@ -179,34 +179,34 @@ var g = b(
                                                             {
                                                                 attrs: { icon: '' },
                                                                 on: {
-                                                                    click: function(t) {
+                                                                    click: function (t) {
                                                                         return t.stopPropagation(), e.select(n);
-                                                                    }
-                                                                }
+                                                                    },
+                                                                },
                                                             },
                                                             [
                                                                 i('v-icon', { attrs: { size: '20' } }, [
-                                                                    e._v(' mdi-content-copy ')
-                                                                ])
+                                                                    e._v(' mdi-content-copy '),
+                                                                ]),
                                                             ],
                                                             1
-                                                        )
+                                                        ),
                                                     ],
                                                     1
-                                                )
+                                                ),
                                             ];
-                                        }
-                                    }
-                                ])
-                            })
+                                        },
+                                    },
+                                ]),
+                            }),
                         ],
                         1
-                    )
+                    ),
                 ],
                 1
             );
         },
-        staticRenderFns: []
+        staticRenderFns: [],
     },
     undefined,
     {
@@ -220,43 +220,43 @@ var g = b(
             VListItem: d,
             VVirtualScroll: u,
             VList: h,
-            VMenu: f
+            VMenu: f,
         },
         name: 'HIconList',
         props: {
             value: String,
             dense: { type: Boolean, default: !1 },
             disabled: { type: Boolean, default: !1 },
-            itemHeight: { type: Number, default: 40 }
+            itemHeight: { type: Number, default: 40 },
         },
-        data: function() {
+        data: function () {
             return { isSelected: !1, icons: [], menu: !1, search: '' };
         },
         computed: {
-            filteredIcons: function() {
+            filteredIcons: function () {
                 var e,
                     t = this;
                 return this.icons.length && this.search
                     ? this.search
                         ? this.isSelected
                             ? []
-                            : s((e = this.icons)).call(e, function(e) {
+                            : s((e = this.icons)).call(e, function (e) {
                                   return e.toLowerCase().match(t.search.toLowerCase());
                               })
                         : this.icons
                     : [];
-            }
+            },
         },
         watch: {
             value: {
-                handler: function(e, t) {
+                handler: function (e, t) {
                     var i;
                     e && n((i = v.lodash)).call(i, e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
                 },
-                immediate: !0
+                immediate: !0,
             },
             search: {
-                handler: function(e, t) {
+                handler: function (e, t) {
                     var i;
                     this.filteredIcons.length > 0 && !this.menu
                         ? (this.menu = !0)
@@ -264,23 +264,23 @@ var g = b(
                         e && !n((i = v.lodash)).call(i, e, 'mdi-')
                             ? this.$emit('input', 'mdi-' + e)
                             : this.$emit('input', e);
-                }
-            }
+                },
+            },
         },
-        mounted: function() {
+        mounted: function () {
             var e;
-            this.icons = i((e = t(p))).call(e, function(e) {
+            this.icons = i((e = t(p))).call(e, function (e) {
                 return v.lodash.kebabCase(e);
             });
         },
         methods: {
-            select: function(e) {
+            select: function (e) {
                 (this.search = e.substring(4)), (this.isSelected = !0);
             },
-            reset: function() {
+            reset: function () {
                 (this.menu = !1), (this.isSelected = !1), (this.search = '');
-            }
-        }
+            },
+        },
     },
     undefined,
     false,
@@ -290,7 +290,7 @@ var g = b(
     void 0,
     void 0
 );
-(g.install = function(e) {
+(g.install = function (e) {
     e.component(g.name, g);
 }),
     null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && g.install(window.Vue);
