@@ -1,35 +1,27 @@
 import 'core-js/modules/es.function.name';
 import e from '@babel/runtime-corejs3/helpers/esm/typeof';
-import 'core-js/modules/es.number.constructor';
-import 'core-js/modules/es.regexp.exec';
-import 'core-js/modules/es.string.match';
-import 'core-js/modules/es.string.search';
-import t from '@babel/runtime-corejs3/core-js/object/keys';
-import i from '@babel/runtime-corejs3/core-js/instance/map';
-import n from '@babel/runtime-corejs3/core-js/instance/starts-with';
-import s from '@babel/runtime-corejs3/core-js/instance/filter';
 import {
-    VIcon as o,
-    VTextField as r,
-    VListItemIcon as c,
-    VListItemTitle as l,
-    VListItemContent as a,
-    VBtn as m,
-    VListItem as d,
-    VVirtualScroll as u,
-    VList as h,
-    VMenu as f,
+    VIcon as t,
+    VTextField as n,
+    VListItemIcon as i,
+    VListItemTitle as s,
+    VListItemContent as o,
+    VBtn as r,
+    VListItem as c,
+    VVirtualScroll as l,
+    VList as a,
+    VMenu as d,
 } from 'vuetify/lib';
-import * as p from '@mdi/js';
-import { lib as v } from '@hecate/core';
-import b from 'vue-runtime-helpers/dist/normalize-component.mjs';
-var g = b(
+import * as u from '@mdi/js';
+import { lib as m } from '@hecate/core';
+import h from 'vue-runtime-helpers/dist/normalize-component.mjs';
+var f = h(
     {
         render: function () {
             var e = this,
                 t = e.$createElement,
-                i = e._self._c || t;
-            return i(
+                n = e._self._c || t;
+            return n(
                 'v-menu',
                 {
                     attrs: {
@@ -43,10 +35,10 @@ var g = b(
                         {
                             key: 'activator',
                             fn: function (t) {
-                                var n = t.on,
+                                var i = t.on,
                                     s = t.attrs;
                                 return [
-                                    i(
+                                    n(
                                         'v-text-field',
                                         e._g(
                                             e._b(
@@ -68,14 +60,14 @@ var g = b(
                                                                 fn: function () {
                                                                     return [
                                                                         e.isSelected
-                                                                            ? i(
+                                                                            ? n(
                                                                                   'v-icon',
                                                                                   { attrs: { color: 'primary' } },
                                                                                   [e._v(' mdi-' + e._s(e.search) + ' ')]
                                                                               )
                                                                             : e._e(),
                                                                         e._v(' '),
-                                                                        i('code', { staticClass: 'mx-1 py-1' }, [
+                                                                        n('code', { staticClass: 'mx-1 py-1' }, [
                                                                             e._v('mdi-'),
                                                                         ]),
                                                                     ];
@@ -98,7 +90,7 @@ var g = b(
                                                 s,
                                                 !1
                                             ),
-                                            n
+                                            i
                                         )
                                     ),
                                 ];
@@ -115,7 +107,7 @@ var g = b(
                 },
                 [
                     e._v(' '),
-                    i(
+                    n(
                         'v-list',
                         {
                             directives: [
@@ -128,7 +120,7 @@ var g = b(
                             ],
                         },
                         [
-                            i('v-virtual-scroll', {
+                            n('v-virtual-scroll', {
                                 attrs: {
                                     items: e.filteredIcons,
                                     'item-height': e.itemHeight,
@@ -138,54 +130,54 @@ var g = b(
                                     {
                                         key: 'default',
                                         fn: function (t) {
-                                            var n = t.item;
+                                            var i = t.item;
                                             return [
-                                                i(
+                                                n(
                                                     'v-list-item',
                                                     {
-                                                        key: n,
+                                                        key: i,
                                                         attrs: { dense: e.dense },
                                                         on: {
                                                             click: function (t) {
-                                                                return t.stopPropagation(), e.select(n);
+                                                                return t.stopPropagation(), e.select(i);
                                                             },
                                                         },
                                                     },
                                                     [
-                                                        i(
+                                                        n(
                                                             'v-list-item-icon',
                                                             [
-                                                                i('v-icon', {
+                                                                n('v-icon', {
                                                                     staticClass: 'mr-2',
                                                                     attrs: { color: 'primary' },
-                                                                    domProps: { textContent: e._s(n) },
+                                                                    domProps: { textContent: e._s(i) },
                                                                 }),
                                                             ],
                                                             1
                                                         ),
                                                         e._v(' '),
-                                                        i(
+                                                        n(
                                                             'v-list-item-content',
                                                             [
-                                                                i('v-list-item-title', {
-                                                                    domProps: { textContent: e._s(n.substring(4)) },
+                                                                n('v-list-item-title', {
+                                                                    domProps: { textContent: e._s(i.substring(4)) },
                                                                 }),
                                                             ],
                                                             1
                                                         ),
                                                         e._v(' '),
-                                                        i(
+                                                        n(
                                                             'v-btn',
                                                             {
                                                                 attrs: { icon: '' },
                                                                 on: {
                                                                     click: function (t) {
-                                                                        return t.stopPropagation(), e.select(n);
+                                                                        return t.stopPropagation(), e.select(i);
                                                                     },
                                                                 },
                                                             },
                                                             [
-                                                                i('v-icon', { attrs: { size: '20' } }, [
+                                                                n('v-icon', { attrs: { size: '20' } }, [
                                                                     e._v(' mdi-content-copy '),
                                                                 ]),
                                                             ],
@@ -211,16 +203,16 @@ var g = b(
     undefined,
     {
         components: {
-            VIcon: o,
-            VTextField: r,
-            VListItemIcon: c,
-            VListItemTitle: l,
-            VListItemContent: a,
-            VBtn: m,
-            VListItem: d,
-            VVirtualScroll: u,
-            VList: h,
-            VMenu: f,
+            VIcon: t,
+            VTextField: n,
+            VListItemIcon: i,
+            VListItemTitle: s,
+            VListItemContent: o,
+            VBtn: r,
+            VListItem: c,
+            VVirtualScroll: l,
+            VList: a,
+            VMenu: d,
         },
         name: 'HIconList',
         props: {
@@ -234,14 +226,13 @@ var g = b(
         },
         computed: {
             filteredIcons: function () {
-                var e,
-                    t = this;
+                var e = this;
                 return this.icons.length && this.search
                     ? this.search
                         ? this.isSelected
                             ? []
-                            : s((e = this.icons)).call(e, function (e) {
-                                  return e.toLowerCase().match(t.search.toLowerCase());
+                            : this.icons.filter(function (t) {
+                                  return t.toLowerCase().match(e.search.toLowerCase());
                               })
                         : this.icons
                     : [];
@@ -250,27 +241,22 @@ var g = b(
         watch: {
             value: {
                 handler: function (e, t) {
-                    var i;
-                    e && n((i = v.lodash)).call(i, e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
+                    e && m.lodash.startsWith(e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
                 },
                 immediate: !0,
             },
             search: {
                 handler: function (e, t) {
-                    var i;
                     this.filteredIcons.length > 0 && !this.menu
                         ? (this.menu = !0)
                         : this.filteredIcons.length || (this.menu = !1),
-                        e && !n((i = v.lodash)).call(i, e, 'mdi-')
-                            ? this.$emit('input', 'mdi-' + e)
-                            : this.$emit('input', e);
+                        e && !m.lodash.startsWith(e, 'mdi-') ? this.$emit('input', 'mdi-' + e) : this.$emit('input', e);
                 },
             },
         },
         mounted: function () {
-            var e;
-            this.icons = i((e = t(p))).call(e, function (e) {
-                return v.lodash.kebabCase(e);
+            this.icons = Object.keys(u).map(function (e) {
+                return m.lodash.kebabCase(e);
             });
         },
         methods: {
@@ -290,8 +276,8 @@ var g = b(
     void 0,
     void 0
 );
-(g.install = function (e) {
-    e.component(g.name, g);
+(f.install = function (e) {
+    e.component(f.name, f);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && g.install(window.Vue);
-export { g as HIconList };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && f.install(window.Vue);
+export { f as HIconList };

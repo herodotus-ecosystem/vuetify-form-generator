@@ -90,9 +90,7 @@ const defaultPlugins = [
         configFile: path.resolve('../../../', 'babel.config.js'),
     }),
     nodeResolve({
-        customResolveOptions: {
-            moduleDirectory: 'node_modules',
-        },
+        moduleDirectories: ['node_modules'],
     }),
     commonjs({
         include: 'node_modules/**',
@@ -107,7 +105,9 @@ const defaultPlugins = [
         clearLine: false,
     }),
     filesize(),
-    buble(),
+    buble({
+        objectAssign: 'Object.assign',
+    }),
     sizes({
         details: true,
     }),

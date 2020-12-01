@@ -4,14 +4,6 @@
               exports,
               require('core-js/modules/es.function.name'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
-              require('core-js/modules/es.number.constructor'),
-              require('core-js/modules/es.regexp.exec'),
-              require('core-js/modules/es.string.match'),
-              require('core-js/modules/es.string.search'),
-              require('@babel/runtime-corejs3/core-js/object/keys'),
-              require('@babel/runtime-corejs3/core-js/instance/map'),
-              require('@babel/runtime-corejs3/core-js/instance/starts-with'),
-              require('@babel/runtime-corejs3/core-js/instance/filter'),
               require('vuetify/lib'),
               require('@mdi/js'),
               require('@hecate/core'),
@@ -22,14 +14,6 @@
               'exports',
               'core-js/modules/es.function.name',
               '@babel/runtime-corejs3/helpers/esm/typeof',
-              'core-js/modules/es.number.constructor',
-              'core-js/modules/es.regexp.exec',
-              'core-js/modules/es.string.match',
-              'core-js/modules/es.string.search',
-              '@babel/runtime-corejs3/core-js/object/keys',
-              '@babel/runtime-corejs3/core-js/instance/map',
-              '@babel/runtime-corejs3/core-js/instance/starts-with',
-              '@babel/runtime-corejs3/core-js/instance/filter',
               'vuetify/lib',
               '@mdi/js',
               '@hecate/core',
@@ -39,37 +23,29 @@
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
               null,
               e._typeof,
-              null,
-              null,
-              null,
-              null,
-              e._Object$keys,
-              e._mapInstanceProperty,
-              e._startsWithInstanceProperty,
-              e._filterInstanceProperty,
               e.Vuetify,
               e['mdi-js'],
               e.core,
               e.__vue_normalize__
           );
-})(this, function (e, t, n, s, i, r, o, c, l, u, a, d, m, f, h) {
+})(this, function (e, t, n, i, s, o, r) {
     'use strict';
-    function p(e) {
+    function c(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    function b(e) {
+    function l(e) {
         if (e && e.__esModule) return e;
         var t = Object.create(null);
         return (
             e &&
                 Object.keys(e).forEach(function (n) {
                     if ('default' !== n) {
-                        var s = Object.getOwnPropertyDescriptor(e, n);
+                        var i = Object.getOwnPropertyDescriptor(e, n);
                         Object.defineProperty(
                             t,
                             n,
-                            s.get
-                                ? s
+                            i.get
+                                ? i
                                 : {
                                       enumerable: !0,
                                       get: function () {
@@ -83,25 +59,21 @@
             Object.freeze(t)
         );
     }
-    var v = p(n),
-        j = p(c),
-        y = p(l),
-        g = p(u),
-        _ = p(a),
-        I = b(m),
-        V = p(h),
-        x = {
+    var u = c(n),
+        a = l(s),
+        d = c(r),
+        f = {
             components: {
-                VIcon: d.VIcon,
-                VTextField: d.VTextField,
-                VListItemIcon: d.VListItemIcon,
-                VListItemTitle: d.VListItemTitle,
-                VListItemContent: d.VListItemContent,
-                VBtn: d.VBtn,
-                VListItem: d.VListItem,
-                VVirtualScroll: d.VVirtualScroll,
-                VList: d.VList,
-                VMenu: d.VMenu,
+                VIcon: i.VIcon,
+                VTextField: i.VTextField,
+                VListItemIcon: i.VListItemIcon,
+                VListItemTitle: i.VListItemTitle,
+                VListItemContent: i.VListItemContent,
+                VBtn: i.VBtn,
+                VListItem: i.VListItem,
+                VVirtualScroll: i.VVirtualScroll,
+                VList: i.VList,
+                VMenu: i.VMenu,
             },
             name: 'HIconList',
             props: {
@@ -115,14 +87,13 @@
             },
             computed: {
                 filteredIcons: function () {
-                    var e,
-                        t = this;
+                    var e = this;
                     return this.icons.length && this.search
                         ? this.search
                             ? this.isSelected
                                 ? []
-                                : _.default((e = this.icons)).call(e, function (e) {
-                                      return e.toLowerCase().match(t.search.toLowerCase());
+                                : this.icons.filter(function (t) {
+                                      return t.toLowerCase().match(e.search.toLowerCase());
                                   })
                             : this.icons
                         : [];
@@ -131,29 +102,24 @@
             watch: {
                 value: {
                     handler: function (e, t) {
-                        var n;
-                        e && g.default((n = f.lib.lodash)).call(n, e, 'mdi-')
-                            ? (this.search = e.substring(4))
-                            : (this.search = e);
+                        e && o.lib.lodash.startsWith(e, 'mdi-') ? (this.search = e.substring(4)) : (this.search = e);
                     },
                     immediate: !0,
                 },
                 search: {
                     handler: function (e, t) {
-                        var n;
                         this.filteredIcons.length > 0 && !this.menu
                             ? (this.menu = !0)
                             : this.filteredIcons.length || (this.menu = !1),
-                            e && !g.default((n = f.lib.lodash)).call(n, e, 'mdi-')
+                            e && !o.lib.lodash.startsWith(e, 'mdi-')
                                 ? this.$emit('input', 'mdi-' + e)
                                 : this.$emit('input', e);
                     },
                 },
             },
             mounted: function () {
-                var e;
-                this.icons = y.default((e = j.default(I))).call(e, function (e) {
-                    return f.lib.lodash.kebabCase(e);
+                this.icons = Object.keys(a).map(function (e) {
+                    return o.lib.lodash.kebabCase(e);
                 });
             },
             methods: {
@@ -165,7 +131,7 @@
                 },
             },
         },
-        w = V.default(
+        m = d.default(
             {
                 render: function () {
                     var e = this,
@@ -185,8 +151,8 @@
                                 {
                                     key: 'activator',
                                     fn: function (t) {
-                                        var s = t.on,
-                                            i = t.attrs;
+                                        var i = t.on,
+                                            s = t.attrs;
                                         return [
                                             n(
                                                 'v-text-field',
@@ -249,10 +215,10 @@
                                                             },
                                                         },
                                                         'v-text-field',
-                                                        i,
+                                                        s,
                                                         !1
                                                     ),
-                                                    s
+                                                    i
                                                 )
                                             ),
                                         ];
@@ -292,16 +258,16 @@
                                             {
                                                 key: 'default',
                                                 fn: function (t) {
-                                                    var s = t.item;
+                                                    var i = t.item;
                                                     return [
                                                         n(
                                                             'v-list-item',
                                                             {
-                                                                key: s,
+                                                                key: i,
                                                                 attrs: { dense: e.dense },
                                                                 on: {
                                                                     click: function (t) {
-                                                                        return t.stopPropagation(), e.select(s);
+                                                                        return t.stopPropagation(), e.select(i);
                                                                     },
                                                                 },
                                                             },
@@ -312,7 +278,7 @@
                                                                         n('v-icon', {
                                                                             staticClass: 'mr-2',
                                                                             attrs: { color: 'primary' },
-                                                                            domProps: { textContent: e._s(s) },
+                                                                            domProps: { textContent: e._s(i) },
                                                                         }),
                                                                     ],
                                                                     1
@@ -323,7 +289,7 @@
                                                                     [
                                                                         n('v-list-item-title', {
                                                                             domProps: {
-                                                                                textContent: e._s(s.substring(4)),
+                                                                                textContent: e._s(i.substring(4)),
                                                                             },
                                                                         }),
                                                                     ],
@@ -336,7 +302,7 @@
                                                                         attrs: { icon: '' },
                                                                         on: {
                                                                             click: function (t) {
-                                                                                return t.stopPropagation(), e.select(s);
+                                                                                return t.stopPropagation(), e.select(i);
                                                                             },
                                                                         },
                                                                     },
@@ -365,7 +331,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            x,
+            f,
             undefined,
             false,
             undefined,
@@ -374,10 +340,10 @@
             void 0,
             void 0
         );
-    (w.install = function (e) {
-        e.component(w.name, w);
+    (m.install = function (e) {
+        e.component(m.name, m);
     }),
-        null != ('undefined' == typeof window ? 'undefined' : v.default(window)) && window.Vue && w.install(window.Vue),
-        (e.HIconList = w),
+        null != ('undefined' == typeof window ? 'undefined' : u.default(window)) && window.Vue && m.install(window.Vue),
+        (e.HIconList = m),
         Object.defineProperty(e, '__esModule', { value: !0 });
 });

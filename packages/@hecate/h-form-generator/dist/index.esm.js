@@ -1,79 +1,73 @@
 import 'core-js/modules/es.function.name';
 import e from '@babel/runtime-corejs3/helpers/esm/typeof';
-import t from '@babel/runtime-corejs3/core-js/json/stringify';
 import {
-    VCard as s,
-    VCol as a,
-    VRow as n,
-    VContainer as o,
-    VListItemContent as r,
-    VIcon as l,
-    VBtn as i,
-    VListItemAction as p,
-    VListItem as c,
-    VHover as d,
-    VExpansionPanelHeader as u,
-    VList as m,
-    VExpansionPanelContent as h,
-    VExpansionPanel as v,
-    VTextField as b,
-    VTooltip as f,
-    VListItemTitle as g,
-    VSelect as x,
-    VSwitch as _,
-    VForm as k,
-    VSubheader as I,
-    VListItemAvatar as w,
-    VListItemSubtitle as $,
-    VListItemGroup as y,
-    VDivider as C,
-    VExpansionPanels as S,
-    VCombobox as H,
-    VListItemIcon as P,
-    VTab as T,
-    VTabs as V,
-    VTabItem as O,
-    VTabsItems as L,
-    VNavigationDrawer as D,
-    VCardText as E,
-    VMain as F,
+    VCard as t,
+    VCol as s,
+    VRow as a,
+    VContainer as n,
+    VListItemContent as o,
+    VIcon as r,
+    VBtn as l,
+    VListItemAction as i,
+    VListItem as p,
+    VHover as c,
+    VExpansionPanelHeader as d,
+    VList as u,
+    VExpansionPanelContent as m,
+    VExpansionPanel as h,
+    VTextField as v,
+    VTooltip as b,
+    VListItemTitle as f,
+    VSelect as g,
+    VSwitch as x,
+    VForm as _,
+    VSubheader as k,
+    VListItemAvatar as I,
+    VListItemSubtitle as w,
+    VListItemGroup as $,
+    VDivider as y,
+    VExpansionPanels as C,
+    VCombobox as S,
+    VListItemIcon as H,
+    VTab as P,
+    VTabs as T,
+    VTabItem as V,
+    VTabsItems as O,
+    VNavigationDrawer as L,
+    VCardText as D,
+    VMain as E,
     VApp as A,
-    VToolbarTitle as R,
-    VSpacer as B,
-    VToolbarItems as j,
-    VToolbar as N,
-    VAppBar as M,
+    VToolbarTitle as F,
+    VSpacer as R,
+    VToolbarItems as B,
+    VToolbar as j,
+    VAppBar as N,
 } from 'vuetify/lib';
 import 'core-js/modules/es.array.join';
 import 'core-js/modules/es.regexp.exec';
 import 'core-js/modules/es.string.replace';
-import z from '@babel/runtime-corejs3/core-js/instance/repeat';
-import W from '@babel/runtime-corejs3/core-js/instance/map';
-import G from '@babel/runtime-corejs3/core-js/object/assign';
-import { lib as K, convertor as X } from '@hecate/core';
+import M from '@babel/runtime-corejs3/core-js/instance/repeat';
+import z from '@babel/runtime-corejs3/core-js/instance/map';
+import W from '@babel/runtime-corejs3/core-js/object/assign';
+import { lib as G, convertor as K } from '@hecate/core';
+import X from '@babel/runtime-corejs3/core-js/json/stringify';
 import Y from '@babel/runtime-corejs3/core-js/parse-int';
 import 'core-js/modules/es.regexp.constructor';
 import 'core-js/modules/es.regexp.to-string';
 import U from '@babel/runtime-corejs3/core-js/instance/concat';
-import q from '@babel/runtime-corejs3/core-js/array/is-array';
-import { debounce as J } from 'throttle-debounce';
-import Q from 'vue-runtime-helpers/dist/normalize-component.mjs';
-import 'core-js/modules/es.number.constructor';
-import { HFormRenderer as Z } from '@hecate/h-form-renderer';
-import { HIconList as ee } from '@hecate/h-icon-list';
-import 'core-js/modules/es.string.search';
-import 'core-js/modules/es.string.split';
-import te from '@babel/runtime-corejs3/core-js/instance/index-of';
-import se from '@babel/runtime-corejs3/core-js/instance/find';
-import { HCodeMirror as ae } from '@hecate/h-code-mirror';
-import { HFormRuntime as ne } from '@hecate/h-form-runtime';
-var oe = function (e) {
+import { debounce as q } from 'throttle-debounce';
+import J from 'vue-runtime-helpers/dist/normalize-component.mjs';
+import { HFormRenderer as Q } from '@hecate/h-form-renderer';
+import { HIconList as Z } from '@hecate/h-icon-list';
+import { HCodeMirror as ee } from '@hecate/h-code-mirror';
+import { HFormRuntime as te } from '@hecate/h-form-runtime';
+var se = function (e) {
     return e ? JSON.parse(e) : null;
 };
-function re(e) {
-    K.storageSync.setItem('DRAWING_CANVAS', t(e));
+function ae(e) {
+    G.storageSync.setItem('DRAWING_CANVAS', X(e));
 }
-var le = {
+var ne = {
         TEXT_FIELD: {
             index: 'TEXT_FIELD',
             schema: {
@@ -225,26 +219,26 @@ var le = {
             },
         },
     },
-    ie = [
+    oe = [
         {
             title: '输入型组件',
             list: [
                 {
                     configs: {
-                        title: le.TEXT_FIELD.schema.title,
+                        title: ne.TEXT_FIELD.schema.title,
                         icon: 'mdi-form-textbox',
                         name: 'TextField',
                         document: 'https://vuetifyjs.com/zh-Hans/components/text-fields/',
-                        schema: le.TEXT_FIELD.index,
+                        schema: ne.TEXT_FIELD.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.TEXT_AREA.schema.title,
+                        title: ne.TEXT_AREA.schema.title,
                         icon: 'mdi-form-textarea',
                         name: 'TextArea',
                         document: 'https://vuetifyjs.com/zh-Hans/components/textareas/',
-                        schema: le.TEXT_AREA.index,
+                        schema: ne.TEXT_AREA.index,
                     },
                 },
             ],
@@ -254,119 +248,119 @@ var le = {
             list: [
                 {
                     configs: {
-                        title: le.SLIDER.schema.title,
+                        title: ne.SLIDER.schema.title,
                         icon: 'mdi-tune-variant',
                         name: 'Slider',
                         document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-                        schema: le.SLIDER.index,
+                        schema: ne.SLIDER.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.RANGE_SLIDER.schema.title,
+                        title: ne.RANGE_SLIDER.schema.title,
                         icon: 'mdi-valve-closed',
                         name: 'Range_Slider',
                         document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-                        schema: le.RANGE_SLIDER.index,
+                        schema: ne.RANGE_SLIDER.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.CHECKBOX.schema.title,
+                        title: ne.CHECKBOX.schema.title,
                         icon: 'mdi-checkbox-marked',
                         name: 'Checkbox',
                         document: 'https://vuetifyjs.com/zh-Hans/components/checkboxes/',
-                        schema: le.CHECKBOX.index,
+                        schema: ne.CHECKBOX.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.SWITCHS.schema.title,
+                        title: ne.SWITCHS.schema.title,
                         icon: 'mdi-toggle-switch',
                         name: 'Switch',
                         document: 'https://vuetifyjs.com/zh-Hans/components/switches/',
-                        schema: le.SWITCHS.index,
+                        schema: ne.SWITCHS.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.DATE_PICKER.schema.title,
+                        title: ne.DATE_PICKER.schema.title,
                         icon: 'mdi-calendar',
                         name: 'Date',
                         document: 'https://vuetifyjs.com/zh-Hans/components/date-pickers/',
-                        schema: le.DATE_PICKER.index,
+                        schema: ne.DATE_PICKER.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.TIME_PICKER.schema.title,
+                        title: ne.TIME_PICKER.schema.title,
                         icon: 'mdi-clock-outline',
                         name: 'Time',
                         document: 'https://vuetifyjs.com/zh-Hans/components/time-pickers/',
-                        schema: le.TIME_PICKER.index,
+                        schema: ne.TIME_PICKER.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.SELECT_SINGLE.schema.title,
+                        title: ne.SELECT_SINGLE.schema.title,
                         icon: 'mdi-form-dropdown',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                        schema: le.SELECT_SINGLE.index,
+                        schema: ne.SELECT_SINGLE.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.COMBOBOX.schema.title,
+                        title: ne.COMBOBOX.schema.title,
                         icon: 'mdi-vector-difference-ab',
                         name: 'Combobox',
                         document: 'https://vuetifyjs.com/zh-Hans/components/combobox/',
-                        schema: le.COMBOBOX.index,
+                        schema: ne.COMBOBOX.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.SELECT_MULTIPLE.schema.title,
+                        title: ne.SELECT_MULTIPLE.schema.title,
                         icon: 'mdi-form-dropdown',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                        schema: le.SELECT_MULTIPLE.index,
+                        schema: ne.SELECT_MULTIPLE.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.CASCADE_SELECT.schema.title,
+                        title: ne.CASCADE_SELECT.schema.title,
                         icon: 'mdi-file-tree-outline',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                        schema: le.CASCADE_SELECT.index,
+                        schema: ne.CASCADE_SELECT.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.RADIO.schema.title,
+                        title: ne.RADIO.schema.title,
                         icon: 'mdi-checkbox-marked-circle',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/selection-controls/',
-                        schema: le.RADIO.index,
+                        schema: ne.RADIO.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.COLOR_PICKER.schema.title,
+                        title: ne.COLOR_PICKER.schema.title,
                         icon: 'mdi-calendar',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/color-pickers/',
-                        schema: le.COLOR_PICKER.index,
+                        schema: ne.COLOR_PICKER.index,
                     },
                 },
                 {
                     configs: {
-                        title: le.FILE_INPUT.schema.title,
+                        title: ne.FILE_INPUT.schema.title,
                         icon: 'mdi-calendar',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/file-inputs/',
-                        schema: le.FILE_INPUT.index,
+                        schema: ne.FILE_INPUT.index,
                     },
                 },
             ],
@@ -410,7 +404,7 @@ var le = {
             ],
         },
     ],
-    pe = {
+    re = {
         annotations: {
             xprops: 'x-props',
             xslots: 'x-slots',
@@ -494,60 +488,60 @@ var le = {
         },
         class: { switch: 'mt-0 pt-0' },
     };
-function ce(e, t, s, a) {
+function le(e, t, s, a) {
     var n = { configs: {}, type: 'object', properties: {} },
-        o = t + '_' + K.shortid.generate();
+        o = t + '_' + G.shortid.generate();
     return (
         (n.configs.formId = o),
         (n.configs.renderKey = +new Date()),
         (n.configs.name = t),
         (n.configs.document = s),
         (n.configs.panel = a),
-        (n.properties[o] = K.lodash.cloneDeep(e)),
+        (n.properties[o] = G.lodash.cloneDeep(e)),
         n
     );
 }
-function de(e, t) {
+function ie(e, t) {
     if (t) return e.properties[t];
     var s = e.configs.formId;
     return e.properties[s];
 }
-function ue(e) {
-    if (!K.lodash.isEmpty(e)) {
-        var t = de(e),
+function pe(e) {
+    if (!G.lodash.isEmpty(e)) {
+        var t = ie(e),
             s = (function (e) {
-                return !K.lodash.isEmpty(e) && K.lodash.has(e, pe.annotations.xprops) ? e[pe.annotations.xprops] : {};
+                return !G.lodash.isEmpty(e) && G.lodash.has(e, re.annotations.xprops) ? e[re.annotations.xprops] : {};
             })(t),
             a = {};
         (a.tag = t.tag),
             (a.attributes = {}),
             (a.attributes['v-model'] = e.configs.formId),
             (a.attributes.label = t.title),
-            G(a.attributes, s);
-        var n = X.json2html.build(a);
-        return K.lodash.replace(n, /="true"/g, '');
+            W(a.attributes, s);
+        var n = K.json2html.build(a);
+        return G.lodash.replace(n, /="true"/g, '');
     }
     return null;
 }
-function me(e) {
+function ce(e) {
     return '<v-container fluid>\n        <v-row>\n            <v-col>\n                <v-card>\n                   '.concat(
         e,
         '\n                </v-card>\n            </v-col>\n        </v-row>\n    </v-container>'
     );
 }
-function he(e) {
-    var s = (function (e) {
+function de(e) {
+    var t = (function (e) {
             var t,
-                s = W((t = K.lodash)).call(t, e, ue);
-            return K.lodash.isEmpty(s) ? '' : K.lodash.join(s, '\n' + z('\t').call('\t', 7));
+                s = z((t = G.lodash)).call(t, e, pe);
+            return G.lodash.isEmpty(s) ? '' : G.lodash.join(s, '\n' + M('\t').call('\t', 7));
         })(e),
-        a = (function (e) {
+        s = (function (e) {
             var t = {};
             return (
-                K.lodash.isEmpty(e) ||
-                    W(e).call(e, function (e, s, a) {
+                G.lodash.isEmpty(e) ||
+                    z(e).call(e, function (e, s, a) {
                         var n = e.configs.formId,
-                            o = de(e);
+                            o = ie(e);
                         t[n] = (function (e) {
                             if (!e) return null;
                             switch (e.toLowerCase()) {
@@ -572,7 +566,7 @@ function he(e) {
     return {
         code: (function (e, t) {
             var s,
-                a = me(e);
+                a = ce(e);
             return U(
                 (s = '<template>\n    '.concat(
                     a,
@@ -580,28 +574,28 @@ function he(e) {
                 ))
             ).call(s, t, '\n    }),\n};\n</script>');
         })(
-            s,
+            t,
             (function (e) {
-                var s = t(e);
-                s = (s = s.replace('{', '')).replace('}', '');
-                var a = new RegExp(',', 'g');
-                return s.replace(a, ',\n' + z('\t').call('\t', 3));
-            })(a)
+                var t = X(e);
+                t = (t = t.replace('{', '')).replace('}', '');
+                var s = new RegExp(',', 'g');
+                return t.replace(s, ',\n' + M('\t').call('\t', 3));
+            })(s)
         ),
-        template: me(s),
-        data: a,
+        template: ce(t),
+        data: s,
     };
 }
-var ve = {
-        components: { VCard: s, VCol: a, VRow: n, VContainer: o },
+var ue = {
+        components: { VCard: t, VCol: s, VRow: a, VContainer: n },
         name: 'HCanvasContainer',
         created: function () {},
         data: function () {
             return {};
         },
     },
-    be = ve,
-    fe = Q(
+    me = ue,
+    he = J(
         {
             render: function () {
                 var e = this,
@@ -629,7 +623,7 @@ var ve = {
             staticRenderFns: [],
         },
         undefined,
-        be,
+        me,
         undefined,
         false,
         undefined,
@@ -638,17 +632,17 @@ var ve = {
         void 0,
         void 0
     ),
-    ge = {
+    ve = {
         name: 'HDraggableItem',
         components: {
-            HFormRenderer: Z,
-            VListItemContent: r,
-            VIcon: l,
-            VBtn: i,
-            VListItemAction: p,
-            VListItem: c,
-            VCard: s,
-            VHover: d,
+            HFormRenderer: Q,
+            VListItemContent: o,
+            VIcon: r,
+            VBtn: l,
+            VListItemAction: i,
+            VListItem: p,
+            VCard: t,
+            VHover: c,
         },
         props: { schema: { type: Object, default: function () {} }, selectedItemId: [String, Number] },
         computed: {
@@ -681,8 +675,8 @@ var ve = {
             },
         },
     },
-    xe = ge,
-    _e = Q(
+    be = ve,
+    fe = J(
         {
             render: function () {
                 var e = this,
@@ -791,7 +785,7 @@ var ve = {
             staticRenderFns: [],
         },
         undefined,
-        xe,
+        be,
         undefined,
         false,
         undefined,
@@ -800,13 +794,13 @@ var ve = {
         void 0,
         void 0
     ),
-    ke = {
-        components: { VExpansionPanelHeader: u, VList: m, VExpansionPanelContent: h, VExpansionPanel: v },
+    ge = {
+        components: { VExpansionPanelHeader: d, VList: u, VExpansionPanelContent: m, VExpansionPanel: h },
         name: 'HExpansionPanel',
         props: { index: { type: String, required: !0 }, header: { type: String, required: !0 } },
     },
-    Ie = ke,
-    we = Q(
+    xe = ge,
+    _e = J(
         {
             render: function () {
                 var e = this,
@@ -830,7 +824,7 @@ var ve = {
             staticRenderFns: [],
         },
         undefined,
-        Ie,
+        xe,
         undefined,
         false,
         undefined,
@@ -839,8 +833,8 @@ var ve = {
         void 0,
         void 0
     ),
-    $e = {
-        components: { VTextField: b, VListItemContent: r, VIcon: l, VTooltip: f, VListItemAction: p, VListItem: c },
+    ke = {
+        components: { VTextField: v, VListItemContent: o, VIcon: r, VTooltip: b, VListItemAction: i, VListItem: p },
         name: 'HPanelColor',
         props: {
             value: { type: String, default: '#ffffff' },
@@ -865,8 +859,8 @@ var ve = {
             },
         },
     },
-    ye = $e,
-    Ce = Q(
+    Ie = ke,
+    we = J(
         {
             render: function () {
                 var e = this,
@@ -956,7 +950,7 @@ var ve = {
             staticRenderFns: [],
         },
         undefined,
-        ye,
+        Ie,
         undefined,
         false,
         undefined,
@@ -965,16 +959,16 @@ var ve = {
         void 0,
         void 0
     ),
-    Se = {
+    $e = {
         name: 'HPanelIcon',
         components: {
-            HIconList: ee,
-            VListItemTitle: g,
-            VListItemContent: r,
-            VIcon: l,
-            VTooltip: f,
-            VListItemAction: p,
-            VListItem: c,
+            HIconList: Z,
+            VListItemTitle: f,
+            VListItemContent: o,
+            VIcon: r,
+            VTooltip: b,
+            VListItemAction: i,
+            VListItem: p,
         },
         props: { value: { type: String }, label: String, tooltip: String, disabled: { type: Boolean, default: !1 } },
         data: function () {
@@ -993,8 +987,8 @@ var ve = {
             },
         },
     },
-    He = Se,
-    Pe = Q(
+    ye = $e,
+    Ce = J(
         {
             render: function () {
                 var e = this,
@@ -1080,7 +1074,7 @@ var ve = {
             staticRenderFns: [],
         },
         undefined,
-        He,
+        ye,
         undefined,
         false,
         undefined,
@@ -1089,8 +1083,8 @@ var ve = {
         void 0,
         void 0
     ),
-    Te = {
-        components: { VTextField: b, VListItemContent: r, VIcon: l, VTooltip: f, VListItemAction: p, VListItem: c },
+    Se = {
+        components: { VTextField: v, VListItemContent: o, VIcon: r, VTooltip: b, VListItemAction: i, VListItem: p },
         name: 'HPanelNumber',
         props: {
             value: [Number, String],
@@ -1118,8 +1112,8 @@ var ve = {
             },
         },
     },
-    Ve = Te,
-    Oe = Q(
+    He = Se,
+    Pe = J(
         {
             render: function () {
                 var e = this,
@@ -1213,7 +1207,7 @@ var ve = {
             staticRenderFns: [],
         },
         undefined,
-        Ve,
+        He,
         undefined,
         false,
         undefined,
@@ -1222,7 +1216,7 @@ var ve = {
         void 0,
         void 0
     ),
-    Le = Q(
+    Te = J(
         {
             render: function () {
                 var e = this,
@@ -1316,7 +1310,7 @@ var ve = {
         },
         undefined,
         {
-            components: { VSelect: x, VListItemContent: r, VIcon: l, VTooltip: f, VListItemAction: p, VListItem: c },
+            components: { VSelect: g, VListItemContent: o, VIcon: r, VTooltip: b, VListItemAction: i, VListItem: p },
             name: 'HPanelSelect',
             props: {
                 value: { required: !0 },
@@ -1355,7 +1349,7 @@ var ve = {
         void 0,
         void 0
     ),
-    De = Q(
+    Ve = J(
         {
             render: function () {
                 var e = this,
@@ -1448,7 +1442,7 @@ var ve = {
         },
         undefined,
         {
-            components: { VSwitch: _, VListItemContent: r, VIcon: l, VTooltip: f, VListItemAction: p, VListItem: c },
+            components: { VSwitch: x, VListItemContent: o, VIcon: r, VTooltip: b, VListItemAction: i, VListItem: p },
             name: 'HPanelSwitch',
             props: {
                 value: Boolean,
@@ -1483,7 +1477,7 @@ var ve = {
         void 0,
         void 0
     ),
-    Ee = Q(
+    Oe = J(
         {
             render: function () {
                 var e = this,
@@ -1575,7 +1569,7 @@ var ve = {
         },
         undefined,
         {
-            components: { VTextField: b, VListItemContent: r, VIcon: l, VTooltip: f, VListItemAction: p, VListItem: c },
+            components: { VTextField: v, VListItemContent: o, VIcon: r, VTooltip: b, VListItemAction: i, VListItem: p },
             name: 'HPanelTextField',
             props: { value: String, label: String, tooltip: String, disabled: { type: Boolean, default: !1 } },
             data: function () {
@@ -1603,7 +1597,7 @@ var ve = {
         void 0,
         void 0
     ),
-    Fe = Q(
+    Le = J(
         {
             render: function () {
                 var e = this,
@@ -2158,14 +2152,14 @@ var ve = {
         {
             name: 'HTextFieldPanel',
             components: {
-                HExpansionPanel: we,
-                HPanelColor: Ce,
-                HPanelIcon: Pe,
-                HPanelNumber: Oe,
-                HPanelSelect: Le,
-                HPanelSwitch: De,
-                HPanelTextField: Ee,
-                HRuleExpansionPanel: Q(
+                HExpansionPanel: _e,
+                HPanelColor: we,
+                HPanelIcon: Ce,
+                HPanelNumber: Pe,
+                HPanelSelect: Te,
+                HPanelSwitch: Ve,
+                HPanelTextField: Oe,
+                HRuleExpansionPanel: J(
                     {
                         render: function () {
                             var e = this,
@@ -2311,8 +2305,8 @@ var ve = {
                     {
                         name: 'HRuleExpansionPanel',
                         components: {
-                            HExpansionPanel: we,
-                            HPanelBetween: Q(
+                            HExpansionPanel: _e,
+                            HPanelBetween: J(
                                 {
                                     render: function () {
                                         var e = this,
@@ -2449,13 +2443,13 @@ var ve = {
                                 undefined,
                                 {
                                     components: {
-                                        VTextField: b,
-                                        VForm: k,
-                                        VListItemContent: r,
-                                        VIcon: l,
-                                        VTooltip: f,
-                                        VListItemAction: p,
-                                        VListItem: c,
+                                        VTextField: v,
+                                        VForm: _,
+                                        VListItemContent: o,
+                                        VIcon: r,
+                                        VTooltip: b,
+                                        VListItemAction: i,
+                                        VListItem: p,
                                     },
                                     name: 'HPanelBetween',
                                     props: {
@@ -2473,10 +2467,10 @@ var ve = {
                                             return [
                                                 function (t) {
                                                     if (t) {
-                                                        var s = Y(t);
+                                                        var s = parseInt(t);
                                                         return s < 0
                                                             ? 'min参数的值必须要大于等于0'
-                                                            : !e.max || !(s >= Y(e.max)) || 'min值必须小于max值';
+                                                            : !e.max || !(s >= parseInt(e.max)) || 'min值必须小于max值';
                                                     }
                                                     return '请设置min参数的值';
                                                 },
@@ -2487,10 +2481,10 @@ var ve = {
                                             return [
                                                 function (t) {
                                                     if (t) {
-                                                        var s = Y(t);
+                                                        var s = parseInt(t);
                                                         return s <= 0
                                                             ? 'max参数的值必须要大于0'
-                                                            : e.min && s <= Y(e.min)
+                                                            : e.min && s <= parseInt(e.min)
                                                             ? 'max值必须大于min值'
                                                             : ((e.valid = !0), !0);
                                                     }
@@ -2545,19 +2539,19 @@ var ve = {
                                 void 0,
                                 void 0
                             ),
-                            VSubheader: I,
-                            VIcon: l,
-                            VListItemAvatar: w,
-                            VListItemTitle: g,
-                            VListItemSubtitle: $,
-                            VListItemContent: r,
-                            VListItem: c,
-                            VListItemGroup: y,
-                            VDivider: C,
-                            VSelect: x,
-                            VBtn: i,
-                            VCol: a,
-                            VRow: n,
+                            VSubheader: k,
+                            VIcon: r,
+                            VListItemAvatar: I,
+                            VListItemTitle: f,
+                            VListItemSubtitle: w,
+                            VListItemContent: o,
+                            VListItem: p,
+                            VListItemGroup: $,
+                            VDivider: y,
+                            VSelect: g,
+                            VBtn: l,
+                            VCol: s,
+                            VRow: a,
                         },
                         props: { value: { type: String, default: '' } },
                         data: function () {
@@ -2616,22 +2610,18 @@ var ve = {
                                 (this.ruleParamSettingPanel = t), (this.ruleParam = s);
                             },
                             readSelectedItemParam: function (e) {
-                                var t,
-                                    s = se((t = this.$lib.lodash)).call(t, this.selectedItems, function (t) {
-                                        return t.type === e;
-                                    });
-                                return s && s.param ? s.param : '';
+                                var t = this.$lib.lodash.find(this.selectedItems, function (t) {
+                                    return t.type === e;
+                                });
+                                return t && t.param ? t.param : '';
                             },
                             findRuleItemByType: function (e) {
-                                var t;
-                                return se((t = this.$lib.lodash)).call(t, this.ruleItems, function (t) {
+                                return this.$lib.lodash.find(this.ruleItems, function (t) {
                                     return t.type === e;
                                 });
                             },
-                            changeRuleItemStatus: function (e) {
-                                var t = !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1],
-                                    s = this.findRuleItemByType(e.type);
-                                s.disabled = t;
+                            changeRuleItemStatus: function (e, t) {
+                                void 0 === t && (t = !0), (this.findRuleItemByType(e.type).disabled = t);
                             },
                             pushSelectedItem: function (e) {
                                 e && (this.selectedItems.push(e), this.changeRuleItemStatus(e, !0));
@@ -2659,14 +2649,14 @@ var ve = {
                             },
                             readExpressions: function (e) {
                                 if (e)
-                                    if (-1 !== te(e).call(e, '|')) {
+                                    if (-1 !== e.indexOf('|')) {
                                         var t = this.$lib.lodash.split(e, '|');
                                         for (var s in t) this.addSelectedItemByExpression(s);
                                     } else this.addSelectedItemByExpression(e);
                             },
                             readSelectedRule: function () {
                                 if (this.$lib.lodash.isEmpty(this.selectedRule)) return '';
-                                var e = G({}, this.selectedRule);
+                                var e = Object.assign({}, this.selectedRule);
                                 return this.ruleParam && (e.param = this.ruleParam), e;
                             },
                             addSelectedItemBySelector: function () {
@@ -2681,8 +2671,8 @@ var ve = {
                             },
                             constructExpression: function (e) {
                                 if (e)
-                                    return W(e)
-                                        .call(e, function (e) {
+                                    return e
+                                        .map(function (e) {
                                             return e.param ? e.type + ':' + e.param : e.type;
                                         })
                                         .join('|');
@@ -2697,12 +2687,12 @@ var ve = {
                     void 0,
                     void 0
                 ),
-                VExpansionPanels: S,
+                VExpansionPanels: C,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
                 return {
-                    constants: pe,
+                    constants: re,
                     dataObject: {},
                     typeItems: [
                         { value: 'text', text: '文字输入模式（默认）' },
@@ -2750,7 +2740,7 @@ var ve = {
         void 0,
         void 0
     ),
-    Ae = Q(
+    De = J(
         {
             render: function () {
                 var e = this,
@@ -3344,19 +3334,19 @@ var ve = {
         {
             name: 'HTextAreaPanel',
             components: {
-                HExpansionPanel: we,
-                HPanelColor: Ce,
-                HPanelIcon: Pe,
-                HPanelNumber: Oe,
-                HPanelSelect: Le,
-                HPanelSwitch: De,
-                HPanelTextField: Ee,
-                VExpansionPanels: S,
+                HExpansionPanel: _e,
+                HPanelColor: we,
+                HPanelIcon: Ce,
+                HPanelNumber: Pe,
+                HPanelSelect: Te,
+                HPanelSwitch: Ve,
+                HPanelTextField: Oe,
+                VExpansionPanels: C,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
                 return {
-                    constants: pe,
+                    constants: re,
                     dataObject: {},
                     typeItems: [
                         { value: 'text', text: '文字模式(默认)' },
@@ -3396,7 +3386,7 @@ var ve = {
         void 0,
         void 0
     ),
-    Re = Q(
+    Ee = J(
         {
             render: function () {
                 var e = this,
@@ -3494,7 +3484,7 @@ var ve = {
         },
         undefined,
         {
-            components: { VCombobox: H, VListItemContent: r, VIcon: l, VTooltip: f, VListItemAction: p, VListItem: c },
+            components: { VCombobox: S, VListItemContent: o, VIcon: r, VTooltip: b, VListItemAction: i, VListItem: p },
             name: 'HPanelArray',
             props: {
                 value: {
@@ -3532,7 +3522,7 @@ var ve = {
         void 0,
         void 0
     ),
-    Be = Q(
+    Ae = J(
         {
             render: function () {
                 var e = this,
@@ -3690,14 +3680,14 @@ var ve = {
         undefined,
         {
             components: {
-                VSwitch: _,
-                VTextField: b,
-                VListItemContent: r,
-                VIcon: l,
-                VTooltip: f,
-                VListItemIcon: P,
-                VListItemAction: p,
-                VListItem: c,
+                VSwitch: x,
+                VTextField: v,
+                VListItemContent: o,
+                VIcon: r,
+                VTooltip: b,
+                VListItemIcon: H,
+                VListItemAction: i,
+                VListItem: p,
             },
             name: 'HCombineBooleanInput',
             props: {
@@ -3732,7 +3722,7 @@ var ve = {
         void 0,
         void 0
     ),
-    je = Q(
+    Fe = J(
         {
             render: function () {
                 var e = this,
@@ -3874,7 +3864,7 @@ var ve = {
         {
             name: 'HFormGenerator',
             components: {
-                HFormModeler: Q(
+                HFormModeler: J(
                     {
                         render: function () {
                             var e = this,
@@ -4134,9 +4124,9 @@ var ve = {
                     {
                         name: 'HFormModeler',
                         components: {
-                            HCanvasContainer: fe,
-                            HDraggableItem: _e,
-                            HPropertyPanel: Q(
+                            HCanvasContainer: he,
+                            HDraggableItem: fe,
+                            HPropertyPanel: J(
                                 {
                                     render: function () {
                                         var e = this,
@@ -4481,9 +4471,9 @@ var ve = {
                                 {
                                     name: 'HPropertyPanel',
                                     components: {
-                                        TEXT_FIELD: Fe,
-                                        TEXT_AREA: Ae,
-                                        SLIDER: Q(
+                                        TEXT_FIELD: Le,
+                                        TEXT_AREA: De,
+                                        SLIDER: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -5068,19 +5058,19 @@ var ve = {
                                             {
                                                 name: 'HSliderPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelArray: Re,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSwitch: De,
-                                                    HPanelSwitchTextField: Be,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelArray: Ee,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelNumber: Pe,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelSwitchTextField: Ae,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return { constants: pe, dataObject: {} };
+                                                    return { constants: re, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -5104,7 +5094,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        RANGE_SLIDER: Q(
+                                        RANGE_SLIDER: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -5689,19 +5679,19 @@ var ve = {
                                             {
                                                 name: 'HRangeSliderPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelArray: Re,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSwitch: De,
-                                                    HPanelSwitchTextField: Be,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelArray: Ee,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelNumber: Pe,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelSwitchTextField: Ae,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return { constants: pe, dataObject: {} };
+                                                    return { constants: re, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -5725,7 +5715,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        CHECKBOX: Q(
+                                        CHECKBOX: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -6133,16 +6123,16 @@ var ve = {
                                             {
                                                 name: 'HCheckboxPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelSwitch: De,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return { constants: pe, dataObject: {} };
+                                                    return { constants: re, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -6166,7 +6156,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        SWITCHS: Q(
+                                        SWITCHS: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -6617,16 +6607,16 @@ var ve = {
                                             {
                                                 name: 'HSwitchPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelSwitch: De,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return { constants: pe, dataObject: {} };
+                                                    return { constants: re, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -6650,7 +6640,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        DATE_PICKER: Q(
+                                        DATE_PICKER: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -7273,19 +7263,19 @@ var ve = {
                                             {
                                                 name: 'HDatePickerPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: Le,
-                                                    HPanelSwitch: De,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelNumber: Pe,
+                                                    HPanelSelect: Te,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
                                                     return {
-                                                        constants: pe,
+                                                        constants: re,
                                                         dataObject: {},
                                                         typeItems: [
                                                             { value: 'date', text: '日期模式（默认）' },
@@ -7315,7 +7305,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        TIME_PICKER: Q(
+                                        TIME_PICKER: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -7657,18 +7647,18 @@ var ve = {
                                             {
                                                 name: 'HTimePickerPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelColor: Ce,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: Le,
-                                                    HPanelSwitch: De,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelColor: we,
+                                                    HPanelNumber: Pe,
+                                                    HPanelSelect: Te,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
                                                     return {
-                                                        constants: pe,
+                                                        constants: re,
                                                         dataObject: {},
                                                         formatItems: [
                                                             { value: 'ampm', text: 'ampm（默认）' },
@@ -7698,7 +7688,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        SELECT_SINGLE: Q(
+                                        SELECT_SINGLE: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -8689,19 +8679,19 @@ var ve = {
                                             {
                                                 name: 'HSingleSelectPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: Le,
-                                                    HPanelSwitch: De,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelNumber: Pe,
+                                                    HPanelSelect: Te,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
                                                     return {
-                                                        constants: pe,
+                                                        constants: re,
                                                         dataObject: {},
                                                         typeItems: [
                                                             { value: 'text', text: '文字输入模式（默认）' },
@@ -8741,7 +8731,7 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        COMBOBOX: Q(
+                                        COMBOBOX: J(
                                             {
                                                 render: function () {
                                                     var e = this,
@@ -9835,20 +9825,20 @@ var ve = {
                                             {
                                                 name: 'HComboBoxPanel',
                                                 components: {
-                                                    HExpansionPanel: we,
-                                                    HPanelArray: Re,
-                                                    HPanelColor: Ce,
-                                                    HPanelIcon: Pe,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: Le,
-                                                    HPanelSwitch: De,
-                                                    HPanelTextField: Ee,
-                                                    VExpansionPanels: S,
+                                                    HExpansionPanel: _e,
+                                                    HPanelArray: Ee,
+                                                    HPanelColor: we,
+                                                    HPanelIcon: Ce,
+                                                    HPanelNumber: Pe,
+                                                    HPanelSelect: Te,
+                                                    HPanelSwitch: Ve,
+                                                    HPanelTextField: Oe,
+                                                    VExpansionPanels: C,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
                                                     return {
-                                                        constants: pe,
+                                                        constants: re,
                                                         dataObject: {},
                                                         typeItems: [
                                                             { value: 'text', text: '文字输入模式（默认）' },
@@ -9888,19 +9878,19 @@ var ve = {
                                             void 0,
                                             void 0
                                         ),
-                                        VIcon: l,
-                                        VBtn: i,
-                                        VTooltip: f,
-                                        VTab: T,
-                                        VTabs: V,
-                                        VTextField: b,
-                                        VDivider: C,
-                                        VCard: s,
-                                        VCol: a,
-                                        VRow: n,
-                                        VContainer: o,
-                                        VTabItem: O,
-                                        VTabsItems: L,
+                                        VIcon: r,
+                                        VBtn: l,
+                                        VTooltip: b,
+                                        VTab: P,
+                                        VTabs: T,
+                                        VTextField: v,
+                                        VDivider: y,
+                                        VCard: t,
+                                        VCol: s,
+                                        VRow: a,
+                                        VContainer: n,
+                                        VTabItem: V,
+                                        VTabsItems: O,
                                     },
                                     props: {
                                         selectedItem: { type: Object, default: function () {} },
@@ -9908,7 +9898,7 @@ var ve = {
                                     },
                                     data: function () {
                                         return {
-                                            constants: pe,
+                                            constants: re,
                                             tab: null,
                                             tabs: [
                                                 { key: 'element', name: '组件属性' },
@@ -9966,7 +9956,7 @@ var ve = {
                                         },
                                     },
                                 },
-                                'data-v-7908bd04',
+                                'data-v-04677642',
                                 false,
                                 undefined,
                                 !1,
@@ -9974,26 +9964,26 @@ var ve = {
                                 void 0,
                                 void 0
                             ),
-                            VIcon: l,
-                            VDivider: C,
-                            VNavigationDrawer: D,
-                            VCardText: E,
-                            VCard: s,
-                            VRow: n,
-                            VCol: a,
-                            VForm: k,
-                            VMain: F,
+                            VIcon: r,
+                            VDivider: y,
+                            VNavigationDrawer: L,
+                            VCardText: D,
+                            VCard: t,
+                            VRow: a,
+                            VCol: s,
+                            VForm: _,
+                            VMain: E,
                             VApp: A,
                         },
                         props: { height: { type: String, default: '100vh' } },
                         data: function () {
                             return {
-                                components: ie,
+                                components: oe,
                                 drawingCanvas: [],
                                 selectedCanvasItemId: '',
                                 selectedCanvasItemData: {},
                                 drawingCanvasForm: {},
-                                saveDrawingCanvasDebounce: J(340, re),
+                                saveDrawingCanvasDebounce: q(340, ae),
                             };
                         },
                         watch: {
@@ -10009,12 +9999,12 @@ var ve = {
                         },
                         mounted: function () {
                             var e = (function () {
-                                if ('1.1' !== K.storageSync.getItem('DRAWING_CANVAS_VERSION'))
-                                    return K.storageSync.setItem('DRAWING_CANVAS_VERSION', '1.1'), re([]), null;
-                                var e = K.storageSync.getItem('DRAWING_CANVAS');
-                                return oe(e);
+                                if ('1.1' !== G.storageSync.getItem('DRAWING_CANVAS_VERSION'))
+                                    return G.storageSync.setItem('DRAWING_CANVAS_VERSION', '1.1'), ae([]), null;
+                                var e = G.storageSync.getItem('DRAWING_CANVAS');
+                                return se(e);
                             })();
-                            q(e) &&
+                            Array.isArray(e) &&
                                 e.length > 0 &&
                                 ((this.drawingCanvas = e), this.selectCanvasItem(this.drawingCanvas[0]));
                         },
@@ -10028,11 +10018,11 @@ var ve = {
                             },
                             addComponent: function (e) {
                                 var t = (function (e) {
-                                    return ce(
-                                        le[e.configs.schema].schema,
+                                    return le(
+                                        ne[e.configs.schema].schema,
                                         e.configs.name,
                                         e.configs.document,
-                                        le[e.configs.schema].index
+                                        ne[e.configs.schema].index
                                     );
                                 })(e);
                                 this.changeDrawingCanvas(t);
@@ -10043,8 +10033,8 @@ var ve = {
                             },
                             copyCanvasItem: function (e) {
                                 var t = (function (e) {
-                                    return ce(
-                                        de(e, e.configs.formId),
+                                    return le(
+                                        ie(e, e.configs.formId),
                                         e.configs.name,
                                         e.configs.document,
                                         e.configs.panel
@@ -10073,7 +10063,7 @@ var ve = {
                     void 0,
                     void 0
                 ),
-                HFormCodeDrawer: Q(
+                HFormCodeDrawer: J(
                     {
                         render: function () {
                             var e = this,
@@ -10156,14 +10146,14 @@ var ve = {
                     {
                         name: 'HFormCodeDrawer',
                         components: {
-                            HCodeMirror: ae,
-                            VIcon: l,
-                            VBtn: i,
-                            VToolbarTitle: R,
-                            VSpacer: B,
-                            VToolbarItems: j,
-                            VToolbar: N,
-                            VNavigationDrawer: D,
+                            HCodeMirror: ee,
+                            VIcon: r,
+                            VBtn: l,
+                            VToolbarTitle: F,
+                            VSpacer: R,
+                            VToolbarItems: B,
+                            VToolbar: j,
+                            VNavigationDrawer: L,
                         },
                         props: { value: { type: Boolean, default: !1 }, source: { type: String, default: '' } },
                         data: function () {
@@ -10198,7 +10188,7 @@ var ve = {
                     void 0,
                     void 0
                 ),
-                HFormPreviewDrawer: Q(
+                HFormPreviewDrawer: J(
                     {
                         render: function () {
                             var e = this,
@@ -10319,18 +10309,18 @@ var ve = {
                     {
                         name: 'HFormPreviewDrawer',
                         components: {
-                            HCodeMirror: ae,
-                            HFormRuntime: ne,
-                            VIcon: l,
-                            VBtn: i,
-                            VToolbarTitle: R,
-                            VSpacer: B,
-                            VToolbarItems: j,
-                            VToolbar: N,
-                            VCard: s,
-                            VCol: a,
-                            VRow: n,
-                            VNavigationDrawer: D,
+                            HCodeMirror: ee,
+                            HFormRuntime: te,
+                            VIcon: r,
+                            VBtn: l,
+                            VToolbarTitle: F,
+                            VSpacer: R,
+                            VToolbarItems: B,
+                            VToolbar: j,
+                            VCard: t,
+                            VCol: s,
+                            VRow: a,
+                            VNavigationDrawer: L,
                         },
                         props: { value: { type: Boolean, default: !1 }, source: { type: String, default: '' } },
                         data: function () {
@@ -10364,13 +10354,13 @@ var ve = {
                     void 0,
                     void 0
                 ),
-                VIcon: l,
-                VBtn: i,
-                VToolbarTitle: R,
-                VSpacer: B,
-                VTooltip: f,
-                VAppBar: M,
-                VMain: F,
+                VIcon: r,
+                VBtn: l,
+                VToolbarTitle: F,
+                VSpacer: R,
+                VTooltip: b,
+                VAppBar: N,
+                VMain: E,
                 VApp: A,
             },
             data: function () {
@@ -10404,24 +10394,24 @@ var ve = {
             },
             methods: {
                 codePreview: function () {
-                    var e = he(this.canvas);
+                    var e = de(this.canvas);
                     e && (this.sourceCode = e.code), (this.codeDrawer = !0);
                 },
                 formPreview: function () {
                     var e,
-                        s,
-                        a =
+                        t,
+                        s =
                             ((e = this.canvas),
-                            (s = { type: 'object', properties: {} }),
-                            K.lodash.isEmpty(e)
+                            (t = { type: 'object', properties: {} }),
+                            G.lodash.isEmpty(e)
                                 ? {}
-                                : (W(e).call(e, function (e, t, a) {
+                                : (z(e).call(e, function (e, s, a) {
                                       var n = e.configs.formId,
-                                          o = de(e);
-                                      s.properties[n] = o;
+                                          o = ie(e);
+                                      t.properties[n] = o;
                                   }),
-                                  s));
-                    a && (this.schemaObject = t(a, null, '\t')), (this.formDrawer = !0);
+                                  t));
+                    s && (this.schemaObject = JSON.stringify(s, null, '\t')), (this.formDrawer = !0);
                 },
             },
         },
@@ -10433,8 +10423,8 @@ var ve = {
         void 0,
         void 0
     );
-(je.install = function (e) {
-    e.component(je.name, je);
+(Fe.install = function (e) {
+    e.component(Fe.name, Fe);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && je.install(window.Vue);
-export { je as HFormGenerator };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && Fe.install(window.Vue);
+export { Fe as HFormGenerator };

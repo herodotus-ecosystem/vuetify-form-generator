@@ -4,33 +4,31 @@
               exports,
               require('core-js/modules/es.function.name'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
+              require('core-js/modules/es.regexp.constructor'),
+              require('core-js/modules/es.regexp.exec'),
+              require('core-js/modules/es.regexp.to-string'),
+              require('core-js/modules/es.string.match'),
+              require('core-js/modules/es.string.replace'),
+              require('@babel/runtime-corejs3/core-js/array/is-array'),
+              require('@babel/runtime-corejs3/core-js/object/keys'),
+              require('@babel/runtime-corejs3/core-js/instance/for-each'),
               require('@babel/runtime-corejs3/core-js/object/define-property'),
               require('@babel/runtime-corejs3/core-js/object/define-properties'),
               require('@babel/runtime-corejs3/core-js/object/get-own-property-descriptors'),
               require('@babel/runtime-corejs3/core-js/object/get-own-property-descriptor'),
               require('@babel/runtime-corejs3/core-js/object/get-own-property-symbols'),
+              require('core-js/modules/es.string.split'),
+              require('@babel/runtime-corejs3/core-js/instance/concat'),
+              require('@babel/runtime-corejs3/core-js/instance/filter'),
+              require('@babel/runtime-corejs3/core-js/instance/find'),
+              require('@babel/runtime-corejs3/core-js/json/stringify'),
+              require('@babel/runtime-corejs3/core-js/instance/includes'),
+              require('@babel/runtime-corejs3/helpers/esm/defineProperty'),
+              require('@babel/runtime-corejs3/core-js/instance/map'),
               require('core-js/modules/es.symbol'),
               require('core-js/modules/es.symbol.description'),
-              require('core-js/modules/es.number.constructor'),
-              require('core-js/modules/es.regexp.exec'),
-              require('core-js/modules/es.string.replace'),
-              require('@babel/runtime-corejs3/core-js/instance/filter'),
-              require('@babel/runtime-corejs3/core-js/instance/includes'),
-              require('@babel/runtime-corejs3/core-js/instance/find'),
-              require('@babel/runtime-corejs3/core-js/object/keys'),
-              require('@babel/runtime-corejs3/core-js/instance/for-each'),
-              require('@babel/runtime-corejs3/core-js/json/stringify'),
-              require('@babel/runtime-corejs3/core-js/instance/concat'),
-              require('@babel/runtime-corejs3/core-js/instance/starts-with'),
-              require('@babel/runtime-corejs3/helpers/esm/defineProperty'),
-              require('@babel/runtime-corejs3/core-js/object/assign'),
-              require('core-js/modules/es.regexp.constructor'),
-              require('core-js/modules/es.regexp.to-string'),
-              require('core-js/modules/es.string.match'),
-              require('@babel/runtime-corejs3/core-js/array/is-array'),
-              require('core-js/modules/es.string.split'),
-              require('@babel/runtime-corejs3/core-js/instance/map'),
               require('@babel/runtime-corejs3/core-js/parse-int'),
+              require('core-js/modules/es.number.constructor'),
               require('@babel/runtime-corejs3/core-js/instance/slice'),
               require('@babel/runtime-corejs3/core-js/parse-float'),
               require('core-js/modules/es.array.iterator'),
@@ -49,6 +47,7 @@
               require('@babel/runtime-corejs3/core-js/array/from'),
               require('core-js/modules/es.array.filter'),
               require('core-js/modules/es.string.search'),
+              require('@babel/runtime-corejs3/core-js/instance/starts-with'),
               require('@babel/runtime-corejs3/core-js/instance/index-of'),
               require('@babel/runtime-corejs3/core-js/instance/reverse'),
               require('@babel/runtime-corejs3/core-js/instance/ends-with'),
@@ -61,33 +60,31 @@
               'exports',
               'core-js/modules/es.function.name',
               '@babel/runtime-corejs3/helpers/esm/typeof',
+              'core-js/modules/es.regexp.constructor',
+              'core-js/modules/es.regexp.exec',
+              'core-js/modules/es.regexp.to-string',
+              'core-js/modules/es.string.match',
+              'core-js/modules/es.string.replace',
+              '@babel/runtime-corejs3/core-js/array/is-array',
+              '@babel/runtime-corejs3/core-js/object/keys',
+              '@babel/runtime-corejs3/core-js/instance/for-each',
               '@babel/runtime-corejs3/core-js/object/define-property',
               '@babel/runtime-corejs3/core-js/object/define-properties',
               '@babel/runtime-corejs3/core-js/object/get-own-property-descriptors',
               '@babel/runtime-corejs3/core-js/object/get-own-property-descriptor',
               '@babel/runtime-corejs3/core-js/object/get-own-property-symbols',
+              'core-js/modules/es.string.split',
+              '@babel/runtime-corejs3/core-js/instance/concat',
+              '@babel/runtime-corejs3/core-js/instance/filter',
+              '@babel/runtime-corejs3/core-js/instance/find',
+              '@babel/runtime-corejs3/core-js/json/stringify',
+              '@babel/runtime-corejs3/core-js/instance/includes',
+              '@babel/runtime-corejs3/helpers/esm/defineProperty',
+              '@babel/runtime-corejs3/core-js/instance/map',
               'core-js/modules/es.symbol',
               'core-js/modules/es.symbol.description',
-              'core-js/modules/es.number.constructor',
-              'core-js/modules/es.regexp.exec',
-              'core-js/modules/es.string.replace',
-              '@babel/runtime-corejs3/core-js/instance/filter',
-              '@babel/runtime-corejs3/core-js/instance/includes',
-              '@babel/runtime-corejs3/core-js/instance/find',
-              '@babel/runtime-corejs3/core-js/object/keys',
-              '@babel/runtime-corejs3/core-js/instance/for-each',
-              '@babel/runtime-corejs3/core-js/json/stringify',
-              '@babel/runtime-corejs3/core-js/instance/concat',
-              '@babel/runtime-corejs3/core-js/instance/starts-with',
-              '@babel/runtime-corejs3/helpers/esm/defineProperty',
-              '@babel/runtime-corejs3/core-js/object/assign',
-              'core-js/modules/es.regexp.constructor',
-              'core-js/modules/es.regexp.to-string',
-              'core-js/modules/es.string.match',
-              '@babel/runtime-corejs3/core-js/array/is-array',
-              'core-js/modules/es.string.split',
-              '@babel/runtime-corejs3/core-js/instance/map',
               '@babel/runtime-corejs3/core-js/parse-int',
+              'core-js/modules/es.number.constructor',
               '@babel/runtime-corejs3/core-js/instance/slice',
               '@babel/runtime-corejs3/core-js/parse-float',
               'core-js/modules/es.array.iterator',
@@ -106,6 +103,7 @@
               '@babel/runtime-corejs3/core-js/array/from',
               'core-js/modules/es.array.filter',
               'core-js/modules/es.string.search',
+              '@babel/runtime-corejs3/core-js/instance/starts-with',
               '@babel/runtime-corejs3/core-js/instance/index-of',
               '@babel/runtime-corejs3/core-js/instance/reverse',
               '@babel/runtime-corejs3/core-js/instance/ends-with',
@@ -117,33 +115,31 @@
               ((e = 'undefined' != typeof globalThis ? globalThis : e || self).main = {}),
               null,
               e._typeof,
+              null,
+              null,
+              null,
+              null,
+              null,
+              e._Array$isArray,
+              e._Object$keys,
+              e._forEachInstanceProperty,
               e._Object$defineProperty,
               e._Object$defineProperties,
               e._Object$getOwnPropertyDescriptors,
               e._Object$getOwnPropertyDescriptor,
               e._Object$getOwnPropertySymbols,
               null,
-              null,
-              null,
-              null,
-              null,
-              e._filterInstanceProperty,
-              e._includesInstanceProperty,
-              e._findInstanceProperty,
-              e._Object$keys,
-              e._forEachInstanceProperty,
-              e._JSON$stringify,
               e._concatInstanceProperty,
-              e._startsWithInstanceProperty,
+              e._filterInstanceProperty,
+              e._findInstanceProperty,
+              e._JSON$stringify,
+              e._includesInstanceProperty,
               e._defineProperty,
-              e._Object$assign,
-              null,
-              null,
-              null,
-              e._Array$isArray,
-              null,
               e._mapInstanceProperty,
+              null,
+              null,
               e._parseInt,
+              null,
               e._sliceInstanceProperty,
               e._parseFloat,
               null,
@@ -162,6 +158,7 @@
               e._Array$from,
               null,
               null,
+              e._startsWithInstanceProperty,
               e._indexOfInstanceProperty,
               e._reverseInstanceProperty,
               e._endsWithInstanceProperty,
@@ -184,26 +181,26 @@
         u,
         c,
         f,
-        d,
         h,
+        d,
         m,
         p,
-        v,
         b,
+        v,
         y,
-        S,
         g,
+        S,
         j,
-        x,
         O,
+        x,
         P,
         I,
         k,
         V,
         w,
         C,
-        q,
         T,
+        q,
         D,
         L,
         $,
@@ -212,175 +209,173 @@
         R,
         _,
         M,
-        F,
         E,
+        F,
         U,
         N,
         H,
-        z,
         W,
+        z,
         G,
-        B,
         J,
+        B,
         Z,
         Y,
-        Q,
-        X
+        Q
     ) {
         'use strict';
-        function ee(e) {
+        function X(e) {
             return e && 'object' == typeof e && 'default' in e ? e : { default: e };
         }
-        var te = ee(r),
-            re = ee(i),
-            ie = ee(l),
-            le = ee(n),
-            ne = ee(a),
-            ae = ee(s),
-            se = ee(h),
-            oe = ee(m),
-            ue = ee(p),
-            ce = ee(v),
-            fe = ee(b),
-            de = ee(y),
-            he = ee(S),
-            me = ee(g),
-            pe = ee(j),
-            ve = ee(x),
-            be = ee(k),
-            ye = ee(w),
-            Se = ee(C),
-            ge = ee(q),
-            je = ee(T),
-            xe = ee(R),
-            Oe = ee(_),
-            Pe = ee(F),
-            Ie = ee(E),
-            ke = ee(U),
-            Ve = ee(N),
-            we = ee(H),
-            Ce = ee(z),
-            qe = ee(B),
-            Te = ee(J),
-            De = ee(Z),
-            Le = ee(Y),
-            $e = ee(Q),
-            Ae = require('property-expr'),
-            Ke = {};
-        function Re(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        var ee = X(r),
+            te = X(o),
+            re = X(u),
+            ie = X(c),
+            le = X(f),
+            ne = X(h),
+            ae = X(d),
+            se = X(m),
+            oe = X(p),
+            ue = X(v),
+            ce = X(y),
+            fe = X(g),
+            he = X(S),
+            de = X(j),
+            me = X(O),
+            pe = X(x),
+            be = X(k),
+            ve = X(w),
+            ye = X(C),
+            ge = X(A),
+            Se = X(K),
+            je = X(_),
+            Oe = X(M),
+            xe = X(E),
+            Pe = X(F),
+            Ie = X(U),
+            ke = X(N),
+            Ve = X(z),
+            we = X(G),
+            Ce = X(J),
+            Te = X(B),
+            qe = X(Z),
+            De = X(Y),
+            Le = require('property-expr'),
+            $e = {};
+        function Ae(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function _e(e) {
+        function Ke(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = Re(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = Ae(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = Re(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = Ae(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        (Ke.cache = {}),
-            (Ke.extendtoken = '$extend'),
-            (Ke.reftoken = '$ref'),
-            (Ke.pathtoken = '#'),
-            (Ke.debug = !1),
-            (Ke.clone = function (e) {
+        ($e.cache = {}),
+            ($e.extendtoken = '$extend'),
+            ($e.reftoken = '$ref'),
+            ($e.pathtoken = '#'),
+            ($e.debug = !1),
+            ($e.clone = function (e) {
                 var t, r;
-                if (null === e || 'object' !== te.default(e) || 'function' == typeof e) return e;
-                for (t in ((r = e.constructor()), e)) r[t] = Ke.clone(e[t]);
+                if (null === e || 'object' !== ee.default(e) || 'function' == typeof e) return e;
+                for (t in ((r = e.constructor()), e)) r[t] = $e.clone(e[t]);
                 return r;
             }),
-            (Ke.findIds = function (e, t) {
+            ($e.findIds = function (e, t) {
                 var r, i, l, n;
                 for (i in ((r = !1), (l = {}), e))
                     (n = e[i]),
                         null != e.id && (r = e.id),
                         r && 'id' !== i && (l[i] = n),
-                        'object' === te.default(n) && Ke.findIds(n, t);
+                        'object' === ee.default(n) && $e.findIds(n, t);
                 if (r) return (t[r] = l), l;
             }),
-            (Ke.get_json_pointer = function (e, t, r) {
+            ($e.get_json_pointer = function (e, t, r) {
                 var i, l, n;
                 (l = e
                     .replace(/\\\//, '#SLASH#')
                     .replace(/\//g, '.')
                     .replace(/#SLASH#/, '/')),
-                    fe.default((i = ce.default(r))).call(i, function (e) {
+                    ie.default((i = re.default(r))).call(i, function (e) {
                         l = l.replace(e, r[e]);
                     }),
-                    '.' === (l = l.replace(new RegExp('^' + Ke.pathtoken), ''))[0] && (l = l.substr(1, l.length - 1));
+                    '.' === (l = l.replace(new RegExp('^' + $e.pathtoken), ''))[0] && (l = l.substr(1, l.length - 1));
                 try {
-                    Ke.debug, (n = Ae.getter(l)(t));
+                    $e.debug, (n = Le.getter(l)(t));
                 } catch (e) {
                     n = '';
                 }
                 return n;
             }),
-            (Ke.replace = function (e, t, r, i) {
+            ($e.replace = function (e, t, r, i) {
                 var l, n, a, s, o, u;
                 for (l in ((o = []), e))
-                    null != (u = e[l]) && null != u[Ke.reftoken]
-                        ? ((n = u[Ke.reftoken]),
-                          ce.default(u).length,
-                          be.default(n)
-                              ? (n = Ke.replace(n, t, r, i))
+                    null != (u = e[l]) && null != u[$e.reftoken]
+                        ? ((n = u[$e.reftoken]),
+                          re.default(u).length,
+                          te.default(n)
+                              ? (n = $e.replace(n, t, r, i))
                               : null != t[n]
                               ? (e[l] = t[n])
-                              : String(n).match(new RegExp('^' + Ke.pathtoken)) &&
-                                (e[l] = Ke.get_json_pointer(n, r, i)),
+                              : String(n).match(new RegExp('^' + $e.pathtoken)) &&
+                                (e[l] = $e.get_json_pointer(n, r, i)),
                           null != (null != (a = e[l]) ? a.length : void 0) &&
                               0 === (null != (s = e[l]) ? s.length : void 0) &&
-                              Ke.debug,
+                              $e.debug,
                           o.push(void 0))
-                        : 'object' === te.default(u)
-                        ? o.push(Ke.replace(u, t, r, i))
+                        : 'object' === ee.default(u)
+                        ? o.push($e.replace(u, t, r, i))
                         : o.push(void 0);
                 return o;
             }),
-            (Ke.extend = function (e, t) {
+            ($e.extend = function (e, t) {
                 var r, i, l, n, a, s;
-                if ('object' === te.default(e)) {
+                if ('object' === ee.default(e)) {
                     for (r in ((l = []), e)) {
-                        if (((s = e[r]), r === Ke.extendtoken && null != s[Ke.reftoken])) {
-                            for (n in ((i = Ke.get_json_pointer(s[Ke.reftoken], e, t)), s))
-                                (a = s[n]), n !== Ke.reftoken && (i[n] = a);
+                        if (((s = e[r]), r === $e.extendtoken && null != s[$e.reftoken])) {
+                            for (n in ((i = $e.get_json_pointer(s[$e.reftoken], e, t)), s))
+                                (a = s[n]), n !== $e.reftoken && (i[n] = a);
                             delete e[r];
                         }
-                        'object' === te.default(s) ? l.push((s = Ke.extend(s))) : l.push(void 0);
+                        'object' === ee.default(s) ? l.push((s = $e.extend(s))) : l.push(void 0);
                     }
                     return l;
                 }
             }),
-            (Ke.resolve = function (e, t) {
+            ($e.resolve = function (e, t) {
                 var r;
-                return (r = {}), Ke.findIds(e, r), Ke.debug && ce.default(r).length, Ke.replace(e, r, e, t), e;
+                return (r = {}), $e.findIds(e, r), $e.debug && re.default(r).length, $e.replace(e, r, e, t), e;
             }),
-            (Ke.evaluate = function (e, t, r) {
+            ($e.evaluate = function (e, t, r) {
                 var i, l, n;
-                for (i in (null == r && (r = Ke.evaluateStr), (l = Ke.clone(e))))
+                for (i in (null == r && (r = $e.evaluateStr), (l = $e.clone(e))))
                     'string' == typeof (n = l[i]) && (e[i] = r(n, t)),
-                        'object' === te.default(n) && (e[i] = Ke.evaluate(n, t));
+                        'object' === ee.default(n) && (e[i] = $e.evaluate(n, t));
                 return e;
             }),
-            (Ke.evaluateStr = function (e, t) {
+            ($e.evaluateStr = function (e, t) {
                 if ('string' != typeof e) return e;
                 if ('{' !== e[0] || '}' !== e[e.length - 1])
                     return e.replace(/(\{)(.*?)(\})/g, function (e, r, i) {
@@ -390,50 +385,50 @@
                         else if (null != t[i]) l = t[i];
                         else {
                             try {
-                                (i = i.replace(new RegExp('^' + Ke.pathtoken + '/'), '').replace(/\//g, '.')),
-                                    (l = Ae.getter(i)(t));
+                                (i = i.replace(new RegExp('^' + $e.pathtoken + '/'), '').replace(/\//g, '.')),
+                                    (l = Le.getter(i)(t));
                             } catch (e) {
                                 (err = e), (l = '');
                             }
                             null == l && (l = '');
                         }
-                        return Ke.evaluateStr(l, t), l;
+                        return $e.evaluateStr(l, t), l;
                     });
                 try {
-                    return Ae.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
+                    return Le.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
                 } catch (e) {
                     return null;
                 }
             });
-        var Me = {},
-            Fe = function (e) {
+        var Re = {},
+            _e = function (e) {
                 var t;
-                return ye.default((t = ce.default(e || {}))).call(t, function (t) {
-                    return _e(_e({}, e[t]), {}, { key: t });
+                return pe.default((t = re.default(e || {}))).call(t, function (t) {
+                    return Ke(Ke({}, e[t]), {}, { key: t });
                 });
             };
-        Me.prepareFullSchema = function (e, t) {
+        Re.prepareFullSchema = function (e, t) {
             var r,
                 i,
                 l,
                 n,
-                a = JSON.parse(de.default(e));
-            (a.pattern && (a.patternRegexp = new RegExp(a.pattern)), be.default(a.type)) &&
-                ((a.nullable = oe.default((r = a.type)).call(r, 'null')),
-                (a.type = ue.default((i = a.type)).call(i, function (e) {
+                a = JSON.parse(he.default(e));
+            (a.pattern && (a.patternRegexp = new RegExp(a.pattern)), te.default(a.type)) &&
+                ((a.nullable = de.default((r = a.type)).call(r, 'null')),
+                (a.type = fe.default((i = a.type)).call(i, function (e) {
                     return 'null' !== e;
                 })),
                 a.nullable &&
                     a.enum &&
-                    (a.enum = se.default((l = a.enum)).call(l, function (e) {
+                    (a.enum = ce.default((l = a.enum)).call(l, function (e) {
                         return null !== e;
                     })));
             if ('object' !== a.type) return a;
-            ((a.properties = JSON.parse(de.default(Fe(a.properties)))),
+            ((a.properties = JSON.parse(he.default(_e(a.properties)))),
             (a.required = a.required || []),
             (a.dependencies = a.dependencies || {}),
             a.dependencies) &&
-                fe.default((n = ce.default(a.dependencies))).call(n, function (e) {
+                ie.default((n = re.default(a.dependencies))).call(n, function (e) {
                     var r,
                         i,
                         l,
@@ -444,23 +439,23 @@
                         var u = (function (e, t) {
                             for (var r = t.split('.'), i = 0; i < r.length; i++) {
                                 var l;
-                                if (oe.default((l = [null, void 0])).call(l, e)) break;
+                                if (de.default((l = [null, void 0])).call(l, e)) break;
                                 e = e[r[i]];
                             }
                             return e;
                         })(t, e);
-                        oe.default((r = [null, void 0, !1])).call(r, u) ||
-                            (be.default(u) && 0 === u.length) ||
-                            ('object' === te.default(u) && 0 === ce.default(u).length) ||
-                            ((a.required = he.default((i = a.required)).call(i, o.required || [])),
-                            (a.properties = he.default((l = a.properties)).call(l, Fe(o.properties))),
-                            o.oneOf && (a.oneOf = he.default((n = a.oneOf || [])).call(n, o.oneOf)),
-                            o.allOf && (a.allOf = he.default((s = a.allOf || [])).call(s, o.allOf)));
+                        de.default((r = [null, void 0, !1])).call(r, u) ||
+                            (te.default(u) && 0 === u.length) ||
+                            ('object' === ee.default(u) && 0 === re.default(u).length) ||
+                            ((a.required = ue.default((i = a.required)).call(i, o.required || [])),
+                            (a.properties = ue.default((l = a.properties)).call(l, _e(o.properties))),
+                            o.oneOf && (a.oneOf = ue.default((n = a.oneOf || [])).call(n, o.oneOf)),
+                            o.allOf && (a.allOf = ue.default((s = a.allOf || [])).call(s, o.allOf)));
                     }
                 });
             return a;
         };
-        var Ee = {
+        var Me = {
                 locale: 'en',
                 rootDisplay: '',
                 objectContainerClass: '',
@@ -502,7 +497,7 @@
                 idPrefix: '',
                 markdownit: {},
             },
-            Ue = {
+            Ee = {
                 en: {
                     required: 'This information is required',
                     noData: 'No matching value found',
@@ -588,11 +583,11 @@
                     pattern: 'Invoer voldoet niet aan verwachte patroon',
                 },
             },
-            Ne = {
+            Fe = {
                 time: function (e, t) {
                     var r,
                         i = new Date(
-                            he.default((r = ''.concat(new Date().toISOString().split('T')[0], 'T'))).call(r, e)
+                            ue.default((r = ''.concat(new Date().toISOString().split('T')[0], 'T'))).call(r, e)
                         );
                     return new Date(i.getTime() + 6e4 * i.getTimezoneOffset()).toLocaleTimeString(t);
                 },
@@ -604,7 +599,7 @@
                     return new Date(e).toLocaleString(t);
                 },
             },
-            He = {
+            Ue = {
                 mdi: {
                     calendar: 'mdi-calendar',
                     clock: 'mdi-clock',
@@ -623,37 +618,37 @@
                     delete: 'fa-trash',
                 },
             };
-        function ze(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        function Ne(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function We(e) {
+        function He(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = ze(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = Ne(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = ze(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = Ne(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        var Ge = {
+        var We = {
             data: function () {
                 return { currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} };
             },
@@ -665,12 +660,12 @@
                     var e;
                     if (this.subSchemas) {
                         var t = this.subSchemas[0].properties,
-                            r = ue.default((e = ce.default(t))).call(e, function (e) {
+                            r = fe.default((e = re.default(t))).call(e, function (e) {
                                 return !!t[e].const;
                             });
                         if (r)
-                            return We(
-                                We({}, t[r]),
+                            return He(
+                                He({}, t[r]),
                                 {},
                                 { key: r, htmlDescription: this.fullOptions.markdown(t[r].description || '') }
                             );
@@ -685,7 +680,7 @@
                             !!(
                                 this.fullSchema.anyOf &&
                                 this.fullSchema.required &&
-                                ue.default((e = this.fullSchema.required)).call(e, function (e) {
+                                fe.default((e = this.fullSchema.required)).call(e, function (e) {
                                     return e === t.oneOfConstProp.key;
                                 })
                             ) ||
@@ -725,7 +720,7 @@
             methods: {
                 isSection: function (e) {
                     return (
-                        (e.properties || e.allOf || be.default(e.items)) &&
+                        (e.properties || e.allOf || te.default(e.items)) &&
                         e.title &&
                         !e['x-fromUrl'] &&
                         !e['x-fromData'] &&
@@ -738,22 +733,22 @@
                     if ('object' === this.fullSchema.type) {
                         var r, i;
                         if (this.fullSchema.allOf)
-                            fe.default((r = this.fullSchema.allOf)).call(r, function (r, i) {
-                                t.$set(t.subModels, 'allOf-' + i, JSON.parse(de.default(e)));
+                            ie.default((r = this.fullSchema.allOf)).call(r, function (r, i) {
+                                t.$set(t.subModels, 'allOf-' + i, JSON.parse(he.default(e)));
                             });
                         if (
                             ((this.currentOneOf = null),
                             this.subSchemas && !this.currentOneOf && this.subSchemasConstProp)
                         )
                             if (e && e[this.subSchemasConstProp.key])
-                                this.currentOneOf = ue.default((i = this.subSchemas)).call(i, function (r) {
+                                this.currentOneOf = fe.default((i = this.subSchemas)).call(i, function (r) {
                                     return (
                                         r.properties[t.subSchemasConstProp.key].const === e[t.subSchemasConstProp.key]
                                     );
                                 });
                             else if (this.fullSchema.default) {
                                 var l;
-                                this.currentOneOf = ue.default((l = this.subSchemas)).call(l, function (e) {
+                                this.currentOneOf = fe.default((l = this.subSchemas)).call(l, function (e) {
                                     return (
                                         e.properties[t.subSchemasConstProp.key].const ===
                                         t.fullSchema.default[t.subSchemasConstProp.key]
@@ -761,7 +756,7 @@
                                 });
                             }
                         this.currentOneOf
-                            ? this.$set(this.subModels, 'currentOneOf', JSON.parse(de.default(e)))
+                            ? this.$set(this.subModels, 'currentOneOf', JSON.parse(he.default(e)))
                             : this.$set(this.subModels, 'currentOneOf', {});
                     }
                 },
@@ -797,9 +792,9 @@
                                       'v-tab',
                                       {
                                           props: {
-                                              href: he
+                                              href: ue
                                                   .default(
-                                                      (l = he
+                                                      (l = ue
                                                           .default((n = '#tab-'.concat(this.fullOptions.idPrefix)))
                                                           .call(n, this.dashKey, '-'))
                                                   )
@@ -824,9 +819,9 @@
                                       'v-tab-item',
                                       {
                                           props: {
-                                              value: he
+                                              value: ue
                                                   .default(
-                                                      (a = he
+                                                      (a = ue
                                                           .default((s = 'tab-'.concat(this.fullOptions.idPrefix)))
                                                           .call(s, this.dashKey, '-'))
                                                   )
@@ -864,11 +859,11 @@
                     return (
                         void 0 === o &&
                             ((o = this.defaultValue(t)),
-                            void 0 !== t.default && (o = JSON.parse(de.default(t.default))),
+                            void 0 !== t.default && (o = JSON.parse(he.default(t.default))),
                             null != o && (this.$set(a, s, o), this.input(this.value))),
                         e('h-form-renderer', {
                             props: {
-                                schema: We({ readOnly: this.fullSchema.readOnly }, t),
+                                schema: He({ readOnly: this.fullSchema.readOnly }, t),
                                 value: o,
                                 modelRoot: this.modelRoot || this.value,
                                 modelKey: s,
@@ -882,7 +877,7 @@
                                 },
                                 input: function (e) {
                                     void 0 === e
-                                        ? be.default(a) && Se.default(s) < a.length - 1
+                                        ? te.default(a) && be.default(s) < a.length - 1
                                             ? n.$set(a, s, e)
                                             : n.$delete(a, s)
                                         : n.$set(a, s, e),
@@ -900,8 +895,8 @@
                         r,
                         i,
                         l = this;
-                    if ('object' === this.fullSchema.type || be.default(this.fullSchema.items)) {
-                        if (((this.isObjectContainer = !0), oe.default((t = [void 0, null])).call(t, this.value)))
+                    if ('object' === this.fullSchema.type || te.default(this.fullSchema.items)) {
+                        if (((this.isObjectContainer = !0), de.default((t = [void 0, null])).call(t, this.value)))
                             return [];
                         var n,
                             a,
@@ -909,35 +904,35 @@
                             o = [],
                             u = [];
                         if (this.fullSchema.properties)
-                            fe.default((n = this.fullSchema.properties)).call(n, function (t) {
+                            ie.default((n = this.fullSchema.properties)).call(n, function (t) {
                                 if (l.isSection(t)) {
                                     var r = l.renderChildProp(e, t, null, l.sectionDepth + 1);
-                                    u = he.default(u).call(u, l.renderSection(e, t, null, r));
+                                    u = ue.default(u).call(u, l.renderSection(e, t, null, r));
                                 } else o.push(l.renderChildProp(e, t, null, l.sectionDepth));
                             });
-                        if (be.default(this.fullSchema.items))
-                            fe.default((a = this.fullSchema.items)).call(a, function (t, r) {
-                                var i = We(We({}, t), {}, { key: '' + r }),
+                        if (te.default(this.fullSchema.items))
+                            ie.default((a = this.fullSchema.items)).call(a, function (t, r) {
+                                var i = He(He({}, t), {}, { key: '' + r }),
                                     n = l.value.length > r || (l.fullSchema.minItems && l.fullSchema.minItems > r);
                                 if (l.isSection(t)) {
                                     var a = l.renderChildProp(e, i, null, l.sectionDepth + 1, n);
-                                    u = he.default(u).call(u, l.renderSection(e, i, null, a));
+                                    u = ue.default(u).call(u, l.renderSection(e, i, null, a));
                                 } else o.push(l.renderChildProp(e, i, null, l.sectionDepth, n));
                             });
                         if (this.fullSchema.allOf)
-                            fe.default((s = this.fullSchema.allOf)).call(s, function (t, r) {
-                                var i = We(We({}, t), {}, { type: 'object', key: '' + r });
+                            ie.default((s = this.fullSchema.allOf)).call(s, function (t, r) {
+                                var i = He(He({}, t), {}, { type: 'object', key: '' + r });
                                 if (l.isSection(t)) {
                                     var n = l.renderChildProp(e, i, 'allOf-' + r, l.sectionDepth + 1);
-                                    u = he.default(u).call(u, l.renderSection(e, i, 'allOf-' + r, n));
+                                    u = ue.default(u).call(u, l.renderSection(e, i, 'allOf-' + r, n));
                                 } else o.push(l.renderChildProp(e, i, 'allOf-' + r, l.sectionDepth));
                             });
                         if ('expansion-panels' === this.display && u.length) {
-                            var c = We(We({}, this.fullOptions.expansionPanelsProps), this.fullSchema['x-props']);
+                            var c = He(He({}, this.fullOptions.expansionPanelsProps), this.fullSchema['x-props']);
                             u = [e('v-expansion-panels', { props: c }, u)];
                         }
                         if ('tabs' === this.display && u.length) {
-                            var f = We(We({}, this.fullOptions.tabsProps), this.fullSchema['x-props']);
+                            var f = He(He({}, this.fullOptions.tabsProps), this.fullSchema['x-props']);
                             this.currentTab &&
                                 this.childrenInputs[this.currentTab] &&
                                 this.childrenInputs[this.currentTab].hasValidatedChildError &&
@@ -958,16 +953,16 @@
                                 ]);
                         }
                         if (this.subSchemas && this.subSchemas.length) {
-                            var d,
-                                h = We(
-                                    We({}, this.commonFieldProps),
+                            var h,
+                                d = He(
+                                    He({}, this.commonFieldProps),
                                     {},
                                     {
                                         value: this.currentOneOf,
                                         label:
                                             (this.subSchemasConstProp && this.subSchemasConstProp.title) ||
                                             this.fullSchema.title,
-                                        items: se.default((d = this.subSchemas)).call(d, function (e) {
+                                        items: ce.default((h = this.subSchemas)).call(h, function (e) {
                                             return e.properties && e.properties[l.subSchemasConstProp.key];
                                         }),
                                         required: this.subSchemasRequired,
@@ -985,13 +980,13 @@
                                         l.currentOneOf = e;
                                     },
                                 };
-                            o.push(e('v-select', { props: h, on: m }, [this.renderTooltip(e, 'append-outer')])),
+                            o.push(e('v-select', { props: d, on: m }, [this.renderTooltip(e, 'append-outer')])),
                                 this.currentOneOf &&
                                     this.showCurrentOneOf &&
                                     o.push(
                                         this.renderChildProp(
                                             e,
-                                            We(We({}, this.currentOneOf), {}, { type: 'object', title: null }),
+                                            He(He({}, this.currentOneOf), {}, { type: 'object', title: null }),
                                             'currentOneOf',
                                             this.sectionDepth + 1
                                         )
@@ -1001,9 +996,9 @@
                             e(
                                 'v-row',
                                 { class: 'ma-0 '.concat(this.fullOptions.objectContainerClass) },
-                                he
+                                ue
                                     .default(
-                                        (r = he
+                                        (r = ue
                                             .default(
                                                 (i = [
                                                     this.fullSchema.description &&
@@ -1023,41 +1018,41 @@
                 },
             },
         };
-        function Be(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        function ze(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function Je(e) {
+        function Ge(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = Be(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = ze(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = Be(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = ze(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        var Ze = function (e) {
+        var Je = function (e) {
                 var t = '' + e;
                 return 1 === t.length ? '0' + t : t;
             },
-            Ye = function (e) {
+            Be = function (e) {
                 var t = new Date(),
                     r = e[0].split('-');
                 t.setFullYear(Number(r[0])), t.setMonth(Number(r[1]) - 1), t.setDate(Number(r[2]));
@@ -1076,42 +1071,42 @@
                             s,
                             o,
                             u = e.getTimezoneOffset(),
-                            c = he
-                                .default((t = ''.concat(Ze(Se.default(Math.abs(u / 60))), ':')))
-                                .call(t, Ze(Math.abs(u % 60)));
+                            c = ue
+                                .default((t = ''.concat(Je(be.default(Math.abs(u / 60))), ':')))
+                                .call(t, Je(Math.abs(u % 60)));
                         return (
                             (o = u < 0 ? '+'.concat(c) : u > 0 ? '-'.concat(c) : 'Z'),
-                            he
+                            ue
                                 .default(
-                                    (r = he
+                                    (r = ue
                                         .default(
-                                            (i = he
+                                            (i = ue
                                                 .default(
-                                                    (l = he
+                                                    (l = ue
                                                         .default(
-                                                            (n = he
+                                                            (n = ue
                                                                 .default(
-                                                                    (a = he
+                                                                    (a = ue
                                                                         .default((s = ''.concat(e.getFullYear(), '-')))
-                                                                        .call(s, Ze(e.getMonth() + 1), '-'))
+                                                                        .call(s, Je(e.getMonth() + 1), '-'))
                                                                 )
-                                                                .call(a, Ze(e.getDate()), 'T'))
+                                                                .call(a, Je(e.getDate()), 'T'))
                                                         )
-                                                        .call(n, Ze(e.getHours()), ':'))
+                                                        .call(n, Je(e.getHours()), ':'))
                                                 )
-                                                .call(l, Ze(e.getMinutes()), ':'))
+                                                .call(l, Je(e.getMinutes()), ':'))
                                         )
-                                        .call(i, Ze(e.getSeconds())))
+                                        .call(i, Je(e.getSeconds())))
                                 )
                                 .call(r, o)
                         );
                     })(t)
                 );
             },
-            Qe = function (e) {
+            Ze = function (e) {
                 return e + ':00Z';
             },
-            Xe = {
+            Ye = {
                 data: function () {
                     return { dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } };
                 },
@@ -1121,7 +1116,7 @@
                             r = this;
                         if (
                             'string' === this.fullSchema.type &&
-                            oe.default((t = ['date', 'date-time', 'time'])).call(t, this.fullSchema.format)
+                            de.default((t = ['date', 'date-time', 'time'])).call(t, this.fullSchema.format)
                         ) {
                             var i,
                                 l,
@@ -1132,23 +1127,23 @@
                                 u = this.fullOptions.icons.calendar;
                             if ('time' === this.fullSchema.format)
                                 (i = e('v-time-picker', {
-                                    props: Je(
-                                        { value: ((o = this.value), o ? ge.default(o).call(o, 0, 5) : '') },
+                                    props: Ge(
+                                        { value: ((o = this.value), o ? ve.default(o).call(o, 0, 5) : '') },
                                         this.fullSchema['x-props']
                                     ),
                                     on: {
                                         input: function (e) {
-                                            return r.input(Qe(e));
+                                            return r.input(Ze(e));
                                         },
                                         change: function (e) {
-                                            return r.change(Qe(e));
+                                            return r.change(Ze(e));
                                         },
                                     },
                                 })),
                                     (u = this.fullOptions.icons.clock);
                             else if ('date' === this.fullSchema.format)
                                 i = e('v-date-picker', {
-                                    props: Je({ value: this.value }, this.fullSchema['x-props']),
+                                    props: Ge({ value: this.value }, this.fullSchema['x-props']),
                                     on: {
                                         input: function (e) {
                                             r.input(e), (r.dateProp.menu = !1);
@@ -1163,21 +1158,21 @@
                                     (this.dateProp.parts =
                                         ((l = new Date(this.value)),
                                         [
-                                            he
+                                            ue
                                                 .default(
-                                                    (n = he
+                                                    (n = ue
                                                         .default((a = ''.concat(l.getFullYear(), '-')))
-                                                        .call(a, Ze(l.getMonth() + 1), '-'))
+                                                        .call(a, Je(l.getMonth() + 1), '-'))
                                                 )
-                                                .call(n, Ze(l.getDate())),
-                                            he
-                                                .default((s = ''.concat(Ze(l.getHours()), ':')))
-                                                .call(s, Ze(l.getMinutes())),
+                                                .call(n, Je(l.getDate())),
+                                            ue
+                                                .default((s = ''.concat(Je(l.getHours()), ':')))
+                                                .call(s, Je(l.getMinutes())),
                                         ])),
                                     (this.dateProp.lastValue = this.value);
                                 var c = function () {
                                         if (r.dateProp.parts[1]) {
-                                            var e = Ye(r.dateProp.parts);
+                                            var e = Be(r.dateProp.parts);
                                             r.input(e), r.change(e);
                                         }
                                     },
@@ -1192,8 +1187,8 @@
                                         ),
                                         e('v-tab-item', { props: { value: 'tab-date' } }, [
                                             e('v-date-picker', {
-                                                props: Je(
-                                                    Je({}, this.fullOptions.datePickerProps),
+                                                props: Ge(
+                                                    Ge({}, this.fullOptions.datePickerProps),
                                                     {},
                                                     { locale: this.fullOptions.locale, value: this.dateProp.parts[0] }
                                                 ),
@@ -1206,8 +1201,8 @@
                                         ]),
                                         e('v-tab-item', { props: { value: 'tab-time' } }, [
                                             e('v-time-picker', {
-                                                props: Je(
-                                                    Je({}, this.fullOptions.timePickerProps),
+                                                props: Ge(
+                                                    Ge({}, this.fullOptions.timePickerProps),
                                                     {},
                                                     { locale: this.fullOptions.locale, value: this.dateProp.parts[1] }
                                                 ),
@@ -1233,14 +1228,14 @@
                                     f
                                 );
                             }
-                            var d = {
+                            var h = {
                                 activator: function (t) {
                                     var i = t.on;
                                     return e(
                                         'v-text-field',
                                         {
-                                            props: Je(
-                                                Je({}, r.commonFieldProps),
+                                            props: Ge(
+                                                Ge({}, r.commonFieldProps),
                                                 {},
                                                 {
                                                     value: r.formattedValue,
@@ -1249,8 +1244,8 @@
                                                     prependIcon: u,
                                                 }
                                             ),
-                                            on: Je(
-                                                Je({}, i),
+                                            on: Ge(
+                                                Ge({}, i),
                                                 {},
                                                 {
                                                     input: function (e) {
@@ -1270,7 +1265,7 @@
                                 e(
                                     'v-menu',
                                     {
-                                        scopedSlots: d,
+                                        scopedSlots: h,
                                         props: {
                                             value: this.dateProp.menu,
                                             disabled: this.disabled,
@@ -1294,46 +1289,46 @@
                     },
                 },
             };
-        function et(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        function Qe(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function tt(e) {
+        function Xe(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = et(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = Qe(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = et(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = Qe(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        var rt = {
+        var et = {
             computed: {
                 isSimpleProp: function () {
                     var e, t;
                     return (
                         'string' === this.fullSchema.type ||
-                        oe.default((e = ['number', 'integer'])).call(e, this.fullSchema.type) ||
+                        de.default((e = ['number', 'integer'])).call(e, this.fullSchema.type) ||
                         'boolean' === this.fullSchema.type ||
                         ('array' === this.fullSchema.type &&
-                            oe.default((t = ['string', 'number', 'integer'])).call(t, this.fullSchema.items.type))
+                            de.default((t = ['string', 'number', 'integer'])).call(t, this.fullSchema.items.type))
                     );
                 },
             },
@@ -1343,7 +1338,7 @@
                         r,
                         i = this;
                     if (this.isSimpleProp) {
-                        var l = tt({}, this.commonFieldProps),
+                        var l = Xe({}, this.commonFieldProps),
                             n = [],
                             a = {},
                             s = {
@@ -1355,26 +1350,26 @@
                                 },
                             };
                         if (
-                            (oe.default((t = ['number', 'integer'])).call(t, this.fullSchema.type) &&
+                            (de.default((t = ['number', 'integer'])).call(t, this.fullSchema.type) &&
                                 (s.input = function (e) {
-                                    i.input('integer' === i.fullSchema.type ? Se.default(e, 10) : je.default(e));
+                                    i.input('integer' === i.fullSchema.type ? be.default(e, 10) : ye.default(e));
                                 }),
                             'boolean' === this.fullSchema.type &&
                                 (s.change = function (e) {
                                     i.input(e || !1), i.change(e || !1);
                                 }),
                             'array' === this.fullSchema.type &&
-                                oe.default((r = ['string', 'number', 'integer'])).call(r, this.fullSchema.items.type) &&
+                                de.default((r = ['string', 'number', 'integer'])).call(r, this.fullSchema.items.type) &&
                                 'string' !== this.fullSchema.items.type &&
                                 ((l.type = 'number'),
                                 (s.input = function (e) {
                                     var t,
-                                        r = se
+                                        r = ce
                                             .default(
-                                                (t = ye.default(e).call(e, function (e) {
+                                                (t = pe.default(e).call(e, function (e) {
                                                     return 'integer' === i.fullSchema.items.type
-                                                        ? Se.default(e, 10)
-                                                        : je.default(e);
+                                                        ? be.default(e, 10)
+                                                        : ye.default(e);
                                                 }))
                                             )
                                             .call(t, function (e) {
@@ -1397,7 +1392,7 @@
                                               return e(
                                                   i.fullSchema.tag,
                                                   {
-                                                      props: tt(tt({}, l), {}, { required: !0, 'error-messages': r }),
+                                                      props: Xe(Xe({}, l), {}, { required: !0, 'error-messages': r }),
                                                       on: s,
                                                       scopedSlots: a,
                                                   },
@@ -1412,38 +1407,38 @@
                 },
             },
         };
-        function it(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        function tt(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function lt(e) {
+        function rt(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = it(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = tt(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = it(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = tt(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        var nt = function (e) {
-                return new Ie.default(function (t) {
+        var it = function (e) {
+                return new Oe.default(function (t) {
                     var r = new FileReader();
                     (r.onload = function () {
                         return t(r.result);
@@ -1451,11 +1446,11 @@
                         r.readAsDataURL(e);
                 });
             },
-            at = (function () {
-                var e = Pe.default(
-                    Oe.default.mark(function e(t, r, i) {
+            lt = (function () {
+                var e = je.default(
+                    Se.default.mark(function e(t, r, i) {
                         var l, n;
-                        return Oe.default.wrap(function (e) {
+                        return Se.default.wrap(function (e) {
                             for (;;)
                                 switch ((e.prev = e.next)) {
                                     case 0:
@@ -1469,7 +1464,7 @@
                                             e.next = 7;
                                             break;
                                         }
-                                        return (e.next = 5), nt(t);
+                                        return (e.next = 5), it(t);
                                     case 5:
                                         (n = e.sent), (l = i ? n : n.split(';base64,')[1]);
                                     case 7:
@@ -1497,7 +1492,7 @@
                     return e.apply(this, arguments);
                 };
             })(),
-            st = {
+            nt = {
                 computed: {
                     isFileProp: function () {
                         return (
@@ -1535,7 +1530,7 @@
                     renderFileProp: function (e) {
                         var t = this;
                         if (this.isFileProp) {
-                            var r = lt(lt({}, this.commonFieldProps), this.fullOptions.fileInputProps);
+                            var r = rt(rt({}, this.commonFieldProps), this.fullOptions.fileInputProps);
                             delete r.value;
                             var i = {};
                             this.fullSchema.contentMediaType && (i.accept = this.fullSchema.contentMediaType),
@@ -1544,13 +1539,13 @@
                                     (i.accept = this.fullSchema.items.contentMediaType),
                                 'array' === this.fullSchema.type && (i.multiple = !0);
                             var l,
-                                n = xe.default(this.renderPropSlots(e)),
+                                n = ge.default(this.renderPropSlots(e)),
                                 a = {
                                     change:
-                                        ((l = Pe.default(
-                                            Oe.default.mark(function e(r) {
+                                        ((l = je.default(
+                                            Se.default.mark(function e(r) {
                                                 var i, l;
-                                                return Oe.default.wrap(function (e) {
+                                                return Se.default.wrap(function (e) {
                                                     for (;;)
                                                         switch ((e.prev = e.next)) {
                                                             case 0:
@@ -1560,9 +1555,9 @@
                                                                 }
                                                                 return (
                                                                     (e.next = 3),
-                                                                    Ie.default.all(
-                                                                        ye.default(r).call(r, function (e) {
-                                                                            return at(
+                                                                    Oe.default.all(
+                                                                        pe.default(r).call(r, function (e) {
+                                                                            return lt(
                                                                                 e,
                                                                                 t.fullSchema.items,
                                                                                 t.fullOptions.filesAsDataUrl
@@ -1576,7 +1571,7 @@
                                                             case 8:
                                                                 return (
                                                                     (e.next = 10),
-                                                                    at(
+                                                                    lt(
                                                                         r,
                                                                         t.resolvedSchema,
                                                                         t.fullOptions.filesAsDataUrl
@@ -1603,37 +1598,37 @@
                     },
                 },
             };
-        function ot(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        function at(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function ut(e) {
+        function st(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = ot(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = at(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = ot(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = at(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        var ct = {
+        var ot = {
                 computed: {
                     isColorProp: function () {
                         return (
@@ -1669,9 +1664,9 @@
                                             },
                                             default: function () {
                                                 return e('v-color-picker', {
-                                                    props: ut(
-                                                        ut(
-                                                            ut({ flat: !0 }, t.fullOptions.colorPickerProps),
+                                                    props: st(
+                                                        st(
+                                                            st({ flat: !0 }, t.fullOptions.colorPickerProps),
                                                             t.fullSchema['x-props']
                                                         ),
                                                         {},
@@ -1691,7 +1686,7 @@
                                     e(
                                         'v-input',
                                         {
-                                            props: ut(
+                                            props: st(
                                                 {
                                                     name: this.fullKey,
                                                     label: this.label,
@@ -1710,36 +1705,36 @@
                     },
                 },
             },
-            ft = {
+            ut = {
                 getSelectItems: function (e, t, r, i) {
                     var l = [];
                     if (e)
                         if (
-                            ('object' === t.type && t.properties && ce.default(t.properties).length) ||
+                            ('object' === t.type && t.properties && re.default(t.properties).length) ||
                             ('array' === t.type &&
                                 t.items &&
                                 'object' === t.items.type &&
                                 t.items.properties &&
-                                ce.default(t.items.properties).length)
+                                re.default(t.items.properties).length)
                         ) {
                             var n,
                                 a = t.properties
-                                    ? ye.default((n = t.properties)).call(n, function (e) {
+                                    ? pe.default((n = t.properties)).call(n, function (e) {
                                           return e.key;
                                       })
-                                    : ce.default(t.items.properties);
-                            fe.default(e).call(e, function (e) {
+                                    : re.default(t.items.properties);
+                            ie.default(e).call(e, function (e) {
                                 var t = {};
-                                fe.default(a).call(a, function (r) {
+                                ie.default(a).call(a, function (r) {
                                     void 0 !== e[r] && (t[r] = e[r]);
                                 }),
                                     l.push(t);
                             });
                         } else
-                            fe.default(e).call(e, function (e) {
-                                if ('object' === te.default(e)) l.push(e);
+                            ie.default(e).call(e, function (e) {
+                                if ('object' === ee.default(e)) l.push(e);
                                 else {
-                                    var t = pe.default({}, r, e);
+                                    var t = me.default({}, r, e);
                                     i && (t[i] = e), l.push(t);
                                 }
                             });
@@ -1747,27 +1742,27 @@
                     return l;
                 },
             },
-            dt = function (e, t, r) {
+            ct = function (e, t, r) {
                 var i, l;
                 return (
-                    !oe.default((i = [null, void 0])).call(i, e) &&
-                    !oe.default((l = [null, void 0])).call(l, t) &&
-                    de.default(e[r]) === de.default(t[r])
+                    !de.default((i = [null, void 0])).call(i, e) &&
+                    !de.default((l = [null, void 0])).call(l, t) &&
+                    he.default(e[r]) === he.default(t[r])
                 );
             };
-        function ht(e, t) {
+        function ft(e, t) {
             var r;
-            if (void 0 === we.default || null == Ve.default(e)) {
+            if (void 0 === Ie.default || null == Pe.default(e)) {
                 if (
-                    be.default(e) ||
+                    te.default(e) ||
                     (r = (function (e, t) {
                         var r;
                         if (!e) return;
-                        if ('string' == typeof e) return mt(e, t);
-                        var i = ge.default((r = Object.prototype.toString.call(e))).call(r, 8, -1);
+                        if ('string' == typeof e) return ht(e, t);
+                        var i = ve.default((r = Object.prototype.toString.call(e))).call(r, 8, -1);
                         'Object' === i && e.constructor && (i = e.constructor.name);
-                        if ('Map' === i || 'Set' === i) return Ce.default(e);
-                        if ('Arguments' === i || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i)) return mt(e, t);
+                        if ('Map' === i || 'Set' === i) return ke.default(e);
+                        if ('Arguments' === i || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i)) return ht(e, t);
                     })(e)) ||
                     (t && e && 'number' == typeof e.length)
                 ) {
@@ -1794,7 +1789,7 @@
                 s = !1;
             return {
                 s: function () {
-                    r = ke.default(e);
+                    r = xe.default(e);
                 },
                 n: function () {
                     var e = r.next();
@@ -1812,151 +1807,121 @@
                 },
             };
         }
-        function mt(e, t) {
+        function ht(e, t) {
             (null == t || t > e.length) && (t = e.length);
             for (var r = 0, i = new Array(t); r < t; r++) i[r] = e[r];
             return i;
         }
-        function pt(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        function dt(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function vt(e) {
+        function mt(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = pt(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = dt(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = pt(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = dt(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        (ft.fillSelectItems = function (e, t, r, i, l) {
+        (ut.fillSelectItems = function (e, t, r, i, l) {
             if (t)
                 if ('array' === e.type) {
                     var n, a;
-                    fe.default(
-                        (n = Te.default(
-                            (a = ye.default(t).call(t, function (e) {
+                    ie.default(
+                        (n = Ce.default(
+                            (a = pe.default(t).call(t, function (e) {
                                 return e;
                             }))
                         ).call(a))
                     ).call(n, function (e) {
-                        var t = l ? e : pe.default({}, i, e);
-                        ue.default(r).call(r, function (e) {
-                            return dt(e, t, i);
+                        var t = l ? e : me.default({}, i, e);
+                        fe.default(r).call(r, function (e) {
+                            return ct(e, t, i);
                         }) || r.push(t);
                     });
                 } else {
-                    var s = l ? t : pe.default({}, i, t);
-                    ue.default(r).call(r, function (e) {
-                        return dt(e, s, i);
+                    var s = l ? t : me.default({}, i, t);
+                    fe.default(r).call(r, function (e) {
+                        return ct(e, s, i);
                     }) || r.push(s);
                 }
         }),
-            (ft.fillList = function (e, t, r, i) {
+            (ut.fillList = function (e, t, r, i) {
                 if (t)
                     return r.length
-                        ? (fe.default(r).call(r, function (e) {
-                              ue.default(t).call(t, function (t) {
-                                  return dt(e, t, i);
+                        ? (ie.default(r).call(r, function (e) {
+                              fe.default(t).call(t, function (t) {
+                                  return ct(e, t, i);
                               }) || t.push(e);
                           }),
-                          fe.default(t).call(t, function (e, l) {
-                              ue.default(r).call(r, function (t) {
-                                  return dt(t, e, i);
+                          ie.default(t).call(t, function (e, l) {
+                              fe.default(r).call(r, function (t) {
+                                  return ct(t, e, i);
                               }) || (t[l] = null);
                           }),
-                          se.default(t).call(t, function (e) {
+                          ce.default(t).call(t, function (e) {
                               return !!e;
                           }))
                         : [];
             });
-        var bt = require('match-all'),
-            yt = require('debounce');
-        function St(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
+        var pt = require('match-all'),
+            bt = require('debounce');
+        function vt(e, t) {
+            var r = re.default(e);
+            if (oe.default) {
+                var i = oe.default(e);
                 t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
+                    (i = ce.default(i).call(i, function (t) {
+                        return se.default(e, t).enumerable;
                     })),
                     r.push.apply(r, i);
             }
             return r;
         }
-        function gt(e) {
+        function yt(e) {
             for (var t = arguments, r = 1; r < arguments.length; r++) {
                 var i,
                     l = null != t[r] ? t[r] : {};
                 if (r % 2)
-                    fe.default((i = St(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
+                    ie.default((i = vt(Object(l), !0))).call(i, function (t) {
+                        me.default(e, t, l[t]);
                     });
-                else if (le.default) ie.default(e, le.default(l));
+                else if (ae.default) ne.default(e, ae.default(l));
                 else {
                     var n;
-                    fe.default((n = St(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
+                    ie.default((n = vt(Object(l)))).call(n, function (t) {
+                        le.default(e, t, se.default(l, t));
                     });
                 }
             }
             return e;
         }
-        function jt(e, t) {
-            var r = ce.default(e);
-            if (ae.default) {
-                var i = ae.default(e);
-                t &&
-                    (i = se.default(i).call(i, function (t) {
-                        return ne.default(e, t).enumerable;
-                    })),
-                    r.push.apply(r, i);
-            }
-            return r;
-        }
-        function xt(e) {
-            for (var t = arguments, r = 1; r < arguments.length; r++) {
-                var i,
-                    l = null != t[r] ? t[r] : {};
-                if (r % 2)
-                    fe.default((i = jt(Object(l), !0))).call(i, function (t) {
-                        pe.default(e, t, l[t]);
-                    });
-                else if (le.default) ie.default(e, le.default(l));
-                else {
-                    var n;
-                    fe.default((n = jt(Object(l)))).call(n, function (t) {
-                        re.default(e, t, ne.default(l, t));
-                    });
-                }
-            }
-            return e;
-        }
-        var Ot = {
+        var gt = {
                 name: 'HAssemblyRenderder',
                 mixins: [
-                    Ge,
-                    rt,
-                    Xe,
-                    ct,
+                    We,
+                    et,
+                    Ye,
+                    ot,
                     {
                         data: function () {
                             return { rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} };
@@ -1981,13 +1946,13 @@
                                 return (
                                     !(
                                         'array' !== this.fullSchema.type ||
-                                        !oe
+                                        !de
                                             .default((e = ['string', 'integer', 'number']))
                                             .call(e, this.fullSchema.items.type) ||
                                         !this.fullSchema.items.oneOf
                                     ) ||
                                     !(
-                                        !oe
+                                        !de
                                             .default((t = ['string', 'integer', 'number']))
                                             .call(t, this.fullSchema.type) || !this.fullSchema.oneOf
                                     )
@@ -2000,14 +1965,14 @@
                                 var e;
                                 return !(
                                     !this.fullSchema['x-fromUrl'] ||
-                                    -1 === qe.default((e = this.fullSchema['x-fromUrl'])).call(e, '{q}')
+                                    -1 === we.default((e = this.fullSchema['x-fromUrl'])).call(e, '{q}')
                                 );
                             },
                             fromUrlKeys: function () {
                                 var e;
                                 return this.fullSchema['x-fromUrl']
-                                    ? se
-                                          .default((e = bt(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray()))
+                                    ? ce
+                                          .default((e = pt(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray()))
                                           .call(e, function (e) {
                                               return 'q' !== e;
                                           })
@@ -2059,7 +2024,7 @@
                                             ? this.fullSchema.items.enum
                                             : this.fullSchema.enum),
                                 this.oneOfSelect) &&
-                                    (this.rawSelectItems = ye
+                                    (this.rawSelectItems = pe
                                         .default(
                                             (t = ('array' === this.fullSchema.type
                                                 ? this.fullSchema.items
@@ -2068,12 +2033,12 @@
                                         )
                                         .call(t, function (e) {
                                             var t;
-                                            return vt(
-                                                vt({}, e),
+                                            return mt(
+                                                mt({}, e),
                                                 {},
                                                 ((t = {}),
-                                                pe.default(t, r.itemKey, e.const || (e.enum && e.enum[0])),
-                                                pe.default(t, r.itemTitle, e.title),
+                                                me.default(t, r.itemKey, e.const || (e.enum && e.enum[0])),
+                                                me.default(t, r.itemTitle, e.title),
                                                 t)
                                             );
                                         }));
@@ -2088,8 +2053,8 @@
                                         { immediate: !0 }
                                     ),
                                 this.fromUrlKeys) &&
-                                    fe.default((i = this.fromUrlKeys)).call(i, function (e) {
-                                        me.default(e).call(e, 'context.')
+                                    ie.default((i = this.fromUrlKeys)).call(i, function (e) {
+                                        Ve.default(e).call(e, 'context.')
                                             ? r.$watch(
                                                   'options.' + e,
                                                   function (t) {
@@ -2112,10 +2077,10 @@
                                     return this.$emit('error', 'No http lib found to perform ajax request');
                                 (this.debouncedFetch =
                                     this.debouncedFetch ||
-                                    yt(function () {
+                                    bt(function () {
                                         var t,
                                             r = e.fullSchema['x-fromUrl'].replace('{q}', e.q || ''),
-                                            i = ht(e.fromUrlKeys);
+                                            i = ft(e.fromUrlKeys);
                                         try {
                                             for (i.s(); !(t = i.n()).done; ) {
                                                 var l = t.value;
@@ -2135,7 +2100,7 @@
                                                         l = e.fullSchema['x-itemsProp']
                                                             ? i[e.fullSchema['x-itemsProp']]
                                                             : i;
-                                                    if (!be.default(l))
+                                                    if (!te.default(l))
                                                         throw new Error(
                                                             'Result of http fetch '.concat(r, ' is not an array')
                                                         );
@@ -2148,16 +2113,16 @@
                                     this.debouncedFetch();
                             },
                             updateSelectItems: function () {
-                                var e = ft.getSelectItems(
+                                var e = ut.getSelectItems(
                                     this.rawSelectItems,
                                     this.fullSchema,
                                     this.itemKey,
                                     this.itemIcon
                                 );
                                 'list' === this.display &&
-                                    this.input(ft.fillList(this.fullSchema, this.value, e, this.itemKey)),
-                                    ft.fillSelectItems(this.fullSchema, this.value, e, this.itemKey, this.returnObject),
-                                    de.default(e) !== de.default(this.selectItems) && (this.selectItems = e);
+                                    this.input(ut.fillList(this.fullSchema, this.value, e, this.itemKey)),
+                                    ut.fillSelectItems(this.fullSchema, this.value, e, this.itemKey, this.returnObject),
+                                    he.default(e) !== he.default(this.selectItems) && (this.selectItems = e);
                             },
                             renderSelectIcon: function (e, t) {
                                 if (this.itemIcon) {
@@ -2165,12 +2130,12 @@
                                     if (r) {
                                         var i = e('v-icon', null, r);
                                         return (
-                                            me.default(r).call(r, 'http://') || me.default(r).call(r, 'https://')
+                                            Ve.default(r).call(r, 'http://') || Ve.default(r).call(r, 'https://')
                                                 ? (i = e('img', {
                                                       domProps: { src: r },
                                                       style: 'height:100%;width:100%;',
                                                   }))
-                                                : (me.default(r).call(r, '<?xml') || me.default(r).call(r, '<svg')) &&
+                                                : (Ve.default(r).call(r, '<?xml') || Ve.default(r).call(r, '<svg')) &&
                                                   (i = e('div', { domProps: { innerHTML: r } })),
                                             e('v-avatar', { props: { tile: !0, size: 20 }, class: 'mr-2' }, [i])
                                         );
@@ -2208,15 +2173,15 @@
                                             l.input(e), l.change(e);
                                         },
                                     },
-                                    a = vt(
-                                        vt({}, this.commonFieldProps),
+                                    a = mt(
+                                        mt({}, this.commonFieldProps),
                                         {},
                                         { multiple: 'array' === this.fullSchema.type, label: null }
                                     ),
                                     s = e(
                                         'legend',
                                         {
-                                            class: he
+                                            class: ue
                                                 .default(
                                                     (t = 'v-label theme--'.concat(
                                                         this.theme.isDark ? 'dark' : 'light',
@@ -2227,7 +2192,7 @@
                                         },
                                         this.commonFieldProps.label
                                     ),
-                                    o = ye.default((r = this.selectItems)).call(r, function (t) {
+                                    o = pe.default((r = this.selectItems)).call(r, function (t) {
                                         return l.renderSelectionControlItem(e, t);
                                     });
                                 return [
@@ -2243,7 +2208,7 @@
                                             e(
                                                 'div',
                                                 { class: 'v-input--radio-group__input' },
-                                                he.default((i = [s])).call(i, xe.default(o))
+                                                ue.default((i = [s])).call(i, ge.default(o))
                                             ),
                                             this.renderTooltip(e, 'append'),
                                         ]
@@ -2254,14 +2219,14 @@
                                 var r = t[this.itemTitle] || t[this.itemKey],
                                     i = t[this.itemKey];
                                 return e('v-radio', {
-                                    props: vt(vt({}, this.fullOptions.radioItemProps), {}, { label: r, value: i }),
+                                    props: mt(mt({}, this.fullOptions.radioItemProps), {}, { label: r, value: i }),
                                 });
                             },
                             renderRadioGroup: function (e) {
                                 var t,
                                     r,
                                     i = this,
-                                    l = vt(vt({}, this.commonFieldProps), this.fullOptions.radioGroupProps);
+                                    l = mt(mt({}, this.commonFieldProps), this.fullOptions.radioGroupProps);
                                 return [
                                     e(
                                         'v-radio-group',
@@ -2273,10 +2238,10 @@
                                                 },
                                             },
                                         },
-                                        he.default((t = [])).call(
+                                        ue.default((t = [])).call(
                                             t,
-                                            xe.default(
-                                                ye.default((r = this.selectItems)).call(r, function (t) {
+                                            ge.default(
+                                                pe.default((r = this.selectItems)).call(r, function (t) {
                                                     return i.renderRadioItem(e, t);
                                                 })
                                             ),
@@ -2291,7 +2256,7 @@
                                 if (this.isSelectProp) {
                                     if ('radio' === this.display && 'array' !== this.fullSchema.type)
                                         return this.renderRadioGroup(e);
-                                    if (oe.default((t = ['checkbox', 'switch'])).call(t, this.display))
+                                    if (de.default((t = ['checkbox', 'switch'])).call(t, this.display))
                                         return this.renderSelectionControlGroup(e);
                                     var i = {
                                             input: function (e) {
@@ -2328,11 +2293,11 @@
                                                 return [r.renderSelectIcon(e, t.item), r.renderSelectItem(e, t.item)];
                                             },
                                         },
-                                        n = xe.default(this.renderPropSlots(e));
+                                        n = ge.default(this.renderPropSlots(e));
                                     this.htmlDescription && n.push(this.renderTooltip(e, 'append-outer'));
                                     var a = 'v-select',
-                                        s = vt(
-                                            vt(vt({}, this.commonFieldProps), this.fullOptions.selectProps),
+                                        s = mt(
+                                            mt(mt({}, this.commonFieldProps), this.fullOptions.selectProps),
                                             {},
                                             {
                                                 clearable: !this.required,
@@ -2358,7 +2323,7 @@
                                                   }))
                                                 : (s.filter = function (e, t) {
                                                       var i;
-                                                      return oe
+                                                      return de
                                                           .default((i = (e[r.itemTitle] || e[r.itemKey]).toLowerCase()))
                                                           .call(i, t.toLowerCase());
                                                   })),
@@ -2369,7 +2334,7 @@
                             },
                         },
                     },
-                    st,
+                    nt,
                     {
                         data: function () {
                             return { editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} } };
@@ -2386,7 +2351,7 @@
                             readonlyItemSchema: function () {
                                 var e = this;
                                 if (this.fullSchema.items) {
-                                    var t = JSON.parse(de.default(this.fullSchema.items));
+                                    var t = JSON.parse(he.default(this.fullSchema.items));
                                     if (((t.readOnly = !0), this.itemTitle)) {
                                         var r, i;
                                         if (
@@ -2395,12 +2360,12 @@
                                                 (t.properties[this.itemTitle]['x-display'] = 'hidden'),
                                             t.oneOf)
                                         )
-                                            fe.default((r = t.oneOf)).call(r, function (t) {
+                                            ie.default((r = t.oneOf)).call(r, function (t) {
                                                 t.properties[e.itemTitle] &&
                                                     (t.properties[e.itemTitle]['x-display'] = 'hidden');
                                             });
                                         if (this.fullSchema.items.allOf)
-                                            fe.default((i = t.allOf)).call(i, function (t) {
+                                            ie.default((i = t.allOf)).call(i, function (t) {
                                                 t.properties[e.itemTitle] &&
                                                     (t.properties[e.itemTitle]['x-display'] = 'hidden');
                                             });
@@ -2417,7 +2382,7 @@
                                     n = this,
                                     a = -1 === r;
                                 this.editabledArrayProp.currentDialog === r &&
-                                    (De.default((l = this.fullOptions.idPrefix)).call(l, '--dialog--') ||
+                                    (Te.default((l = this.fullOptions.idPrefix)).call(l, '--dialog--') ||
                                         (this.fullOptions.idPrefix = this.fullOptions.idPrefix + '--dialog--'),
                                     (i = e(
                                         'v-jsf',
@@ -2451,7 +2416,7 @@
                                                 {
                                                     on: {
                                                         click: function () {
-                                                            (n.editabledArrayProp.editItem = JSON.parse(de.default(t))),
+                                                            (n.editabledArrayProp.editItem = JSON.parse(he.default(t))),
                                                                 (n.editabledArrayProp.currentDialog = r);
                                                         },
                                                     },
@@ -2477,8 +2442,8 @@
                                 return e(
                                     'v-dialog',
                                     {
-                                        props: gt(
-                                            gt({}, this.fullOptions.dialogProps),
+                                        props: yt(
+                                            yt({}, this.fullOptions.dialogProps),
                                             {},
                                             {
                                                 value: this.editabledArrayProp.currentDialog === r,
@@ -2558,16 +2523,16 @@
                                 return e('v-jsf', {
                                     props: {
                                         schema: this.readonlyItemSchema,
-                                        value: JSON.parse(de.default(t)),
+                                        value: JSON.parse(he.default(t)),
                                         modelRoot: this.modelRoot || this.value,
                                         modelKey: r,
                                         parentKey: ''.concat(this.fullKey, '.'),
-                                        options: gt(
-                                            gt({}, this.fullOptions),
+                                        options: yt(
+                                            yt({}, this.fullOptions),
                                             {},
                                             {
                                                 hideReadOnly: !1,
-                                                fieldProps: gt(gt({}, this.fullOptions.fieldProps), {}, { dense: !0 }),
+                                                fieldProps: yt(yt({}, this.fullOptions.fieldProps), {}, { dense: !0 }),
                                             }
                                         ),
                                         sectionDepth: this.sectionDepth + 1,
@@ -2614,9 +2579,9 @@
                                     if (this.value && this.value.length) {
                                         var n,
                                             a,
-                                            s = ye
+                                            s = pe
                                                 .default(
-                                                    (n = se.default((a = this.value)).call(a, function (e) {
+                                                    (n = ce.default((a = this.value)).call(a, function (e) {
                                                         return !!e;
                                                     }))
                                                 )
@@ -2653,7 +2618,7 @@
                                                                             on: {
                                                                                 click: function () {
                                                                                     var e,
-                                                                                        i = se
+                                                                                        i = ce
                                                                                             .default((e = t.value))
                                                                                             .call(e, function (e) {
                                                                                                 return e !== r;
@@ -2775,7 +2740,7 @@
                         computed: {
                             childrenInputs: function () {
                                 var e;
-                                return Le.default((e = this.inputs)).call(
+                                return qe.default((e = this.inputs)).call(
                                     e,
                                     function (e, t, r) {
                                         return (e[t.modelKey || r] = t), e;
@@ -2786,14 +2751,14 @@
                             hasError: function () {
                                 var e;
                                 return (
-                                    !!ue.default((e = this.inputs)).call(e, function (e) {
+                                    !!fe.default((e = this.inputs)).call(e, function (e) {
                                         return e.hasError;
                                     }) || !!this.containerError
                                 );
                             },
                             hasValidatedChildError: function () {
                                 var e;
-                                return !!ue.default((e = this.inputs)).call(e, function (e) {
+                                return !!fe.default((e = this.inputs)).call(e, function (e) {
                                     return (
                                         e.hasValidatedChildError || (e.hasError && (e.validated || e.shouldValidate))
                                     );
@@ -2820,7 +2785,7 @@
                             },
                             unregister: function (e) {
                                 var t;
-                                this.inputs = se.default((t = this.inputs)).call(t, function (t) {
+                                this.inputs = ce.default((t = this.inputs)).call(t, function (t) {
                                     return t._uid !== e._uid;
                                 });
                             },
@@ -2829,14 +2794,14 @@
                                 return (
                                     (this.validated = !0),
                                     0 ===
-                                        se.default((t = this.inputs)).call(t, function (t) {
+                                        ce.default((t = this.inputs)).call(t, function (t) {
                                             return !t.validate(e);
                                         }).length
                                 );
                             },
                             reset: function () {
                                 var e;
-                                fe.default((e = this.inputs)).call(e, function (e) {
+                                ie.default((e = this.inputs)).call(e, function (e) {
                                     return e.reset();
                                 });
                             },
@@ -2844,7 +2809,7 @@
                                 var e;
                                 (this.shouldValidate = !1),
                                     (this.validated = !1),
-                                    fe.default((e = this.inputs)).call(e, function (e) {
+                                    ie.default((e = this.inputs)).call(e, function (e) {
                                         return e.resetValidation();
                                     });
                             },
@@ -2871,7 +2836,7 @@
                                 ('undefined' != typeof window && window) ||
                                 ('undefined' != typeof global && global) ||
                                 {},
-                            t = ve.default({}, Ee, this.options || {}, this.resolvedSchema['x-options'] || {});
+                            t = Object.assign({}, Me, this.options || {}, this.resolvedSchema['x-options'] || {});
                         (t.markdown =
                             t.markdown ||
                             (e.markdownit &&
@@ -2884,20 +2849,20 @@
                             (t.httpLib = t.httpLib || this.axios || this.$http || this.$axios || e.axios);
                         var r = (this.$vuetify.icons && this.$vuetify.icons.iconfont) || 'mdi';
                         return (
-                            (t.icons = xt(xt({}, He[r]), t.icons)),
-                            (t.messages = xt(xt({}, Ue[t.locale] || Ue.en), t.messages)),
-                            (t.formats = xt(xt({}, Ne), t.formats)),
+                            (t.icons = Object.assign({}, Ue[r], t.icons)),
+                            (t.messages = Object.assign({}, Ee[t.locale] || Ee.en, t.messages)),
+                            (t.formats = Object.assign({}, Fe, t.formats)),
                             t.deleteReadOnly && (t.hideReadOnly = !0),
                             t
                         );
                     },
                     resolvedSchema: function () {
                         return 'root' === this.modelKey
-                            ? Ke.resolve(this.schema, { '~$locale~': (this.options && this.options.locale) || 'en' })
+                            ? $e.resolve(this.schema, { '~$locale~': (this.options && this.options.locale) || 'en' })
                             : this.schema;
                     },
                     fullSchema: function () {
-                        return Me.prepareFullSchema(this.resolvedSchema, this.value);
+                        return Re.prepareFullSchema(this.resolvedSchema, this.value);
                     },
                     htmlDescription: function () {
                         return this.fullSchema && this.fullSchema.description
@@ -2961,18 +2926,18 @@
                                 });
                             }
                             if ('string' === e.type && void 0 !== e.patternRegexp) {
-                                var d = t.messages.pattern.replace('{pattern}', e.pattern);
+                                var h = t.messages.pattern.replace('{pattern}', e.pattern);
                                 s.push(function (t) {
-                                    return null == t || !!t.match(e.patternRegexp) || d;
+                                    return null == t || !!t.match(e.patternRegexp) || h;
                                 });
                             }
-                            if (oe.default((l = ['number', 'integer'])).call(l, e.type) && void 0 !== e.maximum) {
-                                var h = t.messages.maximum.replace('{maximum}', e.maximum.toLocaleString(t.locale));
+                            if (de.default((l = ['number', 'integer'])).call(l, e.type) && void 0 !== e.maximum) {
+                                var d = t.messages.maximum.replace('{maximum}', e.maximum.toLocaleString(t.locale));
                                 s.push(function (t) {
-                                    return null == t || t <= e.maximum || h;
+                                    return null == t || t <= e.maximum || d;
                                 });
                             }
-                            if (oe.default((n = ['number', 'integer'])).call(n, e.type) && void 0 !== e.minimum) {
+                            if (de.default((n = ['number', 'integer'])).call(n, e.type) && void 0 !== e.minimum) {
                                 var m = t.messages.minimum.replace('{minimum}', e.minimum.toLocaleString(t.locale));
                                 s.push(function (t) {
                                     return null == t || t >= e.minimum || m;
@@ -2983,8 +2948,8 @@
                                     var r;
                                     return (
                                         null == t ||
-                                        !!ue.default((r = e.enum)).call(r, function (e) {
-                                            return de.default(e) === de.default(t);
+                                        !!fe.default((r = e.enum)).call(r, function (e) {
+                                            return he.default(e) === he.default(t);
                                         }) ||
                                         ''
                                     );
@@ -2994,10 +2959,10 @@
                                     s.push(function (t) {
                                         return (
                                             null == t ||
-                                            !ue.default(t).call(t, function (t) {
+                                            !fe.default(t).call(t, function (t) {
                                                 var r;
-                                                return !ue.default((r = e.items.enum)).call(r, function (e) {
-                                                    return de.default(e) === de.default(t);
+                                                return !fe.default((r = e.items.enum)).call(r, function (e) {
+                                                    return he.default(e) === he.default(t);
                                                 });
                                             }) ||
                                             ''
@@ -3009,7 +2974,7 @@
                                         var r;
                                         return (
                                             null == t ||
-                                            !!ue.default((r = e.oneOf)).call(r, function (e) {
+                                            !!fe.default((r = e.oneOf)).call(r, function (e) {
                                                 return e.const === t;
                                             }) ||
                                             ''
@@ -3020,32 +2985,30 @@
                                     s.push(function (t) {
                                         return (
                                             null == t ||
-                                            !ue.default(t).call(t, function (t) {
+                                            !fe.default(t).call(t, function (t) {
                                                 var r;
-                                                return !ue.default((r = e.items.oneOf)).call(r, function (e) {
+                                                return !fe.default((r = e.items.oneOf)).call(r, function (e) {
                                                     return e.const === t;
                                                 });
                                             }) ||
                                             ''
                                         );
                                     });
-                            var p = ye.default((a = e['x-ruless'] || [])).call(a, function (e) {
+                            var p = pe.default((a = e['x-ruless'] || [])).call(a, function (e) {
                                 return 'string' == typeof e
                                     ? t.rules && t.rules[e]
                                     : 'function' == typeof e
                                     ? e
                                     : void 0;
                             });
-                            return he.default(s).call(s, p);
+                            return ue.default(s).call(s, p);
                         })(this.fullSchema, this.fullOptions, this.required, this.isOneOfSelect);
                     },
                     disabled: function () {
                         return this.fullOptions.disableAll || this.fullSchema.readOnly;
                     },
                     slotName: function () {
-                        var e;
-                        return this.fullSchema['x-display'] &&
-                            me.default((e = this.fullSchema['x-display'])).call(e, 'custom-')
+                        return this.fullSchema['x-display'] && this.fullSchema['x-display'].startsWith('custom-')
                             ? this.fullSchema['x-display']
                             : this.fullKey;
                     },
@@ -3077,31 +3040,32 @@
                         return this.fullKey.replace(/\./g, '-');
                     },
                     commonFieldProps: function () {
-                        return xt(
-                            xt(
-                                {
-                                    value: this.value,
-                                    inputValue: this.value,
-                                    label: this.label,
-                                    name: this.fullKey,
-                                    id: this.fullOptions.idPrefix + this.dashKey,
-                                    disabled: this.disabled,
-                                    rules: this.rules,
-                                    required: this.required,
-                                },
-                                this.fullOptions.fieldProps
-                            ),
+                        return Object.assign(
+                            {},
+                            {
+                                value: this.value,
+                                inputValue: this.value,
+                                label: this.label,
+                                name: this.fullKey,
+                                id: this.fullOptions.idPrefix + this.dashKey,
+                                disabled: this.disabled,
+                                rules: this.rules,
+                                required: this.required,
+                            },
+                            this.fullOptions.fieldProps,
                             this.fullSchema['x-props']
                         );
                     },
                     propertyClass: function () {
-                        var e;
-                        return he
-                            .default((e = 'vjsf-property vjsf-property-'.concat(this.dashKey, ' pa-0 ')))
-                            .call(e, this.fullSchema['x-class'] || '');
+                        return (
+                            'vjsf-property vjsf-property-' +
+                            this.dashKey +
+                            ' pa-0 ' +
+                            (this.fullSchema['x-class'] || '')
+                        );
                     },
                     xSlots: function () {
-                        return xt({}, this.fullSchema['x-slots']);
+                        return Object.assign({}, this.fullSchema['x-slots']);
                     },
                     formattedValue: function () {
                         return (
@@ -3116,8 +3080,8 @@
                     fullSchema: {
                         handler: function () {
                             this.fullSchema &&
-                                de.default(this.fullSchema) !== this.lastFullSchema &&
-                                ((this.lastFullSchema = de.default(this.fullSchema)),
+                                JSON.stringify(this.fullSchema) !== this.lastFullSchema &&
+                                ((this.lastFullSchema = JSON.stringify(this.fullSchema)),
                                 this.initFromSchema(),
                                 this.fixProperties(),
                                 (this.ready = !0));
@@ -3126,7 +3090,6 @@
                     },
                 },
                 render: function (e) {
-                    var t, r;
                     if (
                         !(
                             !this.fullSchema ||
@@ -3135,78 +3098,76 @@
                             (this.fullSchema.readOnly && this.fullOptions.hideReadOnly)
                         )
                     ) {
-                        var i = [];
+                        var t = [];
                         if (
                             (this.$scopedSlots.before
-                                ? i.push(this.$scopedSlots.before(this.slotParams))
+                                ? t.push(this.$scopedSlots.before(this.slotParams))
                                 : this.$slots.before
-                                ? fe.default((t = this.$slots.before)).call(t, function (e) {
-                                      return i.push(e);
+                                ? this.$slots.before.forEach(function (e) {
+                                      return t.push(e);
                                   })
                                 : this.xSlots.before &&
-                                  i.push(
+                                  t.push(
                                       e('div', {
                                           domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.before) },
                                       })
                                   ),
                             this.$scopedSlots.default)
                         )
-                            i.push(this.$scopedSlots.default(this.slotParams));
+                            t.push(this.$scopedSlots.default(this.slotParams));
                         else if (
                             this.fullSchema['x-display'] &&
                             this.fullSchema['x-display'] &&
                             this.$scopedSlots[this.fullSchema['x-display']]
                         )
-                            i.push(this.$scopedSlots[this.fullSchema['x-display']](this.slotParams));
+                            t.push(this.$scopedSlots[this.fullSchema['x-display']](this.slotParams));
                         else {
-                            var l =
+                            (
                                 this.renderDateProp(e) ||
                                 this.renderSelectProp(e) ||
                                 this.renderFileProp(e) ||
                                 this.renderSimpleProp(e) ||
                                 this.renderObjectContainer(e) ||
-                                [];
-                            fe.default(l).call(l, function (e) {
-                                return i.push(e);
+                                []
+                            ).forEach(function (e) {
+                                return t.push(e);
                             });
                         }
                         this.$scopedSlots.after
-                            ? i.push(this.$scopedSlots.after(this.slotParams))
+                            ? t.push(this.$scopedSlots.after(this.slotParams))
                             : this.$slots.after
-                            ? fe.default((r = this.$slots.after)).call(r, function (e) {
-                                  return i.push(e);
+                            ? this.$slots.after.forEach(function (e) {
+                                  return t.push(e);
                               })
                             : this.xSlots.after &&
-                              i.push(
+                              t.push(
                                   e('div', { domProps: { innerHTML: this.fullOptions.markdown(this.xSlots.after) } })
                               );
-                        var n = xt({}, this.fullOptions.fieldColProps);
+                        var r = Object.assign({}, this.fullOptions.fieldColProps);
                         return (
-                            this.fullSchema['x-cols'] && (n.cols = this.fullSchema['x-cols']),
+                            this.fullSchema['x-cols'] && (r.cols = this.fullSchema['x-cols']),
                             e(
                                 'v-col',
-                                { props: n, class: this.propertyClass, style: this.fullSchema['x-style'] || '' },
-                                i
+                                { props: r, class: this.propertyClass, style: this.fullSchema['x-style'] || '' },
+                                t
                             )
                         );
                     }
                 },
                 methods: {
                     renderPropSlots: function (e) {
-                        var t,
-                            r,
-                            i = this,
-                            l = [];
+                        var t = this,
+                            r = [];
                         return (
-                            fe.default((t = ce.default(this.xSlots))).call(t, function (t) {
-                                l.push(
-                                    e('div', { slot: t, domProps: { innerHTML: i.fullOptions.markdown(i.xSlots[t]) } })
+                            Object.keys(this.xSlots).forEach(function (i) {
+                                r.push(
+                                    e('div', { slot: i, domProps: { innerHTML: t.fullOptions.markdown(t.xSlots[i]) } })
                                 );
                             }),
-                            fe.default((r = ce.default(this.$slots))).call(r, function (t) {
-                                l.push(e('template', { slot: t }, i.$slots[t]));
+                            Object.keys(this.$slots).forEach(function (i) {
+                                r.push(e('template', { slot: i }, t.$slots[i]));
                             }),
-                            l
+                            r
                         );
                     },
                     change: function () {
@@ -3225,121 +3186,110 @@
                             : {};
                     },
                     fixProperties: function () {
-                        var e,
-                            t = this;
-                        if (
-                            'object' === this.fullSchema.type &&
-                            !!(
+                        var e = this;
+                        'object' === this.fullSchema.type &&
+                            (!(
                                 (this.fullSchema.properties && this.fullSchema.properties.length) ||
-                                (ce.default(this.subModels).length &&
+                                (Object.keys(this.subModels).length &&
                                     !this.fullSchema['x-fromData'] &&
                                     !this.fullSchema['x-fromUrl'])
-                            )
-                        ) {
-                            var r;
-                            if (
-                                (this.fullOptions.removeAdditionalProperties ||
+                            ) ||
+                                ((this.fullOptions.removeAdditionalProperties ||
                                     !1 === this.fullSchema.additionalProperties) &&
-                                this.value
-                            )
-                                fe.default((r = ce.default(this.value))).call(r, function (e) {
-                                    var r;
-                                    ue.default((r = t.fullSchema.properties || [])).call(r, function (t) {
-                                        return t.key === e;
-                                    }) || t.$delete(t.value, e);
-                                });
-                            fe.default((e = ce.default(this.subModels))).call(e, function (e) {
-                                var r;
-                                fe.default((r = ce.default(t.subModels[e]))).call(r, function (r) {
-                                    t.value[r] !== t.subModels[e][r] && t.$set(t.value, r, t.subModels[e][r]);
-                                });
-                            });
-                        }
+                                    this.value &&
+                                    Object.keys(this.value).forEach(function (t) {
+                                        (e.fullSchema.properties || []).find(function (e) {
+                                            return e.key === t;
+                                        }) || e.$delete(e.value, t);
+                                    }),
+                                Object.keys(this.subModels).forEach(function (t) {
+                                    Object.keys(e.subModels[t]).forEach(function (r) {
+                                        e.value[r] !== e.subModels[t][r] && e.$set(e.value, r, e.subModels[t][r]);
+                                    });
+                                })));
                     },
                     initFromSchema: function () {
-                        var e;
                         if (
                             ((this.initiallyDefined = void 0 !== this.value && null !== this.value),
                             'array' === this.fullSchema.type &&
                                 (this.initiallyDefined = !(!this.value || !this.value.length)),
                             'object' === this.fullSchema.type &&
-                                (this.initiallyDefined = !(!this.value || !ce.default(this.value).length)),
+                                (this.initiallyDefined = !(!this.value || !Object.keys(this.value).length)),
                             this.fullSchema.readOnly && this.fullOptions.deleteReadOnly)
                         )
                             return this.input(void 0);
-                        var t = this.value;
+                        var e = this.value;
                         'object' === this.fullSchema.type &&
-                            oe.default((e = [void 0, null])).call(e, t) &&
+                            [void 0, null].includes(e) &&
                             !this.isSelectProp &&
-                            (t = {}),
-                            void 0 !== this.fullSchema.const && (t = this.fullSchema.const),
-                            this.initSelectProp(t),
-                            this.initObjectContainer(t),
+                            (e = {}),
+                            void 0 !== this.fullSchema.const && (e = this.fullSchema.const),
+                            this.initSelectProp(e),
+                            this.initObjectContainer(e),
                             'array' === this.fullSchema.type &&
-                                (t = se.default(t).call(t, function (e) {
-                                    var t;
-                                    return !oe.default((t = [void 0, null])).call(t, e);
+                                (e = e.filter(function (e) {
+                                    return ![void 0, null].includes(e);
                                 })),
-                            this.input(t);
+                            this.input(e);
                     },
                 },
             },
-            Pt = $e.default({}, undefined, Ot, undefined, undefined, undefined, !1, void 0, void 0, void 0),
-            It = {
+            St = De.default({}, undefined, gt, undefined, undefined, undefined, !1, void 0, void 0, void 0),
+            jt = {
                 name: 'HFormRenderer',
                 components: {
-                    VAvatar: X.VAvatar,
-                    VAutocomplete: X.VAutocomplete,
-                    VBtn: X.VBtn,
-                    VCard: X.VCard,
-                    VCardActions: X.VCardActions,
-                    VCardText: X.VCardText,
-                    VCardTitle: X.VCardTitle,
-                    VCheckbox: X.VCheckbox,
-                    VChip: X.VChip,
-                    VColorPicker: X.VColorPicker,
-                    VCombobox: X.VCombobox,
-                    VContainer: X.VContainer,
-                    VDatePicker: X.VDatePicker,
-                    VDialog: X.VDialog,
-                    VExpansionPanels: X.VExpansionPanels,
-                    VExpansionPanel: X.VExpansionPanel,
-                    VExpansionPanelHeader: X.VExpansionPanelHeader,
-                    VExpansionPanelContent: X.VExpansionPanelContent,
-                    VCol: X.VCol,
-                    VFileInput: X.VFileInput,
-                    VIcon: X.VIcon,
-                    VInput: X.VInput,
-                    VRow: X.VRow,
-                    VListItemContent: X.VListItemContent,
-                    VListItemTitle: X.VListItemTitle,
-                    VMenu: X.VMenu,
-                    VRadio: X.VRadio,
-                    VRadioGroup: X.VRadioGroup,
-                    VRangeSlider: X.VRangeSlider,
-                    VSelect: X.VSelect,
-                    VSlider: X.VSlider,
-                    VSpacer: X.VSpacer,
-                    VSubheader: X.VSubheader,
-                    VSwitch: X.VSwitch,
-                    VTabs: X.VTabs,
-                    VTab: X.VTab,
-                    VTabItem: X.VTabItem,
-                    VTextarea: X.VTextarea,
-                    VTextField: X.VTextField,
-                    VTimePicker: X.VTimePicker,
-                    VTooltip: X.VTooltip,
+                    VAvatar: Q.VAvatar,
+                    VAutocomplete: Q.VAutocomplete,
+                    VBtn: Q.VBtn,
+                    VCard: Q.VCard,
+                    VCardActions: Q.VCardActions,
+                    VCardText: Q.VCardText,
+                    VCardTitle: Q.VCardTitle,
+                    VCheckbox: Q.VCheckbox,
+                    VChip: Q.VChip,
+                    VColorPicker: Q.VColorPicker,
+                    VCombobox: Q.VCombobox,
+                    VContainer: Q.VContainer,
+                    VDatePicker: Q.VDatePicker,
+                    VDialog: Q.VDialog,
+                    VExpansionPanels: Q.VExpansionPanels,
+                    VExpansionPanel: Q.VExpansionPanel,
+                    VExpansionPanelHeader: Q.VExpansionPanelHeader,
+                    VExpansionPanelContent: Q.VExpansionPanelContent,
+                    VCol: Q.VCol,
+                    VFileInput: Q.VFileInput,
+                    VIcon: Q.VIcon,
+                    VInput: Q.VInput,
+                    VRow: Q.VRow,
+                    VListItemContent: Q.VListItemContent,
+                    VListItemTitle: Q.VListItemTitle,
+                    VMenu: Q.VMenu,
+                    VRadio: Q.VRadio,
+                    VRadioGroup: Q.VRadioGroup,
+                    VRangeSlider: Q.VRangeSlider,
+                    VSelect: Q.VSelect,
+                    VSlider: Q.VSlider,
+                    VSpacer: Q.VSpacer,
+                    VSubheader: Q.VSubheader,
+                    VSwitch: Q.VSwitch,
+                    VTabs: Q.VTabs,
+                    VTab: Q.VTab,
+                    VTabItem: Q.VTabItem,
+                    VTextarea: Q.VTextarea,
+                    VTextField: Q.VTextField,
+                    VTimePicker: Q.VTimePicker,
+                    VTooltip: Q.VTooltip,
                 },
-                mixins: [Pt],
+                mixins: [St],
             },
-            kt = $e.default({}, undefined, It, undefined, undefined, undefined, !1, void 0, void 0, void 0);
-        (kt.install = function (e) {
-            e.component(kt.name, kt);
+            Ot = De.default({}, undefined, jt, undefined, undefined, undefined, !1, void 0, void 0, void 0);
+        (Ot.install = function (e) {
+            e.component(Ot.name, Ot);
         }),
-            null != ('undefined' == typeof window ? 'undefined' : te.default(window)) &&
+            null != ('undefined' == typeof window ? 'undefined' : ee.default(window)) &&
                 window.Vue &&
-                kt.install(window.Vue),
-            (e.HFormRenderer = kt),
+                Ot.install(window.Vue),
+            (e.HFormRenderer = Ot),
             Object.defineProperty(e, '__esModule', { value: !0 });
     }
 );
