@@ -16,7 +16,7 @@
         "@nuxt/content": "^1.11.1",
         "@nuxtjs/axios": "^5.12.3",
         "@nuxtjs/pwa": "^3.3.2",
-        "nuxt": "^2.14.6",
+        "nuxt": "^2.14.8",
         "vee-validate": "^3.4.5",
         "vuetify": "^2.3.19"
     },
