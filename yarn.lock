@@ -7122,10 +7122,10 @@ eslint-plugin-nuxt@^2.0.0:
     semver "^7.3.2"
     vue-eslint-parser "^7.1.1"
 
-eslint-plugin-prettier@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-prettier/download/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
-  integrity sha1-Foq0MVTi6lfbmSos0JfIKBcfdcI=
+eslint-plugin-prettier@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-prettier/download/eslint-plugin-prettier-3.2.0.tgz#af391b2226fa0e15c96f36c733f6e9035dbd952c"
+  integrity sha1-rzkbIib6DhXJbzbHM/bpA129lSw=
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -14621,10 +14621,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.34.0:
-  version "2.34.0"
-  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.34.0.tgz#ecc7f1d4ce2cb88bb51bec2f56b984f3c35b8271"
-  integrity sha1-7Mfx1M4suIu1G+wvVrmE88NbgnE=
+rollup@^2.34.1:
+  version "2.34.1"
+  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.34.1.tgz#a387230df02c58b242794a213dfb68b42de2c8fb"
+  integrity sha1-o4cjDfAsWLJCeUohPftotC3iyPs=
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -15807,10 +15807,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^10.11.0:
-  version "10.11.0"
-  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.11.0.tgz#050a8e9c7dea45715fc6804c82006f0276dacaab"
-  integrity sha1-BQqOnH3qRXFfxoBMggBvAnbayqs=
+sweetalert2@^10.11.1:
+  version "10.11.1"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.11.1.tgz#ba2c2d166bc4b5472773cc8ef7273d75d0f2ff91"
+  integrity sha1-uiwtFmvEtUcnc8yO9yc9ddDy/5E=
 
 system@^2.0.1:
   version "2.0.1"
@@ -16710,10 +16710,10 @@ void-elements@^2.0.1:
   resolved "https://registry.npm.taobao.org/void-elements/download/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
-vue-cli-plugin-vuetify@~2.0.7:
-  version "2.0.7"
-  resolved "https://registry.npm.taobao.org/vue-cli-plugin-vuetify/download/vue-cli-plugin-vuetify-2.0.7.tgz?cache=0&sync_timestamp=1595247908427&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-cli-plugin-vuetify%2Fdownload%2Fvue-cli-plugin-vuetify-2.0.7.tgz#fcb4f1655e7c9199ee40dcbf6465e2355fd074d5"
-  integrity sha1-/LTxZV58kZnuQNy/ZGXiNV/QdNU=
+vue-cli-plugin-vuetify@~2.0.8:
+  version "2.0.8"
+  resolved "https://registry.npm.taobao.org/vue-cli-plugin-vuetify/download/vue-cli-plugin-vuetify-2.0.8.tgz#026051aad7820b356ec9cea208bf0f06e95a53a2"
+  integrity sha1-AmBRqteCCzVuyc6iCL8PBulaU6I=
   dependencies:
     null-loader "^3.0.0"
     semver "^7.1.2"

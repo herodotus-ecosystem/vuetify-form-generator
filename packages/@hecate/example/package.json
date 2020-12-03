@@ -33,7 +33,7 @@
     "devDependencies": {
         "@vue/cli-plugin-router": "^4.5.9",
         "sass": "^1.29.0",
-        "vue-cli-plugin-vuetify": "~2.0.7",
+        "vue-cli-plugin-vuetify": "~2.0.8",
         "vuetify-loader": "^1.3.0"
     }
 }

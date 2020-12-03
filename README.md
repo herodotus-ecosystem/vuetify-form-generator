@@ -10,7 +10,7 @@
 | 依赖包                     | 当前使用版本 | 最新版本 | 说明                                                            |
 | -------------------------- | ------------ | -------- | --------------------------------------------------------------- |
 | autoprefixer               | 9.8.6        | > 10.0.4 | 目前不要升级该包，需要等到 rollup-plugin-postcss 升级之后再考虑 |
-| compression-webpack-plugin | 6.1.1        | > 7.0.0  | 目前不要升级该，会跑错                                          |
+| compression-webpack-plugin | 6.1.1        | > 7.0.0  | 目前不要升级该包，会抛错误                                      |
 | postcss                    | 7.0.35       | > 8.1.10 | 目前不要升级该包，需要等到 rollup-plugin-postcss 升级之后再考虑 |
 | postcss-nested             | 4.2.3        | > 5.0.1  | 目前不要升级该包，需要等到 rollup-plugin-postcss 升级之后再考虑 |
 | postcss-simple-vars        | 5.0.2        | > 6.0.1  | 目前不要升级该包，需要等到 rollup-plugin-postcss 升级之后再考虑 |
