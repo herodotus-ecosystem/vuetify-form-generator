@@ -4487,10 +4487,10 @@ boxen@^4.2.0:
     type-fest "^0.8.1"
     widest-line "^3.1.0"
 
-bpmn-js-properties-panel@^0.37.5:
-  version "0.37.5"
-  resolved "https://registry.npm.taobao.org/bpmn-js-properties-panel/download/bpmn-js-properties-panel-0.37.5.tgz#18b3536a5c361a9bd5a09c362762132f706bf217"
-  integrity sha1-GLNTalw2GpvVoJw2J2ITL3Br8hc=
+bpmn-js-properties-panel@^0.37.6:
+  version "0.37.6"
+  resolved "https://registry.npm.taobao.org/bpmn-js-properties-panel/download/bpmn-js-properties-panel-0.37.6.tgz#b09598915c956911e46c771e4a6078332a1a9fe4"
+  integrity sha1-sJWYkVyVaRHkbHceSmB4Myoan+Q=
   dependencies:
     "@bpmn-io/extract-process-variables" "^0.3.0"
     ids "^1.0.0"
@@ -4500,30 +4500,30 @@ bpmn-js-properties-panel@^0.37.5:
     scroll-tabs "^1.0.1"
     selection-update "^0.1.2"
 
-bpmn-js@^7.4.2:
-  version "7.4.2"
-  resolved "https://registry.npm.taobao.org/bpmn-js/download/bpmn-js-7.4.2.tgz#0c9281986a01f9840df8559a1a6826528f51167f"
-  integrity sha1-DJKBmGoB+YQN+FWaGmgmUo9RFn8=
+bpmn-js@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.npm.taobao.org/bpmn-js/download/bpmn-js-7.5.0.tgz#0e4675acdbdff676db859f8cb7ec395d20e7bbd8"
+  integrity sha1-DkZ1rNvf9nbbhZ+Mt+w5XSDnu9g=
   dependencies:
-    bpmn-moddle "^7.0.3"
+    bpmn-moddle "^7.0.4"
     css.escape "^1.5.1"
     diagram-js "^6.8.2"
     diagram-js-direct-editing "^1.6.1"
     ids "^1.0.0"
-    inherits "^2.0.1"
-    min-dash "^3.5.1"
-    min-dom "^3.1.2"
+    inherits "^2.0.4"
+    min-dash "^3.5.2"
+    min-dom "^3.1.3"
     object-refs "^0.3.0"
-    tiny-svg "^2.2.1"
+    tiny-svg "^2.2.2"
 
-bpmn-moddle@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.npm.taobao.org/bpmn-moddle/download/bpmn-moddle-7.0.3.tgz#d6ce6045d9e4eebd0f0eaafd8f33cd42bc9c7180"
-  integrity sha1-1s5gRdnk7r0PDqr9jzPNQryccYA=
+bpmn-moddle@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.npm.taobao.org/bpmn-moddle/download/bpmn-moddle-7.0.4.tgz?cache=0&sync_timestamp=1606999802077&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbpmn-moddle%2Fdownload%2Fbpmn-moddle-7.0.4.tgz#0e1453d8606c9a985309dc8f068a66e063d64637"
+  integrity sha1-DhRT2GBsmphTCdyPBopm4GPWRjc=
   dependencies:
     min-dash "^3.0.0"
     moddle "^5.0.1"
-    moddle-xml "^9.0.3"
+    moddle-xml "^9.0.4"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -7184,6 +7184,16 @@ eslint-plugin-vue@^7.1.0:
     natural-compare "^1.4.0"
     semver "^7.3.2"
     vue-eslint-parser "^7.1.1"
+
+eslint-plugin-vue@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-vue/download/eslint-plugin-vue-7.2.0.tgz#dd8323fe7ca28fe9377ce3f5f6cf17afe2686f2a"
+  integrity sha1-3YMj/nyij+k3fOP19s8Xr+Jobyo=
+  dependencies:
+    eslint-utils "^2.1.0"
+    natural-compare "^1.4.0"
+    semver "^7.3.2"
+    vue-eslint-parser "^7.2.0"
 
 eslint-scope@^4.0.3:
   version "4.0.3"
@@ -11099,7 +11109,7 @@ mimic-fn@^3.0.0:
   resolved "https://registry.npm.taobao.org/mimic-fn/download/mimic-fn-3.1.0.tgz?cache=0&sync_timestamp=1596095644798&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmimic-fn%2Fdownload%2Fmimic-fn-3.1.0.tgz#65755145bbf3e36954b949c16450427451d5ca74"
   integrity sha1-ZXVRRbvz42lUuUnBZFBCdFHVynQ=
 
-min-dash@^3.0.0, min-dash@^3.1.0, min-dash@^3.5.0, min-dash@^3.5.1, min-dash@^3.5.2:
+min-dash@^3.0.0, min-dash@^3.1.0, min-dash@^3.5.0, min-dash@^3.5.2:
   version "3.5.2"
   resolved "https://registry.npm.taobao.org/min-dash/download/min-dash-3.5.2.tgz#23786fa289116ba3656038e16511577413d27200"
   integrity sha1-I3hvookRa6NlYDjhZRFXdBPScgA=
@@ -11298,12 +11308,12 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-moddle-xml@^9.0.3:
-  version "9.0.3"
-  resolved "https://registry.npm.taobao.org/moddle-xml/download/moddle-xml-9.0.3.tgz#e17843bf7dc7c23c6466dbca08482546c16f52af"
-  integrity sha1-4XhDv33HwjxkZtvKCEglRsFvUq8=
+moddle-xml@^9.0.4:
+  version "9.0.4"
+  resolved "https://registry.npm.taobao.org/moddle-xml/download/moddle-xml-9.0.4.tgz#47e518fbac5dc3fb05ee0bc243895ba3fce22deb"
+  integrity sha1-R+UY+6xdw/sF7gvCQ4lbo/ziLes=
   dependencies:
-    min-dash "^3.0.0"
+    min-dash "^3.5.2"
     moddle "^5.0.1"
     saxen "^8.1.2"
 
@@ -16035,7 +16045,7 @@ tiny-emitter@^2.0.0:
   resolved "https://registry.npm.taobao.org/tiny-emitter/download/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha1-HRpW7fxRxD6GPLtTgqcjMONVVCM=
 
-tiny-svg@^2.2.1:
+tiny-svg@^2.2.1, tiny-svg@^2.2.2:
   version "2.2.2"
   resolved "https://registry.npm.taobao.org/tiny-svg/download/tiny-svg-2.2.2.tgz#9d9825c2e0ccb5e259bb1ae7d7ac79194e086657"
   integrity sha1-nZglwuDMteJZuxrn16x5GU4IZlc=
@@ -16736,6 +16746,18 @@ vue-eslint-parser@^7.1.1:
   version "7.1.1"
   resolved "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.1.1.tgz?cache=0&sync_timestamp=1602498980660&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.1.1.tgz#c43c1c715ff50778b9a7e9a4e16921185f3425d3"
   integrity sha1-xDwccV/1B3i5p+mk4WkhGF80JdM=
+  dependencies:
+    debug "^4.1.1"
+    eslint-scope "^5.0.0"
+    eslint-visitor-keys "^1.1.0"
+    espree "^6.2.1"
+    esquery "^1.0.1"
+    lodash "^4.17.15"
+
+vue-eslint-parser@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.2.0.tgz?cache=0&sync_timestamp=1606963566526&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.2.0.tgz#1e17ae94ca71e617025e05143c8ac5593aacb6ef"
+  integrity sha1-HheulMpx5hcCXgUUPIrFWTqstu8=
   dependencies:
     debug "^4.1.1"
     eslint-scope "^5.0.0"

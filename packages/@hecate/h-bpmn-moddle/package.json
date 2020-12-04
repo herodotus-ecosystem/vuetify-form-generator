@@ -13,8 +13,8 @@
         "dev": "yarn build"
     },
     "dependencies": {
-        "bpmn-js": "^7.4.2",
-        "bpmn-js-properties-panel": "^0.37.5",
+        "bpmn-js": "^7.5.0",
+        "bpmn-js-properties-panel": "^0.37.6",
         "camunda-bpmn-moddle": "^4.5.0"
     }
 }
