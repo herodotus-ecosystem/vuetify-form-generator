@@ -16988,10 +16988,10 @@ vuetify@^2:
   resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.17.tgz?cache=0&sync_timestamp=1605069230757&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuetify%2Fdownload%2Fvuetify-2.3.17.tgz#f27eefd52dbe8ba19cae8d62ba8a77b05184fdf6"
   integrity sha1-8n7v1S2+i6Gcro1iuop3sFGE/fY=
 
-vuetify@^2.3.19:
-  version "2.3.19"
-  resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.19.tgz#94ae6a8b0e2d52266b2a47c6a11021c63aa1b7b0"
-  integrity sha1-lK5qiw4tUiZrKkfGoRAhxjqht7A=
+vuetify@^2.3.20:
+  version "2.3.20"
+  resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.20.tgz#41326c97a330ababe929eb4c0919fb0cad2e8a46"
+  integrity sha1-QTJsl6Mwq6vpKetMCRn7DK0uikY=
 
 vuex@^3.6.0:
   version "3.6.0"
