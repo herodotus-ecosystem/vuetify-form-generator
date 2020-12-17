@@ -101,7 +101,7 @@
         E = p(m),
         D = p(b),
         z = p(j);
-    require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
+    require('core-js/modules/es.regexp.exec.js'), require('core-js/modules/es.string.replace.js');
     var A = require('@babel/runtime-corejs3/core-js/instance/slice'),
         B = require('@babel/runtime-corejs3/helpers/typeof');
     String.prototype.format = function (e) {

@@ -2,7 +2,7 @@
     'object' == typeof exports && 'undefined' != typeof module
         ? r(
               exports,
-              require('core-js/modules/es.function.name'),
+              require('core-js/modules/es.function.name.js'),
               require('@babel/runtime-corejs3/core-js/instance/index-of'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
               require('@babel/runtime-corejs3/core-js/object/keys'),
@@ -14,7 +14,7 @@
         : 'function' == typeof define && define.amd
         ? define([
               'exports',
-              'core-js/modules/es.function.name',
+              'core-js/modules/es.function.name.js',
               '@babel/runtime-corejs3/core-js/instance/index-of',
               '@babel/runtime-corejs3/helpers/esm/typeof',
               '@babel/runtime-corejs3/core-js/object/keys',
@@ -34,24 +34,24 @@
               e._classCallCheck,
               e._createClass
           );
-})(this, function (e, r, t, n, a, l, u, o, i) {
+})(this, function (e, r, t, n, a, l, u, s, o) {
     'use strict';
-    function s(e) {
+    function i(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    var c = s(t),
-        d = s(n),
-        f = s(a),
-        b = s(l),
-        h = s(u),
-        m = s(o),
-        y = s(i),
-        j = (function () {
+    var c = i(t),
+        d = i(n),
+        f = i(a),
+        b = i(l),
+        h = i(u),
+        m = i(s),
+        j = i(o),
+        y = (function () {
             function e() {
                 m.default(this, e);
             }
             return (
-                y.default(e, null, [
+                j.default(e, null, [
                     {
                         key: 'build',
                         value: function (e) {
@@ -115,7 +115,7 @@
                 m.default(this, e);
             }
             return (
-                y.default(e, null, [
+                j.default(e, null, [
                     {
                         key: 'attributes',
                         value: function (e) {
@@ -138,7 +138,7 @@
                             for (var t in e.children)
                                 ({}.hasOwnProperty.call(e.children, t) &&
                                     ('object' == d.default(e.children[t])
-                                        ? (r += j.build(e.children[t]))
+                                        ? (r += y.build(e.children[t]))
                                         : (r += e.children[t])));
                             return r;
                         },
@@ -147,7 +147,7 @@
                         key: 'isSelfCloseTag',
                         value: function (e) {
                             var r;
-                            return c.default((r = j.selfCloseTags)).call(r, e.tag) > -1;
+                            return c.default((r = y.selfCloseTags)).call(r, e.tag) > -1;
                         },
                     },
                 ]),
@@ -159,7 +159,7 @@
                 m.default(this, e);
             }
             return (
-                y.default(e, null, [
+                j.default(e, null, [
                     {
                         key: 'attributes',
                         value: function (e) {
@@ -198,6 +198,6 @@
                 e
             );
         })(),
-        k = j;
+        k = y;
     (e.json2html = k), Object.defineProperty(e, '__esModule', { value: !0 });
 });

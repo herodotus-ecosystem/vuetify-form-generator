@@ -1,4 +1,4 @@
-import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.function.name.js';
 import e from '@babel/runtime-corejs3/helpers/esm/typeof';
 import {
     VCard as t,
@@ -43,17 +43,17 @@ import {
     VToolbar as j,
     VAppBar as N,
 } from 'vuetify/lib';
-import 'core-js/modules/es.array.join';
-import 'core-js/modules/es.regexp.exec';
-import 'core-js/modules/es.string.replace';
+import 'core-js/modules/es.array.join.js';
+import 'core-js/modules/es.regexp.exec.js';
+import 'core-js/modules/es.string.replace.js';
 import M from '@babel/runtime-corejs3/core-js/instance/repeat';
 import z from '@babel/runtime-corejs3/core-js/instance/map';
 import W from '@babel/runtime-corejs3/core-js/object/assign';
 import { lib as G, convertor as K } from '@hecate/core';
 import X from '@babel/runtime-corejs3/core-js/json/stringify';
 import Y from '@babel/runtime-corejs3/core-js/parse-int';
-import 'core-js/modules/es.regexp.constructor';
-import 'core-js/modules/es.regexp.to-string';
+import 'core-js/modules/es.regexp.constructor.js';
+import 'core-js/modules/es.regexp.to-string.js';
 import U from '@babel/runtime-corejs3/core-js/instance/concat';
 import { debounce as q } from 'throttle-debounce';
 import J from 'vue-runtime-helpers/dist/normalize-component.mjs';

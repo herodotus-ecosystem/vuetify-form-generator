@@ -1,4 +1,4 @@
-import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.function.name.js';
 import e from '@babel/runtime-corejs3/core-js/instance/index-of';
 import r from '@babel/runtime-corejs3/helpers/esm/typeof';
 import t from '@babel/runtime-corejs3/core-js/object/keys';

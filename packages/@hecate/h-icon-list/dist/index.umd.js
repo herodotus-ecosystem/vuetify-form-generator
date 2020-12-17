@@ -2,7 +2,7 @@
     'object' == typeof exports && 'undefined' != typeof module
         ? t(
               exports,
-              require('core-js/modules/es.function.name'),
+              require('core-js/modules/es.function.name.js'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
               require('vuetify/lib'),
               require('@mdi/js'),
@@ -12,7 +12,7 @@
         : 'function' == typeof define && define.amd
         ? define([
               'exports',
-              'core-js/modules/es.function.name',
+              'core-js/modules/es.function.name.js',
               '@babel/runtime-corejs3/helpers/esm/typeof',
               'vuetify/lib',
               '@mdi/js',

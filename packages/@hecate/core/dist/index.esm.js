@@ -13,14 +13,14 @@ import f from '@babel/runtime-corejs3/core-js/instance/sort';
 import m from '@babel/runtime-corejs3/core-js/object/keys';
 import g from '@babel/runtime-corejs3/core-js/instance/map';
 import p from '@babel/runtime-corejs3/core-js/instance/for-each';
-import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.function.name.js';
 import d from '@babel/runtime-corejs3/core-js/instance/index-of';
 import b from '@babel/runtime-corejs3/helpers/esm/typeof';
 import v from '@babel/runtime-corejs3/helpers/esm/slicedToArray';
 import h from '@babel/runtime-corejs3/core-js/instance/concat';
 import j from '@babel/runtime-corejs3/helpers/esm/classCallCheck';
 import y from '@babel/runtime-corejs3/helpers/esm/createClass';
-require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
+require('core-js/modules/es.regexp.exec.js'), require('core-js/modules/es.string.replace.js');
 var P = require('@babel/runtime-corejs3/core-js/instance/slice'),
     x = require('@babel/runtime-corejs3/helpers/typeof');
 String.prototype.format = function (e) {

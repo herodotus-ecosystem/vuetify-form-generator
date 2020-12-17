@@ -51,7 +51,7 @@
         "@babel/plugin-external-helpers": "^7.12.1",
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@babel/plugin-transform-runtime": "^7.12.10",
-        "@babel/preset-env": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
         "@babel/runtime-corejs3": "^7.12.5",
         "@rollup/plugin-alias": "^3.1.1",
         "@rollup/plugin-babel": "^5.2.2",
@@ -60,7 +60,7 @@
         "@rollup/plugin-image": "^2.0.5",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-multi-entry": "^4.0.0",
-        "@rollup/plugin-node-resolve": "^11.0.0",
+        "@rollup/plugin-node-resolve": "^11.0.1",
         "@rollup/plugin-strip": "^2.0.0",
         "@rollup/plugin-url": "^6.0.0",
         "@vue/cli-plugin-babel": "^4.5.9",
@@ -70,7 +70,7 @@
         "autoprefixer": "10.1.0",
         "babel-eslint": "^10.1.0",
         "babel-loader": "^8.2.2",
-        "caniuse-lite": "^1.0.30001165",
+        "caniuse-lite": "^1.0.30001168",
         "commitizen": "^4.2.2",
         "compression-webpack-plugin": "6.1.1",
         "cross-env": "^7.0.3",
@@ -79,7 +79,7 @@
         "cz-lerna-changelog": "^2.0.3",
         "eslint": "^7.15.0",
         "eslint-plugin-prettier": "^3.3.0",
-        "eslint-plugin-vue": "^7.2.0",
+        "eslint-plugin-vue": "^7.3.0",
         "husky": "^4.3.6",
         "lerna": "^3.22.1",
         "lint-staged": "^10.5.3",
@@ -88,7 +88,7 @@
         "postcss-preset-env": "^6.7.0",
         "postcss-simple-vars": "6.0.1",
         "prettier": "^2.2.1",
-        "rollup": "^2.35.0",
+        "rollup": "^2.35.1",
         "rollup-plugin-filesize": "^9.1.0",
         "rollup-plugin-postcss": "^4.0.0",
         "rollup-plugin-progress": "^1.1.2",
@@ -100,7 +100,7 @@
         "vue-loader": "^15.9.5",
         "vue-template-compiler": "^2.6.12",
         "webpack": "4.44.2",
-        "webpack-bundle-analyzer": "^4.2.0"
+        "webpack-bundle-analyzer": "^4.3.0"
     },
     "dependencies": {
         "vue": "^2.6.12"

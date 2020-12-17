@@ -2,7 +2,7 @@
     'object' == typeof exports && 'undefined' != typeof module
         ? n(
               exports,
-              require('core-js/modules/es.function.name'),
+              require('core-js/modules/es.function.name.js'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
               require('vuetify/lib'),
               require('vue-runtime-helpers/dist/normalize-component.mjs')
@@ -10,7 +10,7 @@
         : 'function' == typeof define && define.amd
         ? define([
               'exports',
-              'core-js/modules/es.function.name',
+              'core-js/modules/es.function.name.js',
               '@babel/runtime-corejs3/helpers/esm/typeof',
               'vuetify/lib',
               'vue-runtime-helpers/dist/normalize-component.mjs',

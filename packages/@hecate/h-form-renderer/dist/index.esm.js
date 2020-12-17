@@ -1,10 +1,10 @@
-import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.function.name.js';
 import e from '@babel/runtime-corejs3/helpers/esm/typeof';
-import 'core-js/modules/es.regexp.constructor';
-import 'core-js/modules/es.regexp.exec';
-import 'core-js/modules/es.regexp.to-string';
-import 'core-js/modules/es.string.match';
-import 'core-js/modules/es.string.replace';
+import 'core-js/modules/es.regexp.constructor.js';
+import 'core-js/modules/es.regexp.exec.js';
+import 'core-js/modules/es.regexp.to-string.js';
+import 'core-js/modules/es.string.match.js';
+import 'core-js/modules/es.string.replace.js';
 import t from '@babel/runtime-corejs3/core-js/array/is-array';
 import i from '@babel/runtime-corejs3/core-js/object/keys';
 import r from '@babel/runtime-corejs3/core-js/instance/for-each';
@@ -13,7 +13,7 @@ import l from '@babel/runtime-corejs3/core-js/object/define-properties';
 import s from '@babel/runtime-corejs3/core-js/object/get-own-property-descriptors';
 import a from '@babel/runtime-corejs3/core-js/object/get-own-property-descriptor';
 import o from '@babel/runtime-corejs3/core-js/object/get-own-property-symbols';
-import 'core-js/modules/es.string.split';
+import 'core-js/modules/es.string.split.js';
 import u from '@babel/runtime-corejs3/core-js/instance/concat';
 import c from '@babel/runtime-corejs3/core-js/instance/filter';
 import h from '@babel/runtime-corejs3/core-js/instance/find';
@@ -21,28 +21,28 @@ import m from '@babel/runtime-corejs3/core-js/json/stringify';
 import p from '@babel/runtime-corejs3/core-js/instance/includes';
 import f from '@babel/runtime-corejs3/helpers/esm/defineProperty';
 import d from '@babel/runtime-corejs3/core-js/instance/map';
-import 'core-js/modules/es.symbol';
-import 'core-js/modules/es.symbol.description';
+import 'core-js/modules/es.symbol.js';
+import 'core-js/modules/es.symbol.description.js';
 import v from '@babel/runtime-corejs3/core-js/parse-int';
-import 'core-js/modules/es.number.constructor';
+import 'core-js/modules/es.number.constructor.js';
 import b from '@babel/runtime-corejs3/core-js/instance/slice';
 import y from '@babel/runtime-corejs3/core-js/parse-float';
-import 'core-js/modules/es.array.iterator';
-import 'core-js/modules/es.object.to-string';
-import 'core-js/modules/es.promise';
-import 'core-js/modules/es.string.iterator';
-import 'core-js/modules/web.dom-collections.iterator';
+import 'core-js/modules/es.array.iterator.js';
+import 'core-js/modules/es.object.to-string.js';
+import 'core-js/modules/es.promise.js';
+import 'core-js/modules/es.string.iterator.js';
+import 'core-js/modules/web.dom-collections.iterator.js';
 import S from '@babel/runtime-corejs3/helpers/esm/toConsumableArray';
 import g from '@babel/runtime-corejs3/regenerator';
-import 'regenerator-runtime/runtime';
+import 'regenerator-runtime/runtime.js';
 import O from '@babel/runtime-corejs3/helpers/esm/asyncToGenerator';
 import x from '@babel/runtime-corejs3/core-js/promise';
-import P from '@babel/runtime-corejs3/core-js/get-iterator';
-import j from '@babel/runtime-corejs3/core-js/get-iterator-method';
+import j from '@babel/runtime-corejs3/core-js/get-iterator';
+import P from '@babel/runtime-corejs3/core-js/get-iterator-method';
 import I from '@babel/runtime-corejs3/core-js/symbol';
 import k from '@babel/runtime-corejs3/core-js/array/from';
-import 'core-js/modules/es.array.filter';
-import 'core-js/modules/es.string.search';
+import 'core-js/modules/es.array.filter.js';
+import 'core-js/modules/es.string.search.js';
 import w from '@babel/runtime-corejs3/core-js/instance/starts-with';
 import C from '@babel/runtime-corejs3/core-js/instance/index-of';
 import T from '@babel/runtime-corejs3/core-js/instance/reverse';
@@ -106,7 +106,7 @@ function xe(e, t) {
     }
     return r;
 }
-function Pe(e) {
+function je(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
@@ -230,14 +230,14 @@ function Pe(e) {
             return null;
         }
     });
-var je = {},
+var Pe = {},
     Ie = function (e) {
         var t;
         return d((t = i(e || {}))).call(t, function (t) {
-            return Pe(Pe({}, e[t]), {}, { key: t });
+            return je(je({}, e[t]), {}, { key: t });
         });
     };
-je.prepareFullSchema = function (n, l) {
+Pe.prepareFullSchema = function (n, l) {
     var s,
         a,
         o,
@@ -1538,7 +1538,7 @@ var Ge = {
     };
 function Qe(e, i) {
     var r;
-    if (void 0 === I || null == j(e)) {
+    if (void 0 === I || null == P(e)) {
         if (
             t(e) ||
             (r = (function (e, t) {
@@ -1575,7 +1575,7 @@ function Qe(e, i) {
         o = !1;
     return {
         s: function () {
-            r = P(e);
+            r = j(e);
         },
         n: function () {
             var e = r.next();
@@ -2725,7 +2725,7 @@ var st = L(
                                 : this.schema;
                         },
                         fullSchema: function () {
-                            return je.prepareFullSchema(this.resolvedSchema, this.value);
+                            return Pe.prepareFullSchema(this.resolvedSchema, this.value);
                         },
                         htmlDescription: function () {
                             return this.fullSchema && this.fullSchema.description

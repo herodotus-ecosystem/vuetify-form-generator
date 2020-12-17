@@ -15,19 +15,19 @@ import s from '@babel/runtime-corejs3/core-js/instance/sort';
 import m from '@babel/runtime-corejs3/core-js/object/keys';
 import l from '@babel/runtime-corejs3/core-js/instance/map';
 import p from '@babel/runtime-corejs3/core-js/instance/for-each';
-require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
-var h = require('@babel/runtime-corejs3/core-js/instance/slice'),
-    j = require('@babel/runtime-corejs3/helpers/typeof');
+require('core-js/modules/es.regexp.exec.js'), require('core-js/modules/es.string.replace.js');
+var j = require('@babel/runtime-corejs3/core-js/instance/slice'),
+    h = require('@babel/runtime-corejs3/helpers/typeof');
 String.prototype.format = function (n) {
     var t = function (n, t) {
         return (
-            (t = 'object' === j(t) ? t : h(Array.prototype).call(arguments, 1)),
+            (t = 'object' === h(t) ? t : j(Array.prototype).call(arguments, 1)),
             n.replace(/\{\{|\}\}|\{(\w+)\}/g, function (n, e) {
                 return '{{' == n ? '{' : '}}' == n ? '}' : t[e];
             })
         );
     };
-    return t(this, (n = 'object' === j(n) ? n : h(Array.prototype).call(arguments, 0)));
+    return t(this, (n = 'object' === h(n) ? n : j(Array.prototype).call(arguments, 0)));
 };
 var b = e,
     g = {

@@ -1,4 +1,4 @@
-import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.function.name.js';
 import n from '@babel/runtime-corejs3/helpers/esm/typeof';
 import { VIcon as o, VBtn as t, VTooltip as e } from 'vuetify/lib';
 import i from 'vue-runtime-helpers/dist/normalize-component.mjs';

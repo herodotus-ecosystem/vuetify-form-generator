@@ -1,4 +1,4 @@
-import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.function.name.js';
 import o from '@babel/runtime-corejs3/helpers/esm/typeof';
 import 'vuetify/lib';
 import { codemirror as r } from 'vue-codemirror';

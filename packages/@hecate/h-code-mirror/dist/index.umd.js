@@ -2,7 +2,7 @@
     'object' == typeof exports && 'undefined' != typeof module
         ? e(
               exports,
-              require('core-js/modules/es.function.name'),
+              require('core-js/modules/es.function.name.js'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
               require('vuetify/lib'),
               require('vue-codemirror'),
@@ -72,7 +72,7 @@
         : 'function' == typeof define && define.amd
         ? define([
               'exports',
-              'core-js/modules/es.function.name',
+              'core-js/modules/es.function.name.js',
               '@babel/runtime-corejs3/helpers/esm/typeof',
               'vuetify/lib',
               'vue-codemirror',
@@ -217,8 +217,8 @@
         d,
         i,
         n,
-        l,
         s,
+        l,
         t,
         c,
         m,
@@ -271,8 +271,8 @@
         dr,
         ir,
         nr,
-        lr,
         sr,
+        lr,
         tr,
         cr,
         mr,

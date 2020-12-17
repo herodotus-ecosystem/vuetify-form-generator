@@ -17,7 +17,7 @@
               require('@babel/runtime-corejs3/core-js/object/keys'),
               require('@babel/runtime-corejs3/core-js/instance/map'),
               require('@babel/runtime-corejs3/core-js/instance/for-each'),
-              require('core-js/modules/es.function.name'),
+              require('core-js/modules/es.function.name.js'),
               require('@babel/runtime-corejs3/core-js/instance/index-of'),
               require('@babel/runtime-corejs3/helpers/esm/typeof'),
               require('@babel/runtime-corejs3/helpers/esm/slicedToArray'),
@@ -43,7 +43,7 @@
               '@babel/runtime-corejs3/core-js/object/keys',
               '@babel/runtime-corejs3/core-js/instance/map',
               '@babel/runtime-corejs3/core-js/instance/for-each',
-              'core-js/modules/es.function.name',
+              'core-js/modules/es.function.name.js',
               '@babel/runtime-corejs3/core-js/instance/index-of',
               '@babel/runtime-corejs3/helpers/esm/typeof',
               '@babel/runtime-corejs3/helpers/esm/slicedToArray',
@@ -76,7 +76,7 @@
               e._classCallCheck,
               e._createClass
           );
-})(this, function (e, t, r, n, a, o, i, c, u, l, s, f, d, m, b, g, p, h, j, v, y, P, x) {
+})(this, function (e, t, r, n, a, o, i, c, u, l, s, f, d, m, b, g, p, j, h, v, y, P, x) {
     'use strict';
     function _(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
@@ -122,13 +122,13 @@
         D = _(m),
         z = _(b),
         B = _(g),
-        F = _(h),
-        Y = _(j),
+        F = _(j),
+        Y = _(h),
         $ = _(v),
         R = _(y),
         J = _(P),
         G = _(x);
-    require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.replace');
+    require('core-js/modules/es.regexp.exec.js'), require('core-js/modules/es.string.replace.js');
     var H = require('@babel/runtime-corejs3/core-js/instance/slice'),
         X = require('@babel/runtime-corejs3/helpers/typeof');
     String.prototype.format = function (e) {
