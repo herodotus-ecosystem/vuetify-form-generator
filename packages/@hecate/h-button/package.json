@@ -2,7 +2,7 @@
     "name": "@hecate/h-button",
     "version": "1.0.0",
     "license": "MIT",
-    "main": "dist/index.umd.js",
+    "main": "src/index.js",
     "module": "dist/index.esm.js",
     "unpkg": "dist/index.min.js",
     "scripts": {

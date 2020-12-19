@@ -9,6 +9,14 @@
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn large dark icon v-bind="attrs" v-on="on" @click="formPreview">
+                        <v-icon>mdi-delete-empty</v-icon>
+                    </v-btn>
+                </template>
+                <span>清空</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn large dark icon v-bind="attrs" v-on="on" @click="formPreview">
                         <v-icon>mdi-code-braces</v-icon>
                     </v-btn>
                 </template>

@@ -2,7 +2,7 @@
     "name": "@hecate/h-bpmn-moddle",
     "version": "1.0.0",
     "license": "MIT",
-    "main": "dist/index.umd.js",
+    "main": "src/index.js",
     "module": "dist/index.esm.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
@@ -13,7 +13,7 @@
         "dev": "yarn build"
     },
     "dependencies": {
-        "bpmn-js": "^7.5.0",
+        "bpmn-js": "^8.0.0",
         "bpmn-js-properties-panel": "^0.38.0",
         "camunda-bpmn-moddle": "^4.5.0"
     }

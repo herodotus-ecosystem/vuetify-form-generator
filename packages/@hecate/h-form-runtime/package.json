@@ -4,7 +4,7 @@
     "author": "Felix <pointer_v@qq.com>",
     "license": "ISC",
     "private": false,
-    "main": "dist/index.umd.js",
+    "main": "src/index.js",
     "module": "dist/index.esm.js",
     "unpkg": "dist/index.min.js",
     "scripts": {

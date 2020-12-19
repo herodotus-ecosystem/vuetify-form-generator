@@ -73,17 +73,17 @@
               e.HCodeMirror,
               e.HFormRuntime
           );
-})(this, function (e, t, s, a, n, o, r, l, i, p, c, d, u, m, h, v, b, f, g, x, _, k) {
+})(this, function (e, t, s, a, n, o, r, i, l, p, c, d, u, m, v, h, b, f, g, x, _, k) {
     'use strict';
     function I(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
     var w = I(s),
-        y = I(l),
-        C = I(i),
+        y = I(i),
+        C = I(l),
         $ = I(p),
         V = I(d),
-        S = I(v),
+        S = I(h),
         H = I(f),
         P = 'DRAWING_CANVAS',
         T = 'DRAWING_CANVAS_VERSION',
@@ -618,7 +618,15 @@
         };
     }
     var M = {
-            components: { VCard: a.VCard, VCol: a.VCol, VRow: a.VRow, VContainer: a.VContainer },
+            components: {
+                VIcon: a.VIcon,
+                VBtn: a.VBtn,
+                VCardActions: a.VCardActions,
+                VCard: a.VCard,
+                VCol: a.VCol,
+                VRow: a.VRow,
+                VContainer: a.VContainer,
+            },
             name: 'HCanvasContainer',
             created: function () {},
             data: function () {
@@ -641,7 +649,43 @@
                                     s(
                                         'v-col',
                                         { staticClass: 'canvas-body' },
-                                        [s('v-card', { staticClass: 'ml-1 mr-1' }, [e._t('default')], 2)],
+                                        [
+                                            s(
+                                                'v-card',
+                                                { staticClass: 'ml-1 mr-1' },
+                                                [
+                                                    s(
+                                                        'v-card-actions',
+                                                        [
+                                                            s(
+                                                                'v-btn',
+                                                                { attrs: { icon: '' } },
+                                                                [s('v-icon', [e._v('mdi-heart')])],
+                                                                1
+                                                            ),
+                                                            e._v(' '),
+                                                            s(
+                                                                'v-btn',
+                                                                { attrs: { icon: '' } },
+                                                                [s('v-icon', [e._v('mdi-bookmark')])],
+                                                                1
+                                                            ),
+                                                            e._v(' '),
+                                                            s(
+                                                                'v-btn',
+                                                                { attrs: { icon: '' } },
+                                                                [s('v-icon', [e._v('mdi-share-variant')])],
+                                                                1
+                                                            ),
+                                                        ],
+                                                        1
+                                                    ),
+                                                    e._v(' '),
+                                                    e._t('default'),
+                                                ],
+                                                2
+                                            ),
+                                        ],
                                         1
                                     ),
                                 ],
@@ -1318,7 +1362,7 @@
                 },
             },
         },
-        le = H.default(
+        ie = H.default(
             {
                 render: function () {
                     var e = this,
@@ -1420,7 +1464,7 @@
             void 0,
             void 0
         ),
-        ie = {
+        le = {
             components: {
                 VSwitch: a.VSwitch,
                 VListItemContent: a.VListItemContent,
@@ -1547,7 +1591,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            ie,
+            le,
             undefined,
             false,
             undefined,
@@ -2057,14 +2101,14 @@
                 },
             },
         },
-        he = {
+        ve = {
             name: 'HTextFieldPanel',
             components: {
                 HExpansionPanel: U,
                 HPanelColor: Z,
                 HPanelIcon: se,
                 HPanelNumber: oe,
-                HPanelSelect: le,
+                HPanelSelect: ie,
                 HPanelSwitch: pe,
                 HPanelTextField: de,
                 HRuleExpansionPanel: H.default(
@@ -2264,7 +2308,7 @@
                 },
             },
         },
-        ve = H.default(
+        he = H.default(
             {
                 render: function () {
                     var e = this,
@@ -2821,7 +2865,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            he,
+            ve,
             undefined,
             false,
             undefined,
@@ -2837,7 +2881,7 @@
                 HPanelColor: Z,
                 HPanelIcon: se,
                 HPanelNumber: oe,
-                HPanelSelect: le,
+                HPanelSelect: ie,
                 HPanelSwitch: pe,
                 HPanelTextField: de,
                 VExpansionPanels: a.VExpansionPanels,
@@ -5494,7 +5538,7 @@
                 HPanelColor: Z,
                 HPanelIcon: se,
                 HPanelNumber: oe,
-                HPanelSelect: le,
+                HPanelSelect: ie,
                 HPanelSwitch: pe,
                 HPanelTextField: de,
                 VExpansionPanels: a.VExpansionPanels,
@@ -5992,7 +6036,7 @@
                 HExpansionPanel: U,
                 HPanelColor: Z,
                 HPanelNumber: oe,
-                HPanelSelect: le,
+                HPanelSelect: ie,
                 HPanelSwitch: pe,
                 HPanelTextField: de,
                 VExpansionPanels: a.VExpansionPanels,
@@ -6310,7 +6354,7 @@
                 HPanelColor: Z,
                 HPanelIcon: se,
                 HPanelNumber: oe,
-                HPanelSelect: le,
+                HPanelSelect: ie,
                 HPanelSwitch: pe,
                 HPanelTextField: de,
                 VExpansionPanels: a.VExpansionPanels,
@@ -7107,7 +7151,7 @@
                 HPanelColor: Z,
                 HPanelIcon: se,
                 HPanelNumber: oe,
-                HPanelSelect: le,
+                HPanelSelect: ie,
                 HPanelSwitch: pe,
                 HPanelTextField: de,
                 VExpansionPanels: a.VExpansionPanels,
@@ -7150,7 +7194,7 @@
         Ae = {
             name: 'HPropertyPanel',
             components: {
-                TEXT_FIELD: ve,
+                TEXT_FIELD: he,
                 TEXT_AREA: fe,
                 SLIDER: we,
                 RANGE_SLIDER: Ce,
@@ -9095,6 +9139,42 @@
                                     s('v-toolbar-title', [e._v('Hecate Form Generator')]),
                                     e._v(' '),
                                     s('v-spacer'),
+                                    e._v(' '),
+                                    s(
+                                        'v-tooltip',
+                                        {
+                                            attrs: { bottom: '' },
+                                            scopedSlots: e._u([
+                                                {
+                                                    key: 'activator',
+                                                    fn: function (t) {
+                                                        var a = t.on,
+                                                            n = t.attrs;
+                                                        return [
+                                                            s(
+                                                                'v-btn',
+                                                                e._g(
+                                                                    e._b(
+                                                                        {
+                                                                            attrs: { large: '', dark: '', icon: '' },
+                                                                            on: { click: e.formPreview },
+                                                                        },
+                                                                        'v-btn',
+                                                                        n,
+                                                                        !1
+                                                                    ),
+                                                                    a
+                                                                ),
+                                                                [s('v-icon', [e._v('mdi-delete-empty')])],
+                                                                1
+                                                            ),
+                                                        ];
+                                                    },
+                                                },
+                                            ]),
+                                        },
+                                        [e._v(' '), s('span', [e._v('清空')])]
+                                    ),
                                     e._v(' '),
                                     s(
                                         'v-tooltip',
