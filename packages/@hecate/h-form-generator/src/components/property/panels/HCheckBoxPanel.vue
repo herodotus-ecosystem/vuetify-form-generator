@@ -94,13 +94,10 @@
 </template>
 
 <script>
-import HExpansionPanel from '@/components/property/layouts/HExpansionPanel.vue';
-import HPanelColor from '@/components/property/controls/HPanelColor.vue';
-import HPanelIcon from '@/components/property/controls/HPanelIcon.vue';
-import HPanelSwitch from '@/components/property/controls/HPanelSwitch.vue';
-import HPanelTextField from '@/components/property/controls/HPanelTextField.vue';
+import { HExpansionPanel } from '../layouts';
+import { HPanelColor, HPanelIcon, HPanelSwitch, HPanelTextField } from '../controls';
 
-import { constants } from '@/lib/modeler/configurations';
+import { constants } from '../../../lib/modeler/configurations';
 
 export default {
     name: 'HCheckboxPanel',

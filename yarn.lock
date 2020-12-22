@@ -2680,13 +2680,14 @@
   dependencies:
     http-proxy-middleware "^1.0.6"
 
-"@nuxtjs/pwa@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.npm.taobao.org/@nuxtjs/pwa/download/@nuxtjs/pwa-3.3.2.tgz#f48b43015282a9465be853087a96137c80a60bd3"
-  integrity sha1-9ItDAVKCqUZb6FMIepYTfICmC9M=
+"@nuxtjs/pwa@^3.3.3":
+  version "3.3.3"
+  resolved "https://registry.npm.taobao.org/@nuxtjs/pwa/download/@nuxtjs/pwa-3.3.3.tgz#b3b9d90589c0fd000effe89ee767ca1a125f07e8"
+  integrity sha1-s7nZBYnA/QAO/+ie52fKGhJfB+g=
   dependencies:
+    clone-deep "^4.0.1"
     defu "^3.2.2"
-    execa "^4.1.0"
+    execa "^5.0.0"
     fs-extra "^9.0.1"
     hasha "^5.2.2"
     jimp-compact "^0.16.1"
@@ -5193,10 +5194,10 @@ caniuse-lite@^1.0.30001165:
   resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001165.tgz#32955490d2f60290bb186bb754f2981917fa744f"
   integrity sha1-MpVUkNL2ApC7GGu3VPKYGRf6dE8=
 
-caniuse-lite@^1.0.30001168:
-  version "1.0.30001168"
-  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001168.tgz#6fcd098c139d003b9bd484cbb9ca26cb89907f9a"
-  integrity sha1-b80JjBOdADub1ITLucomy4mQf5o=
+caniuse-lite@^1.0.30001170:
+  version "1.0.30001170"
+  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001170.tgz?cache=0&sync_timestamp=1608444204683&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001170.tgz#0088bfecc6a14694969e391cc29d7eb6362ca6a7"
+  integrity sha1-AIi/7MahRpSWnjkcwp1+tjYspqc=
 
 capital-case@^1.0.3:
   version "1.0.3"
@@ -7746,6 +7747,21 @@ execa@^4.1.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
+execa@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npm.taobao.org/execa/download/execa-5.0.0.tgz?cache=0&sync_timestamp=1606971027153&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-5.0.0.tgz#4029b0007998a841fbd1032e5f4de86a3c1e3376"
+  integrity sha1-QCmwAHmYqEH70QMuX03oajweM3Y=
+  dependencies:
+    cross-spawn "^7.0.3"
+    get-stream "^6.0.0"
+    human-signals "^2.1.0"
+    is-stream "^2.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^4.0.1"
+    onetime "^5.1.2"
+    signal-exit "^3.0.3"
+    strip-final-newline "^2.0.0"
+
 exit@0.1.2, exit@0.1.x, exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/exit/download/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -8461,6 +8477,11 @@ get-stream@^5.0.0:
   integrity sha1-SWaheV7lrOZecGxLe+txJX1uItM=
   dependencies:
     pump "^3.0.0"
+
+get-stream@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npm.taobao.org/get-stream/download/get-stream-6.0.0.tgz?cache=0&sync_timestamp=1597056474057&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fget-stream%2Fdownload%2Fget-stream-6.0.0.tgz#3e0012cb6827319da2706e601a1583e8629a6718"
+  integrity sha1-PgASy2gnMZ2icG5gGhWD6GKaZxg=
 
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
@@ -9318,6 +9339,11 @@ human-signals@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/human-signals/download/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha1-xbHNFPUK6uCatsWf5jujOV/k36M=
+
+human-signals@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/human-signals/download/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
+  integrity sha1-3JH8ukLk0G5Kuu0zs+ejwC9RTqA=
 
 humanize-ms@^1.2.1:
   version "1.2.1"
@@ -10952,10 +10978,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-it@^12.0.3:
-  version "12.0.3"
-  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-12.0.3.tgz?cache=0&sync_timestamp=1607373004506&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarkdown-it%2Fdownload%2Fmarkdown-it-12.0.3.tgz#8d1e47daf1d716d63610495eb93f6665573e4abe"
-  integrity sha1-jR5H2vHXFtY2EEleuT9mZVc+Sr4=
+markdown-it@^12.0.4:
+  version "12.0.4"
+  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-12.0.4.tgz?cache=0&sync_timestamp=1608478924665&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarkdown-it%2Fdownload%2Fmarkdown-it-12.0.4.tgz#eec8247d296327eac3ba9746bdeec9cfcc751e33"
+  integrity sha1-7sgkfSljJ+rDupdGve7Jz8x1HjM=
   dependencies:
     argparse "^2.0.1"
     entities "~2.1.0"
@@ -12112,7 +12138,7 @@ npm-run-path@^2.0.0:
   dependencies:
     path-key "^2.0.0"
 
-npm-run-path@^4.0.0:
+npm-run-path@^4.0.0, npm-run-path@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npm.taobao.org/npm-run-path/download/npm-run-path-4.0.1.tgz#b7ecd1e5ed53da8e37a55e1c2269e0b97ed748ea"
   integrity sha1-t+zR5e1T2o43pV4cImnguX7XSOo=
@@ -12313,7 +12339,7 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-onetime@^5.1.0:
+onetime@^5.1.0, onetime@^5.1.2:
   version "5.1.2"
   resolved "https://registry.npm.taobao.org/onetime/download/onetime-5.1.2.tgz?cache=0&sync_timestamp=1597003654288&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fonetime%2Fdownload%2Fonetime-5.1.2.tgz#d0e96ebb56b07476df1dd9c4806e5237985ca45e"
   integrity sha1-0Oluu1awdHbfHdnEgG5SN5hcpF4=

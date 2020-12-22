@@ -4,8 +4,8 @@
     "author": "Felix <pointer_v@qq.com>",
     "license": "ISC",
     "private": false,
-    "main": "src/index.js",
-    "module": "dist/index.esm.js",
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",
@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "debounce": "^1.2.0",
-        "markdown-it": "^12.0.3",
+        "markdown-it": "^12.0.4",
         "match-all": "^1.2.6",
         "property-expr": "^2.0.4"
     },

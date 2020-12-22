@@ -96,18 +96,18 @@
 </template>
 
 <script>
-import HTextFieldPanel from '@/components/property/panels/HTextFieldPanel.vue';
-import HTextAreaPanel from '@/components/property/panels/HTextAreaPanel.vue';
-import HSliderPanel from '@/components/property/panels/HSliderPanel.vue';
-import HRangeSliderPanel from '@/components/property/panels/HRangeSliderPanel.vue';
-import HCheckBoxPanel from '@/components/property/panels/HCheckBoxPanel.vue';
-import HSwitchPanel from '@/components/property/panels/HSwitchPanel.vue';
-import HDatePickerPanel from '@/components/property/panels/HDatePickerPanel.vue';
-import HTimePickerPanel from '@/components/property/panels/HTimePickerPanel.vue';
-import HSelectSinglePanel from '@/components/property/panels/HSelectSinglePanel.vue';
-import HComboBoxPanel from '@/components/property/panels/HComboBoxPanel.vue';
+import HTextFieldPanel from '../../components/property/panels/HTextFieldPanel.vue';
+import HTextAreaPanel from '../../components/property/panels/HTextAreaPanel.vue';
+import HSliderPanel from '../../components/property/panels/HSliderPanel.vue';
+import HRangeSliderPanel from '../../components/property/panels/HRangeSliderPanel.vue';
+import HCheckBoxPanel from '../../components/property/panels/HCheckBoxPanel.vue';
+import HSwitchPanel from '../../components/property/panels/HSwitchPanel.vue';
+import HDatePickerPanel from '../../components/property/panels/HDatePickerPanel.vue';
+import HTimePickerPanel from '../../components/property/panels/HTimePickerPanel.vue';
+import HSelectSinglePanel from '../../components/property/panels/HSelectSinglePanel.vue';
+import HComboBoxPanel from '../../components/property/panels/HComboBoxPanel.vue';
 
-import { constants } from '@/lib/modeler/configurations';
+import { constants } from '../../lib/modeler/configurations';
 
 export default {
     name: 'HPropertyPanel',

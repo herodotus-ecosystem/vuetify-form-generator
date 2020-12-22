@@ -44,11 +44,10 @@
 </template>
 
 <script>
-import { Template, Translator } from '@/lib/code';
+import { Template, Translator } from '../lib/code';
 
-import HFormModeler from '@/components/HFormModeler.vue';
-import HFormCodeDrawer from '@/components/views/HFormCodeDrawer.vue';
-import HFormPreviewDrawer from '@/components/views/HFormPreviewDrawer.vue';
+import HFormModeler from './HFormModeler.vue';
+import { HFormCodeDrawer, HFormPreviewDrawer } from './views';
 
 export default {
     name: 'HFormGenerator',

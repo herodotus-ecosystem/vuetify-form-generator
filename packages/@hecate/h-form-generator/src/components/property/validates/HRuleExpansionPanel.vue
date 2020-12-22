@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import HExpansionPanel from '@/components/property/layouts/HExpansionPanel.vue';
-import HPanelBetween from '@/components/property/validates/HPanelBetween.vue';
+import HExpansionPanel from '../../../components/property/layouts/HExpansionPanel.vue';
+import HPanelBetween from '../../../components/property/validates/HPanelBetween.vue';
 export default {
     name: 'HRuleExpansionPanel',
 

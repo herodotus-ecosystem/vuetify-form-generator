@@ -2,8 +2,8 @@
     "name": "@hecate/h-button",
     "version": "1.0.0",
     "license": "MIT",
-    "main": "src/index.js",
-    "module": "dist/index.esm.js",
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",

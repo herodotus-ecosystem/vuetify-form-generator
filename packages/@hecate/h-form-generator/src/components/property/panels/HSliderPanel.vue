@@ -148,16 +148,18 @@
 </template>
 
 <script>
-import HExpansionPanel from '@/components/property/layouts/HExpansionPanel.vue';
-import HPanelArray from '@/components/property/controls/HPanelArray.vue';
-import HPanelColor from '@/components/property/controls/HPanelColor.vue';
-import HPanelIcon from '@/components/property/controls/HPanelIcon.vue';
-import HPanelNumber from '@/components/property/controls/HPanelNumber.vue';
-import HPanelSwitch from '@/components/property/controls/HPanelSwitch.vue';
-import HPanelSwitchTextField from '@/components/property/controls/HPanelSwitchTextField.vue';
-import HPanelTextField from '@/components/property/controls/HPanelTextField.vue';
+import { HExpansionPanel } from '../layouts';
+import {
+    HPanelArray,
+    HPanelColor,
+    HPanelIcon,
+    HPanelNumber,
+    HPanelSwitch,
+    HPanelSwitchTextField,
+    HPanelTextField,
+} from '../controls';
 
-import { constants } from '@/lib/modeler/configurations';
+import { constants } from '../../../lib/modeler/configurations';
 
 export default {
     name: 'HSliderPanel',

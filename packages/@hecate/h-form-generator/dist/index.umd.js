@@ -919,6 +919,293 @@
         ),
         J = {
             components: {
+                VSelect: a.VSelect,
+                VListItemContent: a.VListItemContent,
+                VIcon: a.VIcon,
+                VTooltip: a.VTooltip,
+                VListItemAction: a.VListItemAction,
+                VListItem: a.VListItem,
+            },
+            name: 'HPanelSelect',
+            props: {
+                value: { required: !0 },
+                label: String,
+                tooltip: String,
+                disabled: { type: Boolean, default: !1 },
+                items: {
+                    type: Array,
+                    default: function () {
+                        return [];
+                    },
+                },
+            },
+            data: function () {
+                return { selectedValue: '' };
+            },
+            watch: {
+                value: {
+                    handler: function (e, t) {
+                        this.selectedValue = e;
+                    },
+                    immediate: !0,
+                },
+                selectedValue: {
+                    handler: function (e, t) {
+                        this.$emit('input', e);
+                    },
+                },
+            },
+        },
+        Q = J,
+        Z = H.default(
+            {
+                render: function () {
+                    var e = this,
+                        t = e.$createElement,
+                        s = e._self._c || t;
+                    return s(
+                        'v-list-item',
+                        { staticClass: 'pa-0', attrs: { dense: '' } },
+                        [
+                            s(
+                                'v-list-item-content',
+                                [
+                                    s('v-select', {
+                                        staticClass: 'ml-1 pr-2',
+                                        attrs: {
+                                            items: e.items,
+                                            label: e.label,
+                                            disabled: e.disabled,
+                                            outlined: '',
+                                            dense: '',
+                                            'hide-details': '',
+                                            clearable: '',
+                                            'no-data-text': '空',
+                                        },
+                                        model: {
+                                            value: e.selectedValue,
+                                            callback: function (t) {
+                                                e.selectedValue = t;
+                                            },
+                                            expression: 'selectedValue',
+                                        },
+                                    }),
+                                ],
+                                1
+                            ),
+                            e._v(' '),
+                            e.tooltip
+                                ? s(
+                                      'v-list-item-action',
+                                      [
+                                          s(
+                                              'v-tooltip',
+                                              {
+                                                  attrs: { left: '', 'max-width': '200px' },
+                                                  scopedSlots: e._u(
+                                                      [
+                                                          {
+                                                              key: 'activator',
+                                                              fn: function (t) {
+                                                                  var a = t.on,
+                                                                      n = t.attrs;
+                                                                  return [
+                                                                      s(
+                                                                          'v-icon',
+                                                                          e._g(
+                                                                              e._b(
+                                                                                  {
+                                                                                      attrs: {
+                                                                                          color: 'grey lighten-1',
+                                                                                          dark: '',
+                                                                                      },
+                                                                                  },
+                                                                                  'v-icon',
+                                                                                  n,
+                                                                                  !1
+                                                                              ),
+                                                                              a
+                                                                          ),
+                                                                          [e._v('mdi-information')]
+                                                                      ),
+                                                                  ];
+                                                              },
+                                                          },
+                                                      ],
+                                                      null,
+                                                      !1,
+                                                      36085519
+                                                  ),
+                                              },
+                                              [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
+                                          ),
+                                      ],
+                                      1
+                                  )
+                                : e._e(),
+                        ],
+                        1
+                    );
+                },
+                staticRenderFns: [],
+            },
+            undefined,
+            Q,
+            undefined,
+            false,
+            undefined,
+            !1,
+            void 0,
+            void 0,
+            void 0
+        ),
+        ee = {
+            components: {
+                VCombobox: a.VCombobox,
+                VListItemContent: a.VListItemContent,
+                VIcon: a.VIcon,
+                VTooltip: a.VTooltip,
+                VListItemAction: a.VListItemAction,
+                VListItem: a.VListItem,
+            },
+            name: 'HPanelArray',
+            props: {
+                value: {
+                    type: Array,
+                    default: function () {
+                        return [];
+                    },
+                },
+                label: String,
+                tooltip: String,
+                disabled: { type: Boolean, default: !1 },
+            },
+            data: function () {
+                return { selectedValues: [] };
+            },
+            watch: {
+                value: {
+                    handler: function (e, t) {
+                        this.selectedValues = e;
+                    },
+                    immediate: !0,
+                },
+                selectedValues: {
+                    handler: function (e, t) {
+                        this.$emit('input', e);
+                    },
+                },
+            },
+        },
+        te = ee,
+        se = H.default(
+            {
+                render: function () {
+                    var e = this,
+                        t = e.$createElement,
+                        s = e._self._c || t;
+                    return s(
+                        'v-list-item',
+                        { staticClass: 'pa-0', attrs: { dense: '' } },
+                        [
+                            s(
+                                'v-list-item-content',
+                                [
+                                    s('v-combobox', {
+                                        staticClass: 'ml-1 pr-2',
+                                        attrs: {
+                                            items: e.selectedValues,
+                                            label: e.label,
+                                            disabled: e.disabled,
+                                            chips: '',
+                                            clearable: '',
+                                            dense: '',
+                                            'deletable-chips': '',
+                                            'hide-no-data': '',
+                                            'hide-details': '',
+                                            multiple: '',
+                                            outlined: '',
+                                            'small-chips': '',
+                                        },
+                                        model: {
+                                            value: e.selectedValues,
+                                            callback: function (t) {
+                                                e.selectedValues = t;
+                                            },
+                                            expression: 'selectedValues',
+                                        },
+                                    }),
+                                ],
+                                1
+                            ),
+                            e._v(' '),
+                            e.tooltip
+                                ? s(
+                                      'v-list-item-action',
+                                      [
+                                          s(
+                                              'v-tooltip',
+                                              {
+                                                  attrs: { left: '', 'max-width': '200px' },
+                                                  scopedSlots: e._u(
+                                                      [
+                                                          {
+                                                              key: 'activator',
+                                                              fn: function (t) {
+                                                                  var a = t.on,
+                                                                      n = t.attrs;
+                                                                  return [
+                                                                      s(
+                                                                          'v-icon',
+                                                                          e._g(
+                                                                              e._b(
+                                                                                  {
+                                                                                      attrs: {
+                                                                                          color: 'grey lighten-1',
+                                                                                          dark: '',
+                                                                                      },
+                                                                                  },
+                                                                                  'v-icon',
+                                                                                  n,
+                                                                                  !1
+                                                                              ),
+                                                                              a
+                                                                          ),
+                                                                          [e._v('mdi-information')]
+                                                                      ),
+                                                                  ];
+                                                              },
+                                                          },
+                                                      ],
+                                                      null,
+                                                      !1,
+                                                      36085519
+                                                  ),
+                                              },
+                                              [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
+                                          ),
+                                      ],
+                                      1
+                                  )
+                                : e._e(),
+                        ],
+                        1
+                    );
+                },
+                staticRenderFns: [],
+            },
+            undefined,
+            te,
+            undefined,
+            false,
+            undefined,
+            !1,
+            void 0,
+            void 0,
+            void 0
+        ),
+        ae = {
+            components: {
                 VTextField: a.VTextField,
                 VListItemContent: a.VListItemContent,
                 VIcon: a.VIcon,
@@ -950,8 +1237,8 @@
                 },
             },
         },
-        Q = J,
-        Z = H.default(
+        ne = ae,
+        oe = H.default(
             {
                 render: function () {
                     var e = this,
@@ -1041,7 +1328,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            Q,
+            ne,
             undefined,
             false,
             undefined,
@@ -1050,7 +1337,7 @@
             void 0,
             void 0
         ),
-        ee = {
+        re = {
             name: 'HPanelIcon',
             components: {
                 HIconList: x.HIconList,
@@ -1083,8 +1370,7 @@
                 },
             },
         },
-        te = ee,
-        se = H.default(
+        ie = H.default(
             {
                 render: function () {
                     var e = this,
@@ -1174,7 +1460,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            te,
+            re,
             undefined,
             false,
             undefined,
@@ -1183,7 +1469,7 @@
             void 0,
             void 0
         ),
-        ae = {
+        le = {
             components: {
                 VTextField: a.VTextField,
                 VListItemContent: a.VListItemContent,
@@ -1219,8 +1505,7 @@
                 },
             },
         },
-        ne = ae,
-        oe = H.default(
+        pe = H.default(
             {
                 render: function () {
                     var e = this,
@@ -1314,7 +1599,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            ne,
+            le,
             undefined,
             false,
             undefined,
@@ -1323,148 +1608,7 @@
             void 0,
             void 0
         ),
-        re = {
-            components: {
-                VSelect: a.VSelect,
-                VListItemContent: a.VListItemContent,
-                VIcon: a.VIcon,
-                VTooltip: a.VTooltip,
-                VListItemAction: a.VListItemAction,
-                VListItem: a.VListItem,
-            },
-            name: 'HPanelSelect',
-            props: {
-                value: { required: !0 },
-                label: String,
-                tooltip: String,
-                disabled: { type: Boolean, default: !1 },
-                items: {
-                    type: Array,
-                    default: function () {
-                        return [];
-                    },
-                },
-            },
-            data: function () {
-                return { selectedValue: '' };
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        this.selectedValue = e;
-                    },
-                    immediate: !0,
-                },
-                selectedValue: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-            },
-        },
-        ie = H.default(
-            {
-                render: function () {
-                    var e = this,
-                        t = e.$createElement,
-                        s = e._self._c || t;
-                    return s(
-                        'v-list-item',
-                        { staticClass: 'pa-0', attrs: { dense: '' } },
-                        [
-                            s(
-                                'v-list-item-content',
-                                [
-                                    s('v-select', {
-                                        staticClass: 'ml-1 pr-2',
-                                        attrs: {
-                                            items: e.items,
-                                            label: e.label,
-                                            disabled: e.disabled,
-                                            outlined: '',
-                                            dense: '',
-                                            'hide-details': '',
-                                            clearable: '',
-                                            'no-data-text': '空',
-                                        },
-                                        model: {
-                                            value: e.selectedValue,
-                                            callback: function (t) {
-                                                e.selectedValue = t;
-                                            },
-                                            expression: 'selectedValue',
-                                        },
-                                    }),
-                                ],
-                                1
-                            ),
-                            e._v(' '),
-                            e.tooltip
-                                ? s(
-                                      'v-list-item-action',
-                                      [
-                                          s(
-                                              'v-tooltip',
-                                              {
-                                                  attrs: { left: '', 'max-width': '200px' },
-                                                  scopedSlots: e._u(
-                                                      [
-                                                          {
-                                                              key: 'activator',
-                                                              fn: function (t) {
-                                                                  var a = t.on,
-                                                                      n = t.attrs;
-                                                                  return [
-                                                                      s(
-                                                                          'v-icon',
-                                                                          e._g(
-                                                                              e._b(
-                                                                                  {
-                                                                                      attrs: {
-                                                                                          color: 'grey lighten-1',
-                                                                                          dark: '',
-                                                                                      },
-                                                                                  },
-                                                                                  'v-icon',
-                                                                                  n,
-                                                                                  !1
-                                                                              ),
-                                                                              a
-                                                                          ),
-                                                                          [e._v('mdi-information')]
-                                                                      ),
-                                                                  ];
-                                                              },
-                                                          },
-                                                      ],
-                                                      null,
-                                                      !1,
-                                                      36085519
-                                                  ),
-                                              },
-                                              [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                          ),
-                                      ],
-                                      1
-                                  )
-                                : e._e(),
-                        ],
-                        1
-                    );
-                },
-                staticRenderFns: [],
-            },
-            undefined,
-            re,
-            undefined,
-            false,
-            undefined,
-            !1,
-            void 0,
-            void 0,
-            void 0
-        ),
-        le = {
+        ce = {
             components: {
                 VSwitch: a.VSwitch,
                 VListItemContent: a.VListItemContent,
@@ -1499,7 +1643,7 @@
                 },
             },
         },
-        pe = H.default(
+        de = H.default(
             {
                 render: function () {
                     var e = this,
@@ -1591,7 +1735,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            le,
+            ce,
             undefined,
             false,
             undefined,
@@ -1600,7 +1744,208 @@
             void 0,
             void 0
         ),
-        ce = {
+        ue = {
+            components: {
+                VSwitch: a.VSwitch,
+                VTextField: a.VTextField,
+                VListItemContent: a.VListItemContent,
+                VIcon: a.VIcon,
+                VTooltip: a.VTooltip,
+                VListItemIcon: a.VListItemIcon,
+                VListItemAction: a.VListItemAction,
+                VListItem: a.VListItem,
+            },
+            name: 'HCombineBooleanInput',
+            props: {
+                value: [Boolean, String],
+                label: String,
+                tooltip: String,
+                disabled: { type: Boolean, default: !1 },
+                trueValue: { type: [String, Boolean, Array, Object], default: !0 },
+                falseValue: { type: [String, Boolean, Array, Object], default: !1 },
+            },
+            data: function () {
+                return { content: null, isSwitch: !1 };
+            },
+            watch: {
+                value: {
+                    handler: function (e, t) {
+                        this.content = e;
+                    },
+                },
+                content: {
+                    handler: function (e, t) {
+                        this.$emit('input', e);
+                    },
+                },
+            },
+        },
+        me = H.default(
+            {
+                render: function () {
+                    var e = this,
+                        t = e.$createElement,
+                        s = e._self._c || t;
+                    return s(
+                        'v-list-item',
+                        { staticClass: 'pa-0', attrs: { dense: '' } },
+                        [
+                            s(
+                                'v-list-item-content',
+                                [
+                                    e.isSwitch
+                                        ? s('v-switch', {
+                                              staticClass: 'mt-0 ml-2 pt-0',
+                                              attrs: {
+                                                  value: e.content,
+                                                  label: e.label,
+                                                  disabled: e.disabled,
+                                                  'true-value': e.trueValue,
+                                                  'false-value': e.falseValue,
+                                                  dense: '',
+                                                  inset: '',
+                                                  'hide-details': '',
+                                              },
+                                          })
+                                        : s('v-text-field', {
+                                              staticClass: 'ml-1 pr-2',
+                                              attrs: {
+                                                  value: e.content,
+                                                  label: e.label,
+                                                  disabled: e.disabled,
+                                                  outlined: '',
+                                                  dense: '',
+                                                  'hide-details': '',
+                                                  clearable: '',
+                                              },
+                                          }),
+                                ],
+                                1
+                            ),
+                            e._v(' '),
+                            s(
+                                'v-list-item-icon',
+                                { staticClass: 'align-self-center' },
+                                [
+                                    s(
+                                        'v-tooltip',
+                                        {
+                                            attrs: { left: '' },
+                                            scopedSlots: e._u([
+                                                {
+                                                    key: 'activator',
+                                                    fn: function (t) {
+                                                        var a = t.on,
+                                                            n = t.attrs;
+                                                        return [
+                                                            s(
+                                                                'v-icon',
+                                                                e._g(
+                                                                    e._b(
+                                                                        {
+                                                                            on: {
+                                                                                click: function (t) {
+                                                                                    e.isSwitch = !e.isSwitch;
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                        'v-icon',
+                                                                        n,
+                                                                        !1
+                                                                    ),
+                                                                    a
+                                                                ),
+                                                                [
+                                                                    e._v(
+                                                                        e._s(
+                                                                            e.isSwitch
+                                                                                ? 'mdi-form-textbox'
+                                                                                : 'mdi-toggle-switch'
+                                                                        )
+                                                                    ),
+                                                                ]
+                                                            ),
+                                                        ];
+                                                    },
+                                                },
+                                            ]),
+                                        },
+                                        [
+                                            e._v(' '),
+                                            s('span', [e._v(e._s(e.isSwitch ? '切换为文本输入' : '切换为滑块输入'))]),
+                                        ]
+                                    ),
+                                ],
+                                1
+                            ),
+                            e._v(' '),
+                            e.tooltip
+                                ? s(
+                                      'v-list-item-action',
+                                      { staticClass: 'mr-1' },
+                                      [
+                                          s(
+                                              'v-tooltip',
+                                              {
+                                                  attrs: { left: '', 'max-width': '200px' },
+                                                  scopedSlots: e._u(
+                                                      [
+                                                          {
+                                                              key: 'activator',
+                                                              fn: function (t) {
+                                                                  var a = t.on,
+                                                                      n = t.attrs;
+                                                                  return [
+                                                                      s(
+                                                                          'v-icon',
+                                                                          e._g(
+                                                                              e._b(
+                                                                                  {
+                                                                                      attrs: {
+                                                                                          color: 'grey lighten-1',
+                                                                                          dark: '',
+                                                                                      },
+                                                                                  },
+                                                                                  'v-icon',
+                                                                                  n,
+                                                                                  !1
+                                                                              ),
+                                                                              a
+                                                                          ),
+                                                                          [e._v('mdi-information')]
+                                                                      ),
+                                                                  ];
+                                                              },
+                                                          },
+                                                      ],
+                                                      null,
+                                                      !1,
+                                                      36085519
+                                                  ),
+                                              },
+                                              [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
+                                          ),
+                                      ],
+                                      1
+                                  )
+                                : e._e(),
+                        ],
+                        1
+                    );
+                },
+                staticRenderFns: [],
+            },
+            undefined,
+            ue,
+            undefined,
+            false,
+            undefined,
+            !1,
+            void 0,
+            void 0,
+            void 0
+        ),
+        ve = {
             components: {
                 VTextField: a.VTextField,
                 VListItemContent: a.VListItemContent,
@@ -1628,7 +1973,7 @@
                 },
             },
         },
-        de = H.default(
+        he = H.default(
             {
                 render: function () {
                     var e = this,
@@ -1719,7 +2064,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            ce,
+            ve,
             undefined,
             false,
             undefined,
@@ -1728,7 +2073,7 @@
             void 0,
             void 0
         ),
-        ue = {
+        be = {
             components: {
                 VTextField: a.VTextField,
                 VForm: a.VForm,
@@ -1813,7 +2158,7 @@
                 },
             },
         },
-        me = {
+        fe = {
             name: 'HRuleExpansionPanel',
             components: {
                 HExpansionPanel: U,
@@ -1952,7 +2297,7 @@
                         staticRenderFns: [],
                     },
                     undefined,
-                    ue,
+                    be,
                     undefined,
                     false,
                     undefined,
@@ -2101,16 +2446,16 @@
                 },
             },
         },
-        ve = {
+        ge = {
             name: 'HTextFieldPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSelect: ie,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSelect: Z,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 HRuleExpansionPanel: H.default(
                     {
                         render: function () {
@@ -2254,7 +2599,7 @@
                         staticRenderFns: [],
                     },
                     undefined,
-                    me,
+                    fe,
                     undefined,
                     false,
                     undefined,
@@ -2308,7 +2653,7 @@
                 },
             },
         },
-        he = H.default(
+        xe = H.default(
             {
                 render: function () {
                     var e = this,
@@ -2865,7 +3210,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            ve,
+            ge,
             undefined,
             false,
             undefined,
@@ -2874,16 +3219,16 @@
             void 0,
             void 0
         ),
-        be = {
+        _e = {
             name: 'HTextAreaPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSelect: ie,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSelect: Z,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -2921,7 +3266,7 @@
                 },
             },
         },
-        fe = H.default(
+        ke = H.default(
             {
                 render: function () {
                     var e = this,
@@ -3521,351 +3866,6 @@
                 staticRenderFns: [],
             },
             undefined,
-            be,
-            undefined,
-            false,
-            undefined,
-            !1,
-            void 0,
-            void 0,
-            void 0
-        ),
-        ge = {
-            components: {
-                VCombobox: a.VCombobox,
-                VListItemContent: a.VListItemContent,
-                VIcon: a.VIcon,
-                VTooltip: a.VTooltip,
-                VListItemAction: a.VListItemAction,
-                VListItem: a.VListItem,
-            },
-            name: 'HPanelArray',
-            props: {
-                value: {
-                    type: Array,
-                    default: function () {
-                        return [];
-                    },
-                },
-                label: String,
-                tooltip: String,
-                disabled: { type: Boolean, default: !1 },
-            },
-            data: function () {
-                return { selectedValues: [] };
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        this.selectedValues = e;
-                    },
-                    immediate: !0,
-                },
-                selectedValues: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-            },
-        },
-        xe = H.default(
-            {
-                render: function () {
-                    var e = this,
-                        t = e.$createElement,
-                        s = e._self._c || t;
-                    return s(
-                        'v-list-item',
-                        { staticClass: 'pa-0', attrs: { dense: '' } },
-                        [
-                            s(
-                                'v-list-item-content',
-                                [
-                                    s('v-combobox', {
-                                        staticClass: 'ml-1 pr-2',
-                                        attrs: {
-                                            items: e.selectedValues,
-                                            label: e.label,
-                                            disabled: e.disabled,
-                                            chips: '',
-                                            clearable: '',
-                                            dense: '',
-                                            'deletable-chips': '',
-                                            'hide-no-data': '',
-                                            'hide-details': '',
-                                            multiple: '',
-                                            outlined: '',
-                                            'small-chips': '',
-                                        },
-                                        model: {
-                                            value: e.selectedValues,
-                                            callback: function (t) {
-                                                e.selectedValues = t;
-                                            },
-                                            expression: 'selectedValues',
-                                        },
-                                    }),
-                                ],
-                                1
-                            ),
-                            e._v(' '),
-                            e.tooltip
-                                ? s(
-                                      'v-list-item-action',
-                                      [
-                                          s(
-                                              'v-tooltip',
-                                              {
-                                                  attrs: { left: '', 'max-width': '200px' },
-                                                  scopedSlots: e._u(
-                                                      [
-                                                          {
-                                                              key: 'activator',
-                                                              fn: function (t) {
-                                                                  var a = t.on,
-                                                                      n = t.attrs;
-                                                                  return [
-                                                                      s(
-                                                                          'v-icon',
-                                                                          e._g(
-                                                                              e._b(
-                                                                                  {
-                                                                                      attrs: {
-                                                                                          color: 'grey lighten-1',
-                                                                                          dark: '',
-                                                                                      },
-                                                                                  },
-                                                                                  'v-icon',
-                                                                                  n,
-                                                                                  !1
-                                                                              ),
-                                                                              a
-                                                                          ),
-                                                                          [e._v('mdi-information')]
-                                                                      ),
-                                                                  ];
-                                                              },
-                                                          },
-                                                      ],
-                                                      null,
-                                                      !1,
-                                                      36085519
-                                                  ),
-                                              },
-                                              [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                          ),
-                                      ],
-                                      1
-                                  )
-                                : e._e(),
-                        ],
-                        1
-                    );
-                },
-                staticRenderFns: [],
-            },
-            undefined,
-            ge,
-            undefined,
-            false,
-            undefined,
-            !1,
-            void 0,
-            void 0,
-            void 0
-        ),
-        _e = {
-            components: {
-                VSwitch: a.VSwitch,
-                VTextField: a.VTextField,
-                VListItemContent: a.VListItemContent,
-                VIcon: a.VIcon,
-                VTooltip: a.VTooltip,
-                VListItemIcon: a.VListItemIcon,
-                VListItemAction: a.VListItemAction,
-                VListItem: a.VListItem,
-            },
-            name: 'HCombineBooleanInput',
-            props: {
-                value: [Boolean, String],
-                label: String,
-                tooltip: String,
-                disabled: { type: Boolean, default: !1 },
-                trueValue: { type: [String, Boolean, Array, Object], default: !0 },
-                falseValue: { type: [String, Boolean, Array, Object], default: !1 },
-            },
-            data: function () {
-                return { content: null, isSwitch: !1 };
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        this.content = e;
-                    },
-                },
-                content: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-            },
-        },
-        ke = H.default(
-            {
-                render: function () {
-                    var e = this,
-                        t = e.$createElement,
-                        s = e._self._c || t;
-                    return s(
-                        'v-list-item',
-                        { staticClass: 'pa-0', attrs: { dense: '' } },
-                        [
-                            s(
-                                'v-list-item-content',
-                                [
-                                    e.isSwitch
-                                        ? s('v-switch', {
-                                              staticClass: 'mt-0 ml-2 pt-0',
-                                              attrs: {
-                                                  value: e.content,
-                                                  label: e.label,
-                                                  disabled: e.disabled,
-                                                  'true-value': e.trueValue,
-                                                  'false-value': e.falseValue,
-                                                  dense: '',
-                                                  inset: '',
-                                                  'hide-details': '',
-                                              },
-                                          })
-                                        : s('v-text-field', {
-                                              staticClass: 'ml-1 pr-2',
-                                              attrs: {
-                                                  value: e.content,
-                                                  label: e.label,
-                                                  disabled: e.disabled,
-                                                  outlined: '',
-                                                  dense: '',
-                                                  'hide-details': '',
-                                                  clearable: '',
-                                              },
-                                          }),
-                                ],
-                                1
-                            ),
-                            e._v(' '),
-                            s(
-                                'v-list-item-icon',
-                                { staticClass: 'align-self-center' },
-                                [
-                                    s(
-                                        'v-tooltip',
-                                        {
-                                            attrs: { left: '' },
-                                            scopedSlots: e._u([
-                                                {
-                                                    key: 'activator',
-                                                    fn: function (t) {
-                                                        var a = t.on,
-                                                            n = t.attrs;
-                                                        return [
-                                                            s(
-                                                                'v-icon',
-                                                                e._g(
-                                                                    e._b(
-                                                                        {
-                                                                            on: {
-                                                                                click: function (t) {
-                                                                                    e.isSwitch = !e.isSwitch;
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        'v-icon',
-                                                                        n,
-                                                                        !1
-                                                                    ),
-                                                                    a
-                                                                ),
-                                                                [
-                                                                    e._v(
-                                                                        e._s(
-                                                                            e.isSwitch
-                                                                                ? 'mdi-form-textbox'
-                                                                                : 'mdi-toggle-switch'
-                                                                        )
-                                                                    ),
-                                                                ]
-                                                            ),
-                                                        ];
-                                                    },
-                                                },
-                                            ]),
-                                        },
-                                        [
-                                            e._v(' '),
-                                            s('span', [e._v(e._s(e.isSwitch ? '切换为文本输入' : '切换为滑块输入'))]),
-                                        ]
-                                    ),
-                                ],
-                                1
-                            ),
-                            e._v(' '),
-                            e.tooltip
-                                ? s(
-                                      'v-list-item-action',
-                                      { staticClass: 'mr-1' },
-                                      [
-                                          s(
-                                              'v-tooltip',
-                                              {
-                                                  attrs: { left: '', 'max-width': '200px' },
-                                                  scopedSlots: e._u(
-                                                      [
-                                                          {
-                                                              key: 'activator',
-                                                              fn: function (t) {
-                                                                  var a = t.on,
-                                                                      n = t.attrs;
-                                                                  return [
-                                                                      s(
-                                                                          'v-icon',
-                                                                          e._g(
-                                                                              e._b(
-                                                                                  {
-                                                                                      attrs: {
-                                                                                          color: 'grey lighten-1',
-                                                                                          dark: '',
-                                                                                      },
-                                                                                  },
-                                                                                  'v-icon',
-                                                                                  n,
-                                                                                  !1
-                                                                              ),
-                                                                              a
-                                                                          ),
-                                                                          [e._v('mdi-information')]
-                                                                      ),
-                                                                  ];
-                                                              },
-                                                          },
-                                                      ],
-                                                      null,
-                                                      !1,
-                                                      36085519
-                                                  ),
-                                              },
-                                              [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                          ),
-                                      ],
-                                      1
-                                  )
-                                : e._e(),
-                        ],
-                        1
-                    );
-                },
-                staticRenderFns: [],
-            },
-            undefined,
             _e,
             undefined,
             false,
@@ -3879,13 +3879,13 @@
             name: 'HSliderPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelArray: xe,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSwitch: pe,
-                HPanelSwitchTextField: ke,
-                HPanelTextField: de,
+                HPanelArray: se,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSwitch: de,
+                HPanelSwitchTextField: me,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -4356,13 +4356,13 @@
             name: 'HRangeSliderPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelArray: xe,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSwitch: pe,
-                HPanelSwitchTextField: ke,
-                HPanelTextField: de,
+                HPanelArray: se,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSwitch: de,
+                HPanelSwitchTextField: me,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -4833,10 +4833,10 @@
             name: 'HCheckboxPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -5167,10 +5167,10 @@
             name: 'HSwitchPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -5535,12 +5535,12 @@
             name: 'HDatePickerPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSelect: ie,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSelect: Z,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -6034,11 +6034,11 @@
             name: 'HTimePickerPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelNumber: oe,
-                HPanelSelect: ie,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelNumber: pe,
+                HPanelSelect: Z,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -6351,12 +6351,12 @@
             name: 'HSingleSelectPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSelect: ie,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSelect: Z,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -7147,13 +7147,13 @@
             name: 'HComboBoxPanel',
             components: {
                 HExpansionPanel: U,
-                HPanelArray: xe,
-                HPanelColor: Z,
-                HPanelIcon: se,
-                HPanelNumber: oe,
-                HPanelSelect: ie,
-                HPanelSwitch: pe,
-                HPanelTextField: de,
+                HPanelArray: se,
+                HPanelColor: oe,
+                HPanelIcon: ie,
+                HPanelNumber: pe,
+                HPanelSelect: Z,
+                HPanelSwitch: de,
+                HPanelTextField: he,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -7194,8 +7194,8 @@
         Ae = {
             name: 'HPropertyPanel',
             components: {
-                TEXT_FIELD: he,
-                TEXT_AREA: fe,
+                TEXT_FIELD: xe,
+                TEXT_AREA: ke,
                 SLIDER: we,
                 RANGE_SLIDER: Ce,
                 CHECKBOX: Ve,
@@ -8403,7 +8403,7 @@
                     },
                     undefined,
                     Ae,
-                    'data-v-04677642',
+                    'data-v-350eb2ef',
                     false,
                     undefined,
                     !1,

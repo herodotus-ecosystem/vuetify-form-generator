@@ -84,12 +84,11 @@
 <script>
 import { debounce } from 'throttle-debounce';
 
-import { leftPanelComponents } from '@/lib/modeler/configurations';
-import { DataObject, DB } from '@/lib/modeler/logic';
+import { leftPanelComponents } from '../lib/modeler/configurations';
+import { DataObject, DB } from '../lib/modeler/logic';
 
-import HCanvasContainer from '@/components/canvas/HCanvasContainer.vue';
-import HDraggableItem from '@/components/canvas/HDraggableItem.vue';
-import HPropertyPanel from '@/components/property/HPropertyPanel.vue';
+import { HCanvasContainer, HDraggableItem } from './canvas';
+import { HPropertyPanel } from './property';
 
 export default {
     name: 'HFormModeler',

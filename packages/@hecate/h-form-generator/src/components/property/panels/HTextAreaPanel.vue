@@ -183,14 +183,10 @@
 </template>
 
 <script>
-import HExpansionPanel from '@/components/property/layouts/HExpansionPanel.vue';
-import HPanelColor from '@/components/property/controls/HPanelColor.vue';
-import HPanelIcon from '@/components/property/controls/HPanelIcon.vue';
-import HPanelNumber from '@/components/property/controls/HPanelNumber.vue';
-import HPanelSelect from '@/components/property/controls/HPanelSelect.vue';
-import HPanelSwitch from '@/components/property/controls/HPanelSwitch.vue';
-import HPanelTextField from '@/components/property/controls/HPanelTextField.vue';
-import { constants } from '@/lib/modeler/configurations';
+import { HExpansionPanel } from '../layouts';
+import { HPanelColor, HPanelIcon, HPanelNumber, HPanelSelect, HPanelSwitch, HPanelTextField } from '../controls';
+
+import { constants } from '../../../lib/modeler/configurations';
 
 export default {
     name: 'HTextAreaPanel',

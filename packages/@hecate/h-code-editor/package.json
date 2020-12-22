@@ -4,8 +4,8 @@
     "author": "Felix <pointer_v@qq.com>",
     "license": "MIT",
     "private": false,
-    "main": "src/index.js",
-    "module": "dist/index.esm.js",
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
     "unpkg": "dist/index.min.js",
     "scripts": {
         "start": "yarn build",
