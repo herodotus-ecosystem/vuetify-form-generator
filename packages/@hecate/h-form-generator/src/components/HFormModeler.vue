@@ -32,7 +32,7 @@
             </div>
         </v-navigation-drawer>
         <v-main app class="pa-0">
-            <h-canvas-container>
+            <h-canvas-container @empty="emptyCanvas">
                 <validation-observer ref="observer">
                     <v-form>
                         <draggable
@@ -183,6 +183,9 @@ export default {
                     this.selectCanvasItem(this.drawingCanvas[size - 1]);
                 }
             });
+        },
+        emptyCanvas() {
+            this.drawingCanvas = [];
         },
     },
 };

@@ -3,19 +3,9 @@
         <v-row>
             <v-col class="canvas-body">
                 <v-card class="ml-1 mr-1">
-                    <v-card-actions>
-                        <v-btn icon>
-                            <v-icon>mdi-heart</v-icon>
-                        </v-btn>
-
-                        <v-btn icon>
-                            <v-icon>mdi-bookmark</v-icon>
-                        </v-btn>
-
-                        <v-btn icon>
-                            <v-icon>mdi-share-variant</v-icon>
-                        </v-btn>
-                    </v-card-actions>
+                    <v-toolbar dense flat>
+                        <h-button icon icon-name="mdi-delete-empty" tooltip="清空" @click="empty"></h-button>
+                    </v-toolbar>
                     <slot></slot>
                 </v-card>
             </v-col>
@@ -24,8 +14,14 @@
 </template>
 
 <script>
+import { HButton } from '@hecate/h-button';
+
 export default {
     name: 'HCanvasContainer',
+
+    components: {
+        HButton,
+    },
 
     // props: {
     //     formSettings: { required: true }
@@ -34,5 +30,11 @@ export default {
     created() {},
 
     data: () => ({}),
+
+    methods: {
+        empty() {
+            this.$emit('empty');
+        },
+    },
 };
 </script>
