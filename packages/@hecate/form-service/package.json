@@ -18,7 +18,7 @@
         "@nuxtjs/pwa": "^3.3.3",
         "nuxt": "^2.14.12",
         "vee-validate": "^3.4.5",
-        "vuetify": "^2.3.21"
+        "vuetify": "^2.3.22"
     },
     "devDependencies": {
         "@nuxtjs/eslint-config": "^5.0.0",

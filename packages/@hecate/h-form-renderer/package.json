@@ -19,6 +19,6 @@
         "property-expr": "^2.0.4"
     },
     "peerDependencies": {
-        "vuetify": "^2.3.21"
+        "vuetify": "^2.3.22"
     }
 }
