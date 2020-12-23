@@ -1,4 +1,4 @@
-# 开发环境配置（Windows）
+# [一]、开发环境配置（Windows）
 
 ## 一、安装及配置 Nodejs
 
@@ -172,7 +172,7 @@ yarn config set profiler_binary_host_mirror "https://npm.taobao.org/mirrors/node
 yarn config set chromedriver_cdnurl "https://cdn.npm.taobao.org/dist/chromedriver"
 ```
 
-# 全局安装
+# [二]、全局安装
 
 如果要正确运行本系统，需要提前安装一些全局工具，以便一些命令可以正常运行。
 
@@ -184,7 +184,7 @@ npm install -g yarn
 yarn global add lerna @vue/cli
 ```
 
-# 工程中各个包用户说明
+# [三]、工程中各个包用途说明
 
 | 包名                     | 当前版本 | 用途                 | 说明                                                                                                                                                                                   |
 | ------------------------ | -------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -200,9 +200,7 @@ yarn global add lerna @vue/cli
 | @hecate/h-form-runtime   | 1.0.0    | 动态表单预览组件     | 基于生成的 Schema 显示表单组件                                                                                                                                                         |
 | @hecate/h-icon-list      | 1.0.0    | Icon 选择组件        | 基于 material design icons 封装的图标查询和选择组件                                                                                                                                    |
 
-# 命令
-
-## 一、本工程常用命令
+# [四]、常用命令
 
 -   指定包，在某个包下执行 yarn 命令
 
@@ -276,9 +274,9 @@ lerna clean
 lerna bootstrap 或 yarn install
 ```
 
-## 二、问题解决
+# [五]、问题解决
 
-### 问题一：升级依赖包时出错
+## 问题一：升级依赖包时出错
 
 使用**yarn upgrade-interactive --latest**命令升级依赖包的时候，特别是@hecate/form-service 中，有依赖包可以升级时（目测是由于使用了 Nuxt），经常会出现下面的错误。
 
@@ -298,7 +296,7 @@ Invariant Violation: expected workspace package to exist for "autoprefixer"
 
 > 这个问题是 yarn 本身的 Bug，虽然 yarn 已经升级到了 1.22.10，但是一会好一会不好的。
 
-#### （1）解决办法一
+### （1）解决办法一
 
 在工程中将 yarn 的版本，降到 1.19.XX。这种方法，只对本工程有效，这样其它工程仍旧可以使用最新版的 yarn，避免了全局安装低版本 yarn 的问题
 
@@ -311,7 +309,7 @@ yarn install
 
 > 这个命令会在工程中生成一个.yarn 目录以及一个.yarnrc 文件，并在其中指定 yarn 版本。
 
-#### (2)解决办法二
+### (2)解决办法二
 
 这种办法土一点，但是可以不用去理会 yarn 的不管问题。
 
@@ -332,7 +330,7 @@ lerna bootstrap
 yarn install
 ```
 
-### 问题二：运行命令是出现禁止脚本运行的错误
+## 问题二：运行命令是出现禁止脚本运行的错误
 
 解决方法：打开 PowerShell（在小娜里搜就行），输入：
 
@@ -342,7 +340,7 @@ set-executionpolicy remotesigned
 
 之后选择 Y，问题就解决了。
 
-# 依赖说明
+# [六]、依赖说明
 
 ## 以下依赖包暂时不要升级
 
