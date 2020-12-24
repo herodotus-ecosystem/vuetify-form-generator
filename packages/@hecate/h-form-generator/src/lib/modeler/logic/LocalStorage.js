@@ -3,7 +3,7 @@ import { lib } from '@hecate/core';
 const DRAWING_CANVAS = 'DRAWING_CANVAS';
 const DRAWING_CANVAS_VERSION = '1.1';
 const DRAWING_CANVAS_VERSION_KEY = 'DRAWING_CANVAS_VERSION';
-const FORM_SETTINGS = 'FORM_SETTINGS';
+const DRAWING_CANVAS_FORM = 'DRAWING_CANVAS_FORM';
 
 const result = {
     toJson(str) {
@@ -11,7 +11,7 @@ const result = {
     },
     toInt(str) {
         return str ? parseInt(str, 10) : 100;
-    },
+    }
 };
 
 export function getDrawingCanvas() {
@@ -31,11 +31,11 @@ export function saveDrawingCanvas(canvas) {
     lib.storageSync.setItem(DRAWING_CANVAS, JSON.stringify(canvas));
 }
 
-export function getFormSettings() {
-    const str = lib.storageSync.getItem(FORM_SETTINGS);
+export function getDrawingCanvasForm() {
+    const str = lib.storageSync.getItem(DRAWING_CANVAS_FORM);
     return result.toJson(str);
 }
 
-export function saveFormSettings(settings) {
-    lib.storageSync.setItem(FORM_SETTINGS, JSON.stringify(settings));
+export function saveDrawingCanvasForm(settings) {
+    lib.storageSync.setItem(DRAWING_CANVAS_FORM, JSON.stringify(settings));
 }

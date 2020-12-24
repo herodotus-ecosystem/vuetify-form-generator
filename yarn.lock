@@ -15612,10 +15612,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^10.12.5:
-  version "10.12.5"
-  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.12.5.tgz#9b1d457f5245e2f5af3f0974f730b1b098a8f591"
-  integrity sha1-mx1Ff1JF4vWvPwl09zCxsJio9ZE=
+sweetalert2@^10.12.6:
+  version "10.12.6"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.12.6.tgz#249b95fecb28986a1aff82710a460ecb4717e2a9"
+  integrity sha1-JJuV/ssomGoa/4JxCkYOy0cX4qk=
 
 system@^2.0.1:
   version "2.0.1"
@@ -16658,10 +16658,15 @@ vuetify-loader@^1.3.0, vuetify-loader@^1.4.3:
     file-loader "^4.0.0"
     loader-utils "^1.2.0"
 
-vuetify@^2, vuetify@^2.3.22:
+vuetify@^2:
   version "2.3.22"
   resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.3.22.tgz#482d12fbf6502c3ef7dc597aedc24c8f0a27356e"
   integrity sha1-SC0S+/ZQLD733Fl67cJMjwonNW4=
+
+vuetify@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.4.0.tgz#6aa2616b0fecb0614cf85052b0ffbb5cad80bf92"
+  integrity sha1-aqJhaw/ssGFM+FBSsP+7XK2Av5I=
 
 vuex@^3.6.0:
   version "3.6.0"

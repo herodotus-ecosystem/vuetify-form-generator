@@ -85,7 +85,7 @@
                                     placeholder="请输入数据模型"
                                 />
                                 <v-divider></v-divider>
-                                <!-- <h-form-panel :form-settings="formSettings"></h-form-panel> -->
+                                <h-form-panel :schema="formSettings"></h-form-panel>
                             </v-card>
                         </v-col>
                     </v-row>
@@ -96,16 +96,19 @@
 </template>
 
 <script>
-import HTextFieldPanel from '../../components/property/panels/HTextFieldPanel.vue';
-import HTextAreaPanel from '../../components/property/panels/HTextAreaPanel.vue';
-import HSliderPanel from '../../components/property/panels/HSliderPanel.vue';
-import HRangeSliderPanel from '../../components/property/panels/HRangeSliderPanel.vue';
-import HCheckBoxPanel from '../../components/property/panels/HCheckBoxPanel.vue';
-import HSwitchPanel from '../../components/property/panels/HSwitchPanel.vue';
-import HDatePickerPanel from '../../components/property/panels/HDatePickerPanel.vue';
-import HTimePickerPanel from '../../components/property/panels/HTimePickerPanel.vue';
-import HSelectSinglePanel from '../../components/property/panels/HSelectSinglePanel.vue';
-import HComboBoxPanel from '../../components/property/panels/HComboBoxPanel.vue';
+import {
+    HCheckBoxPanel,
+    HComboBoxPanel,
+    HDatePickerPanel,
+    HFormPanel,
+    HRangeSliderPanel,
+    HSelectSinglePanel,
+    HSliderPanel,
+    HSwitchPanel,
+    HTextAreaPanel,
+    HTextFieldPanel,
+    HTimePickerPanel
+} from './panels';
 
 import { constants } from '../../lib/modeler/configurations';
 
@@ -123,17 +126,18 @@ export default {
         TIME_PICKER: HTimePickerPanel,
         SELECT_SINGLE: HSelectSinglePanel,
         COMBOBOX: HComboBoxPanel,
+        HFormPanel
     },
 
     props: {
         selectedItem: {
             type: Object,
-            default: () => {},
+            default: () => {}
         },
         formSchema: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
@@ -141,10 +145,10 @@ export default {
         tab: null,
         tabs: [
             { key: 'element', name: '组件属性' },
-            { key: 'form', name: '表单属性' },
+            { key: 'form', name: '表单属性' }
         ],
         schema: {},
-        formSettings: {},
+        formSettings: {}
     }),
 
     computed: {
@@ -159,7 +163,7 @@ export default {
         },
         properties() {
             return this.element[this.constants.annotations.xprops];
-        },
+        }
     },
 
     watch: {
@@ -167,14 +171,14 @@ export default {
             handler(newValue, oldValue) {
                 this.schema = newValue;
             },
-            immediate: true,
+            immediate: true
         },
         formSchema: {
             handler(newValue, oldValue) {
                 this.formSettings = newValue;
             },
-            immediate: true,
-        },
+            immediate: true
+        }
     },
 
     methods: {
@@ -198,8 +202,8 @@ export default {
                 this.$set(this.properties, 'label', newLabel);
                 this.$set(this.element, 'title', newLabel);
             }
-        },
-    },
+        }
+    }
 };
 </script>
 

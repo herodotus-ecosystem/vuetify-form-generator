@@ -9,8 +9,8 @@ const inputComponents = [
             icon: 'mdi-form-textbox',
             name: 'TextField',
             document: 'https://vuetifyjs.com/zh-Hans/components/text-fields/',
-            schema: definitions.TEXT_FIELD.index,
-        },
+            schema: definitions.TEXT_FIELD.index
+        }
     },
     {
         configs: {
@@ -18,9 +18,9 @@ const inputComponents = [
             icon: 'mdi-form-textarea',
             name: 'TextArea',
             document: 'https://vuetifyjs.com/zh-Hans/components/textareas/',
-            schema: definitions.TEXT_AREA.index,
-        },
-    },
+            schema: definitions.TEXT_AREA.index
+        }
+    }
 ];
 
 // 选择型组件 【左面板】
@@ -31,8 +31,8 @@ const selectComponents = [
             icon: 'mdi-tune-variant',
             name: 'Slider',
             document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-            schema: definitions.SLIDER.index,
-        },
+            schema: definitions.SLIDER.index
+        }
     },
     {
         configs: {
@@ -40,8 +40,8 @@ const selectComponents = [
             icon: 'mdi-valve-closed',
             name: 'Range_Slider',
             document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-            schema: definitions.RANGE_SLIDER.index,
-        },
+            schema: definitions.RANGE_SLIDER.index
+        }
     },
     {
         configs: {
@@ -49,8 +49,8 @@ const selectComponents = [
             icon: 'mdi-checkbox-marked',
             name: 'Checkbox',
             document: 'https://vuetifyjs.com/zh-Hans/components/checkboxes/',
-            schema: definitions.CHECKBOX.index,
-        },
+            schema: definitions.CHECKBOX.index
+        }
     },
     {
         configs: {
@@ -58,8 +58,8 @@ const selectComponents = [
             icon: 'mdi-toggle-switch',
             name: 'Switch',
             document: 'https://vuetifyjs.com/zh-Hans/components/switches/',
-            schema: definitions.SWITCHS.index,
-        },
+            schema: definitions.SWITCHS.index
+        }
     },
     {
         configs: {
@@ -67,8 +67,8 @@ const selectComponents = [
             icon: 'mdi-calendar',
             name: 'Date',
             document: 'https://vuetifyjs.com/zh-Hans/components/date-pickers/',
-            schema: definitions.DATE_PICKER.index,
-        },
+            schema: definitions.DATE_PICKER.index
+        }
     },
     {
         configs: {
@@ -76,8 +76,8 @@ const selectComponents = [
             icon: 'mdi-clock-outline',
             name: 'Time',
             document: 'https://vuetifyjs.com/zh-Hans/components/time-pickers/',
-            schema: definitions.TIME_PICKER.index,
-        },
+            schema: definitions.TIME_PICKER.index
+        }
     },
     {
         configs: {
@@ -85,8 +85,8 @@ const selectComponents = [
             icon: 'mdi-form-dropdown',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-            schema: definitions.SELECT_SINGLE.index,
-        },
+            schema: definitions.SELECT_SINGLE.index
+        }
     },
     {
         configs: {
@@ -94,8 +94,8 @@ const selectComponents = [
             icon: 'mdi-vector-difference-ab',
             name: 'Combobox',
             document: 'https://vuetifyjs.com/zh-Hans/components/combobox/',
-            schema: definitions.COMBOBOX.index,
-        },
+            schema: definitions.COMBOBOX.index
+        }
     },
     {
         configs: {
@@ -103,8 +103,8 @@ const selectComponents = [
             icon: 'mdi-form-dropdown',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-            schema: definitions.SELECT_MULTIPLE.index,
-        },
+            schema: definitions.SELECT_MULTIPLE.index
+        }
     },
     {
         configs: {
@@ -112,8 +112,8 @@ const selectComponents = [
             icon: 'mdi-file-tree-outline',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-            schema: definitions.CASCADE_SELECT.index,
-        },
+            schema: definitions.CASCADE_SELECT.index
+        }
     },
     {
         configs: {
@@ -121,8 +121,8 @@ const selectComponents = [
             icon: 'mdi-checkbox-marked-circle',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/selection-controls/',
-            schema: definitions.RADIO.index,
-        },
+            schema: definitions.RADIO.index
+        }
     },
 
     {
@@ -131,8 +131,8 @@ const selectComponents = [
             icon: 'mdi-calendar',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/color-pickers/',
-            schema: definitions.COLOR_PICKER.index,
-        },
+            schema: definitions.COLOR_PICKER.index
+        }
     },
     {
         configs: {
@@ -140,9 +140,9 @@ const selectComponents = [
             icon: 'mdi-calendar',
             name: 'Select',
             document: 'https://vuetifyjs.com/zh-Hans/components/file-inputs/',
-            schema: definitions.FILE_INPUT.index,
-        },
-    },
+            schema: definitions.FILE_INPUT.index
+        }
+    }
 ];
 
 // 布局型组件 【左面板】
@@ -154,11 +154,11 @@ const layoutComponents = [
             tagIcon: 'mdi-view-column-outline',
 
             layoutTree: true,
-            document: 'https://element.eleme.cn/#/zh-CN/component/layout#row-attributes',
+            document: 'https://element.eleme.cn/#/zh-CN/component/layout#row-attributes'
         },
         type: 'default',
         justify: 'start',
-        align: 'top',
+        align: 'top'
     },
     {
         title: '按钮',
@@ -170,10 +170,10 @@ const layoutComponents = [
             tagIcon: 'mdi-gesture-tap-button',
             span: 24,
             layout: 'columnLayoutItem',
-            document: 'https://element.eleme.cn/#/zh-CN/component/button',
+            document: 'https://element.eleme.cn/#/zh-CN/component/button'
         },
         slot: {
-            default: '主要按钮',
+            default: '主要按钮'
         },
         type: 'primary',
         icon: 'el-icon-search',
@@ -181,23 +181,29 @@ const layoutComponents = [
         size: 'medium',
         plain: false,
         circle: false,
-        disabled: false,
-    },
+        disabled: false
+    }
 ];
 
 const leftPanelComponents = [
     {
         title: '输入型组件',
-        list: inputComponents,
+        list: inputComponents
     },
     {
         title: '选择型组件',
-        list: selectComponents,
+        list: selectComponents
     },
     {
         title: '布局型组件',
-        list: layoutComponents,
-    },
+        list: layoutComponents
+    }
 ];
 
-export { leftPanelComponents };
+const formConfigurations = {
+    formRef: 'vuetifyForm',
+    formModel: 'formData',
+    contentType: 'application/json'
+};
+
+export { leftPanelComponents, formConfigurations };

@@ -84,7 +84,7 @@
 <script>
 import { debounce } from 'throttle-debounce';
 
-import { leftPanelComponents } from '../lib/modeler/configurations';
+import { leftPanelComponents, formConfigurations } from '../lib/modeler/configurations';
 import { DataObject, DB } from '../lib/modeler/logic';
 
 import { HCanvasContainer, HDraggableItem } from './canvas';
@@ -96,23 +96,25 @@ export default {
     components: {
         HCanvasContainer,
         HDraggableItem,
-        HPropertyPanel,
+        HPropertyPanel
     },
 
     props: {
         height: {
             type: String,
-            default: '100vh',
-        },
+            default: '100vh'
+        }
     },
 
     data: () => ({
         components: leftPanelComponents,
+        formSettings: formConfigurations,
         drawingCanvas: [],
+        drawingCanvasForm: {},
         selectedCanvasItemId: '',
         selectedCanvasItemData: {},
-        drawingCanvasForm: {},
         saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
+        saveDrawingCanvasFormDebounce: debounce(340, DB.saveDrawingCanvasForm)
     }),
 
     watch: {
@@ -121,8 +123,16 @@ export default {
                 console.info('[HFG] Save Canvas Data to local storage!');
                 this.saveDrawingCanvasDebounce(newValue);
             },
-            deep: true,
+            deep: true
         },
+        drawingCanvasForm: {
+            handler(newValue, oldValue) {
+                console.info('[HFG] Save Form Data to local storage!');
+                this.saveDrawingCanvasFormDebounce(newValue);
+            },
+            deep: true,
+            immediate: true
+        }
     },
 
     created() {
@@ -134,6 +144,12 @@ export default {
         if (Array.isArray(drawingCanvasInDB) && drawingCanvasInDB.length > 0) {
             this.drawingCanvas = drawingCanvasInDB;
             this.selectCanvasItem(this.drawingCanvas[0]);
+        }
+        let drawingCanvasFormInDB = DB.getDrawingCanvasForm();
+        if (this.$lib.lodash.isEmpty(drawingCanvasFormInDB)) {
+            this.drawingCanvasForm = this.$lib.lodash.cloneDeep(this.formSettings);
+        } else {
+            this.drawingCanvasForm = drawingCanvasFormInDB;
         }
     },
 
@@ -186,8 +202,8 @@ export default {
         },
         emptyCanvas() {
             this.drawingCanvas = [];
-        },
-    },
+        }
+    }
 };
 </script>
 

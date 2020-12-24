@@ -1,5 +1,5 @@
-import { leftPanelComponents } from './Components';
+import { leftPanelComponents, formConfigurations } from './Components';
 import constants from './Constants';
 import definitions from './Schemas';
 
-export { leftPanelComponents, constants, definitions };
+export { leftPanelComponents, formConfigurations, constants, definitions };
