@@ -140,7 +140,7 @@
                 v-model="properties.type"
                 label="Type: 输入类型"
                 tooltip="设置不同的输入类型"
-                :items="typeItems"
+                :items="constants.items.inputType"
             ></h-panel-select>
             <h-panel-number
                 v-model="properties.min"
@@ -198,30 +198,19 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField,
+        HPanelTextField
     },
 
     props: {
         element: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
         constants,
-        dataObject: {},
-        typeItems: [
-            { value: 'text', text: '文字模式(默认)' },
-            { value: 'password', text: '密码模式' },
-            { value: 'number', text: '数字模式' },
-            { value: 'color', text: '颜色模式' },
-            { value: 'datetime-local', text: '日期时间模式' },
-            { value: 'time', text: '时间模式' },
-            { value: 'date', text: '日期模式' },
-            { value: 'week', text: '周模式' },
-            { value: 'month', text: '月模式' },
-        ],
+        dataObject: {}
     }),
 
     computed: {
@@ -230,7 +219,7 @@ export default {
         },
         isNumberType() {
             return this.properties.type === 'number';
-        },
+        }
     },
 
     watch: {
@@ -238,8 +227,8 @@ export default {
             handler(newValue, oldValue) {
                 this.dataObject = newValue;
             },
-            immediate: true,
-        },
-    },
+            immediate: true
+        }
+    }
 };
 </script>

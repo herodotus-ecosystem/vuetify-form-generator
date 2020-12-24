@@ -144,7 +144,7 @@
                 v-model="properties.type"
                 label="Type: 输入类型"
                 tooltip="设置不同的输入类型"
-                :items="typeItems"
+                :items="constants.items.dateType"
             ></h-panel-select>
         </h-expansion-panel>
 
@@ -181,29 +181,25 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField,
+        HPanelTextField
     },
 
     props: {
         element: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
         constants,
-        dataObject: {},
-        typeItems: [
-            { value: 'date', text: '日期模式（默认）' },
-            { value: 'month', text: '月模式' },
-        ],
+        dataObject: {}
     }),
 
     computed: {
         properties() {
             return this.dataObject[this.constants.annotations.xprops];
-        },
+        }
     },
 
     watch: {
@@ -211,8 +207,8 @@ export default {
             handler(newValue, oldValue) {
                 this.dataObject = newValue;
             },
-            immediate: true,
-        },
-    },
+            immediate: true
+        }
+    }
 };
 </script>

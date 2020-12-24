@@ -201,9 +201,10 @@ const leftPanelComponents = [
 ];
 
 const formConfigurations = {
-    formRef: 'vuetifyForm',
+    formRef: 'FormRef',
     formModel: 'formData',
-    contentType: 'application/json'
+    contentType: 'application/json',
+    requestUrl: ''
 };
 
 export { leftPanelComponents, formConfigurations };

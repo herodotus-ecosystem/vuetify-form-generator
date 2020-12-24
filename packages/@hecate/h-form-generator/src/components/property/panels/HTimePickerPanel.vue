@@ -59,7 +59,7 @@
                 v-model="properties.format"
                 label="Format"
                 tooltip="定义在选择器中显示的时间格式。可用的选项是 ampm 和 24hr"
-                :items="formatItems"
+                :items="constants.items.timeType"
             ></h-panel-select>
             <h-panel-text-field
                 v-model="properties.max"
@@ -110,29 +110,25 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField,
+        HPanelTextField
     },
 
     props: {
         element: {
             type: Object,
-            default: () => {},
-        },
+            default: () => {}
+        }
     },
 
     data: () => ({
         constants,
-        dataObject: {},
-        formatItems: [
-            { value: 'ampm', text: 'ampm（默认）' },
-            { value: '24hr', text: '24hr' },
-        ],
+        dataObject: {}
     }),
 
     computed: {
         properties() {
             return this.dataObject[this.constants.annotations.xprops];
-        },
+        }
     },
 
     watch: {
@@ -140,8 +136,8 @@ export default {
             handler(newValue, oldValue) {
                 this.dataObject = newValue;
             },
-            immediate: true,
-        },
-    },
+            immediate: true
+        }
+    }
 };
 </script>

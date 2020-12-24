@@ -7,14 +7,18 @@
                 tooltip="设置不同的Content Type类型"
                 :items="constants.items.contentType"
             ></h-panel-select>
-            <v-text-field outlined dense label="表单模型" placeholder="请输入数据模型" />
+            <h-panel-text-field
+                v-model="formSettings.requestUrl"
+                label="请求地址"
+                tooltip="发送请求的Url地址"
+            ></h-panel-text-field>
         </h-expansion-panel>
     </v-expansion-panels>
 </template>
 
 <script>
 import { HExpansionPanel } from '../layouts';
-import { HPanelColor, HPanelIcon, HPanelNumber, HPanelSelect, HPanelSwitch, HPanelTextField } from '../controls';
+import { HPanelSelect, HPanelTextField } from '../controls';
 
 import { constants } from '../../../lib/modeler/configurations';
 
@@ -23,7 +27,8 @@ export default {
 
     components: {
         HExpansionPanel,
-        HPanelSelect
+        HPanelSelect,
+        HPanelTextField
     },
 
     props: {
