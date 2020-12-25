@@ -17,7 +17,7 @@ const constants = {
         xfromData: 'x-fromData',
         xitemKey: 'x-itemKey',
         xitemTitle: 'x-itemTitle',
-        xitemIcon: 'x-itemIcon'
+        xitemIcon: 'x-itemIcon',
     },
     tags: {
         AlignContent: 'align-content',
@@ -84,17 +84,26 @@ const constants = {
         TrueValue: 'true-value',
         UseSeconds: 'use-seconds',
         ValidateOnBlur: 'validate-on-blur',
-        YearIcon: 'year-icon'
+        YearIcon: 'year-icon',
     },
     class: {
-        switch: 'mt-0 pt-0'
+        switch: 'mt-0 pt-0',
     },
     items: {
         contentType: [
             { value: 'application/json', text: 'application/json（默认）' },
             { value: 'application/x-www-form-urlencoded', text: 'application/x-www-form-urlencoded' },
             { value: 'multipart/form-data', text: 'multipart/form-data' },
-            { value: 'text/xml', text: 'text/xml' }
+            { value: 'text/xml', text: 'text/xml' },
+        ],
+        requestType: [
+            { value: 'get', text: 'GET' },
+            { value: 'post', text: 'POST' },
+            { value: 'put', text: 'PUT' },
+            { value: 'delete', text: 'DELETE' },
+            { value: 'head', text: 'HEAD' },
+            { value: 'patch', text: 'PATCH' },
+            { value: 'options', text: 'OPTIONS' },
         ],
         inputType: [
             { value: 'text', text: '文字输入模式（默认）' },
@@ -105,17 +114,17 @@ const constants = {
             { value: 'time', text: '选择时间模式' },
             { value: 'date', text: '选择日期模式' },
             { value: 'week', text: '选择周模式' },
-            { value: 'month', text: '选择月模式' }
+            { value: 'month', text: '选择月模式' },
         ],
         dateType: [
             { value: 'date', text: '日期模式（默认）' },
-            { value: 'month', text: '月模式' }
+            { value: 'month', text: '月模式' },
         ],
         timeType: [
             { value: 'ampm', text: 'ampm（默认）' },
-            { value: '24hr', text: '24hr' }
-        ]
-    }
+            { value: '24hr', text: '24hr' },
+        ],
+    },
 };
 
 export default constants;

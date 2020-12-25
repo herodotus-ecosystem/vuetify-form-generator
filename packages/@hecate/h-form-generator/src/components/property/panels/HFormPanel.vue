@@ -7,6 +7,12 @@
                 tooltip="设置不同的Content Type类型"
                 :items="constants.items.contentType"
             ></h-panel-select>
+            <h-panel-select
+                v-model="formSettings.requestType"
+                label="Content Type: 输入类型"
+                tooltip="设置不同的Content Type类型"
+                :items="constants.items.requestType"
+            ></h-panel-select>
             <h-panel-text-field
                 v-model="formSettings.requestUrl"
                 label="请求地址"
@@ -28,19 +34,19 @@ export default {
     components: {
         HExpansionPanel,
         HPanelSelect,
-        HPanelTextField
+        HPanelTextField,
     },
 
     props: {
         schema: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
         constants,
-        formSettings: {}
+        formSettings: {},
     }),
 
     watch: {
@@ -48,8 +54,8 @@ export default {
             handler(newValue, oldValue) {
                 this.formSettings = newValue;
             },
-            immediate: true
-        }
-    }
+            immediate: true,
+        },
+    },
 };
 </script>

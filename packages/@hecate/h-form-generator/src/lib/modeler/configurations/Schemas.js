@@ -170,42 +170,9 @@ const definitions = {
             title: '颜色选择',
             tag: 'v-color-picker',
             format: 'hexcolor',
-            properties: {
+            'x-props': {
                 outlined: true,
                 'hide-details': true,
-            },
-        },
-    },
-
-    CASCADE_SELECT: {
-        index: 'CASCADE_SELECT',
-        schema: {
-            type: 'string',
-            title: '级联下拉',
-            tag: 'v-select',
-            oneOf: [],
-        },
-    },
-    AJAX_SELECT: {
-        index: 'AJAX_SELECT',
-        schema: {
-            type: 'array',
-            title: '异步选择',
-            tag: 'v-select',
-            'x-display': 'icon',
-            properties: {},
-            items: {
-                type: 'string',
-                oneOf: [
-                    {
-                        const: 'value1',
-                        title: 'Value 1',
-                    },
-                    {
-                        const: 'value2',
-                        title: 'Value 2',
-                    },
-                ],
             },
         },
     },
@@ -216,7 +183,7 @@ const definitions = {
             title: '单选框组',
             tag: 'v-radio-group',
             'x-display': 'radio',
-            properties: {},
+            'x-props': {},
             enum: ['value 1', 'value 2'],
         },
     },
@@ -229,7 +196,7 @@ const definitions = {
             tag: 'v-file-input',
             contentMediaType: 'image/png',
             writeOnly: true,
-            properties: {},
+            'x-props': {},
         },
     },
 };

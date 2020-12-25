@@ -12,20 +12,20 @@
                 class="ml-1 pr-2"
             ></v-text-field>
         </v-list-item-content>
-        <v-list-item-action v-if="tooltip">
-            <v-tooltip left max-width="200px">
-                <template v-slot:activator="{ on, attrs }">
-                    <v-icon color="grey lighten-1" dark v-bind="attrs" v-on="on">mdi-information</v-icon>
-                </template>
-                <span>{{ tooltip }}</span>
-            </v-tooltip>
-        </v-list-item-action>
+        <h-panel-tooltip :content="tooltip"></h-panel-tooltip>
     </v-list-item>
 </template>
 
 <script>
+import HPanelTooltip from './HPanelTooltip.vue';
+
 export default {
     name: 'HPanelTextField',
+
+    components: {
+        HPanelTooltip,
+    },
+
     props: {
         value: String,
         label: String,

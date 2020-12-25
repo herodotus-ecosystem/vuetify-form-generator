@@ -10,7 +10,7 @@
                 <v-btn dark text @click="drawer = false">Save</v-btn>
             </v-toolbar-items>
         </v-toolbar>
-        <v-card>
+        <v-card class="mt-3">
             <v-row>
                 <v-col cols="12" md="6" class="pa-0">
                     <v-card flat>
