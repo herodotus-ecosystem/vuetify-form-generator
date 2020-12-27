@@ -15,10 +15,10 @@
             </v-list-item>
         </v-list-item-group>
         <v-divider></v-divider>
-        <v-list-item dense class="pa-0">
+        <v-list-item dense>
             <v-list-item-content>
                 <v-row>
-                    <v-col class="pt-0 pb-0">
+                    <v-col>
                         <v-select
                             v-model="selectedRule"
                             :items="ruleItems"
@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import HExpansionPanel from '../../../components/property/layouts/HExpansionPanel.vue';
-import HPanelBetween from '../../../components/property/validates/HPanelBetween.vue';
+import { HExpansionPanel } from '../layouts';
+import HPanelBetween from './HPanelBetween.vue';
 export default {
     name: 'HRuleExpansionPanel',
 
@@ -63,6 +63,7 @@ export default {
 
     data: () => ({
         expressions: '',
+        // 全部可用规则
         ruleItems: [],
         ruleParamSettingPanel: '',
         ruleParam: '',
@@ -73,11 +74,12 @@ export default {
     watch: {
         value: {
             handler(newValue, oldValue) {
-                this.expressions = newValue;
-                if (this.$lib.lodash.isEmpty(this.ruleItems)) {
-                    this.ruleItems = this.$rules;
+                if (newValue) {
+                    if (this.$lib.lodash.isEmpty(this.ruleItems)) {
+                        this.ruleItems = this.$rules;
+                    }
+                    this.readExpressions(newValue);
                 }
-                this.readExpressions(this.expressions);
             },
             immediate: true,
         },
@@ -127,30 +129,26 @@ export default {
             this.ruleParam = param;
         },
 
-        readSelectedItemParam(type) {
-            let selectedItem = this.$lib.lodash.find(this.selectedItems, function (i) {
-                return i.type === type;
-            });
-            if (selectedItem && selectedItem.param) {
-                return selectedItem.param;
-            } else {
-                return '';
-            }
-        },
-
+        /**
+         * 通过类型查找rule
+         */
         findRuleItemByType(type) {
             return this.$lib.lodash.find(this.ruleItems, function (i) {
                 return i.type === type;
             });
         },
 
+        /**
+         * 设置规则是否可用的状态，设置为不可用，select列表对应选项为灰
+         */
         changeRuleItemStatus(rule, status = true) {
             let item = this.findRuleItemByType(rule.type);
             item.disabled = status;
         },
 
         pushSelectedItem(rule) {
-            if (rule) {
+            // 利用rule.disabled，避免重复添加问题
+            if (rule && !rule.disabled) {
                 this.selectedItems.push(rule);
                 this.changeRuleItemStatus(rule, true);
             }
@@ -164,11 +162,14 @@ export default {
             this.selectedRule = {};
         },
 
+        /**
+         * 解析单个表达式，分析出类型和参数
+         */
         parseExpression(expression) {
             let result = {};
             if (expression) {
                 if (expression.search(':') != -1) {
-                    let expressionArray = this.$lib.lodash.split(value, ':');
+                    let expressionArray = this.$lib.lodash.split(expression, ':');
                     if (expressionArray) {
                         result.type = expressionArray[0];
                         result.param = expressionArray[1];
@@ -182,6 +183,17 @@ export default {
             return result;
         },
 
+        /**
+         * 根据Select选择，添加规则
+         */
+        addSelectedItemBySelector() {
+            let rule = this.readSelectedRule();
+            this.pushSelectedItem(rule);
+        },
+
+        /**
+         * 解析具体表达式并添加到规则数组
+         */
         addSelectedItemByExpression(expression) {
             let parser = this.parseExpression(expression);
             let rule = this.findRuleItemByType(parser.type);
@@ -191,16 +203,31 @@ export default {
             this.pushSelectedItem(rule);
         },
 
+        /**
+         * 读取并解析传入的rule表达式
+         */
         readExpressions(expressions) {
             if (expressions) {
                 if (expressions.indexOf('|') !== -1) {
                     let expressionArray = this.$lib.lodash.split(expressions, '|');
-                    for (let expression in expressionArray) {
+                    // for…in主要是为遍历对象而设计的，不适用于遍历数组
+                    for (let expression of expressionArray) {
                         this.addSelectedItemByExpression(expression);
                     }
                 } else {
                     this.addSelectedItemByExpression(expressions);
                 }
+            }
+        },
+
+        readSelectedItemParam(type) {
+            let selectedItem = this.$lib.lodash.find(this.selectedItems, function (i) {
+                return i.type === type;
+            });
+            if (selectedItem && selectedItem.param) {
+                return selectedItem.param;
+            } else {
+                return '';
             }
         },
 
@@ -216,11 +243,9 @@ export default {
             }
         },
 
-        addSelectedItemBySelector() {
-            let rule = this.readSelectedRule();
-            this.pushSelectedItem(rule);
-        },
-
+        /**
+         * 点击添加规则按钮
+         */
         addRule() {
             if (this.ruleParamSettingPanel) {
                 this.$refs.rulePanel.validate();
@@ -233,7 +258,7 @@ export default {
         },
 
         constructExpression(selectedItems) {
-            if (selectedItems) {
+            if (selectedItems && selectedItems.length > 0) {
                 let result = selectedItems
                     .map((item) => {
                         if (item.param) {

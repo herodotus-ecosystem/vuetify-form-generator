@@ -5,7 +5,11 @@ function generateTemplate(tags) {
         <v-row>
             <v-col>
                 <v-card>
-                   ${tags}
+                    <validation-observer ref="observer">
+                        <v-form ref="form">
+                            ${tags}
+                        </v-form>
+                    </validation-observer>
                 </v-card>
             </v-col>
         </v-row>

@@ -166,9 +166,10 @@ const leftPanelComponents = [
 const formConfigurations = {
     formRef: 'FormRef',
     formModel: 'formData',
-    contentType: 'application/json',
-    requestType: 'get',
+    requestContentType: 'application/json',
+    requestMethods: 'get',
     requestUrl: '',
+    responseParam: 'data',
 };
 
 export { leftPanelComponents, formConfigurations };

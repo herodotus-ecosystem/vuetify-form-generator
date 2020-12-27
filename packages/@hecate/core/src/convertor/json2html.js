@@ -1,3 +1,4 @@
+// https://github.com/fauxcompany/json2html.js
 export default class JSON2HTML {
     static get selfCloseTags() {
         return [
@@ -17,7 +18,7 @@ export default class JSON2HTML {
             'wbr',
             'command',
             'keygen',
-            'menuitem'
+            'menuitem',
         ];
     }
 
@@ -106,7 +107,7 @@ class JSON2HTMLUnbuilder {
         return {
             tag: nodeEl.tagName.toLowerCase(),
             attributes: JSON2HTMLUnbuilder.attributes(nodeEl),
-            children: JSON2HTMLUnbuilder.children(nodeEl)
+            children: JSON2HTMLUnbuilder.children(nodeEl),
         };
     }
 }

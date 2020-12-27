@@ -10,6 +10,7 @@
             <v-toolbar-title class="pl-0 font-weight-light">{{ title }}</v-toolbar-title>
         </v-toolbar>
         <v-divider class="mb-2"></v-divider>
+        <v-alert v-if="showMessage" :type="messageType"> {{ message }} </v-alert>
         <v-row>
             <v-col>
                 <ValidationObserver ref="observer">
@@ -45,17 +46,50 @@ export default {
             type: String,
             default: '动态表单',
         },
+        formSchema: {
+            type: Object,
+            default: () => {},
+        },
     },
 
     data: () => ({
         model: {},
+        showMessage: false,
+        messageType: 'success',
+        message: '',
     }),
+
+    computed: {
+        httpLibrary() {
+            return this.axios || this.$http;
+        },
+    },
+
+    mounted() {
+        console.log(this.$refs);
+    },
 
     methods: {
         saveOrUpdate() {
-            this.$refs.observer.validate().then((validateResulte) => {
-                if (validateResulte) {
-                    console.info("Cannot find the 'api-object' property!");
+            this.$refs.observer.validate().then((validateResult) => {
+                if (validateResult) {
+                    if (this.httpLibrary) {
+                        this.httpLibrary(this.createRequestObject()).then(function (response) {
+                            if (response && response.status === '200') {
+                                this.showMessage = true;
+                                this.messageType = 'success';
+                                this.message = '保存成功！';
+                            } else {
+                                this.showMessage = true;
+                                this.messageType = 'error';
+                                this.message = '保存失败！';
+                            }
+                        });
+                    } else {
+                        this.showMessage = true;
+                        this.messageType = 'warning';
+                        this.message = '无法找到请求发送组件！';
+                    }
                 }
             });
         },
@@ -63,6 +97,14 @@ export default {
             this.model = {};
             this.$refs.form.reset();
             this.$refs.observer.reset();
+        },
+        createRequestObject() {
+            let request = {};
+            request.methods = this.formSchema.requestMethods;
+            request.url = this.formSchema.requestUrl;
+            request.headers = { 'Content-type': this.formSchema.requestContentType };
+            request.data = this.model;
+            return request;
         },
     },
 };

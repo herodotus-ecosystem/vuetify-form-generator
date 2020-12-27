@@ -31,7 +31,11 @@
         </v-main>
 
         <h-form-code-drawer v-model="codeDrawer" :source="sourceCode"></h-form-code-drawer>
-        <h-form-preview-drawer v-model="formDrawer" :source="schemaObject"></h-form-preview-drawer>
+        <h-form-preview-drawer
+            v-model="formDrawer"
+            :source="schemaObject"
+            :form-configs="formConfigObject"
+        ></h-form-preview-drawer>
     </v-app>
 </template>
 
@@ -57,6 +61,7 @@ export default {
         formDrawer: false,
         sourceCode: '',
         schemaObject: '',
+        formConfigObject: {},
     }),
 
     computed: {
@@ -65,6 +70,9 @@ export default {
         },
         canvas() {
             return this.$refs.modeler.drawingCanvas;
+        },
+        canvasForm() {
+            return this.$refs.modeler.drawingCanvasForm;
         },
     },
 
@@ -92,6 +100,9 @@ export default {
             let schemas = Translator.toCompleteSchema(this.canvas);
             if (schemas) {
                 this.schemaObject = JSON.stringify(schemas, null, '\t');
+            }
+            if (this.canvasForm) {
+                this.formConfigObject = this.canvasForm;
             }
             this.formDrawer = true;
         },

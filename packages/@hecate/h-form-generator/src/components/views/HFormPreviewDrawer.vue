@@ -18,7 +18,7 @@
                     </v-card>
                 </v-col>
                 <v-col cols="12" md="6">
-                    <h-form-runtime :schema="schema" class="mr-3"></h-form-runtime>
+                    <h-form-runtime :schema="schema" :form-schema="formSchema" class="mr-3"></h-form-runtime>
                 </v-col>
             </v-row>
         </v-card>
@@ -46,6 +46,10 @@ export default {
             type: String,
             default: '',
         },
+        formConfigs: {
+            type: Object,
+            default: () => {},
+        },
     },
 
     data: () => ({
@@ -53,6 +57,7 @@ export default {
         schema: {},
         model: {},
         config: '',
+        formSchema: {},
     }),
 
     watch: {
@@ -72,6 +77,14 @@ export default {
                 if (newValue) {
                     this.schema = JSON.parse(newValue);
                     this.config = newValue;
+                }
+            },
+            immediate: true,
+        },
+        formConfigs: {
+            handler(newValue, oldValue) {
+                if (newValue) {
+                    this.formSchema = newValue;
                 }
             },
             immediate: true,
