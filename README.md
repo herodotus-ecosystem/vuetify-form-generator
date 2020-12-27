@@ -384,7 +384,9 @@ set-executionpolicy remotesigned
 # 捐赠
 
 如果你觉得本项目对你有所帮助，可以请作者喝杯咖啡。你的支持，才是本项目前进的最大动力。
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/165447_15ab405d_751495.png "微信截图_20201227165019.png")![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/165458_beaec949_751495.png "微信截图_20201227165049.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/173553_2fdff160_751495.png "微信截图_20201227165019.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/173603_94863b63_751495.png "微信截图_20201227165049.png")
 
 # Issue
 
