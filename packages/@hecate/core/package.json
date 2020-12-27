@@ -1,0 +1,24 @@
+{
+    "name": "@hecate/core",
+    "version": "1.0.0",
+    "description": "通用工具类",
+    "author": "Felix <pointer_v@qq.com>",
+    "license": "ISC",
+    "private": false,
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
+    "unpkg": "dist/index.min.js",
+    "scripts": {
+        "start": "yarn build",
+        "clean": "rimraf dist",
+        "lib": "yarn run clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
+        "dev": "yarn build"
+    },
+    "dependencies": {
+        "localforage": "^1.9.0",
+        "lodash": "^4.17.20",
+        "moment": "^2.29.1",
+        "shortid": "^2.2.16",
+        "sweetalert2": "^10.12.6"
+    }
+}

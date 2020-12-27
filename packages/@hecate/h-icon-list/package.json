@@ -1,0 +1,23 @@
+{
+    "name": "@hecate/h-icon-list",
+    "version": "1.0.0",
+    "author": "Felix <pointer_v@qq.com>",
+    "license": "MIT",
+    "private": false,
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
+    "unpkg": "dist/index.min.js",
+    "scripts": {
+        "start": "yarn build",
+        "clean": "rimraf dist",
+        "lib": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
+        "transpile": "vue-cli-service build --target lib ./src/index.js",
+        "dev": "yarn build"
+    },
+    "dependencies": {
+        "@mdi/js": "^5.8.55"
+    },
+    "peerDependencies": {
+        "@hecate/core": "^1.0.0"
+    }
+}

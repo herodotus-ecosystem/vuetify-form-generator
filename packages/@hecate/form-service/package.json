@@ -1,0 +1,31 @@
+{
+    "name": "@hecate/form-service",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+        "lint": "yarn lint:js",
+        "serve": "yarn dev"
+    },
+    "dependencies": {
+        "@hecate/h-form-runtime": "^1.0.0",
+        "@nuxt/content": "^1.11.1",
+        "@nuxtjs/axios": "^5.12.4",
+        "@nuxtjs/pwa": "^3.3.3",
+        "nuxt": "^2.14.12",
+        "vee-validate": "^3.4.5",
+        "vuetify": "^2.4.0"
+    },
+    "devDependencies": {
+        "@nuxtjs/eslint-config": "^5.0.0",
+        "@nuxtjs/eslint-module": "^3.0.2",
+        "@nuxtjs/vuetify": "^1.11.2",
+        "eslint": "^7.16.0",
+        "eslint-plugin-nuxt": "^2.0.0",
+        "remark-footnotes": "2.0.0"
+    }
+}

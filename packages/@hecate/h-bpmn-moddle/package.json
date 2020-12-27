@@ -1,0 +1,20 @@
+{
+    "name": "@hecate/h-bpmn-moddle",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
+    "unpkg": "dist/index.min.js",
+    "scripts": {
+        "start": "yarn build",
+        "clean": "rimraf dist",
+        "lib": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
+        "transpile": "vue-cli-service build --target lib ./src/index.js",
+        "dev": "yarn build"
+    },
+    "dependencies": {
+        "bpmn-js": "^8.0.0",
+        "bpmn-js-properties-panel": "^0.38.0",
+        "camunda-bpmn-moddle": "^4.5.0"
+    }
+}
