@@ -1,3 +1,13 @@
+# 简介
+
+我是一个后端老炮，在做工作流服务时，深感动态表单的重要性。所以，慢慢摸索和学习，结合自己的需求，搭建了本套动态表单系统。
+
+-   本系统是基于 lerna 和 yarn workspaces 构建的， monorepo 方式管理代码的项目（很喜欢这种方式，和 Maven 的模块化工程一样，最主要是不用每个项目一堆 node_modules）
+-   基于 Vue 2.0 和 Vuetify 2.3.XX 构建。没有使用 Vue3，主要是 Vuetify 3 还在开发中。
+-   共性组件采用 rollup 进行编译，并且做了已有认知范围内，能够做到的所有性能优化处理
+-   example 模块，基于 vue webpack 方式，对工程打包进行了深入优化。
+-   项目中会有很多组件，原本是想把以往工作中涉及的通用性的东西，逐步构建出一个组件库（这个动态表单系统本身也是一个组件）。研究过一下规范化的组件库，感觉以本人现在水平做不到，因此才采用了 monorepo 方式。
+
 # [一]、开发环境配置（Windows）
 
 ## 一、安装及配置 Nodejs
@@ -274,6 +284,12 @@ lerna clean
 lerna bootstrap 或 yarn install
 ```
 
+-   提交代码
+
+```
+yarn push
+```
+
 # [五]、问题解决
 
 ## 问题一：升级依赖包时出错
@@ -356,3 +372,15 @@ set-executionpolicy remotesigned
 
 -   [koumoul-dev](https://github.com/koumoul-dev)
 -   [Mr_HJ](https://gitee.com/mrhj)
+
+# [八]、开源协议
+
+[MIT](https://opensource.org/licenses/MIT)
+
+# 捐赠
+
+如果你觉得本项目对你有所帮助，可以请作者喝杯咖啡。你的支持，才是本项目前进的最大动力。
+
+# Issue
+
+欢迎提 [Issue](https://gitee.com/pointer_v/hecate-monorepo/issues)，我会尽所能尽量完善。
