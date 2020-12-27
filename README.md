@@ -380,6 +380,8 @@ set-executionpolicy remotesigned
 # 捐赠
 
 如果你觉得本项目对你有所帮助，可以请作者喝杯咖啡。你的支持，才是本项目前进的最大动力。
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/164729_72b841e7_751495.png "微信截图_20201227164202.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/164743_7948cdbe_751495.png "微信截图_20201227164223.png")
 
 # Issue
 
