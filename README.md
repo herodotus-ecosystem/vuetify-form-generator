@@ -1,8 +1,8 @@
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/172830_f1962fe9_751495.gif "view.gif")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/172830_f1962fe9_751495.gif 'view.gif')
 
 # 简介
 
-我是一个后端老炮，在做工作流服务时，深感动态表单的重要性。所以，慢慢摸索和学习，结合自己的需求，搭建了本套动态表单系统。
+在做工作流服务时，深感动态表单的重要性。所以，慢慢摸索和学习，结合自己的需求，搭建了本套动态表单系统。
 
 -   本系统是基于 lerna 和 yarn workspaces 构建的， monorepo 方式管理代码的项目（很喜欢这种方式，和 Maven 的模块化工程一样，最主要是不用每个项目一堆 node_modules）
 -   基于 Vue 2.0 和 Vuetify 2.3.XX 构建。没有使用 Vue3，主要是 Vuetify 3 还在开发中。
@@ -205,7 +205,6 @@ yarn global add lerna @vue/cli
 | @hecate/core             | 1.0.0    | 通用工具代码、组件包 | 包含 localforage、lodash、moment、shortid、sweetalert2 以及通用工具代码                                                                                                                |
 | @hecate/example          | 1.0.0    | 组件示例及运行工程   | 可以在该工程中，运行和使用已有组件，也可以理解为组件的开发环境                                                                                                                         |
 | @hecate/form-service     | 1.0.0    | Nuxt 环境            | 动态表单的 SSR 验证环境                                                                                                                                                                |
-| @hecate/h-bpmn-moddle    | 1.0.0    | Camunda 模型编辑器   | 预留包，目前还不可用，相关代码尚未迁移过来（后续会安排迁移）                                                                                                                           |
 | @hecate/h-button         | 1.0.0    | 自定义按钮组件       | 自己封装的有 Tooltip 的 button                                                                                                                                                         |
 | @hecate/h-code-editor    | 1.0.0    | 代码编辑器组件       | 基于 codemirror 封装的代码编辑器，支持多种语言，通过界面菜单等进行控制。有代码提示以及各式化等功能。                                                                                   |
 | @hecate/h-code-mirror    | 1.0.0    | 代码编辑器基础组件   | 基于 codemirror 封装的代码编辑器，支持多种语言，没有参数控制界面，需要手动传递参数                                                                                                     |

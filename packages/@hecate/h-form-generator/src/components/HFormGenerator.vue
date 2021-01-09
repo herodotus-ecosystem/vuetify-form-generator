@@ -4,7 +4,7 @@
             <v-btn large icon>
                 <v-icon>mdi-volleyball</v-icon>
             </v-btn>
-            <v-toolbar-title>Hecate Form Generator</v-toolbar-title>
+            <v-toolbar-title>Vuetify Form Generator</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
@@ -51,7 +51,7 @@ export default {
     components: {
         HFormModeler,
         HFormCodeDrawer,
-        HFormPreviewDrawer,
+        HFormPreviewDrawer
     },
 
     data: () => ({
@@ -61,7 +61,7 @@ export default {
         formDrawer: false,
         sourceCode: '',
         schemaObject: '',
-        formConfigObject: {},
+        formConfigObject: {}
     }),
 
     computed: {
@@ -73,7 +73,7 @@ export default {
         },
         canvasForm() {
             return this.$refs.modeler.drawingCanvasForm;
-        },
+        }
     },
 
     mounted() {
@@ -105,7 +105,7 @@ export default {
                 this.formConfigObject = this.canvasForm;
             }
             this.formDrawer = true;
-        },
-    },
+        }
+    }
 };
 </script>
