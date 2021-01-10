@@ -2,34 +2,35 @@ import 'core-js/modules/es.function.name.js';
 import e from '@babel/runtime-corejs3/helpers/esm/typeof';
 import {
     VIcon as t,
-    VTooltip as r,
-    VToolbarTitle as o,
-    VToolbar as i,
-    VDivider as n,
-    VBtn as a,
-    VForm as s,
+    VTooltip as s,
+    VToolbarTitle as r,
+    VToolbar as o,
+    VDivider as a,
+    VAlert as i,
+    VBtn as n,
+    VForm as m,
     VCol as l,
-    VRow as m,
+    VRow as c,
     VCard as d,
 } from 'vuetify/lib';
-import { ValidationObserver as c } from 'vee-validate';
-import { HFormRenderer as v } from '@hecate/h-form-renderer';
-import f from 'vue-runtime-helpers/dist/normalize-component.mjs';
-var u = f(
+import { ValidationObserver as u } from 'vee-validate';
+import { HFormRenderer as f } from '@hecate/h-form-renderer';
+import v from 'vue-runtime-helpers/dist/normalize-component.mjs';
+var h = v(
     {
         render: function () {
             var e = this,
                 t = e.$createElement,
-                r = e._self._c || t;
-            return r(
+                s = e._self._c || t;
+            return s(
                 'v-card',
                 { staticClass: 'pa-2' },
                 [
-                    r(
+                    s(
                         'v-toolbar',
                         { attrs: { flat: '' } },
                         [
-                            r(
+                            s(
                                 'v-tooltip',
                                 {
                                     attrs: { bottom: '' },
@@ -37,16 +38,16 @@ var u = f(
                                         {
                                             key: 'activator',
                                             fn: function (t) {
-                                                var o = t.on;
+                                                var r = t.on;
                                                 return [
-                                                    r(
+                                                    s(
                                                         'v-icon',
                                                         e._g(
                                                             {
                                                                 staticClass: 'mr-2',
                                                                 attrs: { tile: '', color: 'teal', large: '' },
                                                             },
-                                                            o
+                                                            r
                                                         ),
                                                         [e._v('mdi-clipboard-edit')]
                                                     ),
@@ -55,31 +56,35 @@ var u = f(
                                         },
                                     ]),
                                 },
-                                [e._v(' '), r('span', [e._v('返回')])]
+                                [e._v(' '), s('span', [e._v('返回')])]
                             ),
                             e._v(' '),
-                            r('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))]),
+                            s('v-toolbar-title', { staticClass: 'pl-0 font-weight-light' }, [e._v(e._s(e.title))]),
                         ],
                         1
                     ),
                     e._v(' '),
-                    r('v-divider', { staticClass: 'mb-2' }),
+                    s('v-divider', { staticClass: 'mb-2' }),
                     e._v(' '),
-                    r(
+                    e.showMessage
+                        ? s('v-alert', { attrs: { type: e.messageType } }, [e._v(' ' + e._s(e.message) + ' ')])
+                        : e._e(),
+                    e._v(' '),
+                    s(
                         'v-row',
                         [
-                            r(
+                            s(
                                 'v-col',
                                 [
-                                    r(
+                                    s(
                                         'ValidationObserver',
                                         { ref: 'observer' },
                                         [
-                                            r(
+                                            s(
                                                 'v-form',
                                                 { ref: 'form' },
                                                 [
-                                                    r('h-form-renderer', {
+                                                    s('h-form-renderer', {
                                                         attrs: { schema: e.schema },
                                                         model: {
                                                             value: e.model,
@@ -90,7 +95,7 @@ var u = f(
                                                         },
                                                     }),
                                                     e._v(' '),
-                                                    r(
+                                                    s(
                                                         'v-btn',
                                                         {
                                                             staticClass: 'mr-4',
@@ -100,7 +105,7 @@ var u = f(
                                                         [e._v('保存')]
                                                     ),
                                                     e._v(' '),
-                                                    r(
+                                                    s(
                                                         'v-btn',
                                                         {
                                                             staticClass: 'mr-4',
@@ -131,29 +136,66 @@ var u = f(
     {
         name: 'HFormRuntime',
         components: {
-            ValidationObserver: c,
-            HFormRenderer: v,
+            ValidationObserver: u,
+            HFormRenderer: f,
             VIcon: t,
-            VTooltip: r,
-            VToolbarTitle: o,
-            VToolbar: i,
-            VDivider: n,
-            VBtn: a,
-            VForm: s,
+            VTooltip: s,
+            VToolbarTitle: r,
+            VToolbar: o,
+            VDivider: a,
+            VAlert: i,
+            VBtn: n,
+            VForm: m,
             VCol: l,
-            VRow: m,
+            VRow: c,
             VCard: d,
         },
-        props: { schema: { type: Object, default: function () {} }, title: { type: String, default: '动态表单' } },
-        data: function () {
-            return { model: {} };
+        props: {
+            schema: { type: Object, default: function () {} },
+            title: { type: String, default: '动态表单' },
+            formSchema: { type: Object, default: function () {} },
         },
+        data: function () {
+            return { model: {}, showMessage: !1, messageType: 'success', message: '' };
+        },
+        computed: {
+            httpLibrary: function () {
+                return this.axios || this.$http;
+            },
+        },
+        mounted: function () {},
         methods: {
             saveOrUpdate: function () {
-                this.$refs.observer.validate().then(function (e) {});
+                var e = this;
+                this.$refs.observer.validate().then(function (t) {
+                    t &&
+                        (e.httpLibrary
+                            ? e.httpLibrary(e.createRequestObject()).then(function (e) {
+                                  e && '200' === e.status
+                                      ? ((this.showMessage = !0),
+                                        (this.messageType = 'success'),
+                                        (this.message = '保存成功！'))
+                                      : ((this.showMessage = !0),
+                                        (this.messageType = 'error'),
+                                        (this.message = '保存失败！'));
+                              })
+                            : ((e.showMessage = !0),
+                              (e.messageType = 'warning'),
+                              (e.message = '无法找到请求发送组件！')));
+                });
             },
             clear: function () {
                 (this.model = {}), this.$refs.form.reset(), this.$refs.observer.reset();
+            },
+            createRequestObject: function () {
+                var e = {};
+                return (
+                    (e.methods = this.formSchema.requestMethods),
+                    (e.url = this.formSchema.requestUrl),
+                    (e.headers = { 'Content-type': this.formSchema.requestContentType }),
+                    (e.data = this.model),
+                    e
+                );
             },
         },
     },
@@ -165,8 +207,8 @@ var u = f(
     void 0,
     void 0
 );
-(u.install = function (e) {
-    e.component(u.name, u);
+(h.install = function (e) {
+    e.component(h.name, h);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && u.install(window.Vue);
-export { u as HFormRuntime };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && h.install(window.Vue);
+export { h as HFormRuntime };

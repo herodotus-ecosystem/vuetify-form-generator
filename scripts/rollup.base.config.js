@@ -107,6 +107,7 @@ const defaultPlugins = [
     filesize(),
     buble({
         objectAssign: 'Object.assign',
+        transforms: { forOf: false },
     }),
     sizes({
         details: true,

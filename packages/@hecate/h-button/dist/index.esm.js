@@ -18,22 +18,38 @@ var r = i(
                             fn: function (o) {
                                 var e = o.on;
                                 return [
-                                    t(
-                                        'v-btn',
-                                        n._g(
-                                            {
-                                                attrs: { color: n.color, icon: n.icon },
-                                                on: {
-                                                    click: function (o) {
-                                                        return n.handleClick();
-                                                    },
-                                                },
-                                            },
-                                            e
-                                        ),
-                                        [t('v-icon', [n._v(n._s(n.iconName))])],
-                                        1
-                                    ),
+                                    n.icon
+                                        ? t(
+                                              'v-btn',
+                                              n._g(
+                                                  {
+                                                      attrs: { color: n.color, icon: n.icon },
+                                                      on: {
+                                                          click: function (o) {
+                                                              return n.handleClick();
+                                                          },
+                                                      },
+                                                  },
+                                                  e
+                                              ),
+                                              [t('v-icon', [n._v(n._s(n.iconName))])],
+                                              1
+                                          )
+                                        : t(
+                                              'v-btn',
+                                              n._g(
+                                                  {
+                                                      attrs: { color: n.color },
+                                                      on: {
+                                                          click: function (o) {
+                                                              return n.handleClick();
+                                                          },
+                                                      },
+                                                  },
+                                                  e
+                                              ),
+                                              [n._v('\n            ' + n._s(n.text) + '\n        ')]
+                                          ),
                                 ];
                             },
                         },
@@ -48,7 +64,7 @@ var r = i(
     {
         components: { VIcon: o, VBtn: t, VTooltip: e },
         name: 'HButton',
-        props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
+        props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String, text: String },
         methods: {
             handleClick: function () {
                 this.$emit('click');

@@ -28,39 +28,76 @@
               e.HFormRenderer,
               e.__vue_normalize__
           );
-})(this, function (e, t, r, o, n, i, a) {
+})(this, function (e, t, r, s, o, i, n) {
     'use strict';
-    function l(e) {
+    function a(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    var s = l(r),
-        d = l(a),
+    var l = a(r),
+        d = a(n),
         u = {
             name: 'HFormRuntime',
             components: {
-                ValidationObserver: n.ValidationObserver,
+                ValidationObserver: o.ValidationObserver,
                 HFormRenderer: i.HFormRenderer,
-                VIcon: o.VIcon,
-                VTooltip: o.VTooltip,
-                VToolbarTitle: o.VToolbarTitle,
-                VToolbar: o.VToolbar,
-                VDivider: o.VDivider,
-                VBtn: o.VBtn,
-                VForm: o.VForm,
-                VCol: o.VCol,
-                VRow: o.VRow,
-                VCard: o.VCard,
+                VIcon: s.VIcon,
+                VTooltip: s.VTooltip,
+                VToolbarTitle: s.VToolbarTitle,
+                VToolbar: s.VToolbar,
+                VDivider: s.VDivider,
+                VAlert: s.VAlert,
+                VBtn: s.VBtn,
+                VForm: s.VForm,
+                VCol: s.VCol,
+                VRow: s.VRow,
+                VCard: s.VCard,
             },
-            props: { schema: { type: Object, default: function () {} }, title: { type: String, default: '动态表单' } },
+            props: {
+                schema: { type: Object, default: function () {} },
+                title: { type: String, default: '动态表单' },
+                formSchema: { type: Object, default: function () {} },
+            },
             data: function () {
-                return { model: {} };
+                return { model: {}, showMessage: !1, messageType: 'success', message: '' };
             },
+            computed: {
+                httpLibrary: function () {
+                    return this.axios || this.$http;
+                },
+            },
+            mounted: function () {},
             methods: {
                 saveOrUpdate: function () {
-                    this.$refs.observer.validate().then(function (e) {});
+                    var e = this;
+                    this.$refs.observer.validate().then(function (t) {
+                        t &&
+                            (e.httpLibrary
+                                ? e.httpLibrary(e.createRequestObject()).then(function (e) {
+                                      e && '200' === e.status
+                                          ? ((this.showMessage = !0),
+                                            (this.messageType = 'success'),
+                                            (this.message = '保存成功！'))
+                                          : ((this.showMessage = !0),
+                                            (this.messageType = 'error'),
+                                            (this.message = '保存失败！'));
+                                  })
+                                : ((e.showMessage = !0),
+                                  (e.messageType = 'warning'),
+                                  (e.message = '无法找到请求发送组件！')));
+                    });
                 },
                 clear: function () {
                     (this.model = {}), this.$refs.form.reset(), this.$refs.observer.reset();
+                },
+                createRequestObject: function () {
+                    var e = {};
+                    return (
+                        (e.methods = this.formSchema.requestMethods),
+                        (e.url = this.formSchema.requestUrl),
+                        (e.headers = { 'Content-type': this.formSchema.requestContentType }),
+                        (e.data = this.model),
+                        e
+                    );
                 },
             },
         },
@@ -86,7 +123,7 @@
                                                 {
                                                     key: 'activator',
                                                     fn: function (t) {
-                                                        var o = t.on;
+                                                        var s = t.on;
                                                         return [
                                                             r(
                                                                 'v-icon',
@@ -95,7 +132,7 @@
                                                                         staticClass: 'mr-2',
                                                                         attrs: { tile: '', color: 'teal', large: '' },
                                                                     },
-                                                                    o
+                                                                    s
                                                                 ),
                                                                 [e._v('mdi-clipboard-edit')]
                                                             ),
@@ -115,6 +152,10 @@
                             ),
                             e._v(' '),
                             r('v-divider', { staticClass: 'mb-2' }),
+                            e._v(' '),
+                            e.showMessage
+                                ? r('v-alert', { attrs: { type: e.messageType } }, [e._v(' ' + e._s(e.message) + ' ')])
+                                : e._e(),
                             e._v(' '),
                             r(
                                 'v-row',
@@ -191,7 +232,7 @@
     (c.install = function (e) {
         e.component(c.name, c);
     }),
-        null != ('undefined' == typeof window ? 'undefined' : s.default(window)) && window.Vue && c.install(window.Vue),
+        null != ('undefined' == typeof window ? 'undefined' : l.default(window)) && window.Vue && c.install(window.Vue),
         (e.HFormRuntime = c),
         Object.defineProperty(e, '__esModule', { value: !0 });
 });

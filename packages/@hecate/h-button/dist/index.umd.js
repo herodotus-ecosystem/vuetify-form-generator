@@ -22,30 +22,30 @@
               e.Vuetify,
               e.__vue_normalize__
           );
-})(this, function (e, n, o, t, i) {
+})(this, function (e, n, t, o, i) {
     'use strict';
     function r(e) {
         return e && 'object' == typeof e && 'default' in e ? e : { default: e };
     }
-    var l = r(o),
+    var l = r(t),
         u = r(i),
-        s = {
-            components: { VIcon: t.VIcon, VBtn: t.VBtn, VTooltip: t.VTooltip },
+        c = {
+            components: { VIcon: o.VIcon, VBtn: o.VBtn, VTooltip: o.VTooltip },
             name: 'HButton',
-            props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
+            props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String, text: String },
             methods: {
                 handleClick: function () {
                     this.$emit('click');
                 },
             },
         },
-        c = u.default(
+        s = u.default(
             {
                 render: function () {
                     var e = this,
                         n = e.$createElement,
-                        o = e._self._c || n;
-                    return o(
+                        t = e._self._c || n;
+                    return t(
                         'v-tooltip',
                         {
                             attrs: { bottom: '' },
@@ -53,36 +53,52 @@
                                 {
                                     key: 'activator',
                                     fn: function (n) {
-                                        var t = n.on;
+                                        var o = n.on;
                                         return [
-                                            o(
-                                                'v-btn',
-                                                e._g(
-                                                    {
-                                                        attrs: { color: e.color, icon: e.icon },
-                                                        on: {
-                                                            click: function (n) {
-                                                                return e.handleClick();
-                                                            },
-                                                        },
-                                                    },
-                                                    t
-                                                ),
-                                                [o('v-icon', [e._v(e._s(e.iconName))])],
-                                                1
-                                            ),
+                                            e.icon
+                                                ? t(
+                                                      'v-btn',
+                                                      e._g(
+                                                          {
+                                                              attrs: { color: e.color, icon: e.icon },
+                                                              on: {
+                                                                  click: function (n) {
+                                                                      return e.handleClick();
+                                                                  },
+                                                              },
+                                                          },
+                                                          o
+                                                      ),
+                                                      [t('v-icon', [e._v(e._s(e.iconName))])],
+                                                      1
+                                                  )
+                                                : t(
+                                                      'v-btn',
+                                                      e._g(
+                                                          {
+                                                              attrs: { color: e.color },
+                                                              on: {
+                                                                  click: function (n) {
+                                                                      return e.handleClick();
+                                                                  },
+                                                              },
+                                                          },
+                                                          o
+                                                      ),
+                                                      [e._v('\n            ' + e._s(e.text) + '\n        ')]
+                                                  ),
                                         ];
                                     },
                                 },
                             ]),
                         },
-                        [e._v(' '), o('span', [e._v(e._s(e.tooltip))])]
+                        [e._v(' '), t('span', [e._v(e._s(e.tooltip))])]
                     );
                 },
                 staticRenderFns: [],
             },
             undefined,
-            s,
+            c,
             undefined,
             false,
             undefined,
@@ -91,10 +107,10 @@
             void 0,
             void 0
         );
-    (c.install = function (e) {
-        e.component(c.name, c);
+    (s.install = function (e) {
+        e.component(s.name, s);
     }),
-        null != ('undefined' == typeof window ? 'undefined' : l.default(window)) && window.Vue && c.install(window.Vue),
-        (e.HButton = c),
+        null != ('undefined' == typeof window ? 'undefined' : l.default(window)) && window.Vue && s.install(window.Vue),
+        (e.HButton = s),
         Object.defineProperty(e, '__esModule', { value: !0 });
 });

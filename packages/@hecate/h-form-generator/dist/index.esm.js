@@ -14,31 +14,31 @@ import {
     VListItem as d,
     VHover as u,
     VExpansionPanelHeader as m,
-    VList as v,
-    VExpansionPanelContent as h,
+    VList as h,
+    VExpansionPanelContent as v,
     VExpansionPanel as b,
-    VSelect as f,
-    VCombobox as g,
-    VTextField as x,
-    VListItemTitle as _,
-    VSwitch as k,
+    VCombobox as f,
+    VTextField as g,
+    VListItemTitle as x,
+    VSelect as k,
+    VSwitch as _,
     VListItemIcon as I,
-    VForm as w,
-    VSubheader as $,
-    VListItemAvatar as y,
-    VListItemSubtitle as C,
-    VListItemGroup as S,
-    VDivider as H,
-    VExpansionPanels as P,
+    VExpansionPanels as w,
+    VForm as $,
+    VSubheader as y,
+    VListItemAvatar as C,
+    VListItemSubtitle as S,
+    VListItemGroup as H,
+    VDivider as P,
     VTab as T,
     VTabs as V,
     VTabItem as O,
-    VTabsItems as L,
-    VNavigationDrawer as E,
-    VCardText as D,
-    VMain as A,
-    VApp as F,
-    VToolbarTitle as R,
+    VTabsItems as D,
+    VNavigationDrawer as L,
+    VCardText as F,
+    VMain as E,
+    VApp as R,
+    VToolbarTitle as A,
     VSpacer as B,
     VToolbarItems as j,
     VAppBar as N,
@@ -47,8 +47,8 @@ import 'core-js/modules/es.array.join.js';
 import 'core-js/modules/es.regexp.exec.js';
 import 'core-js/modules/es.string.replace.js';
 import M from '@babel/runtime-corejs3/core-js/instance/repeat';
-import z from '@babel/runtime-corejs3/core-js/instance/map';
-import W from '@babel/runtime-corejs3/core-js/object/assign';
+import W from '@babel/runtime-corejs3/core-js/instance/map';
+import z from '@babel/runtime-corejs3/core-js/object/assign';
 import { lib as G, convertor as K } from '@hecate/core';
 import X from '@babel/runtime-corejs3/core-js/json/stringify';
 import Y from '@babel/runtime-corejs3/core-js/parse-int';
@@ -67,7 +67,10 @@ var se = function (e) {
 function ae(e) {
     G.storageSync.setItem('DRAWING_CANVAS', X(e));
 }
-var ne = {
+function ne(e) {
+    G.storageSync.setItem('DRAWING_CANVAS_FORM', X(e));
+}
+var oe = {
         TEXT_FIELD: {
             index: 'TEXT_FIELD',
             schema: {
@@ -172,28 +175,7 @@ var ne = {
                 title: '颜色选择',
                 tag: 'v-color-picker',
                 format: 'hexcolor',
-                properties: { outlined: !0, 'hide-details': !0 },
-            },
-        },
-        CASCADE_SELECT: {
-            index: 'CASCADE_SELECT',
-            schema: { type: 'string', title: '级联下拉', tag: 'v-select', oneOf: [] },
-        },
-        AJAX_SELECT: {
-            index: 'AJAX_SELECT',
-            schema: {
-                type: 'array',
-                title: '异步选择',
-                tag: 'v-select',
-                'x-display': 'icon',
-                properties: {},
-                items: {
-                    type: 'string',
-                    oneOf: [
-                        { const: 'value1', title: 'Value 1' },
-                        { const: 'value2', title: 'Value 2' },
-                    ],
-                },
+                'x-props': { outlined: !0, 'hide-details': !0 },
             },
         },
         RADIO: {
@@ -203,7 +185,7 @@ var ne = {
                 title: '单选框组',
                 tag: 'v-radio-group',
                 'x-display': 'radio',
-                properties: {},
+                'x-props': {},
                 enum: ['value 1', 'value 2'],
             },
         },
@@ -215,30 +197,30 @@ var ne = {
                 tag: 'v-file-input',
                 contentMediaType: 'image/png',
                 writeOnly: !0,
-                properties: {},
+                'x-props': {},
             },
         },
     },
-    oe = [
+    re = [
         {
             title: '输入型组件',
             list: [
                 {
                     configs: {
-                        title: ne.TEXT_FIELD.schema.title,
+                        title: oe.TEXT_FIELD.schema.title,
                         icon: 'mdi-form-textbox',
                         name: 'TextField',
                         document: 'https://vuetifyjs.com/zh-Hans/components/text-fields/',
-                        schema: ne.TEXT_FIELD.index,
+                        schema: oe.TEXT_FIELD.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.TEXT_AREA.schema.title,
+                        title: oe.TEXT_AREA.schema.title,
                         icon: 'mdi-form-textarea',
                         name: 'TextArea',
                         document: 'https://vuetifyjs.com/zh-Hans/components/textareas/',
-                        schema: ne.TEXT_AREA.index,
+                        schema: oe.TEXT_AREA.index,
                     },
                 },
             ],
@@ -248,163 +230,116 @@ var ne = {
             list: [
                 {
                     configs: {
-                        title: ne.SLIDER.schema.title,
+                        title: oe.SLIDER.schema.title,
                         icon: 'mdi-tune-variant',
                         name: 'Slider',
                         document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-                        schema: ne.SLIDER.index,
+                        schema: oe.SLIDER.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.RANGE_SLIDER.schema.title,
+                        title: oe.RANGE_SLIDER.schema.title,
                         icon: 'mdi-valve-closed',
                         name: 'Range_Slider',
                         document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-                        schema: ne.RANGE_SLIDER.index,
+                        schema: oe.RANGE_SLIDER.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.CHECKBOX.schema.title,
+                        title: oe.CHECKBOX.schema.title,
                         icon: 'mdi-checkbox-marked',
                         name: 'Checkbox',
                         document: 'https://vuetifyjs.com/zh-Hans/components/checkboxes/',
-                        schema: ne.CHECKBOX.index,
+                        schema: oe.CHECKBOX.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.SWITCHS.schema.title,
+                        title: oe.SWITCHS.schema.title,
                         icon: 'mdi-toggle-switch',
                         name: 'Switch',
                         document: 'https://vuetifyjs.com/zh-Hans/components/switches/',
-                        schema: ne.SWITCHS.index,
+                        schema: oe.SWITCHS.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.DATE_PICKER.schema.title,
+                        title: oe.DATE_PICKER.schema.title,
                         icon: 'mdi-calendar',
                         name: 'Date',
                         document: 'https://vuetifyjs.com/zh-Hans/components/date-pickers/',
-                        schema: ne.DATE_PICKER.index,
+                        schema: oe.DATE_PICKER.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.TIME_PICKER.schema.title,
+                        title: oe.TIME_PICKER.schema.title,
                         icon: 'mdi-clock-outline',
                         name: 'Time',
                         document: 'https://vuetifyjs.com/zh-Hans/components/time-pickers/',
-                        schema: ne.TIME_PICKER.index,
+                        schema: oe.TIME_PICKER.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.SELECT_SINGLE.schema.title,
+                        title: oe.SELECT_SINGLE.schema.title,
                         icon: 'mdi-form-dropdown',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                        schema: ne.SELECT_SINGLE.index,
+                        schema: oe.SELECT_SINGLE.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.COMBOBOX.schema.title,
+                        title: oe.COMBOBOX.schema.title,
                         icon: 'mdi-vector-difference-ab',
                         name: 'Combobox',
                         document: 'https://vuetifyjs.com/zh-Hans/components/combobox/',
-                        schema: ne.COMBOBOX.index,
+                        schema: oe.COMBOBOX.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.SELECT_MULTIPLE.schema.title,
-                        icon: 'mdi-form-dropdown',
-                        name: 'Select',
-                        document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                        schema: ne.SELECT_MULTIPLE.index,
-                    },
-                },
-                {
-                    configs: {
-                        title: ne.CASCADE_SELECT.schema.title,
-                        icon: 'mdi-file-tree-outline',
-                        name: 'Select',
-                        document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                        schema: ne.CASCADE_SELECT.index,
-                    },
-                },
-                {
-                    configs: {
-                        title: ne.RADIO.schema.title,
+                        title: oe.RADIO.schema.title,
                         icon: 'mdi-checkbox-marked-circle',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/selection-controls/',
-                        schema: ne.RADIO.index,
+                        schema: oe.RADIO.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.COLOR_PICKER.schema.title,
+                        title: oe.COLOR_PICKER.schema.title,
                         icon: 'mdi-calendar',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/color-pickers/',
-                        schema: ne.COLOR_PICKER.index,
+                        schema: oe.COLOR_PICKER.index,
                     },
                 },
                 {
                     configs: {
-                        title: ne.FILE_INPUT.schema.title,
+                        title: oe.FILE_INPUT.schema.title,
                         icon: 'mdi-calendar',
                         name: 'Select',
                         document: 'https://vuetifyjs.com/zh-Hans/components/file-inputs/',
-                        schema: ne.FILE_INPUT.index,
+                        schema: oe.FILE_INPUT.index,
                     },
                 },
             ],
         },
-        {
-            title: '布局型组件',
-            list: [
-                {
-                    title: '行容器',
-                    configs: {
-                        layout: 'rowFormItem',
-                        tagIcon: 'mdi-view-column-outline',
-                        layoutTree: !0,
-                        document: 'https://element.eleme.cn/#/zh-CN/component/layout#row-attributes',
-                    },
-                    type: 'default',
-                    justify: 'start',
-                    align: 'top',
-                },
-                {
-                    title: '按钮',
-                    configs: {
-                        showtitle: !0,
-                        changeTag: !0,
-                        titleWidth: null,
-                        tag: 'el-button',
-                        tagIcon: 'mdi-gesture-tap-button',
-                        span: 24,
-                        layout: 'columnLayoutItem',
-                        document: 'https://element.eleme.cn/#/zh-CN/component/button',
-                    },
-                    slot: { default: '主要按钮' },
-                    type: 'primary',
-                    icon: 'el-icon-search',
-                    round: !1,
-                    size: 'medium',
-                    plain: !1,
-                    circle: !1,
-                    disabled: !1,
-                },
-            ],
-        },
+        { title: '布局型组件', list: [] },
     ],
-    re = {
+    le = {
+        formRef: 'FormRef',
+        formModel: 'formData',
+        requestContentType: 'application/json',
+        requestMethods: 'get',
+        requestUrl: '',
+        responseParam: 'data',
+    },
+    ie = {
         annotations: {
             xprops: 'x-props',
             xslots: 'x-slots',
@@ -487,8 +422,44 @@ var ne = {
             YearIcon: 'year-icon',
         },
         class: { switch: 'mt-0 pt-0' },
+        items: {
+            contentType: [
+                { value: 'application/json', text: 'application/json（默认）' },
+                { value: 'application/x-www-form-urlencoded', text: 'application/x-www-form-urlencoded' },
+                { value: 'multipart/form-data', text: 'multipart/form-data' },
+                { value: 'text/xml', text: 'text/xml' },
+            ],
+            requestType: [
+                { value: 'get', text: 'GET' },
+                { value: 'post', text: 'POST' },
+                { value: 'put', text: 'PUT' },
+                { value: 'delete', text: 'DELETE' },
+                { value: 'head', text: 'HEAD' },
+                { value: 'patch', text: 'PATCH' },
+                { value: 'options', text: 'OPTIONS' },
+            ],
+            inputType: [
+                { value: 'text', text: '文字输入模式（默认）' },
+                { value: 'password', text: '密码模式' },
+                { value: 'number', text: '数字模式' },
+                { value: 'color', text: '选择颜色模式' },
+                { value: 'datetime-local', text: '选择日期时间模式' },
+                { value: 'time', text: '选择时间模式' },
+                { value: 'date', text: '选择日期模式' },
+                { value: 'week', text: '选择周模式' },
+                { value: 'month', text: '选择月模式' },
+            ],
+            dateType: [
+                { value: 'date', text: '日期模式（默认）' },
+                { value: 'month', text: '月模式' },
+            ],
+            timeType: [
+                { value: 'ampm', text: 'ampm（默认）' },
+                { value: '24hr', text: '24hr' },
+            ],
+        },
     };
-function le(e, t, s, a) {
+function pe(e, t, s, a) {
     var n = { configs: {}, type: 'object', properties: {} },
         o = t + '_' + G.shortid.generate();
     return (
@@ -501,47 +472,61 @@ function le(e, t, s, a) {
         n
     );
 }
-function ie(e, t) {
+function ce(e, t) {
     if (t) return e.properties[t];
     var s = e.configs.formId;
     return e.properties[s];
 }
-function pe(e) {
+function de(e, t, s) {
+    var a = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+        n = {};
+    return (
+        (n.tag = t.tag),
+        (n.attributes = {}),
+        (n.attributes['v-model'] = e.configs.formId),
+        (n.attributes.label = t.title),
+        a && ((n.attributes[':error-messages'] = 'errors'), (n.attributes.required = !0)),
+        z(n.attributes, s),
+        n
+    );
+}
+function ue(e) {
     if (!G.lodash.isEmpty(e)) {
-        var t = ie(e),
+        var t = ce(e),
             s = (function (e) {
-                return !G.lodash.isEmpty(e) && G.lodash.has(e, re.annotations.xprops) ? e[re.annotations.xprops] : {};
+                return !G.lodash.isEmpty(e) && G.lodash.has(e, ie.annotations.xprops) ? e[ie.annotations.xprops] : {};
             })(t),
-            a = {};
-        (a.tag = t.tag),
-            (a.attributes = {}),
-            (a.attributes['v-model'] = e.configs.formId),
-            (a.attributes.label = t.title),
-            W(a.attributes, s);
-        var n = K.json2html.build(a);
-        return G.lodash.replace(n, /="true"/g, '');
+            a = {},
+            n = t['x-rules'];
+        n
+            ? ((a.tag = 'validation-provider'),
+              (a.attributes = { 'v-slot': '{ errors }', name: e.configs.formId, rules: n }),
+              (a.children = [de(e, t, s, !0)]))
+            : (a = de(e, t, s));
+        var o = K.json2html.build(a);
+        return G.lodash.replace(o, /="true"/g, '');
     }
     return null;
 }
-function ce(e) {
-    return '<v-container fluid>\n        <v-row>\n            <v-col>\n                <v-card>\n                   '.concat(
+function me(e) {
+    return '<v-container fluid>\n        <v-row>\n            <v-col>\n                <v-card>\n                    <validation-observer ref="observer">\n                        <v-form ref="form">\n                            '.concat(
         e,
-        '\n                </v-card>\n            </v-col>\n        </v-row>\n    </v-container>'
+        '\n                        </v-form>\n                    </validation-observer>\n                </v-card>\n            </v-col>\n        </v-row>\n    </v-container>'
     );
 }
-function de(e) {
+function he(e) {
     var t = (function (e) {
             var t,
-                s = z((t = G.lodash)).call(t, e, pe);
-            return G.lodash.isEmpty(s) ? '' : G.lodash.join(s, '\n' + M('\t').call('\t', 7));
+                s = W((t = G.lodash)).call(t, e, ue);
+            return G.lodash.isEmpty(s) ? '' : G.lodash.join(s, '\n' + M('\t').call('\t', 10));
         })(e),
         s = (function (e) {
             var t = {};
             return (
                 G.lodash.isEmpty(e) ||
-                    z(e).call(e, function (e, s, a) {
+                    W(e).call(e, function (e, s, a) {
                         var n = e.configs.formId,
-                            o = ie(e);
+                            o = ce(e);
                         t[n] = (function (e) {
                             if (!e) return null;
                             switch (e.toLowerCase()) {
@@ -566,7 +551,7 @@ function de(e) {
     return {
         code: (function (e, t) {
             var s,
-                a = ce(e);
+                a = me(e);
             return U(
                 (s = '<template>\n    '.concat(
                     a,
@@ -582,11 +567,11 @@ function de(e) {
                 return t.replace(s, ',\n' + M('\t').call('\t', 3));
             })(s)
         ),
-        template: ce(t),
+        template: me(t),
         data: s,
     };
 }
-var ue = J(
+var ve = J(
     {
         render: function () {
             var e = this,
@@ -602,22 +587,38 @@ var ue = J(
                             fn: function (t) {
                                 var a = t.on;
                                 return [
-                                    s(
-                                        'v-btn',
-                                        e._g(
-                                            {
-                                                attrs: { color: e.color, icon: e.icon },
-                                                on: {
-                                                    click: function (t) {
-                                                        return e.handleClick();
-                                                    },
-                                                },
-                                            },
-                                            a
-                                        ),
-                                        [s('v-icon', [e._v(e._s(e.iconName))])],
-                                        1
-                                    ),
+                                    e.icon
+                                        ? s(
+                                              'v-btn',
+                                              e._g(
+                                                  {
+                                                      attrs: { color: e.color, icon: e.icon },
+                                                      on: {
+                                                          click: function (t) {
+                                                              return e.handleClick();
+                                                          },
+                                                      },
+                                                  },
+                                                  a
+                                              ),
+                                              [s('v-icon', [e._v(e._s(e.iconName))])],
+                                              1
+                                          )
+                                        : s(
+                                              'v-btn',
+                                              e._g(
+                                                  {
+                                                      attrs: { color: e.color },
+                                                      on: {
+                                                          click: function (t) {
+                                                              return e.handleClick();
+                                                          },
+                                                      },
+                                                  },
+                                                  a
+                                              ),
+                                              [e._v('\n            ' + e._s(e.text) + '\n        ')]
+                                          ),
                                 ];
                             },
                         },
@@ -632,7 +633,7 @@ var ue = J(
     {
         components: { VIcon: t, VBtn: s, VTooltip: a },
         name: 'HButton',
-        props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String },
+        props: { btnClass: String, color: String, icon: Boolean, iconName: String, tooltip: String, text: String },
         methods: {
             handleClick: function () {
                 this.$emit('click');
@@ -647,13 +648,13 @@ var ue = J(
     void 0,
     void 0
 );
-(ue.install = function (e) {
-    e.component(ue.name, ue);
+(ve.install = function (e) {
+    e.component(ve.name, ve);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && ue.install(window.Vue);
-var me = {
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && ve.install(window.Vue);
+var be = {
         name: 'HCanvasContainer',
-        components: { HButton: ue, VToolbar: n, VCard: o, VCol: r, VRow: l, VContainer: i },
+        components: { HButton: ve, VToolbar: n, VCard: o, VCol: r, VRow: l, VContainer: i },
         created: function () {},
         data: function () {
             return {};
@@ -664,8 +665,8 @@ var me = {
             },
         },
     },
-    ve = me,
-    he = J(
+    fe = be,
+    ge = J(
         {
             render: function () {
                 var e = this,
@@ -718,7 +719,7 @@ var me = {
             staticRenderFns: [],
         },
         undefined,
-        ve,
+        fe,
         undefined,
         false,
         undefined,
@@ -727,7 +728,7 @@ var me = {
         void 0,
         void 0
     ),
-    be = {
+    xe = {
         name: 'HDraggableItem',
         components: {
             HFormRenderer: Q,
@@ -770,8 +771,8 @@ var me = {
             },
         },
     },
-    fe = be,
-    ge = J(
+    ke = xe,
+    _e = J(
         {
             render: function () {
                 var e = this,
@@ -880,7 +881,7 @@ var me = {
             staticRenderFns: [],
         },
         undefined,
-        fe,
+        ke,
         undefined,
         false,
         undefined,
@@ -889,13 +890,13 @@ var me = {
         void 0,
         void 0
     ),
-    xe = {
-        components: { VExpansionPanelHeader: m, VList: v, VExpansionPanelContent: h, VExpansionPanel: b },
+    Ie = {
+        components: { VExpansionPanelHeader: m, VList: h, VExpansionPanelContent: v, VExpansionPanel: b },
         name: 'HExpansionPanel',
         props: { index: { type: String, required: !0 }, header: { type: String, required: !0 } },
     },
-    _e = xe,
-    ke = J(
+    we = Ie,
+    $e = J(
         {
             render: function () {
                 var e = this,
@@ -919,141 +920,6 @@ var me = {
             staticRenderFns: [],
         },
         undefined,
-        _e,
-        undefined,
-        false,
-        undefined,
-        !1,
-        void 0,
-        void 0,
-        void 0
-    ),
-    Ie = {
-        components: { VSelect: f, VListItemContent: p, VIcon: t, VTooltip: a, VListItemAction: c, VListItem: d },
-        name: 'HPanelSelect',
-        props: {
-            value: { required: !0 },
-            label: String,
-            tooltip: String,
-            disabled: { type: Boolean, default: !1 },
-            items: {
-                type: Array,
-                default: function () {
-                    return [];
-                },
-            },
-        },
-        data: function () {
-            return { selectedValue: '' };
-        },
-        watch: {
-            value: {
-                handler: function (e, t) {
-                    this.selectedValue = e;
-                },
-                immediate: !0,
-            },
-            selectedValue: {
-                handler: function (e, t) {
-                    this.$emit('input', e);
-                },
-            },
-        },
-    },
-    we = Ie,
-    $e = J(
-        {
-            render: function () {
-                var e = this,
-                    t = e.$createElement,
-                    s = e._self._c || t;
-                return s(
-                    'v-list-item',
-                    { staticClass: 'pa-0', attrs: { dense: '' } },
-                    [
-                        s(
-                            'v-list-item-content',
-                            [
-                                s('v-select', {
-                                    staticClass: 'ml-1 pr-2',
-                                    attrs: {
-                                        items: e.items,
-                                        label: e.label,
-                                        disabled: e.disabled,
-                                        outlined: '',
-                                        dense: '',
-                                        'hide-details': '',
-                                        clearable: '',
-                                        'no-data-text': '空',
-                                    },
-                                    model: {
-                                        value: e.selectedValue,
-                                        callback: function (t) {
-                                            e.selectedValue = t;
-                                        },
-                                        expression: 'selectedValue',
-                                    },
-                                }),
-                            ],
-                            1
-                        ),
-                        e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
-                    ],
-                    1
-                );
-            },
-            staticRenderFns: [],
-        },
-        undefined,
         we,
         undefined,
         false,
@@ -1064,8 +930,77 @@ var me = {
         void 0
     ),
     ye = {
-        components: { VCombobox: g, VListItemContent: p, VIcon: t, VTooltip: a, VListItemAction: c, VListItem: d },
+        components: { VIcon: t, VTooltip: a, VListItemAction: c },
+        name: 'HPanelTooltip',
+        props: { content: { type: String, default: '' } },
+    },
+    Ce = ye,
+    Se = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return e.content
+                    ? s(
+                          'v-list-item-action',
+                          [
+                              s(
+                                  'v-tooltip',
+                                  {
+                                      attrs: { left: '', 'max-width': '200px' },
+                                      scopedSlots: e._u(
+                                          [
+                                              {
+                                                  key: 'activator',
+                                                  fn: function (t) {
+                                                      var a = t.on,
+                                                          n = t.attrs;
+                                                      return [
+                                                          s(
+                                                              'v-icon',
+                                                              e._g(
+                                                                  e._b(
+                                                                      { attrs: { color: 'grey lighten-1', dark: '' } },
+                                                                      'v-icon',
+                                                                      n,
+                                                                      !1
+                                                                  ),
+                                                                  a
+                                                              ),
+                                                              [e._v('mdi-information')]
+                                                          ),
+                                                      ];
+                                                  },
+                                              },
+                                          ],
+                                          null,
+                                          !1,
+                                          36085519
+                                      ),
+                                  },
+                                  [e._v(' '), s('span', [e._v(e._s(e.content))])]
+                              ),
+                          ],
+                          1
+                      )
+                    : e._e();
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        Ce,
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    He = {
         name: 'HPanelArray',
+        components: { HPanelTooltip: Se, VCombobox: f, VListItemContent: p, VListItem: d },
         props: {
             value: {
                 type: Array,
@@ -1094,8 +1029,8 @@ var me = {
             },
         },
     },
-    Ce = ye,
-    Se = J(
+    Pe = He,
+    Te = J(
         {
             render: function () {
                 var e = this,
@@ -1136,55 +1071,7 @@ var me = {
                             1
                         ),
                         e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
+                        s('h-panel-tooltip', { attrs: { content: e.tooltip } }),
                     ],
                     1
                 );
@@ -1192,7 +1079,7 @@ var me = {
             staticRenderFns: [],
         },
         undefined,
-        Ce,
+        Pe,
         undefined,
         false,
         undefined,
@@ -1201,9 +1088,9 @@ var me = {
         void 0,
         void 0
     ),
-    He = {
-        components: { VTextField: x, VListItemContent: p, VIcon: t, VTooltip: a, VListItemAction: c, VListItem: d },
+    Ve = {
         name: 'HPanelColor',
+        components: { HPanelTooltip: Se, VTextField: g, VListItemContent: p, VListItem: d },
         props: {
             value: { type: String, default: '#ffffff' },
             label: String,
@@ -1227,8 +1114,8 @@ var me = {
             },
         },
     },
-    Pe = He,
-    Te = J(
+    Oe = Ve,
+    De = J(
         {
             render: function () {
                 var e = this,
@@ -1262,55 +1149,7 @@ var me = {
                             1
                         ),
                         e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
+                        s('h-panel-tooltip', { attrs: { content: e.tooltip } }),
                     ],
                     1
                 );
@@ -1318,7 +1157,7 @@ var me = {
             staticRenderFns: [],
         },
         undefined,
-        Pe,
+        Oe,
         undefined,
         false,
         undefined,
@@ -1327,7 +1166,36 @@ var me = {
         void 0,
         void 0
     ),
-    Ve = J(
+    Le = {
+        name: 'HPanelIcon',
+        components: {
+            HIconList: Z,
+            VListItemTitle: x,
+            VListItemContent: p,
+            VIcon: t,
+            VTooltip: a,
+            VListItemAction: c,
+            VListItem: d,
+        },
+        props: { value: { type: String }, label: String, tooltip: String, disabled: { type: Boolean, default: !1 } },
+        data: function () {
+            return { icon: '' };
+        },
+        watch: {
+            value: {
+                handler: function (e, t) {
+                    e && (this.icon = e);
+                },
+            },
+            icon: {
+                handler: function (e, t) {
+                    this.$emit('input', e);
+                },
+            },
+        },
+    },
+    Fe = Le,
+    Ee = J(
         {
             render: function () {
                 var e = this,
@@ -1413,39 +1281,7 @@ var me = {
             staticRenderFns: [],
         },
         undefined,
-        {
-            name: 'HPanelIcon',
-            components: {
-                HIconList: Z,
-                VListItemTitle: _,
-                VListItemContent: p,
-                VIcon: t,
-                VTooltip: a,
-                VListItemAction: c,
-                VListItem: d,
-            },
-            props: {
-                value: { type: String },
-                label: String,
-                tooltip: String,
-                disabled: { type: Boolean, default: !1 },
-            },
-            data: function () {
-                return { icon: '' };
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        e && (this.icon = e);
-                    },
-                },
-                icon: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-            },
-        },
+        Fe,
         undefined,
         false,
         undefined,
@@ -1454,7 +1290,37 @@ var me = {
         void 0,
         void 0
     ),
-    Oe = J(
+    Re = {
+        name: 'HPanelNumber',
+        components: { HPanelTooltip: Se, VTextField: g, VListItemContent: p, VListItem: d },
+        props: {
+            value: [Number, String],
+            label: String,
+            tooltip: String,
+            disabled: { type: Boolean, default: !1 },
+            min: { type: [Number, String], default: 0 },
+            max: { type: [Number, String], default: 100 },
+            step: { type: [Number, String], default: 1 },
+        },
+        data: function () {
+            return { numberValue: null };
+        },
+        watch: {
+            value: {
+                handler: function (e, t) {
+                    this.numberValue = e;
+                },
+                immediate: !0,
+            },
+            numberValue: {
+                handler: function (e, t) {
+                    this.$emit('input', e);
+                },
+            },
+        },
+    },
+    Ae = Re,
+    Be = J(
         {
             render: function () {
                 var e = this,
@@ -1492,55 +1358,61 @@ var me = {
                             1
                         ),
                         e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
+                        s('h-panel-tooltip', { attrs: { content: e.tooltip } }),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        Ae,
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    je = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-list-item',
+                    { staticClass: 'pa-0', attrs: { dense: '' } },
+                    [
+                        s(
+                            'v-list-item-content',
+                            [
+                                s('v-select', {
+                                    staticClass: 'ml-1 pr-2',
+                                    attrs: {
+                                        items: e.items,
+                                        label: e.label,
+                                        disabled: e.disabled,
+                                        outlined: '',
+                                        dense: '',
+                                        'hide-details': '',
+                                        clearable: '',
+                                        'no-data-text': '空',
+                                    },
+                                    model: {
+                                        value: e.selectedValue,
+                                        callback: function (t) {
+                                            e.selectedValue = t;
+                                        },
+                                        expression: 'selectedValue',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s('h-panel-tooltip', { attrs: { content: e.tooltip } }),
                     ],
                     1
                 );
@@ -1549,28 +1421,31 @@ var me = {
         },
         undefined,
         {
-            components: { VTextField: x, VListItemContent: p, VIcon: t, VTooltip: a, VListItemAction: c, VListItem: d },
-            name: 'HPanelNumber',
+            name: 'HPanelSelect',
+            components: { HPanelTooltip: Se, VSelect: k, VListItemContent: p, VListItem: d },
             props: {
-                value: [Number, String],
+                value: { required: !0 },
                 label: String,
                 tooltip: String,
                 disabled: { type: Boolean, default: !1 },
-                min: { type: [Number, String], default: 0 },
-                max: { type: [Number, String], default: 100 },
-                step: { type: [Number, String], default: 1 },
+                items: {
+                    type: Array,
+                    default: function () {
+                        return [];
+                    },
+                },
             },
             data: function () {
-                return { numberValue: null };
+                return { selectedValue: '' };
             },
             watch: {
                 value: {
                     handler: function (e, t) {
-                        this.numberValue = e;
+                        this.selectedValue = e;
                     },
                     immediate: !0,
                 },
-                numberValue: {
+                selectedValue: {
                     handler: function (e, t) {
                         this.$emit('input', e);
                     },
@@ -1585,7 +1460,7 @@ var me = {
         void 0,
         void 0
     ),
-    Le = J(
+    Ne = J(
         {
             render: function () {
                 var e = this,
@@ -1621,55 +1496,7 @@ var me = {
                             1
                         ),
                         e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
+                        s('h-panel-tooltip', { attrs: { content: e.tooltip } }),
                     ],
                     1
                 );
@@ -1678,8 +1505,8 @@ var me = {
         },
         undefined,
         {
-            components: { VSwitch: k, VListItemContent: p, VIcon: t, VTooltip: a, VListItemAction: c, VListItem: d },
             name: 'HPanelSwitch',
+            components: { HPanelTooltip: Se, VSwitch: _, VListItemContent: p, VListItem: d },
             props: {
                 value: Boolean,
                 label: String,
@@ -1713,7 +1540,7 @@ var me = {
         void 0,
         void 0
     ),
-    Ee = J(
+    Me = J(
         {
             render: function () {
                 var e = this,
@@ -1812,56 +1639,7 @@ var me = {
                             1
                         ),
                         e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  { staticClass: 'mr-1' },
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
+                        s('h-panel-tooltip', { staticClass: 'mr-1', attrs: { content: e.tooltip } }),
                     ],
                     1
                 );
@@ -1870,17 +1648,17 @@ var me = {
         },
         undefined,
         {
+            name: 'HCombineBooleanInput',
             components: {
-                VSwitch: k,
-                VTextField: x,
+                HPanelTooltip: Se,
+                VSwitch: _,
+                VTextField: g,
                 VListItemContent: p,
                 VIcon: t,
                 VTooltip: a,
                 VListItemIcon: I,
-                VListItemAction: c,
                 VListItem: d,
             },
-            name: 'HCombineBooleanInput',
             props: {
                 value: [Boolean, String],
                 label: String,
@@ -1913,7 +1691,7 @@ var me = {
         void 0,
         void 0
     ),
-    De = J(
+    We = J(
         {
             render: function () {
                 var e = this,
@@ -1948,55 +1726,7 @@ var me = {
                             1
                         ),
                         e._v(' '),
-                        e.tooltip
-                            ? s(
-                                  'v-list-item-action',
-                                  [
-                                      s(
-                                          'v-tooltip',
-                                          {
-                                              attrs: { left: '', 'max-width': '200px' },
-                                              scopedSlots: e._u(
-                                                  [
-                                                      {
-                                                          key: 'activator',
-                                                          fn: function (t) {
-                                                              var a = t.on,
-                                                                  n = t.attrs;
-                                                              return [
-                                                                  s(
-                                                                      'v-icon',
-                                                                      e._g(
-                                                                          e._b(
-                                                                              {
-                                                                                  attrs: {
-                                                                                      color: 'grey lighten-1',
-                                                                                      dark: '',
-                                                                                  },
-                                                                              },
-                                                                              'v-icon',
-                                                                              n,
-                                                                              !1
-                                                                          ),
-                                                                          a
-                                                                      ),
-                                                                      [e._v('mdi-information')]
-                                                                  ),
-                                                              ];
-                                                          },
-                                                      },
-                                                  ],
-                                                  null,
-                                                  !1,
-                                                  36085519
-                                              ),
-                                          },
-                                          [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                      ),
-                                  ],
-                                  1
-                              )
-                            : e._e(),
+                        s('h-panel-tooltip', { attrs: { content: e.tooltip } }),
                     ],
                     1
                 );
@@ -2005,8 +1735,8 @@ var me = {
         },
         undefined,
         {
-            components: { VTextField: x, VListItemContent: p, VIcon: t, VTooltip: a, VListItemAction: c, VListItem: d },
             name: 'HPanelTextField',
+            components: { HPanelTooltip: Se, VTextField: g, VListItemContent: p, VListItem: d },
             props: { value: String, label: String, tooltip: String, disabled: { type: Boolean, default: !1 } },
             data: function () {
                 return { inputValue: '' };
@@ -2033,7 +1763,4463 @@ var me = {
         void 0,
         void 0
     ),
-    Ae = J(
+    ze = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Multiple : 多选', tooltip: '将预期模型更改为数组' },
+                                    model: {
+                                        value: e.properties.multiple,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'multiple', t);
+                                        },
+                                        expression: 'properties.multiple',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'False Value : 设置假值', tooltip: '设置Checkbox未被勾选时的值' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FalseValue],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FalseValue, t);
+                                        },
+                                        expression: 'properties[constants.tags.FalseValue]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'True Value : 设置真值', tooltip: '设置Checkbox被勾选时的值' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TrueValue],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TrueValue, t);
+                                        },
+                                        expression: 'properties[constants.tags.TrueValue]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: { label: 'Off Icon', tooltip: '未被勾选时使用的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.OffIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.OffIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.OffIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: { label: 'On Icon', tooltip: '被勾选时使用的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.OnIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.OnIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.OnIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Indeterminate : 不确定状态', tooltip: '为复选框设置不确定状态' },
+                                    model: {
+                                        value: e.properties.indeterminate,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'indeterminate', t);
+                                        },
+                                        expression: 'properties.indeterminate',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Indeterminate Icon',
+                                        tooltip: '处于不确定状态时使用的图标',
+                                        disabled: !e.properties.indeterminate,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.IndeterminateIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.IndeterminateIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.IndeterminateIcon]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HCheckboxPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelSwitch: Ne,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Ge = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Allow Over flow', tooltip: '允许菜单溢出屏幕' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AllowOverflow],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AllowOverflow, t);
+                                        },
+                                        expression: 'properties[constants.tags.AllowOverflow]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Chips : 纸片显示',
+                                        tooltip: '改变一个已选择项为小纸片（chips）的显示方式',
+                                    },
+                                    model: {
+                                        value: e.properties.chips,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'chips', t);
+                                        },
+                                        expression: 'properties.chips',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Deletable Chips',
+                                        tooltip: '添加一个去除图标的到选定的小纸片（chips）',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.DeletableChips],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.DeletableChips, t);
+                                        },
+                                        expression: 'properties[constants.tags.DeletableChips]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Small Chips : 标题不移动',
+                                        tooltip: '标签在 focus/dirty 上不移动',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SmallChips],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SmallChips, t);
+                                        },
+                                        expression: 'properties[constants.tags.SmallChips]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Filled : 使用填充样式',
+                                        disabled: e.properties.outlined || e.properties.solo,
+                                    },
+                                    model: {
+                                        value: e.properties.filled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'filled', t);
+                                        },
+                                        expression: 'properties.filled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Flat : 移除阴影',
+                                        tooltip: '当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）',
+                                    },
+                                    model: {
+                                        value: e.properties.flat,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'flat', t);
+                                        },
+                                        expression: 'properties.flat',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Full Width : 全宽度', tooltip: '指定输入类型为全宽度' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FullWidth],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FullWidth, t);
+                                        },
+                                        expression: 'properties[constants.tags.FullWidth]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Selected', tooltip: '不要在选择菜单中显示已选择的项' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideSelected],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideSelected, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideSelected]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Outlined : 显示轮廓' },
+                                    model: {
+                                        value: e.properties.outlined,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'outlined', t);
+                                        },
+                                        expression: 'properties.outlined',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    class: e.constants.class.switch,
+                                    attrs: {
+                                        label: 'Rounded : 椭圆边框',
+                                        disabled: !e.properties.filled && !e.properties.outlined && !e.properties.solo,
+                                        dense: '',
+                                        tooltip: '向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项',
+                                    },
+                                    model: {
+                                        value: e.properties.rounded,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'rounded', t);
+                                        },
+                                        expression: 'properties.rounded',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Shaped : 圆角边框',
+                                        tooltip:
+                                            '如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用',
+                                        disabled: !e.properties.outlined && !e.properties.filled && !e.properties.solo,
+                                    },
+                                    model: {
+                                        value: e.properties.shaped,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'shaped', t);
+                                        },
+                                        expression: 'properties.shaped',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Single Line : 标题不移动',
+                                        tooltip: '标签在 focus/dirty 上不移动',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SingleLine],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SingleLine, t);
+                                        },
+                                        expression: 'properties[constants.tags.SingleLine]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Solo : 凸起样式', disabled: e.properties.filled },
+                                    model: {
+                                        value: e.properties.solo,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'solo', t);
+                                        },
+                                        expression: 'properties.solo',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Solo Inverted : 单反',
+                                        tooltip: '减少元素的不透明度，知道获得焦点',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SoloInverted],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SoloInverted, t);
+                                        },
+                                        expression: 'properties[constants.tags.SoloInverted]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Height : 设置高度', min: '1' },
+                                    model: {
+                                        value: e.properties.height,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'height', t);
+                                        },
+                                        expression: 'properties.height',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'No Data Text', tooltip: '当没有数据时显示的文本' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NoDataText],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NoDataText, t);
+                                        },
+                                        expression: 'properties[constants.tags.NoDataText]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Auto Select First', tooltip: '搜索时，总是选中第一个选项' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AutoSelectFirst],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AutoSelectFirst, t);
+                                        },
+                                        expression: 'properties[constants.tags.AutoSelectFirst]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Auto Focus : 启用自动聚焦' },
+                                    model: {
+                                        value: e.properties.autofocus,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'autofocus', t);
+                                        },
+                                        expression: 'properties.autofocus',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-array', {
+                                    attrs: {
+                                        label: 'Delimiters',
+                                        tooltip:
+                                            '接受将在键入时触发新标记的字符串数组。不替换正常的 Tab 和 Enter keys。',
+                                    },
+                                    model: {
+                                        value: e.properties.delimiters,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'delimiters', t);
+                                        },
+                                        expression: 'properties.delimiters',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Cache Items',
+                                        tooltip: '保留已经通过 items 属性的项在本地的唯一副本',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.CacheItems],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.CacheItems, t);
+                                        },
+                                        expression: 'properties[constants.tags.CacheItems]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disable Lookup', tooltip: '禁用键盘查询' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.DisableLookup],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.DisableLookup, t);
+                                        },
+                                        expression: 'properties[constants.tags.DisableLookup]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Eager',
+                                        tooltip:
+                                            '将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的。',
+                                    },
+                                    model: {
+                                        value: e.properties.eager,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'eager', t);
+                                        },
+                                        expression: 'properties.eager',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Hide No Data',
+                                        tooltip:
+                                            '当没有要显示的选项时，隐藏菜单。用于防止在异步获取结果之前打开菜单。也有打开菜单的效果，当“ items 数组改变，如果还没有打开。',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideNoData],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideNoData, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideNoData]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Loading : 加载状态',
+                                        tooltip:
+                                            '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
+                                    },
+                                    model: {
+                                        value: e.properties.loading,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'loading', t);
+                                        },
+                                        expression: 'properties.loading',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Loader Height : 加载器高度',
+                                        min: '1',
+                                        disabled: !e.properties.loading,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.LoaderHeight],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.LoaderHeight, t);
+                                        },
+                                        expression: 'properties[constants.tags.LoaderHeight]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Multiple : 多选', tooltip: '将预期模型更改为数组' },
+                                    model: {
+                                        value: e.properties.multiple,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'multiple', t);
+                                        },
+                                        expression: 'properties.multiple',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'NoFilter',
+                                        tooltip: '搜索时不要应用过滤。在过滤服务器端数据时非常有用',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NoFilter],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NoFilter, t);
+                                        },
+                                        expression: 'properties[constants.tags.NoFilter]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Return Object',
+                                        tooltip: '将选择器的行为更改为直接返回对象，而不是 item-value 指定的值',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ReturnObject],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ReturnObject, t);
+                                        },
+                                        expression: 'properties[constants.tags.ReturnObject]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Reverse : 反转输入方向' },
+                                    model: {
+                                        value: e.properties.reverse,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'reverse', t);
+                                        },
+                                        expression: 'properties.reverse',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: { label: 'Item Color : Item颜色', tooltip: '设置选中项目的颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Item Disabled', tooltip: '禁用 items 的属性值' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemDisabled],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemDisabled, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemDisabled]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Item Text', tooltip: "设置items'属性的文本值" },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemText],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemText, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemText]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: {
+                                        label: 'Item Value',
+                                        tooltip:
+                                            '设置 items 的值的属性 - 必须是 primitive。支持点符号。注意： 目前不支持 v-combobox GitHub问题',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemValue],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemValue, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemValue]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Outer Icon',
+                                        tooltip: '在组件的外部添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendOuterIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendOuterIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendOuterIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Inner Icon',
+                                        tooltip: '在组件的输入中添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependInnerIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependInnerIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependInnerIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Clearable : 显示清除按钮' },
+                                    model: {
+                                        value: e.properties.clearable,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'clearable', t);
+                                        },
+                                        expression: 'properties.clearable',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Clear Icon',
+                                        tooltip: '当使用 clearable 且有输入值时应用',
+                                        disabled: !e.properties.clearable,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ClearIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ClearIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.ClearIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Open On Clear',
+                                        tooltip:
+                                            '当使用 clearable 属性, 一旦清除，选择菜单将打开或保持打开，这个取决于当前状态',
+                                        disabled: !e.properties.clearable,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.OpenOnClear],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.OpenOnClear, t);
+                                        },
+                                        expression: 'properties[constants.tags.OpenOnClear]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'PlaceHolder : 占位符文本' },
+                                    model: {
+                                        value: e.properties.placeHolder,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'placeHolder', t);
+                                        },
+                                        expression: 'properties.placeHolder',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Prefix : 前缀文本' },
+                                    model: {
+                                        value: e.properties.prefix,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'prefix', t);
+                                        },
+                                        expression: 'properties.prefix',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Suffix : 后缀文本' },
+                                    model: {
+                                        value: e.properties.suffix,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'suffix', t);
+                                        },
+                                        expression: 'properties.suffix',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-select', {
+                                    attrs: {
+                                        label: 'Type: 输入类型',
+                                        tooltip: '设置不同的输入类型',
+                                        items: e.constants.items.inputType,
+                                    },
+                                    model: {
+                                        value: e.properties.type,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'type', t);
+                                        },
+                                        expression: 'properties.type',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Min : 数字类型最小值',
+                                        min: '0',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.min,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'min', t);
+                                        },
+                                        expression: 'properties.min',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Max : 数字类型最大值',
+                                        min: '1',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.max,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'max', t);
+                                        },
+                                        expression: 'properties.max',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Step : 数字类型步长',
+                                        min: '1',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.step,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'step', t);
+                                        },
+                                        expression: 'properties.step',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HComboBoxPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelArray: Te,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelNumber: Be,
+                HPanelSelect: je,
+                HPanelSwitch: Ne,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+                isNumberType: function () {
+                    return 'number' === this.properties.type;
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Ke = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Elevation : 阴影',
+                                        min: '0',
+                                        max: '24',
+                                        tooltip: '组件的海拔可接受 0 到 24 之间的值。',
+                                        disabled: e.properties.flat,
+                                    },
+                                    model: {
+                                        value: e.properties.elevation,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'elevation', t);
+                                        },
+                                        expression: 'properties.elevation',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Flat : 移除阴影', tooltip: '移除添加到元素的标高（阴影）' },
+                                    model: {
+                                        value: e.properties.flat,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'flat', t);
+                                        },
+                                        expression: 'properties.flat',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Full Width : 全宽度', tooltip: '指定输入类型为全宽度' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FullWidth],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FullWidth, t);
+                                        },
+                                        expression: 'properties[constants.tags.FullWidth]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Landscape : 水平方向', tooltip: '水平方向选择器' },
+                                    model: {
+                                        value: e.properties.landscape,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'landscape', t);
+                                        },
+                                        expression: 'properties.landscape',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'No Title', tooltip: '隐藏选择器标题' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NoTitle],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NoTitle, t);
+                                        },
+                                        expression: 'properties[constants.tags.NoTitle]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Width : 选择器宽度',
+                                        min: '1',
+                                        max: '1024',
+                                        step: '2',
+                                        tooltip: '选择器宽度',
+                                    },
+                                    model: {
+                                        value: e.properties.width,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'width', t);
+                                        },
+                                        expression: 'properties.width',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Multiple : 多选', tooltip: '将预期模型更改为数组' },
+                                    model: {
+                                        value: e.properties.multiple,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'multiple', t);
+                                        },
+                                        expression: 'properties.multiple',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: {
+                                        label: 'Selected Items Text : 所选日期文本',
+                                        tooltip:
+                                            '使用 multiple 属性时用于翻译所选日期数的文本。 也可以在 Internationalization 中进行全局定制',
+                                        disabled: !e.properties.multiple,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SelectedItemsText],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SelectedItemsText, t);
+                                        },
+                                        expression: 'properties[constants.tags.SelectedItemsText]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Range', tooltip: '允许选择日期范围' },
+                                    model: {
+                                        value: e.properties.range,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'range', t);
+                                        },
+                                        expression: 'properties.range',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Reactive', tooltip: '自动更改 月份/年份 时更新选择器模型' },
+                                    model: {
+                                        value: e.properties.reactive,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'reactive', t);
+                                        },
+                                        expression: 'properties.reactive',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Scrollable : 滚动', tooltip: '允许通过鼠标滚动更改显示的月份' },
+                                    model: {
+                                        value: e.properties.scrollable,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'scrollable', t);
+                                        },
+                                        expression: 'properties.scrollable',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: { label: 'Prev Icon', tooltip: '设置上一个 月/年 按钮的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrevIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrevIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrevIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: { label: 'Next Icon', tooltip: '设置下一个 月/年 按钮的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NextIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NextIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.NextIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: { label: 'Year Icon', tooltip: '设置年份选择按钮中的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.YearIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.YearIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.YearIcon]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'First Day Of Week : 周的起始天',
+                                        min: '0',
+                                        max: '6',
+                                        tooltip: '设置一周的第一天，从周日的 0 开始。',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FirstDayOfWeek],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FirstDayOfWeek, t);
+                                        },
+                                        expression: 'properties[constants.tags.FirstDayOfWeek]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Locale First Day Of Year',
+                                        min: '0',
+                                        max: '6',
+                                        tooltip:
+                                            '设置决定一年中第一周的日期，从 0 开始，星期日。对于 ISO 8601，应该是 4。',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.LocaleFirstDayOfYear],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.LocaleFirstDayOfYear, t);
+                                        },
+                                        expression: 'properties[constants.tags.LocaleFirstDayOfYear]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Max', tooltip: '允许的最大 日期/月份（ISO 8601格式）' },
+                                    model: {
+                                        value: e.properties.max,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'max', t);
+                                        },
+                                        expression: 'properties.max',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Min', tooltip: '允许的最小 日期/月份（ISO 8601格式）' },
+                                    model: {
+                                        value: e.properties.min,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'min', t);
+                                        },
+                                        expression: 'properties.min',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Picker Date', tooltip: '显示 年/月' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PickerDate],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PickerDate, t);
+                                        },
+                                        expression: 'properties[constants.tags.PickerDate]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Prev Month Aria Label' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrevMonthAriaLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrevMonthAriaLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrevMonthAriaLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Prev Year Aria Label' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrevYearAriaLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrevYearAriaLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrevYearAriaLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Next Month Aria Label' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NextMonthAriaLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NextMonthAriaLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.NextMonthAriaLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Next Year Aria Label' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NextYearAriaLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NextYearAriaLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.NextYearAriaLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Show Current : 显示为当前日期',
+                                        tooltip: '切换当前 日期/月份 大纲的可见性或将提供的 日期/月份 显示为当前日期',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ShowCurrent],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ShowCurrent, t);
+                                        },
+                                        expression: 'properties[constants.tags.ShowCurrent]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Show Week : 显示星期', tooltip: '切换日历正文中星期几的可见性' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ShowWeek],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ShowWeek, t);
+                                        },
+                                        expression: 'properties[constants.tags.ShowWeek]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-select', {
+                                    attrs: {
+                                        label: 'Type: 输入类型',
+                                        tooltip: '设置不同的输入类型',
+                                        items: e.constants.items.dateType,
+                                    },
+                                    model: {
+                                        value: e.properties.type,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'type', t);
+                                        },
+                                        expression: 'properties.type',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Header Color : 标题颜色',
+                                        tooltip:
+                                            '定义标题颜色。如果未指定，将使用由 color 属性或默认选择器颜色定义的颜色',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HeaderColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HeaderColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.HeaderColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HDatePickerPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelNumber: Be,
+                HPanelSelect: je,
+                HPanelSwitch: Ne,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Xe = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'request', header: '请求' } },
+                            [
+                                s('h-panel-select', {
+                                    attrs: {
+                                        label: 'Content Type: 输入类型',
+                                        tooltip: '设置不同的Content Type类型',
+                                        items: e.constants.items.contentType,
+                                    },
+                                    model: {
+                                        value: e.formSettings.contentType,
+                                        callback: function (t) {
+                                            e.$set(e.formSettings, 'contentType', t);
+                                        },
+                                        expression: 'formSettings.contentType',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-select', {
+                                    attrs: {
+                                        label: 'Content Type: 输入类型',
+                                        tooltip: '设置不同的Content Type类型',
+                                        items: e.constants.items.requestType,
+                                    },
+                                    model: {
+                                        value: e.formSettings.requestMethods,
+                                        callback: function (t) {
+                                            e.$set(e.formSettings, 'requestMethods', t);
+                                        },
+                                        expression: 'formSettings.requestMethods',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: '请求地址', tooltip: '发送请求的Url地址' },
+                                    model: {
+                                        value: e.formSettings.requestUrl,
+                                        callback: function (t) {
+                                            e.$set(e.formSettings, 'requestUrl', t);
+                                        },
+                                        expression: 'formSettings.requestUrl',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: {
+                                        label: '响应参数',
+                                        tooltip: '指定从请求响应结果中获取值的参数，例如 data',
+                                    },
+                                    model: {
+                                        value: e.formSettings.responseParam,
+                                        callback: function (t) {
+                                            e.$set(e.formSettings, 'responseParam', t);
+                                        },
+                                        expression: 'formSettings.responseParam',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HFormPanel',
+            components: { HExpansionPanel: $e, HPanelSelect: je, HPanelTextField: We, VExpansionPanels: w },
+            props: { schema: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, formSettings: {} };
+            },
+            watch: {
+                schema: {
+                    handler: function (e, t) {
+                        this.formSettings = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Ye = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Inverse Label : 反转标签位置', tooltip: '使用 rtl 反转标签位置' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.InverseLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.InverseLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.InverseLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Vertical : 垂直', tooltip: '将滑块方向切换为垂直方向' },
+                                    model: {
+                                        value: e.properties.vertical,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'vertical', t);
+                                        },
+                                        expression: 'properties.vertical',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Height : 设置高度', min: '1' },
+                                    model: {
+                                        value: e.properties.height,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'height', t);
+                                        },
+                                        expression: 'properties.height',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'thumb', header: '缩略图标签' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Thumb Color : 缩略图颜色', tooltip: '设置缩略图和缩略图标签颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ThumbColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ThumbColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.ThumbColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch-text-field', {
+                                    attrs: {
+                                        label: 'Thumb Label : 缩略图标签',
+                                        tooltip:
+                                            "显示缩略图标签。如果 true，使用滑块时将显示缩略图标签。如果设置为 'always' ，它总是显示缩略图标签",
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ThumbLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ThumbLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.ThumbLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Thumb Size : 缩略图大小', min: '1', max: '100', step: '1' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ThumbSize],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ThumbSize, t);
+                                        },
+                                        expression: 'properties[constants.tags.ThumbSize]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'tick', header: '刻度线' } },
+                            [
+                                s('h-panel-array', {
+                                    attrs: { label: 'Tick Labels : 刻度线标签', tooltip: '按回车添加多个标签' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TickLabels],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TickLabels, t);
+                                        },
+                                        expression: 'properties[constants.tags.TickLabels]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch-text-field', {
+                                    attrs: {
+                                        label: 'Ticks : 刻度线',
+                                        tooltip:
+                                            "显示刻度线。如果 true，使用滑块时将显示刻度线。如果设置为 'always' ，它总是显示刻度线。",
+                                    },
+                                    model: {
+                                        value: e.properties.ticks,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'ticks', t);
+                                        },
+                                        expression: 'properties.ticks',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Tick Size : 刻度线大小', min: '1', max: '100', step: '1' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TickSize],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TickSize, t);
+                                        },
+                                        expression: 'properties[constants.tags.TickSize]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Loading : 加载状态',
+                                        tooltip:
+                                            '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
+                                    },
+                                    model: {
+                                        value: e.properties.loading,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'loading', t);
+                                        },
+                                        expression: 'properties.loading',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Loader Height : 加载器高度',
+                                        min: '1',
+                                        disabled: !e.properties.loading,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.LoaderHeight],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.LoaderHeight, t);
+                                        },
+                                        expression: 'properties[constants.tags.LoaderHeight]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Min : 数字类型最小值',
+                                        min: '0',
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.min,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'min', t);
+                                        },
+                                        expression: 'properties.min',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Max : 数字类型最大值',
+                                        min: '1',
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.max,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'max', t);
+                                        },
+                                        expression: 'properties.max',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Step : 数字类型步长',
+                                        min: '1',
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.step,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'step', t);
+                                        },
+                                        expression: 'properties.step',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: { label: 'Track Color : 轨道颜色', tooltip: '设置滑块轨道颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TrackColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TrackColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.TrackColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Track Fill Color : 轨道填充颜色',
+                                        tooltip: '设置滑块轨道填充颜色',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TrackFillColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TrackFillColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.TrackFillColor]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HRangeSliderPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelArray: Te,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelNumber: Be,
+                HPanelSwitch: Ne,
+                HPanelSwitchTextField: Me,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Ue = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Chips : 纸片显示',
+                                        tooltip: '改变一个已选择项为小纸片（chips）的显示方式',
+                                    },
+                                    model: {
+                                        value: e.properties.chips,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'chips', t);
+                                        },
+                                        expression: 'properties.chips',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Deletable Chips',
+                                        tooltip: '添加一个去除图标的到选定的小纸片（chips）',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.DeletableChips],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.DeletableChips, t);
+                                        },
+                                        expression: 'properties[constants.tags.DeletableChips]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Small Chips : 标题不移动',
+                                        tooltip: '标签在 focus/dirty 上不移动',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SmallChips],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SmallChips, t);
+                                        },
+                                        expression: 'properties[constants.tags.SmallChips]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Filled : 使用填充样式',
+                                        disabled: e.properties.outlined || e.properties.solo,
+                                    },
+                                    model: {
+                                        value: e.properties.filled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'filled', t);
+                                        },
+                                        expression: 'properties.filled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Flat : 移除阴影',
+                                        tooltip: '当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）',
+                                    },
+                                    model: {
+                                        value: e.properties.flat,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'flat', t);
+                                        },
+                                        expression: 'properties.flat',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Full Width : 全宽度', tooltip: '指定输入类型为全宽度' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FullWidth],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FullWidth, t);
+                                        },
+                                        expression: 'properties[constants.tags.FullWidth]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Selected', tooltip: '不要在选择菜单中显示已选择的项' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideSelected],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideSelected, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideSelected]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Outlined : 显示轮廓' },
+                                    model: {
+                                        value: e.properties.outlined,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'outlined', t);
+                                        },
+                                        expression: 'properties.outlined',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    class: e.constants.class.switch,
+                                    attrs: {
+                                        label: 'Rounded : 椭圆边框',
+                                        disabled: !e.properties.filled && !e.properties.outlined && !e.properties.solo,
+                                        dense: '',
+                                        tooltip: '向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项',
+                                    },
+                                    model: {
+                                        value: e.properties.rounded,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'rounded', t);
+                                        },
+                                        expression: 'properties.rounded',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Shaped : 圆角边框',
+                                        tooltip:
+                                            '如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用',
+                                        disabled: !e.properties.outlined && !e.properties.filled && !e.properties.solo,
+                                    },
+                                    model: {
+                                        value: e.properties.shaped,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'shaped', t);
+                                        },
+                                        expression: 'properties.shaped',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Single Line : 标题不移动',
+                                        tooltip: '标签在 focus/dirty 上不移动',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SingleLine],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SingleLine, t);
+                                        },
+                                        expression: 'properties[constants.tags.SingleLine]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Solo : 凸起样式', disabled: e.properties.filled },
+                                    model: {
+                                        value: e.properties.solo,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'solo', t);
+                                        },
+                                        expression: 'properties.solo',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Solo Inverted : 单反',
+                                        tooltip: '减少元素的不透明度，知道获得焦点',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SoloInverted],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SoloInverted, t);
+                                        },
+                                        expression: 'properties[constants.tags.SoloInverted]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Height : 设置高度', min: '1' },
+                                    model: {
+                                        value: e.properties.height,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'height', t);
+                                        },
+                                        expression: 'properties.height',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'No Data Text', tooltip: '当没有数据时显示的文本' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NoDataText],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NoDataText, t);
+                                        },
+                                        expression: 'properties[constants.tags.NoDataText]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Auto Focus : 启用自动聚焦' },
+                                    model: {
+                                        value: e.properties.autofocus,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'autofocus', t);
+                                        },
+                                        expression: 'properties.autofocus',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Cache Items',
+                                        tooltip: '保留已经通过 items 属性的项在本地的唯一副本',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.CacheItems],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.CacheItems, t);
+                                        },
+                                        expression: 'properties[constants.tags.CacheItems]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disable Lookup', tooltip: '禁用键盘查询' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.DisableLookup],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.DisableLookup, t);
+                                        },
+                                        expression: 'properties[constants.tags.DisableLookup]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Eager',
+                                        tooltip:
+                                            '将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的。',
+                                    },
+                                    model: {
+                                        value: e.properties.eager,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'eager', t);
+                                        },
+                                        expression: 'properties.eager',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Loading : 加载状态',
+                                        tooltip:
+                                            '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
+                                    },
+                                    model: {
+                                        value: e.properties.loading,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'loading', t);
+                                        },
+                                        expression: 'properties.loading',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Loader Height : 加载器高度',
+                                        min: '1',
+                                        disabled: !e.properties.loading,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.LoaderHeight],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.LoaderHeight, t);
+                                        },
+                                        expression: 'properties[constants.tags.LoaderHeight]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Multiple : 多选', tooltip: '将预期模型更改为数组' },
+                                    model: {
+                                        value: e.properties.multiple,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'multiple', t);
+                                        },
+                                        expression: 'properties.multiple',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Return Object',
+                                        tooltip: '将选择器的行为更改为直接返回对象，而不是 item-value 指定的值',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ReturnObject],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ReturnObject, t);
+                                        },
+                                        expression: 'properties[constants.tags.ReturnObject]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Reverse : 反转输入方向' },
+                                    model: {
+                                        value: e.properties.reverse,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'reverse', t);
+                                        },
+                                        expression: 'properties.reverse',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: { label: 'Item Color : Item颜色', tooltip: '设置选中项目的颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Item Disabled', tooltip: '禁用 items 的属性值' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemDisabled],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemDisabled, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemDisabled]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Item Text', tooltip: "设置items'属性的文本值" },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemText],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemText, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemText]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: {
+                                        label: 'Item Value',
+                                        tooltip:
+                                            '设置 items 的值的属性 - 必须是 primitive。支持点符号。注意： 目前不支持 v-combobox GitHub问题',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ItemValue],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ItemValue, t);
+                                        },
+                                        expression: 'properties[constants.tags.ItemValue]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Outer Icon',
+                                        tooltip: '在组件的外部添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendOuterIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendOuterIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendOuterIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Inner Icon',
+                                        tooltip: '在组件的输入中添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependInnerIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependInnerIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependInnerIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Clearable : 显示清除按钮' },
+                                    model: {
+                                        value: e.properties.clearable,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'clearable', t);
+                                        },
+                                        expression: 'properties.clearable',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Clear Icon',
+                                        tooltip: '当使用 clearable 且有输入值时应用',
+                                        disabled: !e.properties.clearable,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ClearIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ClearIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.ClearIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Open On Clear',
+                                        tooltip:
+                                            '当使用 clearable 属性, 一旦清除，选择菜单将打开或保持打开，这个取决于当前状态',
+                                        disabled: !e.properties.clearable,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.OpenOnClear],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.OpenOnClear, t);
+                                        },
+                                        expression: 'properties[constants.tags.OpenOnClear]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'PlaceHolder : 占位符文本' },
+                                    model: {
+                                        value: e.properties.placeHolder,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'placeHolder', t);
+                                        },
+                                        expression: 'properties.placeHolder',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Prefix : 前缀文本' },
+                                    model: {
+                                        value: e.properties.prefix,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'prefix', t);
+                                        },
+                                        expression: 'properties.prefix',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Suffix : 后缀文本' },
+                                    model: {
+                                        value: e.properties.suffix,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'suffix', t);
+                                        },
+                                        expression: 'properties.suffix',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-select', {
+                                    attrs: {
+                                        label: 'Type: 输入类型',
+                                        tooltip: '设置不同的输入类型',
+                                        items: e.constants.items.inputType,
+                                    },
+                                    model: {
+                                        value: e.properties.type,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'type', t);
+                                        },
+                                        expression: 'properties.type',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Min : 数字类型最小值',
+                                        min: '0',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.min,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'min', t);
+                                        },
+                                        expression: 'properties.min',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Max : 数字类型最大值',
+                                        min: '1',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.max,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'max', t);
+                                        },
+                                        expression: 'properties.max',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Step : 数字类型步长',
+                                        min: '1',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.step,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'step', t);
+                                        },
+                                        expression: 'properties.step',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HSingleSelectPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelNumber: Be,
+                HPanelSelect: je,
+                HPanelSwitch: Ne,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+                isNumberType: function () {
+                    return 'number' === this.properties.type;
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    qe = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Inverse Label : 反转标签位置', tooltip: '使用 rtl 反转标签位置' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.InverseLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.InverseLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.InverseLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Vertical : 垂直', tooltip: '将滑块方向切换为垂直方向' },
+                                    model: {
+                                        value: e.properties.vertical,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'vertical', t);
+                                        },
+                                        expression: 'properties.vertical',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Height : 设置高度', min: '1' },
+                                    model: {
+                                        value: e.properties.height,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'height', t);
+                                        },
+                                        expression: 'properties.height',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'thumb', header: '缩略图标签' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Thumb Color : 缩略图颜色', tooltip: '设置缩略图和缩略图标签颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ThumbColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ThumbColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.ThumbColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch-text-field', {
+                                    attrs: {
+                                        label: 'Thumb Label : 缩略图标签',
+                                        tooltip:
+                                            "显示缩略图标签。如果 true，使用滑块时将显示缩略图标签。如果设置为 'always' ，它总是显示缩略图标签",
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ThumbLabel],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ThumbLabel, t);
+                                        },
+                                        expression: 'properties[constants.tags.ThumbLabel]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Thumb Size : 缩略图大小', min: '1', max: '100', step: '1' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ThumbSize],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ThumbSize, t);
+                                        },
+                                        expression: 'properties[constants.tags.ThumbSize]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'tick', header: '刻度线' } },
+                            [
+                                s('h-panel-array', {
+                                    attrs: { label: 'Tick Labels : 刻度线标签', tooltip: '按回车添加多个标签' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TickLabels],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TickLabels, t);
+                                        },
+                                        expression: 'properties[constants.tags.TickLabels]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch-text-field', {
+                                    attrs: {
+                                        label: 'Ticks : 刻度线',
+                                        tooltip:
+                                            "显示刻度线。如果 true，使用滑块时将显示刻度线。如果设置为 'always' ，它总是显示刻度线。",
+                                    },
+                                    model: {
+                                        value: e.properties.ticks,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'ticks', t);
+                                        },
+                                        expression: 'properties.ticks',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Tick Size : 刻度线大小', min: '1', max: '100', step: '1' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TickSize],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TickSize, t);
+                                        },
+                                        expression: 'properties[constants.tags.TickSize]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Loading : 加载状态',
+                                        tooltip:
+                                            '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
+                                    },
+                                    model: {
+                                        value: e.properties.loading,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'loading', t);
+                                        },
+                                        expression: 'properties.loading',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Loader Height : 加载器高度',
+                                        min: '1',
+                                        disabled: !e.properties.loading,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.LoaderHeight],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.LoaderHeight, t);
+                                        },
+                                        expression: 'properties[constants.tags.LoaderHeight]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Min : 数字类型最小值',
+                                        min: '0',
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.min,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'min', t);
+                                        },
+                                        expression: 'properties.min',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Max : 数字类型最大值',
+                                        min: '1',
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.max,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'max', t);
+                                        },
+                                        expression: 'properties.max',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Step : 数字类型步长',
+                                        min: '1',
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.step,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'step', t);
+                                        },
+                                        expression: 'properties.step',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: { label: 'Track Color : 轨道颜色', tooltip: '设置滑块轨道颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TrackColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TrackColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.TrackColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Track Fill Color : 轨道填充颜色',
+                                        tooltip: '设置滑块轨道填充颜色',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TrackFillColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TrackFillColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.TrackFillColor]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HSliderPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelArray: Te,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelNumber: Be,
+                HPanelSwitch: Ne,
+                HPanelSwitchTextField: Me,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Je = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Flat : 移除阴影', tooltip: '移除组件的阴影。' },
+                                    model: {
+                                        value: e.properties.flat,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'flat', t);
+                                        },
+                                        expression: 'properties.flat',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Inset : 扩展', tooltip: '扩展 v-switch 开关以包含缩略图' },
+                                    model: {
+                                        value: e.properties.inset,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'inset', t);
+                                        },
+                                        expression: 'properties.inset',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Loading : 加载状态',
+                                        tooltip:
+                                            '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
+                                    },
+                                    model: {
+                                        value: e.properties.loading,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'loading', t);
+                                        },
+                                        expression: 'properties.loading',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Multiple : 多选', tooltip: '将预期模型更改为数组' },
+                                    model: {
+                                        value: e.properties.multiple,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'multiple', t);
+                                        },
+                                        expression: 'properties.multiple',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'False Value : 设置假值', tooltip: '设置Switch关闭时的值' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FalseValue],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FalseValue, t);
+                                        },
+                                        expression: 'properties[constants.tags.FalseValue]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'True Value : 设置真值', tooltip: '设置Switch开启时的值' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.TrueValue],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.TrueValue, t);
+                                        },
+                                        expression: 'properties[constants.tags.TrueValue]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: { label: 'Off Icon', tooltip: '未被勾选时使用的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.OffIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.OffIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.OffIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: { label: 'On Icon', tooltip: '被勾选时使用的图标' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.OnIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.OnIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.OnIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Indeterminate : 不确定状态', tooltip: '为复选框设置不确定状态' },
+                                    model: {
+                                        value: e.properties.indeterminate,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'indeterminate', t);
+                                        },
+                                        expression: 'properties.indeterminate',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Indeterminate Icon',
+                                        tooltip: '处于不确定状态时使用的图标',
+                                        disabled: !e.properties.indeterminate,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.IndeterminateIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.IndeterminateIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.IndeterminateIcon]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HSwitchPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelSwitch: Ne,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Qe = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
+                    'v-expansion-panels',
+                    { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
+                    [
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'appearance', header: '外观' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dense : 紧凑显示' },
+                                    model: {
+                                        value: e.properties.dense,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dense', t);
+                                        },
+                                        expression: 'properties.dense',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Filled : 使用填充样式',
+                                        disabled: e.properties.outlined || e.properties.solo,
+                                    },
+                                    model: {
+                                        value: e.properties.filled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'filled', t);
+                                        },
+                                        expression: 'properties.filled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Flat : 移除阴影',
+                                        tooltip: '当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）',
+                                    },
+                                    model: {
+                                        value: e.properties.flat,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'flat', t);
+                                        },
+                                        expression: 'properties.flat',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Full Width : 全宽度', tooltip: '指定输入类型为全宽度' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.FullWidth],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.FullWidth, t);
+                                        },
+                                        expression: 'properties[constants.tags.FullWidth]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Hide Details : 隐藏细节区域' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.HideDetails],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.HideDetails, t);
+                                        },
+                                        expression: 'properties[constants.tags.HideDetails]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Outlined : 显示轮廓' },
+                                    model: {
+                                        value: e.properties.outlined,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'outlined', t);
+                                        },
+                                        expression: 'properties.outlined',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    class: e.constants.class.switch,
+                                    attrs: {
+                                        label: 'Rounded : 椭圆边框',
+                                        disabled: !e.properties.filled && !e.properties.outlined && !e.properties.solo,
+                                        dense: '',
+                                        tooltip: '向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项',
+                                    },
+                                    model: {
+                                        value: e.properties.rounded,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'rounded', t);
+                                        },
+                                        expression: 'properties.rounded',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Shaped : 圆角边框',
+                                        tooltip:
+                                            '如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用',
+                                        disabled: !e.properties.outlined && !e.properties.filled && !e.properties.solo,
+                                    },
+                                    model: {
+                                        value: e.properties.shaped,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'shaped', t);
+                                        },
+                                        expression: 'properties.shaped',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Single Line : 标题不移动',
+                                        tooltip: '标签在 focus/dirty 上不移动',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SingleLine],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SingleLine, t);
+                                        },
+                                        expression: 'properties[constants.tags.SingleLine]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Solo : 凸起样式', disabled: e.properties.filled },
+                                    model: {
+                                        value: e.properties.solo,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'solo', t);
+                                        },
+                                        expression: 'properties.solo',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Solo Inverted : 单反',
+                                        tooltip: '减少元素的不透明度，知道获得焦点',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.SoloInverted],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.SoloInverted, t);
+                                        },
+                                        expression: 'properties[constants.tags.SoloInverted]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Height : 设置高度', min: '1' },
+                                    model: {
+                                        value: e.properties.height,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'height', t);
+                                        },
+                                        expression: 'properties.height',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'control', header: '控制' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Auto Grow : 自动增长', tooltip: '根据文本数量自动增长文本' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AutoGrow],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AutoGrow, t);
+                                        },
+                                        expression: 'properties[constants.tags.AutoGrow]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Row Height : 每行的高度值',
+                                        min: '1',
+                                        disabled: !e.properties[e.constants.tags.AutoGrow],
+                                        tooltip: '每行的高度值。 需要使用 auto-grow 属性',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.RowHeight],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.RowHeight, t);
+                                        },
+                                        expression: 'properties[constants.tags.RowHeight]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: { label: 'Rows : 默认行数', min: '1', tooltip: 'Textarea默认显示的行数' },
+                                    model: {
+                                        value: e.properties.rows,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'rows', t);
+                                        },
+                                        expression: 'properties.rows',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Auto Focus : 启用自动聚焦' },
+                                    model: {
+                                        value: e.properties.autofocus,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'autofocus', t);
+                                        },
+                                        expression: 'properties.autofocus',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Disabled : 禁用输入' },
+                                    model: {
+                                        value: e.properties.disabled,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'disabled', t);
+                                        },
+                                        expression: 'properties.disabled',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Loading : 加载状态',
+                                        tooltip:
+                                            '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
+                                    },
+                                    model: {
+                                        value: e.properties.loading,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'loading', t);
+                                        },
+                                        expression: 'properties.loading',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Loader Height : 加载器高度',
+                                        min: '1',
+                                        disabled: !e.properties.loading,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.LoaderHeight],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.LoaderHeight, t);
+                                        },
+                                        expression: 'properties[constants.tags.LoaderHeight]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'No Resize : 移除调整大小的句柄' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.NoResize],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.NoResize, t);
+                                        },
+                                        expression: 'properties[constants.tags.NoResize]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Readonly : 只读状态' },
+                                    model: {
+                                        value: e.properties.readonly,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'readonly', t);
+                                        },
+                                        expression: 'properties.readonly',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Reverse : 反转输入方向' },
+                                    model: {
+                                        value: e.properties.reverse,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'reverse', t);
+                                        },
+                                        expression: 'properties.reverse',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: {
+                                        label: 'Validate On Blur : 延迟验证',
+                                        tooltip: '延迟验证直到失去焦点的事件被触发',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ValidateOnBlur],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ValidateOnBlur, t);
+                                        },
+                                        expression: 'properties[constants.tags.ValidateOnBlur]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'icon', header: '图标' } },
+                            [
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Icon',
+                                        tooltip: '在组件上附加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Append Outer Icon',
+                                        tooltip: '在组件的外部添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.AppendOuterIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.AppendOuterIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.AppendOuterIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Icon',
+                                        tooltip: '在组件前添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Prepend Inner Icon',
+                                        tooltip: '在组件的输入中添加一个图标，使用与 v-icon 相同的语法',
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PrependInnerIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PrependInnerIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.PrependInnerIcon]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Clearable : 显示清除按钮' },
+                                    model: {
+                                        value: e.properties.clearable,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'clearable', t);
+                                        },
+                                        expression: 'properties.clearable',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-icon', {
+                                    attrs: {
+                                        label: 'Clear Icon',
+                                        tooltip: '当使用 clearable 且有输入值时应用',
+                                        disabled: !e.properties.clearable,
+                                    },
+                                    model: {
+                                        value: e.properties[e.constants.tags.ClearIcon],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.ClearIcon, t);
+                                        },
+                                        expression: 'properties[constants.tags.ClearIcon]',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'content', header: '内容' } },
+                            [
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Persistent Hint : 强制显示提示', tooltip: '强制提示总是可见的' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.PersistentHint],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.PersistentHint, t);
+                                        },
+                                        expression: 'properties[constants.tags.PersistentHint]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Hint : 提示文本' },
+                                    model: {
+                                        value: e.properties.hint,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'hint', t);
+                                        },
+                                        expression: 'properties.hint',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'PlaceHolder : 占位符文本' },
+                                    model: {
+                                        value: e.properties.placeHolder,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'placeHolder', t);
+                                        },
+                                        expression: 'properties.placeHolder',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Prefix : 前缀文本' },
+                                    model: {
+                                        value: e.properties.prefix,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'prefix', t);
+                                        },
+                                        expression: 'properties.prefix',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-text-field', {
+                                    attrs: { label: 'Suffix : 后缀文本' },
+                                    model: {
+                                        value: e.properties.suffix,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'suffix', t);
+                                        },
+                                        expression: 'properties.suffix',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-select', {
+                                    attrs: {
+                                        label: 'Type: 输入类型',
+                                        tooltip: '设置不同的输入类型',
+                                        items: e.constants.items.inputType,
+                                    },
+                                    model: {
+                                        value: e.properties.type,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'type', t);
+                                        },
+                                        expression: 'properties.type',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Min : 数字类型最小值',
+                                        min: '0',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.min,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'min', t);
+                                        },
+                                        expression: 'properties.min',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Max : 数字类型最大值',
+                                        min: '1',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.max,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'max', t);
+                                        },
+                                        expression: 'properties.max',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-number', {
+                                    attrs: {
+                                        label: 'Step : 数字类型步长',
+                                        min: '1',
+                                        disabled: !e.isNumberType,
+                                        tooltip: '当Type属性为‘数字类型’时可用',
+                                    },
+                                    model: {
+                                        value: e.properties.step,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'step', t);
+                                        },
+                                        expression: 'properties.step',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                        e._v(' '),
+                        s(
+                            'h-expansion-panel',
+                            { attrs: { index: 'color', header: '色彩' } },
+                            [
+                                s('h-panel-color', {
+                                    attrs: { label: 'Background Color : 背景颜色', tooltip: '输入框背景颜色' },
+                                    model: {
+                                        value: e.properties[e.constants.tags.BackgroundColor],
+                                        callback: function (t) {
+                                            e.$set(e.properties, e.constants.tags.BackgroundColor, t);
+                                        },
+                                        expression: 'properties[constants.tags.BackgroundColor]',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-color', {
+                                    attrs: {
+                                        label: 'Color : 颜色',
+                                        tooltip:
+                                            '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
+                                    },
+                                    model: {
+                                        value: e.properties.color,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'color', t);
+                                        },
+                                        expression: 'properties.color',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Dark : 使用深色主题' },
+                                    model: {
+                                        value: e.properties.dark,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'dark', t);
+                                        },
+                                        expression: 'properties.dark',
+                                    },
+                                }),
+                                e._v(' '),
+                                s('h-panel-switch', {
+                                    attrs: { label: 'Light : 使用浅色主题' },
+                                    model: {
+                                        value: e.properties.light,
+                                        callback: function (t) {
+                                            e.$set(e.properties, 'light', t);
+                                        },
+                                        expression: 'properties.light',
+                                    },
+                                }),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HTextAreaPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelColor: De,
+                HPanelIcon: Ee,
+                HPanelNumber: Be,
+                HPanelSelect: je,
+                HPanelSwitch: Ne,
+                HPanelTextField: We,
+                VExpansionPanels: w,
+            },
+            props: { element: { type: Object, default: function () {} } },
+            data: function () {
+                return { constants: ie, dataObject: {} };
+            },
+            computed: {
+                properties: function () {
+                    return this.dataObject[this.constants.annotations.xprops];
+                },
+                isNumberType: function () {
+                    return 'number' === this.properties.type;
+                },
+            },
+            watch: {
+                element: {
+                    handler: function (e, t) {
+                        this.dataObject = e;
+                    },
+                    immediate: !0,
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Ze = J(
         {
             render: function () {
                 var e = this,
@@ -2063,7 +6249,7 @@ var me = {
                                     1
                                 ),
                                 e._v(' '),
-                                s('v-toolbar-title', [e._v('Hecate Form Generator')]),
+                                s('v-toolbar-title', [e._v('Vuetify Form Generator')]),
                                 e._v(' '),
                                 s('v-spacer'),
                                 e._v(' '),
@@ -2156,7 +6342,7 @@ var me = {
                         }),
                         e._v(' '),
                         s('h-form-preview-drawer', {
-                            attrs: { source: e.schemaObject },
+                            attrs: { source: e.schemaObject, 'form-configs': e.formConfigObject },
                             model: {
                                 value: e.formDrawer,
                                 callback: function (t) {
@@ -2436,8 +6622,8 @@ var me = {
                     {
                         name: 'HFormModeler',
                         components: {
-                            HCanvasContainer: he,
-                            HDraggableItem: ge,
+                            HCanvasContainer: ge,
+                            HDraggableItem: _e,
                             HPropertyPanel: J(
                                 {
                                     render: function () {
@@ -2755,6 +6941,13 @@ var me = {
                                                                                                 }),
                                                                                                 e._v(' '),
                                                                                                 s('v-divider'),
+                                                                                                e._v(' '),
+                                                                                                s('h-form-panel', {
+                                                                                                    attrs: {
+                                                                                                        schema:
+                                                                                                            e.formSettings,
+                                                                                                    },
+                                                                                                }),
                                                                                             ],
                                                                                             1
                                                                                         ),
@@ -3335,7 +7528,7 @@ var me = {
                                                                         attrs: {
                                                                             label: 'Type: 输入类型',
                                                                             tooltip: '设置不同的输入类型',
-                                                                            items: e.typeItems,
+                                                                            items: e.constants.items.inputType,
                                                                         },
                                                                         model: {
                                                                             value: e.properties.type,
@@ -3472,13 +7665,13 @@ var me = {
                                             {
                                                 name: 'HTextFieldPanel',
                                                 components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: $e,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
+                                                    HExpansionPanel: $e,
+                                                    HPanelColor: De,
+                                                    HPanelIcon: Ee,
+                                                    HPanelNumber: Be,
+                                                    HPanelSelect: je,
+                                                    HPanelSwitch: Ne,
+                                                    HPanelTextField: We,
                                                     HRuleExpansionPanel: J(
                                                         {
                                                             render: function () {
@@ -3573,10 +7766,7 @@ var me = {
                                                                         e._v(' '),
                                                                         s(
                                                                             'v-list-item',
-                                                                            {
-                                                                                staticClass: 'pa-0',
-                                                                                attrs: { dense: '' },
-                                                                            },
+                                                                            { attrs: { dense: '' } },
                                                                             [
                                                                                 s(
                                                                                     'v-list-item-content',
@@ -3586,10 +7776,6 @@ var me = {
                                                                                             [
                                                                                                 s(
                                                                                                     'v-col',
-                                                                                                    {
-                                                                                                        staticClass:
-                                                                                                            'pt-0 pb-0',
-                                                                                                    },
                                                                                                     [
                                                                                                         s('v-select', {
                                                                                                             staticClass:
@@ -3694,7 +7880,7 @@ var me = {
                                                         {
                                                             name: 'HRuleExpansionPanel',
                                                             components: {
-                                                                HExpansionPanel: ke,
+                                                                HExpansionPanel: $e,
                                                                 HPanelBetween: J(
                                                                     {
                                                                         render: function () {
@@ -3887,8 +8073,8 @@ var me = {
                                                                     undefined,
                                                                     {
                                                                         components: {
-                                                                            VTextField: x,
-                                                                            VForm: w,
+                                                                            VTextField: g,
+                                                                            VForm: $,
                                                                             VListItemContent: p,
                                                                             VIcon: t,
                                                                             VTooltip: a,
@@ -4006,16 +8192,16 @@ var me = {
                                                                     void 0,
                                                                     void 0
                                                                 ),
-                                                                VSubheader: $,
+                                                                VSubheader: y,
                                                                 VIcon: t,
-                                                                VListItemAvatar: y,
-                                                                VListItemTitle: _,
-                                                                VListItemSubtitle: C,
+                                                                VListItemAvatar: C,
+                                                                VListItemTitle: x,
+                                                                VListItemSubtitle: S,
                                                                 VListItemContent: p,
                                                                 VListItem: d,
-                                                                VListItemGroup: S,
-                                                                VDivider: H,
-                                                                VSelect: f,
+                                                                VListItemGroup: H,
+                                                                VDivider: P,
+                                                                VSelect: k,
                                                                 VBtn: s,
                                                                 VCol: r,
                                                                 VRow: l,
@@ -4034,10 +8220,10 @@ var me = {
                                                             watch: {
                                                                 value: {
                                                                     handler: function (e, t) {
-                                                                        (this.expressions = e),
-                                                                            this.$lib.lodash.isEmpty(this.ruleItems) &&
+                                                                        e &&
+                                                                            (this.$lib.lodash.isEmpty(this.ruleItems) &&
                                                                                 (this.ruleItems = this.$rules),
-                                                                            this.readExpressions(this.expressions);
+                                                                            this.readExpressions(e));
                                                                     },
                                                                     immediate: !0,
                                                                 },
@@ -4082,15 +8268,6 @@ var me = {
                                                                     (this.ruleParamSettingPanel = t),
                                                                         (this.ruleParam = s);
                                                                 },
-                                                                readSelectedItemParam: function (e) {
-                                                                    var t = this.$lib.lodash.find(
-                                                                        this.selectedItems,
-                                                                        function (t) {
-                                                                            return t.type === e;
-                                                                        }
-                                                                    );
-                                                                    return t && t.param ? t.param : '';
-                                                                },
                                                                 findRuleItemByType: function (e) {
                                                                     return this.$lib.lodash.find(
                                                                         this.ruleItems,
@@ -4105,6 +8282,7 @@ var me = {
                                                                 },
                                                                 pushSelectedItem: function (e) {
                                                                     e &&
+                                                                        !e.disabled &&
                                                                         (this.selectedItems.push(e),
                                                                         this.changeRuleItemStatus(e, !0));
                                                                 },
@@ -4122,10 +8300,14 @@ var me = {
                                                                     var t = {};
                                                                     if (e)
                                                                         if (-1 != e.search(':')) {
-                                                                            var s = this.$lib.lodash.split(value, ':');
+                                                                            var s = this.$lib.lodash.split(e, ':');
                                                                             s && ((t.type = s[0]), (t.param = s[1]));
                                                                         } else (t.type = e), (t.param = '');
                                                                     return t;
+                                                                },
+                                                                addSelectedItemBySelector: function () {
+                                                                    var e = this.readSelectedRule();
+                                                                    this.pushSelectedItem(e);
                                                                 },
                                                                 addSelectedItemByExpression: function (e) {
                                                                     var t = this.parseExpression(e),
@@ -4137,9 +8319,18 @@ var me = {
                                                                     if (e)
                                                                         if (-1 !== e.indexOf('|')) {
                                                                             var t = this.$lib.lodash.split(e, '|');
-                                                                            for (var s in t)
+                                                                            for (var s of t)
                                                                                 this.addSelectedItemByExpression(s);
                                                                         } else this.addSelectedItemByExpression(e);
+                                                                },
+                                                                readSelectedItemParam: function (e) {
+                                                                    var t = this.$lib.lodash.find(
+                                                                        this.selectedItems,
+                                                                        function (t) {
+                                                                            return t.type === e;
+                                                                        }
+                                                                    );
+                                                                    return t && t.param ? t.param : '';
                                                                 },
                                                                 readSelectedRule: function () {
                                                                     if (this.$lib.lodash.isEmpty(this.selectedRule))
@@ -4149,10 +8340,6 @@ var me = {
                                                                         this.ruleParam && (e.param = this.ruleParam), e
                                                                     );
                                                                 },
-                                                                addSelectedItemBySelector: function () {
-                                                                    var e = this.readSelectedRule();
-                                                                    this.pushSelectedItem(e);
-                                                                },
                                                                 addRule: function () {
                                                                     this.ruleParamSettingPanel
                                                                         ? (this.$refs.rulePanel.validate(),
@@ -4161,7 +8348,7 @@ var me = {
                                                                         : this.addSelectedItemBySelector();
                                                                 },
                                                                 constructExpression: function (e) {
-                                                                    if (e)
+                                                                    if (e && e.length > 0)
                                                                         return e
                                                                             .map(function (e) {
                                                                                 return e.param
@@ -4180,25 +8367,11 @@ var me = {
                                                         void 0,
                                                         void 0
                                                     ),
-                                                    VExpansionPanels: P,
+                                                    VExpansionPanels: w,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return {
-                                                        constants: re,
-                                                        dataObject: {},
-                                                        typeItems: [
-                                                            { value: 'text', text: '文字输入模式（默认）' },
-                                                            { value: 'password', text: '密码模式' },
-                                                            { value: 'number', text: '数字模式' },
-                                                            { value: 'color', text: '选择颜色模式' },
-                                                            { value: 'datetime-local', text: '选择日期时间模式' },
-                                                            { value: 'time', text: '选择时间模式' },
-                                                            { value: 'date', text: '选择日期模式' },
-                                                            { value: 'week', text: '选择周模式' },
-                                                            { value: 'month', text: '选择月模式' },
-                                                        ],
-                                                    };
+                                                    return { constants: ie, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -4233,3650 +8406,12 @@ var me = {
                                             void 0,
                                             void 0
                                         ),
-                                        TEXT_AREA: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Filled : 使用填充样式',
-                                                                            disabled:
-                                                                                e.properties.outlined ||
-                                                                                e.properties.solo,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.filled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'filled', t);
-                                                                            },
-                                                                            expression: 'properties.filled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Flat : 移除阴影',
-                                                                            tooltip:
-                                                                                '当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.flat,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'flat', t);
-                                                                            },
-                                                                            expression: 'properties.flat',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Full Width : 全宽度',
-                                                                            tooltip: '指定输入类型为全宽度',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FullWidth
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FullWidth,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FullWidth]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Outlined : 显示轮廓' },
-                                                                        model: {
-                                                                            value: e.properties.outlined,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'outlined', t);
-                                                                            },
-                                                                            expression: 'properties.outlined',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        class: e.constants.class.switch,
-                                                                        attrs: {
-                                                                            label: 'Rounded : 椭圆边框',
-                                                                            disabled:
-                                                                                !e.properties.filled &&
-                                                                                !e.properties.outlined &&
-                                                                                !e.properties.solo,
-                                                                            dense: '',
-                                                                            tooltip:
-                                                                                '向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.rounded,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'rounded', t);
-                                                                            },
-                                                                            expression: 'properties.rounded',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Shaped : 圆角边框',
-                                                                            tooltip:
-                                                                                '如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用',
-                                                                            disabled:
-                                                                                !e.properties.outlined &&
-                                                                                !e.properties.filled &&
-                                                                                !e.properties.solo,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.shaped,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'shaped', t);
-                                                                            },
-                                                                            expression: 'properties.shaped',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Single Line : 标题不移动',
-                                                                            tooltip: '标签在 focus/dirty 上不移动',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SingleLine
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SingleLine,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SingleLine]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Solo : 凸起样式',
-                                                                            disabled: e.properties.filled,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.solo,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'solo', t);
-                                                                            },
-                                                                            expression: 'properties.solo',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Solo Inverted : 单反',
-                                                                            tooltip: '减少元素的不透明度，知道获得焦点',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SoloInverted
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SoloInverted,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SoloInverted]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: { label: 'Height : 设置高度', min: '1' },
-                                                                        model: {
-                                                                            value: e.properties.height,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'height', t);
-                                                                            },
-                                                                            expression: 'properties.height',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Auto Grow : 自动增长',
-                                                                            tooltip: '根据文本数量自动增长文本',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.AutoGrow],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AutoGrow,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AutoGrow]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Row Height : 每行的高度值',
-                                                                            min: '1',
-                                                                            disabled: !e.properties[
-                                                                                e.constants.tags.AutoGrow
-                                                                            ],
-                                                                            tooltip:
-                                                                                '每行的高度值。 需要使用 auto-grow 属性',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.RowHeight
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.RowHeight,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.RowHeight]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Rows : 默认行数',
-                                                                            min: '1',
-                                                                            tooltip: 'Textarea默认显示的行数',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.rows,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'rows', t);
-                                                                            },
-                                                                            expression: 'properties.rows',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Auto Focus : 启用自动聚焦' },
-                                                                        model: {
-                                                                            value: e.properties.autofocus,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'autofocus', t);
-                                                                            },
-                                                                            expression: 'properties.autofocus',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Loading : 加载状态',
-                                                                            tooltip:
-                                                                                '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.loading,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'loading', t);
-                                                                            },
-                                                                            expression: 'properties.loading',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Loader Height : 加载器高度',
-                                                                            min: '1',
-                                                                            disabled: !e.properties.loading,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.LoaderHeight
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.LoaderHeight,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.LoaderHeight]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'No Resize : 移除调整大小的句柄',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.NoResize],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NoResize,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NoResize]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Reverse : 反转输入方向' },
-                                                                        model: {
-                                                                            value: e.properties.reverse,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'reverse', t);
-                                                                            },
-                                                                            expression: 'properties.reverse',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Outer Icon',
-                                                                            tooltip:
-                                                                                '在组件的外部添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendOuterIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendOuterIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendOuterIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Inner Icon',
-                                                                            tooltip:
-                                                                                '在组件的输入中添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependInnerIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependInnerIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependInnerIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Clearable : 显示清除按钮' },
-                                                                        model: {
-                                                                            value: e.properties.clearable,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'clearable', t);
-                                                                            },
-                                                                            expression: 'properties.clearable',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Clear Icon',
-                                                                            tooltip:
-                                                                                '当使用 clearable 且有输入值时应用',
-                                                                            disabled: !e.properties.clearable,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ClearIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ClearIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ClearIcon]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'PlaceHolder : 占位符文本' },
-                                                                        model: {
-                                                                            value: e.properties.placeHolder,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'placeHolder', t);
-                                                                            },
-                                                                            expression: 'properties.placeHolder',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Prefix : 前缀文本' },
-                                                                        model: {
-                                                                            value: e.properties.prefix,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'prefix', t);
-                                                                            },
-                                                                            expression: 'properties.prefix',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Suffix : 后缀文本' },
-                                                                        model: {
-                                                                            value: e.properties.suffix,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'suffix', t);
-                                                                            },
-                                                                            expression: 'properties.suffix',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-select', {
-                                                                        attrs: {
-                                                                            label: 'Type: 输入类型',
-                                                                            tooltip: '设置不同的输入类型',
-                                                                            items: e.typeItems,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.type,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'type', t);
-                                                                            },
-                                                                            expression: 'properties.type',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Min : 数字类型最小值',
-                                                                            min: '0',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.min,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'min', t);
-                                                                            },
-                                                                            expression: 'properties.min',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Max : 数字类型最大值',
-                                                                            min: '1',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.max,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'max', t);
-                                                                            },
-                                                                            expression: 'properties.max',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Step : 数字类型步长',
-                                                                            min: '1',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.step,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'step', t);
-                                                                            },
-                                                                            expression: 'properties.step',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HTextAreaPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: $e,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return {
-                                                        constants: re,
-                                                        dataObject: {},
-                                                        typeItems: [
-                                                            { value: 'text', text: '文字模式(默认)' },
-                                                            { value: 'password', text: '密码模式' },
-                                                            { value: 'number', text: '数字模式' },
-                                                            { value: 'color', text: '颜色模式' },
-                                                            { value: 'datetime-local', text: '日期时间模式' },
-                                                            { value: 'time', text: '时间模式' },
-                                                            { value: 'date', text: '日期模式' },
-                                                            { value: 'week', text: '周模式' },
-                                                            { value: 'month', text: '月模式' },
-                                                        ],
-                                                    };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                    isNumberType: function () {
-                                                        return 'number' === this.properties.type;
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
-                                        SLIDER: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Inverse Label : 反转标签位置',
-                                                                            tooltip: '使用 rtl 反转标签位置',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.InverseLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.InverseLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.InverseLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Vertical : 垂直',
-                                                                            tooltip: '将滑块方向切换为垂直方向',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.vertical,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'vertical', t);
-                                                                            },
-                                                                            expression: 'properties.vertical',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: { label: 'Height : 设置高度', min: '1' },
-                                                                        model: {
-                                                                            value: e.properties.height,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'height', t);
-                                                                            },
-                                                                            expression: 'properties.height',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'thumb', header: '缩略图标签' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Thumb Color : 缩略图颜色',
-                                                                            tooltip: '设置缩略图和缩略图标签颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ThumbColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ThumbColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ThumbColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Thumb Label : 缩略图标签',
-                                                                            tooltip:
-                                                                                "显示缩略图标签。如果 true，使用滑块时将显示缩略图标签。如果设置为 'always' ，它总是显示缩略图标签",
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ThumbLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ThumbLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ThumbLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Thumb Size : 缩略图大小',
-                                                                            min: '1',
-                                                                            max: '100',
-                                                                            step: '1',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ThumbSize
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ThumbSize,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ThumbSize]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'tick', header: '刻度线' } },
-                                                                [
-                                                                    s('h-panel-array', {
-                                                                        attrs: {
-                                                                            label: 'Tick Labels : 刻度线标签',
-                                                                            tooltip: '按回车添加多个标签',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TickLabels
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TickLabels,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TickLabels]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Ticks : 刻度线',
-                                                                            tooltip:
-                                                                                "显示刻度线。如果 true，使用滑块时将显示刻度线。如果设置为 'always' ，它总是显示刻度线。",
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.ticks,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'ticks', t);
-                                                                            },
-                                                                            expression: 'properties.ticks',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Tick Size : 刻度线大小',
-                                                                            min: '1',
-                                                                            max: '100',
-                                                                            step: '1',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.TickSize],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TickSize,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TickSize]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Loading : 加载状态',
-                                                                            tooltip:
-                                                                                '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.loading,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'loading', t);
-                                                                            },
-                                                                            expression: 'properties.loading',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Loader Height : 加载器高度',
-                                                                            min: '1',
-                                                                            disabled: !e.properties.loading,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.LoaderHeight
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.LoaderHeight,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.LoaderHeight]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Min : 数字类型最小值',
-                                                                            min: '0',
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.min,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'min', t);
-                                                                            },
-                                                                            expression: 'properties.min',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Max : 数字类型最大值',
-                                                                            min: '1',
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.max,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'max', t);
-                                                                            },
-                                                                            expression: 'properties.max',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Step : 数字类型步长',
-                                                                            min: '1',
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.step,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'step', t);
-                                                                            },
-                                                                            expression: 'properties.step',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Track Color : 轨道颜色',
-                                                                            tooltip: '设置滑块轨道颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TrackColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TrackColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TrackColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Track Fill Color : 轨道填充颜色',
-                                                                            tooltip: '设置滑块轨道填充颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TrackFillColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TrackFillColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TrackFillColor]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HSliderPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelArray: Se,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSwitch: Le,
-                                                    HPanelSwitchTextField: Ee,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return { constants: re, dataObject: {} };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
-                                        RANGE_SLIDER: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Inverse Label : 反转标签位置',
-                                                                            tooltip: '使用 rtl 反转标签位置',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.InverseLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.InverseLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.InverseLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Vertical : 垂直',
-                                                                            tooltip: '将滑块方向切换为垂直方向',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.vertical,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'vertical', t);
-                                                                            },
-                                                                            expression: 'properties.vertical',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: { label: 'Height : 设置高度', min: '1' },
-                                                                        model: {
-                                                                            value: e.properties.height,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'height', t);
-                                                                            },
-                                                                            expression: 'properties.height',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'thumb', header: '缩略图标签' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Thumb Color : 缩略图颜色',
-                                                                            tooltip: '设置缩略图和缩略图标签颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ThumbColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ThumbColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ThumbColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Thumb Label : 缩略图标签',
-                                                                            tooltip:
-                                                                                "显示缩略图标签。如果 true，使用滑块时将显示缩略图标签。如果设置为 'always' ，它总是显示缩略图标签",
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ThumbLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ThumbLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ThumbLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Thumb Size : 缩略图大小',
-                                                                            min: '1',
-                                                                            max: '100',
-                                                                            step: '1',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ThumbSize
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ThumbSize,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ThumbSize]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'tick', header: '刻度线' } },
-                                                                [
-                                                                    s('h-panel-array', {
-                                                                        attrs: {
-                                                                            label: 'Tick Labels : 刻度线标签',
-                                                                            tooltip: '按回车添加多个标签',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TickLabels
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TickLabels,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TickLabels]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Ticks : 刻度线',
-                                                                            tooltip:
-                                                                                "显示刻度线。如果 true，使用滑块时将显示刻度线。如果设置为 'always' ，它总是显示刻度线。",
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.ticks,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'ticks', t);
-                                                                            },
-                                                                            expression: 'properties.ticks',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Tick Size : 刻度线大小',
-                                                                            min: '1',
-                                                                            max: '100',
-                                                                            step: '1',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.TickSize],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TickSize,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TickSize]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Loading : 加载状态',
-                                                                            tooltip:
-                                                                                '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.loading,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'loading', t);
-                                                                            },
-                                                                            expression: 'properties.loading',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Loader Height : 加载器高度',
-                                                                            min: '1',
-                                                                            disabled: !e.properties.loading,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.LoaderHeight
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.LoaderHeight,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.LoaderHeight]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Min : 数字类型最小值',
-                                                                            min: '0',
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.min,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'min', t);
-                                                                            },
-                                                                            expression: 'properties.min',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Max : 数字类型最大值',
-                                                                            min: '1',
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.max,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'max', t);
-                                                                            },
-                                                                            expression: 'properties.max',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Step : 数字类型步长',
-                                                                            min: '1',
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.step,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'step', t);
-                                                                            },
-                                                                            expression: 'properties.step',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Track Color : 轨道颜色',
-                                                                            tooltip: '设置滑块轨道颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TrackColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TrackColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TrackColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Track Fill Color : 轨道填充颜色',
-                                                                            tooltip: '设置滑块轨道填充颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TrackFillColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TrackFillColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TrackFillColor]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HRangeSliderPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelArray: Se,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSwitch: Le,
-                                                    HPanelSwitchTextField: Ee,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return { constants: re, dataObject: {} };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
-                                        CHECKBOX: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Multiple : 多选',
-                                                                            tooltip: '将预期模型更改为数组',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.multiple,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'multiple', t);
-                                                                            },
-                                                                            expression: 'properties.multiple',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'False Value : 设置假值',
-                                                                            tooltip: '设置Checkbox未被勾选时的值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FalseValue
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FalseValue,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FalseValue]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'True Value : 设置真值',
-                                                                            tooltip: '设置Checkbox被勾选时的值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TrueValue
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TrueValue,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TrueValue]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Off Icon',
-                                                                            tooltip: '未被勾选时使用的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.OffIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.OffIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.OffIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'On Icon',
-                                                                            tooltip: '被勾选时使用的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.OnIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.OnIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.OnIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Indeterminate : 不确定状态',
-                                                                            tooltip: '为复选框设置不确定状态',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.indeterminate,
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    'indeterminate',
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression: 'properties.indeterminate',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Indeterminate Icon',
-                                                                            tooltip: '处于不确定状态时使用的图标',
-                                                                            disabled: !e.properties.indeterminate,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.IndeterminateIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.IndeterminateIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.IndeterminateIcon]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HCheckboxPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return { constants: re, dataObject: {} };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
-                                        SWITCHS: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Flat : 移除阴影',
-                                                                            tooltip: '移除组件的阴影。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.flat,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'flat', t);
-                                                                            },
-                                                                            expression: 'properties.flat',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Inset : 扩展',
-                                                                            tooltip: '扩展 v-switch 开关以包含缩略图',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.inset,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'inset', t);
-                                                                            },
-                                                                            expression: 'properties.inset',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Loading : 加载状态',
-                                                                            tooltip:
-                                                                                '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.loading,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'loading', t);
-                                                                            },
-                                                                            expression: 'properties.loading',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Multiple : 多选',
-                                                                            tooltip: '将预期模型更改为数组',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.multiple,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'multiple', t);
-                                                                            },
-                                                                            expression: 'properties.multiple',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'False Value : 设置假值',
-                                                                            tooltip: '设置Switch关闭时的值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FalseValue
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FalseValue,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FalseValue]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'True Value : 设置真值',
-                                                                            tooltip: '设置Switch开启时的值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.TrueValue
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.TrueValue,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.TrueValue]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Off Icon',
-                                                                            tooltip: '未被勾选时使用的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.OffIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.OffIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.OffIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'On Icon',
-                                                                            tooltip: '被勾选时使用的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.OnIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.OnIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.OnIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Indeterminate : 不确定状态',
-                                                                            tooltip: '为复选框设置不确定状态',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.indeterminate,
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    'indeterminate',
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression: 'properties.indeterminate',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Indeterminate Icon',
-                                                                            tooltip: '处于不确定状态时使用的图标',
-                                                                            disabled: !e.properties.indeterminate,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.IndeterminateIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.IndeterminateIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.IndeterminateIcon]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HSwitchPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return { constants: re, dataObject: {} };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
-                                        DATE_PICKER: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Elevation : 阴影',
-                                                                            min: '0',
-                                                                            max: '24',
-                                                                            tooltip:
-                                                                                '组件的海拔可接受 0 到 24 之间的值。',
-                                                                            disabled: e.properties.flat,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.elevation,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'elevation', t);
-                                                                            },
-                                                                            expression: 'properties.elevation',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Flat : 移除阴影',
-                                                                            tooltip: '移除添加到元素的标高（阴影）',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.flat,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'flat', t);
-                                                                            },
-                                                                            expression: 'properties.flat',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Full Width : 全宽度',
-                                                                            tooltip: '指定输入类型为全宽度',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FullWidth
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FullWidth,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FullWidth]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Landscape : 水平方向',
-                                                                            tooltip: '水平方向选择器',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.landscape,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'landscape', t);
-                                                                            },
-                                                                            expression: 'properties.landscape',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'No Title',
-                                                                            tooltip: '隐藏选择器标题',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.NoTitle],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NoTitle,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NoTitle]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Width : 选择器宽度',
-                                                                            min: '1',
-                                                                            max: '1024',
-                                                                            step: '2',
-                                                                            tooltip: '选择器宽度',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.width,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'width', t);
-                                                                            },
-                                                                            expression: 'properties.width',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Multiple : 多选',
-                                                                            tooltip: '将预期模型更改为数组',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.multiple,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'multiple', t);
-                                                                            },
-                                                                            expression: 'properties.multiple',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Selected Items Text : 所选日期文本',
-                                                                            tooltip:
-                                                                                '使用 multiple 属性时用于翻译所选日期数的文本。 也可以在 Internationalization 中进行全局定制',
-                                                                            disabled: !e.properties.multiple,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SelectedItemsText
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SelectedItemsText,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SelectedItemsText]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Range',
-                                                                            tooltip: '允许选择日期范围',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.range,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'range', t);
-                                                                            },
-                                                                            expression: 'properties.range',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Reactive',
-                                                                            tooltip:
-                                                                                '自动更改 月份/年份 时更新选择器模型',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.reactive,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'reactive', t);
-                                                                            },
-                                                                            expression: 'properties.reactive',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Scrollable : 滚动',
-                                                                            tooltip: '允许通过鼠标滚动更改显示的月份',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.scrollable,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'scrollable', t);
-                                                                            },
-                                                                            expression: 'properties.scrollable',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prev Icon',
-                                                                            tooltip: '设置上一个 月/年 按钮的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.PrevIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrevIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrevIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Next Icon',
-                                                                            tooltip: '设置下一个 月/年 按钮的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.NextIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NextIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NextIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Year Icon',
-                                                                            tooltip: '设置年份选择按钮中的图标',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.YearIcon],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.YearIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.YearIcon]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'First Day Of Week : 周的起始天',
-                                                                            min: '0',
-                                                                            max: '6',
-                                                                            tooltip:
-                                                                                '设置一周的第一天，从周日的 0 开始。',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FirstDayOfWeek
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FirstDayOfWeek,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FirstDayOfWeek]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Locale First Day Of Year',
-                                                                            min: '0',
-                                                                            max: '6',
-                                                                            tooltip:
-                                                                                '设置决定一年中第一周的日期，从 0 开始，星期日。对于 ISO 8601，应该是 4。',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags
-                                                                                        .LocaleFirstDayOfYear
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags
-                                                                                        .LocaleFirstDayOfYear,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.LocaleFirstDayOfYear]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Max',
-                                                                            tooltip:
-                                                                                '允许的最大 日期/月份（ISO 8601格式）',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.max,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'max', t);
-                                                                            },
-                                                                            expression: 'properties.max',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Min',
-                                                                            tooltip:
-                                                                                '允许的最小 日期/月份（ISO 8601格式）',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.min,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'min', t);
-                                                                            },
-                                                                            expression: 'properties.min',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Picker Date',
-                                                                            tooltip: '显示 年/月',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PickerDate
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PickerDate,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PickerDate]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Prev Month Aria Label' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrevMonthAriaLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrevMonthAriaLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrevMonthAriaLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Prev Year Aria Label' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrevYearAriaLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrevYearAriaLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrevYearAriaLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Next Month Aria Label' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.NextMonthAriaLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NextMonthAriaLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NextMonthAriaLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Next Year Aria Label' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.NextYearAriaLabel
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NextYearAriaLabel,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NextYearAriaLabel]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Show Current : 显示为当前日期',
-                                                                            tooltip:
-                                                                                '切换当前 日期/月份 大纲的可见性或将提供的 日期/月份 显示为当前日期',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ShowCurrent
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ShowCurrent,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ShowCurrent]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Show Week : 显示星期',
-                                                                            tooltip: '切换日历正文中星期几的可见性',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.ShowWeek],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ShowWeek,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ShowWeek]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-select', {
-                                                                        attrs: {
-                                                                            label: 'Type: 输入类型',
-                                                                            tooltip: '设置不同的输入类型',
-                                                                            items: e.typeItems,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.type,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'type', t);
-                                                                            },
-                                                                            expression: 'properties.type',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Header Color : 标题颜色',
-                                                                            tooltip:
-                                                                                '定义标题颜色。如果未指定，将使用由 color 属性或默认选择器颜色定义的颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HeaderColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HeaderColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HeaderColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HDatePickerPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: $e,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return {
-                                                        constants: re,
-                                                        dataObject: {},
-                                                        typeItems: [
-                                                            { value: 'date', text: '日期模式（默认）' },
-                                                            { value: 'month', text: '月模式' },
-                                                        ],
-                                                    };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
+                                        TEXT_AREA: Qe,
+                                        SLIDER: qe,
+                                        RANGE_SLIDER: Ye,
+                                        CHECKBOX: ze,
+                                        SWITCHS: Je,
+                                        DATE_PICKER: Ke,
                                         TIME_PICKER: J(
                                             {
                                                 render: function () {
@@ -8077,7 +8612,7 @@ var me = {
                                                                             label: 'Format',
                                                                             tooltip:
                                                                                 '定义在选择器中显示的时间格式。可用的选项是 ampm 和 24hr',
-                                                                            items: e.formatItems,
+                                                                            items: e.constants.items.timeType,
                                                                         },
                                                                         model: {
                                                                             value: e.properties.format,
@@ -8219,24 +8754,17 @@ var me = {
                                             {
                                                 name: 'HTimePickerPanel',
                                                 components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: $e,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
+                                                    HExpansionPanel: $e,
+                                                    HPanelColor: De,
+                                                    HPanelNumber: Be,
+                                                    HPanelSelect: je,
+                                                    HPanelSwitch: Ne,
+                                                    HPanelTextField: We,
+                                                    VExpansionPanels: w,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return {
-                                                        constants: re,
-                                                        dataObject: {},
-                                                        formatItems: [
-                                                            { value: 'ampm', text: 'ampm（默认）' },
-                                                            { value: '24hr', text: '24hr' },
-                                                        ],
-                                                    };
+                                                    return { constants: ie, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -8260,2209 +8788,22 @@ var me = {
                                             void 0,
                                             void 0
                                         ),
-                                        SELECT_SINGLE: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Chips : 纸片显示',
-                                                                            tooltip:
-                                                                                '改变一个已选择项为小纸片（chips）的显示方式',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.chips,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'chips', t);
-                                                                            },
-                                                                            expression: 'properties.chips',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Deletable Chips',
-                                                                            tooltip:
-                                                                                '添加一个去除图标的到选定的小纸片（chips）',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.DeletableChips
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.DeletableChips,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.DeletableChips]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Small Chips : 标题不移动',
-                                                                            tooltip: '标签在 focus/dirty 上不移动',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SmallChips
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SmallChips,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SmallChips]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Filled : 使用填充样式',
-                                                                            disabled:
-                                                                                e.properties.outlined ||
-                                                                                e.properties.solo,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.filled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'filled', t);
-                                                                            },
-                                                                            expression: 'properties.filled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Flat : 移除阴影',
-                                                                            tooltip:
-                                                                                '当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.flat,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'flat', t);
-                                                                            },
-                                                                            expression: 'properties.flat',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Full Width : 全宽度',
-                                                                            tooltip: '指定输入类型为全宽度',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FullWidth
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FullWidth,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FullWidth]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Hide Selected',
-                                                                            tooltip: '不要在选择菜单中显示已选择的项',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideSelected
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideSelected,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideSelected]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Outlined : 显示轮廓' },
-                                                                        model: {
-                                                                            value: e.properties.outlined,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'outlined', t);
-                                                                            },
-                                                                            expression: 'properties.outlined',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        class: e.constants.class.switch,
-                                                                        attrs: {
-                                                                            label: 'Rounded : 椭圆边框',
-                                                                            disabled:
-                                                                                !e.properties.filled &&
-                                                                                !e.properties.outlined &&
-                                                                                !e.properties.solo,
-                                                                            dense: '',
-                                                                            tooltip:
-                                                                                '向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.rounded,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'rounded', t);
-                                                                            },
-                                                                            expression: 'properties.rounded',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Shaped : 圆角边框',
-                                                                            tooltip:
-                                                                                '如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用',
-                                                                            disabled:
-                                                                                !e.properties.outlined &&
-                                                                                !e.properties.filled &&
-                                                                                !e.properties.solo,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.shaped,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'shaped', t);
-                                                                            },
-                                                                            expression: 'properties.shaped',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Single Line : 标题不移动',
-                                                                            tooltip: '标签在 focus/dirty 上不移动',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SingleLine
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SingleLine,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SingleLine]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Solo : 凸起样式',
-                                                                            disabled: e.properties.filled,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.solo,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'solo', t);
-                                                                            },
-                                                                            expression: 'properties.solo',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Solo Inverted : 单反',
-                                                                            tooltip: '减少元素的不透明度，知道获得焦点',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SoloInverted
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SoloInverted,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SoloInverted]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: { label: 'Height : 设置高度', min: '1' },
-                                                                        model: {
-                                                                            value: e.properties.height,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'height', t);
-                                                                            },
-                                                                            expression: 'properties.height',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'No Data Text',
-                                                                            tooltip: '当没有数据时显示的文本',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.NoDataText
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NoDataText,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NoDataText]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Auto Focus : 启用自动聚焦' },
-                                                                        model: {
-                                                                            value: e.properties.autofocus,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'autofocus', t);
-                                                                            },
-                                                                            expression: 'properties.autofocus',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Cache Items',
-                                                                            tooltip:
-                                                                                '保留已经通过 items 属性的项在本地的唯一副本',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.CacheItems
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.CacheItems,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.CacheItems]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Disable Lookup',
-                                                                            tooltip: '禁用键盘查询',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.DisableLookup
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.DisableLookup,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.DisableLookup]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Eager',
-                                                                            tooltip:
-                                                                                '将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.eager,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'eager', t);
-                                                                            },
-                                                                            expression: 'properties.eager',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Loading : 加载状态',
-                                                                            tooltip:
-                                                                                '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.loading,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'loading', t);
-                                                                            },
-                                                                            expression: 'properties.loading',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Loader Height : 加载器高度',
-                                                                            min: '1',
-                                                                            disabled: !e.properties.loading,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.LoaderHeight
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.LoaderHeight,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.LoaderHeight]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Multiple : 多选',
-                                                                            tooltip: '将预期模型更改为数组',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.multiple,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'multiple', t);
-                                                                            },
-                                                                            expression: 'properties.multiple',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Return Object',
-                                                                            tooltip:
-                                                                                '将选择器的行为更改为直接返回对象，而不是 item-value 指定的值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ReturnObject
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ReturnObject,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ReturnObject]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Reverse : 反转输入方向' },
-                                                                        model: {
-                                                                            value: e.properties.reverse,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'reverse', t);
-                                                                            },
-                                                                            expression: 'properties.reverse',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Item Color : Item颜色',
-                                                                            tooltip: '设置选中项目的颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ItemColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Item Disabled',
-                                                                            tooltip: '禁用 items 的属性值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ItemDisabled
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemDisabled,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemDisabled]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Item Text',
-                                                                            tooltip: "设置items'属性的文本值",
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.ItemText],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemText,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemText]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Item Value',
-                                                                            tooltip:
-                                                                                '设置 items 的值的属性 - 必须是 primitive。支持点符号。注意： 目前不支持 v-combobox GitHub问题',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ItemValue
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemValue,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemValue]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Outer Icon',
-                                                                            tooltip:
-                                                                                '在组件的外部添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendOuterIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendOuterIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendOuterIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Inner Icon',
-                                                                            tooltip:
-                                                                                '在组件的输入中添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependInnerIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependInnerIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependInnerIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Clearable : 显示清除按钮' },
-                                                                        model: {
-                                                                            value: e.properties.clearable,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'clearable', t);
-                                                                            },
-                                                                            expression: 'properties.clearable',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Clear Icon',
-                                                                            tooltip:
-                                                                                '当使用 clearable 且有输入值时应用',
-                                                                            disabled: !e.properties.clearable,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ClearIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ClearIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ClearIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Open On Clear',
-                                                                            tooltip:
-                                                                                '当使用 clearable 属性, 一旦清除，选择菜单将打开或保持打开，这个取决于当前状态',
-                                                                            disabled: !e.properties.clearable,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.OpenOnClear
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.OpenOnClear,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.OpenOnClear]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'PlaceHolder : 占位符文本' },
-                                                                        model: {
-                                                                            value: e.properties.placeHolder,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'placeHolder', t);
-                                                                            },
-                                                                            expression: 'properties.placeHolder',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Prefix : 前缀文本' },
-                                                                        model: {
-                                                                            value: e.properties.prefix,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'prefix', t);
-                                                                            },
-                                                                            expression: 'properties.prefix',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Suffix : 后缀文本' },
-                                                                        model: {
-                                                                            value: e.properties.suffix,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'suffix', t);
-                                                                            },
-                                                                            expression: 'properties.suffix',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-select', {
-                                                                        attrs: {
-                                                                            label: 'Type: 输入类型',
-                                                                            tooltip: '设置不同的输入类型',
-                                                                            items: e.typeItems,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.type,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'type', t);
-                                                                            },
-                                                                            expression: 'properties.type',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Min : 数字类型最小值',
-                                                                            min: '0',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.min,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'min', t);
-                                                                            },
-                                                                            expression: 'properties.min',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Max : 数字类型最大值',
-                                                                            min: '1',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.max,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'max', t);
-                                                                            },
-                                                                            expression: 'properties.max',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Step : 数字类型步长',
-                                                                            min: '1',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.step,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'step', t);
-                                                                            },
-                                                                            expression: 'properties.step',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HSingleSelectPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: $e,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return {
-                                                        constants: re,
-                                                        dataObject: {},
-                                                        typeItems: [
-                                                            { value: 'text', text: '文字输入模式（默认）' },
-                                                            { value: 'password', text: '密码模式' },
-                                                            { value: 'number', text: '数字模式' },
-                                                            { value: 'color', text: '选择颜色模式' },
-                                                            { value: 'datetime-local', text: '选择日期时间模式' },
-                                                            { value: 'time', text: '选择时间模式' },
-                                                            { value: 'date', text: '选择日期模式' },
-                                                            { value: 'week', text: '选择周模式' },
-                                                            { value: 'month', text: '选择月模式' },
-                                                        ],
-                                                    };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                    isNumberType: function () {
-                                                        return 'number' === this.properties.type;
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
-                                        COMBOBOX: J(
-                                            {
-                                                render: function () {
-                                                    var e = this,
-                                                        t = e.$createElement,
-                                                        s = e._self._c || t;
-                                                    return s(
-                                                        'v-expansion-panels',
-                                                        {
-                                                            staticClass: 'mb-4',
-                                                            attrs: { focusable: '', mandatory: '' },
-                                                        },
-                                                        [
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'appearance', header: '外观' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Allow Over flow',
-                                                                            tooltip: '允许菜单溢出屏幕',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AllowOverflow
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AllowOverflow,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AllowOverflow]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Chips : 纸片显示',
-                                                                            tooltip:
-                                                                                '改变一个已选择项为小纸片（chips）的显示方式',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.chips,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'chips', t);
-                                                                            },
-                                                                            expression: 'properties.chips',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Deletable Chips',
-                                                                            tooltip:
-                                                                                '添加一个去除图标的到选定的小纸片（chips）',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.DeletableChips
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.DeletableChips,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.DeletableChips]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Small Chips : 标题不移动',
-                                                                            tooltip: '标签在 focus/dirty 上不移动',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SmallChips
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SmallChips,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SmallChips]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dense : 紧凑显示' },
-                                                                        model: {
-                                                                            value: e.properties.dense,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dense', t);
-                                                                            },
-                                                                            expression: 'properties.dense',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Filled : 使用填充样式',
-                                                                            disabled:
-                                                                                e.properties.outlined ||
-                                                                                e.properties.solo,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.filled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'filled', t);
-                                                                            },
-                                                                            expression: 'properties.filled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Flat : 移除阴影',
-                                                                            tooltip:
-                                                                                '当使用solo或者solo-inverted属性时，移除添加到元素的标高（阴影）',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.flat,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'flat', t);
-                                                                            },
-                                                                            expression: 'properties.flat',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Full Width : 全宽度',
-                                                                            tooltip: '指定输入类型为全宽度',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.FullWidth
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.FullWidth,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.FullWidth]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Hide Details : 隐藏细节区域' },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideDetails
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideDetails,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideDetails]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Hide Selected',
-                                                                            tooltip: '不要在选择菜单中显示已选择的项',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideSelected
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideSelected,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideSelected]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Outlined : 显示轮廓' },
-                                                                        model: {
-                                                                            value: e.properties.outlined,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'outlined', t);
-                                                                            },
-                                                                            expression: 'properties.outlined',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        class: e.constants.class.switch,
-                                                                        attrs: {
-                                                                            label: 'Rounded : 椭圆边框',
-                                                                            disabled:
-                                                                                !e.properties.filled &&
-                                                                                !e.properties.outlined &&
-                                                                                !e.properties.solo,
-                                                                            dense: '',
-                                                                            tooltip:
-                                                                                '向输入添加边框半径, 需要配合设置Filled、Outlined、或Solo任意一项',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.rounded,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'rounded', t);
-                                                                            },
-                                                                            expression: 'properties.rounded',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Shaped : 圆角边框',
-                                                                            tooltip:
-                                                                                '如果Outlined则为圆形，如果Filled则增加border-radius。必须与Outlined 或Filled 一起使用',
-                                                                            disabled:
-                                                                                !e.properties.outlined &&
-                                                                                !e.properties.filled &&
-                                                                                !e.properties.solo,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.shaped,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'shaped', t);
-                                                                            },
-                                                                            expression: 'properties.shaped',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Single Line : 标题不移动',
-                                                                            tooltip: '标签在 focus/dirty 上不移动',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SingleLine
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SingleLine,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SingleLine]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Solo : 凸起样式',
-                                                                            disabled: e.properties.filled,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.solo,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'solo', t);
-                                                                            },
-                                                                            expression: 'properties.solo',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Solo Inverted : 单反',
-                                                                            tooltip: '减少元素的不透明度，知道获得焦点',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.SoloInverted
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.SoloInverted,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.SoloInverted]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: { label: 'Height : 设置高度', min: '1' },
-                                                                        model: {
-                                                                            value: e.properties.height,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'height', t);
-                                                                            },
-                                                                            expression: 'properties.height',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'No Data Text',
-                                                                            tooltip: '当没有数据时显示的文本',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.NoDataText
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NoDataText,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NoDataText]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'control', header: '控制' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Auto Select First',
-                                                                            tooltip: '搜索时，总是选中第一个选项',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AutoSelectFirst
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AutoSelectFirst,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AutoSelectFirst]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Auto Focus : 启用自动聚焦' },
-                                                                        model: {
-                                                                            value: e.properties.autofocus,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'autofocus', t);
-                                                                            },
-                                                                            expression: 'properties.autofocus',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-array', {
-                                                                        attrs: {
-                                                                            label: 'Delimiters',
-                                                                            tooltip:
-                                                                                '接受将在键入时触发新标记的字符串数组。不替换正常的 Tab 和 Enter keys。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.delimiters,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'delimiters', t);
-                                                                            },
-                                                                            expression: 'properties.delimiters',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Cache Items',
-                                                                            tooltip:
-                                                                                '保留已经通过 items 属性的项在本地的唯一副本',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.CacheItems
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.CacheItems,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.CacheItems]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Disable Lookup',
-                                                                            tooltip: '禁用键盘查询',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.DisableLookup
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.DisableLookup,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.DisableLookup]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Disabled : 禁用输入' },
-                                                                        model: {
-                                                                            value: e.properties.disabled,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'disabled', t);
-                                                                            },
-                                                                            expression: 'properties.disabled',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Eager',
-                                                                            tooltip:
-                                                                                '将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.eager,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'eager', t);
-                                                                            },
-                                                                            expression: 'properties.eager',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Hide No Data',
-                                                                            tooltip:
-                                                                                '当没有要显示的选项时，隐藏菜单。用于防止在异步获取结果之前打开菜单。也有打开菜单的效果，当“ items 数组改变，如果还没有打开。',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.HideNoData
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.HideNoData,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.HideNoData]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Loading : 加载状态',
-                                                                            tooltip:
-                                                                                '显示线性进度条。可以是指定将哪种颜色应用于进度条的字符串（任何 material 色彩——主要（primary）, 次要（secondary）, 成功（success）, 信息（info），警告（warning），错误（error）），或者使用组件的布尔值 color（由色彩属性设置——如果它被组件支持的话）还可以是原色。',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.loading,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'loading', t);
-                                                                            },
-                                                                            expression: 'properties.loading',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Loader Height : 加载器高度',
-                                                                            min: '1',
-                                                                            disabled: !e.properties.loading,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.LoaderHeight
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.LoaderHeight,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.LoaderHeight]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Multiple : 多选',
-                                                                            tooltip: '将预期模型更改为数组',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.multiple,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'multiple', t);
-                                                                            },
-                                                                            expression: 'properties.multiple',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'NoFilter',
-                                                                            tooltip:
-                                                                                '搜索时不要应用过滤。在过滤服务器端数据时非常有用',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.NoFilter],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.NoFilter,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.NoFilter]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Readonly : 只读状态' },
-                                                                        model: {
-                                                                            value: e.properties.readonly,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'readonly', t);
-                                                                            },
-                                                                            expression: 'properties.readonly',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Return Object',
-                                                                            tooltip:
-                                                                                '将选择器的行为更改为直接返回对象，而不是 item-value 指定的值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ReturnObject
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ReturnObject,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ReturnObject]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Reverse : 反转输入方向' },
-                                                                        model: {
-                                                                            value: e.properties.reverse,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'reverse', t);
-                                                                            },
-                                                                            expression: 'properties.reverse',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Validate On Blur : 延迟验证',
-                                                                            tooltip: '延迟验证直到失去焦点的事件被触发',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ValidateOnBlur
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ValidateOnBlur,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ValidateOnBlur]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Item Color : Item颜色',
-                                                                            tooltip: '设置选中项目的颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ItemColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Item Disabled',
-                                                                            tooltip: '禁用 items 的属性值',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ItemDisabled
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemDisabled,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemDisabled]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Item Text',
-                                                                            tooltip: "设置items'属性的文本值",
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[e.constants.tags.ItemText],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemText,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemText]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: {
-                                                                            label: 'Item Value',
-                                                                            tooltip:
-                                                                                '设置 items 的值的属性 - 必须是 primitive。支持点符号。注意： 目前不支持 v-combobox GitHub问题',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ItemValue
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ItemValue,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ItemValue]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'icon', header: '图标' } },
-                                                                [
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Icon',
-                                                                            tooltip:
-                                                                                '在组件上附加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Append Outer Icon',
-                                                                            tooltip:
-                                                                                '在组件的外部添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.AppendOuterIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.AppendOuterIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.AppendOuterIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Icon',
-                                                                            tooltip:
-                                                                                '在组件前添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Prepend Inner Icon',
-                                                                            tooltip:
-                                                                                '在组件的输入中添加一个图标，使用与 v-icon 相同的语法',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PrependInnerIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PrependInnerIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PrependInnerIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Clearable : 显示清除按钮' },
-                                                                        model: {
-                                                                            value: e.properties.clearable,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'clearable', t);
-                                                                            },
-                                                                            expression: 'properties.clearable',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-icon', {
-                                                                        attrs: {
-                                                                            label: 'Clear Icon',
-                                                                            tooltip:
-                                                                                '当使用 clearable 且有输入值时应用',
-                                                                            disabled: !e.properties.clearable,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.ClearIcon
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.ClearIcon,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.ClearIcon]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Open On Clear',
-                                                                            tooltip:
-                                                                                '当使用 clearable 属性, 一旦清除，选择菜单将打开或保持打开，这个取决于当前状态',
-                                                                            disabled: !e.properties.clearable,
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.OpenOnClear
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.OpenOnClear,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.OpenOnClear]',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'content', header: '内容' } },
-                                                                [
-                                                                    s('h-panel-switch', {
-                                                                        attrs: {
-                                                                            label: 'Persistent Hint : 强制显示提示',
-                                                                            tooltip: '强制提示总是可见的',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.PersistentHint
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.PersistentHint,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.PersistentHint]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Hint : 提示文本' },
-                                                                        model: {
-                                                                            value: e.properties.hint,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'hint', t);
-                                                                            },
-                                                                            expression: 'properties.hint',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'PlaceHolder : 占位符文本' },
-                                                                        model: {
-                                                                            value: e.properties.placeHolder,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'placeHolder', t);
-                                                                            },
-                                                                            expression: 'properties.placeHolder',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Prefix : 前缀文本' },
-                                                                        model: {
-                                                                            value: e.properties.prefix,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'prefix', t);
-                                                                            },
-                                                                            expression: 'properties.prefix',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-text-field', {
-                                                                        attrs: { label: 'Suffix : 后缀文本' },
-                                                                        model: {
-                                                                            value: e.properties.suffix,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'suffix', t);
-                                                                            },
-                                                                            expression: 'properties.suffix',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-select', {
-                                                                        attrs: {
-                                                                            label: 'Type: 输入类型',
-                                                                            tooltip: '设置不同的输入类型',
-                                                                            items: e.typeItems,
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.type,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'type', t);
-                                                                            },
-                                                                            expression: 'properties.type',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Min : 数字类型最小值',
-                                                                            min: '0',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.min,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'min', t);
-                                                                            },
-                                                                            expression: 'properties.min',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Max : 数字类型最大值',
-                                                                            min: '1',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.max,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'max', t);
-                                                                            },
-                                                                            expression: 'properties.max',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-number', {
-                                                                        attrs: {
-                                                                            label: 'Step : 数字类型步长',
-                                                                            min: '1',
-                                                                            disabled: !e.isNumberType,
-                                                                            tooltip: '当Type属性为‘数字类型’时可用',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.step,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'step', t);
-                                                                            },
-                                                                            expression: 'properties.step',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                            e._v(' '),
-                                                            s(
-                                                                'h-expansion-panel',
-                                                                { attrs: { index: 'color', header: '色彩' } },
-                                                                [
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Background Color : 背景颜色',
-                                                                            tooltip: '输入框背景颜色',
-                                                                        },
-                                                                        model: {
-                                                                            value:
-                                                                                e.properties[
-                                                                                    e.constants.tags.BackgroundColor
-                                                                                ],
-                                                                            callback: function (t) {
-                                                                                e.$set(
-                                                                                    e.properties,
-                                                                                    e.constants.tags.BackgroundColor,
-                                                                                    t
-                                                                                );
-                                                                            },
-                                                                            expression:
-                                                                                'properties[constants.tags.BackgroundColor]',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-color', {
-                                                                        attrs: {
-                                                                            label: 'Color : 颜色',
-                                                                            tooltip:
-                                                                                '将指定的颜色应用于控件 - 它可以是 material color 的名称（例如 success 或者 purple）或 css 颜色。 你可以在 colors page 中找到内置类的列表',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.properties.color,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'color', t);
-                                                                            },
-                                                                            expression: 'properties.color',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Dark : 使用深色主题' },
-                                                                        model: {
-                                                                            value: e.properties.dark,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'dark', t);
-                                                                            },
-                                                                            expression: 'properties.dark',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s('h-panel-switch', {
-                                                                        attrs: { label: 'Light : 使用浅色主题' },
-                                                                        model: {
-                                                                            value: e.properties.light,
-                                                                            callback: function (t) {
-                                                                                e.$set(e.properties, 'light', t);
-                                                                            },
-                                                                            expression: 'properties.light',
-                                                                        },
-                                                                    }),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    );
-                                                },
-                                                staticRenderFns: [],
-                                            },
-                                            undefined,
-                                            {
-                                                name: 'HComboBoxPanel',
-                                                components: {
-                                                    HExpansionPanel: ke,
-                                                    HPanelArray: Se,
-                                                    HPanelColor: Te,
-                                                    HPanelIcon: Ve,
-                                                    HPanelNumber: Oe,
-                                                    HPanelSelect: $e,
-                                                    HPanelSwitch: Le,
-                                                    HPanelTextField: De,
-                                                    VExpansionPanels: P,
-                                                },
-                                                props: { element: { type: Object, default: function () {} } },
-                                                data: function () {
-                                                    return {
-                                                        constants: re,
-                                                        dataObject: {},
-                                                        typeItems: [
-                                                            { value: 'text', text: '文字输入模式（默认）' },
-                                                            { value: 'password', text: '密码模式' },
-                                                            { value: 'number', text: '数字模式' },
-                                                            { value: 'color', text: '选择颜色模式' },
-                                                            { value: 'datetime-local', text: '选择日期时间模式' },
-                                                            { value: 'time', text: '选择时间模式' },
-                                                            { value: 'date', text: '选择日期模式' },
-                                                            { value: 'week', text: '选择周模式' },
-                                                            { value: 'month', text: '选择月模式' },
-                                                        ],
-                                                    };
-                                                },
-                                                computed: {
-                                                    properties: function () {
-                                                        return this.dataObject[this.constants.annotations.xprops];
-                                                    },
-                                                    isNumberType: function () {
-                                                        return 'number' === this.properties.type;
-                                                    },
-                                                },
-                                                watch: {
-                                                    element: {
-                                                        handler: function (e, t) {
-                                                            this.dataObject = e;
-                                                        },
-                                                        immediate: !0,
-                                                    },
-                                                },
-                                            },
-                                            undefined,
-                                            false,
-                                            undefined,
-                                            !1,
-                                            void 0,
-                                            void 0,
-                                            void 0
-                                        ),
+                                        SELECT_SINGLE: Ue,
+                                        COMBOBOX: Ge,
+                                        HFormPanel: Xe,
                                         VIcon: t,
                                         VBtn: s,
                                         VTooltip: a,
                                         VTab: T,
                                         VTabs: V,
-                                        VTextField: x,
-                                        VDivider: H,
+                                        VTextField: g,
+                                        VDivider: P,
                                         VCard: o,
                                         VCol: r,
                                         VRow: l,
                                         VContainer: i,
                                         VTabItem: O,
-                                        VTabsItems: L,
+                                        VTabsItems: D,
                                     },
                                     props: {
                                         selectedItem: { type: Object, default: function () {} },
@@ -10470,7 +8811,7 @@ var me = {
                                     },
                                     data: function () {
                                         return {
-                                            constants: re,
+                                            constants: ie,
                                             tab: null,
                                             tabs: [
                                                 { key: 'element', name: '组件属性' },
@@ -10528,7 +8869,7 @@ var me = {
                                         },
                                     },
                                 },
-                                'data-v-6e101f8d',
+                                'data-v-4e87cf8a',
                                 false,
                                 undefined,
                                 !1,
@@ -10537,25 +8878,27 @@ var me = {
                                 void 0
                             ),
                             VIcon: t,
-                            VDivider: H,
-                            VNavigationDrawer: E,
-                            VCardText: D,
+                            VDivider: P,
+                            VNavigationDrawer: L,
+                            VCardText: F,
                             VCard: o,
                             VRow: l,
                             VCol: r,
-                            VForm: w,
-                            VMain: A,
-                            VApp: F,
+                            VForm: $,
+                            VMain: E,
+                            VApp: R,
                         },
                         props: { height: { type: String, default: '100vh' } },
                         data: function () {
                             return {
-                                components: oe,
+                                components: re,
+                                formSettings: le,
                                 drawingCanvas: [],
+                                drawingCanvasForm: {},
                                 selectedCanvasItemId: '',
                                 selectedCanvasItemData: {},
-                                drawingCanvasForm: {},
                                 saveDrawingCanvasDebounce: q(340, ae),
+                                saveDrawingCanvasFormDebounce: q(340, ne),
                             };
                         },
                         watch: {
@@ -10564,6 +8907,13 @@ var me = {
                                     this.saveDrawingCanvasDebounce(e);
                                 },
                                 deep: !0,
+                            },
+                            drawingCanvasForm: {
+                                handler: function (e, t) {
+                                    this.saveDrawingCanvasFormDebounce(e);
+                                },
+                                deep: !0,
+                                immediate: !0,
                             },
                         },
                         created: function () {
@@ -10579,6 +8929,11 @@ var me = {
                             Array.isArray(e) &&
                                 e.length > 0 &&
                                 ((this.drawingCanvas = e), this.selectCanvasItem(this.drawingCanvas[0]));
+                            var t,
+                                s = ((t = G.storageSync.getItem('DRAWING_CANVAS_FORM')), se(t));
+                            this.$lib.lodash.isEmpty(s)
+                                ? (this.drawingCanvasForm = this.$lib.lodash.cloneDeep(this.formSettings))
+                                : (this.drawingCanvasForm = s);
                         },
                         methods: {
                             initModeler: function () {
@@ -10590,11 +8945,11 @@ var me = {
                             },
                             addComponent: function (e) {
                                 var t = (function (e) {
-                                    return le(
-                                        ne[e.configs.schema].schema,
+                                    return pe(
+                                        oe[e.configs.schema].schema,
                                         e.configs.name,
                                         e.configs.document,
-                                        ne[e.configs.schema].index
+                                        oe[e.configs.schema].index
                                     );
                                 })(e);
                                 this.changeDrawingCanvas(t);
@@ -10605,8 +8960,8 @@ var me = {
                             },
                             copyCanvasItem: function (e) {
                                 var t = (function (e) {
-                                    return le(
-                                        ie(e, e.configs.formId),
+                                    return pe(
+                                        ce(e, e.configs.formId),
                                         e.configs.name,
                                         e.configs.document,
                                         e.configs.panel
@@ -10724,11 +9079,11 @@ var me = {
                             HCodeMirror: ee,
                             VIcon: t,
                             VBtn: s,
-                            VToolbarTitle: R,
+                            VToolbarTitle: A,
                             VSpacer: B,
                             VToolbarItems: j,
                             VToolbar: n,
-                            VNavigationDrawer: E,
+                            VNavigationDrawer: L,
                         },
                         props: { value: { type: Boolean, default: !1 }, source: { type: String, default: '' } },
                         data: function () {
@@ -10828,6 +9183,7 @@ var me = {
                                     e._v(' '),
                                     s(
                                         'v-card',
+                                        { staticClass: 'mt-3' },
                                         [
                                             s(
                                                 'v-row',
@@ -10863,7 +9219,10 @@ var me = {
                                                         [
                                                             s('h-form-runtime', {
                                                                 staticClass: 'mr-3',
-                                                                attrs: { schema: e.schema },
+                                                                attrs: {
+                                                                    schema: e.schema,
+                                                                    'form-schema': e.formSchema,
+                                                                },
                                                             }),
                                                         ],
                                                         1
@@ -10888,18 +9247,22 @@ var me = {
                             HFormRuntime: te,
                             VIcon: t,
                             VBtn: s,
-                            VToolbarTitle: R,
+                            VToolbarTitle: A,
                             VSpacer: B,
                             VToolbarItems: j,
                             VToolbar: n,
                             VCard: o,
                             VCol: r,
                             VRow: l,
-                            VNavigationDrawer: E,
+                            VNavigationDrawer: L,
                         },
-                        props: { value: { type: Boolean, default: !1 }, source: { type: String, default: '' } },
+                        props: {
+                            value: { type: Boolean, default: !1 },
+                            source: { type: String, default: '' },
+                            formConfigs: { type: Object, default: function () {} },
+                        },
                         data: function () {
-                            return { drawer: !1, schema: {}, model: {}, config: '' };
+                            return { drawer: !1, schema: {}, model: {}, config: '', formSchema: {} };
                         },
                         watch: {
                             value: {
@@ -10919,6 +9282,12 @@ var me = {
                                 },
                                 immediate: !0,
                             },
+                            formConfigs: {
+                                handler: function (e, t) {
+                                    e && (this.formSchema = e);
+                                },
+                                immediate: !0,
+                            },
                         },
                     },
                     undefined,
@@ -10931,12 +9300,12 @@ var me = {
                 ),
                 VIcon: t,
                 VBtn: s,
-                VToolbarTitle: R,
+                VToolbarTitle: A,
                 VSpacer: B,
                 VTooltip: a,
                 VAppBar: N,
-                VMain: A,
-                VApp: F,
+                VMain: E,
+                VApp: R,
             },
             data: function () {
                 return {
@@ -10946,6 +9315,7 @@ var me = {
                     formDrawer: !1,
                     sourceCode: '',
                     schemaObject: '',
+                    formConfigObject: {},
                 };
             },
             computed: {
@@ -10954,6 +9324,9 @@ var me = {
                 },
                 canvas: function () {
                     return this.$refs.modeler.drawingCanvas;
+                },
+                canvasForm: function () {
+                    return this.$refs.modeler.drawingCanvasForm;
                 },
             },
             mounted: function () {
@@ -10969,7 +9342,7 @@ var me = {
             },
             methods: {
                 codePreview: function () {
-                    var e = de(this.canvas);
+                    var e = he(this.canvas);
                     e && (this.sourceCode = e.code), (this.codeDrawer = !0);
                 },
                 formPreview: function () {
@@ -10980,13 +9353,15 @@ var me = {
                             (t = { type: 'object', properties: {} }),
                             G.lodash.isEmpty(e)
                                 ? {}
-                                : (z(e).call(e, function (e, s, a) {
+                                : (W(e).call(e, function (e, s, a) {
                                       var n = e.configs.formId,
-                                          o = ie(e);
+                                          o = ce(e);
                                       t.properties[n] = o;
                                   }),
                                   t));
-                    s && (this.schemaObject = JSON.stringify(s, null, '\t')), (this.formDrawer = !0);
+                    s && (this.schemaObject = JSON.stringify(s, null, '\t')),
+                        this.canvasForm && (this.formConfigObject = this.canvasForm),
+                        (this.formDrawer = !0);
                 },
             },
         },
@@ -10998,8 +9373,8 @@ var me = {
         void 0,
         void 0
     );
-(Ae.install = function (e) {
-    e.component(Ae.name, Ae);
+(Ze.install = function (e) {
+    e.component(Ze.name, Ze);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && Ae.install(window.Vue);
-export { Ae as HFormGenerator };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && Ze.install(window.Vue);
+export { Ze as HFormGenerator };
