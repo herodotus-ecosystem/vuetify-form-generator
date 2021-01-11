@@ -75,9 +75,6 @@ export default {
         value: {
             handler(newValue, oldValue) {
                 if (newValue) {
-                    if (this.$lib.lodash.isEmpty(this.ruleItems)) {
-                        this.ruleItems = this.$rules;
-                    }
                     this.readExpressions(newValue);
                 }
             },
@@ -111,7 +108,17 @@ export default {
         },
     },
 
+    created() {
+        this.initRuleItems();
+    },
+
     methods: {
+        initRuleItems() {
+            if (this.$lib.lodash.isEmpty(this.ruleItems)) {
+                this.ruleItems = this.$rules;
+            }
+        },
+
         changeRuleSettingPanel(type) {
             let panel = '';
             let param = '';

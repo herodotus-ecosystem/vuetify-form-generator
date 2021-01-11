@@ -96,6 +96,8 @@
             ></h-panel-switch>
         </h-expansion-panel>
 
+        <h-rule-expansion-panel v-model="rules"></h-rule-expansion-panel>
+
         <h-expansion-panel index="icon" header="图标">
             <h-panel-icon
                 v-model="properties[constants.tags.AppendIcon]"
@@ -185,6 +187,7 @@
 <script>
 import { HExpansionPanel } from '../layouts';
 import { HPanelColor, HPanelIcon, HPanelNumber, HPanelSelect, HPanelSwitch, HPanelTextField } from '../controls';
+import { HRuleExpansionPanel } from '../validates';
 
 import { constants } from '../../../lib/modeler/configurations';
 
@@ -198,28 +201,37 @@ export default {
         HPanelNumber,
         HPanelSelect,
         HPanelSwitch,
-        HPanelTextField
+        HPanelTextField,
+        HRuleExpansionPanel,
     },
 
     props: {
         element: {
             type: Object,
-            default: () => {}
-        }
+            default: () => {},
+        },
     },
 
     data: () => ({
         constants,
-        dataObject: {}
+        dataObject: {},
     }),
 
     computed: {
         properties() {
             return this.dataObject[this.constants.annotations.xprops];
         },
+        rules: {
+            get: function () {
+                return this.dataObject[this.constants.annotations.xrules];
+            },
+            set: function (value) {
+                this.dataObject[this.constants.annotations.xrules] = value;
+            },
+        },
         isNumberType() {
             return this.properties.type === 'number';
-        }
+        },
     },
 
     watch: {
@@ -227,8 +239,8 @@ export default {
             handler(newValue, oldValue) {
                 this.dataObject = newValue;
             },
-            immediate: true
-        }
-    }
+            immediate: true,
+        },
+    },
 };
 </script>

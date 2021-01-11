@@ -4767,6 +4767,11 @@ caniuse-lite@^1.0.30001173:
   resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001173.tgz?cache=0&sync_timestamp=1609736609584&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001173.tgz#3c47bbe3cd6d7a9eda7f50ac016d158005569f56"
   integrity sha1-PEe7481tep7af1CsAW0VgAVWn1Y=
 
+caniuse-lite@^1.0.30001174:
+  version "1.0.30001174"
+  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001174.tgz#0f2aca2153fd88ceb07a2bb982fc2acb787623c4"
+  integrity sha1-DyrKIVP9iM6weiu5gvwqy3h2I8Q=
+
 capital-case@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/capital-case/download/capital-case-1.0.4.tgz?cache=0&sync_timestamp=1606869735551&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcapital-case%2Fdownload%2Fcapital-case-1.0.4.tgz#9d130292353c9249f6b00fa5852bee38a717e669"

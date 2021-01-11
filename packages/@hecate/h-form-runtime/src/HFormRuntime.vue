@@ -65,9 +65,7 @@ export default {
         },
     },
 
-    mounted() {
-        console.log(this.$refs);
-    },
+    mounted() {},
 
     methods: {
         saveOrUpdate() {

@@ -5594,6 +5594,535 @@ var be = {
                     t = e.$createElement,
                     s = e._self._c || t;
                 return s(
+                    'h-expansion-panel',
+                    { attrs: { index: 'rules', header: '校验' } },
+                    [
+                        s('v-subheader', [e._v('已配置规则')]),
+                        e._v(' '),
+                        s(
+                            'v-list-item-group',
+                            { staticClass: 'mb-1', attrs: { color: 'primary' } },
+                            e._l(e.selectedItems, function (t, a) {
+                                return s(
+                                    'v-list-item',
+                                    { key: a, staticClass: 'pl-2 pr-2', attrs: { dense: '' } },
+                                    [
+                                        s(
+                                            'v-list-item-avatar',
+                                            { attrs: { size: '28' } },
+                                            [
+                                                s(
+                                                    'v-icon',
+                                                    {
+                                                        staticClass: 'error lighten-1 white--text',
+                                                        attrs: { small: '' },
+                                                        on: {
+                                                            click: function (s) {
+                                                                return e.removeSelectedItem(t);
+                                                            },
+                                                        },
+                                                    },
+                                                    [e._v('mdi-delete-alert')]
+                                                ),
+                                            ],
+                                            1
+                                        ),
+                                        e._v(' '),
+                                        s(
+                                            'v-list-item-content',
+                                            [
+                                                s('v-list-item-title', { domProps: { textContent: e._s(t.name) } }),
+                                                e._v(' '),
+                                                s('v-list-item-subtitle', {
+                                                    domProps: { textContent: e._s(t.message) },
+                                                }),
+                                            ],
+                                            1
+                                        ),
+                                    ],
+                                    1
+                                );
+                            }),
+                            1
+                        ),
+                        e._v(' '),
+                        s('v-divider'),
+                        e._v(' '),
+                        s(
+                            'v-list-item',
+                            { attrs: { dense: '' } },
+                            [
+                                s(
+                                    'v-list-item-content',
+                                    [
+                                        s(
+                                            'v-row',
+                                            [
+                                                s(
+                                                    'v-col',
+                                                    [
+                                                        s('v-select', {
+                                                            staticClass: 'ml-1 pr-2',
+                                                            attrs: {
+                                                                items: e.ruleItems,
+                                                                'item-value': 'type',
+                                                                'item-text': 'name',
+                                                                label: '规则',
+                                                                outlined: '',
+                                                                dense: '',
+                                                                clearable: '',
+                                                                'return-object': '',
+                                                                'no-data-text': '空',
+                                                            },
+                                                            model: {
+                                                                value: e.selectedRule,
+                                                                callback: function (t) {
+                                                                    e.selectedRule = t;
+                                                                },
+                                                                expression: 'selectedRule',
+                                                            },
+                                                        }),
+                                                        e._v(' '),
+                                                        s(e.ruleParamSettingPanel, {
+                                                            ref: 'rulePanel',
+                                                            tag: 'component',
+                                                            model: {
+                                                                value: e.ruleParam,
+                                                                callback: function (t) {
+                                                                    e.ruleParam = t;
+                                                                },
+                                                                expression: 'ruleParam',
+                                                            },
+                                                        }),
+                                                        e._v(' '),
+                                                        s(
+                                                            'v-btn',
+                                                            {
+                                                                staticClass: 'ml-1',
+                                                                attrs: {
+                                                                    color: 'primary',
+                                                                    small: '',
+                                                                    disabled: e.isButtonDisabled,
+                                                                },
+                                                                on: { click: e.addRule },
+                                                            },
+                                                            [e._v('添加')]
+                                                        ),
+                                                    ],
+                                                    1
+                                                ),
+                                            ],
+                                            1
+                                        ),
+                                    ],
+                                    1
+                                ),
+                            ],
+                            1
+                        ),
+                    ],
+                    1
+                );
+            },
+            staticRenderFns: [],
+        },
+        undefined,
+        {
+            name: 'HRuleExpansionPanel',
+            components: {
+                HExpansionPanel: $e,
+                HPanelBetween: J(
+                    {
+                        render: function () {
+                            var e = this,
+                                t = e.$createElement,
+                                s = e._self._c || t;
+                            return s(
+                                'v-list-item',
+                                { staticClass: 'pa-0', attrs: { dense: '' } },
+                                [
+                                    s(
+                                        'v-list-item-content',
+                                        { staticClass: 'pb-0' },
+                                        [
+                                            s(
+                                                'v-form',
+                                                {
+                                                    ref: 'form',
+                                                    model: {
+                                                        value: e.valid,
+                                                        callback: function (t) {
+                                                            e.valid = t;
+                                                        },
+                                                        expression: 'valid',
+                                                    },
+                                                },
+                                                [
+                                                    s('v-text-field', {
+                                                        staticClass: 'ml-1 mb-0 pr-2',
+                                                        attrs: {
+                                                            label: 'Min',
+                                                            disabled: e.disabled,
+                                                            rules: e.minRule,
+                                                            placeholder: '请输入min值',
+                                                            type: 'number',
+                                                            outlined: '',
+                                                            dense: '',
+                                                            clearable: '',
+                                                            required: '',
+                                                            min: '0',
+                                                        },
+                                                        model: {
+                                                            value: e.min,
+                                                            callback: function (t) {
+                                                                e.min = t;
+                                                            },
+                                                            expression: 'min',
+                                                        },
+                                                    }),
+                                                    e._v(' '),
+                                                    s('v-text-field', {
+                                                        staticClass: 'ml-1 mb-0 pr-2',
+                                                        attrs: {
+                                                            label: 'Max',
+                                                            disabled: e.disabled,
+                                                            rules: e.maxRule,
+                                                            placeholder: '请输入Max值',
+                                                            type: 'number',
+                                                            outlined: '',
+                                                            dense: '',
+                                                            clearable: '',
+                                                            required: '',
+                                                        },
+                                                        model: {
+                                                            value: e.max,
+                                                            callback: function (t) {
+                                                                e.max = t;
+                                                            },
+                                                            expression: 'max',
+                                                        },
+                                                    }),
+                                                ],
+                                                1
+                                            ),
+                                        ],
+                                        1
+                                    ),
+                                    e._v(' '),
+                                    e.tooltip
+                                        ? s(
+                                              'v-list-item-action',
+                                              [
+                                                  s(
+                                                      'v-tooltip',
+                                                      {
+                                                          attrs: { left: '', 'max-width': '200px' },
+                                                          scopedSlots: e._u(
+                                                              [
+                                                                  {
+                                                                      key: 'activator',
+                                                                      fn: function (t) {
+                                                                          var a = t.on,
+                                                                              n = t.attrs;
+                                                                          return [
+                                                                              s(
+                                                                                  'v-icon',
+                                                                                  e._g(
+                                                                                      e._b(
+                                                                                          {
+                                                                                              attrs: {
+                                                                                                  color:
+                                                                                                      'grey lighten-1',
+                                                                                                  dark: '',
+                                                                                              },
+                                                                                          },
+                                                                                          'v-icon',
+                                                                                          n,
+                                                                                          !1
+                                                                                      ),
+                                                                                      a
+                                                                                  ),
+                                                                                  [e._v('mdi-information')]
+                                                                              ),
+                                                                          ];
+                                                                      },
+                                                                  },
+                                                              ],
+                                                              null,
+                                                              !1,
+                                                              36085519
+                                                          ),
+                                                      },
+                                                      [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
+                                                  ),
+                                              ],
+                                              1
+                                          )
+                                        : e._e(),
+                                ],
+                                1
+                            );
+                        },
+                        staticRenderFns: [],
+                    },
+                    undefined,
+                    {
+                        components: {
+                            VTextField: g,
+                            VForm: $,
+                            VListItemContent: p,
+                            VIcon: t,
+                            VTooltip: a,
+                            VListItemAction: c,
+                            VListItem: d,
+                        },
+                        name: 'HPanelBetween',
+                        props: {
+                            value: String,
+                            label: String,
+                            tooltip: String,
+                            disabled: { type: Boolean, default: !1 },
+                        },
+                        data: function () {
+                            return { valid: !0, betweenParam: '', min: '', max: '' };
+                        },
+                        computed: {
+                            minRule: function () {
+                                var e = this;
+                                return [
+                                    function (t) {
+                                        if (t) {
+                                            var s = parseInt(t);
+                                            return s < 0
+                                                ? 'min参数的值必须要大于等于0'
+                                                : !e.max || !(s >= parseInt(e.max)) || 'min值必须小于max值';
+                                        }
+                                        return '请设置min参数的值';
+                                    },
+                                ];
+                            },
+                            maxRule: function () {
+                                var e = this;
+                                return [
+                                    function (t) {
+                                        if (t) {
+                                            var s = parseInt(t);
+                                            return s <= 0
+                                                ? 'max参数的值必须要大于0'
+                                                : e.min && s <= parseInt(e.min)
+                                                ? 'max值必须大于min值'
+                                                : ((e.valid = !0), !0);
+                                        }
+                                        return '请设置max参数的值';
+                                    },
+                                ];
+                            },
+                        },
+                        watch: {
+                            value: {
+                                handler: function (e, t) {
+                                    (this.betweenParam = e), this.setParamValue(this.betweenParam);
+                                },
+                                immediate: !0,
+                            },
+                            betweenParam: {
+                                handler: function (e, t) {
+                                    this.$emit('input', e);
+                                },
+                            },
+                            min: {
+                                handler: function (e, t) {
+                                    this.betweenParam = e + ',' + this.max;
+                                },
+                            },
+                            max: {
+                                handler: function (e, t) {
+                                    this.betweenParam = this.min + ',' + e;
+                                },
+                            },
+                        },
+                        methods: {
+                            validate: function () {
+                                this.$refs.form.validate();
+                            },
+                            reset: function () {
+                                this.$refs.form.reset();
+                            },
+                            setParamValue: function (e) {
+                                if (e && -1 != e.search(',')) {
+                                    var t = this.$lib.lodash.split(e, ',');
+                                    t && ((this.min = t[0]), (this.max = t[1]));
+                                }
+                            },
+                        },
+                    },
+                    undefined,
+                    false,
+                    undefined,
+                    !1,
+                    void 0,
+                    void 0,
+                    void 0
+                ),
+                VSubheader: y,
+                VIcon: t,
+                VListItemAvatar: C,
+                VListItemTitle: x,
+                VListItemSubtitle: S,
+                VListItemContent: p,
+                VListItem: d,
+                VListItemGroup: H,
+                VDivider: P,
+                VSelect: k,
+                VBtn: s,
+                VCol: r,
+                VRow: l,
+            },
+            props: { value: { type: String, default: '' } },
+            data: function () {
+                return {
+                    expressions: '',
+                    ruleItems: [],
+                    ruleParamSettingPanel: '',
+                    ruleParam: '',
+                    selectedItems: [],
+                    selectedRule: {},
+                };
+            },
+            watch: {
+                value: {
+                    handler: function (e, t) {
+                        e && this.readExpressions(e);
+                    },
+                    immediate: !0,
+                },
+                expressions: {
+                    handler: function (e, t) {
+                        this.$emit('input', e);
+                    },
+                },
+                selectedRule: {
+                    handler: function (e, t) {
+                        e
+                            ? this.changeRuleSettingPanel(e.type)
+                            : ((this.ruleParamSettingPanel = ''), (this.ruleParam = ''));
+                    },
+                },
+                selectedItems: {
+                    handler: function (e, t) {
+                        this.expressions = this.constructExpression(e);
+                    },
+                },
+            },
+            computed: {
+                isButtonDisabled: function () {
+                    return !!this.$lib.lodash.isEmpty(this.selectedRule);
+                },
+            },
+            created: function () {
+                this.initRuleItems();
+            },
+            methods: {
+                initRuleItems: function () {
+                    this.$lib.lodash.isEmpty(this.ruleItems) && (this.ruleItems = this.$rules);
+                },
+                changeRuleSettingPanel: function (e) {
+                    var t = '',
+                        s = '';
+                    switch (e) {
+                        case 'between':
+                            (t = 'HPanelBetween'), (s = this.readSelectedItemParam(e));
+                            break;
+                        default:
+                            (t = ''), (s = '');
+                    }
+                    (this.ruleParamSettingPanel = t), (this.ruleParam = s);
+                },
+                findRuleItemByType: function (e) {
+                    return this.$lib.lodash.find(this.ruleItems, function (t) {
+                        return t.type === e;
+                    });
+                },
+                changeRuleItemStatus: function (e, t) {
+                    void 0 === t && (t = !0), (this.findRuleItemByType(e.type).disabled = t);
+                },
+                pushSelectedItem: function (e) {
+                    e && !e.disabled && (this.selectedItems.push(e), this.changeRuleItemStatus(e, !0));
+                },
+                removeSelectedItem: function (e) {
+                    (this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (t) {
+                        return t.type !== e.type;
+                    })),
+                        this.changeRuleItemStatus(e, !1),
+                        (this.selectedRule = {});
+                },
+                parseExpression: function (e) {
+                    var t = {};
+                    if (e)
+                        if (-1 != e.search(':')) {
+                            var s = this.$lib.lodash.split(e, ':');
+                            s && ((t.type = s[0]), (t.param = s[1]));
+                        } else (t.type = e), (t.param = '');
+                    return t;
+                },
+                addSelectedItemBySelector: function () {
+                    var e = this.readSelectedRule();
+                    this.pushSelectedItem(e);
+                },
+                addSelectedItemByExpression: function (e) {
+                    var t = this.parseExpression(e),
+                        s = this.findRuleItemByType(t.type);
+                    t.param && (s.param = t.param), this.pushSelectedItem(s);
+                },
+                readExpressions: function (e) {
+                    if (e)
+                        if (-1 !== e.indexOf('|')) {
+                            var t = this.$lib.lodash.split(e, '|');
+                            for (var s of t) this.addSelectedItemByExpression(s);
+                        } else this.addSelectedItemByExpression(e);
+                },
+                readSelectedItemParam: function (e) {
+                    var t = this.$lib.lodash.find(this.selectedItems, function (t) {
+                        return t.type === e;
+                    });
+                    return t && t.param ? t.param : '';
+                },
+                readSelectedRule: function () {
+                    if (this.$lib.lodash.isEmpty(this.selectedRule)) return '';
+                    var e = Object.assign({}, this.selectedRule);
+                    return this.ruleParam && (e.param = this.ruleParam), e;
+                },
+                addRule: function () {
+                    this.ruleParamSettingPanel
+                        ? (this.$refs.rulePanel.validate(),
+                          this.$refs.rulePanel.valid && this.addSelectedItemBySelector())
+                        : this.addSelectedItemBySelector();
+                },
+                constructExpression: function (e) {
+                    if (e && e.length > 0)
+                        return e
+                            .map(function (e) {
+                                return e.param ? e.type + ':' + e.param : e.type;
+                            })
+                            .join('|');
+                },
+            },
+        },
+        undefined,
+        false,
+        undefined,
+        !1,
+        void 0,
+        void 0,
+        void 0
+    ),
+    Ze = J(
+        {
+            render: function () {
+                var e = this,
+                    t = e.$createElement,
+                    s = e._self._c || t;
+                return s(
                     'v-expansion-panels',
                     { staticClass: 'mb-4', attrs: { focusable: '', mandatory: '' } },
                     [
@@ -5903,6 +6432,16 @@ var be = {
                             1
                         ),
                         e._v(' '),
+                        s('h-rule-expansion-panel', {
+                            model: {
+                                value: e.rules,
+                                callback: function (t) {
+                                    e.rules = t;
+                                },
+                                expression: 'rules',
+                            },
+                        }),
+                        e._v(' '),
                         s(
                             'h-expansion-panel',
                             { attrs: { index: 'icon', header: '图标' } },
@@ -6188,6 +6727,7 @@ var be = {
                 HPanelSelect: je,
                 HPanelSwitch: Ne,
                 HPanelTextField: We,
+                HRuleExpansionPanel: Qe,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -6197,6 +6737,14 @@ var be = {
             computed: {
                 properties: function () {
                     return this.dataObject[this.constants.annotations.xprops];
+                },
+                rules: {
+                    get: function () {
+                        return this.dataObject[this.constants.annotations.xrules];
+                    },
+                    set: function (e) {
+                        this.dataObject[this.constants.annotations.xrules] = e;
+                    },
                 },
                 isNumberType: function () {
                     return 'number' === this.properties.type;
@@ -6219,7 +6767,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ze = J(
+    et = J(
         {
             render: function () {
                 var e = this,
@@ -7672,701 +8220,7 @@ var be = {
                                                     HPanelSelect: je,
                                                     HPanelSwitch: Ne,
                                                     HPanelTextField: We,
-                                                    HRuleExpansionPanel: J(
-                                                        {
-                                                            render: function () {
-                                                                var e = this,
-                                                                    t = e.$createElement,
-                                                                    s = e._self._c || t;
-                                                                return s(
-                                                                    'h-expansion-panel',
-                                                                    { attrs: { index: 'rules', header: '校验' } },
-                                                                    [
-                                                                        s('v-subheader', [e._v('已配置规则')]),
-                                                                        e._v(' '),
-                                                                        s(
-                                                                            'v-list-item-group',
-                                                                            {
-                                                                                staticClass: 'mb-1',
-                                                                                attrs: { color: 'primary' },
-                                                                            },
-                                                                            e._l(e.selectedItems, function (t, a) {
-                                                                                return s(
-                                                                                    'v-list-item',
-                                                                                    {
-                                                                                        key: a,
-                                                                                        staticClass: 'pl-2 pr-2',
-                                                                                        attrs: { dense: '' },
-                                                                                    },
-                                                                                    [
-                                                                                        s(
-                                                                                            'v-list-item-avatar',
-                                                                                            { attrs: { size: '28' } },
-                                                                                            [
-                                                                                                s(
-                                                                                                    'v-icon',
-                                                                                                    {
-                                                                                                        staticClass:
-                                                                                                            'error lighten-1 white--text',
-                                                                                                        attrs: {
-                                                                                                            small: '',
-                                                                                                        },
-                                                                                                        on: {
-                                                                                                            click: function (
-                                                                                                                s
-                                                                                                            ) {
-                                                                                                                return e.removeSelectedItem(
-                                                                                                                    t
-                                                                                                                );
-                                                                                                            },
-                                                                                                        },
-                                                                                                    },
-                                                                                                    [
-                                                                                                        e._v(
-                                                                                                            'mdi-delete-alert'
-                                                                                                        ),
-                                                                                                    ]
-                                                                                                ),
-                                                                                            ],
-                                                                                            1
-                                                                                        ),
-                                                                                        e._v(' '),
-                                                                                        s(
-                                                                                            'v-list-item-content',
-                                                                                            [
-                                                                                                s('v-list-item-title', {
-                                                                                                    domProps: {
-                                                                                                        textContent: e._s(
-                                                                                                            t.name
-                                                                                                        ),
-                                                                                                    },
-                                                                                                }),
-                                                                                                e._v(' '),
-                                                                                                s(
-                                                                                                    'v-list-item-subtitle',
-                                                                                                    {
-                                                                                                        domProps: {
-                                                                                                            textContent: e._s(
-                                                                                                                t.message
-                                                                                                            ),
-                                                                                                        },
-                                                                                                    }
-                                                                                                ),
-                                                                                            ],
-                                                                                            1
-                                                                                        ),
-                                                                                    ],
-                                                                                    1
-                                                                                );
-                                                                            }),
-                                                                            1
-                                                                        ),
-                                                                        e._v(' '),
-                                                                        s('v-divider'),
-                                                                        e._v(' '),
-                                                                        s(
-                                                                            'v-list-item',
-                                                                            { attrs: { dense: '' } },
-                                                                            [
-                                                                                s(
-                                                                                    'v-list-item-content',
-                                                                                    [
-                                                                                        s(
-                                                                                            'v-row',
-                                                                                            [
-                                                                                                s(
-                                                                                                    'v-col',
-                                                                                                    [
-                                                                                                        s('v-select', {
-                                                                                                            staticClass:
-                                                                                                                'ml-1 pr-2',
-                                                                                                            attrs: {
-                                                                                                                items:
-                                                                                                                    e.ruleItems,
-                                                                                                                'item-value':
-                                                                                                                    'type',
-                                                                                                                'item-text':
-                                                                                                                    'name',
-                                                                                                                label:
-                                                                                                                    '规则',
-                                                                                                                outlined:
-                                                                                                                    '',
-                                                                                                                dense:
-                                                                                                                    '',
-                                                                                                                clearable:
-                                                                                                                    '',
-                                                                                                                'return-object':
-                                                                                                                    '',
-                                                                                                                'no-data-text':
-                                                                                                                    '空',
-                                                                                                            },
-                                                                                                            model: {
-                                                                                                                value:
-                                                                                                                    e.selectedRule,
-                                                                                                                callback: function (
-                                                                                                                    t
-                                                                                                                ) {
-                                                                                                                    e.selectedRule = t;
-                                                                                                                },
-                                                                                                                expression:
-                                                                                                                    'selectedRule',
-                                                                                                            },
-                                                                                                        }),
-                                                                                                        e._v(' '),
-                                                                                                        s(
-                                                                                                            e.ruleParamSettingPanel,
-                                                                                                            {
-                                                                                                                ref:
-                                                                                                                    'rulePanel',
-                                                                                                                tag:
-                                                                                                                    'component',
-                                                                                                                model: {
-                                                                                                                    value:
-                                                                                                                        e.ruleParam,
-                                                                                                                    callback: function (
-                                                                                                                        t
-                                                                                                                    ) {
-                                                                                                                        e.ruleParam = t;
-                                                                                                                    },
-                                                                                                                    expression:
-                                                                                                                        'ruleParam',
-                                                                                                                },
-                                                                                                            }
-                                                                                                        ),
-                                                                                                        e._v(' '),
-                                                                                                        s(
-                                                                                                            'v-btn',
-                                                                                                            {
-                                                                                                                staticClass:
-                                                                                                                    'ml-1',
-                                                                                                                attrs: {
-                                                                                                                    color:
-                                                                                                                        'primary',
-                                                                                                                    small:
-                                                                                                                        '',
-                                                                                                                    disabled:
-                                                                                                                        e.isButtonDisabled,
-                                                                                                                },
-                                                                                                                on: {
-                                                                                                                    click:
-                                                                                                                        e.addRule,
-                                                                                                                },
-                                                                                                            },
-                                                                                                            [
-                                                                                                                e._v(
-                                                                                                                    '添加'
-                                                                                                                ),
-                                                                                                            ]
-                                                                                                        ),
-                                                                                                    ],
-                                                                                                    1
-                                                                                                ),
-                                                                                            ],
-                                                                                            1
-                                                                                        ),
-                                                                                    ],
-                                                                                    1
-                                                                                ),
-                                                                            ],
-                                                                            1
-                                                                        ),
-                                                                    ],
-                                                                    1
-                                                                );
-                                                            },
-                                                            staticRenderFns: [],
-                                                        },
-                                                        undefined,
-                                                        {
-                                                            name: 'HRuleExpansionPanel',
-                                                            components: {
-                                                                HExpansionPanel: $e,
-                                                                HPanelBetween: J(
-                                                                    {
-                                                                        render: function () {
-                                                                            var e = this,
-                                                                                t = e.$createElement,
-                                                                                s = e._self._c || t;
-                                                                            return s(
-                                                                                'v-list-item',
-                                                                                {
-                                                                                    staticClass: 'pa-0',
-                                                                                    attrs: { dense: '' },
-                                                                                },
-                                                                                [
-                                                                                    s(
-                                                                                        'v-list-item-content',
-                                                                                        { staticClass: 'pb-0' },
-                                                                                        [
-                                                                                            s(
-                                                                                                'v-form',
-                                                                                                {
-                                                                                                    ref: 'form',
-                                                                                                    model: {
-                                                                                                        value: e.valid,
-                                                                                                        callback: function (
-                                                                                                            t
-                                                                                                        ) {
-                                                                                                            e.valid = t;
-                                                                                                        },
-                                                                                                        expression:
-                                                                                                            'valid',
-                                                                                                    },
-                                                                                                },
-                                                                                                [
-                                                                                                    s('v-text-field', {
-                                                                                                        staticClass:
-                                                                                                            'ml-1 mb-0 pr-2',
-                                                                                                        attrs: {
-                                                                                                            label:
-                                                                                                                'Min',
-                                                                                                            disabled:
-                                                                                                                e.disabled,
-                                                                                                            rules:
-                                                                                                                e.minRule,
-                                                                                                            placeholder:
-                                                                                                                '请输入min值',
-                                                                                                            type:
-                                                                                                                'number',
-                                                                                                            outlined:
-                                                                                                                '',
-                                                                                                            dense: '',
-                                                                                                            clearable:
-                                                                                                                '',
-                                                                                                            required:
-                                                                                                                '',
-                                                                                                            min: '0',
-                                                                                                        },
-                                                                                                        model: {
-                                                                                                            value:
-                                                                                                                e.min,
-                                                                                                            callback: function (
-                                                                                                                t
-                                                                                                            ) {
-                                                                                                                e.min = t;
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                                'min',
-                                                                                                        },
-                                                                                                    }),
-                                                                                                    e._v(' '),
-                                                                                                    s('v-text-field', {
-                                                                                                        staticClass:
-                                                                                                            'ml-1 mb-0 pr-2',
-                                                                                                        attrs: {
-                                                                                                            label:
-                                                                                                                'Max',
-                                                                                                            disabled:
-                                                                                                                e.disabled,
-                                                                                                            rules:
-                                                                                                                e.maxRule,
-                                                                                                            placeholder:
-                                                                                                                '请输入Max值',
-                                                                                                            type:
-                                                                                                                'number',
-                                                                                                            outlined:
-                                                                                                                '',
-                                                                                                            dense: '',
-                                                                                                            clearable:
-                                                                                                                '',
-                                                                                                            required:
-                                                                                                                '',
-                                                                                                        },
-                                                                                                        model: {
-                                                                                                            value:
-                                                                                                                e.max,
-                                                                                                            callback: function (
-                                                                                                                t
-                                                                                                            ) {
-                                                                                                                e.max = t;
-                                                                                                            },
-                                                                                                            expression:
-                                                                                                                'max',
-                                                                                                        },
-                                                                                                    }),
-                                                                                                ],
-                                                                                                1
-                                                                                            ),
-                                                                                        ],
-                                                                                        1
-                                                                                    ),
-                                                                                    e._v(' '),
-                                                                                    e.tooltip
-                                                                                        ? s(
-                                                                                              'v-list-item-action',
-                                                                                              [
-                                                                                                  s(
-                                                                                                      'v-tooltip',
-                                                                                                      {
-                                                                                                          attrs: {
-                                                                                                              left: '',
-                                                                                                              'max-width':
-                                                                                                                  '200px',
-                                                                                                          },
-                                                                                                          scopedSlots: e._u(
-                                                                                                              [
-                                                                                                                  {
-                                                                                                                      key:
-                                                                                                                          'activator',
-                                                                                                                      fn: function (
-                                                                                                                          t
-                                                                                                                      ) {
-                                                                                                                          var a =
-                                                                                                                                  t.on,
-                                                                                                                              n =
-                                                                                                                                  t.attrs;
-                                                                                                                          return [
-                                                                                                                              s(
-                                                                                                                                  'v-icon',
-                                                                                                                                  e._g(
-                                                                                                                                      e._b(
-                                                                                                                                          {
-                                                                                                                                              attrs: {
-                                                                                                                                                  color:
-                                                                                                                                                      'grey lighten-1',
-                                                                                                                                                  dark:
-                                                                                                                                                      '',
-                                                                                                                                              },
-                                                                                                                                          },
-                                                                                                                                          'v-icon',
-                                                                                                                                          n,
-                                                                                                                                          !1
-                                                                                                                                      ),
-                                                                                                                                      a
-                                                                                                                                  ),
-                                                                                                                                  [
-                                                                                                                                      e._v(
-                                                                                                                                          'mdi-information'
-                                                                                                                                      ),
-                                                                                                                                  ]
-                                                                                                                              ),
-                                                                                                                          ];
-                                                                                                                      },
-                                                                                                                  },
-                                                                                                              ],
-                                                                                                              null,
-                                                                                                              !1,
-                                                                                                              36085519
-                                                                                                          ),
-                                                                                                      },
-                                                                                                      [
-                                                                                                          e._v(' '),
-                                                                                                          s('span', [
-                                                                                                              e._v(
-                                                                                                                  e._s(
-                                                                                                                      e.tooltip
-                                                                                                                  )
-                                                                                                              ),
-                                                                                                          ]),
-                                                                                                      ]
-                                                                                                  ),
-                                                                                              ],
-                                                                                              1
-                                                                                          )
-                                                                                        : e._e(),
-                                                                                ],
-                                                                                1
-                                                                            );
-                                                                        },
-                                                                        staticRenderFns: [],
-                                                                    },
-                                                                    undefined,
-                                                                    {
-                                                                        components: {
-                                                                            VTextField: g,
-                                                                            VForm: $,
-                                                                            VListItemContent: p,
-                                                                            VIcon: t,
-                                                                            VTooltip: a,
-                                                                            VListItemAction: c,
-                                                                            VListItem: d,
-                                                                        },
-                                                                        name: 'HPanelBetween',
-                                                                        props: {
-                                                                            value: String,
-                                                                            label: String,
-                                                                            tooltip: String,
-                                                                            disabled: { type: Boolean, default: !1 },
-                                                                        },
-                                                                        data: function () {
-                                                                            return {
-                                                                                valid: !0,
-                                                                                betweenParam: '',
-                                                                                min: '',
-                                                                                max: '',
-                                                                            };
-                                                                        },
-                                                                        computed: {
-                                                                            minRule: function () {
-                                                                                var e = this;
-                                                                                return [
-                                                                                    function (t) {
-                                                                                        if (t) {
-                                                                                            var s = parseInt(t);
-                                                                                            return s < 0
-                                                                                                ? 'min参数的值必须要大于等于0'
-                                                                                                : !e.max ||
-                                                                                                      !(
-                                                                                                          s >=
-                                                                                                          parseInt(
-                                                                                                              e.max
-                                                                                                          )
-                                                                                                      ) ||
-                                                                                                      'min值必须小于max值';
-                                                                                        }
-                                                                                        return '请设置min参数的值';
-                                                                                    },
-                                                                                ];
-                                                                            },
-                                                                            maxRule: function () {
-                                                                                var e = this;
-                                                                                return [
-                                                                                    function (t) {
-                                                                                        if (t) {
-                                                                                            var s = parseInt(t);
-                                                                                            return s <= 0
-                                                                                                ? 'max参数的值必须要大于0'
-                                                                                                : e.min &&
-                                                                                                  s <= parseInt(e.min)
-                                                                                                ? 'max值必须大于min值'
-                                                                                                : ((e.valid = !0), !0);
-                                                                                        }
-                                                                                        return '请设置max参数的值';
-                                                                                    },
-                                                                                ];
-                                                                            },
-                                                                        },
-                                                                        watch: {
-                                                                            value: {
-                                                                                handler: function (e, t) {
-                                                                                    (this.betweenParam = e),
-                                                                                        this.setParamValue(
-                                                                                            this.betweenParam
-                                                                                        );
-                                                                                },
-                                                                                immediate: !0,
-                                                                            },
-                                                                            betweenParam: {
-                                                                                handler: function (e, t) {
-                                                                                    this.$emit('input', e);
-                                                                                },
-                                                                            },
-                                                                            min: {
-                                                                                handler: function (e, t) {
-                                                                                    this.betweenParam =
-                                                                                        e + ',' + this.max;
-                                                                                },
-                                                                            },
-                                                                            max: {
-                                                                                handler: function (e, t) {
-                                                                                    this.betweenParam =
-                                                                                        this.min + ',' + e;
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                        methods: {
-                                                                            validate: function () {
-                                                                                this.$refs.form.validate();
-                                                                            },
-                                                                            reset: function () {
-                                                                                this.$refs.form.reset();
-                                                                            },
-                                                                            setParamValue: function (e) {
-                                                                                if (e && -1 != e.search(',')) {
-                                                                                    var t = this.$lib.lodash.split(
-                                                                                        e,
-                                                                                        ','
-                                                                                    );
-                                                                                    t &&
-                                                                                        ((this.min = t[0]),
-                                                                                        (this.max = t[1]));
-                                                                                }
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    undefined,
-                                                                    false,
-                                                                    undefined,
-                                                                    !1,
-                                                                    void 0,
-                                                                    void 0,
-                                                                    void 0
-                                                                ),
-                                                                VSubheader: y,
-                                                                VIcon: t,
-                                                                VListItemAvatar: C,
-                                                                VListItemTitle: x,
-                                                                VListItemSubtitle: S,
-                                                                VListItemContent: p,
-                                                                VListItem: d,
-                                                                VListItemGroup: H,
-                                                                VDivider: P,
-                                                                VSelect: k,
-                                                                VBtn: s,
-                                                                VCol: r,
-                                                                VRow: l,
-                                                            },
-                                                            props: { value: { type: String, default: '' } },
-                                                            data: function () {
-                                                                return {
-                                                                    expressions: '',
-                                                                    ruleItems: [],
-                                                                    ruleParamSettingPanel: '',
-                                                                    ruleParam: '',
-                                                                    selectedItems: [],
-                                                                    selectedRule: {},
-                                                                };
-                                                            },
-                                                            watch: {
-                                                                value: {
-                                                                    handler: function (e, t) {
-                                                                        e &&
-                                                                            (this.$lib.lodash.isEmpty(this.ruleItems) &&
-                                                                                (this.ruleItems = this.$rules),
-                                                                            this.readExpressions(e));
-                                                                    },
-                                                                    immediate: !0,
-                                                                },
-                                                                expressions: {
-                                                                    handler: function (e, t) {
-                                                                        this.$emit('input', e);
-                                                                    },
-                                                                },
-                                                                selectedRule: {
-                                                                    handler: function (e, t) {
-                                                                        e
-                                                                            ? this.changeRuleSettingPanel(e.type)
-                                                                            : ((this.ruleParamSettingPanel = ''),
-                                                                              (this.ruleParam = ''));
-                                                                    },
-                                                                },
-                                                                selectedItems: {
-                                                                    handler: function (e, t) {
-                                                                        this.expressions = this.constructExpression(e);
-                                                                    },
-                                                                },
-                                                            },
-                                                            computed: {
-                                                                isButtonDisabled: function () {
-                                                                    return !!this.$lib.lodash.isEmpty(
-                                                                        this.selectedRule
-                                                                    );
-                                                                },
-                                                            },
-                                                            methods: {
-                                                                changeRuleSettingPanel: function (e) {
-                                                                    var t = '',
-                                                                        s = '';
-                                                                    switch (e) {
-                                                                        case 'between':
-                                                                            (t = 'HPanelBetween'),
-                                                                                (s = this.readSelectedItemParam(e));
-                                                                            break;
-                                                                        default:
-                                                                            (t = ''), (s = '');
-                                                                    }
-                                                                    (this.ruleParamSettingPanel = t),
-                                                                        (this.ruleParam = s);
-                                                                },
-                                                                findRuleItemByType: function (e) {
-                                                                    return this.$lib.lodash.find(
-                                                                        this.ruleItems,
-                                                                        function (t) {
-                                                                            return t.type === e;
-                                                                        }
-                                                                    );
-                                                                },
-                                                                changeRuleItemStatus: function (e, t) {
-                                                                    void 0 === t && (t = !0),
-                                                                        (this.findRuleItemByType(e.type).disabled = t);
-                                                                },
-                                                                pushSelectedItem: function (e) {
-                                                                    e &&
-                                                                        !e.disabled &&
-                                                                        (this.selectedItems.push(e),
-                                                                        this.changeRuleItemStatus(e, !0));
-                                                                },
-                                                                removeSelectedItem: function (e) {
-                                                                    (this.selectedItems = this.$lib.lodash.remove(
-                                                                        this.selectedItems,
-                                                                        function (t) {
-                                                                            return t.type !== e.type;
-                                                                        }
-                                                                    )),
-                                                                        this.changeRuleItemStatus(e, !1),
-                                                                        (this.selectedRule = {});
-                                                                },
-                                                                parseExpression: function (e) {
-                                                                    var t = {};
-                                                                    if (e)
-                                                                        if (-1 != e.search(':')) {
-                                                                            var s = this.$lib.lodash.split(e, ':');
-                                                                            s && ((t.type = s[0]), (t.param = s[1]));
-                                                                        } else (t.type = e), (t.param = '');
-                                                                    return t;
-                                                                },
-                                                                addSelectedItemBySelector: function () {
-                                                                    var e = this.readSelectedRule();
-                                                                    this.pushSelectedItem(e);
-                                                                },
-                                                                addSelectedItemByExpression: function (e) {
-                                                                    var t = this.parseExpression(e),
-                                                                        s = this.findRuleItemByType(t.type);
-                                                                    t.param && (s.param = t.param),
-                                                                        this.pushSelectedItem(s);
-                                                                },
-                                                                readExpressions: function (e) {
-                                                                    if (e)
-                                                                        if (-1 !== e.indexOf('|')) {
-                                                                            var t = this.$lib.lodash.split(e, '|');
-                                                                            for (var s of t)
-                                                                                this.addSelectedItemByExpression(s);
-                                                                        } else this.addSelectedItemByExpression(e);
-                                                                },
-                                                                readSelectedItemParam: function (e) {
-                                                                    var t = this.$lib.lodash.find(
-                                                                        this.selectedItems,
-                                                                        function (t) {
-                                                                            return t.type === e;
-                                                                        }
-                                                                    );
-                                                                    return t && t.param ? t.param : '';
-                                                                },
-                                                                readSelectedRule: function () {
-                                                                    if (this.$lib.lodash.isEmpty(this.selectedRule))
-                                                                        return '';
-                                                                    var e = Object.assign({}, this.selectedRule);
-                                                                    return (
-                                                                        this.ruleParam && (e.param = this.ruleParam), e
-                                                                    );
-                                                                },
-                                                                addRule: function () {
-                                                                    this.ruleParamSettingPanel
-                                                                        ? (this.$refs.rulePanel.validate(),
-                                                                          this.$refs.rulePanel.valid &&
-                                                                              this.addSelectedItemBySelector())
-                                                                        : this.addSelectedItemBySelector();
-                                                                },
-                                                                constructExpression: function (e) {
-                                                                    if (e && e.length > 0)
-                                                                        return e
-                                                                            .map(function (e) {
-                                                                                return e.param
-                                                                                    ? e.type + ':' + e.param
-                                                                                    : e.type;
-                                                                            })
-                                                                            .join('|');
-                                                                },
-                                                            },
-                                                        },
-                                                        undefined,
-                                                        false,
-                                                        undefined,
-                                                        !1,
-                                                        void 0,
-                                                        void 0,
-                                                        void 0
-                                                    ),
+                                                    HRuleExpansionPanel: Qe,
                                                     VExpansionPanels: w,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
@@ -8406,7 +8260,7 @@ var be = {
                                             void 0,
                                             void 0
                                         ),
-                                        TEXT_AREA: Qe,
+                                        TEXT_AREA: Ze,
                                         SLIDER: qe,
                                         RANGE_SLIDER: Ye,
                                         CHECKBOX: ze,
@@ -9373,8 +9227,8 @@ var be = {
         void 0,
         void 0
     );
-(Ze.install = function (e) {
-    e.component(Ze.name, Ze);
+(et.install = function (e) {
+    e.component(et.name, et);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && Ze.install(window.Vue);
-export { Ze as HFormGenerator };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && et.install(window.Vue);
+export { et as HFormGenerator };

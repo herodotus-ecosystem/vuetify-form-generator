@@ -94,10 +94,10 @@
     function D(e) {
         c.lib.storageSync.setItem(H, V.default(e));
     }
-    function F(e) {
+    function E(e) {
         c.lib.storageSync.setItem(O, V.default(e));
     }
-    var E = {
+    var F = {
             TEXT_FIELD: {
                 index: 'TEXT_FIELD',
                 schema: {
@@ -237,20 +237,20 @@
                 list: [
                     {
                         configs: {
-                            title: E.TEXT_FIELD.schema.title,
+                            title: F.TEXT_FIELD.schema.title,
                             icon: 'mdi-form-textbox',
                             name: 'TextField',
                             document: 'https://vuetifyjs.com/zh-Hans/components/text-fields/',
-                            schema: E.TEXT_FIELD.index,
+                            schema: F.TEXT_FIELD.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.TEXT_AREA.schema.title,
+                            title: F.TEXT_AREA.schema.title,
                             icon: 'mdi-form-textarea',
                             name: 'TextArea',
                             document: 'https://vuetifyjs.com/zh-Hans/components/textareas/',
-                            schema: E.TEXT_AREA.index,
+                            schema: F.TEXT_AREA.index,
                         },
                     },
                 ],
@@ -260,101 +260,101 @@
                 list: [
                     {
                         configs: {
-                            title: E.SLIDER.schema.title,
+                            title: F.SLIDER.schema.title,
                             icon: 'mdi-tune-variant',
                             name: 'Slider',
                             document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-                            schema: E.SLIDER.index,
+                            schema: F.SLIDER.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.RANGE_SLIDER.schema.title,
+                            title: F.RANGE_SLIDER.schema.title,
                             icon: 'mdi-valve-closed',
                             name: 'Range_Slider',
                             document: 'https://vuetifyjs.com/zh-Hans/components/sliders/',
-                            schema: E.RANGE_SLIDER.index,
+                            schema: F.RANGE_SLIDER.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.CHECKBOX.schema.title,
+                            title: F.CHECKBOX.schema.title,
                             icon: 'mdi-checkbox-marked',
                             name: 'Checkbox',
                             document: 'https://vuetifyjs.com/zh-Hans/components/checkboxes/',
-                            schema: E.CHECKBOX.index,
+                            schema: F.CHECKBOX.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.SWITCHS.schema.title,
+                            title: F.SWITCHS.schema.title,
                             icon: 'mdi-toggle-switch',
                             name: 'Switch',
                             document: 'https://vuetifyjs.com/zh-Hans/components/switches/',
-                            schema: E.SWITCHS.index,
+                            schema: F.SWITCHS.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.DATE_PICKER.schema.title,
+                            title: F.DATE_PICKER.schema.title,
                             icon: 'mdi-calendar',
                             name: 'Date',
                             document: 'https://vuetifyjs.com/zh-Hans/components/date-pickers/',
-                            schema: E.DATE_PICKER.index,
+                            schema: F.DATE_PICKER.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.TIME_PICKER.schema.title,
+                            title: F.TIME_PICKER.schema.title,
                             icon: 'mdi-clock-outline',
                             name: 'Time',
                             document: 'https://vuetifyjs.com/zh-Hans/components/time-pickers/',
-                            schema: E.TIME_PICKER.index,
+                            schema: F.TIME_PICKER.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.SELECT_SINGLE.schema.title,
+                            title: F.SELECT_SINGLE.schema.title,
                             icon: 'mdi-form-dropdown',
                             name: 'Select',
                             document: 'https://vuetifyjs.com/zh-Hans/components/selects/',
-                            schema: E.SELECT_SINGLE.index,
+                            schema: F.SELECT_SINGLE.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.COMBOBOX.schema.title,
+                            title: F.COMBOBOX.schema.title,
                             icon: 'mdi-vector-difference-ab',
                             name: 'Combobox',
                             document: 'https://vuetifyjs.com/zh-Hans/components/combobox/',
-                            schema: E.COMBOBOX.index,
+                            schema: F.COMBOBOX.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.RADIO.schema.title,
+                            title: F.RADIO.schema.title,
                             icon: 'mdi-checkbox-marked-circle',
                             name: 'Select',
                             document: 'https://vuetifyjs.com/zh-Hans/components/selection-controls/',
-                            schema: E.RADIO.index,
+                            schema: F.RADIO.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.COLOR_PICKER.schema.title,
+                            title: F.COLOR_PICKER.schema.title,
                             icon: 'mdi-calendar',
                             name: 'Select',
                             document: 'https://vuetifyjs.com/zh-Hans/components/color-pickers/',
-                            schema: E.COLOR_PICKER.index,
+                            schema: F.COLOR_PICKER.index,
                         },
                     },
                     {
                         configs: {
-                            title: E.FILE_INPUT.schema.title,
+                            title: F.FILE_INPUT.schema.title,
                             icon: 'mdi-calendar',
                             name: 'Select',
                             document: 'https://vuetifyjs.com/zh-Hans/components/file-inputs/',
-                            schema: E.FILE_INPUT.index,
+                            schema: F.FILE_INPUT.index,
                         },
                     },
                 ],
@@ -3674,7 +3674,7 @@
                 },
             },
         },
-        Fe = P.default(
+        Ee = P.default(
             {
                 render: function () {
                     var e = this,
@@ -4120,7 +4120,7 @@
             void 0,
             void 0
         ),
-        Ee = {
+        Fe = {
             name: 'HSingleSelectPanel',
             components: {
                 HExpansionPanel: se,
@@ -4893,7 +4893,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            Ee,
+            Fe,
             undefined,
             false,
             undefined,
@@ -5748,6 +5748,532 @@
             void 0
         ),
         Me = {
+            components: {
+                VTextField: a.VTextField,
+                VForm: a.VForm,
+                VListItemContent: a.VListItemContent,
+                VIcon: a.VIcon,
+                VTooltip: a.VTooltip,
+                VListItemAction: a.VListItemAction,
+                VListItem: a.VListItem,
+            },
+            name: 'HPanelBetween',
+            props: { value: String, label: String, tooltip: String, disabled: { type: Boolean, default: !1 } },
+            data: function () {
+                return { valid: !0, betweenParam: '', min: '', max: '' };
+            },
+            computed: {
+                minRule: function () {
+                    var e = this;
+                    return [
+                        function (t) {
+                            if (t) {
+                                var s = parseInt(t);
+                                return s < 0
+                                    ? 'min参数的值必须要大于等于0'
+                                    : !e.max || !(s >= parseInt(e.max)) || 'min值必须小于max值';
+                            }
+                            return '请设置min参数的值';
+                        },
+                    ];
+                },
+                maxRule: function () {
+                    var e = this;
+                    return [
+                        function (t) {
+                            if (t) {
+                                var s = parseInt(t);
+                                return s <= 0
+                                    ? 'max参数的值必须要大于0'
+                                    : e.min && s <= parseInt(e.min)
+                                    ? 'max值必须大于min值'
+                                    : ((e.valid = !0), !0);
+                            }
+                            return '请设置max参数的值';
+                        },
+                    ];
+                },
+            },
+            watch: {
+                value: {
+                    handler: function (e, t) {
+                        (this.betweenParam = e), this.setParamValue(this.betweenParam);
+                    },
+                    immediate: !0,
+                },
+                betweenParam: {
+                    handler: function (e, t) {
+                        this.$emit('input', e);
+                    },
+                },
+                min: {
+                    handler: function (e, t) {
+                        this.betweenParam = e + ',' + this.max;
+                    },
+                },
+                max: {
+                    handler: function (e, t) {
+                        this.betweenParam = this.min + ',' + e;
+                    },
+                },
+            },
+            methods: {
+                validate: function () {
+                    this.$refs.form.validate();
+                },
+                reset: function () {
+                    this.$refs.form.reset();
+                },
+                setParamValue: function (e) {
+                    if (e && -1 != e.search(',')) {
+                        var t = this.$lib.lodash.split(e, ',');
+                        t && ((this.min = t[0]), (this.max = t[1]));
+                    }
+                },
+            },
+        },
+        ze = {
+            name: 'HRuleExpansionPanel',
+            components: {
+                HExpansionPanel: se,
+                HPanelBetween: P.default(
+                    {
+                        render: function () {
+                            var e = this,
+                                t = e.$createElement,
+                                s = e._self._c || t;
+                            return s(
+                                'v-list-item',
+                                { staticClass: 'pa-0', attrs: { dense: '' } },
+                                [
+                                    s(
+                                        'v-list-item-content',
+                                        { staticClass: 'pb-0' },
+                                        [
+                                            s(
+                                                'v-form',
+                                                {
+                                                    ref: 'form',
+                                                    model: {
+                                                        value: e.valid,
+                                                        callback: function (t) {
+                                                            e.valid = t;
+                                                        },
+                                                        expression: 'valid',
+                                                    },
+                                                },
+                                                [
+                                                    s('v-text-field', {
+                                                        staticClass: 'ml-1 mb-0 pr-2',
+                                                        attrs: {
+                                                            label: 'Min',
+                                                            disabled: e.disabled,
+                                                            rules: e.minRule,
+                                                            placeholder: '请输入min值',
+                                                            type: 'number',
+                                                            outlined: '',
+                                                            dense: '',
+                                                            clearable: '',
+                                                            required: '',
+                                                            min: '0',
+                                                        },
+                                                        model: {
+                                                            value: e.min,
+                                                            callback: function (t) {
+                                                                e.min = t;
+                                                            },
+                                                            expression: 'min',
+                                                        },
+                                                    }),
+                                                    e._v(' '),
+                                                    s('v-text-field', {
+                                                        staticClass: 'ml-1 mb-0 pr-2',
+                                                        attrs: {
+                                                            label: 'Max',
+                                                            disabled: e.disabled,
+                                                            rules: e.maxRule,
+                                                            placeholder: '请输入Max值',
+                                                            type: 'number',
+                                                            outlined: '',
+                                                            dense: '',
+                                                            clearable: '',
+                                                            required: '',
+                                                        },
+                                                        model: {
+                                                            value: e.max,
+                                                            callback: function (t) {
+                                                                e.max = t;
+                                                            },
+                                                            expression: 'max',
+                                                        },
+                                                    }),
+                                                ],
+                                                1
+                                            ),
+                                        ],
+                                        1
+                                    ),
+                                    e._v(' '),
+                                    e.tooltip
+                                        ? s(
+                                              'v-list-item-action',
+                                              [
+                                                  s(
+                                                      'v-tooltip',
+                                                      {
+                                                          attrs: { left: '', 'max-width': '200px' },
+                                                          scopedSlots: e._u(
+                                                              [
+                                                                  {
+                                                                      key: 'activator',
+                                                                      fn: function (t) {
+                                                                          var a = t.on,
+                                                                              n = t.attrs;
+                                                                          return [
+                                                                              s(
+                                                                                  'v-icon',
+                                                                                  e._g(
+                                                                                      e._b(
+                                                                                          {
+                                                                                              attrs: {
+                                                                                                  color:
+                                                                                                      'grey lighten-1',
+                                                                                                  dark: '',
+                                                                                              },
+                                                                                          },
+                                                                                          'v-icon',
+                                                                                          n,
+                                                                                          !1
+                                                                                      ),
+                                                                                      a
+                                                                                  ),
+                                                                                  [e._v('mdi-information')]
+                                                                              ),
+                                                                          ];
+                                                                      },
+                                                                  },
+                                                              ],
+                                                              null,
+                                                              !1,
+                                                              36085519
+                                                          ),
+                                                      },
+                                                      [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
+                                                  ),
+                                              ],
+                                              1
+                                          )
+                                        : e._e(),
+                                ],
+                                1
+                            );
+                        },
+                        staticRenderFns: [],
+                    },
+                    undefined,
+                    Me,
+                    undefined,
+                    false,
+                    undefined,
+                    !1,
+                    void 0,
+                    void 0,
+                    void 0
+                ),
+                VSubheader: a.VSubheader,
+                VIcon: a.VIcon,
+                VListItemAvatar: a.VListItemAvatar,
+                VListItemTitle: a.VListItemTitle,
+                VListItemSubtitle: a.VListItemSubtitle,
+                VListItemContent: a.VListItemContent,
+                VListItem: a.VListItem,
+                VListItemGroup: a.VListItemGroup,
+                VDivider: a.VDivider,
+                VSelect: a.VSelect,
+                VBtn: a.VBtn,
+                VCol: a.VCol,
+                VRow: a.VRow,
+            },
+            props: { value: { type: String, default: '' } },
+            data: function () {
+                return {
+                    expressions: '',
+                    ruleItems: [],
+                    ruleParamSettingPanel: '',
+                    ruleParam: '',
+                    selectedItems: [],
+                    selectedRule: {},
+                };
+            },
+            watch: {
+                value: {
+                    handler: function (e, t) {
+                        e && this.readExpressions(e);
+                    },
+                    immediate: !0,
+                },
+                expressions: {
+                    handler: function (e, t) {
+                        this.$emit('input', e);
+                    },
+                },
+                selectedRule: {
+                    handler: function (e, t) {
+                        e
+                            ? this.changeRuleSettingPanel(e.type)
+                            : ((this.ruleParamSettingPanel = ''), (this.ruleParam = ''));
+                    },
+                },
+                selectedItems: {
+                    handler: function (e, t) {
+                        this.expressions = this.constructExpression(e);
+                    },
+                },
+            },
+            computed: {
+                isButtonDisabled: function () {
+                    return !!this.$lib.lodash.isEmpty(this.selectedRule);
+                },
+            },
+            created: function () {
+                this.initRuleItems();
+            },
+            methods: {
+                initRuleItems: function () {
+                    this.$lib.lodash.isEmpty(this.ruleItems) && (this.ruleItems = this.$rules);
+                },
+                changeRuleSettingPanel: function (e) {
+                    var t = '',
+                        s = '';
+                    switch (e) {
+                        case 'between':
+                            (t = 'HPanelBetween'), (s = this.readSelectedItemParam(e));
+                            break;
+                        default:
+                            (t = ''), (s = '');
+                    }
+                    (this.ruleParamSettingPanel = t), (this.ruleParam = s);
+                },
+                findRuleItemByType: function (e) {
+                    return this.$lib.lodash.find(this.ruleItems, function (t) {
+                        return t.type === e;
+                    });
+                },
+                changeRuleItemStatus: function (e, t) {
+                    void 0 === t && (t = !0), (this.findRuleItemByType(e.type).disabled = t);
+                },
+                pushSelectedItem: function (e) {
+                    e && !e.disabled && (this.selectedItems.push(e), this.changeRuleItemStatus(e, !0));
+                },
+                removeSelectedItem: function (e) {
+                    (this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (t) {
+                        return t.type !== e.type;
+                    })),
+                        this.changeRuleItemStatus(e, !1),
+                        (this.selectedRule = {});
+                },
+                parseExpression: function (e) {
+                    var t = {};
+                    if (e)
+                        if (-1 != e.search(':')) {
+                            var s = this.$lib.lodash.split(e, ':');
+                            s && ((t.type = s[0]), (t.param = s[1]));
+                        } else (t.type = e), (t.param = '');
+                    return t;
+                },
+                addSelectedItemBySelector: function () {
+                    var e = this.readSelectedRule();
+                    this.pushSelectedItem(e);
+                },
+                addSelectedItemByExpression: function (e) {
+                    var t = this.parseExpression(e),
+                        s = this.findRuleItemByType(t.type);
+                    t.param && (s.param = t.param), this.pushSelectedItem(s);
+                },
+                readExpressions: function (e) {
+                    if (e)
+                        if (-1 !== e.indexOf('|')) {
+                            var t = this.$lib.lodash.split(e, '|');
+                            for (var s of t) this.addSelectedItemByExpression(s);
+                        } else this.addSelectedItemByExpression(e);
+                },
+                readSelectedItemParam: function (e) {
+                    var t = this.$lib.lodash.find(this.selectedItems, function (t) {
+                        return t.type === e;
+                    });
+                    return t && t.param ? t.param : '';
+                },
+                readSelectedRule: function () {
+                    if (this.$lib.lodash.isEmpty(this.selectedRule)) return '';
+                    var e = Object.assign({}, this.selectedRule);
+                    return this.ruleParam && (e.param = this.ruleParam), e;
+                },
+                addRule: function () {
+                    this.ruleParamSettingPanel
+                        ? (this.$refs.rulePanel.validate(),
+                          this.$refs.rulePanel.valid && this.addSelectedItemBySelector())
+                        : this.addSelectedItemBySelector();
+                },
+                constructExpression: function (e) {
+                    if (e && e.length > 0)
+                        return e
+                            .map(function (e) {
+                                return e.param ? e.type + ':' + e.param : e.type;
+                            })
+                            .join('|');
+                },
+            },
+        },
+        We = P.default(
+            {
+                render: function () {
+                    var e = this,
+                        t = e.$createElement,
+                        s = e._self._c || t;
+                    return s(
+                        'h-expansion-panel',
+                        { attrs: { index: 'rules', header: '校验' } },
+                        [
+                            s('v-subheader', [e._v('已配置规则')]),
+                            e._v(' '),
+                            s(
+                                'v-list-item-group',
+                                { staticClass: 'mb-1', attrs: { color: 'primary' } },
+                                e._l(e.selectedItems, function (t, a) {
+                                    return s(
+                                        'v-list-item',
+                                        { key: a, staticClass: 'pl-2 pr-2', attrs: { dense: '' } },
+                                        [
+                                            s(
+                                                'v-list-item-avatar',
+                                                { attrs: { size: '28' } },
+                                                [
+                                                    s(
+                                                        'v-icon',
+                                                        {
+                                                            staticClass: 'error lighten-1 white--text',
+                                                            attrs: { small: '' },
+                                                            on: {
+                                                                click: function (s) {
+                                                                    return e.removeSelectedItem(t);
+                                                                },
+                                                            },
+                                                        },
+                                                        [e._v('mdi-delete-alert')]
+                                                    ),
+                                                ],
+                                                1
+                                            ),
+                                            e._v(' '),
+                                            s(
+                                                'v-list-item-content',
+                                                [
+                                                    s('v-list-item-title', { domProps: { textContent: e._s(t.name) } }),
+                                                    e._v(' '),
+                                                    s('v-list-item-subtitle', {
+                                                        domProps: { textContent: e._s(t.message) },
+                                                    }),
+                                                ],
+                                                1
+                                            ),
+                                        ],
+                                        1
+                                    );
+                                }),
+                                1
+                            ),
+                            e._v(' '),
+                            s('v-divider'),
+                            e._v(' '),
+                            s(
+                                'v-list-item',
+                                { attrs: { dense: '' } },
+                                [
+                                    s(
+                                        'v-list-item-content',
+                                        [
+                                            s(
+                                                'v-row',
+                                                [
+                                                    s(
+                                                        'v-col',
+                                                        [
+                                                            s('v-select', {
+                                                                staticClass: 'ml-1 pr-2',
+                                                                attrs: {
+                                                                    items: e.ruleItems,
+                                                                    'item-value': 'type',
+                                                                    'item-text': 'name',
+                                                                    label: '规则',
+                                                                    outlined: '',
+                                                                    dense: '',
+                                                                    clearable: '',
+                                                                    'return-object': '',
+                                                                    'no-data-text': '空',
+                                                                },
+                                                                model: {
+                                                                    value: e.selectedRule,
+                                                                    callback: function (t) {
+                                                                        e.selectedRule = t;
+                                                                    },
+                                                                    expression: 'selectedRule',
+                                                                },
+                                                            }),
+                                                            e._v(' '),
+                                                            s(e.ruleParamSettingPanel, {
+                                                                ref: 'rulePanel',
+                                                                tag: 'component',
+                                                                model: {
+                                                                    value: e.ruleParam,
+                                                                    callback: function (t) {
+                                                                        e.ruleParam = t;
+                                                                    },
+                                                                    expression: 'ruleParam',
+                                                                },
+                                                            }),
+                                                            e._v(' '),
+                                                            s(
+                                                                'v-btn',
+                                                                {
+                                                                    staticClass: 'ml-1',
+                                                                    attrs: {
+                                                                        color: 'primary',
+                                                                        small: '',
+                                                                        disabled: e.isButtonDisabled,
+                                                                    },
+                                                                    on: { click: e.addRule },
+                                                                },
+                                                                [e._v('添加')]
+                                                            ),
+                                                        ],
+                                                        1
+                                                    ),
+                                                ],
+                                                1
+                                            ),
+                                        ],
+                                        1
+                                    ),
+                                ],
+                                1
+                            ),
+                        ],
+                        1
+                    );
+                },
+                staticRenderFns: [],
+            },
+            undefined,
+            ze,
+            undefined,
+            false,
+            undefined,
+            !1,
+            void 0,
+            void 0,
+            void 0
+        ),
+        qe = {
             name: 'HTextAreaPanel',
             components: {
                 HExpansionPanel: se,
@@ -5757,6 +6283,7 @@
                 HPanelSelect: xe,
                 HPanelSwitch: ke,
                 HPanelTextField: Ce,
+                HRuleExpansionPanel: We,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -5766,6 +6293,14 @@
             computed: {
                 properties: function () {
                     return this.dataObject[this.constants.annotations.xprops];
+                },
+                rules: {
+                    get: function () {
+                        return this.dataObject[this.constants.annotations.xrules];
+                    },
+                    set: function (e) {
+                        this.dataObject[this.constants.annotations.xrules] = e;
+                    },
                 },
                 isNumberType: function () {
                     return 'number' === this.properties.type;
@@ -5780,7 +6315,7 @@
                 },
             },
         },
-        ze = P.default(
+        Ge = P.default(
             {
                 render: function () {
                     var e = this,
@@ -6102,6 +6637,16 @@
                                 1
                             ),
                             e._v(' '),
+                            s('h-rule-expansion-panel', {
+                                model: {
+                                    value: e.rules,
+                                    callback: function (t) {
+                                        e.rules = t;
+                                    },
+                                    expression: 'rules',
+                                },
+                            }),
+                            e._v(' '),
                             s(
                                 'h-expansion-panel',
                                 { attrs: { index: 'icon', header: '图标' } },
@@ -6380,7 +6925,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            Me,
+            qe,
             undefined,
             false,
             undefined,
@@ -6389,380 +6934,7 @@
             void 0,
             void 0
         ),
-        We = {
-            components: {
-                VTextField: a.VTextField,
-                VForm: a.VForm,
-                VListItemContent: a.VListItemContent,
-                VIcon: a.VIcon,
-                VTooltip: a.VTooltip,
-                VListItemAction: a.VListItemAction,
-                VListItem: a.VListItem,
-            },
-            name: 'HPanelBetween',
-            props: { value: String, label: String, tooltip: String, disabled: { type: Boolean, default: !1 } },
-            data: function () {
-                return { valid: !0, betweenParam: '', min: '', max: '' };
-            },
-            computed: {
-                minRule: function () {
-                    var e = this;
-                    return [
-                        function (t) {
-                            if (t) {
-                                var s = parseInt(t);
-                                return s < 0
-                                    ? 'min参数的值必须要大于等于0'
-                                    : !e.max || !(s >= parseInt(e.max)) || 'min值必须小于max值';
-                            }
-                            return '请设置min参数的值';
-                        },
-                    ];
-                },
-                maxRule: function () {
-                    var e = this;
-                    return [
-                        function (t) {
-                            if (t) {
-                                var s = parseInt(t);
-                                return s <= 0
-                                    ? 'max参数的值必须要大于0'
-                                    : e.min && s <= parseInt(e.min)
-                                    ? 'max值必须大于min值'
-                                    : ((e.valid = !0), !0);
-                            }
-                            return '请设置max参数的值';
-                        },
-                    ];
-                },
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        (this.betweenParam = e), this.setParamValue(this.betweenParam);
-                    },
-                    immediate: !0,
-                },
-                betweenParam: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-                min: {
-                    handler: function (e, t) {
-                        this.betweenParam = e + ',' + this.max;
-                    },
-                },
-                max: {
-                    handler: function (e, t) {
-                        this.betweenParam = this.min + ',' + e;
-                    },
-                },
-            },
-            methods: {
-                validate: function () {
-                    this.$refs.form.validate();
-                },
-                reset: function () {
-                    this.$refs.form.reset();
-                },
-                setParamValue: function (e) {
-                    if (e && -1 != e.search(',')) {
-                        var t = this.$lib.lodash.split(e, ',');
-                        t && ((this.min = t[0]), (this.max = t[1]));
-                    }
-                },
-            },
-        },
-        qe = {
-            name: 'HRuleExpansionPanel',
-            components: {
-                HExpansionPanel: se,
-                HPanelBetween: P.default(
-                    {
-                        render: function () {
-                            var e = this,
-                                t = e.$createElement,
-                                s = e._self._c || t;
-                            return s(
-                                'v-list-item',
-                                { staticClass: 'pa-0', attrs: { dense: '' } },
-                                [
-                                    s(
-                                        'v-list-item-content',
-                                        { staticClass: 'pb-0' },
-                                        [
-                                            s(
-                                                'v-form',
-                                                {
-                                                    ref: 'form',
-                                                    model: {
-                                                        value: e.valid,
-                                                        callback: function (t) {
-                                                            e.valid = t;
-                                                        },
-                                                        expression: 'valid',
-                                                    },
-                                                },
-                                                [
-                                                    s('v-text-field', {
-                                                        staticClass: 'ml-1 mb-0 pr-2',
-                                                        attrs: {
-                                                            label: 'Min',
-                                                            disabled: e.disabled,
-                                                            rules: e.minRule,
-                                                            placeholder: '请输入min值',
-                                                            type: 'number',
-                                                            outlined: '',
-                                                            dense: '',
-                                                            clearable: '',
-                                                            required: '',
-                                                            min: '0',
-                                                        },
-                                                        model: {
-                                                            value: e.min,
-                                                            callback: function (t) {
-                                                                e.min = t;
-                                                            },
-                                                            expression: 'min',
-                                                        },
-                                                    }),
-                                                    e._v(' '),
-                                                    s('v-text-field', {
-                                                        staticClass: 'ml-1 mb-0 pr-2',
-                                                        attrs: {
-                                                            label: 'Max',
-                                                            disabled: e.disabled,
-                                                            rules: e.maxRule,
-                                                            placeholder: '请输入Max值',
-                                                            type: 'number',
-                                                            outlined: '',
-                                                            dense: '',
-                                                            clearable: '',
-                                                            required: '',
-                                                        },
-                                                        model: {
-                                                            value: e.max,
-                                                            callback: function (t) {
-                                                                e.max = t;
-                                                            },
-                                                            expression: 'max',
-                                                        },
-                                                    }),
-                                                ],
-                                                1
-                                            ),
-                                        ],
-                                        1
-                                    ),
-                                    e._v(' '),
-                                    e.tooltip
-                                        ? s(
-                                              'v-list-item-action',
-                                              [
-                                                  s(
-                                                      'v-tooltip',
-                                                      {
-                                                          attrs: { left: '', 'max-width': '200px' },
-                                                          scopedSlots: e._u(
-                                                              [
-                                                                  {
-                                                                      key: 'activator',
-                                                                      fn: function (t) {
-                                                                          var a = t.on,
-                                                                              n = t.attrs;
-                                                                          return [
-                                                                              s(
-                                                                                  'v-icon',
-                                                                                  e._g(
-                                                                                      e._b(
-                                                                                          {
-                                                                                              attrs: {
-                                                                                                  color:
-                                                                                                      'grey lighten-1',
-                                                                                                  dark: '',
-                                                                                              },
-                                                                                          },
-                                                                                          'v-icon',
-                                                                                          n,
-                                                                                          !1
-                                                                                      ),
-                                                                                      a
-                                                                                  ),
-                                                                                  [e._v('mdi-information')]
-                                                                              ),
-                                                                          ];
-                                                                      },
-                                                                  },
-                                                              ],
-                                                              null,
-                                                              !1,
-                                                              36085519
-                                                          ),
-                                                      },
-                                                      [e._v(' '), s('span', [e._v(e._s(e.tooltip))])]
-                                                  ),
-                                              ],
-                                              1
-                                          )
-                                        : e._e(),
-                                ],
-                                1
-                            );
-                        },
-                        staticRenderFns: [],
-                    },
-                    undefined,
-                    We,
-                    undefined,
-                    false,
-                    undefined,
-                    !1,
-                    void 0,
-                    void 0,
-                    void 0
-                ),
-                VSubheader: a.VSubheader,
-                VIcon: a.VIcon,
-                VListItemAvatar: a.VListItemAvatar,
-                VListItemTitle: a.VListItemTitle,
-                VListItemSubtitle: a.VListItemSubtitle,
-                VListItemContent: a.VListItemContent,
-                VListItem: a.VListItem,
-                VListItemGroup: a.VListItemGroup,
-                VDivider: a.VDivider,
-                VSelect: a.VSelect,
-                VBtn: a.VBtn,
-                VCol: a.VCol,
-                VRow: a.VRow,
-            },
-            props: { value: { type: String, default: '' } },
-            data: function () {
-                return {
-                    expressions: '',
-                    ruleItems: [],
-                    ruleParamSettingPanel: '',
-                    ruleParam: '',
-                    selectedItems: [],
-                    selectedRule: {},
-                };
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        e &&
-                            (this.$lib.lodash.isEmpty(this.ruleItems) && (this.ruleItems = this.$rules),
-                            this.readExpressions(e));
-                    },
-                    immediate: !0,
-                },
-                expressions: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-                selectedRule: {
-                    handler: function (e, t) {
-                        e
-                            ? this.changeRuleSettingPanel(e.type)
-                            : ((this.ruleParamSettingPanel = ''), (this.ruleParam = ''));
-                    },
-                },
-                selectedItems: {
-                    handler: function (e, t) {
-                        this.expressions = this.constructExpression(e);
-                    },
-                },
-            },
-            computed: {
-                isButtonDisabled: function () {
-                    return !!this.$lib.lodash.isEmpty(this.selectedRule);
-                },
-            },
-            methods: {
-                changeRuleSettingPanel: function (e) {
-                    var t = '',
-                        s = '';
-                    switch (e) {
-                        case 'between':
-                            (t = 'HPanelBetween'), (s = this.readSelectedItemParam(e));
-                            break;
-                        default:
-                            (t = ''), (s = '');
-                    }
-                    (this.ruleParamSettingPanel = t), (this.ruleParam = s);
-                },
-                findRuleItemByType: function (e) {
-                    return this.$lib.lodash.find(this.ruleItems, function (t) {
-                        return t.type === e;
-                    });
-                },
-                changeRuleItemStatus: function (e, t) {
-                    void 0 === t && (t = !0), (this.findRuleItemByType(e.type).disabled = t);
-                },
-                pushSelectedItem: function (e) {
-                    e && !e.disabled && (this.selectedItems.push(e), this.changeRuleItemStatus(e, !0));
-                },
-                removeSelectedItem: function (e) {
-                    (this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (t) {
-                        return t.type !== e.type;
-                    })),
-                        this.changeRuleItemStatus(e, !1),
-                        (this.selectedRule = {});
-                },
-                parseExpression: function (e) {
-                    var t = {};
-                    if (e)
-                        if (-1 != e.search(':')) {
-                            var s = this.$lib.lodash.split(e, ':');
-                            s && ((t.type = s[0]), (t.param = s[1]));
-                        } else (t.type = e), (t.param = '');
-                    return t;
-                },
-                addSelectedItemBySelector: function () {
-                    var e = this.readSelectedRule();
-                    this.pushSelectedItem(e);
-                },
-                addSelectedItemByExpression: function (e) {
-                    var t = this.parseExpression(e),
-                        s = this.findRuleItemByType(t.type);
-                    t.param && (s.param = t.param), this.pushSelectedItem(s);
-                },
-                readExpressions: function (e) {
-                    if (e)
-                        if (-1 !== e.indexOf('|')) {
-                            var t = this.$lib.lodash.split(e, '|');
-                            for (var s of t) this.addSelectedItemByExpression(s);
-                        } else this.addSelectedItemByExpression(e);
-                },
-                readSelectedItemParam: function (e) {
-                    var t = this.$lib.lodash.find(this.selectedItems, function (t) {
-                        return t.type === e;
-                    });
-                    return t && t.param ? t.param : '';
-                },
-                readSelectedRule: function () {
-                    if (this.$lib.lodash.isEmpty(this.selectedRule)) return '';
-                    var e = Object.assign({}, this.selectedRule);
-                    return this.ruleParam && (e.param = this.ruleParam), e;
-                },
-                addRule: function () {
-                    this.ruleParamSettingPanel
-                        ? (this.$refs.rulePanel.validate(),
-                          this.$refs.rulePanel.valid && this.addSelectedItemBySelector())
-                        : this.addSelectedItemBySelector();
-                },
-                constructExpression: function (e) {
-                    if (e && e.length > 0)
-                        return e
-                            .map(function (e) {
-                                return e.param ? e.type + ':' + e.param : e.type;
-                            })
-                            .join('|');
-                },
-            },
-        },
-        Ge = {
+        Ke = {
             name: 'HTextFieldPanel',
             components: {
                 HExpansionPanel: se,
@@ -6772,157 +6944,7 @@
                 HPanelSelect: xe,
                 HPanelSwitch: ke,
                 HPanelTextField: Ce,
-                HRuleExpansionPanel: P.default(
-                    {
-                        render: function () {
-                            var e = this,
-                                t = e.$createElement,
-                                s = e._self._c || t;
-                            return s(
-                                'h-expansion-panel',
-                                { attrs: { index: 'rules', header: '校验' } },
-                                [
-                                    s('v-subheader', [e._v('已配置规则')]),
-                                    e._v(' '),
-                                    s(
-                                        'v-list-item-group',
-                                        { staticClass: 'mb-1', attrs: { color: 'primary' } },
-                                        e._l(e.selectedItems, function (t, a) {
-                                            return s(
-                                                'v-list-item',
-                                                { key: a, staticClass: 'pl-2 pr-2', attrs: { dense: '' } },
-                                                [
-                                                    s(
-                                                        'v-list-item-avatar',
-                                                        { attrs: { size: '28' } },
-                                                        [
-                                                            s(
-                                                                'v-icon',
-                                                                {
-                                                                    staticClass: 'error lighten-1 white--text',
-                                                                    attrs: { small: '' },
-                                                                    on: {
-                                                                        click: function (s) {
-                                                                            return e.removeSelectedItem(t);
-                                                                        },
-                                                                    },
-                                                                },
-                                                                [e._v('mdi-delete-alert')]
-                                                            ),
-                                                        ],
-                                                        1
-                                                    ),
-                                                    e._v(' '),
-                                                    s(
-                                                        'v-list-item-content',
-                                                        [
-                                                            s('v-list-item-title', {
-                                                                domProps: { textContent: e._s(t.name) },
-                                                            }),
-                                                            e._v(' '),
-                                                            s('v-list-item-subtitle', {
-                                                                domProps: { textContent: e._s(t.message) },
-                                                            }),
-                                                        ],
-                                                        1
-                                                    ),
-                                                ],
-                                                1
-                                            );
-                                        }),
-                                        1
-                                    ),
-                                    e._v(' '),
-                                    s('v-divider'),
-                                    e._v(' '),
-                                    s(
-                                        'v-list-item',
-                                        { attrs: { dense: '' } },
-                                        [
-                                            s(
-                                                'v-list-item-content',
-                                                [
-                                                    s(
-                                                        'v-row',
-                                                        [
-                                                            s(
-                                                                'v-col',
-                                                                [
-                                                                    s('v-select', {
-                                                                        staticClass: 'ml-1 pr-2',
-                                                                        attrs: {
-                                                                            items: e.ruleItems,
-                                                                            'item-value': 'type',
-                                                                            'item-text': 'name',
-                                                                            label: '规则',
-                                                                            outlined: '',
-                                                                            dense: '',
-                                                                            clearable: '',
-                                                                            'return-object': '',
-                                                                            'no-data-text': '空',
-                                                                        },
-                                                                        model: {
-                                                                            value: e.selectedRule,
-                                                                            callback: function (t) {
-                                                                                e.selectedRule = t;
-                                                                            },
-                                                                            expression: 'selectedRule',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s(e.ruleParamSettingPanel, {
-                                                                        ref: 'rulePanel',
-                                                                        tag: 'component',
-                                                                        model: {
-                                                                            value: e.ruleParam,
-                                                                            callback: function (t) {
-                                                                                e.ruleParam = t;
-                                                                            },
-                                                                            expression: 'ruleParam',
-                                                                        },
-                                                                    }),
-                                                                    e._v(' '),
-                                                                    s(
-                                                                        'v-btn',
-                                                                        {
-                                                                            staticClass: 'ml-1',
-                                                                            attrs: {
-                                                                                color: 'primary',
-                                                                                small: '',
-                                                                                disabled: e.isButtonDisabled,
-                                                                            },
-                                                                            on: { click: e.addRule },
-                                                                        },
-                                                                        [e._v('添加')]
-                                                                    ),
-                                                                ],
-                                                                1
-                                                            ),
-                                                        ],
-                                                        1
-                                                    ),
-                                                ],
-                                                1
-                                            ),
-                                        ],
-                                        1
-                                    ),
-                                ],
-                                1
-                            );
-                        },
-                        staticRenderFns: [],
-                    },
-                    undefined,
-                    qe,
-                    undefined,
-                    false,
-                    undefined,
-                    !1,
-                    void 0,
-                    void 0,
-                    void 0
-                ),
+                HRuleExpansionPanel: We,
                 VExpansionPanels: a.VExpansionPanels,
             },
             props: { element: { type: Object, default: function () {} } },
@@ -6954,7 +6976,7 @@
                 },
             },
         },
-        Ke = P.default(
+        Xe = P.default(
             {
                 render: function () {
                     var e = this,
@@ -7511,7 +7533,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            Ge,
+            Ke,
             undefined,
             false,
             undefined,
@@ -7520,7 +7542,7 @@
             void 0,
             void 0
         ),
-        Xe = {
+        Ye = {
             name: 'HTimePickerPanel',
             components: {
                 HExpansionPanel: se,
@@ -7549,13 +7571,13 @@
                 },
             },
         },
-        Ye = {
+        Ue = {
             name: 'HPropertyPanel',
             components: {
-                TEXT_FIELD: Ke,
-                TEXT_AREA: ze,
+                TEXT_FIELD: Xe,
+                TEXT_AREA: Ge,
                 SLIDER: je,
-                RANGE_SLIDER: Fe,
+                RANGE_SLIDER: Ee,
                 CHECKBOX: Ve,
                 SWITCHS: Ne,
                 DATE_PICKER: Te,
@@ -7843,7 +7865,7 @@
                         staticRenderFns: [],
                     },
                     undefined,
-                    Xe,
+                    Ye,
                     undefined,
                     false,
                     undefined,
@@ -7931,7 +7953,7 @@
                 },
             },
         },
-        Ue = {
+        Je = {
             name: 'HFormModeler',
             components: {
                 HCanvasContainer: U,
@@ -8223,7 +8245,7 @@
                         staticRenderFns: [],
                     },
                     undefined,
-                    Ye,
+                    Ue,
                     'data-v-4e87cf8a',
                     false,
                     undefined,
@@ -8253,7 +8275,7 @@
                     selectedCanvasItemId: '',
                     selectedCanvasItemData: {},
                     saveDrawingCanvasDebounce: b.debounce(340, D),
-                    saveDrawingCanvasFormDebounce: b.debounce(340, F),
+                    saveDrawingCanvasFormDebounce: b.debounce(340, E),
                 };
             },
             watch: {
@@ -8299,10 +8321,10 @@
                 addComponent: function (e) {
                     var t = (function (e) {
                         return B(
-                            E[e.configs.schema].schema,
+                            F[e.configs.schema].schema,
                             e.configs.name,
                             e.configs.document,
-                            E[e.configs.schema].index
+                            F[e.configs.schema].index
                         );
                     })(e);
                     this.changeDrawingCanvas(t);
@@ -8333,7 +8355,7 @@
                 },
             },
         },
-        Je = P.default(
+        Qe = P.default(
             {
                 render: function () {
                     var e = this,
@@ -8577,7 +8599,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            Ue,
+            Je,
             undefined,
             false,
             undefined,
@@ -8586,7 +8608,7 @@
             void 0,
             void 0
         ),
-        Qe = {
+        Ze = {
             name: 'HFormCodeDrawer',
             components: {
                 HCodeMirror: _.HCodeMirror,
@@ -8623,7 +8645,7 @@
             },
             methods: {},
         },
-        Ze = P.default(
+        et = P.default(
             {
                 render: function () {
                     var e = this,
@@ -8703,7 +8725,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            Qe,
+            Ze,
             undefined,
             false,
             undefined,
@@ -8712,7 +8734,7 @@
             void 0,
             void 0
         ),
-        et = {
+        tt = {
             name: 'HFormPreviewDrawer',
             components: {
                 HCodeMirror: _.HCodeMirror,
@@ -8762,11 +8784,11 @@
                 },
             },
         },
-        tt = {
+        st = {
             name: 'HFormGenerator',
             components: {
-                HFormModeler: Je,
-                HFormCodeDrawer: Ze,
+                HFormModeler: Qe,
+                HFormCodeDrawer: et,
                 HFormPreviewDrawer: P.default(
                     {
                         render: function () {
@@ -8889,7 +8911,7 @@
                         staticRenderFns: [],
                     },
                     undefined,
-                    et,
+                    tt,
                     undefined,
                     false,
                     undefined,
@@ -8965,7 +8987,7 @@
                 },
             },
         },
-        st = P.default(
+        at = P.default(
             {
                 render: function () {
                     var e = this,
@@ -9108,7 +9130,7 @@
                 staticRenderFns: [],
             },
             undefined,
-            tt,
+            st,
             undefined,
             false,
             undefined,
@@ -9117,12 +9139,12 @@
             void 0,
             void 0
         );
-    (st.install = function (e) {
-        e.component(st.name, st);
+    (at.install = function (e) {
+        e.component(at.name, at);
     }),
         null != ('undefined' == typeof window ? 'undefined' : w.default(window)) &&
             window.Vue &&
-            st.install(window.Vue),
-        (e.HFormGenerator = st),
+            at.install(window.Vue),
+        (e.HFormGenerator = at),
         Object.defineProperty(e, '__esModule', { value: !0 });
 });
