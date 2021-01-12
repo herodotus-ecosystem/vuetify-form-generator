@@ -1,8 +1,8 @@
 [中文](./README.md) &nbsp; | &nbsp; English
 
 <p align="center"><img src="./readme/vuetify.svg" height="200" alt="logo"/></p>
-<h1 align="center"> Vuetify Form Generator &nbsp;🚀 &nbsp;表单设计器&代码生成器 </h1>
-<h3 align="center">基于JSON Schema，全组件化工程，所见即所得</h3>
+<h1 align="center"> Vuetify Form Generator &nbsp;🚀 &nbsp;Form designer & code generator </h1>
+<h3 align="center">Based on JSON schema, full component engineering, WYSIWYG</h3>
 
 ---
 
