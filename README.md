@@ -16,7 +16,8 @@
 
 <p align="center">
     <a href="https://github.com/Pointerv/vuetify-form-generator">Github 仓库</a> &nbsp; | &nbsp; 
-    <a href="https://gitee.com/herodotus/vuetify-form-generator">Gitee 仓库</a>
+    <a href="https://gitee.com/herodotus/vuetify-form-generator">Gitee 仓库</a> &nbsp; | &nbsp; 
+    <a href="http://herodotus.gitee.io/vuetify-form-generator" target="_blank">在线体验</a>
 </p>
 
 ## 简介
@@ -37,6 +38,10 @@
 ### 界面预览
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/172830_f1962fe9_751495.gif 'view.gif')
+
+### 在线体验
+
+-   [[国内Gitee地址]](http://herodotus.gitee.io/vuetify-form-generator)
 
 ## [一]、开发环境配置（Windows）
 
