@@ -1,5 +1,7 @@
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/172830_f1962fe9_751495.gif 'view.gif')
 
+# 开源不易，请尊重作者的智慧成果，如果对你能有所帮助，烦请点个 **Star** 以资鼓励，谢谢！
+
 # 简介
 
 在做工作流服务时，深感动态表单的重要性。所以，慢慢摸索和学习，结合自己的需求，搭建了本套动态表单系统。
@@ -8,183 +10,18 @@
 -   基于 Vue 2.0 和 Vuetify 2.3.XX 构建。没有使用 Vue3，主要是 Vuetify 3 还在开发中。
 -   共性组件采用 rollup 进行编译，并且做了已有认知范围内，能够做到的所有性能优化处理
 -   example 模块，基于 vue webpack 方式，对工程打包进行了深入优化。
--   项目中会有很多组件，原本是想把以往工作中涉及的通用性的东西，逐步构建出一个组件库（这个动态表单系统本身也是一个组件）。研究过一下规范化的组件库，感觉以本人现在水平做不到，因此才采用了 monorepo 方式。
+-   项目中会有很多组件，是把以往工作中涉及的通用性的东西，逐步提取构建出一个组件库（动态表单系统本身也是一个组件）。
+-   表单校验基于 VeeValidate 进行设计，可以通过属性面板进行动态配置。
+-   表单设计器，高度组件化设计，通过修改配置和增加组件即可完成扩展。
 
 本项目是后端老炮撸的前端，广度和深度肯定不如纯前端，不喜勿喷，也请多多包涵以及多多交流，互相促进互相成长。
 
 # [一]、开发环境配置（Windows）
 
-## 一、安装及配置 Nodejs
+开发环境的配置以及相关组件环境变量的配置，比较常规。如果有需要，参见文档：
 
-### （1）Nodejs 安装
-
-下载 Windows 版的 Nodejs，进行按照提示安装即可，记得选择将 nodejs 增加到 PATH 一项，如果界面上没有，应该就是默认帮你搞定了，可以忽略我这句废话。
-
-> 注意：当前应用必须使用 node.js v12 版本。虽然最新是 node.js v14, 但是 nuxt 在这个版本有问题，主要是在 windows 环境下 fibers 的编译问题。
-> 当然，如果不介意安装 VS Studio 也可以。
-> 如果在你的环境中，使用 node.js v14，运行没有问题，也请告诉我。以便我验证，和修改说明。
-
-### （2）验证是否安装成功
-
-在 CMD 中，输入以下命令，
-
-```cmd
-node -v
-
-npm -v
-```
-
-如果正常显示版本号，即安装成功。
-
-### （3）配置 Nodejs 环境变量
-
-Nodejs 安装完成之后，默认会将 node.exe 的路径，添加到系统的环境变量中，如果没有请手动添加。除此之外还要进行其他的配置。
-
-#### 1、配置 prefix 和 cache 目录
-
-node.js 安装成功之后，prefix 和 cache 目录默认是在 C:盘，可以重新配置 prefix 和 cache 目录，减少 C 盘空间的占用。
-
--   改变 npm 全局安装位置
-
-```cmd
-npm config set prefix "你的磁盘路径"
-```
-
-本示例目录地址为：C:\Program Files\nodejs，可根据你的实际情况进行修改
-
-```cmd
-npm config set prefix “C:\Program Files\nodejs\node_global”
-```
-
--   改变 npm 缓存位置
-
-```cmd
-npm config set cache "你的磁盘路径"
-```
-
-本示例目录地址为：C:\Program Files\nodejs，可根据你的实际情况进行修改
-
-```cmd
-npm config set cache  “C:\Program Files\nodejs\node_cache
-```
-
-#### 2、配置环境变量
-
-右击“计算机”—>"属性"—>"高级系统设置"—>"环境变量"
-
-**在"系统变量"中,设置 NODE_PATH**。在系统变量里新建 NODE_PATH ,值为
-
-```
-C:\Program Files\nodejs\node_global\node_modules
-```
-
-> 这个值就是**配置 prefix 和 cache 目录**步骤中，通过 **“npm config set prefix”** 设置的路径，加上**node_modules**。可以，用下面命令查看
->
-> ```
-> npm config get prefix
-> ```
-
-**在"用户变量"中,修改 path**。修改用户变量中的 path，添加 C:\Program Files\nodejs\node_global\。
-
-> 这个值就是**配置 prefix 和 cache 目录**步骤中，通过 **“npm config set prefix”** 设置的路径。
-
-#### 3、配置阿里源
-
-将 npm 使用的源，修改为阿里源，以提升速度
-
-```
-npm config set registry https://registry.npm.taobao.org
-```
-
-## 二、安装及配置 Yarn
-
-### （1）Yarn 简介
-
-yarn 是 facebook 发布的一款取代 npm 的包管理工具。
-
-yarn 的特点：
-
--   速度超快。Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快。
--   超级安全。在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。
--   超级可靠。使用详细、简洁的锁文件格式和明确的安装算法，Yarn 能够保证在不同系统上无差异的工作。
-
-### （2）Yarn 安装
-
--   方式一：使用 npm 安装
-
-```
-npm install -g yarn
-```
-
--   方式二：使用安装文件安装
-
-> 即在官网中下载 exe 文件安装（Windows），其它系统根据实际情况安装。
-
-### （3）配置 prefix 和 cache 目录
-
--   改变 yarn 全局安装位置
-
-```
-yarn config set global-folder "你的磁盘路径"
-```
-
-本示例目录地址为：C:\Program Files\yarn，可根据你的实际情况进行修改
-
-```
-yarn config set global-folder "C:\Program Files\yarn\global"
-```
-
--   改变 yarn 缓存位置
-
-```
-yarn config set cache-folder "你的磁盘路径"
-```
-
-本示例目录地址为：C:\Program Files\yarn，可根据你的实际情况进行修改
-
-```
-yarn config set cache-folder "C:\Program Files\yarn\cache"
-```
-
-> 或者在你的系统用户目录找到 `.yarnrc` 的文件，打开它，直接进行编辑
-
-### （4）配置环境变量
-
-在我们使用**全局安装**包的时候，会在 “C:\Program Files\yarn\global”（上面的示例路径，要根据自己的实际情况配置） 下生成 node_modules\.bin 目录
-
-我们需要将 C:\Program Files\yarn\global\node_modules\.bin 整个目录 添加到**系统环境变量**中去，否则通过 yarn 添加的全局包 在 cmd 中是找不到的。
-
-检查当前 yarn 的 bin 的 位置
-
-```
-yarn global bin
-```
-
-检查当前 yarn 的 全局安装位置
-
-```
-yarn global dir
-```
-
-### （5）Yarn 配置阿里源量
-
-#### 1、查看一下当前源
-
-```
-yarn config get registry
-```
-
-#### 2、切换为淘宝源
-
-```
-yarn config set registry https://registry.npm.taobao.org
-yarn config set sass_binary_site "https://npm.taobao.org/mirrors/node-sass/"
-yarn config set phantomjs_cdnurl "http://cnpmjs.org/downloads"
-yarn config set electron_mirror "https://npm.taobao.org/mirrors/electron/"
-yarn config set sqlite3_binary_host_mirror "https://foxgis.oss-cn-shanghai.aliyuncs.com/"
-yarn config set profiler_binary_host_mirror "https://npm.taobao.org/mirrors/node-inspector/"
-yarn config set chromedriver_cdnurl "https://cdn.npm.taobao.org/dist/chromedriver"
-```
+1、[https://blog.csdn.net/Pointer_v/article/details/105432529](https://blog.csdn.net/Pointer_v/article/details/105432529)
+2、[https://juejin.cn/post/6859653849775505416](https://juejin.cn/post/6859653849775505416)
 
 # [二]、全局安装
 
@@ -371,12 +208,20 @@ set-executionpolicy remotesigned
 | vee-validate               | 3.4.5        | > 4.0.0  | 目前不要升级该包，等工程变更为 Vue3 在进行升级          |
 | webpack                    | 4.44.2       | > 5.9.0  | 目前不要升级该包，需要等到使用相关 Vue 版本升级后再考虑 |
 
-# [七]、PR 鸣谢
+# [七]、下一步计划
+
+-   根据实际使用情况，不断增加不同类型的 Form 表单组件
+-   根据 Form 表单组件的不断增加，简化和重构核心 Renderer 代码
+-   结合个人微服务项目的发展，会将本项目与 Camunda 工作流逐步结合，包含 Camunda 编辑器的整合。
+-   根据 Vuetify3 的开发进度，开发基于 Vue3 和 Vuetify3 的版本
+-   基于 Vue3 和 Vuetify3 的新版本将采用 TypeScript 进行开发
+
+# [八]、PR 鸣谢
 
 -   [koumoul-dev](https://github.com/koumoul-dev)
 -   [Mr_HJ](https://gitee.com/mrhj)
 
-# [八]、开源协议
+# [九]、开源协议
 
 [MIT](https://opensource.org/licenses/MIT)
 
