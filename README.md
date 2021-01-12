@@ -1,4 +1,4 @@
-中文 &nbsp; | &nbsp; English
+中文 &nbsp; | &nbsp; [English](./README_EN.md)
 
 <p align="center"><img src="./readme/vuetify.svg" height="200" alt="logo"/></p>
 <h1 align="center"> Vuetify Form Generator &nbsp;🚀 &nbsp;表单设计器&代码生成器 </h1>
