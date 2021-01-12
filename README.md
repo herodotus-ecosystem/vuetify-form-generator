@@ -13,6 +13,7 @@
 -   项目中会有很多组件，是把以往工作中涉及的通用性的东西，逐步提取构建出一个组件库（动态表单系统本身也是一个组件）。
 -   表单校验基于 VeeValidate 进行设计，可以通过属性面板进行动态配置。
 -   表单设计器，高度组件化设计，通过修改配置和增加组件即可完成扩展。
+-   浏览器本地存储采用 localForage，支持 IndexedDB，WebSQL 和 localStorage 三种存储模式（自动为你加载最佳的驱动程序）；
 
 本项目是后端老炮撸的前端，广度和深度肯定不如纯前端，不喜勿喷，也请多多包涵以及多多交流，互相促进互相成长。
 
@@ -20,8 +21,7 @@
 
 开发环境的配置以及相关组件环境变量的配置，比较常规。如果有需要，参见文档：
 
-1、[https://blog.csdn.net/Pointer_v/article/details/105432529](https://blog.csdn.net/Pointer_v/article/details/105432529)
-2、[https://juejin.cn/post/6859653849775505416](https://juejin.cn/post/6859653849775505416)
+[https://blog.csdn.net/Pointer_v/article/details/105432529](https://blog.csdn.net/Pointer_v/article/details/105432529)
 
 # [二]、全局安装
 
@@ -35,22 +35,45 @@ npm install -g yarn
 yarn global add lerna @vue/cli
 ```
 
-# [三]、工程中各个包用途说明
+# [三]、运行启动
 
-| 包名                     | 当前版本 | 用途                 | 说明                                                                                                                                                                                   |
-| ------------------------ | -------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @hecate/core             | 1.0.0    | 通用工具代码、组件包 | 包含 localforage、lodash、moment、shortid、sweetalert2 以及通用工具代码                                                                                                                |
-| @hecate/example          | 1.0.0    | 组件示例及运行工程   | 可以在该工程中，运行和使用已有组件，也可以理解为组件的开发环境                                                                                                                         |
-| @hecate/form-service     | 1.0.0    | Nuxt 环境            | 动态表单的 SSR 验证环境                                                                                                                                                                |
-| @hecate/h-button         | 1.0.0    | 自定义按钮组件       | 自己封装的有 Tooltip 的 button                                                                                                                                                         |
-| @hecate/h-code-editor    | 1.0.0    | 代码编辑器组件       | 基于 codemirror 封装的代码编辑器，支持多种语言，通过界面菜单等进行控制。有代码提示以及各式化等功能。                                                                                   |
-| @hecate/h-code-mirror    | 1.0.0    | 代码编辑器基础组件   | 基于 codemirror 封装的代码编辑器，支持多种语言，没有参数控制界面，需要手动传递参数                                                                                                     |
-| @hecate/h-form-generator | 1.0.0    | 动态表单编辑组件     | 基于 Vuetify 的动态表单设计器                                                                                                                                                          |
-| @hecate/h-form-renderer  | 1.0.0    | 动态表单组件绘制组件 | 动态表单渲染核心组件，参考[koumoul-dev/vuetify-jsonschema-form](https://github.com/koumoul-dev/vuetify-jsonschema-form) 。目前，尚未重构完成，需要根据支持组件的不断添加，逐步重构完善 |
-| @hecate/h-form-runtime   | 1.0.0    | 动态表单预览组件     | 基于生成的 Schema 显示表单组件                                                                                                                                                         |
-| @hecate/h-icon-list      | 1.0.0    | Icon 选择组件        | 基于 material design icons 封装的图标查询和选择组件                                                                                                                                    |
+```
+// 1、安装依赖
+yarn install
 
-# [四]、常用命令
+或者
+
+lerna bootstrap
+
+// 2、启动服务
+yarn ws:example serve
+
+或者
+
+yarn ws:example dev
+
+// 3、访问地址
+http://localhost:3000
+```
+
+> 其它指令，参见：<a href="#command">[五]、常用命令</a>
+
+# [四]、工程中各个包用途说明
+
+| 包名                     | 用途                 | 说明                                                                                                                                                                                   |
+| ------------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @hecate/core             | 通用工具代码、组件包 | 包含 localforage、lodash、moment、shortid、sweetalert2 以及通用工具代码                                                                                                                |
+| @hecate/example          | 组件示例及运行工程   | 可以在该工程中，运行和使用已有组件，也可以理解为组件的开发环境                                                                                                                         |
+| @hecate/form-service     | Nuxt 环境            | 动态表单的 SSR 验证环境                                                                                                                                                                |
+| @hecate/h-button         | 自定义按钮组件       | 自己封装的有 Tooltip 的 button                                                                                                                                                         |
+| @hecate/h-code-editor    | 代码编辑器组件       | 基于 codemirror 封装的代码编辑器，支持多种语言，通过界面菜单等进行控制。有代码提示以及各式化等功能。                                                                                   |
+| @hecate/h-code-mirror    | 代码编辑器基础组件   | 基于 codemirror 封装的代码编辑器，支持多种语言，没有参数控制界面，需要手动传递参数                                                                                                     |
+| @hecate/h-form-generator | 动态表单编辑组件     | 基于 Vuetify 的动态表单设计器                                                                                                                                                          |
+| @hecate/h-form-renderer  | 动态表单组件绘制组件 | 动态表单渲染核心组件，参考[koumoul-dev/vuetify-jsonschema-form](https://github.com/koumoul-dev/vuetify-jsonschema-form) 。目前，尚未重构完成，需要根据支持组件的不断添加，逐步重构完善 |
+| @hecate/h-form-runtime   | 动态表单预览组件     | 基于生成的 Schema 显示表单组件                                                                                                                                                         |
+| @hecate/h-icon-list      | Icon 选择组件        | 基于 material design icons 封装的图标查询和选择组件                                                                                                                                    |
+
+# <a id="command">[五]、常用命令</a>
 
 -   指定包，在某个包下执行 yarn 命令
 
@@ -130,7 +153,7 @@ lerna bootstrap 或 yarn install
 yarn push
 ```
 
-# [五]、问题解决
+# [六]、问题解决
 
 ## 问题一：升级依赖包时出错
 
@@ -196,7 +219,7 @@ set-executionpolicy remotesigned
 
 之后选择 Y，问题就解决了。
 
-# [六]、依赖说明
+# [七]、依赖说明
 
 ## 以下依赖包暂时不要升级
 
@@ -208,7 +231,7 @@ set-executionpolicy remotesigned
 | vee-validate               | 3.4.5        | > 4.0.0  | 目前不要升级该包，等工程变更为 Vue3 在进行升级          |
 | webpack                    | 4.44.2       | > 5.9.0  | 目前不要升级该包，需要等到使用相关 Vue 版本升级后再考虑 |
 
-# [七]、下一步计划
+# [八]、下一步计划
 
 -   根据实际使用情况，不断增加不同类型的 Form 表单组件
 -   根据 Form 表单组件的不断增加，简化和重构核心 Renderer 代码
@@ -216,12 +239,12 @@ set-executionpolicy remotesigned
 -   根据 Vuetify3 的开发进度，开发基于 Vue3 和 Vuetify3 的版本
 -   基于 Vue3 和 Vuetify3 的新版本将采用 TypeScript 进行开发
 
-# [八]、PR 鸣谢
+# [九]、PR 鸣谢
 
 -   [koumoul-dev](https://github.com/koumoul-dev)
 -   [Mr_HJ](https://gitee.com/mrhj)
 
-# [九]、开源协议
+# [十]、开源协议
 
 [MIT](https://opensource.org/licenses/MIT)
 
