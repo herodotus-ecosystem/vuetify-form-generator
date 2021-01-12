@@ -15,7 +15,7 @@
     ],
     "scripts": {
         "start": "yarn workspaces run start",
-        "push": "yarn commit && git push --set-upstream origin develop",
+        "push": "yarn commit && git push --set-upstream origin master",
         "commit": "git add . && git status && git-cz",
         "ws:core": "yarn workspace @hecate/core",
         "ws:button": "yarn workspace @hecate/h-button",
