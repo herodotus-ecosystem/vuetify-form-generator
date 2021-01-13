@@ -37,7 +37,7 @@
 
 ### 界面预览
 
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0113/100605_1ca9edc0_751495.gif "preview.gif")
+![输入图片说明](./readme/preview.gif)
 
 ### 在线体验
 

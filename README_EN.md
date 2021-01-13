@@ -37,7 +37,7 @@ This project is the front end of the back-end old gun, breadth and depth is cert
 
 ### Interface preview
 
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0113/100605_1ca9edc0_751495.gif 'preview.gif')
+![输入图片说明](./readme/preview.gif)
 
 ## 1. Development environment configuration(Windows)
 
