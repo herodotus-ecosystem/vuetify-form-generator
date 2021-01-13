@@ -37,7 +37,7 @@
 
 ### 界面预览
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1227/172830_f1962fe9_751495.gif 'view.gif')
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0113/100605_1ca9edc0_751495.gif "preview.gif")
 
 ### 在线体验
 
