@@ -20,6 +20,10 @@
     <a href="http://herodotus.gitee.io/vuetify-form-generator" target="_blank">Online Demo</a>
 </p>
 
+## Interface preview
+
+![输入图片说明](./readme/preview.gif)
+
 ## Brief introduction
 
 When working as a workflow service, feel the importance of dynamic forms. Therefore, slowly explore and learn, combined with their own needs, set up this set of dynamic form system.
@@ -35,9 +39,7 @@ When working as a workflow service, feel the importance of dynamic forms. Theref
 
 This project is the front end of the back-end old gun, breadth and depth is certainly not as good as the pure front end, do not like not spray, but also please more inclusive and more exchanges, mutual promotion of mutual growth.
 
-### Interface preview
 
-![输入图片说明](./readme/preview.gif)
 
 ## 1. Development environment configuration(Windows)
 

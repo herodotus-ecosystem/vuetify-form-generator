@@ -20,6 +20,10 @@
     <a href="http://herodotus.gitee.io/vuetify-form-generator" target="_blank">在线体验</a>
 </p>
 
+## 预览
+
+![输入图片说明](./readme/preview.gif)
+
 ## 简介
 
 在做工作流服务时，深感动态表单的重要性。所以，慢慢摸索和学习，结合自己的需求，搭建了本套动态表单系统。
@@ -35,11 +39,7 @@
 
 本项目是后端老炮撸的前端，广度和深度肯定不如纯前端，不喜勿喷，也请多多包涵以及多多交流，互相促进互相成长。
 
-### 界面预览
-
-![输入图片说明](./readme/preview.gif)
-
-### 在线体验
+## 在线体验
 
 -   [[国内Gitee地址]](http://herodotus.gitee.io/vuetify-form-generator)
 
