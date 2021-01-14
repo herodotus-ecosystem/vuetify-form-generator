@@ -33,9 +33,9 @@
 -   共性组件采用 rollup 进行编译，并且做了已有认知范围内，能够做到的所有性能优化处理
 -   example 模块，基于 vue webpack 方式，对工程打包进行了深入优化。
 -   项目中会有很多组件，是把以往工作中涉及的通用性的东西，逐步提取构建出一个组件库（动态表单系统本身也是一个组件）。
--   表单校验基于 VeeValidate 进行设计，可以通过属性面板进行动态配置。
+-   基于 VeeValidate 表单校验，通过属性面板进行动态配置。
 -   表单设计器，高度组件化设计，通过修改配置和增加组件即可完成扩展。
--   浏览器本地存储采用 localForage，支持 IndexedDB，WebSQL 和 localStorage 三种存储模式（自动为你加载最佳的驱动程序）；
+-   浏览器本地存储采用 localForage，支持 IndexedDB，WebSQL 和 localStorage 三种存储模式
 
 本项目是后端老炮撸的前端，广度和深度肯定不如纯前端，不喜勿喷，也请多多包涵以及多多交流，互相促进互相成长。
 
@@ -280,4 +280,4 @@ set-executionpolicy remotesigned
 
 ## Issue
 
-欢迎提 [Issue](https://gitee.com/pointer_v/hecate-monorepo/issues)，我会尽所能尽量完善。
+欢迎提 [Issue](https://gitee.com/herodotus/vuetify-form-generator/issues/new)，我会尽所能尽量完善。

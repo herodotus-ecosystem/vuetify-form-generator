@@ -39,8 +39,6 @@ When working as a workflow service, feel the importance of dynamic forms. Theref
 
 This project is the front end of the back-end old gun, breadth and depth is certainly not as good as the pure front end, do not like not spray, but also please more inclusive and more exchanges, mutual promotion of mutual growth.
 
-
-
 ## 1. Development environment configuration(Windows)
 
 The configuration of the development environment and the configuration of the related component environment variables are more general. If necessary, see the documentation：
@@ -283,4 +281,4 @@ Open source is not easy, please respect the author's labor results, if this proj
 
 ## Issue
 
-Welcome to [Issue](https://gitee.com/pointer_v/hecate-monorepo/issues)，and I'll try my best to perfect it.
+Welcome to [Issue](https://github.com/Pointerv/vuetify-form-generator/issues/new)，and I'll try my best to perfect it.

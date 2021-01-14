@@ -68,7 +68,7 @@
         "autoprefixer": "10.2.1",
         "babel-eslint": "^10.1.0",
         "babel-loader": "^8.2.2",
-        "caniuse-lite": "^1.0.30001174",
+        "caniuse-lite": "^1.0.30001176",
         "commitizen": "^4.2.2",
         "compression-webpack-plugin": "6.1.1",
         "cross-env": "^7.0.3",
