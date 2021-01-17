@@ -22,7 +22,17 @@
 
 ## 预览
 
+#### 1. 总览
+
 ![输入图片说明](./readme/preview.gif)
+
+#### 2. ICON 和 COLOR 设置展示
+
+![输入图片说明](./readme/color-and-icon.gif)
+
+#### 3. RULE 设置展示
+
+![输入图片说明](./readme/rules.gif)
 
 ## 简介
 

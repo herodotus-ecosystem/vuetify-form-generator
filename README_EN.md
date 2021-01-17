@@ -22,7 +22,17 @@
 
 ## Interface preview
 
+#### 1. Overview
+
 ![输入图片说明](./readme/preview.gif)
+
+#### 2. Icon and color settings display
+
+![输入图片说明](./readme/color-and-icon.gif)
+
+#### 3. Rule setting display
+
+![输入图片说明](./readme/rules.gif)
 
 ## Brief introduction
 
