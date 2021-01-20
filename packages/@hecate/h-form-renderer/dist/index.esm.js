@@ -71,30 +71,31 @@ import {
     VCol as Y,
     VFileInput as Q,
     VIcon as X,
-    VInput as ee,
-    VRow as te,
-    VListItemContent as ie,
-    VListItemTitle as re,
-    VMenu as ne,
-    VRadio as le,
-    VRadioGroup as se,
-    VRangeSlider as ae,
-    VSelect as oe,
-    VSlider as ue,
-    VSpacer as ce,
-    VSubheader as he,
-    VSwitch as me,
-    VTabs as pe,
-    VTab as fe,
-    VTabItem as de,
-    VTextarea as ve,
-    VTextField as be,
-    VTimePicker as ye,
-    VTooltip as Se,
+    VImg as ee,
+    VInput as te,
+    VRow as ie,
+    VListItemContent as re,
+    VListItemTitle as ne,
+    VMenu as le,
+    VRadio as se,
+    VRadioGroup as ae,
+    VRangeSlider as oe,
+    VSelect as ue,
+    VSlider as ce,
+    VSpacer as he,
+    VSubheader as me,
+    VSwitch as pe,
+    VTabs as fe,
+    VTab as de,
+    VTabItem as ve,
+    VTextarea as be,
+    VTextField as ye,
+    VTimePicker as Se,
+    VTooltip as ge,
 } from 'vuetify/lib';
-var ge = require('property-expr'),
-    Oe = {};
-function xe(e, t) {
+var Oe = require('property-expr'),
+    xe = {};
+function je(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -106,45 +107,45 @@ function xe(e, t) {
     }
     return r;
 }
-function je(e) {
+function Pe(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = xe(Object(u), !0))).call(o, function (t) {
+            r((o = je(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = xe(Object(u)))).call(c, function (t) {
+            r((c = je(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-(Oe.cache = {}),
-    (Oe.extendtoken = '$extend'),
-    (Oe.reftoken = '$ref'),
-    (Oe.pathtoken = '#'),
-    (Oe.debug = !1),
-    (Oe.clone = function (t) {
+(xe.cache = {}),
+    (xe.extendtoken = '$extend'),
+    (xe.reftoken = '$ref'),
+    (xe.pathtoken = '#'),
+    (xe.debug = !1),
+    (xe.clone = function (t) {
         var i, r;
         if (null === t || 'object' !== e(t) || 'function' == typeof t) return t;
-        for (i in ((r = t.constructor()), t)) r[i] = Oe.clone(t[i]);
+        for (i in ((r = t.constructor()), t)) r[i] = xe.clone(t[i]);
         return r;
     }),
-    (Oe.findIds = function (t, i) {
+    (xe.findIds = function (t, i) {
         var r, n, l, s;
         for (n in ((r = !1), (l = {}), t))
             (s = t[n]),
                 null != t.id && (r = t.id),
                 r && 'id' !== n && (l[n] = s),
-                'object' === e(s) && Oe.findIds(s, i);
+                'object' === e(s) && xe.findIds(s, i);
         if (r) return (i[r] = l), l;
     }),
-    (Oe.get_json_pointer = function (e, t, n) {
+    (xe.get_json_pointer = function (e, t, n) {
         var l, s, a;
         (s = e
             .replace(/\\\//, '#SLASH#')
@@ -153,59 +154,59 @@ function je(e) {
             r((l = i(n))).call(l, function (e) {
                 s = s.replace(e, n[e]);
             }),
-            '.' === (s = s.replace(new RegExp('^' + Oe.pathtoken), ''))[0] && (s = s.substr(1, s.length - 1));
+            '.' === (s = s.replace(new RegExp('^' + xe.pathtoken), ''))[0] && (s = s.substr(1, s.length - 1));
         try {
-            Oe.debug, (a = ge.getter(s)(t));
+            xe.debug, (a = Oe.getter(s)(t));
         } catch (e) {
             a = '';
         }
         return a;
     }),
-    (Oe.replace = function (r, n, l, s) {
+    (xe.replace = function (r, n, l, s) {
         var a, o, u, c, h, m;
         for (a in ((h = []), r))
-            null != (m = r[a]) && null != m[Oe.reftoken]
-                ? ((o = m[Oe.reftoken]),
+            null != (m = r[a]) && null != m[xe.reftoken]
+                ? ((o = m[xe.reftoken]),
                   i(m).length,
                   t(o)
-                      ? (o = Oe.replace(o, n, l, s))
+                      ? (o = xe.replace(o, n, l, s))
                       : null != n[o]
                       ? (r[a] = n[o])
-                      : String(o).match(new RegExp('^' + Oe.pathtoken)) && (r[a] = Oe.get_json_pointer(o, l, s)),
+                      : String(o).match(new RegExp('^' + xe.pathtoken)) && (r[a] = xe.get_json_pointer(o, l, s)),
                   null != (null != (u = r[a]) ? u.length : void 0) &&
                       0 === (null != (c = r[a]) ? c.length : void 0) &&
-                      Oe.debug,
+                      xe.debug,
                   h.push(void 0))
                 : 'object' === e(m)
-                ? h.push(Oe.replace(m, n, l, s))
+                ? h.push(xe.replace(m, n, l, s))
                 : h.push(void 0);
         return h;
     }),
-    (Oe.extend = function (t, i) {
+    (xe.extend = function (t, i) {
         var r, n, l, s, a, o;
         if ('object' === e(t)) {
             for (r in ((l = []), t)) {
-                if (((o = t[r]), r === Oe.extendtoken && null != o[Oe.reftoken])) {
-                    for (s in ((n = Oe.get_json_pointer(o[Oe.reftoken], t, i)), o))
-                        (a = o[s]), s !== Oe.reftoken && (n[s] = a);
+                if (((o = t[r]), r === xe.extendtoken && null != o[xe.reftoken])) {
+                    for (s in ((n = xe.get_json_pointer(o[xe.reftoken], t, i)), o))
+                        (a = o[s]), s !== xe.reftoken && (n[s] = a);
                     delete t[r];
                 }
-                'object' === e(o) ? l.push((o = Oe.extend(o))) : l.push(void 0);
+                'object' === e(o) ? l.push((o = xe.extend(o))) : l.push(void 0);
             }
             return l;
         }
     }),
-    (Oe.resolve = function (e, t) {
+    (xe.resolve = function (e, t) {
         var r;
-        return (r = {}), Oe.findIds(e, r), Oe.debug && i(r).length, Oe.replace(e, r, e, t), e;
+        return (r = {}), xe.findIds(e, r), xe.debug && i(r).length, xe.replace(e, r, e, t), e;
     }),
-    (Oe.evaluate = function (t, i, r) {
+    (xe.evaluate = function (t, i, r) {
         var n, l, s;
-        for (n in (null == r && (r = Oe.evaluateStr), (l = Oe.clone(t))))
-            'string' == typeof (s = l[n]) && (t[n] = r(s, i)), 'object' === e(s) && (t[n] = Oe.evaluate(s, i));
+        for (n in (null == r && (r = xe.evaluateStr), (l = xe.clone(t))))
+            'string' == typeof (s = l[n]) && (t[n] = r(s, i)), 'object' === e(s) && (t[n] = xe.evaluate(s, i));
         return t;
     }),
-    (Oe.evaluateStr = function (e, t) {
+    (xe.evaluateStr = function (e, t) {
         if ('string' != typeof e) return e;
         if ('{' !== e[0] || '}' !== e[e.length - 1])
             return e.replace(/(\{)(.*?)(\})/g, function (e, i, r) {
@@ -215,29 +216,29 @@ function je(e) {
                 else if (null != t[r]) n = t[r];
                 else {
                     try {
-                        (r = r.replace(new RegExp('^' + Oe.pathtoken + '/'), '').replace(/\//g, '.')),
-                            (n = ge.getter(r)(t));
+                        (r = r.replace(new RegExp('^' + xe.pathtoken + '/'), '').replace(/\//g, '.')),
+                            (n = Oe.getter(r)(t));
                     } catch (e) {
                         (err = e), (n = '');
                     }
                     null == n && (n = '');
                 }
-                return Oe.evaluateStr(n, t), n;
+                return xe.evaluateStr(n, t), n;
             });
         try {
-            return ge.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
+            return Oe.getter(e.replace(/^{/, '').replace(/}$/, ''))(t);
         } catch (e) {
             return null;
         }
     });
-var Pe = {},
-    Ie = function (e) {
+var Ie = {},
+    ke = function (e) {
         var t;
         return d((t = i(e || {}))).call(t, function (t) {
-            return je(je({}, e[t]), {}, { key: t });
+            return Pe(Pe({}, e[t]), {}, { key: t });
         });
     };
-Pe.prepareFullSchema = function (n, l) {
+Ie.prepareFullSchema = function (n, l) {
     var s,
         a,
         o,
@@ -254,7 +255,7 @@ Pe.prepareFullSchema = function (n, l) {
                 return null !== e;
             })));
     if ('object' !== d.type) return d;
-    ((d.properties = JSON.parse(m(Ie(d.properties)))),
+    ((d.properties = JSON.parse(m(ke(d.properties)))),
     (d.required = d.required || []),
     (d.dependencies = d.dependencies || {}),
     d.dependencies) &&
@@ -278,14 +279,14 @@ Pe.prepareFullSchema = function (n, l) {
                     (t(m) && 0 === m.length) ||
                     ('object' === e(m) && 0 === i(m).length) ||
                     ((d.required = u((s = d.required)).call(s, h.required || [])),
-                    (d.properties = u((a = d.properties)).call(a, Ie(h.properties))),
+                    (d.properties = u((a = d.properties)).call(a, ke(h.properties))),
                     h.oneOf && (d.oneOf = u((o = d.oneOf || [])).call(o, h.oneOf)),
                     h.allOf && (d.allOf = u((c = d.allOf || [])).call(c, h.allOf)));
             }
         });
     return d;
 };
-var ke = {
+var we = {
         locale: 'en',
         rootDisplay: '',
         objectContainerClass: '',
@@ -327,7 +328,7 @@ var ke = {
         idPrefix: '',
         markdownit: {},
     },
-    we = {
+    Ce = {
         en: {
             required: 'This information is required',
             noData: 'No matching value found',
@@ -413,7 +414,7 @@ var ke = {
             pattern: 'Invoer voldoet niet aan verwachte patroon',
         },
     },
-    Ce = {
+    Te = {
         time: function (e, t) {
             var i,
                 r = new Date(u((i = ''.concat(new Date().toISOString().split('T')[0], 'T'))).call(i, e));
@@ -427,7 +428,7 @@ var ke = {
             return new Date(e).toLocaleString(t);
         },
     },
-    Te = {
+    De = {
         mdi: {
             calendar: 'mdi-calendar',
             clock: 'mdi-clock',
@@ -446,7 +447,7 @@ var ke = {
             delete: 'fa-trash',
         },
     };
-function De(e, t) {
+function Ve(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -458,25 +459,25 @@ function De(e, t) {
     }
     return r;
 }
-function Ve(e) {
+function Le(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = De(Object(u), !0))).call(o, function (t) {
+            r((o = Ve(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = De(Object(u)))).call(c, function (t) {
+            r((c = Ve(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-var Le = {
+var $e = {
     data: function () {
         return { currentOneOf: null, currentTab: null, showCurrentOneOf: !0, subModels: {} };
     },
@@ -492,8 +493,8 @@ var Le = {
                         return !!t[e].const;
                     });
                 if (r)
-                    return Ve(
-                        Ve({}, t[r]),
+                    return Le(
+                        Le({}, t[r]),
                         {},
                         { key: r, htmlDescription: this.fullOptions.markdown(t[r].description || '') }
                     );
@@ -685,7 +686,7 @@ var Le = {
                     null != u && (this.$set(a, o, u), this.input(this.value))),
                 e('h-form-renderer', {
                     props: {
-                        schema: Ve({ readOnly: this.fullSchema.readOnly }, i),
+                        schema: Le({ readOnly: this.fullSchema.readOnly }, i),
                         value: u,
                         modelRoot: this.modelRoot || this.value,
                         modelKey: o,
@@ -733,7 +734,7 @@ var Le = {
                     });
                 if (t(this.fullSchema.items))
                     r((o = this.fullSchema.items)).call(o, function (t, i) {
-                        var r = Ve(Ve({}, t), {}, { key: '' + i }),
+                        var r = Le(Le({}, t), {}, { key: '' + i }),
                             n = s.value.length > i || (s.fullSchema.minItems && s.fullSchema.minItems > i);
                         if (s.isSection(t)) {
                             var l = s.renderChildProp(e, r, null, s.sectionDepth + 1, n);
@@ -742,18 +743,18 @@ var Le = {
                     });
                 if (this.fullSchema.allOf)
                     r((h = this.fullSchema.allOf)).call(h, function (t, i) {
-                        var r = Ve(Ve({}, t), {}, { type: 'object', key: '' + i });
+                        var r = Le(Le({}, t), {}, { type: 'object', key: '' + i });
                         if (s.isSection(t)) {
                             var n = s.renderChildProp(e, r, 'allOf-' + i, s.sectionDepth + 1);
                             f = u(f).call(f, s.renderSection(e, r, 'allOf-' + i, n));
                         } else m.push(s.renderChildProp(e, r, 'allOf-' + i, s.sectionDepth));
                     });
                 if ('expansion-panels' === this.display && f.length) {
-                    var d = Ve(Ve({}, this.fullOptions.expansionPanelsProps), this.fullSchema['x-props']);
+                    var d = Le(Le({}, this.fullOptions.expansionPanelsProps), this.fullSchema['x-props']);
                     f = [e('v-expansion-panels', { props: d }, f)];
                 }
                 if ('tabs' === this.display && f.length) {
-                    var v = Ve(Ve({}, this.fullOptions.tabsProps), this.fullSchema['x-props']);
+                    var v = Le(Le({}, this.fullOptions.tabsProps), this.fullSchema['x-props']);
                     this.currentTab &&
                         this.childrenInputs[this.currentTab] &&
                         this.childrenInputs[this.currentTab].hasValidatedChildError &&
@@ -775,8 +776,8 @@ var Le = {
                 }
                 if (this.subSchemas && this.subSchemas.length) {
                     var b,
-                        y = Ve(
-                            Ve({}, this.commonFieldProps),
+                        y = Le(
+                            Le({}, this.commonFieldProps),
                             {},
                             {
                                 value: this.currentOneOf,
@@ -807,7 +808,7 @@ var Le = {
                             m.push(
                                 this.renderChildProp(
                                     e,
-                                    Ve(Ve({}, this.currentOneOf), {}, { type: 'object', title: null }),
+                                    Le(Le({}, this.currentOneOf), {}, { type: 'object', title: null }),
                                     'currentOneOf',
                                     this.sectionDepth + 1
                                 )
@@ -835,7 +836,7 @@ var Le = {
         },
     },
 };
-function $e(e, t) {
+function Ke(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -847,29 +848,29 @@ function $e(e, t) {
     }
     return r;
 }
-function Ke(e) {
+function qe(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = $e(Object(u), !0))).call(o, function (t) {
+            r((o = Ke(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = $e(Object(u)))).call(c, function (t) {
+            r((c = Ke(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-var qe = function (e) {
+var Me = function (e) {
         var t = '' + e;
         return 1 === t.length ? '0' + t : t;
     },
-    Me = function (e) {
+    Re = function (e) {
         var t = new Date(),
             i = e[0].split('-');
         t.setFullYear(Number(i[0])), t.setMonth(Number(i[1]) - 1), t.setDate(Number(i[2]));
@@ -888,7 +889,7 @@ var qe = function (e) {
                     a,
                     o,
                     c = e.getTimezoneOffset(),
-                    h = u((t = ''.concat(qe(v(Math.abs(c / 60))), ':'))).call(t, qe(Math.abs(c % 60)));
+                    h = u((t = ''.concat(Me(v(Math.abs(c / 60))), ':'))).call(t, Me(Math.abs(c % 60)));
                 return (
                     (o = c < 0 ? '+'.concat(h) : c > 0 ? '-'.concat(h) : 'Z'),
                     u(
@@ -898,22 +899,22 @@ var qe = function (e) {
                                     (l = u(
                                         (s = u((a = ''.concat(e.getFullYear(), '-'))).call(
                                             a,
-                                            qe(e.getMonth() + 1),
+                                            Me(e.getMonth() + 1),
                                             '-'
                                         ))
-                                    ).call(s, qe(e.getDate()), 'T'))
-                                ).call(l, qe(e.getHours()), ':'))
-                            ).call(n, qe(e.getMinutes()), ':'))
-                        ).call(r, qe(e.getSeconds())))
+                                    ).call(s, Me(e.getDate()), 'T'))
+                                ).call(l, Me(e.getHours()), ':'))
+                            ).call(n, Me(e.getMinutes()), ':'))
+                        ).call(r, Me(e.getSeconds())))
                     ).call(i, o)
                 );
             })(t)
         );
     },
-    Re = function (e) {
+    Ae = function (e) {
         return e + ':00Z';
     },
-    Ae = {
+    Ee = {
         data: function () {
             return { dateProp: { tab: 'tab-date', menu: !1, parts: [null, null], lastValue: null } };
         },
@@ -934,23 +935,23 @@ var qe = function (e) {
                         c = this.fullOptions.icons.calendar;
                     if ('time' === this.fullSchema.format)
                         (r = e('v-time-picker', {
-                            props: Ke(
+                            props: qe(
                                 { value: ((o = this.value), o ? b(o).call(o, 0, 5) : '') },
                                 this.fullSchema['x-props']
                             ),
                             on: {
                                 input: function (e) {
-                                    return i.input(Re(e));
+                                    return i.input(Ae(e));
                                 },
                                 change: function (e) {
-                                    return i.change(Re(e));
+                                    return i.change(Ae(e));
                                 },
                             },
                         })),
                             (c = this.fullOptions.icons.clock);
                     else if ('date' === this.fullSchema.format)
                         r = e('v-date-picker', {
-                            props: Ke({ value: this.value }, this.fullSchema['x-props']),
+                            props: qe({ value: this.value }, this.fullSchema['x-props']),
                             on: {
                                 input: function (e) {
                                     i.input(e), (i.dateProp.menu = !1);
@@ -968,16 +969,16 @@ var qe = function (e) {
                                     u(
                                         (l = u((s = ''.concat(n.getFullYear(), '-'))).call(
                                             s,
-                                            qe(n.getMonth() + 1),
+                                            Me(n.getMonth() + 1),
                                             '-'
                                         ))
-                                    ).call(l, qe(n.getDate())),
-                                    u((a = ''.concat(qe(n.getHours()), ':'))).call(a, qe(n.getMinutes())),
+                                    ).call(l, Me(n.getDate())),
+                                    u((a = ''.concat(Me(n.getHours()), ':'))).call(a, Me(n.getMinutes())),
                                 ])),
                             (this.dateProp.lastValue = this.value);
                         var h = function () {
                                 if (i.dateProp.parts[1]) {
-                                    var e = Me(i.dateProp.parts);
+                                    var e = Re(i.dateProp.parts);
                                     i.input(e), i.change(e);
                                 }
                             },
@@ -990,8 +991,8 @@ var qe = function (e) {
                                 ]),
                                 e('v-tab-item', { props: { value: 'tab-date' } }, [
                                     e('v-date-picker', {
-                                        props: Ke(
-                                            Ke({}, this.fullOptions.datePickerProps),
+                                        props: qe(
+                                            qe({}, this.fullOptions.datePickerProps),
                                             {},
                                             { locale: this.fullOptions.locale, value: this.dateProp.parts[0] }
                                         ),
@@ -1004,8 +1005,8 @@ var qe = function (e) {
                                 ]),
                                 e('v-tab-item', { props: { value: 'tab-time' } }, [
                                     e('v-time-picker', {
-                                        props: Ke(
-                                            Ke({}, this.fullOptions.timePickerProps),
+                                        props: qe(
+                                            qe({}, this.fullOptions.timePickerProps),
                                             {},
                                             { locale: this.fullOptions.locale, value: this.dateProp.parts[1] }
                                         ),
@@ -1037,8 +1038,8 @@ var qe = function (e) {
                             return e(
                                 'v-text-field',
                                 {
-                                    props: Ke(
-                                        Ke({}, i.commonFieldProps),
+                                    props: qe(
+                                        qe({}, i.commonFieldProps),
                                         {},
                                         {
                                             value: i.formattedValue,
@@ -1047,8 +1048,8 @@ var qe = function (e) {
                                             prependIcon: c,
                                         }
                                     ),
-                                    on: Ke(
-                                        Ke({}, r),
+                                    on: qe(
+                                        qe({}, r),
                                         {},
                                         {
                                             input: function (e) {
@@ -1092,7 +1093,7 @@ var qe = function (e) {
             },
         },
     };
-function Ee(e, t) {
+function Fe(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -1104,25 +1105,25 @@ function Ee(e, t) {
     }
     return r;
 }
-function Fe(e) {
+function Ue(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = Ee(Object(u), !0))).call(o, function (t) {
+            r((o = Fe(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = Ee(Object(u)))).call(c, function (t) {
+            r((c = Fe(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-var Ue = {
+var Ne = {
     computed: {
         isSimpleProp: function () {
             var e, t;
@@ -1141,7 +1142,7 @@ var Ue = {
                 i,
                 r = this;
             if (this.isSimpleProp) {
-                var n = Fe({}, this.commonFieldProps),
+                var n = Ue({}, this.commonFieldProps),
                     l = [],
                     s = {},
                     a = {
@@ -1191,7 +1192,7 @@ var Ue = {
                                       return e(
                                           r.fullSchema.tag,
                                           {
-                                              props: Fe(Fe({}, n), {}, { required: !0, 'error-messages': i }),
+                                              props: Ue(Ue({}, n), {}, { required: !0, 'error-messages': i }),
                                               on: a,
                                               scopedSlots: s,
                                           },
@@ -1206,7 +1207,7 @@ var Ue = {
         },
     },
 };
-function Ne(e, t) {
+function He(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -1218,25 +1219,25 @@ function Ne(e, t) {
     }
     return r;
 }
-function He(e) {
+function _e(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = Ne(Object(u), !0))).call(o, function (t) {
+            r((o = He(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = Ne(Object(u)))).call(c, function (t) {
+            r((c = He(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-var _e = function (e) {
+var We = function (e) {
         return new x(function (t) {
             var i = new FileReader();
             (i.onload = function () {
@@ -1245,7 +1246,7 @@ var _e = function (e) {
                 i.readAsDataURL(e);
         });
     },
-    We = (function () {
+    ze = (function () {
         var e = O(
             g.mark(function e(t, i, r) {
                 var n, l;
@@ -1263,7 +1264,7 @@ var _e = function (e) {
                                     e.next = 7;
                                     break;
                                 }
-                                return (e.next = 5), _e(t);
+                                return (e.next = 5), We(t);
                             case 5:
                                 (l = e.sent), (n = r ? l : l.split(';base64,')[1]);
                             case 7:
@@ -1291,7 +1292,7 @@ var _e = function (e) {
             return e.apply(this, arguments);
         };
     })(),
-    ze = {
+    Je = {
         computed: {
             isFileProp: function () {
                 return (
@@ -1329,7 +1330,7 @@ var _e = function (e) {
             renderFileProp: function (e) {
                 var t = this;
                 if (this.isFileProp) {
-                    var i = He(He({}, this.commonFieldProps), this.fullOptions.fileInputProps);
+                    var i = _e(_e({}, this.commonFieldProps), this.fullOptions.fileInputProps);
                     delete i.value;
                     var r = {};
                     this.fullSchema.contentMediaType && (r.accept = this.fullSchema.contentMediaType),
@@ -1356,7 +1357,7 @@ var _e = function (e) {
                                                             (e.next = 3),
                                                             x.all(
                                                                 d(i).call(i, function (e) {
-                                                                    return We(
+                                                                    return ze(
                                                                         e,
                                                                         t.fullSchema.items,
                                                                         t.fullOptions.filesAsDataUrl
@@ -1370,7 +1371,7 @@ var _e = function (e) {
                                                     case 8:
                                                         return (
                                                             (e.next = 10),
-                                                            We(i, t.resolvedSchema, t.fullOptions.filesAsDataUrl)
+                                                            ze(i, t.resolvedSchema, t.fullOptions.filesAsDataUrl)
                                                         );
                                                     case 10:
                                                         (n = e.sent), t.input(n), t.change(n);
@@ -1393,7 +1394,7 @@ var _e = function (e) {
             },
         },
     };
-function Je(e, t) {
+function Be(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -1405,25 +1406,25 @@ function Je(e, t) {
     }
     return r;
 }
-function Be(e) {
+function Ge(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = Je(Object(u), !0))).call(o, function (t) {
+            r((o = Be(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = Je(Object(u)))).call(c, function (t) {
+            r((c = Be(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-var Ge = {
+var Ze = {
         computed: {
             isColorProp: function () {
                 return (
@@ -1454,9 +1455,9 @@ var Ge = {
                                     },
                                     default: function () {
                                         return e('v-color-picker', {
-                                            props: Be(
-                                                Be(
-                                                    Be({ flat: !0 }, t.fullOptions.colorPickerProps),
+                                            props: Ge(
+                                                Ge(
+                                                    Ge({ flat: !0 }, t.fullOptions.colorPickerProps),
                                                     t.fullSchema['x-props']
                                                 ),
                                                 {},
@@ -1476,7 +1477,7 @@ var Ge = {
                             e(
                                 'v-input',
                                 {
-                                    props: Be(
+                                    props: Ge(
                                         {
                                             name: this.fullKey,
                                             label: this.label,
@@ -1495,7 +1496,7 @@ var Ge = {
             },
         },
     },
-    Ze = {
+    Ye = {
         getSelectItems: function (t, n, l, s) {
             var a = [];
             if (t)
@@ -1532,11 +1533,11 @@ var Ge = {
             return a;
         },
     },
-    Ye = function (e, t, i) {
+    Qe = function (e, t, i) {
         var r, n;
         return !p((r = [null, void 0])).call(r, e) && !p((n = [null, void 0])).call(n, t) && m(e[i]) === m(t[i]);
     };
-function Qe(e, i) {
+function Xe(e, i) {
     var r;
     if (void 0 === I || null == P(e)) {
         if (
@@ -1544,11 +1545,11 @@ function Qe(e, i) {
             (r = (function (e, t) {
                 var i;
                 if (!e) return;
-                if ('string' == typeof e) return Xe(e, t);
+                if ('string' == typeof e) return et(e, t);
                 var r = b((i = Object.prototype.toString.call(e))).call(i, 8, -1);
                 'Object' === r && e.constructor && (r = e.constructor.name);
                 if ('Map' === r || 'Set' === r) return k(e);
-                if ('Arguments' === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)) return Xe(e, t);
+                if ('Arguments' === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)) return et(e, t);
             })(e)) ||
             (i && e && 'number' == typeof e.length)
         ) {
@@ -1593,12 +1594,12 @@ function Qe(e, i) {
         },
     };
 }
-function Xe(e, t) {
+function et(e, t) {
     (null == t || t > e.length) && (t = e.length);
     for (var i = 0, r = new Array(t); i < t; i++) r[i] = e[i];
     return r;
 }
-function et(e, t) {
+function tt(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -1610,25 +1611,25 @@ function et(e, t) {
     }
     return r;
 }
-function tt(e) {
+function it(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = et(Object(u), !0))).call(o, function (t) {
+            r((o = tt(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = et(Object(u)))).call(c, function (t) {
+            r((c = tt(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-(Ze.fillSelectItems = function (e, t, i, n, l) {
+(Ye.fillSelectItems = function (e, t, i, n, l) {
     if (t)
         if ('array' === e.type) {
             var s, a;
@@ -1641,27 +1642,27 @@ function tt(e) {
             ).call(s, function (e) {
                 var t = l ? e : f({}, n, e);
                 h(i).call(i, function (e) {
-                    return Ye(e, t, n);
+                    return Qe(e, t, n);
                 }) || i.push(t);
             });
         } else {
             var o = l ? t : f({}, n, t);
             h(i).call(i, function (e) {
-                return Ye(e, o, n);
+                return Qe(e, o, n);
             }) || i.push(o);
         }
 }),
-    (Ze.fillList = function (e, t, i, n) {
+    (Ye.fillList = function (e, t, i, n) {
         if (t)
             return i.length
                 ? (r(i).call(i, function (e) {
                       h(t).call(t, function (t) {
-                          return Ye(e, t, n);
+                          return Qe(e, t, n);
                       }) || t.push(e);
                   }),
                   r(t).call(t, function (e, r) {
                       h(i).call(i, function (t) {
-                          return Ye(t, e, n);
+                          return Qe(t, e, n);
                       }) || (t[r] = null);
                   }),
                   c(t).call(t, function (e) {
@@ -1669,9 +1670,9 @@ function tt(e) {
                   }))
                 : [];
     });
-var it = require('match-all'),
-    rt = require('debounce');
-function nt(e, t) {
+var rt = require('match-all'),
+    nt = require('debounce');
+function lt(e, t) {
     var r = i(e);
     if (o) {
         var n = o(e);
@@ -1683,25 +1684,25 @@ function nt(e, t) {
     }
     return r;
 }
-function lt(e) {
+function st(e) {
     for (var t = arguments, i = 1; i < arguments.length; i++) {
         var o,
             u = null != t[i] ? t[i] : {};
         if (i % 2)
-            r((o = nt(Object(u), !0))).call(o, function (t) {
+            r((o = lt(Object(u), !0))).call(o, function (t) {
                 f(e, t, u[t]);
             });
         else if (s) l(e, s(u));
         else {
             var c;
-            r((c = nt(Object(u)))).call(c, function (t) {
+            r((c = lt(Object(u)))).call(c, function (t) {
                 n(e, t, a(u, t));
             });
         }
     }
     return e;
 }
-var st = L(
+var at = L(
     {},
     undefined,
     {
@@ -1728,26 +1729,27 @@ var st = L(
             VCol: Y,
             VFileInput: Q,
             VIcon: X,
-            VInput: ee,
-            VRow: te,
-            VListItemContent: ie,
-            VListItemTitle: re,
-            VMenu: ne,
-            VRadio: le,
-            VRadioGroup: se,
-            VRangeSlider: ae,
-            VSelect: oe,
-            VSlider: ue,
-            VSpacer: ce,
-            VSubheader: he,
-            VSwitch: me,
-            VTabs: pe,
-            VTab: fe,
-            VTabItem: de,
-            VTextarea: ve,
-            VTextField: be,
-            VTimePicker: ye,
-            VTooltip: Se,
+            VImg: ee,
+            VInput: te,
+            VRow: ie,
+            VListItemContent: re,
+            VListItemTitle: ne,
+            VMenu: le,
+            VRadio: se,
+            VRadioGroup: ae,
+            VRangeSlider: oe,
+            VSelect: ue,
+            VSlider: ce,
+            VSpacer: he,
+            VSubheader: me,
+            VSwitch: pe,
+            VTabs: fe,
+            VTab: de,
+            VTabItem: ve,
+            VTextarea: be,
+            VTextField: ye,
+            VTimePicker: Se,
+            VTooltip: ge,
         },
         mixins: [
             L(
@@ -1756,10 +1758,10 @@ var st = L(
                 {
                     name: 'HAssemblyRenderder',
                     mixins: [
-                        Le,
-                        Ue,
-                        Ae,
-                        Ge,
+                        $e,
+                        Ne,
+                        Ee,
+                        Ze,
                         {
                             data: function () {
                                 return { rawSelectItems: null, selectItems: null, q: '', fromUrlParams: {} };
@@ -1809,7 +1811,7 @@ var st = L(
                                 fromUrlKeys: function () {
                                     var e;
                                     return this.fullSchema['x-fromUrl']
-                                        ? c((e = it(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray())).call(
+                                        ? c((e = rt(this.fullSchema['x-fromUrl'], /\{(.*?)\}/g).toArray())).call(
                                               e,
                                               function (e) {
                                                   return 'q' !== e;
@@ -1872,8 +1874,8 @@ var st = L(
                                             ).oneOf)
                                         ).call(t, function (e) {
                                             var t;
-                                            return tt(
-                                                tt({}, e),
+                                            return it(
+                                                it({}, e),
                                                 {},
                                                 (f((t = {}), i.itemKey, e.const || (e.enum && e.enum[0])),
                                                 f(t, i.itemTitle, e.title),
@@ -1915,10 +1917,10 @@ var st = L(
                                         return this.$emit('error', 'No http lib found to perform ajax request');
                                     (this.debouncedFetch =
                                         this.debouncedFetch ||
-                                        rt(function () {
+                                        nt(function () {
                                             var i,
                                                 r = e.fullSchema['x-fromUrl'].replace('{q}', e.q || ''),
-                                                n = Qe(e.fromUrlKeys);
+                                                n = Xe(e.fromUrlKeys);
                                             try {
                                                 for (n.s(); !(i = n.n()).done; ) {
                                                     var l = i.value;
@@ -1951,15 +1953,15 @@ var st = L(
                                         this.debouncedFetch();
                                 },
                                 updateSelectItems: function () {
-                                    var e = Ze.getSelectItems(
+                                    var e = Ye.getSelectItems(
                                         this.rawSelectItems,
                                         this.fullSchema,
                                         this.itemKey,
                                         this.itemIcon
                                     );
                                     'list' === this.display &&
-                                        this.input(Ze.fillList(this.fullSchema, this.value, e, this.itemKey)),
-                                        Ze.fillSelectItems(
+                                        this.input(Ye.fillList(this.fullSchema, this.value, e, this.itemKey)),
+                                        Ye.fillSelectItems(
                                             this.fullSchema,
                                             this.value,
                                             e,
@@ -2017,8 +2019,8 @@ var st = L(
                                                 n.input(e), n.change(e);
                                             },
                                         },
-                                        s = tt(
-                                            tt({}, this.commonFieldProps),
+                                        s = it(
+                                            it({}, this.commonFieldProps),
                                             {},
                                             { multiple: 'array' === this.fullSchema.type, label: null }
                                         ),
@@ -2061,14 +2063,14 @@ var st = L(
                                     var i = t[this.itemTitle] || t[this.itemKey],
                                         r = t[this.itemKey];
                                     return e('v-radio', {
-                                        props: tt(tt({}, this.fullOptions.radioItemProps), {}, { label: i, value: r }),
+                                        props: it(it({}, this.fullOptions.radioItemProps), {}, { label: i, value: r }),
                                     });
                                 },
                                 renderRadioGroup: function (e) {
                                     var t,
                                         i,
                                         r = this,
-                                        n = tt(tt({}, this.commonFieldProps), this.fullOptions.radioGroupProps);
+                                        n = it(it({}, this.commonFieldProps), this.fullOptions.radioGroupProps);
                                     return [
                                         e(
                                             'v-radio-group',
@@ -2144,8 +2146,8 @@ var st = L(
                                             l = S(this.renderPropSlots(e));
                                         this.htmlDescription && l.push(this.renderTooltip(e, 'append-outer'));
                                         var s = 'v-select',
-                                            a = tt(
-                                                tt(tt({}, this.commonFieldProps), this.fullOptions.selectProps),
+                                            a = it(
+                                                it(it({}, this.commonFieldProps), this.fullOptions.selectProps),
                                                 {},
                                                 {
                                                     clearable: !this.required,
@@ -2182,7 +2184,7 @@ var st = L(
                                 },
                             },
                         },
-                        ze,
+                        Je,
                         {
                             data: function () {
                                 return { editabledArrayProp: { currentDialog: null, editItem: null, editedItems: {} } };
@@ -2295,8 +2297,8 @@ var st = L(
                                     return e(
                                         'v-dialog',
                                         {
-                                            props: lt(
-                                                lt({}, this.fullOptions.dialogProps),
+                                            props: st(
+                                                st({}, this.fullOptions.dialogProps),
                                                 {},
                                                 {
                                                     value: this.editabledArrayProp.currentDialog === i,
@@ -2384,13 +2386,13 @@ var st = L(
                                             modelRoot: this.modelRoot || this.value,
                                             modelKey: i,
                                             parentKey: ''.concat(this.fullKey, '.'),
-                                            options: lt(
-                                                lt({}, this.fullOptions),
+                                            options: st(
+                                                st({}, this.fullOptions),
                                                 {},
                                                 {
                                                     hideReadOnly: !1,
-                                                    fieldProps: lt(
-                                                        lt({}, this.fullOptions.fieldProps),
+                                                    fieldProps: st(
+                                                        st({}, this.fullOptions.fieldProps),
                                                         {},
                                                         { dense: !0 }
                                                     ),
@@ -2697,7 +2699,7 @@ var st = L(
                                     ('undefined' != typeof window && window) ||
                                     ('undefined' != typeof global && global) ||
                                     {},
-                                t = Object.assign({}, ke, this.options || {}, this.resolvedSchema['x-options'] || {});
+                                t = Object.assign({}, we, this.options || {}, this.resolvedSchema['x-options'] || {});
                             (t.markdown =
                                 t.markdown ||
                                 (e.markdownit &&
@@ -2710,22 +2712,22 @@ var st = L(
                                 (t.httpLib = t.httpLib || this.axios || this.$http || this.$axios || e.axios);
                             var i = (this.$vuetify.icons && this.$vuetify.icons.iconfont) || 'mdi';
                             return (
-                                (t.icons = Object.assign({}, Te[i], t.icons)),
-                                (t.messages = Object.assign({}, we[t.locale] || we.en, t.messages)),
-                                (t.formats = Object.assign({}, Ce, t.formats)),
+                                (t.icons = Object.assign({}, De[i], t.icons)),
+                                (t.messages = Object.assign({}, Ce[t.locale] || Ce.en, t.messages)),
+                                (t.formats = Object.assign({}, Te, t.formats)),
                                 t.deleteReadOnly && (t.hideReadOnly = !0),
                                 t
                             );
                         },
                         resolvedSchema: function () {
                             return 'root' === this.modelKey
-                                ? Oe.resolve(this.schema, {
+                                ? xe.resolve(this.schema, {
                                       '~$locale~': (this.options && this.options.locale) || 'en',
                                   })
                                 : this.schema;
                         },
                         fullSchema: function () {
-                            return Pe.prepareFullSchema(this.resolvedSchema, this.value);
+                            return Ie.prepareFullSchema(this.resolvedSchema, this.value);
                         },
                         htmlDescription: function () {
                             return this.fullSchema && this.fullSchema.description
@@ -3126,8 +3128,8 @@ var st = L(
     void 0,
     void 0
 );
-(st.install = function (e) {
-    e.component(st.name, st);
+(at.install = function (e) {
+    e.component(at.name, at);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && st.install(window.Vue);
-export { st as HFormRenderer };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && at.install(window.Vue);
+export { at as HFormRenderer };

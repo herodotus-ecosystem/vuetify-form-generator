@@ -139,30 +139,6 @@ const definitions = {
         },
     },
 
-    SELECT_MULTIPLE: {
-        index: 'SELECT_MULTIPLE',
-        schema: {
-            type: 'array',
-            title: '多项下拉',
-            tag: 'v-select',
-            'x-display': 'icon',
-            'x-props': {},
-            items: {
-                type: 'string',
-                oneOf: [
-                    {
-                        const: 'value1',
-                        title: 'Value 1',
-                    },
-                    {
-                        const: 'value2',
-                        title: 'Value 2',
-                    },
-                ],
-            },
-        },
-    },
-
     COLOR_PICKER: {
         index: 'COLOR_PICKER',
         schema: {
@@ -197,6 +173,18 @@ const definitions = {
             contentMediaType: 'image/png',
             writeOnly: true,
             'x-props': {},
+        },
+    },
+    IMAGES: {
+        index: 'IMAGES',
+        schema: {
+            type: 'string',
+            title: '图片',
+            tag: 'v-img',
+            'x-props': {
+                transition: 'fade-transition',
+                position: 'center center',
+            },
         },
     },
 };

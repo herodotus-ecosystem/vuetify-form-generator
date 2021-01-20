@@ -3,7 +3,7 @@
         <v-list-item-content>
             <v-switch
                 v-if="isSwitch"
-                :value="content"
+                v-model="content"
                 :label="label"
                 :disabled="disabled"
                 :true-value="trueValue"
@@ -15,7 +15,7 @@
             ></v-switch>
             <v-text-field
                 v-else
-                :value="content"
+                v-model="content"
                 :label="label"
                 :disabled="disabled"
                 outlined
@@ -43,7 +43,7 @@
 import HPanelTooltip from './HPanelTooltip.vue';
 
 export default {
-    name: 'HCombineBooleanInput',
+    name: 'HPanelSwitchTextField',
 
     components: {
         HPanelTooltip,
@@ -74,6 +74,7 @@ export default {
             handler(newValue, oldValue) {
                 this.content = newValue;
             },
+            immediate: true,
         },
         content: {
             handler(newValue, oldValue) {

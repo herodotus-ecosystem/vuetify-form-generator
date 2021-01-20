@@ -202,6 +202,8 @@ export default {
         },
         emptyCanvas() {
             this.drawingCanvas = [];
+            this.selectedCanvasItemData = {};
+            this.selectedCanvasItemId = '';
         },
     },
 };

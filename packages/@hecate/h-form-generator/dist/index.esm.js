@@ -7,8 +7,8 @@ import {
     VToolbar as n,
     VCard as o,
     VCol as r,
-    VRow as l,
-    VContainer as i,
+    VRow as i,
+    VContainer as l,
     VListItemContent as p,
     VListItemAction as c,
     VListItem as d,
@@ -39,8 +39,8 @@ import {
     VMain as E,
     VApp as R,
     VToolbarTitle as A,
-    VSpacer as B,
-    VToolbarItems as j,
+    VSpacer as j,
+    VToolbarItems as B,
     VAppBar as N,
 } from 'vuetify/lib';
 import 'core-js/modules/es.array.join.js';
@@ -151,23 +151,6 @@ var oe = {
                 items: { type: 'string' },
             },
         },
-        SELECT_MULTIPLE: {
-            index: 'SELECT_MULTIPLE',
-            schema: {
-                type: 'array',
-                title: '多项下拉',
-                tag: 'v-select',
-                'x-display': 'icon',
-                'x-props': {},
-                items: {
-                    type: 'string',
-                    oneOf: [
-                        { const: 'value1', title: 'Value 1' },
-                        { const: 'value2', title: 'Value 2' },
-                    ],
-                },
-            },
-        },
         COLOR_PICKER: {
             index: 'COLOR_PICKER',
             schema: {
@@ -198,6 +181,15 @@ var oe = {
                 contentMediaType: 'image/png',
                 writeOnly: !0,
                 'x-props': {},
+            },
+        },
+        IMAGES: {
+            index: 'IMAGES',
+            schema: {
+                type: 'string',
+                title: '图片',
+                tag: 'v-img',
+                'x-props': { transition: 'fade-transition', position: 'center center' },
             },
         },
     },
@@ -327,11 +319,20 @@ var oe = {
                         schema: oe.FILE_INPUT.index,
                     },
                 },
+                {
+                    configs: {
+                        title: oe.IMAGES.schema.title,
+                        icon: 'mdi-file-image',
+                        name: 'Image',
+                        document: 'https://vuetifyjs.com/zh-Hans/components/images/',
+                        schema: oe.IMAGES.index,
+                    },
+                },
             ],
         },
         { title: '布局型组件', list: [] },
     ],
-    le = {
+    ie = {
         formRef: 'FormRef',
         formModel: 'formData',
         requestContentType: 'application/json',
@@ -339,7 +340,7 @@ var oe = {
         requestUrl: '',
         responseParam: 'data',
     },
-    ie = {
+    le = {
         annotations: {
             xprops: 'x-props',
             xslots: 'x-slots',
@@ -365,6 +366,7 @@ var oe = {
             BackgroundColor: 'background-color',
             CacheItems: 'cache-items',
             ClearIcon: 'clear-icon',
+            ContentClass: 'content-class',
             DeletableChips: 'deletable-chips',
             DisableLookup: 'disable-lookup',
             FalseValue: 'false-value',
@@ -380,9 +382,14 @@ var oe = {
             ItemDisabled: 'item-disabled',
             ItemText: 'item-text',
             ItemValue: 'item-value',
+            LazySrc: 'lazy-src',
             LazyValidation: 'lazy-validation',
             LoaderHeight: 'loader-height',
             LocaleFirstDayOfYear: 'locale-first-day-of-year',
+            MaxHeight: 'max-height',
+            MaxWidth: 'max-width',
+            MinHeight: 'min-height',
+            MinWidth: 'min-width',
             MenuProps: 'menu-props',
             NextIcon: 'next-icon',
             NextMonthAriaLabel: 'next-month-aria-label',
@@ -494,7 +501,7 @@ function ue(e) {
     if (!G.lodash.isEmpty(e)) {
         var t = ce(e),
             s = (function (e) {
-                return !G.lodash.isEmpty(e) && G.lodash.has(e, ie.annotations.xprops) ? e[ie.annotations.xprops] : {};
+                return !G.lodash.isEmpty(e) && G.lodash.has(e, le.annotations.xprops) ? e[le.annotations.xprops] : {};
             })(t),
             a = {},
             n = t['x-rules'];
@@ -654,7 +661,7 @@ var ve = J(
     null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && ve.install(window.Vue);
 var be = {
         name: 'HCanvasContainer',
-        components: { HButton: ve, VToolbar: n, VCard: o, VCol: r, VRow: l, VContainer: i },
+        components: { HButton: ve, VToolbar: n, VCard: o, VCol: r, VRow: i, VContainer: l },
         created: function () {},
         data: function () {
             return {};
@@ -1320,7 +1327,7 @@ var be = {
         },
     },
     Ae = Re,
-    Be = J(
+    je = J(
         {
             render: function () {
                 var e = this,
@@ -1375,7 +1382,40 @@ var be = {
         void 0,
         void 0
     ),
-    je = J(
+    Be = {
+        name: 'HPanelSelect',
+        components: { HPanelTooltip: Se, VSelect: k, VListItemContent: p, VListItem: d },
+        props: {
+            value: { required: !0 },
+            label: String,
+            tooltip: String,
+            disabled: { type: Boolean, default: !1 },
+            items: {
+                type: Array,
+                default: function () {
+                    return [];
+                },
+            },
+        },
+        data: function () {
+            return { selectedValue: '' };
+        },
+        watch: {
+            value: {
+                handler: function (e, t) {
+                    this.selectedValue = e;
+                },
+                immediate: !0,
+            },
+            selectedValue: {
+                handler: function (e, t) {
+                    this.$emit('input', e);
+                },
+            },
+        },
+    },
+    Ne = Be,
+    Me = J(
         {
             render: function () {
                 var e = this,
@@ -1420,38 +1460,7 @@ var be = {
             staticRenderFns: [],
         },
         undefined,
-        {
-            name: 'HPanelSelect',
-            components: { HPanelTooltip: Se, VSelect: k, VListItemContent: p, VListItem: d },
-            props: {
-                value: { required: !0 },
-                label: String,
-                tooltip: String,
-                disabled: { type: Boolean, default: !1 },
-                items: {
-                    type: Array,
-                    default: function () {
-                        return [];
-                    },
-                },
-            },
-            data: function () {
-                return { selectedValue: '' };
-            },
-            watch: {
-                value: {
-                    handler: function (e, t) {
-                        this.selectedValue = e;
-                    },
-                    immediate: !0,
-                },
-                selectedValue: {
-                    handler: function (e, t) {
-                        this.$emit('input', e);
-                    },
-                },
-            },
-        },
+        Ne,
         undefined,
         false,
         undefined,
@@ -1460,7 +1469,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ne = J(
+    We = J(
         {
             render: function () {
                 var e = this,
@@ -1540,7 +1549,7 @@ var be = {
         void 0,
         void 0
     ),
-    Me = J(
+    ze = J(
         {
             render: function () {
                 var e = this,
@@ -1557,7 +1566,6 @@ var be = {
                                     ? s('v-switch', {
                                           staticClass: 'mt-0 ml-2 pt-0',
                                           attrs: {
-                                              value: e.content,
                                               label: e.label,
                                               disabled: e.disabled,
                                               'true-value': e.trueValue,
@@ -1566,17 +1574,30 @@ var be = {
                                               inset: '',
                                               'hide-details': '',
                                           },
+                                          model: {
+                                              value: e.content,
+                                              callback: function (t) {
+                                                  e.content = t;
+                                              },
+                                              expression: 'content',
+                                          },
                                       })
                                     : s('v-text-field', {
                                           staticClass: 'ml-1 pr-2',
                                           attrs: {
-                                              value: e.content,
                                               label: e.label,
                                               disabled: e.disabled,
                                               outlined: '',
                                               dense: '',
                                               'hide-details': '',
                                               clearable: '',
+                                          },
+                                          model: {
+                                              value: e.content,
+                                              callback: function (t) {
+                                                  e.content = t;
+                                              },
+                                              expression: 'content',
                                           },
                                       }),
                             ],
@@ -1648,7 +1669,7 @@ var be = {
         },
         undefined,
         {
-            name: 'HCombineBooleanInput',
+            name: 'HPanelSwitchTextField',
             components: {
                 HPanelTooltip: Se,
                 VSwitch: _,
@@ -1675,6 +1696,7 @@ var be = {
                     handler: function (e, t) {
                         this.content = e;
                     },
+                    immediate: !0,
                 },
                 content: {
                     handler: function (e, t) {
@@ -1691,7 +1713,7 @@ var be = {
         void 0,
         void 0
     ),
-    We = J(
+    Ge = J(
         {
             render: function () {
                 var e = this,
@@ -1763,7 +1785,7 @@ var be = {
         void 0,
         void 0
     ),
-    ze = J(
+    Ke = J(
         {
             render: function () {
                 var e = this,
@@ -2057,13 +2079,13 @@ var be = {
                 HExpansionPanel: $e,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelSwitch: Ne,
-                HPanelTextField: We,
+                HPanelSwitch: We,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -2087,7 +2109,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ge = J(
+    Xe = J(
         {
             render: function () {
                 var e = this,
@@ -2895,15 +2917,15 @@ var be = {
                 HPanelArray: Te,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelNumber: Be,
-                HPanelSelect: je,
-                HPanelSwitch: Ne,
-                HPanelTextField: We,
+                HPanelNumber: je,
+                HPanelSelect: Me,
+                HPanelSwitch: We,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -2930,7 +2952,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ke = J(
+    Ye = J(
         {
             render: function () {
                 var e = this,
@@ -3382,15 +3404,15 @@ var be = {
                 HExpansionPanel: $e,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelNumber: Be,
-                HPanelSelect: je,
-                HPanelSwitch: Ne,
-                HPanelTextField: We,
+                HPanelNumber: je,
+                HPanelSelect: Me,
+                HPanelSwitch: We,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -3414,7 +3436,7 @@ var be = {
         void 0,
         void 0
     ),
-    Xe = J(
+    Ue = J(
         {
             render: function () {
                 var e = this,
@@ -3494,10 +3516,10 @@ var be = {
         undefined,
         {
             name: 'HFormPanel',
-            components: { HExpansionPanel: $e, HPanelSelect: je, HPanelTextField: We, VExpansionPanels: w },
+            components: { HExpansionPanel: $e, HPanelSelect: Me, HPanelTextField: Ge, VExpansionPanels: w },
             props: { schema: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, formSettings: {} };
+                return { constants: le, formSettings: {} };
             },
             watch: {
                 schema: {
@@ -3516,7 +3538,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ye = J(
+    qe = J(
         {
             render: function () {
                 var e = this,
@@ -3951,15 +3973,15 @@ var be = {
                 HPanelArray: Te,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelNumber: Be,
-                HPanelSwitch: Ne,
-                HPanelSwitchTextField: Me,
-                HPanelTextField: We,
+                HPanelNumber: je,
+                HPanelSwitch: We,
+                HPanelSwitchTextField: ze,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -3983,7 +4005,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ue = J(
+    Je = J(
         {
             render: function () {
                 var e = this,
@@ -4724,15 +4746,15 @@ var be = {
                 HExpansionPanel: $e,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelNumber: Be,
-                HPanelSelect: je,
-                HPanelSwitch: Ne,
-                HPanelTextField: We,
+                HPanelNumber: je,
+                HPanelSelect: Me,
+                HPanelSwitch: We,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -4759,7 +4781,7 @@ var be = {
         void 0,
         void 0
     ),
-    qe = J(
+    Qe = J(
         {
             render: function () {
                 var e = this,
@@ -5194,15 +5216,15 @@ var be = {
                 HPanelArray: Te,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelNumber: Be,
-                HPanelSwitch: Ne,
-                HPanelSwitchTextField: Me,
-                HPanelTextField: We,
+                HPanelNumber: je,
+                HPanelSwitch: We,
+                HPanelSwitchTextField: ze,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -5226,7 +5248,7 @@ var be = {
         void 0,
         void 0
     ),
-    Je = J(
+    Ze = J(
         {
             render: function () {
                 var e = this,
@@ -5557,13 +5579,13 @@ var be = {
                 HExpansionPanel: $e,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelSwitch: Ne,
-                HPanelTextField: We,
+                HPanelSwitch: We,
+                HPanelTextField: Ge,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -5587,7 +5609,7 @@ var be = {
         void 0,
         void 0
     ),
-    Qe = J(
+    et = J(
         {
             render: function () {
                 var e = this,
@@ -5976,7 +5998,7 @@ var be = {
                 VSelect: k,
                 VBtn: s,
                 VCol: r,
-                VRow: l,
+                VRow: i,
             },
             props: { value: { type: String, default: '' } },
             data: function () {
@@ -6019,7 +6041,7 @@ var be = {
                     return !!this.$lib.lodash.isEmpty(this.selectedRule);
                 },
             },
-            created: function () {
+            create: function () {
                 this.initRuleItems();
             },
             methods: {
@@ -6116,7 +6138,7 @@ var be = {
         void 0,
         void 0
     ),
-    Ze = J(
+    tt = J(
         {
             render: function () {
                 var e = this,
@@ -6723,16 +6745,16 @@ var be = {
                 HExpansionPanel: $e,
                 HPanelColor: De,
                 HPanelIcon: Ee,
-                HPanelNumber: Be,
-                HPanelSelect: je,
-                HPanelSwitch: Ne,
-                HPanelTextField: We,
-                HRuleExpansionPanel: Qe,
+                HPanelNumber: je,
+                HPanelSelect: Me,
+                HPanelSwitch: We,
+                HPanelTextField: Ge,
+                HRuleExpansionPanel: et,
                 VExpansionPanels: w,
             },
             props: { element: { type: Object, default: function () {} } },
             data: function () {
-                return { constants: ie, dataObject: {} };
+                return { constants: le, dataObject: {} };
             },
             computed: {
                 properties: function () {
@@ -6767,7 +6789,7 @@ var be = {
         void 0,
         void 0
     ),
-    et = J(
+    st = J(
         {
             render: function () {
                 var e = this,
@@ -6797,7 +6819,7 @@ var be = {
                                     1
                                 ),
                                 e._v(' '),
-                                s('v-toolbar-title', [e._v('Vuetify Form Generator')]),
+                                s('v-toolbar-title', [e._v('Hecate Form Generator')]),
                                 e._v(' '),
                                 s('v-spacer'),
                                 e._v(' '),
@@ -8216,16 +8238,16 @@ var be = {
                                                     HExpansionPanel: $e,
                                                     HPanelColor: De,
                                                     HPanelIcon: Ee,
-                                                    HPanelNumber: Be,
-                                                    HPanelSelect: je,
-                                                    HPanelSwitch: Ne,
-                                                    HPanelTextField: We,
-                                                    HRuleExpansionPanel: Qe,
+                                                    HPanelNumber: je,
+                                                    HPanelSelect: Me,
+                                                    HPanelSwitch: We,
+                                                    HPanelTextField: Ge,
+                                                    HRuleExpansionPanel: et,
                                                     VExpansionPanels: w,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return { constants: ie, dataObject: {} };
+                                                    return { constants: le, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -8260,12 +8282,12 @@ var be = {
                                             void 0,
                                             void 0
                                         ),
-                                        TEXT_AREA: Ze,
-                                        SLIDER: qe,
-                                        RANGE_SLIDER: Ye,
-                                        CHECKBOX: ze,
-                                        SWITCHS: Je,
-                                        DATE_PICKER: Ke,
+                                        TEXT_AREA: tt,
+                                        SLIDER: Qe,
+                                        RANGE_SLIDER: qe,
+                                        CHECKBOX: Ke,
+                                        SWITCHS: Ze,
+                                        DATE_PICKER: Ye,
                                         TIME_PICKER: J(
                                             {
                                                 render: function () {
@@ -8610,15 +8632,15 @@ var be = {
                                                 components: {
                                                     HExpansionPanel: $e,
                                                     HPanelColor: De,
-                                                    HPanelNumber: Be,
-                                                    HPanelSelect: je,
-                                                    HPanelSwitch: Ne,
-                                                    HPanelTextField: We,
+                                                    HPanelNumber: je,
+                                                    HPanelSelect: Me,
+                                                    HPanelSwitch: We,
+                                                    HPanelTextField: Ge,
                                                     VExpansionPanels: w,
                                                 },
                                                 props: { element: { type: Object, default: function () {} } },
                                                 data: function () {
-                                                    return { constants: ie, dataObject: {} };
+                                                    return { constants: le, dataObject: {} };
                                                 },
                                                 computed: {
                                                     properties: function () {
@@ -8642,9 +8664,389 @@ var be = {
                                             void 0,
                                             void 0
                                         ),
-                                        SELECT_SINGLE: Ue,
-                                        COMBOBOX: Ge,
-                                        HFormPanel: Xe,
+                                        SELECT_SINGLE: Je,
+                                        COMBOBOX: Xe,
+                                        IMAGES: J(
+                                            {
+                                                render: function () {
+                                                    var e = this,
+                                                        t = e.$createElement,
+                                                        s = e._self._c || t;
+                                                    return s(
+                                                        'v-expansion-panels',
+                                                        {
+                                                            staticClass: 'mb-4',
+                                                            attrs: { focusable: '', mandatory: '' },
+                                                        },
+                                                        [
+                                                            s(
+                                                                'h-expansion-panel',
+                                                                { attrs: { index: 'contents', header: '内容' } },
+                                                                [
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Src：图像的 URL',
+                                                                            tooltip: '图像的 URL。这个属性是强制性的',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.src,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'src', t);
+                                                                            },
+                                                                            expression: 'properties.src',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Alt',
+                                                                            tooltip:
+                                                                                '屏幕阅读器的备用文本。 留空以装饰图像',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.alt,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'alt', t);
+                                                                            },
+                                                                            expression: 'properties.alt',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Lazy Src: 样式',
+                                                                            tooltip:
+                                                                                '在等待主映像加载时显示的内容，通常是一个小型的base64编码的缩略图。有一个轻微的模糊滤镜应用。使用 vuetify-loader 来自动生成',
+                                                                        },
+                                                                        model: {
+                                                                            value:
+                                                                                e.properties[e.constants.tags.LazySrc],
+                                                                            callback: function (t) {
+                                                                                e.$set(
+                                                                                    e.properties,
+                                                                                    e.constants.tags.LazySrc,
+                                                                                    t
+                                                                                );
+                                                                            },
+                                                                            expression:
+                                                                                'properties[constants.tags.LazySrc]',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-switch-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Transition : 过渡动画',
+                                                                            tooltip:
+                                                                                '从 lazy-src 切换到 src 时要使用的过渡',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.transition,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'transition', t);
+                                                                            },
+                                                                            expression: 'properties.transition',
+                                                                        },
+                                                                    }),
+                                                                ],
+                                                                1
+                                                            ),
+                                                            e._v(' '),
+                                                            s(
+                                                                'h-expansion-panel',
+                                                                { attrs: { index: 'appearance', header: '外观' } },
+                                                                [
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Content Class: 样式',
+                                                                            tooltip: '指定自定义样式到内容的Div上',
+                                                                        },
+                                                                        model: {
+                                                                            value:
+                                                                                e.properties[
+                                                                                    e.constants.tags.ContentClass
+                                                                                ],
+                                                                            callback: function (t) {
+                                                                                e.$set(
+                                                                                    e.properties,
+                                                                                    e.constants.tags.ContentClass,
+                                                                                    t
+                                                                                );
+                                                                            },
+                                                                            expression:
+                                                                                'properties[constants.tags.ContentClass]',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-number', {
+                                                                        attrs: {
+                                                                            label: 'Height : 高度',
+                                                                            min: '1',
+                                                                            max: '2000',
+                                                                            step: '10',
+                                                                            tooltip: '设定组件的高度',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.height,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'height', t);
+                                                                            },
+                                                                            expression: 'properties.height',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-number', {
+                                                                        attrs: {
+                                                                            label: 'Width : 宽度',
+                                                                            min: '1',
+                                                                            max: '2000',
+                                                                            step: '10',
+                                                                            tooltip: '设定组件的宽度',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.width,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'width', t);
+                                                                            },
+                                                                            expression: 'properties.width',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-number', {
+                                                                        attrs: {
+                                                                            label: 'Max Height : 最大高度',
+                                                                            min: '1',
+                                                                            max: '2000',
+                                                                            step: '10',
+                                                                            tooltip: '设定组件的最大高度',
+                                                                        },
+                                                                        model: {
+                                                                            value:
+                                                                                e.properties[
+                                                                                    e.constants.tags.MaxHeight
+                                                                                ],
+                                                                            callback: function (t) {
+                                                                                e.$set(
+                                                                                    e.properties,
+                                                                                    e.constants.tags.MaxHeight,
+                                                                                    t
+                                                                                );
+                                                                            },
+                                                                            expression:
+                                                                                'properties[constants.tags.MaxHeight]',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-number', {
+                                                                        attrs: {
+                                                                            label: 'Max Width : 最大宽度',
+                                                                            min: '1',
+                                                                            max: '2000',
+                                                                            step: '10',
+                                                                            tooltip: '设定组件的最大宽度',
+                                                                        },
+                                                                        model: {
+                                                                            value:
+                                                                                e.properties[e.constants.tags.MaxWidth],
+                                                                            callback: function (t) {
+                                                                                e.$set(
+                                                                                    e.properties,
+                                                                                    e.constants.tags.MaxWidth,
+                                                                                    t
+                                                                                );
+                                                                            },
+                                                                            expression:
+                                                                                'properties[constants.tags.MaxWidth]',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-number', {
+                                                                        attrs: {
+                                                                            label: 'Min Height : 最小高度',
+                                                                            min: '1',
+                                                                            max: '2000',
+                                                                            step: '10',
+                                                                            tooltip: '设定组件的最小高度',
+                                                                        },
+                                                                        model: {
+                                                                            value:
+                                                                                e.properties[
+                                                                                    e.constants.tags.MinHeight
+                                                                                ],
+                                                                            callback: function (t) {
+                                                                                e.$set(
+                                                                                    e.properties,
+                                                                                    e.constants.tags.MinHeight,
+                                                                                    t
+                                                                                );
+                                                                            },
+                                                                            expression:
+                                                                                'properties[constants.tags.MinHeight]',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-number', {
+                                                                        attrs: {
+                                                                            label: 'Min Width : 最小宽度',
+                                                                            min: '1',
+                                                                            max: '2000',
+                                                                            step: '10',
+                                                                            tooltip: '设定组件的最小宽度',
+                                                                        },
+                                                                        model: {
+                                                                            value:
+                                                                                e.properties[e.constants.tags.MinWidth],
+                                                                            callback: function (t) {
+                                                                                e.$set(
+                                                                                    e.properties,
+                                                                                    e.constants.tags.MinWidth,
+                                                                                    t
+                                                                                );
+                                                                            },
+                                                                            expression:
+                                                                                'properties[constants.tags.MinWidth]',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-switch', {
+                                                                        attrs: {
+                                                                            label: 'Contain',
+                                                                            tooltip: '防止图像不合适时被裁剪',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.contain,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'contain', t);
+                                                                            },
+                                                                            expression: 'properties.contain',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-switch', {
+                                                                        attrs: {
+                                                                            label: 'Eager',
+                                                                            tooltip:
+                                                                                '将强制组件内容在加载时呈现。如果存在内容的话，则不会在 DOM 中渲染，如果你想优化 SEO，这是非常有用的',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.eager,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'eager', t);
+                                                                            },
+                                                                            expression: 'properties.eager',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Gradient : 增加渐变',
+                                                                            tooltip:
+                                                                                '将渐变叠加到图像上。 仅支持 linear-gradient 语法，其他任何操作都应使用类完成（请参见示例',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.gradient,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'gradient', t);
+                                                                            },
+                                                                            expression: 'properties.gradient',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Sizes',
+                                                                            tooltip: '使用 srcset，请参见 MDN',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.sizes,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'sizes', t);
+                                                                            },
+                                                                            expression: 'properties.sizes',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-text-field', {
+                                                                        attrs: {
+                                                                            label: 'Srcset',
+                                                                            tooltip: '根据设备大小使用的一组备用图像。',
+                                                                        },
+                                                                        model: {
+                                                                            value: e.properties.srcset,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'srcset', t);
+                                                                            },
+                                                                            expression: 'properties.srcset',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-switch', {
+                                                                        attrs: { label: 'Dark : 使用深色主题' },
+                                                                        model: {
+                                                                            value: e.properties.dark,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'dark', t);
+                                                                            },
+                                                                            expression: 'properties.dark',
+                                                                        },
+                                                                    }),
+                                                                    e._v(' '),
+                                                                    s('h-panel-switch', {
+                                                                        attrs: { label: 'Light : 使用浅色主题' },
+                                                                        model: {
+                                                                            value: e.properties.light,
+                                                                            callback: function (t) {
+                                                                                e.$set(e.properties, 'light', t);
+                                                                            },
+                                                                            expression: 'properties.light',
+                                                                        },
+                                                                    }),
+                                                                ],
+                                                                1
+                                                            ),
+                                                        ],
+                                                        1
+                                                    );
+                                                },
+                                                staticRenderFns: [],
+                                            },
+                                            undefined,
+                                            {
+                                                name: 'HImagePanel',
+                                                components: {
+                                                    HExpansionPanel: $e,
+                                                    HPanelTextField: Ge,
+                                                    HPanelSwitch: We,
+                                                    HPanelNumber: je,
+                                                    HPanelSwitchTextField: ze,
+                                                    VExpansionPanels: w,
+                                                },
+                                                props: { element: { type: Object, default: function () {} } },
+                                                data: function () {
+                                                    return { constants: le, dataObject: {} };
+                                                },
+                                                computed: {
+                                                    properties: function () {
+                                                        return this.dataObject[this.constants.annotations.xprops];
+                                                    },
+                                                },
+                                                watch: {
+                                                    element: {
+                                                        handler: function (e, t) {
+                                                            this.dataObject = e;
+                                                        },
+                                                        immediate: !0,
+                                                    },
+                                                },
+                                            },
+                                            undefined,
+                                            false,
+                                            undefined,
+                                            !1,
+                                            void 0,
+                                            void 0,
+                                            void 0
+                                        ),
+                                        HFormPanel: Ue,
                                         VIcon: t,
                                         VBtn: s,
                                         VTooltip: a,
@@ -8654,8 +9056,8 @@ var be = {
                                         VDivider: P,
                                         VCard: o,
                                         VCol: r,
-                                        VRow: l,
-                                        VContainer: i,
+                                        VRow: i,
+                                        VContainer: l,
                                         VTabItem: O,
                                         VTabsItems: D,
                                     },
@@ -8665,7 +9067,7 @@ var be = {
                                     },
                                     data: function () {
                                         return {
-                                            constants: ie,
+                                            constants: le,
                                             tab: null,
                                             tabs: [
                                                 { key: 'element', name: '组件属性' },
@@ -8723,7 +9125,7 @@ var be = {
                                         },
                                     },
                                 },
-                                'data-v-4e87cf8a',
+                                'data-v-2e1cc9aa',
                                 false,
                                 undefined,
                                 !1,
@@ -8736,7 +9138,7 @@ var be = {
                             VNavigationDrawer: L,
                             VCardText: F,
                             VCard: o,
-                            VRow: l,
+                            VRow: i,
                             VCol: r,
                             VForm: $,
                             VMain: E,
@@ -8746,7 +9148,7 @@ var be = {
                         data: function () {
                             return {
                                 components: re,
-                                formSettings: le,
+                                formSettings: ie,
                                 drawingCanvas: [],
                                 drawingCanvasForm: {},
                                 selectedCanvasItemId: '',
@@ -8835,7 +9237,9 @@ var be = {
                                 });
                             },
                             emptyCanvas: function () {
-                                this.drawingCanvas = [];
+                                (this.drawingCanvas = []),
+                                    (this.selectedCanvasItemData = {}),
+                                    (this.selectedCanvasItemId = '');
                             },
                         },
                     },
@@ -8934,8 +9338,8 @@ var be = {
                             VIcon: t,
                             VBtn: s,
                             VToolbarTitle: A,
-                            VSpacer: B,
-                            VToolbarItems: j,
+                            VSpacer: j,
+                            VToolbarItems: B,
                             VToolbar: n,
                             VNavigationDrawer: L,
                         },
@@ -9102,12 +9506,12 @@ var be = {
                             VIcon: t,
                             VBtn: s,
                             VToolbarTitle: A,
-                            VSpacer: B,
-                            VToolbarItems: j,
+                            VSpacer: j,
+                            VToolbarItems: B,
                             VToolbar: n,
                             VCard: o,
                             VCol: r,
-                            VRow: l,
+                            VRow: i,
                             VNavigationDrawer: L,
                         },
                         props: {
@@ -9155,7 +9559,7 @@ var be = {
                 VIcon: t,
                 VBtn: s,
                 VToolbarTitle: A,
-                VSpacer: B,
+                VSpacer: j,
                 VTooltip: a,
                 VAppBar: N,
                 VMain: E,
@@ -9227,8 +9631,8 @@ var be = {
         void 0,
         void 0
     );
-(et.install = function (e) {
-    e.component(et.name, et);
+(st.install = function (e) {
+    e.component(st.name, st);
 }),
-    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && et.install(window.Vue);
-export { et as HFormGenerator };
+    null != ('undefined' == typeof window ? 'undefined' : e(window)) && window.Vue && st.install(window.Vue);
+export { st as HFormGenerator };

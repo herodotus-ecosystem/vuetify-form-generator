@@ -108,7 +108,7 @@ export default {
         },
     },
 
-    created() {
+    create() {
         this.initRuleItems();
     },
 
@@ -118,7 +118,6 @@ export default {
                 this.ruleItems = this.$rules;
             }
         },
-
         changeRuleSettingPanel(type) {
             let panel = '';
             let param = '';

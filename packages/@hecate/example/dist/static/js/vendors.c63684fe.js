@@ -3376,7 +3376,7 @@ object-assign
         b0e8: function (t, e, n) {
             'use strict';
             /*!
-             * vue-i18n v8.22.3
+             * vue-i18n v8.22.4
              * (c) 2021 kazuya kawaguchi
              * Released under the MIT License.
              */ var r = [
@@ -4436,7 +4436,16 @@ object-assign
                 (G.prototype.mergeLocaleMessage = function (t, e) {
                     ('warn' !== this._warnHtmlInMessage && 'error' !== this._warnHtmlInMessage) ||
                         this._checkLocaleMessage(t, this._warnHtmlInMessage, e),
-                        this._vm.$set(this._vm.messages, t, m({}, this._vm.messages[t] || {}, e));
+                        this._vm.$set(
+                            this._vm.messages,
+                            t,
+                            m(
+                                void 0 !== this._vm.messages[t] && Object.keys(this._vm.messages[t]).length
+                                    ? this._vm.messages[t]
+                                    : {},
+                                e
+                            )
+                        );
                 }),
                 (G.prototype.getDateTimeFormat = function (t) {
                     return p(this._vm.dateTimeFormats[t] || {});
@@ -4575,7 +4584,7 @@ object-assign
                     },
                 }),
                 (G.install = L),
-                (G.version = '8.22.3'),
+                (G.version = '8.22.4'),
                 (e.a = G);
         },
         b41a: function (t, e, n) {

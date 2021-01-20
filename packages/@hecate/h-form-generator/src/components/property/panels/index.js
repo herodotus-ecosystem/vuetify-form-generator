@@ -9,6 +9,7 @@ import HSwitchPanel from './HSwitchPanel.vue';
 import HTextAreaPanel from './HTextAreaPanel.vue';
 import HTextFieldPanel from './HTextFieldPanel.vue';
 import HTimePickerPanel from './HTimePickerPanel.vue';
+import HImagePanel from './HImagePanel.vue';
 
 export {
     HCheckBoxPanel,
@@ -21,5 +22,6 @@ export {
     HSwitchPanel,
     HTextAreaPanel,
     HTextFieldPanel,
-    HTimePickerPanel
+    HTimePickerPanel,
+    HImagePanel,
 };

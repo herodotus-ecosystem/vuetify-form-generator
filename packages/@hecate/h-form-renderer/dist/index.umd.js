@@ -3259,6 +3259,7 @@
                     VCol: Q.VCol,
                     VFileInput: Q.VFileInput,
                     VIcon: Q.VIcon,
+                    VImg: Q.VImg,
                     VInput: Q.VInput,
                     VRow: Q.VRow,
                     VListItemContent: Q.VListItemContent,

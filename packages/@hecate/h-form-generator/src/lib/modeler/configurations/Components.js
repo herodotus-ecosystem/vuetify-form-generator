@@ -143,6 +143,15 @@ const selectComponents = [
             schema: definitions.FILE_INPUT.index,
         },
     },
+    {
+        configs: {
+            title: definitions.IMAGES.schema.title,
+            icon: 'mdi-file-image',
+            name: 'Image',
+            document: 'https://vuetifyjs.com/zh-Hans/components/images/',
+            schema: definitions.IMAGES.index,
+        },
+    },
 ];
 
 // 布局型组件 【左面板】
