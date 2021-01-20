@@ -44,20 +44,24 @@ const { helperGlobal } = require('./runtime.helper');
  */
 
 const commonGlobal = {
+    vue: 'Vue',
     'vuetify/lib': 'Vuetify',
     '@mdi/js': 'mdi-js',
+    '@mdi/font': '@mdi-font',
 };
 
 const defaultGlobal = assignObject(helperGlobal, commonGlobal);
 
 const defaultExternal = [
+    'vue',
     'vuetify/lib',
     '@mdi/js',
+    '@mdi/font',
     /core-js/,
     /@babel\/runtime/,
     /@babel\/runtime-corejs3/,
-    /vue-runtime-helpers/,
     /regenerator-runtime/,
+    /vue-runtime-helpers/,
 ];
 
 const defaultPlugins = [
@@ -107,7 +111,9 @@ const defaultPlugins = [
     filesize(),
     buble({
         objectAssign: 'Object.assign',
-        transforms: { forOf: false },
+        transforms: {
+            forOf: false,
+        },
     }),
     sizes({
         details: true,
@@ -162,6 +168,12 @@ const createEntry = (name, path, configs) => {
         output: createOutput(name, path, configs),
         plugins: configs.plugins ? configs.plugins : defaultPlugins,
         external: assignArray(configs.external, defaultExternal),
+        onwarn: function (warning) {
+            if (warning.code === 'THIS_IS_UNDEFINED') {
+                return;
+            }
+            console.error(warning.message);
+        },
     };
 };
 

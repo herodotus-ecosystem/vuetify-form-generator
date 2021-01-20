@@ -123,7 +123,7 @@
               e._Array$isArray,
               e._Object$keys,
               e._forEachInstanceProperty,
-              e._Object$defineProperty,
+              e._Object$defineProperty$1,
               e._Object$defineProperties,
               e._Object$getOwnPropertyDescriptors,
               e._Object$getOwnPropertyDescriptor,

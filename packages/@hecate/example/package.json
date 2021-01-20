@@ -21,7 +21,7 @@
         "@hecate/h-icon-list": "^1.0.0",
         "@mdi/font": "^5.9.55",
         "babel-polyfill": "^6.26.0",
-        "core-js": "^3.8.2",
+        "core-js": "^3.8.3",
         "roboto-fontface": "*",
         "throttle-debounce": "^3.0.1",
         "vee-validate": "3.4.5",

@@ -65,7 +65,7 @@
         "@vue/cli-plugin-eslint": "^4.5.10",
         "@vue/cli-service": "^4.5.10",
         "@vue/eslint-config-prettier": "^6.0.0",
-        "autoprefixer": "10.2.1",
+        "autoprefixer": "10.2.3",
         "babel-eslint": "^10.1.0",
         "babel-loader": "^8.2.2",
         "caniuse-lite": "^1.0.30001178",
