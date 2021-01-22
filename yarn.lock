@@ -16660,6 +16660,11 @@ vuetify@^2.4.2:
   resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.4.2.tgz#d37d160c1fc6b241fc166a32980b34590a017d6e"
   integrity sha1-030WDB/GskH8FmoymAs0WQoBfW4=
 
+vuetify@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.4.3.tgz#8d6f15dde396e81f64e130d8ac0bc272e030879c"
+  integrity sha1-jW8V3eOW6B9k4TDYrAvCcuAwh5w=
+
 vuex@^3.6.0:
   version "3.6.0"
   resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.6.0.tgz?cache=0&sync_timestamp=1606318238493&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuex%2Fdownload%2Fvuex-3.6.0.tgz#95efa56a58f7607c135b053350833a09e01aa813"
