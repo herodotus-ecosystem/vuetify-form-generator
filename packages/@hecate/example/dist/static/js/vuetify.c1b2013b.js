@@ -8452,12 +8452,12 @@
                                     e && (a += `  ${Z('anchor')}: ${i};\n`);
                                 for (let i = 0; i < n.length; ++i) {
                                     const s = n[i],
-                                        o = t[s];
-                                    (r += G(s, e ? X(s) : o.base)), e && (a += `  ${Z(s)}: ${o.base};\n`);
-                                    const l = Object.keys(o);
-                                    for (let t = 0; t < l.length; ++t) {
-                                        const i = l[t],
-                                            n = o[i];
+                                        l = t[s];
+                                    (r += G(s, e ? X(s) : l.base)), e && (a += `  ${Z(s)}: ${l.base};\n`);
+                                    const h = Object(o.u)(l);
+                                    for (let t = 0; t < h.length; ++t) {
+                                        const i = h[t],
+                                            n = l[i];
                                         'base' !== i &&
                                             ((r += q(s, i, e ? X(s, i) : n)), e && (a += `  ${Z(s, i)}: ${n};\n`));
                                     }
@@ -8568,7 +8568,7 @@
                         }));
             }),
                 (et.installed = !1),
-                (et.version = '2.4.2'),
+                (et.version = '2.4.3'),
                 (et.config = { silent: !1 });
         },
         acd7: function (t, e, i) {
