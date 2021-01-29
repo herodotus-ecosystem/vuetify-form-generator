@@ -15,7 +15,7 @@
         "@hecate/h-form-runtime": "^1.0.0",
         "@nuxt/content": "^1.11.1",
         "@nuxtjs/axios": "^5.12.5",
-        "@nuxtjs/pwa": "^3.3.4",
+        "@nuxtjs/pwa": "^3.3.5",
         "nuxt": "^2.14.12",
         "vee-validate": "^3.4.5",
         "vuetify": "^2.4.3"
