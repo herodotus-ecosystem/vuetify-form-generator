@@ -355,6 +355,30 @@ var I = Object.freeze({
         return (
             y(e, null, [
                 {
+                    key: 'selfCloseTags',
+                    get: function () {
+                        return [
+                            'area',
+                            'base',
+                            'br',
+                            'col',
+                            'embed',
+                            'hr',
+                            'img',
+                            'input',
+                            'link',
+                            'meta',
+                            'param',
+                            'source',
+                            'track',
+                            'wbr',
+                            'command',
+                            'keygen',
+                            'menuitem',
+                        ];
+                    },
+                },
+                {
                     key: 'build',
                     value: function (e) {
                         var t, r, n;
@@ -380,30 +404,6 @@ var I = Object.freeze({
                         if (!r) return {};
                         var n = v(r.children, 1)[0];
                         return n ? _.node2json(n) : {};
-                    },
-                },
-                {
-                    key: 'selfCloseTags',
-                    get: function () {
-                        return [
-                            'area',
-                            'base',
-                            'br',
-                            'col',
-                            'embed',
-                            'hr',
-                            'img',
-                            'input',
-                            'link',
-                            'meta',
-                            'param',
-                            'source',
-                            'track',
-                            'wbr',
-                            'command',
-                            'keygen',
-                            'menuitem',
-                        ];
                     },
                 },
             ]),

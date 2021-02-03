@@ -470,6 +470,30 @@
             return (
                 G.default(e, null, [
                     {
+                        key: 'selfCloseTags',
+                        get: function () {
+                            return [
+                                'area',
+                                'base',
+                                'br',
+                                'col',
+                                'embed',
+                                'hr',
+                                'img',
+                                'input',
+                                'link',
+                                'meta',
+                                'param',
+                                'source',
+                                'track',
+                                'wbr',
+                                'command',
+                                'keygen',
+                                'menuitem',
+                            ];
+                        },
+                    },
+                    {
                         key: 'build',
                         value: function (e) {
                             var t, r, n;
@@ -497,30 +521,6 @@
                             if (!r) return {};
                             var n = $.default(r.children, 1)[0];
                             return n ? ne.node2json(n) : {};
-                        },
-                    },
-                    {
-                        key: 'selfCloseTags',
-                        get: function () {
-                            return [
-                                'area',
-                                'base',
-                                'br',
-                                'col',
-                                'embed',
-                                'hr',
-                                'img',
-                                'input',
-                                'link',
-                                'meta',
-                                'param',
-                                'source',
-                                'track',
-                                'wbr',
-                                'command',
-                                'keygen',
-                                'menuitem',
-                            ];
                         },
                     },
                 ]),
