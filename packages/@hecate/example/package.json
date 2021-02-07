@@ -35,6 +35,6 @@
         "@vue/cli-plugin-router": "^4.5.11",
         "sass": "^1.32.6",
         "vue-cli-plugin-vuetify": "^2.1.0",
-        "vuetify-loader": "^1.7.1"
+        "vuetify-loader": "^1.7.2"
     }
 }
