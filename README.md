@@ -22,7 +22,7 @@
 
 ## 注意
 
-> 由于升级了 Husky 版本，如在 ==yarn push== 或者 ==git push== 操作中遇到 **error Command "husky-run" not found** 报错无法提交的情况，请删除工程目录中 ==.git/hooks== 目录，再次 push 即可解决问题
+> 由于升级了 Husky 版本，如在 yarn push 或者 git push 操作中遇到 **error Command "husky-run" not found** 报错无法提交的情况，请删除工程目录中 .git/hooks 目录，再次 push 即可解决问题
 
 ## 预览
 
