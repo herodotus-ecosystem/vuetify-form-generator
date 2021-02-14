@@ -13,18 +13,18 @@
     },
     "dependencies": {
         "@hecate/h-form-runtime": "^1.0.0",
-        "@nuxt/content": "^1.12.0",
-        "@nuxtjs/axios": "^5.13.0",
+        "@nuxt/content": "^1.13.1",
+        "@nuxtjs/axios": "^5.13.1",
         "@nuxtjs/pwa": "^3.3.5",
         "nuxt": "^2.14.12",
         "vee-validate": "^3.4.5",
-        "vuetify": "^2.4.3"
+        "vuetify": "^2.4.4"
     },
     "devDependencies": {
         "@nuxtjs/eslint-config": "^5.0.0",
         "@nuxtjs/eslint-module": "^3.0.2",
         "@nuxtjs/vuetify": "^1.11.3",
-        "eslint": "^7.19.0",
+        "eslint": "^7.20.0",
         "eslint-plugin-nuxt": "^2.0.0",
         "remark-footnotes": "2.0.0"
     }
