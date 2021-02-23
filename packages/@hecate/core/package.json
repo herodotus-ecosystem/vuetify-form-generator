@@ -16,9 +16,9 @@
     },
     "dependencies": {
         "localforage": "^1.9.0",
-        "lodash": "^4.17.20",
+        "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "shortid": "^2.2.16",
-        "sweetalert2": "^10.15.4"
+        "sweetalert2": "^10.15.5"
     }
 }
