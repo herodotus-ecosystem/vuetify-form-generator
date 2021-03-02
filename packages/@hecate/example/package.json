@@ -22,7 +22,7 @@
         "@hecate/h-icon-list": "^1.0.0",
         "@mdi/font": "^5.9.55",
         "babel-polyfill": "^6.26.0",
-        "core-js": "^3.9.0",
+        "core-js": "^3.9.1",
         "roboto-fontface": "*",
         "throttle-debounce": "^3.0.1",
         "vee-validate": "3.4.5",
@@ -34,7 +34,7 @@
     "devDependencies": {
         "@vue/cli-plugin-router": "^4.5.11",
         "sass": "^1.32.8",
-        "vue-cli-plugin-vuetify": "^2.1.0",
+        "vue-cli-plugin-vuetify": "^2.2.0",
         "vuetify-loader": "^1.7.2"
     }
 }
