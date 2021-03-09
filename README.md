@@ -24,20 +24,19 @@
 ## 注意
 
 > 由于升级了 Husky 版本，如在 yarn push 或者 git push 操作中遇到 **error Command "husky-run" not found** 报错无法提交的情况，请删除工程目录中 .git/hooks 目录，再次 push 即可解决问题
-
 > 升级lerna 至 4.0.0, 记得全局升级lerna。`yarn global upgrade-interactive --latest`
 
 ## 预览
 
-#### 1. 总览
+### 1. 总览
 
 ![输入图片说明](./readme/preview.gif)
 
-#### 2. ICON 和 COLOR 设置展示
+### 2. ICON 和 COLOR 设置展示
 
 ![输入图片说明](./readme/color-and-icon.gif)
 
-#### 3. RULE 设置展示
+### 3. RULE 设置展示
 
 ![输入图片说明](./readme/rules.gif)
 
@@ -45,20 +44,20 @@
 
 在做工作流服务时，深感动态表单的重要性。所以，慢慢摸索和学习，结合自己的需求，搭建了本套动态表单系统。
 
--   本系统是基于 lerna 和 yarn workspaces 构建的， monorepo 方式管理代码的项目（很喜欢这种方式，和 Maven 的模块化工程一样，最主要是不用每个项目一堆 node_modules）
--   基于 Vue 2.0 和 Vuetify 2.3.XX 构建。没有使用 Vue3，主要是 Vuetify 3 还在开发中。
--   共性组件采用 rollup 进行编译，并且做了已有认知范围内，能够做到的所有性能优化处理
--   example 模块，基于 vue webpack 方式，对工程打包进行了深入优化。
--   项目中会有很多组件，是把以往工作中涉及的通用性的东西，逐步提取构建出一个组件库（动态表单系统本身也是一个组件）。
--   基于 VeeValidate 表单校验，通过属性面板进行动态配置。
--   表单设计器，高度组件化设计，通过修改配置和增加组件即可完成扩展。
--   浏览器本地存储采用 localForage，支持 IndexedDB，WebSQL 和 localStorage 三种存储模式
+- 本系统是基于 lerna 和 yarn workspaces 构建的， monorepo 方式管理代码的项目（很喜欢这种方式，和 Maven 的模块化工程一样，最主要是不用每个项目一堆 node_modules）
+- 基于 Vue 2.0 和 Vuetify 2.3.XX 构建。没有使用 Vue3，主要是 Vuetify 3 还在开发中。
+- 共性组件采用 rollup 进行编译，并且做了已有认知范围内，能够做到的所有性能优化处理
+- example 模块，基于 vue webpack 方式，对工程打包进行了深入优化。
+- 项目中会有很多组件，是把以往工作中涉及的通用性的东西，逐步提取构建出一个组件库（动态表单系统本身也是一个组件）。
+- 基于 VeeValidate 表单校验，通过属性面板进行动态配置。
+- 表单设计器，高度组件化设计，通过修改配置和增加组件即可完成扩展。
+- 浏览器本地存储采用 localForage，支持 IndexedDB，WebSQL 和 localStorage 三种存储模式
 
 本项目是后端老炮撸的前端，广度和深度肯定不如纯前端，不喜勿喷，也请多多包涵以及多多交流，互相促进互相成长。
 
 ## 在线体验
 
--   [[国内Gitee地址]](http://herodotus.gitee.io/vuetify-form-generator)
+- [[国内Gitee地址]](http://herodotus.gitee.io/vuetify-form-generator)
 
 ## 趋势图
 
@@ -122,7 +121,7 @@ http://localhost:3000
 
 ## <a id="command">[五]、常用命令</a>
 
--   指定包，在某个包下执行 yarn 命令
+- 指定包，在某个包下执行 yarn 命令
 
 ```
 yarn ws:**
@@ -138,7 +137,7 @@ yarn ws:example remove lodash
 yarn ws:example serve
 ```
 
--   添加本工程中的组件作为依赖包（尚未上传至 npm）
+- 添加本工程中的组件作为依赖包（尚未上传至 npm）
 
 ```
 // 将工程中的h-button 添加至example中
@@ -149,7 +148,7 @@ lerna add @hecate/h-button --scope @hecate/example
 yarn ws:example remove @hecate/h-button
 ```
 
--   在根目录添加依赖包
+- 在根目录添加依赖包
 
 ```
 // -W 意思是指工作区，想要操作工程级的包，这个参数不能缺
@@ -161,7 +160,7 @@ yarn add lodash -D -W
 yarn add lodash -W
 ```
 
--   升级依赖包
+- 升级依赖包
 
 ```
 yarn upgrade-interactive --latest
@@ -170,31 +169,31 @@ yarn upgrade-interactive --latest
 yarn global upgrade-interactive --latest
 ```
 
--   编译所有组件
+- 编译所有组件
 
 ```
 lerna run lib
 ```
 
--   清空组件 dist
+- 清空组件 dist
 
 ```
 lerna run clean
 ```
 
--   清除组件中的 node_modules
+- 清除组件中的 node_modules
 
 ```
 lerna clean
 ```
 
--   让各个组件中重新关联依赖包
+- 让各个组件中重新关联依赖包
 
 ```
 lerna bootstrap 或 yarn install
 ```
 
--   提交代码
+- 提交代码
 
 ```
 yarn push
@@ -281,16 +280,16 @@ set-executionpolicy remotesigned
 
 ## [八]、下一步计划
 
--   根据实际使用情况，不断增加不同类型的 Form 表单组件
--   根据 Form 表单组件的不断增加，简化和重构核心 Renderer 代码
--   结合个人微服务项目的发展，会将本项目与 Camunda 工作流逐步结合，包含 Camunda 编辑器的整合。
--   根据 Vuetify3 的开发进度，开发基于 Vue3 和 Vuetify3 的版本
--   基于 Vue3 和 Vuetify3 的新版本将采用 TypeScript 进行开发
+- 根据实际使用情况，不断增加不同类型的 Form 表单组件
+- 根据 Form 表单组件的不断增加，简化和重构核心 Renderer 代码
+- 结合个人微服务项目的发展，会将本项目与 Camunda 工作流逐步结合，包含 Camunda 编辑器的整合。
+- 根据 Vuetify3 的开发进度，开发基于 Vue3 和 Vuetify3 的版本
+- 基于 Vue3 和 Vuetify3 的新版本将采用 TypeScript 进行开发
 
 ## [九]、PR 鸣谢
 
--   [koumoul-dev](https://github.com/koumoul-dev)
--   [Mr_HJ](https://gitee.com/mrhj)
+- [koumoul-dev](https://github.com/koumoul-dev)
+- [Mr_HJ](https://gitee.com/mrhj)
 
 ## [十]、开源协议
 
