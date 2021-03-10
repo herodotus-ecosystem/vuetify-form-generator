@@ -13,7 +13,7 @@
         "lib": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js"
     },
     "dependencies": {
-        "debounce": "^1.2.0",
+        "debounce": "^1.2.1",
         "markdown-it": "^12.0.4",
         "match-all": "^1.2.6",
         "property-expr": "^2.0.4"
