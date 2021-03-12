@@ -174,7 +174,7 @@ export default {
 
         cloneComponent (component) {
             const dataObject = DataObject.generate(component);
-            this.selectCanvasItem(dataObject)
+            this.tempSelectedCanvasItemData = dataObject;
             return dataObject;
         },
 
@@ -193,7 +193,7 @@ export default {
 
         onEnd (event) {
             if (event.from !== event.to) {
-                // this.selectCanvasItem(this.tempSelectedCanvasItemData)
+                this.selectCanvasItem(this.tempSelectedCanvasItemData)
             }
         },
 
