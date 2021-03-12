@@ -4,7 +4,7 @@
             :elevation="hover ? 12 : 2"
             :class="['ma-2', isSelected && !hover ? 'canvas-item-selected' : 'canvas-item-body']"
             dense
-            @click="canvasItemSelect"
+            @click.native="canvasItemSelect($event)"
         >
             <v-list-item>
                 <v-list-item-content>
@@ -36,13 +36,13 @@ export default {
     props: {
         schema: {
             type: Object,
-            default: () => {},
+            default: () => { },
         },
         selectedItemId: [String, Number],
     },
 
     computed: {
-        isHover() {
+        isHover () {
             return function (hover) {
                 return hover ? 12 : 0;
             };
@@ -52,11 +52,13 @@ export default {
     data: () => ({
         model: {},
         isSelected: false,
+        ripple: true,
+        excludes: ['v-slider__thumb primary']
     }),
 
     watch: {
         selectedItemId: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 this.isSelected = this.schema.configs.renderKey === newValue;
             },
             immediate: true,
@@ -64,14 +66,15 @@ export default {
     },
 
     methods: {
-        canvasItemSelect() {
+        canvasItemSelect ($event) {
+
             this.isSelected = true;
             this.$emit('select', this.schema);
         },
-        canvasItemCopy() {
+        canvasItemCopy () {
             this.$emit('copy', this.schema);
         },
-        canvasItemDelete() {
+        canvasItemDelete () {
             this.$emit('delete', this.schema.configs.formId);
         },
     },

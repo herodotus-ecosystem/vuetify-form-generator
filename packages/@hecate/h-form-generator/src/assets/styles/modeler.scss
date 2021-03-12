@@ -30,10 +30,6 @@ $lighterBlue: #1867c0;
     cursor: move;
     border: 1px dashed $selectedColor;
     border-radius: 3px;
-    .svg-icon {
-        color: #777;
-        font-size: 15px;
-    }
     &:hover {
         border: 1px dashed #1565c0;
         background: #e3f2fd;
@@ -57,6 +53,7 @@ $lighterBlue: #1867c0;
 .canvas-item-body {
     &:hover {
         border: 1px dashed #1565c0 !important;
+        background:  $selectedColor;
         .v-icon {
             color: #1565c0;
         }

@@ -11,9 +11,10 @@
                         class="components-draggable"
                         :list="componentsGroup.list"
                         :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
-                        :clone="addComponent"
+                        :clone="cloneComponent"
                         draggable=".components-item"
                         :sort="false"
+                        @end="onEnd"
                     >
                         <div
                             v-for="(component, index) in componentsGroup.list"
@@ -40,9 +41,6 @@
                             :list="drawingCanvas"
                             :animation="300"
                             group="componentsGroup"
-                            @change="onChange"
-                            @start="drag = true"
-                            @end="drag = false"
                         >
                             <h-draggable-item
                                 ref="canvas"
@@ -55,19 +53,20 @@
                                 @delete="deleteCanvasItem"
                             />
                         </draggable>
-                        <draggable v-else :animation="300" group="componentsGroup">
-                            <v-row>
-                                <v-col cols="12">
-                                    <v-row align="center" justify="center">
-                                        <v-card height="100" width="600" class="ma-12">
+
+                        <v-row v-else>
+                            <v-col cols="12">
+                                <v-row align="center" justify="center">
+                                    <v-card height="100" width="600" class="ma-12">
+                                        <draggable :list="drawingCanvas" :animation="300" group="componentsGroup">
                                             <v-card-text class="text-center title"
                                                 >从左侧拖入或点选组件进行表单设计</v-card-text
                                             >
-                                        </v-card>
-                                    </v-row>
-                                </v-col>
-                            </v-row>
-                        </draggable>
+                                        </draggable>
+                                    </v-card>
+                                </v-row>
+                            </v-col>
+                        </v-row>
                     </v-form>
                 </validation-observer>
             </h-canvas-container>
@@ -115,18 +114,19 @@ export default {
         selectedCanvasItemData: {},
         saveDrawingCanvasDebounce: debounce(340, DB.saveDrawingCanvas),
         saveDrawingCanvasFormDebounce: debounce(340, DB.saveDrawingCanvasForm),
+        tempSelectedCanvasItemData: {}
     }),
 
     watch: {
         drawingCanvas: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 console.info('[HFG] Save Canvas Data to local storage!');
                 this.saveDrawingCanvasDebounce(newValue);
             },
             deep: true,
         },
         drawingCanvasForm: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 console.info('[HFG] Save Form Data to local storage!');
                 this.saveDrawingCanvasFormDebounce(newValue);
             },
@@ -135,11 +135,11 @@ export default {
         },
     },
 
-    created() {
+    created () {
         this.initModeler();
     },
 
-    mounted() {
+    mounted () {
         let drawingCanvasInDB = DB.getDrawingCanvas();
         if (Array.isArray(drawingCanvasInDB) && drawingCanvasInDB.length > 0) {
             this.drawingCanvas = drawingCanvasInDB;
@@ -154,12 +154,12 @@ export default {
     },
 
     methods: {
-        initModeler() {
+        initModeler () {
             if (this.drawingCanvas.length !== 0) {
                 this.selectedCanvasItemData = this.drawingCanvas[0];
             }
         },
-        changeDrawingCanvas(dataObject) {
+        changeDrawingCanvas (dataObject) {
             this.drawingCanvas.push(dataObject);
             this.selectCanvasItem(dataObject);
         },
@@ -167,27 +167,37 @@ export default {
         /**
          * 向Modeler中添加组件
          */
-        addComponent(component) {
-            const dataObject = DataObject.generate(component);
+        addComponent (component) {
+            const dataObject = this.cloneComponent(component);
             this.changeDrawingCanvas(dataObject);
         },
 
-        onChange(object) {},
+        cloneComponent (component) {
+            const dataObject = DataObject.generate(component);
+            this.selectCanvasItem(dataObject)
+            return dataObject;
+        },
 
         /**
          * 点击Modeler中的Item
          */
-        selectCanvasItem(dataObject) {
+        selectCanvasItem (dataObject) {
             this.selectedCanvasItemData = dataObject;
             this.selectedCanvasItemId = dataObject.configs.renderKey;
         },
 
-        copyCanvasItem(element) {
+        copyCanvasItem (element) {
             const dataObject = DataObject.clone(element);
             this.changeDrawingCanvas(dataObject);
         },
 
-        deleteCanvasItem(formId) {
+        onEnd (event) {
+            if (event.from !== event.to) {
+                // this.selectCanvasItem(this.tempSelectedCanvasItemData)
+            }
+        },
+
+        deleteCanvasItem (formId) {
             let result = this.$lib.lodash.remove(this.drawingCanvas, (item) => {
                 return item.configs.formId !== formId;
             });
@@ -200,7 +210,7 @@ export default {
                 }
             });
         },
-        emptyCanvas() {
+        emptyCanvas () {
             this.drawingCanvas = [];
             this.selectedCanvasItemData = {};
             this.selectedCanvasItemId = '';
