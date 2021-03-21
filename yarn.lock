@@ -15324,10 +15324,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.42.0:
-  version "2.42.0"
-  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.42.0.tgz#444ce20a45614099decdd786f2a6fcd6c2240b08"
-  integrity sha1-REziCkVhQJnezdeG8qb81sIkCwg=
+rollup@^2.42.1:
+  version "2.42.1"
+  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.42.1.tgz#6d675b7971e3bee510935326a0f7e556bb7d43de"
+  integrity sha1-bWdbeXHjvuUQk1MmoPflVrt9Q94=
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -17474,10 +17474,10 @@ void-elements@^2.0.1:
   resolved "https://registry.npm.taobao.org/void-elements/download/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
-vue-cli-plugin-vuetify@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npm.taobao.org/vue-cli-plugin-vuetify/download/vue-cli-plugin-vuetify-2.3.0.tgz#97ae8679e709b023e51a3135797dab59c5505d89"
-  integrity sha1-l66GeecJsCPlGjE1eX2rWcVQXYk=
+vue-cli-plugin-vuetify@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.npm.taobao.org/vue-cli-plugin-vuetify/download/vue-cli-plugin-vuetify-2.3.1.tgz#9e45a686902351320e876881d057eb69c646a22b"
+  integrity sha1-nkWmhpAjUTIOh2iB0FfracZGois=
   dependencies:
     null-loader "^3.0.0"
     semver "^7.1.2"
