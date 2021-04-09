@@ -26,6 +26,11 @@
   resolved "https://registry.npm.taobao.org/@babel/compat-data/download/@babel/compat-data-7.13.0.tgz?cache=0&sync_timestamp=1614034719957&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcompat-data%2Fdownload%2F%40babel%2Fcompat-data-7.13.0.tgz#7889eb7ee6518e2afa5d312b15fd7fd1fe9f3744"
   integrity sha1-eInrfuZRjir6XTErFf1/0f6fN0Q=
 
+"@babel/compat-data@^7.13.11", "@babel/compat-data@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/compat-data/download/@babel/compat-data-7.13.15.tgz?cache=0&sync_timestamp=1617897171596&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcompat-data%2Fdownload%2F%40babel%2Fcompat-data-7.13.15.tgz#7e8eea42d0b64fda2b375b22d06c605222e848f4"
+  integrity sha1-fo7qQtC2T9orN1si0GxgUiLoSPQ=
+
 "@babel/compat-data@^7.13.12":
   version "7.13.12"
   resolved "https://registry.npm.taobao.org/@babel/compat-data/download/@babel/compat-data-7.13.12.tgz?cache=0&sync_timestamp=1616428118666&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcompat-data%2Fdownload%2F%40babel%2Fcompat-data-7.13.12.tgz#a8a5ccac19c200f9dd49624cac6e19d7be1236a1"
@@ -92,6 +97,27 @@
     "@babel/parser" "^7.13.13"
     "@babel/template" "^7.12.13"
     "@babel/traverse" "^7.13.13"
+    "@babel/types" "^7.13.14"
+    convert-source-map "^1.7.0"
+    debug "^4.1.0"
+    gensync "^1.0.0-beta.2"
+    json5 "^2.1.2"
+    semver "^6.3.0"
+    source-map "^0.5.0"
+
+"@babel/core@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.13.15.tgz#a6d40917df027487b54312202a06812c4f7792d0"
+  integrity sha1-ptQJF98CdIe1QxIgKgaBLE93ktA=
+  dependencies:
+    "@babel/code-frame" "^7.12.13"
+    "@babel/generator" "^7.13.9"
+    "@babel/helper-compilation-targets" "^7.13.13"
+    "@babel/helper-module-transforms" "^7.13.14"
+    "@babel/helpers" "^7.13.10"
+    "@babel/parser" "^7.13.15"
+    "@babel/template" "^7.12.13"
+    "@babel/traverse" "^7.13.15"
     "@babel/types" "^7.13.14"
     convert-source-map "^1.7.0"
     debug "^4.1.0"
@@ -276,6 +302,20 @@
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/@babel/helper-define-polyfill-provider/download/@babel/helper-define-polyfill-provider-0.1.2.tgz?cache=0&sync_timestamp=1614086558092&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-define-polyfill-provider%2Fdownload%2F%40babel%2Fhelper-define-polyfill-provider-0.1.2.tgz#619f01afe1deda460676c25c463b42eaefdb71a2"
   integrity sha1-YZ8Br+He2kYGdsJcRjtC6u/bcaI=
+  dependencies:
+    "@babel/helper-compilation-targets" "^7.13.0"
+    "@babel/helper-module-imports" "^7.12.13"
+    "@babel/helper-plugin-utils" "^7.13.0"
+    "@babel/traverse" "^7.13.0"
+    debug "^4.1.1"
+    lodash.debounce "^4.0.8"
+    resolve "^1.14.2"
+    semver "^6.1.2"
+
+"@babel/helper-define-polyfill-provider@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/@babel/helper-define-polyfill-provider/download/@babel/helper-define-polyfill-provider-0.2.0.tgz?cache=0&sync_timestamp=1617206099868&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fhelper-define-polyfill-provider%2Fdownload%2F%40babel%2Fhelper-define-polyfill-provider-0.2.0.tgz#a640051772045fedaaecc6f0c6c69f02bdd34bf1"
+  integrity sha1-pkAFF3IEX+2q7MbwxsafAr3TS/E=
   dependencies:
     "@babel/helper-compilation-targets" "^7.13.0"
     "@babel/helper-module-imports" "^7.12.13"
@@ -665,6 +705,11 @@
   resolved "https://registry.npm.taobao.org/@babel/parser/download/@babel/parser-7.13.13.tgz?cache=0&sync_timestamp=1616794050920&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fparser%2Fdownload%2F%40babel%2Fparser-7.13.13.tgz#42f03862f4aed50461e543270916b47dd501f0df"
   integrity sha1-QvA4YvSu1QRh5UMnCRa0fdUB8N8=
 
+"@babel/parser@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/parser/download/@babel/parser-7.13.15.tgz#8e66775fb523599acb6a289e12929fa5ab0954d8"
+  integrity sha1-jmZ3X7UjWZrLaiieEpKfpasJVNg=
+
 "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@^7.13.12":
   version "7.13.12"
   resolved "https://registry.npm.taobao.org/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/download/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining-7.13.12.tgz?cache=0&sync_timestamp=1616428117548&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-bugfix-v8-spread-parameters-in-optional-chaining%2Fdownload%2F%40babel%2Fplugin-bugfix-v8-spread-parameters-in-optional-chaining-7.13.12.tgz#a3484d84d0b549f3fc916b99ee4783f26fabad2a"
@@ -689,6 +734,15 @@
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/helper-remap-async-to-generator" "^7.12.1"
     "@babel/plugin-syntax-async-generators" "^7.8.0"
+
+"@babel/plugin-proposal-async-generator-functions@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-proposal-async-generator-functions/download/@babel/plugin-proposal-async-generator-functions-7.13.15.tgz?cache=0&sync_timestamp=1617897172399&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-proposal-async-generator-functions%2Fdownload%2F%40babel%2Fplugin-proposal-async-generator-functions-7.13.15.tgz#80e549df273a3b3050431b148c892491df1bcc5b"
+  integrity sha1-gOVJ3yc6OzBQQxsUjIkkkd8bzFs=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.13.0"
+    "@babel/helper-remap-async-to-generator" "^7.13.0"
+    "@babel/plugin-syntax-async-generators" "^7.8.4"
 
 "@babel/plugin-proposal-async-generator-functions@^7.13.8":
   version "7.13.8"
@@ -1437,6 +1491,13 @@
   dependencies:
     regenerator-transform "^0.14.2"
 
+"@babel/plugin-transform-regenerator@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-transform-regenerator/download/@babel/plugin-transform-regenerator-7.13.15.tgz?cache=0&sync_timestamp=1617897172824&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-transform-regenerator%2Fdownload%2F%40babel%2Fplugin-transform-regenerator-7.13.15.tgz#e5eb28945bf8b6563e7f818945f966a8d2997f39"
+  integrity sha1-5esolFv4tlY+f4GJRflmqNKZfzk=
+  dependencies:
+    regenerator-transform "^0.14.2"
+
 "@babel/plugin-transform-reserved-words@^7.12.1":
   version "7.12.1"
   resolved "https://registry.npm.taobao.org/@babel/plugin-transform-reserved-words/download/@babel/plugin-transform-reserved-words-7.12.1.tgz?cache=0&sync_timestamp=1602800236807&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-transform-reserved-words%2Fdownload%2F%40babel%2Fplugin-transform-reserved-words-7.12.1.tgz#6fdfc8cc7edcc42b36a7c12188c6787c873adcd8"
@@ -1470,6 +1531,18 @@
     babel-plugin-polyfill-corejs2 "^0.1.4"
     babel-plugin-polyfill-corejs3 "^0.1.3"
     babel-plugin-polyfill-regenerator "^0.1.2"
+    semver "^6.3.0"
+
+"@babel/plugin-transform-runtime@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-transform-runtime/download/@babel/plugin-transform-runtime-7.13.15.tgz#2eddf585dd066b84102517e10a577f24f76a9cd7"
+  integrity sha1-Lt31hd0Ga4QQJRfhCld/JPdqnNc=
+  dependencies:
+    "@babel/helper-module-imports" "^7.13.12"
+    "@babel/helper-plugin-utils" "^7.13.0"
+    babel-plugin-polyfill-corejs2 "^0.2.0"
+    babel-plugin-polyfill-corejs3 "^0.2.0"
+    babel-plugin-polyfill-regenerator "^0.2.0"
     semver "^6.3.0"
 
 "@babel/plugin-transform-shorthand-properties@^7.12.1":
@@ -1730,6 +1803,81 @@
     core-js-compat "^3.9.0"
     semver "^6.3.0"
 
+"@babel/preset-env@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/preset-env/download/@babel/preset-env-7.13.15.tgz#c8a6eb584f96ecba183d3d414a83553a599f478f"
+  integrity sha1-yKbrWE+W7LoYPT1BSoNVOlmfR48=
+  dependencies:
+    "@babel/compat-data" "^7.13.15"
+    "@babel/helper-compilation-targets" "^7.13.13"
+    "@babel/helper-plugin-utils" "^7.13.0"
+    "@babel/helper-validator-option" "^7.12.17"
+    "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining" "^7.13.12"
+    "@babel/plugin-proposal-async-generator-functions" "^7.13.15"
+    "@babel/plugin-proposal-class-properties" "^7.13.0"
+    "@babel/plugin-proposal-dynamic-import" "^7.13.8"
+    "@babel/plugin-proposal-export-namespace-from" "^7.12.13"
+    "@babel/plugin-proposal-json-strings" "^7.13.8"
+    "@babel/plugin-proposal-logical-assignment-operators" "^7.13.8"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.13.8"
+    "@babel/plugin-proposal-numeric-separator" "^7.12.13"
+    "@babel/plugin-proposal-object-rest-spread" "^7.13.8"
+    "@babel/plugin-proposal-optional-catch-binding" "^7.13.8"
+    "@babel/plugin-proposal-optional-chaining" "^7.13.12"
+    "@babel/plugin-proposal-private-methods" "^7.13.0"
+    "@babel/plugin-proposal-unicode-property-regex" "^7.12.13"
+    "@babel/plugin-syntax-async-generators" "^7.8.4"
+    "@babel/plugin-syntax-class-properties" "^7.12.13"
+    "@babel/plugin-syntax-dynamic-import" "^7.8.3"
+    "@babel/plugin-syntax-export-namespace-from" "^7.8.3"
+    "@babel/plugin-syntax-json-strings" "^7.8.3"
+    "@babel/plugin-syntax-logical-assignment-operators" "^7.10.4"
+    "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.3"
+    "@babel/plugin-syntax-numeric-separator" "^7.10.4"
+    "@babel/plugin-syntax-object-rest-spread" "^7.8.3"
+    "@babel/plugin-syntax-optional-catch-binding" "^7.8.3"
+    "@babel/plugin-syntax-optional-chaining" "^7.8.3"
+    "@babel/plugin-syntax-top-level-await" "^7.12.13"
+    "@babel/plugin-transform-arrow-functions" "^7.13.0"
+    "@babel/plugin-transform-async-to-generator" "^7.13.0"
+    "@babel/plugin-transform-block-scoped-functions" "^7.12.13"
+    "@babel/plugin-transform-block-scoping" "^7.12.13"
+    "@babel/plugin-transform-classes" "^7.13.0"
+    "@babel/plugin-transform-computed-properties" "^7.13.0"
+    "@babel/plugin-transform-destructuring" "^7.13.0"
+    "@babel/plugin-transform-dotall-regex" "^7.12.13"
+    "@babel/plugin-transform-duplicate-keys" "^7.12.13"
+    "@babel/plugin-transform-exponentiation-operator" "^7.12.13"
+    "@babel/plugin-transform-for-of" "^7.13.0"
+    "@babel/plugin-transform-function-name" "^7.12.13"
+    "@babel/plugin-transform-literals" "^7.12.13"
+    "@babel/plugin-transform-member-expression-literals" "^7.12.13"
+    "@babel/plugin-transform-modules-amd" "^7.13.0"
+    "@babel/plugin-transform-modules-commonjs" "^7.13.8"
+    "@babel/plugin-transform-modules-systemjs" "^7.13.8"
+    "@babel/plugin-transform-modules-umd" "^7.13.0"
+    "@babel/plugin-transform-named-capturing-groups-regex" "^7.12.13"
+    "@babel/plugin-transform-new-target" "^7.12.13"
+    "@babel/plugin-transform-object-super" "^7.12.13"
+    "@babel/plugin-transform-parameters" "^7.13.0"
+    "@babel/plugin-transform-property-literals" "^7.12.13"
+    "@babel/plugin-transform-regenerator" "^7.13.15"
+    "@babel/plugin-transform-reserved-words" "^7.12.13"
+    "@babel/plugin-transform-shorthand-properties" "^7.12.13"
+    "@babel/plugin-transform-spread" "^7.13.0"
+    "@babel/plugin-transform-sticky-regex" "^7.12.13"
+    "@babel/plugin-transform-template-literals" "^7.13.0"
+    "@babel/plugin-transform-typeof-symbol" "^7.12.13"
+    "@babel/plugin-transform-unicode-escapes" "^7.12.13"
+    "@babel/plugin-transform-unicode-regex" "^7.12.13"
+    "@babel/preset-modules" "^0.1.4"
+    "@babel/types" "^7.13.14"
+    babel-plugin-polyfill-corejs2 "^0.2.0"
+    babel-plugin-polyfill-corejs3 "^0.2.0"
+    babel-plugin-polyfill-regenerator "^0.2.0"
+    core-js-compat "^3.9.0"
+    semver "^6.3.0"
+
 "@babel/preset-flow@^7.0.0":
   version "7.12.1"
   resolved "https://registry.npm.taobao.org/@babel/preset-flow/download/@babel/preset-flow-7.12.1.tgz#1a81d376c5a9549e75352a3888f8c273455ae940"
@@ -1872,6 +2020,20 @@
     "@babel/helper-split-export-declaration" "^7.12.13"
     "@babel/parser" "^7.13.13"
     "@babel/types" "^7.13.13"
+    debug "^4.1.0"
+    globals "^11.1.0"
+
+"@babel/traverse@^7.13.15":
+  version "7.13.15"
+  resolved "https://registry.npm.taobao.org/@babel/traverse/download/@babel/traverse-7.13.15.tgz#c38bf7679334ddd4028e8e1f7b3aa5019f0dada7"
+  integrity sha1-w4v3Z5M03dQCjo4fezqlAZ8Nrac=
+  dependencies:
+    "@babel/code-frame" "^7.12.13"
+    "@babel/generator" "^7.13.9"
+    "@babel/helper-function-name" "^7.12.13"
+    "@babel/helper-split-export-declaration" "^7.12.13"
+    "@babel/parser" "^7.13.15"
+    "@babel/types" "^7.13.14"
     debug "^4.1.0"
     globals "^11.1.0"
 
@@ -3297,10 +3459,10 @@
     before-after-hook "^2.1.0"
     universal-user-agent "^6.0.0"
 
-"@octokit/core@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.npm.taobao.org/@octokit/core/download/@octokit/core-3.3.2.tgz#128377d0e05d8b548b26fc6622570220b103bc69"
-  integrity sha1-EoN30OBdi1SLJvxmIlcCILEDvGk=
+"@octokit/core@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.npm.taobao.org/@octokit/core/download/@octokit/core-3.4.0.tgz#b48aa27d755b339fe7550548b340dcc2b513b742"
+  integrity sha1-tIqifXVbM5/nVQVIs0DcwrUTt0I=
   dependencies:
     "@octokit/auth-token" "^2.4.4"
     "@octokit/graphql" "^4.5.8"
@@ -5115,6 +5277,15 @@ babel-plugin-polyfill-corejs2@^0.1.4:
     "@babel/helper-define-polyfill-provider" "^0.1.2"
     semver "^6.1.1"
 
+babel-plugin-polyfill-corejs2@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/babel-plugin-polyfill-corejs2/download/babel-plugin-polyfill-corejs2-0.2.0.tgz?cache=0&sync_timestamp=1617206642106&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-plugin-polyfill-corejs2%2Fdownload%2Fbabel-plugin-polyfill-corejs2-0.2.0.tgz#686775bf9a5aa757e10520903675e3889caeedc4"
+  integrity sha1-aGd1v5pap1fhBSCQNnXjiJyu7cQ=
+  dependencies:
+    "@babel/compat-data" "^7.13.11"
+    "@babel/helper-define-polyfill-provider" "^0.2.0"
+    semver "^6.1.1"
+
 babel-plugin-polyfill-corejs3@^0.1.3:
   version "0.1.4"
   resolved "https://registry.npm.taobao.org/babel-plugin-polyfill-corejs3/download/babel-plugin-polyfill-corejs3-0.1.4.tgz?cache=0&sync_timestamp=1614086558002&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-plugin-polyfill-corejs3%2Fdownload%2Fbabel-plugin-polyfill-corejs3-0.1.4.tgz#2ae290200e953bade30907b7a3bebcb696e6c59d"
@@ -5123,12 +5294,27 @@ babel-plugin-polyfill-corejs3@^0.1.3:
     "@babel/helper-define-polyfill-provider" "^0.1.2"
     core-js-compat "^3.8.1"
 
+babel-plugin-polyfill-corejs3@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/babel-plugin-polyfill-corejs3/download/babel-plugin-polyfill-corejs3-0.2.0.tgz#f4b4bb7b19329827df36ff56f6e6d367026cb7a2"
+  integrity sha1-9LS7exkymCffNv9W9ubTZwJst6I=
+  dependencies:
+    "@babel/helper-define-polyfill-provider" "^0.2.0"
+    core-js-compat "^3.9.1"
+
 babel-plugin-polyfill-regenerator@^0.1.2:
   version "0.1.3"
   resolved "https://registry.npm.taobao.org/babel-plugin-polyfill-regenerator/download/babel-plugin-polyfill-regenerator-0.1.3.tgz?cache=0&sync_timestamp=1614086558050&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-plugin-polyfill-regenerator%2Fdownload%2Fbabel-plugin-polyfill-regenerator-0.1.3.tgz#350f857225fc640ae1ec78d1536afcbb457db841"
   integrity sha1-NQ+FciX8ZArh7HjRU2r8u0V9uEE=
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.1.2"
+
+babel-plugin-polyfill-regenerator@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/babel-plugin-polyfill-regenerator/download/babel-plugin-polyfill-regenerator-0.2.0.tgz?cache=0&sync_timestamp=1617206100318&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-plugin-polyfill-regenerator%2Fdownload%2Fbabel-plugin-polyfill-regenerator-0.2.0.tgz#853f5f5716f4691d98c84f8069c7636ea8da7ab8"
+  integrity sha1-hT9fVxb0aR2YyE+Aacdjbqjaerg=
+  dependencies:
+    "@babel/helper-define-polyfill-provider" "^0.2.0"
 
 babel-polyfill@^6.26.0:
   version "6.26.0"
@@ -5746,6 +5932,11 @@ caniuse-lite@^1.0.30001205:
   version "1.0.30001205"
   resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001205.tgz#d79bf6a6fb13196b4bb46e5143a22ca0242e0ef8"
   integrity sha1-15v2pvsTGWtLtG5RQ6IsoCQuDvg=
+
+caniuse-lite@^1.0.30001208:
+  version "1.0.30001208"
+  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30001208.tgz#a999014a35cebd4f98c405930a057a0d75352eb9"
+  integrity sha1-qZkBSjXOvU+YxAWTCgV6DXU1Lrk=
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -6673,6 +6864,14 @@ core-js-compat@^3.8.1, core-js-compat@^3.9.0:
     browserslist "^4.16.3"
     semver "7.0.0"
 
+core-js-compat@^3.9.1:
+  version "3.10.1"
+  resolved "https://registry.npm.taobao.org/core-js-compat/download/core-js-compat-3.10.1.tgz?cache=0&sync_timestamp=1617822648954&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js-compat%2Fdownload%2Fcore-js-compat-3.10.1.tgz#62183a3a77ceeffcc420d907a3e6fc67d9b27f1c"
+  integrity sha1-Yhg6OnfO7/zEINkHo+b8Z9myfxw=
+  dependencies:
+    browserslist "^4.16.3"
+    semver "7.0.0"
+
 core-js-pure@^3.0.0:
   version "3.8.1"
   resolved "https://registry.npm.taobao.org/core-js-pure/download/core-js-pure-3.8.1.tgz?cache=0&sync_timestamp=1607216021736&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js-pure%2Fdownload%2Fcore-js-pure-3.8.1.tgz#23f84048f366fdfcf52d3fd1c68fec349177d119"
@@ -6683,10 +6882,10 @@ core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.12.tgz?cache=0&sync_timestamp=1607215997560&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
-core-js@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.10.0.tgz#9a020547c8b6879f929306949e31496bbe2ae9b3"
-  integrity sha1-mgIFR8i2h5+SkwaUnjFJa74q6bM=
+core-js@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.10.1.tgz#e683963978b6806dcc6c0a4a8bd4ab0bdaf3f21a"
+  integrity sha1-5oOWOXi2gG3MbApKi9SrC9rz8ho=
 
 core-js@^3.6.5:
   version "3.8.1"
@@ -7056,6 +7255,42 @@ cssnano-preset-default@^4.0.0, cssnano-preset-default@^4.0.7:
     postcss-svgo "^4.0.2"
     postcss-unique-selectors "^4.0.1"
 
+cssnano-preset-default@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.npm.taobao.org/cssnano-preset-default/download/cssnano-preset-default-4.0.8.tgz#920622b1fc1e95a34e8838203f1397a504f2d3ff"
+  integrity sha1-kgYisfwelaNOiDggPxOXpQTy0/8=
+  dependencies:
+    css-declaration-sorter "^4.0.1"
+    cssnano-util-raw-cache "^4.0.1"
+    postcss "^7.0.0"
+    postcss-calc "^7.0.1"
+    postcss-colormin "^4.0.3"
+    postcss-convert-values "^4.0.1"
+    postcss-discard-comments "^4.0.2"
+    postcss-discard-duplicates "^4.0.2"
+    postcss-discard-empty "^4.0.1"
+    postcss-discard-overridden "^4.0.1"
+    postcss-merge-longhand "^4.0.11"
+    postcss-merge-rules "^4.0.3"
+    postcss-minify-font-values "^4.0.2"
+    postcss-minify-gradients "^4.0.2"
+    postcss-minify-params "^4.0.2"
+    postcss-minify-selectors "^4.0.2"
+    postcss-normalize-charset "^4.0.1"
+    postcss-normalize-display-values "^4.0.2"
+    postcss-normalize-positions "^4.0.2"
+    postcss-normalize-repeat-style "^4.0.2"
+    postcss-normalize-string "^4.0.2"
+    postcss-normalize-timing-functions "^4.0.2"
+    postcss-normalize-unicode "^4.0.1"
+    postcss-normalize-url "^4.0.1"
+    postcss-normalize-whitespace "^4.0.2"
+    postcss-ordered-values "^4.1.2"
+    postcss-reduce-initial "^4.0.3"
+    postcss-reduce-transforms "^4.0.2"
+    postcss-svgo "^4.0.3"
+    postcss-unique-selectors "^4.0.1"
+
 cssnano-util-get-arguments@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/cssnano-util-get-arguments/download/cssnano-util-get-arguments-4.0.0.tgz#ed3a08299f21d75741b20f3b81f194ed49cc150f"
@@ -7085,6 +7320,16 @@ cssnano@^4.0.0, cssnano@^4.1.10:
   dependencies:
     cosmiconfig "^5.0.0"
     cssnano-preset-default "^4.0.7"
+    is-resolvable "^1.0.0"
+    postcss "^7.0.0"
+
+cssnano@^4.1.11:
+  version "4.1.11"
+  resolved "https://registry.npm.taobao.org/cssnano/download/cssnano-4.1.11.tgz#c7b5f5b81da269cb1fd982cb960c1200910c9a99"
+  integrity sha1-x7X1uB2iacsf2YLLlgwSAJEMmpk=
+  dependencies:
+    cosmiconfig "^5.0.0"
+    cssnano-preset-default "^4.0.8"
     is-resolvable "^1.0.0"
     postcss "^7.0.0"
 
@@ -14273,6 +14518,15 @@ postcss-svgo@^4.0.2:
     postcss-value-parser "^3.0.0"
     svgo "^1.0.0"
 
+postcss-svgo@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.npm.taobao.org/postcss-svgo/download/postcss-svgo-4.0.3.tgz#343a2cdbac9505d416243d496f724f38894c941e"
+  integrity sha1-NDos26yVBdQWJD1Jb3JPOIlMlB4=
+  dependencies:
+    postcss "^7.0.0"
+    postcss-value-parser "^3.0.0"
+    svgo "^1.0.0"
+
 postcss-unique-selectors@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npm.taobao.org/postcss-unique-selectors/download/postcss-unique-selectors-4.0.1.tgz?cache=0&sync_timestamp=1603212934074&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss-unique-selectors%2Fdownload%2Fpostcss-unique-selectors-4.0.1.tgz#9446911f3289bfd64c6d680f073c03b1f9ee4bac"
@@ -15532,10 +15786,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.44.0:
-  version "2.44.0"
-  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.44.0.tgz#8da324d1c4fd12beef9ae6e12f4068265b6d95eb"
-  integrity sha1-jaMk0cT9Er7vmubhL0BoJlttles=
+rollup@^2.45.0:
+  version "2.45.0"
+  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.45.0.tgz#bfcce2347c96f15f5c78ac860bc38e3349ba27c9"
+  integrity sha1-v8ziNHyW8V9ceKyGC8OOM0m6J8k=
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -16744,10 +16998,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^10.15.7:
-  version "10.15.7"
-  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.15.7.tgz#ad4c8f08432952d3283adbaa9a309c534f5a863d"
-  integrity sha1-rUyPCEMpUtMoOtuqmjCcU09ahj0=
+sweetalert2@^10.16.0:
+  version "10.16.0"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.16.0.tgz#33d527af90689baab1078bf447b1986b796d4c75"
+  integrity sha1-M9Unr5Bom6qxB4v0R7GYa3ltTHU=
 
 system@^2.0.1:
   version "2.0.1"
@@ -17742,7 +17996,7 @@ vue-hot-reload-api@^2.3.0:
 
 vue-i18n@^8.24.2:
   version "8.24.2"
-  resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-8.24.2.tgz?cache=0&sync_timestamp=1616477042407&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-i18n%2Fdownload%2Fvue-i18n-8.24.2.tgz#4bfba15a89c0697220b55f787bbcb05a461d5482"
+  resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-8.24.2.tgz#4bfba15a89c0697220b55f787bbcb05a461d5482"
   integrity sha1-S/uhWonAaXIgtV94e7ywWkYdVII=
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
