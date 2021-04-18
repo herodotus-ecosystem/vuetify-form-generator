@@ -11919,10 +11919,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-it@^12.0.4:
-  version "12.0.4"
-  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-12.0.4.tgz?cache=0&sync_timestamp=1608478924665&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmarkdown-it%2Fdownload%2Fmarkdown-it-12.0.4.tgz#eec8247d296327eac3ba9746bdeec9cfcc751e33"
-  integrity sha1-7sgkfSljJ+rDupdGve7Jz8x1HjM=
+markdown-it@^12.0.6:
+  version "12.0.6"
+  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-12.0.6.tgz#adcc8e5fe020af292ccbdf161fe84f1961516138"
+  integrity sha1-rcyOX+Agryksy98WH+hPGWFRYTg=
   dependencies:
     argparse "^2.0.1"
     entities "~2.1.0"
@@ -17268,10 +17268,10 @@ svgo@^2.3.0:
     csso "^4.2.0"
     stable "^0.1.8"
 
-sweetalert2@^10.16.1:
-  version "10.16.1"
-  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.16.1.tgz#16effae188618eb7f30f98a83830f8b36bfab535"
-  integrity sha1-Fu/64YhhjrfzD5ioODD4s2v6tTU=
+sweetalert2@^10.16.3:
+  version "10.16.3"
+  resolved "https://registry.npm.taobao.org/sweetalert2/download/sweetalert2-10.16.3.tgz?cache=0&sync_timestamp=1618573843134&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsweetalert2%2Fdownload%2Fsweetalert2-10.16.3.tgz#501777087681c25f9894eeba807b1c1ae8b021bf"
+  integrity sha1-UBd3CHaBwl+YlO66gHscGuiwIb8=
 
 system@^2.0.1:
   version "2.0.1"
@@ -18264,10 +18264,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
 
-vue-i18n@^8.24.2:
-  version "8.24.2"
-  resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-8.24.2.tgz#4bfba15a89c0697220b55f787bbcb05a461d5482"
-  integrity sha1-S/uhWonAaXIgtV94e7ywWkYdVII=
+vue-i18n@^8.24.3:
+  version "8.24.3"
+  resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-8.24.3.tgz#2233ae11ec59e8204df58a28fc41afe9754e3b41"
+  integrity sha1-IjOuEexZ6CBN9Yoo/EGv6XVOO0E=
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.1.2"
