@@ -27,6 +27,8 @@
 
 > 已升级lerna 至 4.0.0, 使用前记得全局升级lerna。`yarn global upgrade-interactive --latest`
 
+> 提醒：暂时不要升级sass 1.32.10，这个版本会导致编译出错。
+
 ## 预览
 
 ### 1. 总览
