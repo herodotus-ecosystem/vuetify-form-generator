@@ -16,9 +16,9 @@
         "@nuxt/content": "^1.14.0",
         "@nuxtjs/axios": "^5.13.1",
         "@nuxtjs/pwa": "^3.3.5",
-        "nuxt": "^2.15.4",
+        "nuxt": "^2.15.5",
         "vee-validate": "^3.4.5",
-        "vuetify": "^2.4.9"
+        "vuetify": "^2.4.11"
     },
     "devDependencies": {
         "@nuxtjs/eslint-config": "^6.0.0",
