@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/Pointerv/vuetify-form-generator">Github 仓库</a> &nbsp; | &nbsp; 
+    <a href="https://github.com/herodotus-cloud/vuetify-form-generator">Github 仓库</a> &nbsp; | &nbsp; 
     <a href="https://gitee.com/herodotus/vuetify-form-generator">Gitee 仓库</a> &nbsp; | &nbsp; 
     <a href="http://herodotus.gitee.io/vuetify-form-generator" target="_blank">在线体验</a>
 </p>
