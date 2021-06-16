@@ -4156,14 +4156,14 @@
     before-after-hook "^2.1.0"
     universal-user-agent "^6.0.0"
 
-"@octokit/core@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.npm.taobao.org/@octokit/core/download/@octokit/core-3.4.0.tgz#b48aa27d755b339fe7550548b340dcc2b513b742"
-  integrity sha1-tIqifXVbM5/nVQVIs0DcwrUTt0I=
+"@octokit/core@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.nlark.com/@octokit/core/download/@octokit/core-3.5.1.tgz#8601ceeb1ec0e1b1b8217b960a413ed8e947809b"
+  integrity sha1-hgHO6x7A4bG4IXuWCkE+2OlHgJs=
   dependencies:
     "@octokit/auth-token" "^2.4.4"
     "@octokit/graphql" "^4.5.8"
-    "@octokit/request" "^5.4.12"
+    "@octokit/request" "^5.6.0"
     "@octokit/request-error" "^2.0.5"
     "@octokit/types" "^6.0.3"
     before-after-hook "^2.2.0"
@@ -4201,6 +4201,11 @@
   version "5.3.1"
   resolved "https://registry.npm.taobao.org/@octokit/openapi-types/download/@octokit/openapi-types-5.3.1.tgz#a49d119a1b9e47b7a9f5133ab14be2d8afaa183d"
   integrity sha1-pJ0RmhueR7ep9RM6sUvi2K+qGD0=
+
+"@octokit/openapi-types@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.nlark.com/@octokit/openapi-types/download/@octokit/openapi-types-7.3.2.tgz#065ce49b338043ec7f741316ce06afd4d459d944"
+  integrity sha1-BlzkmzOAQ+x/dBMWzgav1NRZ2UQ=
 
 "@octokit/plugin-enterprise-rest@^6.0.1":
   version "6.0.1"
@@ -4245,6 +4250,15 @@
     deprecation "^2.0.0"
     once "^1.4.0"
 
+"@octokit/request-error@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.nlark.com/@octokit/request-error/download/@octokit/request-error-2.1.0.tgz?cache=0&sync_timestamp=1623456965882&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40octokit%2Frequest-error%2Fdownload%2F%40octokit%2Frequest-error-2.1.0.tgz#9e150357831bfc788d13a4fd4b1913d60c74d677"
+  integrity sha1-nhUDV4Mb/HiNE6T9SxkT1gx01nc=
+  dependencies:
+    "@octokit/types" "^6.0.3"
+    deprecation "^2.0.0"
+    once "^1.4.0"
+
 "@octokit/request@^5.3.0", "@octokit/request@^5.4.12":
   version "5.4.14"
   resolved "https://registry.npm.taobao.org/@octokit/request/download/@octokit/request-5.4.14.tgz#ec5f96f78333bb2af390afa5ff66f114b063bc96"
@@ -4257,6 +4271,18 @@
     is-plain-object "^5.0.0"
     node-fetch "^2.6.1"
     once "^1.4.0"
+    universal-user-agent "^6.0.0"
+
+"@octokit/request@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.nlark.com/@octokit/request/download/@octokit/request-5.6.0.tgz#6084861b6e4fa21dc40c8e2a739ec5eff597e672"
+  integrity sha1-YISGG25Poh3EDI4qc57F7/WX5nI=
+  dependencies:
+    "@octokit/endpoint" "^6.0.1"
+    "@octokit/request-error" "^2.1.0"
+    "@octokit/types" "^6.16.1"
+    is-plain-object "^5.0.0"
+    node-fetch "^2.6.1"
     universal-user-agent "^6.0.0"
 
 "@octokit/rest@^18.1.0":
@@ -4283,6 +4309,13 @@
   integrity sha1-g3b9YO39XR7r/u25lMa8tbhix6E=
   dependencies:
     "@octokit/openapi-types" "^5.3.0"
+
+"@octokit/types@^6.16.1":
+  version "6.16.4"
+  resolved "https://registry.nlark.com/@octokit/types/download/@octokit/types-6.16.4.tgz#d24f5e1bacd2fe96d61854b5bda0e88cf8288dfe"
+  integrity sha1-0k9eG6zS/pbWGFS1vaDojPgojf4=
+  dependencies:
+    "@octokit/openapi-types" "^7.3.2"
 
 "@octokit/types@^6.7.1":
   version "6.8.2"
