@@ -285,7 +285,7 @@ set-executionpolicy remotesigned
 
 - 根据实际使用情况，不断增加不同类型的 Form 表单组件
 - 根据 Form 表单组件的不断增加，简化和重构核心 Renderer 代码
-- 结合个人微服务项目的发展，会将本项目与 Camunda 工作流逐步结合，包含 Camunda 编辑器的整合。
+- 结合【[个人微服务项目](https://gitee.com/herodotus/eurynome-cloud)】的发展，会将本项目与 Camunda 工作流逐步结合，包含 Camunda 编辑器的整合。
 - 根据 Vuetify3 的开发进度，开发基于 Vue3 和 Vuetify3 的版本
 - 基于 Vue3 和 Vuetify3 的新版本将采用 TypeScript 进行开发
 
