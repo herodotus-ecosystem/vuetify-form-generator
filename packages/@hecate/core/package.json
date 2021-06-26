@@ -19,6 +19,6 @@
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "shortid": "^2.2.16",
-        "sweetalert2": "^11.0.17"
+        "sweetalert2": "^11.0.18"
     }
 }

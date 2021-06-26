@@ -7,8 +7,8 @@
 ---
 
 <p align="center">
-    <a href="https://vuetifyjs.com/zh-Hans/" target="_blank"><img src="https://img.shields.io/badge/%20Vuetify-2.4.0-blue" alt="Vuetify 2.4.0"></a>
-    <a href="https://cn.vuejs.org/"><img src="https://img.shields.io/badge/Vue-2.6.12-brightgreen" alt="Vue 2.6.12"></a>
+    <a href="https://vuetifyjs.com/zh-Hans/" target="_blank"><img src="https://img.shields.io/badge/Vuetify-2.5.5-blue" alt="Vuetify 2.5.5"></a>
+    <a href="https://cn.vuejs.org/"><img src="https://img.shields.io/badge/Vue-2.6.14-brightgreen" alt="Vue 2.6.14"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License MIT"></a>
     <a href="https://gitee.com/herodotus/vuetify-form-generator"><img src="https://gitee.com/herodotus/vuetify-form-generator/badge/star.svg?theme=dark" alt="Gitee star"></a>
     <a href="https://gitee.com/herodotus/vuetify-form-generator"><img src="https://gitee.com/herodotus/vuetify-form-generator/badge/fork.svg?theme=dark" alt="Gitee fork"></a>
@@ -272,15 +272,14 @@ set-executionpolicy remotesigned
 
 ### 以下依赖包暂时不要升级
 
-| 依赖包                     | 当前使用版本 | 最新版本 | 说明                                                    |
-| -------------------------- | ------------ | -------- | ------------------------------------------------------- |
-| compression-webpack-plugin | 6.1.1        | > 7.0.0  | 目前不要升级该包，会抛错误                              |
-| remark-footnotes           | 2.0.0        | = 3.0.0  | 目前不要升级该包，该包是为了解决 Nuxt 启动 Warning 问题 |
-| rollup-plugin-vue          | 5.1.9        | > 6.0.0  | 目前不要升级该包，等工程变更为 Vue3 在进行升级          |
-| vee-validate               | 3.4.5        | > 4.0.0  | 目前不要升级该包，等工程变更为 Vue3 在进行升级          |
-| webpack                    | 4.44.2       | > 5.9.0  | 目前不要升级该包，需要等到使用相关 Vue 版本升级后再考虑 |
-| sass-loader                | 10.1.1       | = 11.0.0 | 目前不要升级该包，最新版本很多包还有没有适配            |
-| vue-i18n                   | 8.24.2       | > 9.1.0  | 目前不要升级该包，最新版本很多包还有没有适配            |
+| 依赖包                     | 当前使用版本 | 最新版本 | 说明                                                                              |
+| -------------------------- | ------------ | -------- | --------------------------------------------------------------------------------- |
+| compression-webpack-plugin | 6.1.1        | > 7.0.0  | 目前不要升级该包，会抛错误                                                        |
+| remark-footnotes           | 2.0.0        | = 3.0.0  | 目前不要升级该包，该包是为了解决 Nuxt 启动 Warning 问题                           |
+| rollup-plugin-vue          | 5.1.9        | > 6.0.0  | 目前不要升级该包，等工程变更为 Vue3 在进行升级                                    |
+| sass                       | 4.44.2       | > 5.9.0  | 目前不要升级该包，会出现很多样式除法过期的提示，需要等到Vuetify大版本升级后再考虑 |
+| sass-loader                | 10.1.1       | = 12.1.0 | 目前不要升级该包，最新版本很多包还有没有适配                                      |
+| webpack                    | 4.46.0       | > 5.40.0 | 目前不要升级该包，compression-webpack-plugin会抛错误                              |
 
 ## [八]、下一步计划
 
