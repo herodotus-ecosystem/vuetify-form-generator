@@ -6709,10 +6709,10 @@ caniuse-lite@^1.0.30001228, caniuse-lite@^1.0.30001230:
   resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001237.tgz#4b7783661515b8e7151fc6376cfd97f0e427b9e5"
   integrity sha1-S3eDZhUVuOcVH8Y3bP2X8OQnueU=
 
-caniuse-lite@^1.0.30001240:
-  version "1.0.30001240"
-  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001240.tgz#ec15d125b590602c8731545c5351ff054ad2d52f"
-  integrity sha1-7BXRJbWQYCyHMVRcU1H/BUrS1S8=
+caniuse-lite@^1.0.30001241:
+  version "1.0.30001241"
+  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001241.tgz#cd3fae47eb3d7691692b406568d7a3e5b23c7598"
+  integrity sha1-zT+uR+s9dpFpK0BlaNej5bI8dZg=
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -7684,10 +7684,10 @@ core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.12.tgz?cache=0&sync_timestamp=1607215997560&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
-core-js@^3.15.1:
-  version "3.15.1"
-  resolved "https://registry.nlark.com/core-js/download/core-js-3.15.1.tgz?cache=0&sync_timestamp=1624386755249&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcore-js%2Fdownload%2Fcore-js-3.15.1.tgz#6c08ab88abdf56545045ccf5fd81f47f407e7f1a"
-  integrity sha1-bAiriKvfVlRQRcz1/YH0f0B+fxo=
+core-js@^3.15.2:
+  version "3.15.2"
+  resolved "https://registry.nlark.com/core-js/download/core-js-3.15.2.tgz?cache=0&sync_timestamp=1624966012065&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcore-js%2Fdownload%2Fcore-js-3.15.2.tgz#740660d2ff55ef34ce664d7e2455119c5bdd3d61"
+  integrity sha1-dAZg0v9V7zTOZk1+JFURnFvdPWE=
 
 core-js@^3.6.5:
   version "3.8.1"
@@ -11270,10 +11270,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-husky@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npm.taobao.org/husky/download/husky-6.0.0.tgz#810f11869adf51604c32ea577edbc377d7f9319e"
-  integrity sha1-gQ8RhprfUWBMMupXftvDd9f5MZ4=
+husky@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.nlark.com/husky/download/husky-7.0.0.tgz#3dbd5d28e76234689ee29bb41e048f28e3e46616"
+  integrity sha1-Pb1dKOdiNGie4pu0HgSPKOPkZhY=
 
 iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -12943,10 +12943,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-it@^12.0.6:
-  version "12.0.6"
-  resolved "https://registry.npm.taobao.org/markdown-it/download/markdown-it-12.0.6.tgz#adcc8e5fe020af292ccbdf161fe84f1961516138"
-  integrity sha1-rcyOX+Agryksy98WH+hPGWFRYTg=
+markdown-it@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.nlark.com/markdown-it/download/markdown-it-12.1.0.tgz#7ad572caddd336bd27a68d20e86bac1fafe8fb20"
+  integrity sha1-etVyyt3TNr0npo0g6GusH6/o+yA=
   dependencies:
     argparse "^2.0.1"
     entities "~2.1.0"
@@ -15986,10 +15986,10 @@ prettier@^1.18.2:
   resolved "https://registry.npm.taobao.org/prettier/download/prettier-1.19.1.tgz?cache=0&sync_timestamp=1606521062616&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fprettier%2Fdownload%2Fprettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha1-99f1/4qc2HKnvkyhQglZVqYHl8s=
 
-prettier@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.nlark.com/prettier/download/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
-  integrity sha1-dpA8P4xESbyaxZes76JNxa1MvqY=
+prettier@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.nlark.com/prettier/download/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
+  integrity sha1-7ygKBewlNxLkhiM9tcbyNEHnNC0=
 
 pretty-bytes@^5.6.0:
   version "5.6.0"
@@ -17138,10 +17138,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.52.3:
-  version "2.52.3"
-  resolved "https://registry.nlark.com/rollup/download/rollup-2.52.3.tgz#062fc3c85f67736d6758749310cfee64836c4e2a"
-  integrity sha1-Bi/DyF9nc21nWHSTEM/uZINsTio=
+rollup@^2.52.7:
+  version "2.52.7"
+  resolved "https://registry.nlark.com/rollup/download/rollup-2.52.7.tgz#e15a8bf734f6e4c204b7cdf33521151310250cb2"
+  integrity sha1-4VqL9zT25MIEt83zNSEVExAlDLI=
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -19433,6 +19433,15 @@ vue-loader@^15.9.7:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-loader@^16.3.0:
+  version "16.3.0"
+  resolved "https://registry.nlark.com/vue-loader/download/vue-loader-16.3.0.tgz#2f195e4ba0fb0e263596d6830df17d1a36e8936c"
+  integrity sha1-LxleS6D7DiY1ltaDDfF9Gjbok2w=
+  dependencies:
+    chalk "^4.1.0"
+    hash-sum "^2.0.0"
+    loader-utils "^2.0.0"
+
 vue-meta@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npm.taobao.org/vue-meta/download/vue-meta-2.4.0.tgz#a419fb4b4135ce965dab32ec641d1989c2ee4845"
@@ -19550,10 +19559,10 @@ vuetify@^2.5.3:
   resolved "https://registry.nlark.com/vuetify/download/vuetify-2.5.4.tgz#037cc8d430b61188ab15b9a8cc1ee67e620fa6e7"
   integrity sha1-A3zI1DC2EYirFbmozB7mfmIPpuc=
 
-vuetify@^2.5.5:
-  version "2.5.5"
-  resolved "https://registry.nlark.com/vuetify/download/vuetify-2.5.5.tgz#66d4058209e1d70e9c742d37384f3ae63add7b04"
-  integrity sha1-ZtQFggnh1w6cdC03OE865jrdewQ=
+vuetify@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.nlark.com/vuetify/download/vuetify-2.5.6.tgz#9cbb1eacece6c42028216312b9be23e35a7f5cf4"
+  integrity sha1-nLserOzmxCAoIWMSub4j41p/XPQ=
 
 vuex@^3.6.2:
   version "3.6.2"

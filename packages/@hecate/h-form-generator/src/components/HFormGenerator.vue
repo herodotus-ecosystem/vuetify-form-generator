@@ -4,7 +4,7 @@
             <v-btn large icon>
                 <v-icon>mdi-volleyball</v-icon>
             </v-btn>
-            <v-toolbar-title>Hecate Form Generator</v-toolbar-title>
+            <v-toolbar-title>Vuetify Form Generator</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
