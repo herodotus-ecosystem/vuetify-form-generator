@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "debounce": "^1.2.1",
-        "markdown-it": "^12.1.0",
+        "markdown-it": "^12.0.6",
         "match-all": "^1.2.6",
         "property-expr": "^2.0.4"
     },

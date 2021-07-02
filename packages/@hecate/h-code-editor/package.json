@@ -1,0 +1,21 @@
+{
+    "name": "@hecate/h-code-editor",
+    "version": "1.0.0",
+    "author": "Felix <pointer_v@qq.com>",
+    "license": "MIT",
+    "private": false,
+    "main": "dist/index.umd.js",
+    "module": "src/index.js",
+    "unpkg": "dist/index.min.js",
+    "scripts": {
+        "start": "yarn build",
+        "clean": "rimraf dist",
+        "lib": "yarn clean && cross-env NODE_ENV=production rollup --config rollup.config.js",
+        "transpile": "vue-cli-service build --target lib ./src/index.js",
+        "dev": "yarn build"
+    },
+    "peerDependencies": {
+        "@hecate/h-button": "^1.0.0",
+        "@hecate/h-code-mirror": "^1.0.0"
+    }
+}
