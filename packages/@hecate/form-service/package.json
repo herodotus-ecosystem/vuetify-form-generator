@@ -17,14 +17,14 @@
         "@nuxtjs/axios": "^5.13.6",
         "@nuxtjs/pwa": "^3.3.5",
         "nuxt": "^2.15.7",
-        "vee-validate": "^3.4.10",
-        "vuetify": "^2.5.6"
+        "vee-validate": "^3.4.11",
+        "vuetify": "^2.5.7"
     },
     "devDependencies": {
         "@nuxtjs/eslint-config": "^6.0.1",
         "@nuxtjs/eslint-module": "^3.0.2",
         "@nuxtjs/vuetify": "^1.12.1",
-        "eslint": "^7.30.0",
+        "eslint": "^7.31.0",
         "eslint-plugin-nuxt": "^2.0.0",
         "remark-footnotes": "2.0.0"
     }

@@ -25,11 +25,11 @@
         "core-js": "^3.15.2",
         "roboto-fontface": "*",
         "throttle-debounce": "^3.0.1",
-        "vee-validate": "3.4.10",
-        "vue-i18n": "^8.24.5",
+        "vee-validate": "3.4.11",
+        "vue-i18n": "^8.25.0",
         "vue-router": "^3.5.2",
         "vuedraggable": "^2.24.3",
-        "vuetify": "^2.5.6"
+        "vuetify": "^2.5.7"
     },
     "devDependencies": {
         "@vue/cli-plugin-router": "^4.5.13",
