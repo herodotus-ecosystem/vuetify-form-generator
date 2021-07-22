@@ -73,7 +73,7 @@ export default {
 
     watch: {
         value: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 if (newValue) {
                     this.readExpressions(newValue);
                 }
@@ -81,12 +81,12 @@ export default {
             immediate: true,
         },
         expressions: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 this.$emit('input', newValue);
             },
         },
         selectedRule: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 if (newValue) {
                     this.changeRuleSettingPanel(newValue.type);
                 } else {
@@ -96,29 +96,29 @@ export default {
             },
         },
         selectedItems: {
-            handler(newValue, oldValue) {
+            handler (newValue, oldValue) {
                 this.expressions = this.constructExpression(newValue);
             },
         },
     },
 
     computed: {
-        isButtonDisabled() {
+        isButtonDisabled () {
             return this.$lib.lodash.isEmpty(this.selectedRule) ? true : false;
         },
     },
 
-    create() {
+    created () {
         this.initRuleItems();
     },
 
     methods: {
-        initRuleItems() {
+        initRuleItems () {
             if (this.$lib.lodash.isEmpty(this.ruleItems)) {
                 this.ruleItems = this.$rules;
             }
         },
-        changeRuleSettingPanel(type) {
+        changeRuleSettingPanel (type) {
             let panel = '';
             let param = '';
             switch (type) {
@@ -138,7 +138,7 @@ export default {
         /**
          * 通过类型查找rule
          */
-        findRuleItemByType(type) {
+        findRuleItemByType (type) {
             return this.$lib.lodash.find(this.ruleItems, function (i) {
                 return i.type === type;
             });
@@ -147,12 +147,12 @@ export default {
         /**
          * 设置规则是否可用的状态，设置为不可用，select列表对应选项为灰
          */
-        changeRuleItemStatus(rule, status = true) {
+        changeRuleItemStatus (rule, status = true) {
             let item = this.findRuleItemByType(rule.type);
             item.disabled = status;
         },
 
-        pushSelectedItem(rule) {
+        pushSelectedItem (rule) {
             // 利用rule.disabled，避免重复添加问题
             if (rule && !rule.disabled) {
                 this.selectedItems.push(rule);
@@ -160,7 +160,7 @@ export default {
             }
         },
 
-        removeSelectedItem(rule) {
+        removeSelectedItem (rule) {
             this.selectedItems = this.$lib.lodash.remove(this.selectedItems, function (i) {
                 return i.type !== rule.type;
             });
@@ -171,7 +171,7 @@ export default {
         /**
          * 解析单个表达式，分析出类型和参数
          */
-        parseExpression(expression) {
+        parseExpression (expression) {
             let result = {};
             if (expression) {
                 if (expression.search(':') != -1) {
@@ -192,7 +192,7 @@ export default {
         /**
          * 根据Select选择，添加规则
          */
-        addSelectedItemBySelector() {
+        addSelectedItemBySelector () {
             let rule = this.readSelectedRule();
             this.pushSelectedItem(rule);
         },
@@ -200,7 +200,7 @@ export default {
         /**
          * 解析具体表达式并添加到规则数组
          */
-        addSelectedItemByExpression(expression) {
+        addSelectedItemByExpression (expression) {
             let parser = this.parseExpression(expression);
             let rule = this.findRuleItemByType(parser.type);
             if (parser.param) {
@@ -212,7 +212,7 @@ export default {
         /**
          * 读取并解析传入的rule表达式
          */
-        readExpressions(expressions) {
+        readExpressions (expressions) {
             if (expressions) {
                 if (expressions.indexOf('|') !== -1) {
                     let expressionArray = this.$lib.lodash.split(expressions, '|');
@@ -226,7 +226,7 @@ export default {
             }
         },
 
-        readSelectedItemParam(type) {
+        readSelectedItemParam (type) {
             let selectedItem = this.$lib.lodash.find(this.selectedItems, function (i) {
                 return i.type === type;
             });
@@ -237,7 +237,7 @@ export default {
             }
         },
 
-        readSelectedRule() {
+        readSelectedRule () {
             if (!this.$lib.lodash.isEmpty(this.selectedRule)) {
                 let rule = Object.assign({}, this.selectedRule);
                 if (this.ruleParam) {
@@ -252,7 +252,7 @@ export default {
         /**
          * 点击添加规则按钮
          */
-        addRule() {
+        addRule () {
             if (this.ruleParamSettingPanel) {
                 this.$refs.rulePanel.validate();
                 if (this.$refs.rulePanel.valid) {
@@ -263,7 +263,7 @@ export default {
             }
         },
 
-        constructExpression(selectedItems) {
+        constructExpression (selectedItems) {
             if (selectedItems && selectedItems.length > 0) {
                 let result = selectedItems
                     .map((item) => {
