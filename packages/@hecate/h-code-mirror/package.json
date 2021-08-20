@@ -18,7 +18,7 @@
         "csslint": "^1.0.5",
         "file": "^0.2.2",
         "htmlhint": "^0.15.1",
-        "jshint": "^2.13.0",
+        "jshint": "^2.13.1",
         "jsonlint": "^1.6.3",
         "script-loader": "^0.7.2",
         "system": "^2.0.1",
