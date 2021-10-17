@@ -20,6 +20,7 @@
     <a href="http://herodotus.gitee.io/vuetify-form-generator" target="_blank">在线体验</a>
 </p>
 
+<h3 align="center"><a href="https://gitee.com/herodotus/eurynome-cloud"> Eurynome Cloud </a>个人微服务项目，烦请多多支持，一个 Star 也是爱</h3>
 
 ## 注意
 

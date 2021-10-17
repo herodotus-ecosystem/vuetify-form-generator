@@ -20,21 +20,21 @@
         "@hecate/h-form-renderer": "^1.0.0",
         "@hecate/h-form-runtime": "^1.0.0",
         "@hecate/h-icon-list": "^1.0.0",
-        "@mdi/font": "^5.9.55",
+        "@mdi/font": "^6.2.95",
         "babel-polyfill": "^6.26.0",
-        "core-js": "^3.16.2",
+        "core-js": "^3.18.3",
         "roboto-fontface": "*",
         "throttle-debounce": "^3.0.1",
-        "vee-validate": "3.4.11",
-        "vue-i18n": "^8.25.0",
+        "vee-validate": "3.4.13",
+        "vue-i18n": "^8.26.5",
         "vue-router": "^3.5.2",
         "vuedraggable": "^2.24.3",
-        "vuetify": "^2.5.8"
+        "vuetify": "^2.5.10"
     },
     "devDependencies": {
-        "@vue/cli-plugin-router": "^4.5.13",
+        "@vue/cli-plugin-router": "^4.5.14",
         "sass": "^1.32.12",
-        "vue-cli-plugin-vuetify": "^2.4.2",
-        "vuetify-loader": "^1.7.2"
+        "vue-cli-plugin-vuetify": "^2.4.3",
+        "vuetify-loader": "^1.7.3"
     }
 }
